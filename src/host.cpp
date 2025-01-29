@@ -315,7 +315,7 @@ int main(int argc, char **argv)
     long global_mem_size;
     devices[0].getInfo(CL_DEVICE_GLOBAL_MEM_SIZE, &global_mem_size);
     std::cout << "Global Memory Size: " << global_mem_size << std::endl;
-
+    cl_mem_ext_ptr_t HBM_ext = {0};
     // Setup Kernels
     SETUP_TEN_KERNELS;
 
