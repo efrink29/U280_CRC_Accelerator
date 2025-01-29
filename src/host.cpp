@@ -17,6 +17,48 @@
 #define BLOCK_SIZE 16
 #define TABLE_SIZE 256
 
+#define SETUP_KERNEL(knum)                                                                                                                          \
+    HBM_ext.banks = (knum * 2) | XCL_MEM_TOPOLOGY;                                                                                                  \
+    OCL_CHECK(err, cl::Buffer input_buffer_A##knum(context, CL_MEM_READ_ONLY | CL_MEM_EXT_PTR_XILINX, buf_size_bytes, &HBM_ext, &err));             \
+    OCL_CHECK(err, cl::Buffer input_buffer_B##knum(context, CL_MEM_READ_ONLY | CL_MEM_EXT_PTR_XILINX, buf_size_bytes, &HBM_ext, &err));             \
+    OCL_CHECK(err, cl::Buffer output_buffer_A##knum(context, CL_MEM_WRITE_ONLY | CL_MEM_EXT_PTR_XILINX, buf_size_bytes, &HBM_ext, &err));           \
+    OCL_CHECK(err, cl::Buffer output_buffer_B##knum(context, CL_MEM_WRITE_ONLY | CL_MEM_EXT_PTR_XILINX, buf_size_bytes, &HBM_ext, &err));           \
+                                                                                                                                                    \
+    HBM_ext.banks = ((knum * 2) + 1) | XCL_MEM_TOPOLOGY;                                                                                            \
+    OCL_CHECK(err, cl::Buffer table_buffer_##knum(context, CL_MEM_READ_ONLY | CL_MEM_EXT_PTR_XILINX, 256 * 16 * sizeof(uint32_t), &HBM_ext, &err)); \
+                                                                                                                                                    \
+    kComps[knum].inBufferA = input_buffer_A##knum;                                                                                                  \
+    kComps[knum].inBufferB = input_buffer_B##knum;                                                                                                  \
+    kComps[knum].outBufferA = output_buffer_A##knum;                                                                                                \
+    kComps[knum].outBufferB = output_buffer_B##knum;                                                                                                \
+    kComps[knum].tableBuffer = table_buffer_##knum;
+
+#define SETUP_TEN_KERNELS \
+    SETUP_KERNEL(0);      \
+    SETUP_KERNEL(1);      \
+    SETUP_KERNEL(2);      \
+    SETUP_KERNEL(3);      \
+    SETUP_KERNEL(4);      \
+    SETUP_KERNEL(5);      \
+    SETUP_KERNEL(6);      \
+    SETUP_KERNEL(7);      \
+    SETUP_KERNEL(8);      \
+    SETUP_KERNEL(9);
+
+#define PROGRAM_KERNEL(knum) OCL_CHECK(err, kComps[knum].kernel = cl::Kernel(program, "calculate_crc:{CRC_" + #knum + "}", &err));
+
+#define PROGRAM_TEN_KERNELS \
+    PROGRAM_KERNEL(0);      \
+    PROGRAM_KERNEL(1);      \
+    PROGRAM_KERNEL(2);      \
+    PROGRAM_KERNEL(3);      \
+    PROGRAM_KERNEL(4);      \
+    PROGRAM_KERNEL(5);      \
+    PROGRAM_KERNEL(6);      \
+    PROGRAM_KERNEL(7);      \
+    PROGRAM_KERNEL(8);      \
+    PROGRAM_KERNEL(9);
+
 uint32_t maskCRC(uint32_t value, int width)
 {
     if (width == 32)
@@ -87,7 +129,7 @@ std::vector<uint32_t> generateParallelCRCTables(uint32_t *standardTable, int wid
     return crcTables;
 }
 
-void reflectInput(unsigned char* data, int size)
+void reflectInput(unsigned char *data, int size)
 {
     for (int i = 0; i < size; ++i)
     {
@@ -95,24 +137,28 @@ void reflectInput(unsigned char* data, int size)
     }
 }
 
-void load_data_chunk(unsigned char* data, std::ifstream &inputfile, size_t size, bool reflect)
+void load_data_chunk(unsigned char *data, std::ifstream &inputfile, size_t size, bool reflect)
 {
-    inputfile.read(reinterpret_cast<char *>(data),size);
-    if (reflect) {
+    inputfile.read(reinterpret_cast<char *>(data), size);
+    if (reflect)
+    {
         reflectInput(data, size);
     }
 }
 
-void save_to_file(uint32_t* data, std::ofstream &outputFile, size_t size, bool reflect, int crcSize) {
-    if (reflect) {
-        for (int i = 0 ; i < size; i++) {
+void save_to_file(uint32_t *data, std::ofstream &outputFile, size_t size, bool reflect, int crcSize)
+{
+    if (reflect)
+    {
+        for (int i = 0; i < size; i++)
+        {
             data[i] = reverseBits(data[i], crcSize);
         }
     }
-    outputFile.write(reinterpret_cast<const char*>(data), size * sizeof(uint32_t));
+    outputFile.write(reinterpret_cast<const char *>(data), size * sizeof(uint32_t));
 }
 
-void loadConfig(std::string filename, uint32_t &polynomial, uint32_t &init_val, uint32_t &xor_out, bool &refInput, bool &refOutput, int &crcWidth, int& chunkSize)
+void loadConfig(std::string filename, uint32_t &polynomial, uint32_t &init_val, uint32_t &xor_out, bool &refInput, bool &refOutput, int &crcWidth, int &chunkSize)
 {
     std::ifstream file(filename);
     if (!file.is_open())
@@ -131,25 +177,29 @@ void loadConfig(std::string filename, uint32_t &polynomial, uint32_t &init_val, 
     file >> std::dec >> chunkSize;
 }
 
-void printData(const std::vector<unsigned char, aligned_allocator<unsigned char> > & data) {
-for (uint8_t byte : data) {
-std::cout << std::hex << std::setw(2) << std::setfill('0') << static_cast<int>(byte) << " "; 
+void printData(const std::vector<unsigned char, aligned_allocator<unsigned char>> &data)
+{
+    for (uint8_t byte : data)
+    {
+        std::cout << std::hex << std::setw(2) << std::setfill('0') << static_cast<int>(byte) << " ";
+    }
+    std::cout << std::endl;
 }
-std::cout << std::endl;}
 
-struct KernelComponents {
+struct KernelComponents
+{
 
     // Host Memory Pointers
-    unsigned char* hostInA;
-    unsigned char* hostInB;
-    uint32_t* hostOutA;
-    uint32_t* hostOutB;
+    unsigned char *hostInA;
+    unsigned char *hostInB;
+    uint32_t *hostOutA;
+    uint32_t *hostOutB;
 
     // Command Queues
     cl::CommandQueue queueA;
     cl::CommandQueue queueB;
 
-    // Kernel Object 
+    // Kernel Object
     cl::Kernel kernel;
 
     // Input Buffers (FPGA Memory Channels)
@@ -158,11 +208,10 @@ struct KernelComponents {
 
     // Output Buffers
     cl::Buffer outBufferA;
-    cl::Buffer outBufferB;    
+    cl::Buffer outBufferB;
 
     // Table Buffer
     cl::Buffer tableBuffer;
-
 };
 
 int main(int argc, char **argv)
@@ -203,20 +252,23 @@ int main(int argc, char **argv)
     buf_size_bytes -= buf_size_bytes % 16;
     std::cout << "Buffer Size: " << buf_size_bytes << std::endl;
 
-    int numKernels = 4; // MAX 4
+    int numKernels = 10; // MAX 10
     // Setup Hardware
 
-    // Host Memory for holding input batches
     KernelComponents kComps[numKernels];
 
-    for (int i = 0 ; i < numKernels; i++) {
-        kComps[i].hostInA = (unsigned char*)malloc(buf_size_bytes);
-        kComps[i].hostInB = (unsigned char*)malloc(buf_size_bytes);
+    // ------ Allocate Host Memory ------
+    for (int i = 0; i < numKernels; i++)
+    {
 
-        kComps[i].hostOutA = (uint32_t*)malloc(buf_size_bytes);
-        kComps[i].hostOutB = (uint32_t*)malloc(buf_size_bytes);
-    }  
-    
+        // ---- Input Buffers ----
+        kComps[i].hostInA = (unsigned char *)malloc(buf_size_bytes);
+        kComps[i].hostInB = (unsigned char *)malloc(buf_size_bytes);
+
+        // ---- Output Buffers ----
+        kComps[i].hostOutA = (uint32_t *)malloc(buf_size_bytes);
+        kComps[i].hostOutB = (uint32_t *)malloc(buf_size_bytes);
+    }
 
     // Program Device
     cl_int err;
@@ -234,11 +286,12 @@ int main(int argc, char **argv)
     {
         auto device = devices[i];
         OCL_CHECK(err, context = cl::Context(device, nullptr, nullptr, nullptr, &err));
-        for (int k = 0 ; k < numKernels; k++) {
+        for (int k = 0; k < numKernels; k++)
+        {
             OCL_CHECK(err, kComps[k].queueA = cl::CommandQueue(context, device, CL_QUEUE_OUT_OF_ORDER_EXEC_MODE_ENABLE, &err));
             OCL_CHECK(err, kComps[k].queueB = cl::CommandQueue(context, device, CL_QUEUE_OUT_OF_ORDER_EXEC_MODE_ENABLE, &err));
         }
-        
+
         std::cout << "Trying to program device[" << i << "]: " << device.getInfo<CL_DEVICE_NAME>() << std::endl;
         cl::Program program(context, {device}, bins, nullptr, &err);
         if (err != CL_SUCCESS)
@@ -247,11 +300,9 @@ int main(int argc, char **argv)
         }
         else
         {
+            PROGRAM_TEN_KERNELS;
             std::cout << "Device[" << i << "]: program successful!\n";
-            OCL_CHECK(err, kComps[0].kernel = cl::Kernel(program, "calculate_crc:{CRC_0}", &err));
-            OCL_CHECK(err, kComps[1].kernel = cl::Kernel(program, "calculate_crc:{CRC_1}", &err));
-            OCL_CHECK(err, kComps[2].kernel = cl::Kernel(program, "calculate_crc:{CRC_2}", &err));
-            OCL_CHECK(err, kComps[3].kernel = cl::Kernel(program, "calculate_crc:{CRC_3}", &err));
+
             valid_device = true;
             break;
         }
@@ -262,92 +313,11 @@ int main(int argc, char **argv)
         exit(EXIT_FAILURE);
     }
     long global_mem_size;
-        devices[0].getInfo(CL_DEVICE_GLOBAL_MEM_SIZE, &global_mem_size);
-        std::cout << "Global Memory Size: " << global_mem_size << std::endl;
-    
-    //cl_mem_ext_ptr_t input_buffer_0A_ext = {0, nullptr, nullptr};
-    
- 
-    /*input_buffer_0A_ext.obj = nullptr;
-    input_buffer_0A_ext.param = nullptr; */
-    
-    
+    devices[0].getInfo(CL_DEVICE_GLOBAL_MEM_SIZE, &global_mem_size);
+    std::cout << "Global Memory Size: " << global_mem_size << std::endl;
 
-    // Kernel 0 Buffers HBM[0] HBM[1]
-    cl_mem_ext_ptr_t HBM0_ext = {0};
-    HBM0_ext.banks = 0 | XCL_MEM_TOPOLOGY;
-    OCL_CHECK(err, cl::Buffer input_buffer_0A(context, CL_MEM_READ_ONLY | CL_MEM_EXT_PTR_XILINX, buf_size_bytes, &HBM0_ext, &err));
-    OCL_CHECK(err, cl::Buffer input_buffer_0B(context, CL_MEM_READ_ONLY | CL_MEM_EXT_PTR_XILINX, buf_size_bytes, &HBM0_ext, &err));
-
-    OCL_CHECK(err, cl::Buffer output_buffer_0A(context, CL_MEM_WRITE_ONLY | CL_MEM_EXT_PTR_XILINX, buf_size_bytes, &HBM0_ext, &err));
-    OCL_CHECK(err, cl::Buffer output_buffer_0B(context, CL_MEM_WRITE_ONLY | CL_MEM_EXT_PTR_XILINX, buf_size_bytes, &HBM0_ext, &err));
-
-    cl_mem_ext_ptr_t HBM1_ext = {0};
-    HBM1_ext.banks = 1 | XCL_MEM_TOPOLOGY;
-    OCL_CHECK(err, cl::Buffer table_buffer_0(context, CL_MEM_READ_ONLY | CL_MEM_EXT_PTR_XILINX, 256 * 16 * sizeof(uint32_t), &HBM1_ext, &err));
-
-    kComps[0].inBufferA = input_buffer_0A;
-    kComps[0].inBufferB = input_buffer_0B;
-    kComps[0].outBufferA = output_buffer_0A;
-    kComps[0].outBufferB = output_buffer_0B;
-    kComps[0].tableBuffer = table_buffer_0;
-
-    // Kernel 1 Buffers HBM[2] HBM[3]
-    cl_mem_ext_ptr_t HBM2_ext = {0};
-    HBM2_ext.banks = 2 | XCL_MEM_TOPOLOGY;
-    OCL_CHECK(err, cl::Buffer input_buffer_1A(context, CL_MEM_READ_ONLY | CL_MEM_EXT_PTR_XILINX, buf_size_bytes, &HBM2_ext, &err));
-    OCL_CHECK(err, cl::Buffer input_buffer_1B(context, CL_MEM_READ_ONLY | CL_MEM_EXT_PTR_XILINX, buf_size_bytes, &HBM2_ext, &err));
-
-    OCL_CHECK(err, cl::Buffer output_buffer_1A(context, CL_MEM_WRITE_ONLY | CL_MEM_EXT_PTR_XILINX, buf_size_bytes, &HBM2_ext, &err));
-    OCL_CHECK(err, cl::Buffer output_buffer_1B(context, CL_MEM_WRITE_ONLY | CL_MEM_EXT_PTR_XILINX, buf_size_bytes, &HBM2_ext, &err));
-
-    cl_mem_ext_ptr_t HBM3_ext = {0};
-    HBM3_ext.banks = 3 | XCL_MEM_TOPOLOGY;
-    OCL_CHECK(err, cl::Buffer table_buffer_1(context, CL_MEM_READ_ONLY | CL_MEM_EXT_PTR_XILINX, 256 * 16 * sizeof(uint32_t), &HBM3_ext, &err));
-
-    kComps[1].inBufferA = input_buffer_1A;
-    kComps[1].inBufferB = input_buffer_1B;
-    kComps[1].outBufferA = output_buffer_1A;
-    kComps[1].outBufferB = output_buffer_1B;
-    kComps[1].tableBuffer = table_buffer_1;
-    
-    // Kernel 2 Buffers HBM[4] HBM[5]
-    cl_mem_ext_ptr_t HBM4_ext = {0};
-    HBM4_ext.banks = 4 | XCL_MEM_TOPOLOGY;
-    OCL_CHECK(err, cl::Buffer input_buffer_2A(context, CL_MEM_READ_ONLY | CL_MEM_EXT_PTR_XILINX, buf_size_bytes, &HBM4_ext, &err));
-    OCL_CHECK(err, cl::Buffer input_buffer_2B(context, CL_MEM_READ_ONLY | CL_MEM_EXT_PTR_XILINX, buf_size_bytes, &HBM4_ext, &err));
-
-    OCL_CHECK(err, cl::Buffer output_buffer_2A(context, CL_MEM_WRITE_ONLY | CL_MEM_EXT_PTR_XILINX, buf_size_bytes, &HBM4_ext, &err));
-    OCL_CHECK(err, cl::Buffer output_buffer_2B(context, CL_MEM_WRITE_ONLY | CL_MEM_EXT_PTR_XILINX, buf_size_bytes, &HBM4_ext, &err));
-
-    cl_mem_ext_ptr_t HBM5_ext = {0};
-    HBM5_ext.banks = 5 | XCL_MEM_TOPOLOGY;
-    OCL_CHECK(err, cl::Buffer table_buffer_2(context, CL_MEM_READ_ONLY | CL_MEM_EXT_PTR_XILINX, 256 * 16 * sizeof(uint32_t), &HBM5_ext, &err));
-
-    kComps[2].inBufferA = input_buffer_2A;
-    kComps[2].inBufferB = input_buffer_2B;
-    kComps[2].outBufferA = output_buffer_2A;
-    kComps[2].outBufferB = output_buffer_2B;
-    kComps[2].tableBuffer = table_buffer_2;
-    
-    // Kernel 3 Buffers HBM[6] HBM[7]
-    cl_mem_ext_ptr_t HBM6_ext = {0};
-    HBM6_ext.banks = 6 | XCL_MEM_TOPOLOGY;
-    OCL_CHECK(err, cl::Buffer input_buffer_3A(context, CL_MEM_READ_ONLY | CL_MEM_EXT_PTR_XILINX, buf_size_bytes, &HBM6_ext, &err));
-    OCL_CHECK(err, cl::Buffer input_buffer_3B(context, CL_MEM_READ_ONLY | CL_MEM_EXT_PTR_XILINX, buf_size_bytes, &HBM6_ext, &err));
-
-    OCL_CHECK(err, cl::Buffer output_buffer_3A(context, CL_MEM_WRITE_ONLY | CL_MEM_EXT_PTR_XILINX, buf_size_bytes, &HBM6_ext, &err));
-    OCL_CHECK(err, cl::Buffer output_buffer_3B(context, CL_MEM_WRITE_ONLY | CL_MEM_EXT_PTR_XILINX, buf_size_bytes, &HBM6_ext, &err));
-
-    cl_mem_ext_ptr_t HBM7_ext = {0};
-    HBM7_ext.banks = 7 | XCL_MEM_TOPOLOGY;
-    OCL_CHECK(err, cl::Buffer table_buffer_3(context, CL_MEM_READ_ONLY | CL_MEM_EXT_PTR_XILINX, 256 * 16 * sizeof(uint32_t), &HBM7_ext, &err));
-    
-    kComps[3].inBufferA = input_buffer_3A;
-    kComps[3].inBufferB = input_buffer_3B;
-    kComps[3].outBufferA = output_buffer_3A;
-    kComps[3].outBufferB = output_buffer_3B;
-    kComps[3].tableBuffer = table_buffer_3;
+    // Setup Kernels
+    SETUP_TEN_KERNELS;
 
     uint32_t polynomial = 0x1021;
     uint32_t init_val = 0x0;
@@ -357,12 +327,12 @@ int main(int argc, char **argv)
     int crcWidth = 16;
     int chunkSize = 65536;
     unsigned long loopCount = 5;
-    //unsigned long counter = 0;
+    // unsigned long counter = 0;
 
     bool dualKernel = true;
     bool skipFileReadWrite = false;
-    //numKernels = 3;
-    // FPGA TOP LOOP
+    // numKernels = 3;
+    //  FPGA TOP LOOP
     std::string rerun = "yes";
     while (rerun == "yes")
     {
@@ -373,7 +343,7 @@ int main(int argc, char **argv)
         std::cin >> filename;
 
         loadConfig(filename, polynomial, init_val, xor_out, refInput, refOutput, crcWidth, chunkSize);
-        
+
         int dataSize = buf_size_bytes - (buf_size_bytes % chunkSize);
         int numChunks = dataSize / chunkSize;
         std::cout << "Data Size: " << dataSize << std::endl;
@@ -382,12 +352,12 @@ int main(int argc, char **argv)
 
         // Generate Lookup Tables
 
-        //auto start_check = std::chrono::high_resolution_clock::now();
+        // auto start_check = std::chrono::high_resolution_clock::now();
         uint32_t *standardTable = generateStandardCRCTable(reverseBits(polynomial, crcWidth), crcWidth);
 
         std::vector<uint32_t> lookup_table = generateParallelCRCTables(standardTable, crcWidth);
-        //auto end_check = std::chrono::high_resolution_clock::now();
-       // auto table_gen_time = std::chrono::duration_cast<std::chrono::milliseconds>(end_check - start_check).count();
+        // auto end_check = std::chrono::high_resolution_clock::now();
+        // auto table_gen_time = std::chrono::duration_cast<std::chrono::milliseconds>(end_check - start_check).count();
         if (lookup_table.size() != 256 * 16)
         {
             std::cerr << "ERROR: Lookup table must contain 256 entries!" << std::endl;
@@ -408,7 +378,7 @@ int main(int argc, char **argv)
         }
 
         // Calculate File Size
-        input_file.seekg(0, std::ios::end) ;      
+        input_file.seekg(0, std::ios::end);
         auto file_size = input_file.tellg();
         input_file.seekg(0, std::ios::beg);
         std::cout << "Data to be processed: " << file_size << std::endl;
@@ -420,136 +390,140 @@ int main(int argc, char **argv)
         loopCount = file_size / dataSize;
         std::cout << "Expecting " << std::dec << loopCount << " Loops..." << std::endl;
 
-        // Open Output File 
+        // Open Output File
 
         std::ofstream output_file("output.bin", std::ios::binary);
         auto start_time = std::chrono::high_resolution_clock::now();
 
-        for (int k = 0; k < numKernels; k++) {
+        for (int k = 0; k < numKernels; k++)
+        {
             load_data_chunk(kComps[k].hostInA, input_file, dataSize, refInput);
-            load_data_chunk(kComps[k].hostInB, input_file, dataSize, refInput);        
+            load_data_chunk(kComps[k].hostInB, input_file, dataSize, refInput);
         }
-        
-      
 
-        //std::cout << hostIn0A[0] << std::endl;
+        // std::cout << hostIn0A[0] << std::endl;
 
         bool oddRunCount = false;
-        if (loopCount % 2 != 0) {
+        if (loopCount % 2 != 0)
+        {
             loopCount -= 1;
             oddRunCount = true;
         }
-        
+
         // Write the lookup table to the device
-        for (int k =0; k < numKernels; k++) {
+        for (int k = 0; k < numKernels; k++)
+        {
             OCL_CHECK(err, err = kComps[k].queueA.enqueueWriteBuffer(kComps[k].tableBuffer, CL_TRUE, 0, 256 * 16 * sizeof(uint32_t), lookup_table.data(), nullptr, nullptr));
             OCL_CHECK(err, err = kComps[k].queueA.finish());
         }
-        
 
-        
-         polynomial = reverseBits(polynomial, crcWidth);
-         std::cout << "Polynomial: " << std::hex << polynomial << std::endl;
+        polynomial = reverseBits(polynomial, crcWidth);
+        std::cout << "Polynomial: " << std::hex << polynomial << std::endl;
         bool firstLoop = false;
-        //long loopcount = 0;
+        // long loopcount = 0;
 
-        
-                
         while (loopCount > 0)
         {
             loopCount -= 2 * numKernels;
-            
-            
-            for (int k = 0; k < numKernels; k++) {
-                OCL_CHECK(err, err = kComps[k].kernel.setArg(0, kComps[k].inBufferA));                                 // Input buffer
-                OCL_CHECK(err, err = kComps[k].kernel.setArg(1, kComps[k].outBufferA));                                // Output buffer
-                OCL_CHECK(err, err = kComps[k].kernel.setArg(2, kComps[k].tableBuffer));                                // Tables
-                OCL_CHECK(err, err = kComps[k].kernel.setArg(3, (static_cast<unsigned int>(numChunks))));      // Number of Chunks
-                OCL_CHECK(err, err = kComps[k].kernel.setArg(4, (static_cast<unsigned int>(chunkSize))));   // Chunk Size (in blocks)
-                OCL_CHECK(err, err = kComps[k].kernel.setArg(5, static_cast<uint32_t>(crcWidth)));             // crc_size
-                OCL_CHECK(err, err = kComps[k].kernel.setArg(6, static_cast<uint32_t>(init_val)));               // init_value
 
-                // Q1: 1. H1in >> B1in // Copy Batch 1 from Host onto FPGA memory 
+            for (int k = 0; k < numKernels; k++)
+            {
+                OCL_CHECK(err, err = kComps[k].kernel.setArg(0, kComps[k].inBufferA));                    // Input buffer
+                OCL_CHECK(err, err = kComps[k].kernel.setArg(1, kComps[k].outBufferA));                   // Output buffer
+                OCL_CHECK(err, err = kComps[k].kernel.setArg(2, kComps[k].tableBuffer));                  // Tables
+                OCL_CHECK(err, err = kComps[k].kernel.setArg(3, (static_cast<unsigned int>(numChunks)))); // Number of Chunks
+                OCL_CHECK(err, err = kComps[k].kernel.setArg(4, (static_cast<unsigned int>(chunkSize)))); // Chunk Size (in blocks)
+                OCL_CHECK(err, err = kComps[k].kernel.setArg(5, static_cast<uint32_t>(crcWidth)));        // crc_size
+                OCL_CHECK(err, err = kComps[k].kernel.setArg(6, static_cast<uint32_t>(init_val)));        // init_value
+
+                // Q1: 1. H1in >> B1in // Copy Batch 1 from Host onto FPGA memory
                 OCL_CHECK(err, err = kComps[k].queueA.enqueueWriteBuffer(kComps[k].inBufferA, CL_TRUE, 0, buf_size_bytes, kComps[k].hostInA, nullptr, nullptr));
-                
+
                 // Q1: 2. >> K1 >> // Run kernel on first batch
                 OCL_CHECK(err, err = kComps[k].queueA.enqueueTask(kComps[k].kernel));
 
-                // Q2: 1. H2in >> B2in // Copy Batch 2 from Host onto FPGA memory 
+                // Q2: 1. H2in >> B2in // Copy Batch 2 from Host onto FPGA memory
                 OCL_CHECK(err, err = kComps[k].queueB.enqueueWriteBuffer(kComps[k].inBufferB, CL_TRUE, 0, buf_size_bytes, kComps[k].hostInB, nullptr, nullptr));
-
             }
-            
-            
 
-            if (!firstLoop) {
+            if (!firstLoop)
+            {
                 // Save Output from previous batches
-                
-                if(!skipFileReadWrite) {
 
-                    for (int k = 0 ; k < numKernels; k++) {
+                if (!skipFileReadWrite)
+                {
+
+                    for (int k = 0; k < numKernels; k++)
+                    {
                         save_to_file(kComps[k].hostOutA, output_file, numChunks, refOutput, crcWidth);
                         save_to_file(kComps[k].hostOutB, output_file, numChunks, refOutput, crcWidth);
                     }
-                    
-                } 
-            } else {
+                }
+            }
+            else
+            {
                 firstLoop = false;
             }
 
             // Sync with device
 
-            for (int k = 0 ; k < numKernels; k++) {
+            for (int k = 0; k < numKernels; k++)
+            {
                 OCL_CHECK(err, err = kComps[k].queueA.finish());
                 OCL_CHECK(err, err = kComps[k].queueB.finish());
             }
-            
 
             // Set Kernel arguments for Queue 2 kernel0
             // Kernel Signature: calculate_crc (void* data_in, void* crc_out, void* tables, unsigned int numChunks, unsigned int chunkSize, unsigned int crc_size, unsigned int init_value)
-            for (int k = 0; k < numKernels; k++) {
-                OCL_CHECK(err, err = kComps[k].kernel.setArg(0, kComps[k].inBufferB));                                 // Input buffer
-                OCL_CHECK(err, err = kComps[k].kernel.setArg(1, kComps[k].outBufferB));                                // Output buffer
-                OCL_CHECK(err, err = kComps[k].kernel.setArg(2, kComps[k].tableBuffer));                                // Tables
-                OCL_CHECK(err, err = kComps[k].kernel.setArg(3, (static_cast<unsigned int>(numChunks))));      // Number of Chunks
-                OCL_CHECK(err, err = kComps[k].kernel.setArg(4, (static_cast<unsigned int>(chunkSize))));   // Chunk Size (in blocks)
-                OCL_CHECK(err, err = kComps[k].kernel.setArg(5, static_cast<uint32_t>(crcWidth)));             // crc_size
-                OCL_CHECK(err, err = kComps[k].kernel.setArg(6, static_cast<uint32_t>(init_val)));               // init_value
+            for (int k = 0; k < numKernels; k++)
+            {
+                OCL_CHECK(err, err = kComps[k].kernel.setArg(0, kComps[k].inBufferB));                    // Input buffer
+                OCL_CHECK(err, err = kComps[k].kernel.setArg(1, kComps[k].outBufferB));                   // Output buffer
+                OCL_CHECK(err, err = kComps[k].kernel.setArg(2, kComps[k].tableBuffer));                  // Tables
+                OCL_CHECK(err, err = kComps[k].kernel.setArg(3, (static_cast<unsigned int>(numChunks)))); // Number of Chunks
+                OCL_CHECK(err, err = kComps[k].kernel.setArg(4, (static_cast<unsigned int>(chunkSize)))); // Chunk Size (in blocks)
+                OCL_CHECK(err, err = kComps[k].kernel.setArg(5, static_cast<uint32_t>(crcWidth)));        // crc_size
+                OCL_CHECK(err, err = kComps[k].kernel.setArg(6, static_cast<uint32_t>(init_val)));        // init_value
 
                 // Q1: B1Out >> H1Out
-            OCL_CHECK(err, err = kComps[k].queueA.enqueueReadBuffer(kComps[k].outBufferA, CL_TRUE, 0, numChunks * sizeof(uint32_t), kComps[k].hostOutA));
+                OCL_CHECK(err, err = kComps[k].queueA.enqueueReadBuffer(kComps[k].outBufferA, CL_TRUE, 0, numChunks * sizeof(uint32_t), kComps[k].hostOutA));
 
-            // Q2: 1. >> K1 >> // Run kernel on second batch
+                // Q2: 1. >> K1 >> // Run kernel on second batch
 
-            OCL_CHECK(err, err = kComps[k].queueB.enqueueTask(kComps[k].kernel));
+                OCL_CHECK(err, err = kComps[k].queueB.enqueueTask(kComps[k].kernel));
 
-            // Q1: B1Out >> H1Out
-            OCL_CHECK(err, err = kComps[k].queueB.enqueueReadBuffer(kComps[k].outBufferB, CL_TRUE, 0, numChunks * sizeof(uint32_t), kComps[k].hostOutB));
+                // Q1: B1Out >> H1Out
+                OCL_CHECK(err, err = kComps[k].queueB.enqueueReadBuffer(kComps[k].outBufferB, CL_TRUE, 0, numChunks * sizeof(uint32_t), kComps[k].hostOutB));
             }
 
-
-            if (loopCount > 1) {
-                if(!skipFileReadWrite) {
-                    for (int k = 0; k < numKernels; k++) {
+            if (loopCount > 1)
+            {
+                if (!skipFileReadWrite)
+                {
+                    for (int k = 0; k < numKernels; k++)
+                    {
                         load_data_chunk(kComps[k].hostInA, input_file, dataSize, refInput);
-                        load_data_chunk(kComps[k].hostInB, input_file, dataSize, refInput);        
+                        load_data_chunk(kComps[k].hostInB, input_file, dataSize, refInput);
                     }
                 }
             }
 
-            // Sync 
-            for (int k = 0 ; k < numKernels; k++) {
+            // Sync
+            for (int k = 0; k < numKernels; k++)
+            {
                 OCL_CHECK(err, err = kComps[k].queueA.finish());
                 OCL_CHECK(err, err = kComps[k].queueB.finish());
             }
         }
 
-        if(!skipFileReadWrite) {
-            for (int k = 0 ; k < numKernels; k++) {
+        if (!skipFileReadWrite)
+        {
+            for (int k = 0; k < numKernels; k++)
+            {
                 save_to_file(kComps[k].hostOutA, output_file, numChunks, refOutput, crcWidth);
                 save_to_file(kComps[k].hostOutB, output_file, numChunks, refOutput, crcWidth);
             }
-        } 
+        }
         /*
         if (oddRunCount) {
             load_data_chunk(hostIn0B, input_file, dataSize, refInput);
@@ -560,25 +534,28 @@ int main(int argc, char **argv)
         } // */
         auto stop_time = std::chrono::high_resolution_clock::now();
         auto calc_time = std::chrono::duration_cast<std::chrono::milliseconds>(stop_time - start_time);
-                 
+
         std::cout << "Total Compute time: " << std::dec << calc_time.count() << "ms" << std::endl;
         double throughput = ((double)dataProcessed / 1000000.0) * (1000.0 / (double)calc_time.count());
         throughput *= 8.0;
-        if (throughput > 1000.0) {
+        if (throughput > 1000.0)
+        {
             throughput /= 1000.0;
             std::cout << "Throughput: " << throughput << "Gbps " << std::endl;
-        } else {
+        }
+        else
+        {
             std::cout << "Throughput: " << throughput << "Mbps " << std::endl;
         }
-        
-        
+
         // CHANGE: Add Loop logic to calculate more packets
         rerun = "no";
         input_file.close();
         output_file.close();
     }
 
-    for (int i =0; i < numKernels; i++) {
+    for (int i = 0; i < numKernels; i++)
+    {
         free(kComps[i].hostInA);
         free(kComps[i].hostInB);
         free(kComps[i].hostOutA);
