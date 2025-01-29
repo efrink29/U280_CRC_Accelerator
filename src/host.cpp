@@ -355,6 +355,14 @@ int main(int argc, char **argv)
         std::cout << "Chunk Size: " << chunkSize << std::endl;
         std::cout << "Number of Chunks per batch: " << numChunks << std::endl;
 
+        std::cout << "Enter Number of Kernels (1-10): ";
+        std::cin >> numKernels;
+
+        std::cout << "Skip File Read/Write? (yes/no): ";
+        std::string skipFile;
+        std::cin >> skipFile;
+        skipFileReadWrite = (skipFile == "yes");
+
         // Generate Lookup Tables
 
         // auto start_check = std::chrono::high_resolution_clock::now();
@@ -557,6 +565,8 @@ int main(int argc, char **argv)
         rerun = "no";
         input_file.close();
         output_file.close();
+        std::cout << "Rerun? (yes/no): ";
+        std::cin >> rerun;
     }
 
     for (int i = 0; i < numKernels; i++)
