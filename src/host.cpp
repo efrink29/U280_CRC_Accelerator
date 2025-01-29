@@ -45,10 +45,10 @@
     SETUP_KERNEL(8);      \
     SETUP_KERNEL(9);
 
-#define PROGRAM_KERNEL(knum)                                                     \
-    kernelConfigString = "calculate_crc:{CRC_" + std::to_string(knum) + "}\0";   \
-    charBuf = std::strcpy(charBuf, kernelConfigString.c_str(), sizeof(charBuf)); \
-    OCL_CHECK(err, kComps[knum].kernel = cl::Kernel(program, charBuf, &err));
+#define PROGRAM_KERNEL(knum)                                                       \
+    kernelConfigString = "calculate_crc:{CRC_" + std::to_string(knum) + "}\0";     \
+    charBuf = std::strcpy(*charBuf, kernelConfigString.c_str(), sizeof(*charBuf)); \
+    OCL_CHECK(err, kComps[knum].kernel = cl::Kernel(program, *charBuf, &err));
 
 #define PROGRAM_TEN_KERNELS \
     PROGRAM_KERNEL(0);      \
@@ -304,7 +304,7 @@ int main(int argc, char **argv)
         else
         {
             std::string kernelConfigString;
-            char charBuf[24];
+            char *charBuf = new char[256];
             PROGRAM_TEN_KERNELS;
             std::cout << "Device[" << i << "]: program successful!\n";
 
