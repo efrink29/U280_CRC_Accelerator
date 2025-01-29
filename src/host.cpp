@@ -47,7 +47,7 @@
 
 #define PROGRAM_KERNEL(knum)                                                  \
     kernelConfigString = "calculate_crc_" + std::to_string(knum) + ".xclbin"; \
-    OCL_CHECK(err, kComps[knum].kernel = cl::Kernel(program, kernelConfigString, &err));
+    OCL_CHECK(err, kComps[knum].kernel = cl::Kernel(program, kernelConfigString.toCharArray(), &err));
 
 #define PROGRAM_TEN_KERNELS \
     PROGRAM_KERNEL(0);      \
