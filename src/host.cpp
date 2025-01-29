@@ -45,8 +45,8 @@
     SETUP_KERNEL(8);      \
     SETUP_KERNEL(9);
 
-#define PROGRAM_KERNEL(knum)                                                              \
-    std::string kernelConfigString = "calculate_crc_" + std::to_string(knum) + ".xclbin"; \
+#define PROGRAM_KERNEL(knum)                                                  \
+    kernelConfigString = "calculate_crc_" + std::to_string(knum) + ".xclbin"; \
     OCL_CHECK(err, kComps[knum].kernel = cl::Kernel(program, kernelConfigString, &err));
 
 #define PROGRAM_TEN_KERNELS \
@@ -302,6 +302,7 @@ int main(int argc, char **argv)
         }
         else
         {
+            std::string kernelConfigString;
             PROGRAM_TEN_KERNELS;
             std::cout << "Device[" << i << "]: program successful!\n";
 
