@@ -48,7 +48,7 @@
 #define PROGRAM_KERNEL(knum)                                                     \
     kernelConfigString = "calculate_crc:{CRC_" + std::to_string(knum) + "}\0";   \
     charBuf = std::strcpy(charBuf, kernelConfigString.c_str(), sizeof(charBuf)); \
-    OCL_CHECK(err, kComps[knum].kernel = cl::Kernel(program, kernelConfigString.toCharArray(), &err));
+    OCL_CHECK(err, kComps[knum].kernel = cl::Kernel(program, charBuf, &err));
 
 #define PROGRAM_TEN_KERNELS \
     PROGRAM_KERNEL(0);      \
