@@ -45,10 +45,10 @@
     SETUP_KERNEL(8);      \
     SETUP_KERNEL(9);
 
-#define PROGRAM_KERNEL(knum)                                                       \
-    kernelConfigString = "calculate_crc:{CRC_" + std::to_string(knum) + "}\0";     \
-    charBuf = std::strcpy(*charBuf, kernelConfigString.c_str(), sizeof(*charBuf)); \
-    OCL_CHECK(err, kComps[knum].kernel = cl::Kernel(program, *charBuf, &err));
+#define PROGRAM_KERNEL(knum)                                                   \
+    kernelConfigString = "calculate_crc:{CRC_" + std::to_string(knum) + "}\0"; \
+    charBuf = std::strcpy(charBuf, kernelConfigString.c_str());                \
+    OCL_CHECK(err, kComps[knum].kernel = cl::Kernel(program, charBuf, &err));
 
 #define PROGRAM_TEN_KERNELS \
     PROGRAM_KERNEL(0);      \
