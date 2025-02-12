@@ -355,14 +355,6 @@ int main(int argc, char **argv)
         std::cout << "Chunk Size: " << chunkSize << std::endl;
         std::cout << "Number of Chunks per batch: " << numChunks << std::endl;
 
-        std::cout << "Enter Number of Kernels (1-10): ";
-        std::cin >> numKernels;
-
-        std::cout << "Skip File Read/Write? (yes/no): ";
-        std::string skipFile;
-        std::cin >> skipFile;
-        skipFileReadWrite = (skipFile == "yes");
-
         // Generate Lookup Tables
 
         // auto start_check = std::chrono::high_resolution_clock::now();
@@ -382,6 +374,14 @@ int main(int argc, char **argv)
         std::cout << "Enter Input File Name: ";
         std::string input_filename;
         std::cin >> input_filename;
+
+        std::cout << "Enter Number of Kernels (1-10): ";
+        std::cin >> numKernels;
+
+        std::cout << "Skip File Read/Write? (yes/no): ";
+        std::string skipFile;
+        std::cin >> skipFile;
+        skipFileReadWrite = (skipFile == "yes");
 
         std::ifstream input_file(input_filename, std::ios::ate | std::ios::binary);
         if (!input_file.is_open())
