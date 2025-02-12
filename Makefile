@@ -15,8 +15,11 @@
 # makefile-generator v1.0.3
 #
 # Points to top directory of Git repository
+SHELL := /bin/bash
+
 MK_PATH := $(abspath $(lastword $(MAKEFILE_LIST)))
-COMMON_REPO ?= $(shell bash -c 'export MK_PATH=$(MK_PATH); echo $${MK_PATH%parallel_crc/*}')
+COMMON_REPO := $(abspath .)
+
 PWD = $(shell readlink -f .)
 XF_PROJ_ROOT = $(shell readlink -f $(COMMON_REPO))
 
