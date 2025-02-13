@@ -1,0 +1,15 @@
+CRC32
+5gb.bin
+10
+yes
+yes
+CRC32
+5gb.bin
+10
+yes
+yes
+CRC32
+5gb.bin
+10
+yes
+yes
