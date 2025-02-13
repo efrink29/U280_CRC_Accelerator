@@ -331,7 +331,7 @@ int main(int argc, char **argv)
     bool refOutput = false;
     int crcWidth = 16;
     int chunkSize = 65536;
-    unsigned long loopCount = 5;
+    long loopCount = 5;
     // unsigned long counter = 0;
 
     bool dualKernel = true;
@@ -401,6 +401,7 @@ int main(int argc, char **argv)
         file_size -= extraData;
         long int dataProcessed = file_size;
         loopCount = file_size / dataSize;
+        loopCount -= loopCount % numKernels;
         std::cout << "Expecting " << std::dec << loopCount << " Loops..." << std::endl;
 
         // Open Output File
