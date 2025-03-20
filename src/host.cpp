@@ -115,7 +115,7 @@ uint32_t standardCompute(std::vector<unsigned char, aligned_allocator<unsigned c
     return maskCRC(crc ^ crc_final, width);
 }
 
-std::vector<uint32_t> generateParallelCRCTables(uint32_t *standardTable, int width)
+std::vector<uint32_t> generateParallelCRCTables(uint32_t *standardTable, int width, bool reflectInput)
 {
     std::vector<uint32_t> crcTables(16 * 256, 0);
 
@@ -125,6 +125,10 @@ std::vector<uint32_t> generateParallelCRCTables(uint32_t *standardTable, int wid
         {
             std::vector<unsigned char, aligned_allocator<unsigned char>> data(16, 0);
             data[tableIndex] = static_cast<uint8_t>(byteValue & 0xFF);
+            if (reflectInput)
+            {
+                data[tableIndex] = reverseBits(data[tableIndex], 8) & 0xFF;
+            }
             uint32_t crc = standardCompute(data, standardTable, 0xFFFFFFFF, 0xFFFFFFFF, width);
             crcTables[(256 * (15 - tableIndex)) + byteValue] = maskCRC(crc, width);
         }
@@ -140,7 +144,7 @@ void reflectInput(unsigned char *data, int size)
     }
 }
 
-void load_data_chunk(unsigned char *data, std::ifstream &inputfile, size_t size)
+void load_data_chunk(unsigned char *data, std::ifstream &inputfile, size_t size) void load_data_chunk(unsigned char *data, std::ifstream &inputfile, size_t size)
 {
     inputfile.read(reinterpret_cast<char *>(data), size);
 }
@@ -410,6 +414,12 @@ int main(int argc, char **argv)
     }
     int64_t buf_size_bytes = buf_size_kb * 1024;
     buf_size_bytes -= buf_size_bytes % 16;
+    /*
+    std::cout << "Manual Test (\"yes\" or \"no\"): ";
+    std::string manual;
+    std::cin >> manual;
+    bool manualTest = (manual == "yes");
+    // */
     std::cout << "Buffer Size: " << buf_size_bytes << std::endl;
 
     int numKernels = 10; // MAX 10
@@ -493,10 +503,13 @@ int main(int argc, char **argv)
     int crcWidth = 16;
     int chunkSize = 65536;
     long loopCount = 5;
+    long loopCount = 5;
     // unsigned long counter = 0;
 
     bool dualKernel = true;
     bool skipFileReadWrite = false;
+
+    std::ofstream output_file("throughput.txt", ios::app);
     // numKernels = 3;
     //  FPGA TOP LOOP
 
@@ -647,7 +660,7 @@ int main(int argc, char **argv)
                         int configIndex = getConfigForKernel(configs.size(), k);
                         save_to_file(kComps[k].hostOutA, configs[configIndex]->outfile, numChunks, configs[configIndex]->refOutput, crcWidth);
                         save_to_file(kComps[k].hostOutB, configs[configIndex]->outfile, numChunks, configs[configIndex]->refOutput, crcWidth);
-                                        }
+                    }
                 }
             }
             else
@@ -749,6 +762,7 @@ int main(int argc, char **argv)
         std::cout << "Total Compute time: " << std::dec << calc_time.count() << "ms" << std::endl;
         double throughput = ((double)dataProcessed / 1000000.0) * (1000.0 / (double)calc_time.count());
         throughput *= 8.0;
+        output_file << "" << throughput << "" << std::endl;
         if (throughput > 1000.0)
         {
             throughput /= 1000.0;
