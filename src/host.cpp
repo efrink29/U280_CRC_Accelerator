@@ -547,16 +547,17 @@ int main(int argc, char **argv)
             int numChunks = dataSize / configs[i]->chunkSize;
             dataProcessed += dataSize;
             size_t batchSize = configs[i]->chunkSize;
-            if (dataSize / batchSize > loopCount)
-            {
-                loopCount = dataSize / batchSize;
-            }
+
             while (batchSize < buf_size_bytes)
             {
                 batchSize += configs[i]->chunkSize;
             }
 
             configs[i]->dataSize = batchSize - configs[i]->chunkSize;
+            if (configs[i]->dataSize / batchSize > loopCount)
+            {
+                loopCount = configs[i]->dataSize / batchSize;
+            }
             configs[i]->outfile = std::ofstream("output_" + std::to_string(i) + ".bin", std::ios::binary);
         }
 
