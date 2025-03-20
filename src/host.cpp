@@ -144,7 +144,7 @@ void reflectInput(unsigned char *data, int size)
     }
 }
 
-void load_data_chunk(unsigned char *data, std::ifstream &inputfile, size_t size) void load_data_chunk(unsigned char *data, std::ifstream &inputfile, size_t size)
+void load_data_chunk(unsigned char *data, std::ifstream &inputfile, size_t size)
 {
     inputfile.read(reinterpret_cast<char *>(data), size);
 }
