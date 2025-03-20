@@ -527,6 +527,7 @@ int main(int argc, char **argv)
         }
         printConfiguration(configs);
         long loopCount = 0;
+        size_t dataProcessed = 0;
 
         for (int i = 0; i < configs.size(); i++)
         {
@@ -544,6 +545,7 @@ int main(int argc, char **argv)
             size_t dataSize = configs[i]->infile.tellg();
             configs[i]->infile.seekg(0, std::ios::end);
             int numChunks = dataSize / configs[i]->chunkSize;
+            dataProcessed += dataSize;
             size_t batchSize = configs[i]->chunkSize;
             if (dataSize / batchSize > loopCount)
             {
@@ -551,10 +553,10 @@ int main(int argc, char **argv)
             }
             while (batchSize < buf_size_bytes)
             {
-                batchSize += chunkSize;
+                batchSize += configs[i]->chunkSize;
             }
 
-            configs[i]->dataSize = batchSize - chunkSize;
+            configs[i]->dataSize = batchSize - configs[i]->chunkSize;
             configs[i]->outfile = std::ofstream("output_" + std::to_string(i) + ".bin", std::ios::binary);
         }
 
@@ -597,7 +599,7 @@ int main(int argc, char **argv)
             }
             int configIndex = getConfigForKernel(configs.size(), k);
             uint32_t revPoly = reverseBits(configs[configIndex]->polynomial, configs[configIndex]->crcWidth);
-            std::vector<uint32_t> lookup_table = generateParallelCRCTables(generateStandardCRCTable(revPoly, configs[configIndex]->crcWidth), configs[configIndex]->crcWidth);
+            std::vector<uint32_t> lookup_table = generateParallelCRCTables(generateStandardCRCTable(revPoly, configs[configIndex]->crcWidth), configs[configIndex]->crcWidth, configs[configIndex]->refInput);
             OCL_CHECK(err, err = kComps[k].queueA.enqueueWriteBuffer(kComps[k].tableBuffer, CL_TRUE, 0, 256 * 16 * sizeof(uint32_t), lookup_table.data(), nullptr, nullptr));
             OCL_CHECK(err, err = kComps[k].queueA.finish());
         }
@@ -779,8 +781,11 @@ int main(int argc, char **argv)
 
         // CHANGE: Add Loop logic to calculate more packets
         rerun = "no";
-        input_file.close();
-        output_file.close();
+        for (int i = 0; i < configs.size(); i++)
+        {
+            configs[i]->infile.close();
+            configs[i]->outfile.close();
+        }
         std::cout << "Rerun? (yes/no): ";
         std::cin >> rerun;
     }
