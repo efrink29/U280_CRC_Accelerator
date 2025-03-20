@@ -495,21 +495,12 @@ int main(int argc, char **argv)
     // Setup Kernels
     SETUP_TEN_KERNELS;
 
-    uint32_t polynomial = 0x1021;
-    uint32_t init_val = 0x0;
-    uint32_t xor_out = 0x0;
-    bool refInput = false;
-    bool refOutput = false;
-    int crcWidth = 16;
-    int chunkSize = 65536;
-    long loopCount = 5;
-    long loopCount = 5;
     // unsigned long counter = 0;
 
     bool dualKernel = true;
     bool skipFileReadWrite = false;
 
-    std::ofstream output_file("throughput.txt", ios::app);
+    std::ofstream output_file("throughput.txt", std::ios::app);
     // numKernels = 3;
     //  FPGA TOP LOOP
 
@@ -541,13 +532,13 @@ int main(int argc, char **argv)
             std::cout << "Enter input file for config " << i << ": ";
             std::string input_filename;
             std::cin >> input_filename;
-            std::ifstream input_file(input_filename, std::ios::ate | std::ios::binary);
-            if (!input_file.is_open())
+            configs[i]->infile = std::ifstream(input_filename, std::ios::binary);
+            if (!configs[i]->infile.is_open())
             {
                 std::cerr << "ERROR: Could not open file " << input_filename << std::endl;
                 return EXIT_FAILURE;
             }
-            configs[i]->infile = input_file;
+
             // get file size
             size_t dataSize = input_file.tellg();
             input_file.seekg(0, std::ios::beg);
@@ -559,8 +550,7 @@ int main(int argc, char **argv)
             }
 
             configs[i]->dataSize = batchSize - chunkSize;
-            std::ofstream output_file("output_" + std::to_string(i) + ".bin", std::ios::binary);
-            configs[i]->outfile = output_file;
+            configs[i]->outfile = std::ofstream("output_" + std::to_string(i) + ".bin", std::ios::binary);
         }
 
         std::cout << "Skip File Read/Write? (yes/no): ";
@@ -721,6 +711,9 @@ int main(int argc, char **argv)
                             continue;
                         }
                         int configIndex = getConfigForKernel(configs.size(), k);
+                        int chunkSize = configs[configIndex]->chunkSize;
+                        int numChunks = configs[configIndex]->dataSize / chunkSize;
+                        int crcWidth = configs[configIndex]->crcWidth;
                         save_to_file(kComps[k].hostOutA, configs[configIndex]->outfile, numChunks, configs[configIndex]->refOutput, crcWidth);
                         save_to_file(kComps[k].hostOutB, configs[configIndex]->outfile, numChunks, configs[configIndex]->refOutput, crcWidth);
                     }
