@@ -526,6 +526,7 @@ int main(int argc, char **argv)
             std::cin >> addConfig;
         }
         printConfiguration(configs);
+        long loopCount = 0;
 
         for (int i = 0; i < configs.size(); i++)
         {
@@ -540,10 +541,14 @@ int main(int argc, char **argv)
             }
 
             // get file size
-            size_t dataSize = input_file.tellg();
-            input_file.seekg(0, std::ios::beg);
+            size_t dataSize = configs[i]->infile.tellg();
+            configs[i]->infile.seekg(0, std::ios::end);
             int numChunks = dataSize / configs[i]->chunkSize;
-            size_t batchSize = chunkSize;
+            size_t batchSize = configs[i]->chunkSize;
+            if (dataSize / batchSize > loopCount)
+            {
+                loopCount = dataSize / batchSize;
+            }
             while (batchSize < buf_size_bytes)
             {
                 batchSize += chunkSize;
@@ -591,13 +596,12 @@ int main(int argc, char **argv)
                 continue;
             }
             int configIndex = getConfigForKernel(configs.size(), k);
-            std::vector<uint32_t> lookup_table = generateParallelCRCTables(generateStandardCRCTable(configs[configIndex]->polynomial, configs[configIndex]->crcWidth), configs[configIndex]->crcWidth);
+            uint32_t revPoly = reverseBits(configs[configIndex]->polynomial, configs[configIndex]->crcWidth);
+            std::vector<uint32_t> lookup_table = generateParallelCRCTables(generateStandardCRCTable(revPoly, configs[configIndex]->crcWidth), configs[configIndex]->crcWidth);
             OCL_CHECK(err, err = kComps[k].queueA.enqueueWriteBuffer(kComps[k].tableBuffer, CL_TRUE, 0, 256 * 16 * sizeof(uint32_t), lookup_table.data(), nullptr, nullptr));
             OCL_CHECK(err, err = kComps[k].queueA.finish());
         }
 
-        polynomial = reverseBits(polynomial, crcWidth);
-        std::cout << "Polynomial: " << std::hex << polynomial << std::endl;
         bool firstLoop = false;
         // long loopcount = 0;
 
@@ -648,6 +652,10 @@ int main(int argc, char **argv)
                             continue;
                         }
                         int configIndex = getConfigForKernel(configs.size(), k);
+                        int chunkSize = configs[configIndex]->chunkSize;
+                        int numChunks = configs[configIndex]->dataSize / chunkSize;
+                        int crcWidth = configs[configIndex]->crcWidth;
+
                         save_to_file(kComps[k].hostOutA, configs[configIndex]->outfile, numChunks, configs[configIndex]->refOutput, crcWidth);
                         save_to_file(kComps[k].hostOutB, configs[configIndex]->outfile, numChunks, configs[configIndex]->refOutput, crcWidth);
                     }
@@ -737,6 +745,9 @@ int main(int argc, char **argv)
                     continue;
                 }
                 int configIndex = getConfigForKernel(configs.size(), k);
+                int chunkSize = configs[configIndex]->chunkSize;
+                int numChunks = configs[configIndex]->dataSize / chunkSize;
+                int crcWidth = configs[configIndex]->crcWidth;
                 save_to_file(kComps[k].hostOutA, configs[configIndex]->outfile, numChunks, configs[configIndex]->refOutput, crcWidth);
                 save_to_file(kComps[k].hostOutB, configs[configIndex]->outfile, numChunks, configs[configIndex]->refOutput, crcWidth);
             }
