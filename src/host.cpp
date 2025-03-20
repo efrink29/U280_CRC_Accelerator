@@ -140,13 +140,9 @@ void reflectInput(unsigned char *data, int size)
     }
 }
 
-void load_data_chunk(unsigned char *data, std::ifstream &inputfile, size_t size, bool reflect)
+void load_data_chunk(unsigned char *data, std::ifstream &inputfile, size_t size)
 {
     inputfile.read(reinterpret_cast<char *>(data), size);
-    if (reflect)
-    {
-        reflectInput(data, size);
-    }
 }
 
 void save_to_file(uint32_t *data, std::ofstream &outputFile, size_t size, bool reflect, int crcSize)
@@ -161,7 +157,22 @@ void save_to_file(uint32_t *data, std::ofstream &outputFile, size_t size, bool r
     outputFile.write(reinterpret_cast<const char *>(data), size * sizeof(uint32_t));
 }
 
-void loadConfig(std::string filename, uint32_t &polynomial, uint32_t &init_val, uint32_t &xor_out, bool &refInput, bool &refOutput, int &crcWidth, int &chunkSize)
+struct KernelConfig
+{
+    uint32_t polynomial;
+    uint32_t init_val;
+    uint32_t xor_out;
+    bool refInput;
+    bool refOutput;
+    int crcWidth;
+    int chunkSize;
+    std::ifstream infile;
+    std::ofstream outfile;
+    // data size
+    size_t dataSize;
+};
+
+void loadConfig(std::string filename, KernelConfig &cfg)
 {
     std::ifstream file(filename);
     if (!file.is_open())
@@ -169,15 +180,15 @@ void loadConfig(std::string filename, uint32_t &polynomial, uint32_t &init_val, 
         std::cerr << "Error: Could not open file " << filename << std::endl;
         exit(1);
     }
-    file >> crcWidth;
-    file >> std::hex >> polynomial;
-    file >> std::hex >> init_val;
-    file >> refInput;
-    refInput = !refInput;
-    file >> refOutput;
-    refOutput = !refOutput;
-    file >> std::hex >> xor_out;
-    file >> std::dec >> chunkSize;
+    file >> cfg.crcWidth;
+    file >> std::hex >> cfg.polynomial;
+    file >> std::hex >> cfg.init_val;
+    file >> cfg.refInput;
+    cfg.refInput = !cfg.refInput;
+    file >> cfg.refOutput;
+    cfg.refOutput = !cfg.refOutput;
+    file >> std::hex >> cfg.xor_out;
+    file >> std::dec >> cfg.chunkSize;
 }
 
 void printData(const std::vector<unsigned char, aligned_allocator<unsigned char>> &data)
@@ -216,6 +227,152 @@ struct KernelComponents
     // Table Buffer
     cl::Buffer tableBuffer;
 };
+
+void printConfiguration(std::vector<KernelConfig *> configs)
+{
+    int numKernels = 0;
+    if (configs.size() == 0)
+    {
+        std::cout << "No Configurations Loaded!" << std::endl;
+        return;
+    }
+    if (configs.size() == 1)
+    {
+        numKernels = 10;
+    }
+    if (configs.size() == 2)
+    {
+        numKernels = 5;
+    }
+    if (configs.size() == 3)
+    {
+        numKernels = 3;
+    }
+    if (configs.size() == 4)
+    {
+        numKernels = 2;
+    }
+    if (configs.size() == 5)
+    {
+        numKernels = 2;
+    }
+    if (configs.size() >= 6)
+    {
+        numKernels = 1;
+    }
+    for (int i = 0; i < configs.size(); i++)
+    {
+        std::cout << "Config " << i << std::endl;
+        std::cout << "Polynomial: " << std::hex << configs[i]->polynomial << std::endl;
+        std::cout << "Init Value: " << std::hex << configs[i]->init_val << std::endl;
+        std::cout << "XOR Out: " << std::hex << configs[i]->xor_out << std::endl;
+        std::cout << "Reflect Input: " << std::boolalpha << configs[i]->refInput << std::endl;
+        std::cout << "Reflect Output: " << std::boolalpha << configs[i]->refOutput << std::endl;
+        std::cout << "CRC Width: " << std::dec << configs[i]->crcWidth << std::endl;
+        std::cout << "Chunk Size: " << std::dec << configs[i]->chunkSize << std::endl;
+        std::cout << std::endl;
+    }
+    int k = 0;
+    int c = 0;
+    for (int i = 0; i < 10; i++)
+    {
+        if (c >= configs.size())
+        {
+            std::cout << "Kernel" << i << " Not in use" << std::endl;
+        }
+        else
+        {
+            std::cout << "Kernel" << i << " Config: " << c << std::endl;
+        }
+
+        k++;
+        if (k == numKernels)
+        {
+            k = 0;
+            c++;
+        }
+    }
+}
+
+int getConfigForKernel(int numConfigs, int kernel)
+{
+    if (numConfigs == 1)
+    {
+        return 0;
+    }
+    if (numConfigs == 2)
+    {
+        if (kernel < 5)
+        {
+            return 0;
+        }
+        else
+        {
+            return 1;
+        }
+    }
+    if (numConfigs == 3)
+    {
+        if (kernel < 3)
+        {
+            return 0;
+        }
+        if (kernel < 6)
+        {
+            return 1;
+        }
+        if (kernel < 9)
+        {
+            return 2;
+        }
+        return -1;
+    }
+    if (numConfigs == 4)
+    {
+        if (kernel < 2)
+        {
+            return 0;
+        }
+        if (kernel < 4)
+        {
+            return 1;
+        }
+        if (kernel < 6)
+        {
+            return 2;
+        }
+        if (kernel < 8)
+        {
+            return 3;
+        }
+        return -1;
+    }
+    if (numConfigs == 5)
+    {
+        if (kernel < 2)
+        {
+            return 0;
+        }
+        if (kernel < 4)
+        {
+            return 1;
+        }
+        if (kernel < 6)
+        {
+            return 2;
+        }
+        if (kernel < 8)
+        {
+            return 3;
+        }
+        return 4;
+    }
+    if (kernel < numConfigs)
+    {
+        return kernel;
+    }
+    return -1;
+}
 
 int main(int argc, char **argv)
 {
@@ -285,6 +442,10 @@ int main(int argc, char **argv)
     auto fileBuf = xcl::read_binary_file(xclbinFile);
     cl::Program::Binaries bins{{fileBuf.data(), fileBuf.size()}};
     bool valid_device = false;
+
+    // Setup output file to hold throughput data
+    std::ofstream throughput_file("throughput.csv", std::ios::app);
+
     for (unsigned int i = 0; i < devices.size(); i++)
     {
         auto device = devices[i];
@@ -331,77 +492,68 @@ int main(int argc, char **argv)
     bool refOutput = false;
     int crcWidth = 16;
     int chunkSize = 65536;
-    unsigned long loopCount = 5;
+    long loopCount = 5;
     // unsigned long counter = 0;
 
     bool dualKernel = true;
     bool skipFileReadWrite = false;
     // numKernels = 3;
     //  FPGA TOP LOOP
+
+    std::vector<KernelConfig *> configs = std::vector<KernelConfig *>();
     std::string rerun = "yes";
     while (rerun == "yes")
     {
-
-        // Load CRC Configuration For Kernel X
-        std::cout << "Enter Config File Name: ";
-        std::string filename;
-        std::cin >> filename;
-
-        loadConfig(filename, polynomial, init_val, xor_out, refInput, refOutput, crcWidth, chunkSize);
-
-        int dataSize = buf_size_bytes - (buf_size_bytes % chunkSize);
-        int numChunks = dataSize / chunkSize;
-        std::cout << "Data Size: " << dataSize << std::endl;
-        std::cout << "Chunk Size: " << chunkSize << std::endl;
-        std::cout << "Number of Chunks per batch: " << numChunks << std::endl;
-
-        // Generate Lookup Tables
-
-        // auto start_check = std::chrono::high_resolution_clock::now();
-        uint32_t *standardTable = generateStandardCRCTable(reverseBits(polynomial, crcWidth), crcWidth);
-
-        std::vector<uint32_t> lookup_table = generateParallelCRCTables(standardTable, crcWidth);
-        // auto end_check = std::chrono::high_resolution_clock::now();
-        // auto table_gen_time = std::chrono::duration_cast<std::chrono::milliseconds>(end_check - start_check).count();
-        if (lookup_table.size() != 256 * 16)
+        std::string addConfig = "yes";
+        while (addConfig == "yes")
         {
-            std::cerr << "ERROR: Lookup table must contain 256 entries!" << std::endl;
-            return EXIT_FAILURE;
+            KernelConfig *cfg = new KernelConfig();
+            std::cout << "Enter Config File Name: ";
+            std::string filename;
+            std::cin >> filename;
+            loadConfig(filename, *cfg);
+            if (configs.size() >= 10)
+            {
+                configs.erase(configs.begin());
+            }
+            configs.push_back(cfg);
+
+            std::cout << "Add another config? (yes/no): ";
+            std::cin >> addConfig;
         }
+        printConfiguration(configs);
 
-        // Open Input File
+        for (int i = 0; i < configs.size(); i++)
+        {
+            std::cout << "Enter input file for config " << i << ": ";
+            std::string input_filename;
+            std::cin >> input_filename;
+            std::ifstream input_file(input_filename, std::ios::ate | std::ios::binary);
+            if (!input_file.is_open())
+            {
+                std::cerr << "ERROR: Could not open file " << input_filename << std::endl;
+                return EXIT_FAILURE;
+            }
+            configs[i]->infile = input_file;
+            // get file size
+            size_t dataSize = input_file.tellg();
+            input_file.seekg(0, std::ios::beg);
+            int numChunks = dataSize / configs[i]->chunkSize;
+            size_t batchSize = chunkSize;
+            while (batchSize < buf_size_bytes)
+            {
+                batchSize += chunkSize;
+            }
 
-        std::cout << "Enter Input File Name: ";
-        std::string input_filename;
-        std::cin >> input_filename;
-
-        std::cout << "Enter Number of Kernels (1-10): ";
-        std::cin >> numKernels;
+            configs[i]->dataSize = batchSize - chunkSize;
+            std::ofstream output_file("output_" + std::to_string(i) + ".bin", std::ios::binary);
+            configs[i]->outfile = output_file;
+        }
 
         std::cout << "Skip File Read/Write? (yes/no): ";
         std::string skipFile;
         std::cin >> skipFile;
         skipFileReadWrite = (skipFile == "yes");
-
-        std::ifstream input_file(input_filename, std::ios::ate | std::ios::binary);
-        if (!input_file.is_open())
-        {
-            std::cerr << "ERROR: Could not open file " << input_filename << std::endl;
-            return EXIT_FAILURE;
-        }
-
-        // Calculate File Size
-        input_file.seekg(0, std::ios::end);
-        auto file_size = input_file.tellg();
-        input_file.seekg(0, std::ios::beg);
-        std::cout << "Data to be processed: " << file_size << std::endl;
-
-        // Calculate Number of Kernel Runs
-        int extraData = file_size % chunkSize;
-        file_size -= extraData;
-        long int dataProcessed = file_size;
-        loopCount = file_size / dataSize;
-        std::cout << "Expecting " << std::dec << loopCount << " Loops..." << std::endl;
 
         // Open Output File
 
@@ -410,8 +562,13 @@ int main(int argc, char **argv)
 
         for (int k = 0; k < numKernels; k++)
         {
-            load_data_chunk(kComps[k].hostInA, input_file, dataSize, refInput);
-            load_data_chunk(kComps[k].hostInB, input_file, dataSize, refInput);
+            if (getConfigForKernel(configs.size(), k) == -1)
+            {
+                continue;
+            }
+            int configIndex = getConfigForKernel(configs.size(), k);
+            load_data_chunk(kComps[k].hostInA, configs[configIndex]->infile, configs[configIndex]->dataSize);
+            load_data_chunk(kComps[k].hostInB, configs[configIndex]->infile, configs[configIndex]->dataSize);
         }
 
         // std::cout << hostIn0A[0] << std::endl;
@@ -426,6 +583,12 @@ int main(int argc, char **argv)
         // Write the lookup table to the device
         for (int k = 0; k < numKernels; k++)
         {
+            if (getConfigForKernel(configs.size(), k) == -1)
+            {
+                continue;
+            }
+            int configIndex = getConfigForKernel(configs.size(), k);
+            std::vector<uint32_t> lookup_table = generateParallelCRCTables(generateStandardCRCTable(configs[configIndex]->polynomial, configs[configIndex]->crcWidth), configs[configIndex]->crcWidth);
             OCL_CHECK(err, err = kComps[k].queueA.enqueueWriteBuffer(kComps[k].tableBuffer, CL_TRUE, 0, 256 * 16 * sizeof(uint32_t), lookup_table.data(), nullptr, nullptr));
             OCL_CHECK(err, err = kComps[k].queueA.finish());
         }
@@ -441,6 +604,15 @@ int main(int argc, char **argv)
 
             for (int k = 0; k < numKernels; k++)
             {
+                if (getConfigForKernel(configs.size(), k) == -1)
+                {
+                    continue;
+                }
+                int configIndex = getConfigForKernel(configs.size(), k);
+                uint32_t init_val = configs[configIndex]->init_val;
+                int crcWidth = configs[configIndex]->crcWidth;
+                int chunkSize = configs[configIndex]->chunkSize;
+                int numChunks = configs[configIndex]->dataSize / chunkSize;
                 OCL_CHECK(err, err = kComps[k].kernel.setArg(0, kComps[k].inBufferA));                    // Input buffer
                 OCL_CHECK(err, err = kComps[k].kernel.setArg(1, kComps[k].outBufferA));                   // Output buffer
                 OCL_CHECK(err, err = kComps[k].kernel.setArg(2, kComps[k].tableBuffer));                  // Tables
@@ -468,9 +640,14 @@ int main(int argc, char **argv)
 
                     for (int k = 0; k < numKernels; k++)
                     {
-                        save_to_file(kComps[k].hostOutA, output_file, numChunks, refOutput, crcWidth);
-                        save_to_file(kComps[k].hostOutB, output_file, numChunks, refOutput, crcWidth);
-                    }
+                        if (getConfigForKernel(configs.size(), k) == -1)
+                        {
+                            continue;
+                        }
+                        int configIndex = getConfigForKernel(configs.size(), k);
+                        save_to_file(kComps[k].hostOutA, configs[configIndex]->outfile, numChunks, configs[configIndex]->refOutput, crcWidth);
+                        save_to_file(kComps[k].hostOutB, configs[configIndex]->outfile, numChunks, configs[configIndex]->refOutput, crcWidth);
+                                        }
                 }
             }
             else
@@ -482,6 +659,7 @@ int main(int argc, char **argv)
 
             for (int k = 0; k < numKernels; k++)
             {
+
                 OCL_CHECK(err, err = kComps[k].queueA.finish());
                 OCL_CHECK(err, err = kComps[k].queueB.finish());
             }
@@ -490,6 +668,16 @@ int main(int argc, char **argv)
             // Kernel Signature: calculate_crc (void* data_in, void* crc_out, void* tables, unsigned int numChunks, unsigned int chunkSize, unsigned int crc_size, unsigned int init_value)
             for (int k = 0; k < numKernels; k++)
             {
+                if (getConfigForKernel(configs.size(), k) == -1)
+                {
+                    continue;
+                }
+                int configIndex = getConfigForKernel(configs.size(), k);
+                uint32_t init_val = configs[configIndex]->init_val;
+                int crcWidth = configs[configIndex]->crcWidth;
+                int chunkSize = configs[configIndex]->chunkSize;
+                int numChunks = configs[configIndex]->dataSize / chunkSize;
+
                 OCL_CHECK(err, err = kComps[k].kernel.setArg(0, kComps[k].inBufferB));                    // Input buffer
                 OCL_CHECK(err, err = kComps[k].kernel.setArg(1, kComps[k].outBufferB));                   // Output buffer
                 OCL_CHECK(err, err = kComps[k].kernel.setArg(2, kComps[k].tableBuffer));                  // Tables
@@ -515,8 +703,13 @@ int main(int argc, char **argv)
                 {
                     for (int k = 0; k < numKernels; k++)
                     {
-                        load_data_chunk(kComps[k].hostInA, input_file, dataSize, refInput);
-                        load_data_chunk(kComps[k].hostInB, input_file, dataSize, refInput);
+                        if (getConfigForKernel(configs.size(), k) == -1)
+                        {
+                            continue;
+                        }
+                        int configIndex = getConfigForKernel(configs.size(), k);
+                        save_to_file(kComps[k].hostOutA, configs[configIndex]->outfile, numChunks, configs[configIndex]->refOutput, crcWidth);
+                        save_to_file(kComps[k].hostOutB, configs[configIndex]->outfile, numChunks, configs[configIndex]->refOutput, crcWidth);
                     }
                 }
             }
@@ -533,8 +726,13 @@ int main(int argc, char **argv)
         {
             for (int k = 0; k < numKernels; k++)
             {
-                save_to_file(kComps[k].hostOutA, output_file, numChunks, refOutput, crcWidth);
-                save_to_file(kComps[k].hostOutB, output_file, numChunks, refOutput, crcWidth);
+                if (getConfigForKernel(configs.size(), k) == -1)
+                {
+                    continue;
+                }
+                int configIndex = getConfigForKernel(configs.size(), k);
+                save_to_file(kComps[k].hostOutA, configs[configIndex]->outfile, numChunks, configs[configIndex]->refOutput, crcWidth);
+                save_to_file(kComps[k].hostOutB, configs[configIndex]->outfile, numChunks, configs[configIndex]->refOutput, crcWidth);
             }
         }
         /*
