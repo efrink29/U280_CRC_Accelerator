@@ -9,6 +9,8 @@
 #include <iomanip>
 #include "cmdlineparser.h"
 #include "xcl2.hpp"
+#include "manager.hpp"
+
 #include <unistd.h>
 #include <string>
 #include <chrono>
@@ -33,17 +35,23 @@
     kComps[knum].outBufferB = output_buffer_B##knum;                                                                                                \
     kComps[knum].tableBuffer = table_buffer_##knum;
 
-#define SETUP_TEN_KERNELS \
-    SETUP_KERNEL(0);      \
-    SETUP_KERNEL(1);      \
-    SETUP_KERNEL(2);      \
-    SETUP_KERNEL(3);      \
-    SETUP_KERNEL(4);      \
-    SETUP_KERNEL(5);      \
-    SETUP_KERNEL(6);      \
-    SETUP_KERNEL(7);      \
-    SETUP_KERNEL(8);      \
+#define SETUP_SIXTEEN_KERNELS \
+    SETUP_KERNEL(0);          \
+    SETUP_KERNEL(1);          \
+    SETUP_KERNEL(2);          \
+    SETUP_KERNEL(3);          \
+    SETUP_KERNEL(4);          \
+    SETUP_KERNEL(5);          \
+    SETUP_KERNEL(6);          \
+    SETUP_KERNEL(7);          \
+    SETUP_KERNEL(8);          \
     SETUP_KERNEL(9);
+// SETUP_KERNEL(10);     \
+    // SETUP_KERNEL(11);     \
+    // SETUP_KERNEL(12);     \
+    // SETUP_KERNEL(13);     \
+    // SETUP_KERNEL(14);     \
+    // SETUP_KERNEL(15);
 
 #define PROGRAM_KERNEL(knum)                                                   \
     kernelConfigString = "calculate_crc:{CRC_" + std::to_string(knum) + "}\0"; \
@@ -161,21 +169,6 @@ void save_to_file(uint32_t *data, std::ofstream &outputFile, size_t size, bool r
     outputFile.write(reinterpret_cast<const char *>(data), size * sizeof(uint32_t));
 }
 
-struct KernelConfig
-{
-    uint32_t polynomial;
-    uint32_t init_val;
-    uint32_t xor_out;
-    bool refInput;
-    bool refOutput;
-    int crcWidth;
-    int chunkSize;
-    std::ifstream infile;
-    std::ofstream outfile;
-    // data size
-    size_t dataSize;
-};
-
 void loadConfig(std::string filename, KernelConfig &cfg)
 {
     std::ifstream file(filename);
@@ -216,6 +209,7 @@ struct KernelComponents
     // Command Queues
     cl::CommandQueue queueA;
     cl::CommandQueue queueB;
+    cl::CommandQueue queueK;
 
     // Kernel Object
     cl::Kernel kernel;
@@ -234,36 +228,13 @@ struct KernelComponents
 
 void printConfiguration(std::vector<KernelConfig *> configs)
 {
-    int numKernels = 0;
+    int numKernels = 10 / configs.size();
     if (configs.size() == 0)
     {
         std::cout << "No Configurations Loaded!" << std::endl;
         return;
     }
-    if (configs.size() == 1)
-    {
-        numKernels = 10;
-    }
-    if (configs.size() == 2)
-    {
-        numKernels = 5;
-    }
-    if (configs.size() == 3)
-    {
-        numKernels = 3;
-    }
-    if (configs.size() == 4)
-    {
-        numKernels = 2;
-    }
-    if (configs.size() == 5)
-    {
-        numKernels = 2;
-    }
-    if (configs.size() >= 6)
-    {
-        numKernels = 1;
-    }
+
     for (int i = 0; i < configs.size(); i++)
     {
         std::cout << "Config " << i << std::endl;
@@ -278,7 +249,7 @@ void printConfiguration(std::vector<KernelConfig *> configs)
     }
     int k = 0;
     int c = 0;
-    for (int i = 0; i < 10; i++)
+    for (int i = 0; i < 16; i++)
     {
         if (c >= configs.size())
         {
@@ -306,7 +277,7 @@ int getConfigForKernel(int numConfigs, int kernel)
     }
     if (numConfigs == 2)
     {
-        if (kernel < 5)
+        if (kernel < 8)
         {
             return 0;
         }
@@ -316,6 +287,42 @@ int getConfigForKernel(int numConfigs, int kernel)
         }
     }
     if (numConfigs == 3)
+    {
+        if (kernel < 5)
+        {
+            return 0;
+        }
+        if (kernel < 10)
+        {
+            return 1;
+        }
+        if (kernel < 15)
+        {
+            return 2;
+        }
+        return -1;
+    }
+    if (numConfigs == 4)
+    {
+        if (kernel < 4)
+        {
+            return 0;
+        }
+        if (kernel < 8)
+        {
+            return 1;
+        }
+        if (kernel < 12)
+        {
+            return 2;
+        }
+        if (kernel < 16)
+        {
+            return 3;
+        }
+        return -1;
+    }
+    if (numConfigs == 5)
     {
         if (kernel < 3)
         {
@@ -329,47 +336,15 @@ int getConfigForKernel(int numConfigs, int kernel)
         {
             return 2;
         }
-        return -1;
-    }
-    if (numConfigs == 4)
-    {
-        if (kernel < 2)
-        {
-            return 0;
-        }
-        if (kernel < 4)
-        {
-            return 1;
-        }
-        if (kernel < 6)
-        {
-            return 2;
-        }
-        if (kernel < 8)
+        if (kernel < 12)
         {
             return 3;
         }
+        if (kernel < 15)
+        {
+            return 4;
+        }
         return -1;
-    }
-    if (numConfigs == 5)
-    {
-        if (kernel < 2)
-        {
-            return 0;
-        }
-        if (kernel < 4)
-        {
-            return 1;
-        }
-        if (kernel < 6)
-        {
-            return 2;
-        }
-        if (kernel < 8)
-        {
-            return 3;
-        }
-        return 4;
     }
     if (kernel < numConfigs)
     {
@@ -388,6 +363,7 @@ int main(int argc, char **argv)
     parser.addSwitch("--frequency", "-f", "Operating frequency, in MHz", "300");
     parser.addSwitch("--buf_size_mb", "-m", "Test buffer size, in MB", "16");
     parser.addSwitch("--buf_size_kb", "-k", "Test buffer size, in KB", "0");
+    parser.addSwitch("--num_compute_units", "-n", "Number of compute units to use (max 10)", "2");
     parser.parse(argc, argv);
 
     std::string xclbinFile = parser.value("xclbin_file");
@@ -395,6 +371,9 @@ int main(int argc, char **argv)
     float frequency = stof(parser.value("frequency"));
     int64_t buf_size_mb = stoi(parser.value("buf_size_mb"));
     int64_t buf_size_kb = stoi(parser.value("buf_size_kb"));
+    int num_workers = stoi(parser.value("num_compute_units"));
+
+    int max_compute_units = 14;
 
     if (xclbinFile.empty())
     {
@@ -414,12 +393,109 @@ int main(int argc, char **argv)
     }
     int64_t buf_size_bytes = buf_size_kb * 1024;
     buf_size_bytes -= buf_size_bytes % 16;
+
+    KernelConfig crc32;
+    loadConfig("Configs/CRC_32", crc32);
+    KernelConfig crc16;
+    loadConfig("Configs/CRC_16", crc16);
+
+    std::vector<unsigned char> data1(1024 * 1024);
+    std::vector<unsigned char> data2(1024 * 1024);
+    for (size_t i = 0; i < data1.size(); i++)
+    {
+        data1[i] = static_cast<unsigned char>((i % 255) & 0xFF);
+        data2[i] = static_cast<unsigned char>((i * 2) & 0xFF);
+    }
+    FpgaManager mgr("kernel.xclbin", buf_size_bytes, max_compute_units, num_workers);
+    auto res1a = mgr.calculate_crc(data1, crc32);
+    auto res2a = mgr.calculate_crc(data2, crc16);
+
+    // Delay 100ms
+    std::this_thread::sleep_for(std::chrono::milliseconds(100));
+
+    // Test Independent Run Time
+
+    std::cout << "Calculating Sequentially..." << std::endl;
+    auto start_time = std::chrono::high_resolution_clock::now();
+    res1a = mgr.calculate_crc(data1, crc32);
+    auto mid_time = std::chrono::high_resolution_clock::now();
+    res2a = mgr.calculate_crc(data2, crc16);
+    auto end_time = std::chrono::high_resolution_clock::now();
+
+    auto duration1 = std::chrono::duration_cast<std::chrono::microseconds>(mid_time - start_time).count();
+    auto duration2 = std::chrono::duration_cast<std::chrono::microseconds>(end_time - mid_time).count();
+
+    std::cout << "CRC32 Time: " << duration1 << " us" << std::endl;
+    std::cout << "CRC16 Time: " << duration2 << " us" << std::endl;
+    std::cout << "Total Time: " << (duration1 + duration2) << " us" << std::endl;
+
+    // Test Parallel Run Time
+
+    std::cout << "Calculating in Parallel..." << std::endl;
+    start_time = std::chrono::high_resolution_clock::now();
+    auto fut1 = mgr.submit(data1, crc32);
+    auto fut2 = mgr.submit(data2, crc16);
+
+    auto res1b = fut1.get();
+    mid_time = std::chrono::high_resolution_clock::now();
+    auto res2b = fut2.get();
+    end_time = std::chrono::high_resolution_clock::now();
+    duration1 = std::chrono::duration_cast<std::chrono::microseconds>(mid_time - start_time).count();
+    duration2 = std::chrono::duration_cast<std::chrono::microseconds>(end_time - mid_time).count();
+    std::cout << "CRC32 Time: " << duration1 << " us" << std::endl;
+    std::cout << "CRC16 Time: " << duration2 << " us" << std::endl;
+    std::cout << "Total Time: " << (duration1 + duration2) << " us" << std::endl;
+
+    std::cout << "Calculating Sequentially..." << std::endl;
+    start_time = std::chrono::high_resolution_clock::now();
+    res1a = mgr.calculate_crc(data1, crc32);
+    mid_time = std::chrono::high_resolution_clock::now();
+    res2a = mgr.calculate_crc(data2, crc16);
+    end_time = std::chrono::high_resolution_clock::now();
+
+    duration1 = std::chrono::duration_cast<std::chrono::microseconds>(mid_time - start_time).count();
+    duration2 = std::chrono::duration_cast<std::chrono::microseconds>(end_time - mid_time).count();
+
+    std::cout << "CRC32 Time: " << duration1 << " us" << std::endl;
+    std::cout << "CRC16 Time: " << duration2 << " us" << std::endl;
+    std::cout << "Total Time: " << (duration1 + duration2) << " us" << std::endl;
+
+    // Test Parallel Run Time
+
+    std::cout << "Calculating in Parallel..." << std::endl;
+    start_time = std::chrono::high_resolution_clock::now();
+    fut1 = mgr.submit(data1, crc32);
+    fut2 = mgr.submit(data2, crc16);
+
+    res1b = fut1.get();
+    mid_time = std::chrono::high_resolution_clock::now();
+    res2b = fut2.get();
+    end_time = std::chrono::high_resolution_clock::now();
+    duration1 = std::chrono::duration_cast<std::chrono::microseconds>(mid_time - start_time).count();
+    duration2 = std::chrono::duration_cast<std::chrono::microseconds>(end_time - mid_time).count();
+    std::cout << "CRC32 Time: " << duration1 << " us" << std::endl;
+    std::cout << "CRC16 Time: " << duration2 << " us" << std::endl;
+    std::cout << "Total Time: " << (duration1 + duration2) << " us" << std::endl;
+
+    for (auto r : res1b)
+    {
+        std::cout << std::hex << r << " ";
+    }
+    std::cout << std::endl;
+    for (auto r : res2b)
+    {
+        std::cout << std::hex << r << " ";
+    }
+    std::cout << std::endl;
+
+    /*
+
     /*
     std::cout << "Manual Test (\"yes\" or \"no\"): ";
     std::string manual;
     std::cin >> manual;
     bool manualTest = (manual == "yes");
-    // */
+    //
     std::cout << "Buffer Size: " << buf_size_bytes << std::endl;
 
     int numKernels = 10; // MAX 10
@@ -443,8 +519,6 @@ int main(int argc, char **argv)
     // Program Device
     cl_int err;
     cl::Context context;
-    cl::CommandQueue queue0a, queue0b, queue1a, queue1b, queue2a, queue2b, queue3a, queue3b;
-    cl::Kernel kernel0, kernel1;
 
     auto devices = xcl::get_xil_devices();
     auto device = devices[0];
@@ -464,6 +538,7 @@ int main(int argc, char **argv)
         {
             OCL_CHECK(err, kComps[k].queueA = cl::CommandQueue(context, device, CL_QUEUE_OUT_OF_ORDER_EXEC_MODE_ENABLE, &err));
             OCL_CHECK(err, kComps[k].queueB = cl::CommandQueue(context, device, CL_QUEUE_OUT_OF_ORDER_EXEC_MODE_ENABLE, &err));
+            OCL_CHECK(err, kComps[k].queueK = cl::CommandQueue(context, device, CL_QUEUE_OUT_OF_ORDER_EXEC_MODE_ENABLE, &err));
         }
 
         std::cout << "Trying to program device[" << i << "]: " << device.getInfo<CL_DEVICE_NAME>() << std::endl;
@@ -490,22 +565,74 @@ int main(int argc, char **argv)
     }
     long global_mem_size;
     devices[0].getInfo(CL_DEVICE_GLOBAL_MEM_SIZE, &global_mem_size);
-    std::cout << "Global Memory Size: " << global_mem_size << std::endl;
+    // std::cout << "Global Memory Size: " << global_mem_size << std::endl;
     cl_mem_ext_ptr_t HBM_ext = {0};
     // Setup Kernels
-    SETUP_TEN_KERNELS;
+    SETUP_SIXTEEN_KERNELS;
 
     // unsigned long counter = 0;
 
     bool dualKernel = true;
     bool skipFileReadWrite = false;
+    std::string rerun = "yes";
+    std::cout << "Test Throughput (yes/no): ";
+    std::cin >> rerun;
+    if (rerun == "yes")
+    {
+
+        cl::Event sync_event;
+        for (int n = 0; n < 10; n++)
+        {
+            std::cout << "Testing " << 10 << " kernels..." << std::endl;
+
+            auto start_time_throughput = std::chrono::high_resolution_clock::now();
+
+            for (int k = 0; k < 10; k++)
+            {
+                // Send data to device
+                OCL_CHECK(err, err = kComps[k].queueA.enqueueWriteBuffer(kComps[k].inBufferA, CL_TRUE, 0, buf_size_bytes, kComps[k].hostInA));
+                OCL_CHECK(err, err = kComps[k].queueB.enqueueWriteBuffer(kComps[k].inBufferB, CL_TRUE, 0, buf_size_bytes, kComps[k].hostInB));
+
+                // Read data from device
+                OCL_CHECK(err, err = kComps[k].queueA.enqueueReadBuffer(kComps[k].outBufferA, CL_TRUE, 0, buf_size_bytes, kComps[k].hostOutA));
+                OCL_CHECK(err, err = kComps[k].queueB.enqueueReadBuffer(kComps[k].outBufferB, CL_TRUE, 0, buf_size_bytes, kComps[k].hostOutB));
+            }
+
+            // Sync with device
+
+            for (int k = 0; k < n; k++)
+            {
+                // OCL_CHECK(err, err = kComps[k].queueA.finish());
+                // OCL_CHECK(err, err = kComps[k].queueB.finish());
+            }
+
+            // sync_event.wait();
+            auto stop_time_throughput = std::chrono::high_resolution_clock::now();
+            auto calc_time_throughput = std::chrono::duration_cast<std::chrono::milliseconds>(stop_time_throughput - start_time_throughput);
+            for (int i = 0; i < 10; i++)
+            {
+                kComps[i].hostInA[0] = kComps[i].hostOutA[0];
+                kComps[i].hostInB[0] = kComps[i].hostOutB[0];
+            }
+            int bytes_sent = buf_size_bytes * 10 * 2;
+            std::cout << "Sent " << std::dec << bytes_sent << " bytes in " << std::dec << calc_time_throughput.count() << "ms" << std::endl;
+
+            double throughput = ((double)bytes_sent / 1000000.0) / (double)calc_time_throughput.count(); // MB per ms
+            // std::cout << "Throughput: " << throughput << "MB/ms " << std::endl;
+            throughput *= 1000.0; // MB per second
+
+            // throughput *= 8.0;
+            std::cout << "Throughput: " << throughput << "MBps " << std::endl;
+        }
+        rerun = "no";
+    }
 
     std::ofstream output_file("throughput.txt", std::ios::app);
     // numKernels = 3;
     //  FPGA TOP LOOP
 
     std::vector<KernelConfig *> configs = std::vector<KernelConfig *>();
-    std::string rerun = "yes";
+
     while (rerun == "yes")
     {
         std::string addConfig = "yes";
@@ -542,8 +669,10 @@ int main(int argc, char **argv)
             }
 
             // get file size
-            size_t dataSize = configs[i]->infile.tellg();
             configs[i]->infile.seekg(0, std::ios::end);
+            size_t dataSize = configs[i]->infile.tellg();
+            std::cout << "File Size: " << dataSize << std::endl;
+            configs[i]->infile.seekg(0, std::ios::beg); // Reset file pointer to beginning
             int numChunks = dataSize / configs[i]->chunkSize;
             dataProcessed += dataSize;
             size_t batchSize = configs[i]->chunkSize;
@@ -553,11 +682,10 @@ int main(int argc, char **argv)
                 batchSize += configs[i]->chunkSize;
             }
 
-            configs[i]->dataSize = batchSize - configs[i]->chunkSize;
-            if (configs[i]->dataSize / batchSize > loopCount)
-            {
-                loopCount = configs[i]->dataSize / batchSize;
-            }
+            configs[i]->dataSize = batchSize;
+            std::cout << "Batch Size: " << batchSize << std::endl;
+            loopCount = (long)((long)dataSize / (long)batchSize);
+            std::cout << "Loop Count: " << loopCount << std::endl;
             configs[i]->outfile = std::ofstream("output_" + std::to_string(i) + ".bin", std::ios::binary);
         }
 
@@ -607,7 +735,7 @@ int main(int argc, char **argv)
 
         bool firstLoop = false;
         // long loopcount = 0;
-
+        std::cout << "Starting " << loopCount << " loops" << std::endl;
         while (loopCount > 0)
         {
             loopCount -= 2 * numKernels;
@@ -705,7 +833,7 @@ int main(int argc, char **argv)
 
                 // Q2: 1. >> K1 >> // Run kernel on second batch
 
-                OCL_CHECK(err, err = kComps[k].queueB.enqueueTask(kComps[k].kernel));
+                // OCL_CHECK(err, err = kComps[k].queueB.enqueueTask(kComps[k].kernel));
 
                 // Q1: B1Out >> H1Out
                 OCL_CHECK(err, err = kComps[k].queueB.enqueueReadBuffer(kComps[k].outBufferB, CL_TRUE, 0, numChunks * sizeof(uint32_t), kComps[k].hostOutB));
@@ -762,7 +890,7 @@ int main(int argc, char **argv)
             OCL_CHECK(err, err = queue0b.enqueueTask(kernel1));
             OCL_CHECK(err, err = queue0b.enqueueReadBuffer(output_buffer_0B, CL_TRUE, 0, numChunks * sizeof(uint32_t), hostOut0B));
             save_to_file(hostOut0B, output_file, numChunks, refOutput, crcWidth);
-        } // */
+        } //
         auto stop_time = std::chrono::high_resolution_clock::now();
         auto calc_time = std::chrono::duration_cast<std::chrono::milliseconds>(stop_time - start_time);
 
@@ -798,6 +926,6 @@ int main(int argc, char **argv)
         free(kComps[i].hostOutA);
         free(kComps[i].hostOutB);
     }
-
+    */
     return 0;
 }

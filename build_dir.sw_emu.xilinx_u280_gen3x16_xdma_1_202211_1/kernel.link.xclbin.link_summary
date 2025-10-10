@@ -1,0 +1,587 @@
+<ENTRY>
+{
+ "thisFile": "/home/efrink/Documents/Examples/Kernel_Tools/parallel_crc/build_dir.sw_emu.xilinx_u280_gen3x16_xdma_1_202211_1/kernel.link.xclbin.link_summary",
+ "connectId": "",
+ "serverToken": "",
+ "timestamp": "0"
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_CmdStep",
+ "dateTimestamp": "Tue Nov 19 01:12:08 2024",
+ "timestampMillis": "1731978728762",
+ "buildStep": {
+  "cmdId": "062eb4b6-7fca-4ffd-9a05-8d724ff87501",
+  "name": "v++",
+  "logFile": "/home/efrink/Documents/Examples/Kernel_Tools/parallel_crc/_x.sw_emu.xilinx_u280_gen3x16_xdma_1_202211_1/link/link.steps.log",
+  "commandLine": "/tools/Xilinx/Vitis/2023.1/bin/unwrapped/lnx64.o/v++  --vivado.prop \"run.__KERNEL__.{STEPS.SYNTH_DESIGN.ARGS.MORE OPTIONS}={-directive sdx_optimization_effort_high}\" --advanced.misc \"report=type report_timing_summary name impl_report_timing_summary_route_design_summary steps {route_design} runs {impl_1} options {-max_paths 10}\" --advanced.misc \"report=type report_timing_summary name impl_report_timing_summary_post_route_phys_opt_design_summary steps {post_route_phys_opt_design} runs {impl_1} options {-max_paths 10}\" -l -g --save-temps -t sw_emu --platform /opt/xilinx/platforms/xilinx_u280_gen3x16_xdma_1_202211_1/xilinx_u280_gen3x16_xdma_1_202211_1.xpfm --temp_dir ./_x.sw_emu.xilinx_u280_gen3x16_xdma_1_202211_1 --config ./xrt.ini -o./build_dir.sw_emu.xilinx_u280_gen3x16_xdma_1_202211_1/kernel.link.xclbin _x.sw_emu.xilinx_u280_gen3x16_xdma_1_202211_1/kernel.xo ",
+  "args": [
+   "-l",
+   "-g",
+   "--save-temps",
+   "-t",
+   "sw_emu",
+   "--platform",
+   "/opt/xilinx/platforms/xilinx_u280_gen3x16_xdma_1_202211_1/xilinx_u280_gen3x16_xdma_1_202211_1.xpfm",
+   "--temp_dir",
+   "./_x.sw_emu.xilinx_u280_gen3x16_xdma_1_202211_1",
+   "--config",
+   "./xrt.ini",
+   "-o./build_dir.sw_emu.xilinx_u280_gen3x16_xdma_1_202211_1/kernel.link.xclbin",
+   "_x.sw_emu.xilinx_u280_gen3x16_xdma_1_202211_1/kernel.xo"
+  ],
+  "iniFiles": [
+   {
+    "path": "/home/efrink/Documents/Examples/Kernel_Tools/parallel_crc/xrt.ini",
+    "content": "\n\n[connectivity]\nnk=calculate_crc:2:CRC_X,CRC_Y\nsp=CRC_X.data_in:HBM[0]\nsp=CRC_X.crc_out:HBM[0]\nsp=CRC_X.tables:HBM[1]\nsp=CRC_Y.data_in:HBM[2]\nsp=CRC_Y.crc_out:HBM[2]\nsp=CRC_Y.tables:HBM[3]\n"
+   }
+  ],
+  "cwd": "/home/efrink/Documents/Examples/Kernel_Tools/parallel_crc"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Status",
+ "dateTimestamp": "Tue Nov 19 01:12:08 2024",
+ "timestampMillis": "1731978728762",
+ "status": {
+  "cmdId": "062eb4b6-7fca-4ffd-9a05-8d724ff87501",
+  "state": "CS_RUNNING"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_FlowMetaData",
+ "dateTimestamp": "Tue Nov 19 01:12:13 2024",
+ "timestampMillis": "1731978733141",
+ "buildSummary": {
+  "hardwarePlatform": "xilinx_u280_gen3x16_xdma_1_202211_1.xpfm",
+  "hardwareDsa": "",
+  "platformDirectory": "/opt/xilinx/platforms/xilinx_u280_gen3x16_xdma_1_202211_1",
+  "runtime": "OpenCL",
+  "systemConfig": "Linux",
+  "flow": "BF_LINK",
+  "target": "TT_SW_EMU",
+  "binaryContainer": {
+   "base": {
+    "type": "BT_UKNOWN",
+    "name": "kernel.link",
+    "file": "/home/efrink/Documents/Examples/Kernel_Tools/parallel_crc/build_dir.sw_emu.xilinx_u280_gen3x16_xdma_1_202211_1/kernel.link.xclbin",
+    "reports": [],
+    "uuid": ""
+   },
+   "kernels": []
+  },
+  "kernels": [
+   {
+    "base": {
+     "type": "KERNEL",
+     "name": "calculate_crc",
+     "file": "/home/efrink/Documents/Examples/Kernel_Tools/parallel_crc/_x.sw_emu.xilinx_u280_gen3x16_xdma_1_202211_1/kernel.xo",
+     "reports": [],
+     "uuid": ""
+    },
+    "sources": [
+     "/home/efrink/Documents/Examples/Kernel_Tools/parallel_crc/_x.sw_emu.xilinx_u280_gen3x16_xdma_1_202211_1/link/int/xo/calculate_crc/calculate_crc/cpu_sources/kernel.cpp"
+    ],
+    "psSources": [],
+    "cuNames": [
+     "CRC_X",
+     "CRC_Y"
+    ],
+    "type": "HLS",
+    "frequency": 0,
+    "freqUnits": ""
+   }
+  ],
+  "toolVersion": "Vitis V++ Compiler Release 2023.1. SW Build 3860322 on 2023-05-04-06:32:48"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Report",
+ "dateTimestamp": "Tue Nov 19 01:12:13 2024",
+ "timestampMillis": "1731978733402",
+ "report": {
+  "path": "/home/efrink/Documents/Examples/Kernel_Tools/parallel_crc/_x.sw_emu.xilinx_u280_gen3x16_xdma_1_202211_1/link/int/systemDiagramModel.json",
+  "name": "",
+  "fileType": "JSON",
+  "reportType": "SYSTEM_DIAGRAM",
+  "cmdId": ""
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_SubCmdStep",
+ "dateTimestamp": "Tue Nov 19 01:12:13 2024",
+ "timestampMillis": "1731978733403",
+ "buildStep": {
+  "cmdId": "c7620a00-a7a5-4ec0-9dd7-25f24a081303",
+  "name": "regiongen",
+  "logFile": "/home/efrink/Documents/Examples/Kernel_Tools/parallel_crc/_x.sw_emu.xilinx_u280_gen3x16_xdma_1_202211_1/link/int/kernel.link_regiongen.log",
+  "commandLine": "/tools/Xilinx/Vitis/2023.1/bin/../runtime/bin/regiongen_new -v -m /home/efrink/Documents/Examples/Kernel_Tools/parallel_crc/_x.sw_emu.xilinx_u280_gen3x16_xdma_1_202211_1/link/int/kernel.link.xml -r /home/efrink/Documents/Examples/Kernel_Tools/parallel_crc/_x.sw_emu.xilinx_u280_gen3x16_xdma_1_202211_1/link/int/kernel.link.rtd -t alg -o xcl_top",
+  "args": [
+   "-v",
+   "-m",
+   "/home/efrink/Documents/Examples/Kernel_Tools/parallel_crc/_x.sw_emu.xilinx_u280_gen3x16_xdma_1_202211_1/link/int/kernel.link.xml",
+   "-r",
+   "/home/efrink/Documents/Examples/Kernel_Tools/parallel_crc/_x.sw_emu.xilinx_u280_gen3x16_xdma_1_202211_1/link/int/kernel.link.rtd",
+   "-t",
+   "alg",
+   "-o",
+   "xcl_top"
+  ],
+  "iniFiles": [],
+  "cwd": "/home/efrink/Documents/Examples/Kernel_Tools/parallel_crc"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Status",
+ "dateTimestamp": "Tue Nov 19 01:12:13 2024",
+ "timestampMillis": "1731978733404",
+ "status": {
+  "cmdId": "c7620a00-a7a5-4ec0-9dd7-25f24a081303",
+  "state": "CS_RUNNING"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Status",
+ "dateTimestamp": "Tue Nov 19 01:12:14 2024",
+ "timestampMillis": "1731978734600",
+ "status": {
+  "cmdId": "c7620a00-a7a5-4ec0-9dd7-25f24a081303",
+  "state": "CS_PASSED"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_SubCmdStep",
+ "dateTimestamp": "Tue Nov 19 01:12:14 2024",
+ "timestampMillis": "1731978734603",
+ "buildStep": {
+  "cmdId": "7081dc2b-3dbc-488b-b48e-b25c14ef253d",
+  "name": "gcc",
+  "logFile": "/home/efrink/Documents/Examples/Kernel_Tools/parallel_crc/_x.sw_emu.xilinx_u280_gen3x16_xdma_1_202211_1/link/int/calculate_crc/calculate_crc_kernel_gcc.log",
+  "commandLine": "/tools/Xilinx/Vivado/2023.1/tps/lnx64/gcc-8.3.0/bin/gcc -I . -I /tools/Xilinx/Vitis_HLS/2023.1/bin/../include -I /tools/Xilinx/Vitis_HLS/2023.1/bin/../lnx64/tools/auto_cc/include -I /tools/Xilinx/Vitis_HLS/2023.1/bin/../common/technology/autopilot/opencl -I /tools/Xilinx/Vitis/2023.1/bin/../common/technology/autopilot/opencl -I /tools/Xilinx/Vitis/2023.1/bin/../data/emulation/include -I /usr/include/x86_64-linux-gnu -std=c++14 -g -I /home/efrink/Documents/Examples/Kernel_Tools/parallel_crc/src -g -fPIC -g -c -DHLS_STREAM_THREAD_SAFE -MD -MT obj/kernel.o -MP -MF obj/kernel.Cd /home/efrink/Documents/Examples/Kernel_Tools/parallel_crc/_x.sw_emu.xilinx_u280_gen3x16_xdma_1_202211_1/link/int/xo/calculate_crc/calculate_crc/cpu_sources/kernel.cpp -o obj/kernel.o",
+  "args": [
+   "-I",
+   ".",
+   "-I",
+   "/tools/Xilinx/Vitis_HLS/2023.1/bin/../include",
+   "-I",
+   "/tools/Xilinx/Vitis_HLS/2023.1/bin/../lnx64/tools/auto_cc/include",
+   "-I",
+   "/tools/Xilinx/Vitis_HLS/2023.1/bin/../common/technology/autopilot/opencl",
+   "-I",
+   "/tools/Xilinx/Vitis/2023.1/bin/../common/technology/autopilot/opencl",
+   "-I",
+   "/tools/Xilinx/Vitis/2023.1/bin/../data/emulation/include",
+   "-I",
+   "/usr/include/x86_64-linux-gnu",
+   "-std=c++14",
+   "-g",
+   "-I",
+   "/home/efrink/Documents/Examples/Kernel_Tools/parallel_crc/src",
+   "-g",
+   "-fPIC",
+   "-g",
+   "-c",
+   "-DHLS_STREAM_THREAD_SAFE",
+   "-MD",
+   "-MT",
+   "obj/kernel.o",
+   "-MP",
+   "-MF",
+   "obj/kernel.Cd",
+   "/home/efrink/Documents/Examples/Kernel_Tools/parallel_crc/_x.sw_emu.xilinx_u280_gen3x16_xdma_1_202211_1/link/int/xo/calculate_crc/calculate_crc/cpu_sources/kernel.cpp",
+   "-o",
+   "obj/kernel.o"
+  ],
+  "iniFiles": [],
+  "cwd": "/home/efrink/Documents/Examples/Kernel_Tools/parallel_crc"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Status",
+ "dateTimestamp": "Tue Nov 19 01:12:14 2024",
+ "timestampMillis": "1731978734604",
+ "status": {
+  "cmdId": "7081dc2b-3dbc-488b-b48e-b25c14ef253d",
+  "state": "CS_RUNNING"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Status",
+ "dateTimestamp": "Tue Nov 19 01:12:16 2024",
+ "timestampMillis": "1731978736237",
+ "status": {
+  "cmdId": "7081dc2b-3dbc-488b-b48e-b25c14ef253d",
+  "state": "CS_PASSED"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_SubCmdStep",
+ "dateTimestamp": "Tue Nov 19 01:12:16 2024",
+ "timestampMillis": "1731978736239",
+ "buildStep": {
+  "cmdId": "762d9b8b-c73b-470f-a002-6ec980a68571",
+  "name": "ar",
+  "logFile": "/home/efrink/Documents/Examples/Kernel_Tools/parallel_crc/_x.sw_emu.xilinx_u280_gen3x16_xdma_1_202211_1/link/int/calculate_crc/calculate_crc_ar.log",
+  "commandLine": "/tools/Xilinx/Vivado/2023.1/tps/lnx64/binutils-2.26/bin/ar -cr /home/efrink/Documents/Examples/Kernel_Tools/parallel_crc/_x.sw_emu.xilinx_u280_gen3x16_xdma_1_202211_1/link/int/calculate_crc/calculate_crc.csim_cu.a /home/efrink/Documents/Examples/Kernel_Tools/parallel_crc/_x.sw_emu.xilinx_u280_gen3x16_xdma_1_202211_1/link/int/calculate_crc/obj/kernel.o",
+  "args": [
+   "-cr",
+   "/home/efrink/Documents/Examples/Kernel_Tools/parallel_crc/_x.sw_emu.xilinx_u280_gen3x16_xdma_1_202211_1/link/int/calculate_crc/calculate_crc.csim_cu.a",
+   "/home/efrink/Documents/Examples/Kernel_Tools/parallel_crc/_x.sw_emu.xilinx_u280_gen3x16_xdma_1_202211_1/link/int/calculate_crc/obj/kernel.o"
+  ],
+  "iniFiles": [],
+  "cwd": "/home/efrink/Documents/Examples/Kernel_Tools/parallel_crc"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Status",
+ "dateTimestamp": "Tue Nov 19 01:12:16 2024",
+ "timestampMillis": "1731978736239",
+ "status": {
+  "cmdId": "762d9b8b-c73b-470f-a002-6ec980a68571",
+  "state": "CS_RUNNING"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Status",
+ "dateTimestamp": "Tue Nov 19 01:12:16 2024",
+ "timestampMillis": "1731978736256",
+ "status": {
+  "cmdId": "762d9b8b-c73b-470f-a002-6ec980a68571",
+  "state": "CS_PASSED"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_SubCmdStep",
+ "dateTimestamp": "Tue Nov 19 01:12:16 2024",
+ "timestampMillis": "1731978736258",
+ "buildStep": {
+  "cmdId": "e540648d-1fe0-4b19-b328-43427fd70d92",
+  "name": "g++",
+  "logFile": "/home/efrink/Documents/Examples/Kernel_Tools/parallel_crc/_x.sw_emu.xilinx_u280_gen3x16_xdma_1_202211_1/link/int/kernel.link_xcl_top_gpp.log",
+  "commandLine": "/tools/Xilinx/Vivado/2023.1/tps/lnx64/gcc-8.3.0/bin/g++ -I . -I /tools/Xilinx/Vitis_HLS/2023.1/bin/../include -I /tools/Xilinx/Vitis_HLS/2023.1/bin/../common/technology/autopilot/opencl -I /tools/Xilinx/Vitis/2023.1/bin/../common/technology/autopilot/opencl -I /tools/Xilinx/Vitis/2023.1/bin/../data/emulation/include -I /tools/Xilinx/Vitis_HLS/2023.1/bin/../lnx64/tools/auto_cc/include -fPIC -g -DHLS_STREAM_THREAD_SAFE -std=c++14 -fpermissive -c -MD -MT obj/xcl_top.o -MP -MF obj/xcl_top.CXXd xcl_top.cpp -o obj/xcl_top.o",
+  "args": [
+   "-I",
+   ".",
+   "-I",
+   "/tools/Xilinx/Vitis_HLS/2023.1/bin/../include",
+   "-I",
+   "/tools/Xilinx/Vitis_HLS/2023.1/bin/../common/technology/autopilot/opencl",
+   "-I",
+   "/tools/Xilinx/Vitis/2023.1/bin/../common/technology/autopilot/opencl",
+   "-I",
+   "/tools/Xilinx/Vitis/2023.1/bin/../data/emulation/include",
+   "-I",
+   "/tools/Xilinx/Vitis_HLS/2023.1/bin/../lnx64/tools/auto_cc/include",
+   "-fPIC",
+   "-g",
+   "-DHLS_STREAM_THREAD_SAFE",
+   "-std=c++14",
+   "-fpermissive",
+   "-c",
+   "-MD",
+   "-MT",
+   "obj/xcl_top.o",
+   "-MP",
+   "-MF",
+   "obj/xcl_top.CXXd",
+   "xcl_top.cpp",
+   "-o",
+   "obj/xcl_top.o"
+  ],
+  "iniFiles": [],
+  "cwd": "/home/efrink/Documents/Examples/Kernel_Tools/parallel_crc"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Status",
+ "dateTimestamp": "Tue Nov 19 01:12:16 2024",
+ "timestampMillis": "1731978736258",
+ "status": {
+  "cmdId": "e540648d-1fe0-4b19-b328-43427fd70d92",
+  "state": "CS_RUNNING"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Status",
+ "dateTimestamp": "Tue Nov 19 01:12:17 2024",
+ "timestampMillis": "1731978737583",
+ "status": {
+  "cmdId": "e540648d-1fe0-4b19-b328-43427fd70d92",
+  "state": "CS_PASSED"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_SubCmdStep",
+ "dateTimestamp": "Tue Nov 19 01:12:17 2024",
+ "timestampMillis": "1731978737584",
+ "buildStep": {
+  "cmdId": "43eea9ed-999f-4091-81b3-acfc1a7753c6",
+  "name": "g++",
+  "logFile": "/home/efrink/Documents/Examples/Kernel_Tools/parallel_crc/_x.sw_emu.xilinx_u280_gen3x16_xdma_1_202211_1/link/int/kernel.link_top_gpp.log",
+  "commandLine": "/tools/Xilinx/Vivado/2023.1/tps/lnx64/gcc-8.3.0/bin/g++ -fPIC -DHLS_STREAM_THREAD_SAFE -std=c++14 -Wall -shared -Wl,--whole-archive,-soname,kernel.link.so -o kernel.link.so calculate_crc/calculate_crc.csim_cu.a obj/xcl_top.o -Wl,--no-whole-archive -Wl,--as-needed -L /tools/Xilinx/Vitis_HLS/2023.1/bin/../lib/lnx64.o -lhlsmathsim -L /tools/Xilinx/Vitis_HLS/2023.1/bin/../lnx64/tools/fpo_v7_1 -lgmp -lmpfr -lIp_floating_point_v7_1_bitacc_cmodel -Wl,-rpath,/tools/Xilinx/Vitis_HLS/2023.1/bin/../lnx64/tools/fpo_v7_1 -L /tools/Xilinx/Vitis_HLS/2023.1/bin/../lnx64/tools/fft_v9_1 -lIp_xfft_v9_1_bitacc_cmodel -L /tools/Xilinx/Vitis_HLS/2023.1/bin/../lnx64/tools/fir_v7_0 -lgmp -lIp_fir_compiler_v7_2_bitacc_cmodel -L /tools/Xilinx/Vitis_HLS/2023.1/bin/../lnx64/lib/csim -lhlsmc++-GCC46 -L /tools/Xilinx/Vivado/2023.1/tps/lnx64/gcc-8.3.0/bin/../lib/gcc/x86_64-pc-linux-gnu/6.2.0/ -lgcov",
+  "args": [
+   "-fPIC",
+   "-DHLS_STREAM_THREAD_SAFE",
+   "-std=c++14",
+   "-Wall",
+   "-shared",
+   "-Wl,--whole-archive,-soname,kernel.link.so",
+   "-o",
+   "kernel.link.so",
+   "calculate_crc/calculate_crc.csim_cu.a",
+   "obj/xcl_top.o",
+   "-Wl,--no-whole-archive",
+   "-Wl,--as-needed",
+   "-L",
+   "/tools/Xilinx/Vitis_HLS/2023.1/bin/../lib/lnx64.o",
+   "-lhlsmathsim",
+   "-L",
+   "/tools/Xilinx/Vitis_HLS/2023.1/bin/../lnx64/tools/fpo_v7_1",
+   "-lgmp",
+   "-lmpfr",
+   "-lIp_floating_point_v7_1_bitacc_cmodel",
+   "-Wl,-rpath,/tools/Xilinx/Vitis_HLS/2023.1/bin/../lnx64/tools/fpo_v7_1",
+   "-L",
+   "/tools/Xilinx/Vitis_HLS/2023.1/bin/../lnx64/tools/fft_v9_1",
+   "-lIp_xfft_v9_1_bitacc_cmodel",
+   "-L",
+   "/tools/Xilinx/Vitis_HLS/2023.1/bin/../lnx64/tools/fir_v7_0",
+   "-lgmp",
+   "-lIp_fir_compiler_v7_2_bitacc_cmodel",
+   "-L",
+   "/tools/Xilinx/Vitis_HLS/2023.1/bin/../lnx64/lib/csim",
+   "-lhlsmc++-GCC46",
+   "-L",
+   "/tools/Xilinx/Vivado/2023.1/tps/lnx64/gcc-8.3.0/bin/../lib/gcc/x86_64-pc-linux-gnu/6.2.0/",
+   "-lgcov"
+  ],
+  "iniFiles": [],
+  "cwd": "/home/efrink/Documents/Examples/Kernel_Tools/parallel_crc"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Status",
+ "dateTimestamp": "Tue Nov 19 01:12:17 2024",
+ "timestampMillis": "1731978737585",
+ "status": {
+  "cmdId": "43eea9ed-999f-4091-81b3-acfc1a7753c6",
+  "state": "CS_RUNNING"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Status",
+ "dateTimestamp": "Tue Nov 19 01:12:17 2024",
+ "timestampMillis": "1731978737689",
+ "status": {
+  "cmdId": "43eea9ed-999f-4091-81b3-acfc1a7753c6",
+  "state": "CS_PASSED"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Report",
+ "dateTimestamp": "Tue Nov 19 01:12:17 2024",
+ "timestampMillis": "1731978737838",
+ "report": {
+  "path": "/home/efrink/Documents/Examples/Kernel_Tools/parallel_crc/_x.sw_emu.xilinx_u280_gen3x16_xdma_1_202211_1/link/int/kernel.link_xml.rtd",
+  "name": "",
+  "fileType": "JSON",
+  "reportType": "XCLBIN_INFO",
+  "cmdId": ""
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_SubCmdStep",
+ "dateTimestamp": "Tue Nov 19 01:12:17 2024",
+ "timestampMillis": "1731978737840",
+ "buildStep": {
+  "cmdId": "6768d6af-e4d3-4100-8637-8a766ce7e043",
+  "name": "xclbinutil",
+  "logFile": "/home/efrink/Documents/Examples/Kernel_Tools/parallel_crc/_x.sw_emu.xilinx_u280_gen3x16_xdma_1_202211_1/link/int/kernel.link_xclbinutil.log",
+  "commandLine": "/tools/Xilinx/Vitis/2023.1/bin/xclbinutil --add-section BITSTREAM:RAW:/home/efrink/Documents/Examples/Kernel_Tools/parallel_crc/_x.sw_emu.xilinx_u280_gen3x16_xdma_1_202211_1/link/int/kernel.link.so --force --target sw_emu --add-section :JSON:/home/efrink/Documents/Examples/Kernel_Tools/parallel_crc/_x.sw_emu.xilinx_u280_gen3x16_xdma_1_202211_1/link/int/kernel.link.rtd --append-section :JSON:/home/efrink/Documents/Examples/Kernel_Tools/parallel_crc/_x.sw_emu.xilinx_u280_gen3x16_xdma_1_202211_1/link/int/appendSection.rtd --add-section CLOCK_FREQ_TOPOLOGY:JSON:/home/efrink/Documents/Examples/Kernel_Tools/parallel_crc/_x.sw_emu.xilinx_u280_gen3x16_xdma_1_202211_1/link/int/kernel.link_xml.rtd --add-section BUILD_METADATA:JSON:/home/efrink/Documents/Examples/Kernel_Tools/parallel_crc/_x.sw_emu.xilinx_u280_gen3x16_xdma_1_202211_1/link/int/kernel.link_build.rtd --add-section EMBEDDED_METADATA:RAW:/home/efrink/Documents/Examples/Kernel_Tools/parallel_crc/_x.sw_emu.xilinx_u280_gen3x16_xdma_1_202211_1/link/int/kernel.link.xml --add-section DEBUG_DATA:RAW:/dev/null --add-section SYSTEM_METADATA:RAW:/home/efrink/Documents/Examples/Kernel_Tools/parallel_crc/_x.sw_emu.xilinx_u280_gen3x16_xdma_1_202211_1/link/int/systemDiagramModel.json --output /home/efrink/Documents/Examples/Kernel_Tools/parallel_crc/./build_dir.sw_emu.xilinx_u280_gen3x16_xdma_1_202211_1/kernel.link.xclbin",
+  "args": [
+   "--add-section",
+   "BITSTREAM:RAW:/home/efrink/Documents/Examples/Kernel_Tools/parallel_crc/_x.sw_emu.xilinx_u280_gen3x16_xdma_1_202211_1/link/int/kernel.link.so",
+   "--force",
+   "--target",
+   "sw_emu",
+   "--add-section",
+   ":JSON:/home/efrink/Documents/Examples/Kernel_Tools/parallel_crc/_x.sw_emu.xilinx_u280_gen3x16_xdma_1_202211_1/link/int/kernel.link.rtd",
+   "--append-section",
+   ":JSON:/home/efrink/Documents/Examples/Kernel_Tools/parallel_crc/_x.sw_emu.xilinx_u280_gen3x16_xdma_1_202211_1/link/int/appendSection.rtd",
+   "--add-section",
+   "CLOCK_FREQ_TOPOLOGY:JSON:/home/efrink/Documents/Examples/Kernel_Tools/parallel_crc/_x.sw_emu.xilinx_u280_gen3x16_xdma_1_202211_1/link/int/kernel.link_xml.rtd",
+   "--add-section",
+   "BUILD_METADATA:JSON:/home/efrink/Documents/Examples/Kernel_Tools/parallel_crc/_x.sw_emu.xilinx_u280_gen3x16_xdma_1_202211_1/link/int/kernel.link_build.rtd",
+   "--add-section",
+   "EMBEDDED_METADATA:RAW:/home/efrink/Documents/Examples/Kernel_Tools/parallel_crc/_x.sw_emu.xilinx_u280_gen3x16_xdma_1_202211_1/link/int/kernel.link.xml",
+   "--add-section",
+   "DEBUG_DATA:RAW:/dev/null",
+   "--add-section",
+   "SYSTEM_METADATA:RAW:/home/efrink/Documents/Examples/Kernel_Tools/parallel_crc/_x.sw_emu.xilinx_u280_gen3x16_xdma_1_202211_1/link/int/systemDiagramModel.json",
+   "--output",
+   "/home/efrink/Documents/Examples/Kernel_Tools/parallel_crc/./build_dir.sw_emu.xilinx_u280_gen3x16_xdma_1_202211_1/kernel.link.xclbin"
+  ],
+  "iniFiles": [],
+  "cwd": "/home/efrink/Documents/Examples/Kernel_Tools/parallel_crc"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Status",
+ "dateTimestamp": "Tue Nov 19 01:12:17 2024",
+ "timestampMillis": "1731978737841",
+ "status": {
+  "cmdId": "6768d6af-e4d3-4100-8637-8a766ce7e043",
+  "state": "CS_RUNNING"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Status",
+ "dateTimestamp": "Tue Nov 19 01:12:17 2024",
+ "timestampMillis": "1731978737981",
+ "status": {
+  "cmdId": "6768d6af-e4d3-4100-8637-8a766ce7e043",
+  "state": "CS_PASSED"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_SubCmdStep",
+ "dateTimestamp": "Tue Nov 19 01:12:17 2024",
+ "timestampMillis": "1731978737983",
+ "buildStep": {
+  "cmdId": "469a4041-8506-4e4f-9c83-8b005fcb6ca6",
+  "name": "xclbinutil",
+  "logFile": "/home/efrink/Documents/Examples/Kernel_Tools/parallel_crc/build_dir.sw_emu.xilinx_u280_gen3x16_xdma_1_202211_1/kernel.link.xclbin.info",
+  "commandLine": "/tools/Xilinx/Vitis/2023.1/bin/xclbinutil --quiet --info --input /home/efrink/Documents/Examples/Kernel_Tools/parallel_crc/./build_dir.sw_emu.xilinx_u280_gen3x16_xdma_1_202211_1/kernel.link.xclbin",
+  "args": [
+   "--quiet",
+   "--info",
+   "--input",
+   "/home/efrink/Documents/Examples/Kernel_Tools/parallel_crc/./build_dir.sw_emu.xilinx_u280_gen3x16_xdma_1_202211_1/kernel.link.xclbin"
+  ],
+  "iniFiles": [],
+  "cwd": "/home/efrink/Documents/Examples/Kernel_Tools/parallel_crc"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Status",
+ "dateTimestamp": "Tue Nov 19 01:12:17 2024",
+ "timestampMillis": "1731978737983",
+ "status": {
+  "cmdId": "469a4041-8506-4e4f-9c83-8b005fcb6ca6",
+  "state": "CS_RUNNING"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Status",
+ "dateTimestamp": "Tue Nov 19 01:12:18 2024",
+ "timestampMillis": "1731978738121",
+ "status": {
+  "cmdId": "469a4041-8506-4e4f-9c83-8b005fcb6ca6",
+  "state": "CS_PASSED"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Report",
+ "dateTimestamp": "Tue Nov 19 01:12:18 2024",
+ "timestampMillis": "1731978738128",
+ "report": {
+  "path": "/home/efrink/Documents/Examples/Kernel_Tools/parallel_crc/_x.sw_emu.xilinx_u280_gen3x16_xdma_1_202211_1/logs/optraceViewer.html",
+  "name": "",
+  "fileType": "HTML",
+  "reportType": "OPERATION_TRACE",
+  "cmdId": ""
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Status",
+ "dateTimestamp": "Tue Nov 19 01:12:18 2024",
+ "timestampMillis": "1731978738128",
+ "status": {
+  "cmdId": "062eb4b6-7fca-4ffd-9a05-8d724ff87501",
+  "state": "CS_PASSED"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Report",
+ "dateTimestamp": "Tue Nov 19 01:12:18 2024",
+ "timestampMillis": "1731978738232",
+ "report": {
+  "path": "/home/efrink/Documents/Examples/Kernel_Tools/parallel_crc/_x.sw_emu.xilinx_u280_gen3x16_xdma_1_202211_1/reports/link/v++_link_kernel.link_guidance.html",
+  "name": "",
+  "fileType": "HTML",
+  "reportType": "GLOBAL_RULECHECK_GUIDANCE",
+  "cmdId": ""
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Report",
+ "dateTimestamp": "Tue Nov 19 01:12:18 2024",
+ "timestampMillis": "1731978738232",
+ "report": {
+  "path": "/home/efrink/Documents/Examples/Kernel_Tools/parallel_crc/_x.sw_emu.xilinx_u280_gen3x16_xdma_1_202211_1/v++_link_kernel.link_guidance.pb3",
+  "name": "",
+  "fileType": "BINARY_PROTOBUF",
+  "reportType": "GLOBAL_RULECHECK_GUIDANCE",
+  "cmdId": ""
+ }
+}
+</ENTRY>
