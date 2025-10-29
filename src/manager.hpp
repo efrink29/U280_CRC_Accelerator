@@ -16,9 +16,6 @@
 
 #include "xcl2.hpp"
 
-uint32_t *generateStandardCRCTable(uint32_t polynomial, int width);
-std::vector<uint32_t> generateParallelCRCTables(uint32_t *standardTable, int width, bool reflectInput);
-
 struct KernelConfig
 {
     uint32_t polynomial;
@@ -30,6 +27,9 @@ struct KernelConfig
     int chunkSize;
     size_t dataSize;
 };
+
+uint32_t *generateStandardCRCTable(KernelConfig config);
+uint32_t **generateParallelCRCTables(KernelConfig config);
 
 struct CrcTask
 {
@@ -163,8 +163,12 @@ public:
         // Hold till all tasks exit
         queue_.stop();
         for (auto &w : workers_)
+        {
             if (w.th.joinable())
+            {
                 w.th.join();
+            }
+        }
     }
 
     // Non-Blocking CRC calculation
@@ -197,169 +201,60 @@ private:
 
         const size_t totalBytes = data.size();
         const size_t chunkBytes = static_cast<size_t>(cfg.chunkSize);
+        const size_t nChunks = (totalBytes + chunkBytes - 1) / chunkBytes;
         if (chunkBytes == 0)
             throw std::runtime_error("chunkSize must be > 0");
+
         const size_t chunksPerBuf = w.buffer_size / chunkBytes;
         if (chunksPerBuf == 0)
             throw std::runtime_error("buffer_size must be >= chunkSize");
 
-        // Generate Tables (Could be Cached?)
-        uint32_t *stdTbl = generateStandardCRCTable(cfg.polynomial, cfg.crcWidth);
-        std::vector<uint32_t> parTbl = generateParallelCRCTables(stdTbl, cfg.crcWidth, cfg.refInput);
-        delete[] stdTbl;
+        // Generate tables
+        auto parTbl = generateParallelCRCTables(cfg);
+        std::vector<uint32_t> flatTbl(16 * 256);
+        for (int i = 0; i < 16; ++i)
+            std::memcpy(&flatTbl[i * 256], parTbl[i], 256 * sizeof(uint32_t));
 
-        if (w.dTbl() == nullptr)
+        OCL_CHECK(err, err = w.qH2D.enqueueWriteBuffer(
+                           w.dTbl, CL_TRUE, 0, flatTbl.size() * sizeof(uint32_t), flatTbl.data()));
+
+        std::vector<uint32_t> result;
+        result.reserve(nChunks);
+
+        for (size_t k = 0; k < nChunks;)
         {
-        }
-        OCL_CHECK(err, err = w.qH2D.enqueueWriteBuffer(w.dTbl, CL_FALSE, 0,
-                                                       parTbl.size() * sizeof(uint32_t), parTbl.data()));
-        w.qH2D.finish();
+            const size_t offset = k * chunkBytes;
+            const size_t bytesToProcess = std::min(chunkBytes, totalBytes - offset);
+            const size_t chunksToProcess = (bytesToProcess + chunkBytes - 1) / chunkBytes; // usually 1
 
-        auto launchForBuf = [&](bool A, size_t valid) -> std::pair<cl::Event, cl::Event>
-        {
-            const size_t nChunks = valid / chunkBytes;
-            if (A)
-                std::fill(w.hInA.begin() + valid, w.hInA.end(), 0);
-            else
-                std::fill(w.hInB.begin() + valid, w.hInB.end(), 0);
+            std::vector<unsigned char, aligned_allocator<unsigned char>> chunkData(chunkBytes, 0);
+            std::memcpy(chunkData.data(), data.data() + offset, bytesToProcess);
 
-            cl::Event evW, evK;
-            if (A)
-            {
-                OCL_CHECK(err, err = w.kernel.setArg(0, w.dInA));
-                OCL_CHECK(err, err = w.kernel.setArg(1, w.dOutA));
-            }
-            else
-            {
-                OCL_CHECK(err, err = w.kernel.setArg(0, w.dInB));
-                OCL_CHECK(err, err = w.kernel.setArg(1, w.dOutB));
-            }
+            OCL_CHECK(err, err = w.kernel.setArg(0, w.dInA));
+            OCL_CHECK(err, err = w.kernel.setArg(1, w.dOutA));
             OCL_CHECK(err, err = w.kernel.setArg(2, w.dTbl));
-            OCL_CHECK(err, err = w.kernel.setArg(3, static_cast<uint32_t>(nChunks)));
+            OCL_CHECK(err, err = w.kernel.setArg(3, static_cast<uint32_t>(chunksToProcess)));
             OCL_CHECK(err, err = w.kernel.setArg(4, static_cast<uint32_t>(chunkBytes)));
             OCL_CHECK(err, err = w.kernel.setArg(5, static_cast<uint32_t>(cfg.crcWidth)));
             OCL_CHECK(err, err = w.kernel.setArg(6, static_cast<uint32_t>(cfg.init_val)));
 
-            if (A)
-            {
-                OCL_CHECK(err, err = w.qH2D.enqueueWriteBuffer(
-                                   w.dInA, CL_FALSE, 0, w.buffer_size, w.hInA.data(),
-                                   nullptr, &evW));
-            }
-            else
-            {
-                OCL_CHECK(err, err = w.qH2D.enqueueWriteBuffer(
-                                   w.dInB, CL_FALSE, 0, w.buffer_size, w.hInB.data(),
-                                   nullptr, &evW));
-            }
+            cl::Event evH2D, evRun, evD2H;
 
-            // Kernel waits on the write
-            std::vector<cl::Event> deps{evW};
-            OCL_CHECK(err, err = w.qK.enqueueTask(w.kernel, &deps, &evK));
-            return {evW, evK};
-        };
+            OCL_CHECK(err, err = w.qH2D.enqueueWriteBuffer(
+                               w.dInA, CL_FALSE, 0, chunkBytes, chunkData.data(), nullptr, &evH2D));
 
-        auto readBack = [&](bool A, size_t nChunks, const cl::Event &dep) -> cl::Event
-        {
-            cl::Event evR;
+            auto waitList = cl::vector<cl::Event>{evH2D};
+            OCL_CHECK(err, err = w.qK.enqueueTask(w.kernel, &waitList, &evRun));
 
-            if (A)
-                w.hOutA.resize(nChunks);
-            else
-                w.hOutB.resize(nChunks);
+            auto waitList2 = cl::vector<cl::Event>{evRun};
+            std::vector<uint32_t, aligned_allocator<uint32_t>> crcOut(chunksToProcess);
+            OCL_CHECK(err, err = w.qD2H.enqueueReadBuffer(
+                               w.dOutA, CL_TRUE, 0, sizeof(uint32_t) * chunksToProcess, crcOut.data(), &waitList2, &evD2H));
 
-            std::vector<cl::Event> deps{dep};
-            if (A)
-            {
-                OCL_CHECK(err, err = w.qD2H.enqueueReadBuffer(
-                                   w.dOutA, CL_FALSE, 0, nChunks * sizeof(uint32_t),
-                                   w.hOutA.data(), &deps, &evR));
-            }
-            else
-            {
-                OCL_CHECK(err, err = w.qD2H.enqueueReadBuffer(
-                                   w.dOutB, CL_FALSE, 0, nChunks * sizeof(uint32_t),
-                                   w.hOutB.data(), &deps, &evR));
-            }
-            return evR;
-        };
+            result.insert(result.end(), crcOut.begin(), crcOut.end());
 
-        std::vector<uint32_t> result;
-        result.reserve((totalBytes + chunkBytes - 1) / chunkBytes);
-
-        size_t off = 0;
-        // Prime A
-        size_t bytes = std::min(w.buffer_size, totalBytes - off);
-        std::copy(data.begin() + off, data.begin() + off + bytes, w.hInA.begin());
-        auto [wA, kA] = launchForBuf(true, bytes);
-        size_t prodA = bytes / chunkBytes;
-        cl::Event rA = (prodA ? readBack(true, prodA, kA) : cl::Event());
-        off += bytes;
-
-        // Prime B if needed
-        size_t prodB = 0;
-        cl::Event rB;
-        if (off < totalBytes)
-        {
-            bytes = std::min(w.buffer_size, totalBytes - off);
-            std::copy(data.begin() + off, data.begin() + off + bytes, w.hInB.begin());
-            auto [wB, kB] = launchForBuf(false, bytes);
-            prodB = bytes / chunkBytes;
-            rB = (prodB ? readBack(false, prodB, kB) : cl::Event());
-            off += bytes;
+            k += chunksToProcess;
         }
-
-        // Read Back Results
-        if (prodA)
-        {
-            rA.wait();
-            result.insert(result.end(), w.hOutA.begin(), w.hOutA.begin() + prodA);
-        }
-        if (prodB)
-        {
-            rB.wait();
-            result.insert(result.end(), w.hOutB.begin(), w.hOutB.begin() + prodB);
-        }
-
-        bool useA = true;
-        while (off < totalBytes)
-        {
-            // Write & launch next on A or B
-            bool A = useA;
-            bytes = std::min(w.buffer_size, totalBytes - off);
-            if (A)
-            {
-                std::copy(data.begin() + off, data.begin() + off + bytes, w.hInA.begin());
-                auto [wE, kE] = launchForBuf(true, bytes);
-                size_t n = bytes / chunkBytes;
-                cl::Event rE = (n ? readBack(true, n, kE) : cl::Event());
-                if (n)
-                {
-                    rE.wait();
-                    result.insert(result.end(), w.hOutA.begin(), w.hOutA.begin() + n);
-                }
-            }
-            else
-            {
-                std::copy(data.begin() + off, data.begin() + off + bytes, w.hInB.begin());
-                auto [wE, kE] = launchForBuf(false, bytes);
-                size_t n = bytes / chunkBytes;
-                cl::Event rE = (n ? readBack(false, n, kE) : cl::Event());
-                if (n)
-                {
-                    rE.wait();
-                    result.insert(result.end(), w.hOutB.begin(), w.hOutB.begin() + n);
-                }
-            }
-            off += bytes;
-            useA = !useA;
-        }
-
-        // Sync all queues
-        w.qH2D.finish();
-        w.qK.finish();
-        w.qD2H.finish();
-
         return result;
     }
 
@@ -418,10 +313,10 @@ private:
         w.dInB = cl::Buffer(w.context, CL_MEM_READ_ONLY, buffer_size, nullptr, &err);
         if (err != CL_SUCCESS)
             throw std::runtime_error("dInB alloc failed");
-        w.dOutA = cl::Buffer(w.context, CL_MEM_WRITE_ONLY, buffer_size * sizeof(uint32_t), nullptr, &err);
+        w.dOutA = cl::Buffer(w.context, CL_MEM_WRITE_ONLY, buffer_size, nullptr, &err);
         if (err != CL_SUCCESS)
             throw std::runtime_error("dOutA alloc failed");
-        w.dOutB = cl::Buffer(w.context, CL_MEM_WRITE_ONLY, buffer_size * sizeof(uint32_t), nullptr, &err);
+        w.dOutB = cl::Buffer(w.context, CL_MEM_WRITE_ONLY, buffer_size, nullptr, &err);
         if (err != CL_SUCCESS)
             throw std::runtime_error("dOutB alloc failed");
         w.dTbl = cl::Buffer(w.context, CL_MEM_READ_ONLY, 256 * 16 * sizeof(uint32_t), nullptr, &err);
