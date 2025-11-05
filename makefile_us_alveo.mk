@@ -63,7 +63,7 @@ PLATFORM_BLOCKLIST += nodma
 CXXFLAGS += -I$(XF_PROJ_ROOT)/common/includes/cmdparser
 CXXFLAGS += -I$(XF_PROJ_ROOT)/common/includes/logger
 CXXFLAGS += -I$(XF_PROJ_ROOT)/common/includes/xcl2
-HOST_SRCS += $(XF_PROJ_ROOT)/common/includes/cmdparser/cmdlineparser.cpp $(XF_PROJ_ROOT)/common/includes/xcl2/xcl2.cpp $(XF_PROJ_ROOT)/common/includes/logger/logger.cpp ./src/host.cpp 
+HOST_SRCS += $(XF_PROJ_ROOT)/common/includes/cmdparser/cmdlineparser.cpp $(XF_PROJ_ROOT)/common/includes/xcl2/xcl2.cpp $(XF_PROJ_ROOT)/common/includes/logger/logger.cpp ./src/host.cpp ./src/helpers/crc.cpp
 # Host compiler global settings
 CXXFLAGS += -fmessage-length=0
 LDFLAGS += -lrt -lstdc++ 

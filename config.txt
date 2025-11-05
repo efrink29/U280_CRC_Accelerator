@@ -1,4 +1,0 @@
-[connectivity]
-nk=kernel_calculate_crc:2:CRC_X,CRC_Y
-sp=CRC_X.data_in:HBM[0]
-sp=CRC_Y.data_in:HBM[1]

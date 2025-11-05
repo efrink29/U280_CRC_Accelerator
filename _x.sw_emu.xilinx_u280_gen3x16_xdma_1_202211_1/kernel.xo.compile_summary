@@ -9,10 +9,10 @@
 <ENTRY>
 {
  "type": "ET_CmdStep",
- "dateTimestamp": "Tue Nov 19 01:11:04 2024",
- "timestampMillis": "1731978664382",
+ "dateTimestamp": "Sat Nov  1 17:56:06 2025",
+ "timestampMillis": "1762019766193",
  "buildStep": {
-  "cmdId": "2eae19b4-ca48-48fc-a364-0609380fa94c",
+  "cmdId": "a51a1a06-3254-49ef-912a-6a399cd06330",
   "name": "v++",
   "logFile": "/home/efrink/Documents/Examples/Kernel_Tools/parallel_crc/_x.sw_emu.xilinx_u280_gen3x16_xdma_1_202211_1/kernel/kernel.steps.log",
   "commandLine": "/tools/Xilinx/Vitis/2023.1/bin/unwrapped/lnx64.o/v++  --vivado.prop \"run.__KERNEL__.{STEPS.SYNTH_DESIGN.ARGS.MORE OPTIONS}={-directive sdx_optimization_effort_high}\" --advanced.misc \"report=type report_timing_summary name impl_report_timing_summary_route_design_summary steps {route_design} runs {impl_1} options {-max_paths 10}\" --advanced.misc \"report=type report_timing_summary name impl_report_timing_summary_post_route_phys_opt_design_summary steps {post_route_phys_opt_design} runs {impl_1} options {-max_paths 10}\" -c -g --save-temps -t sw_emu --platform /opt/xilinx/platforms/xilinx_u280_gen3x16_xdma_1_202211_1/xilinx_u280_gen3x16_xdma_1_202211_1.xpfm -k calculate_crc --temp_dir ./_x.sw_emu.xilinx_u280_gen3x16_xdma_1_202211_1 -Isrc --config ./xrt.ini -o_x.sw_emu.xilinx_u280_gen3x16_xdma_1_202211_1/kernel.xo src/kernel.cpp ",
@@ -37,7 +37,7 @@
   "iniFiles": [
    {
     "path": "/home/efrink/Documents/Examples/Kernel_Tools/parallel_crc/xrt.ini",
-    "content": "\n\n[connectivity]\nnk=calculate_crc:2:CRC_X,CRC_Y\nsp=CRC_X.data_in:HBM[0]\nsp=CRC_X.crc_out:HBM[0]\nsp=CRC_X.tables:HBM[1]\nsp=CRC_Y.data_in:HBM[2]\nsp=CRC_Y.crc_out:HBM[2]\nsp=CRC_Y.tables:HBM[3]\n"
+    "content": "[connectivity]\nnk=calculate_crc:16:CRC_0,CRC_1,CRC_2,CRC_3,CRC_4,CRC_5,CRC_6,CRC_7,CRC_8,CRC_9,CRC_10,CRC_11,CRC_12,CRC_13,CRC_14,CRC_15\nsp=CRC_0.data_in:HBM[0]\nsp=CRC_0.crc_out:HBM[0]\nsp=CRC_0.tables:HBM[1]\nsp=CRC_1.data_in:HBM[2]\nsp=CRC_1.crc_out:HBM[2]\nsp=CRC_1.tables:HBM[3]\nsp=CRC_2.data_in:HBM[4]\nsp=CRC_2.crc_out:HBM[4]\nsp=CRC_2.tables:HBM[5]\nsp=CRC_3.data_in:HBM[6]\nsp=CRC_3.crc_out:HBM[6]\nsp=CRC_3.tables:HBM[7]\nsp=CRC_4.data_in:HBM[8]\nsp=CRC_4.crc_out:HBM[8]\nsp=CRC_4.tables:HBM[9]\nsp=CRC_5.data_in:HBM[10]\nsp=CRC_5.crc_out:HBM[10]\nsp=CRC_5.tables:HBM[11]\nsp=CRC_6.data_in:HBM[12]\nsp=CRC_6.crc_out:HBM[12]\nsp=CRC_6.tables:HBM[13]\nsp=CRC_7.data_in:HBM[14]\nsp=CRC_7.crc_out:HBM[14]\nsp=CRC_7.tables:HBM[15]\nsp=CRC_8.data_in:HBM[16]\nsp=CRC_8.crc_out:HBM[16]\nsp=CRC_8.tables:HBM[17]\nsp=CRC_9.data_in:HBM[18]\nsp=CRC_9.crc_out:HBM[18]\nsp=CRC_9.tables:HBM[19]\nsp=CRC_10.data_in:HBM[20]\nsp=CRC_10.crc_out:HBM[20]\nsp=CRC_10.tables:HBM[21]\nsp=CRC_11.data_in:HBM[22]\nsp=CRC_11.crc_out:HBM[22]\nsp=CRC_11.tables:HBM[23]\nsp=CRC_12.data_in:HBM[24]\nsp=CRC_12.crc_out:HBM[24]\nsp=CRC_12.tables:HBM[25]\nsp=CRC_13.data_in:HBM[26]\nsp=CRC_13.crc_out:HBM[26]\nsp=CRC_13.tables:HBM[27]\nsp=CRC_14.data_in:HBM[28]\nsp=CRC_14.crc_out:HBM[28]\nsp=CRC_14.tables:HBM[29]\nsp=CRC_15.data_in:HBM[30]\nsp=CRC_15.crc_out:HBM[30]\nsp=CRC_15.tables:HBM[31]"
    }
   ],
   "cwd": "/home/efrink/Documents/Examples/Kernel_Tools/parallel_crc"
@@ -47,10 +47,10 @@
 <ENTRY>
 {
  "type": "ET_Status",
- "dateTimestamp": "Tue Nov 19 01:11:04 2024",
- "timestampMillis": "1731978664382",
+ "dateTimestamp": "Sat Nov  1 17:56:06 2025",
+ "timestampMillis": "1762019766194",
  "status": {
-  "cmdId": "2eae19b4-ca48-48fc-a364-0609380fa94c",
+  "cmdId": "a51a1a06-3254-49ef-912a-6a399cd06330",
   "state": "CS_RUNNING"
  }
 }
@@ -58,8 +58,8 @@
 <ENTRY>
 {
  "type": "ET_FlowMetaData",
- "dateTimestamp": "Tue Nov 19 01:11:08 2024",
- "timestampMillis": "1731978668721",
+ "dateTimestamp": "Sat Nov  1 17:56:10 2025",
+ "timestampMillis": "1762019770275",
  "buildSummary": {
   "hardwarePlatform": "xilinx_u280_gen3x16_xdma_1_202211_1.xpfm",
   "hardwareDsa": "",
@@ -94,10 +94,10 @@
 <ENTRY>
 {
  "type": "ET_SubCmdStep",
- "dateTimestamp": "Tue Nov 19 01:11:08 2024",
- "timestampMillis": "1731978668725",
+ "dateTimestamp": "Sat Nov  1 17:56:10 2025",
+ "timestampMillis": "1762019770279",
  "buildStep": {
-  "cmdId": "2836f8cf-72e7-4d80-b4d8-c1ec885255ff",
+  "cmdId": "bb398a6c-8233-487e-8d72-b92a11e6fa36",
   "name": "vitis_hls",
   "logFile": "/home/efrink/Documents/Examples/Kernel_Tools/parallel_crc/_x.sw_emu.xilinx_u280_gen3x16_xdma_1_202211_1/kernel/calculate_crc/vitis_hls.log",
   "commandLine": "vitis_hls -f /home/efrink/Documents/Examples/Kernel_Tools/parallel_crc/_x.sw_emu.xilinx_u280_gen3x16_xdma_1_202211_1/kernel/calculate_crc/calculate_crc.tcl -messageDb vitis_hls.pb",
@@ -116,10 +116,10 @@
 <ENTRY>
 {
  "type": "ET_Status",
- "dateTimestamp": "Tue Nov 19 01:11:08 2024",
- "timestampMillis": "1731978668725",
+ "dateTimestamp": "Sat Nov  1 17:56:10 2025",
+ "timestampMillis": "1762019770280",
  "status": {
-  "cmdId": "2836f8cf-72e7-4d80-b4d8-c1ec885255ff",
+  "cmdId": "bb398a6c-8233-487e-8d72-b92a11e6fa36",
   "state": "CS_RUNNING"
  }
 }
@@ -127,10 +127,10 @@
 <ENTRY>
 {
  "type": "ET_Status",
- "dateTimestamp": "Tue Nov 19 01:11:56 2024",
- "timestampMillis": "1731978716988",
+ "dateTimestamp": "Sat Nov  1 17:56:27 2025",
+ "timestampMillis": "1762019787502",
  "status": {
-  "cmdId": "2836f8cf-72e7-4d80-b4d8-c1ec885255ff",
+  "cmdId": "bb398a6c-8233-487e-8d72-b92a11e6fa36",
   "state": "CS_PASSED"
  }
 }
@@ -138,10 +138,10 @@
 <ENTRY>
 {
  "type": "ET_Status",
- "dateTimestamp": "Tue Nov 19 01:11:56 2024",
- "timestampMillis": "1731978716998",
+ "dateTimestamp": "Sat Nov  1 17:56:27 2025",
+ "timestampMillis": "1762019787518",
  "status": {
-  "cmdId": "2eae19b4-ca48-48fc-a364-0609380fa94c",
+  "cmdId": "a51a1a06-3254-49ef-912a-6a399cd06330",
   "state": "CS_PASSED"
  }
 }
@@ -149,8 +149,8 @@
 <ENTRY>
 {
  "type": "ET_Report",
- "dateTimestamp": "Tue Nov 19 01:11:57 2024",
- "timestampMillis": "1731978717098",
+ "dateTimestamp": "Sat Nov  1 17:56:27 2025",
+ "timestampMillis": "1762019787607",
  "report": {
   "path": "/home/efrink/Documents/Examples/Kernel_Tools/parallel_crc/_x.sw_emu.xilinx_u280_gen3x16_xdma_1_202211_1/reports/kernel/v++_compile_kernel_guidance.html",
   "name": "",
@@ -163,8 +163,8 @@
 <ENTRY>
 {
  "type": "ET_Report",
- "dateTimestamp": "Tue Nov 19 01:11:57 2024",
- "timestampMillis": "1731978717099",
+ "dateTimestamp": "Sat Nov  1 17:56:27 2025",
+ "timestampMillis": "1762019787608",
  "report": {
   "path": "/home/efrink/Documents/Examples/Kernel_Tools/parallel_crc/_x.sw_emu.xilinx_u280_gen3x16_xdma_1_202211_1/v++_compile_kernel_guidance.pb3",
   "name": "",

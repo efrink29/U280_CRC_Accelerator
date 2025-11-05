@@ -13,7 +13,7 @@
 #include <condition_variable>
 #include <atomic>
 #include <algorithm>
-
+#include "helpers/crc.h"
 #include "xcl2.hpp"
 
 struct KernelConfig
@@ -27,9 +27,6 @@ struct KernelConfig
     int chunkSize;
     size_t dataSize;
 };
-
-uint32_t *generateStandardCRCTable(KernelConfig config);
-uint32_t **generateParallelCRCTables(KernelConfig config);
 
 struct CrcTask
 {
@@ -90,11 +87,12 @@ struct Worker
 
     // Device Memory
     size_t buffer_size;
-    cl::Buffer dInA, dInB, dOutA, dOutB, dTbl;
+    cl::Buffer dInA, dOutA;
+    cl::Buffer **tableBuffers;
 
     // Host Memory
-    std::vector<unsigned char, aligned_allocator<unsigned char>> hInA, hInB;
-    std::vector<uint32_t, aligned_allocator<uint32_t>> hOutA, hOutB;
+
+    std::vector<KernelConfig> configs;
 
     std::thread th;
 };
@@ -102,8 +100,9 @@ struct Worker
 class FpgaManager
 {
 public:
-    explicit FpgaManager(const std::string &binaryFile, size_t buffer_size = 16 * 1024 * 1024, int max_cu = 14, int max_workers = -1)
+    explicit FpgaManager(const std::string &binaryFile, size_t buffer_size = 16 * 1024 * 1024, int max_cu = 16, int max_workers = -1, std::vector<KernelConfig> configs = {})
     {
+        buffer_size_ = buffer_size;
         // Initialize Device
         auto devices = xcl::get_xil_devices();
         if (devices.empty())
@@ -128,6 +127,7 @@ public:
         int cu_count = 0;
         while (cu_count < max_cu)
         {
+
             std::string kname = "calculate_crc:{CRC_" + std::to_string(cu_count) + "}";
             cl_int err = CL_SUCCESS;
             cl::Kernel testK(program_, kname.c_str(), &err);
@@ -148,7 +148,7 @@ public:
 
         workers_.resize(cu_count);
         for (int i = 0; i < cu_count; ++i)
-            init_worker(i, buffer_size);
+            init_worker(i, buffer_size, configs);
 
         // Start threads
         for (int i = 0; i < cu_count; ++i)
@@ -175,14 +175,42 @@ public:
     std::future<std::vector<uint32_t>>
     submit(const std::vector<unsigned char> &data, const KernelConfig &config)
     {
-        CrcTask t;
-        t.data = data;
-        t.config = config;
-        std::promise<std::vector<uint32_t>> p;
-        auto fut = p.get_future();
-        t.promise = std::move(p);
-        queue_.push(std::move(t));
-        return fut;
+
+        size_t totalBytes = data.size();
+        size_t chunkBytes = static_cast<size_t>(config.chunkSize);
+        int chunks_per_buf = static_cast<int>(buffer_size_ / chunkBytes);
+        size_t data_per_task = chunkBytes * chunks_per_buf;
+        if (workers_.size() * buffer_size_ > totalBytes)
+        {
+            int num_chunks = (totalBytes) / chunkBytes;
+            int chunks_per_task = num_chunks / workers_.size();
+            data_per_task = chunks_per_task * chunkBytes;
+        }
+        data_per_task = chunkBytes; // TODO
+        size_t bytesToProcess = std::min(data_per_task, totalBytes);
+        std::vector<std::future<std::vector<uint32_t>>> futures;
+        for (size_t offset = 0; offset < totalBytes; offset += bytesToProcess)
+        {
+            bytesToProcess = std::min(data_per_task, totalBytes - offset);
+            CrcTask t;
+            t.data = std::vector<unsigned char>(data.begin() + offset, data.begin() + offset + bytesToProcess);
+            t.config = config;
+            std::promise<std::vector<uint32_t>> p;
+            auto fut = p.get_future();
+            t.promise = std::move(p);
+            queue_.push(std::move(t));
+            futures.push_back(std::move(fut));
+        }
+        std::cout << "Tasks on queue: " << futures.size() << std::endl;
+        return std::async(std::launch::deferred, [futures = std::move(futures)]() mutable
+                          {
+            std::vector<uint32_t> result;
+            for (auto &fut : futures)
+            {
+                auto part = fut.get();
+                result.insert(result.end(), part.begin(), part.end());
+            }
+            return result; });
     }
 
     // Blocking Syncronous Function
@@ -201,7 +229,7 @@ private:
 
         const size_t totalBytes = data.size();
         const size_t chunkBytes = static_cast<size_t>(cfg.chunkSize);
-        const size_t nChunks = (totalBytes + chunkBytes - 1) / chunkBytes;
+        const size_t nChunks = (totalBytes) / chunkBytes;
         if (chunkBytes == 0)
             throw std::runtime_error("chunkSize must be > 0");
 
@@ -210,29 +238,88 @@ private:
             throw std::runtime_error("buffer_size must be >= chunkSize");
 
         // Generate tables
-        auto parTbl = generateParallelCRCTables(cfg);
-        std::vector<uint32_t> flatTbl(16 * 256);
-        for (int i = 0; i < 16; ++i)
-            std::memcpy(&flatTbl[i * 256], parTbl[i], 256 * sizeof(uint32_t));
+        CRC_Config crc_cfg;
+        crc_cfg.polynomial = cfg.polynomial;
+        crc_cfg.initial_value = cfg.init_val;
+        crc_cfg.final_xor_value = cfg.xor_out;
+        crc_cfg.reflect_input = cfg.refInput;
+        crc_cfg.reflect_output = cfg.refOutput;
+        crc_cfg.width = static_cast<uint8_t>(cfg.crcWidth);
+        crc_cfg.chunk_size = static_cast<size_t>(cfg.chunkSize);
 
-        OCL_CHECK(err, err = w.qH2D.enqueueWriteBuffer(
-                           w.dTbl, CL_TRUE, 0, flatTbl.size() * sizeof(uint32_t), flatTbl.data()));
+        cl::Buffer table_buf;
+        int config_index = -1;
+        for (size_t i = 0; i < w.configs.size(); ++i)
+        {
+            const auto &c = w.configs[i];
+            if (c.polynomial == cfg.polynomial &&
+                c.init_val == cfg.init_val &&
+                c.xor_out == cfg.xor_out &&
+                c.refInput == cfg.refInput &&
+                c.refOutput == cfg.refOutput &&
+                c.crcWidth == cfg.crcWidth)
+            {
+                config_index = static_cast<int>(i);
+                table_buf = *w.tableBuffers[config_index];
+                break;
+            }
+        }
+        // std::cout << "Tables stored: " << w.tableBuffers.size() << ", using index: " << config_index << std::endl;
+        if (config_index == -1)
+        {
 
+            // w.configs.push_back(cfg);
+            config_index = static_cast<int>(w.configs.size());
+            table_buf = *w.tableBuffers[config_index];
+
+            auto parTbl = create_parallel_tables(crc_cfg);
+
+            std::vector<uint32_t> flatTbl(16 * 256);
+            for (int i = 0; i < 16; ++i)
+            {
+                for (int j = 0; j < 256; ++j)
+                {
+
+                    flatTbl[(i << 8) + j] = parTbl[i][j];
+                }
+            }
+            OCL_CHECK(err, err = w.kernel.setArg(0, w.dInA));
+            OCL_CHECK(err, err = w.kernel.setArg(1, w.dOutA));
+            OCL_CHECK(err, err = w.kernel.setArg(2, table_buf));
+            OCL_CHECK(err, err = w.qH2D.enqueueWriteBuffer(table_buf, CL_TRUE, 0, flatTbl.size() * sizeof(uint32_t), flatTbl.data()));
+
+            // std::cout << "Created new table for config index " << config_index << std::endl;
+            //  std::cout << "Num tables now: " << w.dTbl.size() << std::endl;
+        }
+
+        uint8_t *data_ptr = new uint8_t[data.size()];
+        memcpy(data_ptr, data.data(), data.size());
+        if (!crc_cfg.reflect_input)
+        {
+            // Reflect first 4 bytes of each chunk
+            for (size_t i = 0; i < totalBytes; i += 16)
+            {
+                for (size_t b = 0; b < 4; ++b)
+                {
+                    data_ptr[i + b] = ((uint8_t)reflect(data_ptr[i + b], 8) & 0xFF);
+                }
+            }
+        }
         std::vector<uint32_t> result;
         result.reserve(nChunks);
 
-        for (size_t k = 0; k < nChunks;)
+        for (size_t k = 0; k < nChunks; k += chunksPerBuf)
         {
             const size_t offset = k * chunkBytes;
-            const size_t bytesToProcess = std::min(chunkBytes, totalBytes - offset);
-            const size_t chunksToProcess = (bytesToProcess + chunkBytes - 1) / chunkBytes; // usually 1
+            const size_t bytesToProcess = std::min(chunksPerBuf * chunkBytes, totalBytes - offset);
+            const size_t chunksToProcess = (bytesToProcess) / chunkBytes;
 
-            std::vector<unsigned char, aligned_allocator<unsigned char>> chunkData(chunkBytes, 0);
-            std::memcpy(chunkData.data(), data.data() + offset, bytesToProcess);
+            std::vector<unsigned char, aligned_allocator<unsigned char>> chunkData(bytesToProcess, 0);
+            std::memcpy(chunkData.data(), data_ptr + offset, bytesToProcess);
 
             OCL_CHECK(err, err = w.kernel.setArg(0, w.dInA));
             OCL_CHECK(err, err = w.kernel.setArg(1, w.dOutA));
-            OCL_CHECK(err, err = w.kernel.setArg(2, w.dTbl));
+            OCL_CHECK(err, err = w.kernel.setArg(2, *w.tableBuffers[config_index]));
             OCL_CHECK(err, err = w.kernel.setArg(3, static_cast<uint32_t>(chunksToProcess)));
             OCL_CHECK(err, err = w.kernel.setArg(4, static_cast<uint32_t>(chunkBytes)));
             OCL_CHECK(err, err = w.kernel.setArg(5, static_cast<uint32_t>(cfg.crcWidth)));
@@ -252,9 +339,19 @@ private:
                                w.dOutA, CL_TRUE, 0, sizeof(uint32_t) * chunksToProcess, crcOut.data(), &waitList2, &evD2H));
 
             result.insert(result.end(), crcOut.begin(), crcOut.end());
-
-            k += chunksToProcess;
         }
+        for (size_t i = 0; i < result.size(); ++i)
+        {
+            result[i] ^= (cfg.xor_out);
+        }
+        if (!crc_cfg.reflect_output)
+        {
+            for (size_t i = 0; i < result.size(); ++i)
+            {
+                result[i] = reflect(result[i], static_cast<uint8_t>(cfg.crcWidth)) & ((cfg.crcWidth == 32) ? 0xFFFFFFFF : ((1u << cfg.crcWidth) - 1u));
+            }
+        }
+
         return result;
     }
 
@@ -282,13 +379,19 @@ private:
         }
     }
 
-    void init_worker(int cu_index, size_t buffer_size)
+    void init_worker(int cu_index, size_t buffer_size, std::vector<KernelConfig> configs = {})
     {
+
+        std::cout << "Init worker " << cu_index << " with " << configs.size() << " tables" << std::endl;
+        std::flush(std::cout);
         Worker w;
         w.context = context_;
         w.device = device_;
         w.program = program_;
         w.buffer_size = buffer_size;
+
+        w.configs = configs;
+        w.tableBuffers = new cl::Buffer *[configs.size() + 1];
 
         cl_int err = CL_SUCCESS;
         std::string kname = "calculate_crc:{CRC_" + std::to_string(cu_index) + "}";
@@ -301,34 +404,56 @@ private:
         w.qD2H = cl::CommandQueue(w.context, w.device, CL_QUEUE_OUT_OF_ORDER_EXEC_MODE_ENABLE, &err);
 
         // Host Memory
-        w.hInA.assign(buffer_size, 0);
-        w.hInB.assign(buffer_size, 0);
-        w.hOutA.assign(1, 0);
-        w.hOutB.assign(1, 0);
+
+        int numTables = static_cast<int>(w.configs.size() + 1);
 
         // Device buffers
         w.dInA = cl::Buffer(w.context, CL_MEM_READ_ONLY, buffer_size, nullptr, &err);
+
         if (err != CL_SUCCESS)
             throw std::runtime_error("dInA alloc failed");
-        w.dInB = cl::Buffer(w.context, CL_MEM_READ_ONLY, buffer_size, nullptr, &err);
-        if (err != CL_SUCCESS)
-            throw std::runtime_error("dInB alloc failed");
+        OCL_CHECK(err, err = w.kernel.setArg(0, w.dInA));
+
         w.dOutA = cl::Buffer(w.context, CL_MEM_WRITE_ONLY, buffer_size, nullptr, &err);
         if (err != CL_SUCCESS)
             throw std::runtime_error("dOutA alloc failed");
-        w.dOutB = cl::Buffer(w.context, CL_MEM_WRITE_ONLY, buffer_size, nullptr, &err);
-        if (err != CL_SUCCESS)
-            throw std::runtime_error("dOutB alloc failed");
-        w.dTbl = cl::Buffer(w.context, CL_MEM_READ_ONLY, 256 * 16 * sizeof(uint32_t), nullptr, &err);
+        OCL_CHECK(err, err = w.kernel.setArg(1, w.dOutA));
+
+        for (int i = 0; i < numTables; ++i)
+        {
+            cl::Buffer *table_buf = new cl::Buffer(w.context, CL_MEM_READ_ONLY, 256 * 16 * sizeof(uint32_t), nullptr, &err);
+            OCL_CHECK(err, err = w.kernel.setArg(2, *table_buf));
+            if (i < configs.size())
+            {
+                // Generate tables
+                CRC_Config crc_cfg;
+                crc_cfg.polynomial = configs[i].polynomial;
+                crc_cfg.initial_value = configs[i].init_val;
+                crc_cfg.final_xor_value = configs[i].xor_out;
+                crc_cfg.reflect_input = configs[i].refInput;
+                crc_cfg.reflect_output = configs[i].refOutput;
+                crc_cfg.width = static_cast<uint8_t>(configs[i].crcWidth);
+                crc_cfg.chunk_size = static_cast<size_t>(configs[i].chunkSize);
+                auto parTbl = create_parallel_tables(crc_cfg);
+
+                std::vector<uint32_t> flatTbl(16 * 256);
+                for (int m = 0; m < 16; ++m)
+                {
+                    for (int n = 0; n < 256; ++n)
+                    {
+
+                        flatTbl[(m << 8) + n] = parTbl[m][n];
+                        ;
+                    }
+                }
+                // std::cout << "Uploading table " << i << std::endl;
+
+                OCL_CHECK(err, err = w.qH2D.enqueueWriteBuffer(*table_buf, CL_TRUE, 0, flatTbl.size() * sizeof(uint32_t), flatTbl.data()));
+            }
+            w.tableBuffers[i] = table_buf;
+        }
         if (err != CL_SUCCESS)
             throw std::runtime_error("dTbl alloc failed");
-
-        // Bind buffers to CU
-        OCL_CHECK(err, err = w.kernel.setArg(0, w.dInA));
-        OCL_CHECK(err, err = w.kernel.setArg(1, w.dOutA));
-        OCL_CHECK(err, err = w.kernel.setArg(0, w.dInB));
-        OCL_CHECK(err, err = w.kernel.setArg(1, w.dOutB));
-        OCL_CHECK(err, err = w.kernel.setArg(2, w.dTbl));
 
         workers_[cu_index] = std::move(w);
     }
@@ -337,6 +462,8 @@ private:
     cl::Context context_;
     cl::Program program_;
     cl::Device device_;
+
+    size_t buffer_size_;
 
     TaskQueue queue_;
     std::vector<Worker> workers_;
