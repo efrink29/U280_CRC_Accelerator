@@ -22,6 +22,44 @@
 
 typedef std::vector<unsigned char> Bytes;
 
+void print_hex_value(uint32_t value, uint8_t width)
+{
+    std::cout << "0x";
+    for (int i = (width - 4); i >= 0; i -= 4)
+    {
+        uint8_t nibble = (value >> i) & 0x0F;
+        if (nibble < 10)
+            std::cout << static_cast<char>('0' + nibble);
+        else
+            std::cout << static_cast<char>('A' + (nibble - 10));
+    }
+}
+
+void print_result(const char *label, uint32_t result, uint32_t expected, uint8_t width)
+{
+    std::cout << label;
+    print_hex_value(result, width);
+    std::cout << " ";
+    print_hex_value(reflect(result, width), width);
+    if (result != expected)
+    {
+        if (result == reflect(expected, width))
+        {
+            std::cout << " [REFLECT MISMATCH]";
+        }
+        else
+        {
+            std::cout << " [MISMATCH]";
+        }
+    }
+    else
+    {
+        std::cout << " [OK]";
+    }
+
+    std::cout << std::endl;
+}
+
 void load_data_chunk(unsigned char *data, std::ifstream &inputfile, size_t size)
 {
     inputfile.read(reinterpret_cast<char *>(data), size);
@@ -96,7 +134,7 @@ std::vector<uint32_t> fast_crc(const Bytes &data, const KernelConfig &cfg)
     crc_cfg.reflect_output = cfg.refOutput;
     crc_cfg.width = static_cast<uint8_t>(cfg.crcWidth);
     crc_cfg.chunk_size = static_cast<size_t>(cfg.chunkSize);
-    uint32_t *stdTbl = create_standard_table(crc_cfg);
+    // uint32_t *stdTbl = create_standard_table(crc_cfg);
     uint32_t mask = (cfg.crcWidth == 32) ? 0xFFFFFFFF : ((1u << cfg.crcWidth) - 1u);
     uint32_t crc = cfg.init_val & mask;
     size_t chunkBytes = static_cast<size_t>(cfg.chunkSize);
@@ -161,7 +199,7 @@ void printConfiguration(std::vector<KernelConfig *> configs)
         return;
     }
 
-    for (int i = 0; i < configs.size(); i++)
+    for (size_t i = 0; i < configs.size(); i++)
     {
         std::cout << "Config " << i << std::endl;
         std::cout << "Polynomial: " << std::hex << configs[i]->polynomial << std::endl;
@@ -174,8 +212,8 @@ void printConfiguration(std::vector<KernelConfig *> configs)
         std::cout << std::endl;
     }
     int k = 0;
-    int c = 0;
-    for (int i = 0; i < 16; i++)
+    size_t c = 0;
+    for (size_t i = 0; i < 16; i++)
     {
         if (c >= configs.size())
         {
@@ -314,7 +352,7 @@ std::vector<int64_t> calc_host_parallel(const Bytes &data1, const KernelConfig &
             completed_tasks++;
         }
         // Finish launched tasks
-        for (int i = futures.size() - tasks_to_launch; i < futures.size(); i++)
+        for (size_t i = futures.size() - tasks_to_launch; i < futures.size(); i++)
         {
             auto res = futures[i].get();
             start_time = mid_time;
@@ -357,19 +395,28 @@ int main(int argc, char **argv)
     parser.addSwitch("--num_compute_units", "-n", "Number of compute units to use (max 10)", "2");
     parser.addSwitch("--filename", "-o", "Output filename", "output.dat");
     parser.addSwitch("--test_mode", "-t", "Test mode (0=static, 1=dynamic)", "0");
+    parser.addSwitch("--config_file", "-c", "Configuration file", "CRC_32");
+    parser.addSwitch("--data_size", "-s", "Data size in bytes", "6553600");
+    parser.addSwitch("--use_large_splits", "-l", "Use large splits for tasks", "0");
     parser.parse(argc, argv);
 
     std::string xclbinFile = parser.value("xclbin_file");
 
-    float frequency = stof(parser.value("frequency"));
+    // float frequency = stof(parser.value("frequency"));
     int64_t buf_size_mb = stoi(parser.value("buf_size_mb"));
     int64_t buf_size_kb = stoi(parser.value("buf_size_kb"));
     int num_workers = stoi(parser.value("num_compute_units"));
     std::string outputFileName = parser.value("filename");
     int test_mode = stoi(parser.value("test_mode"));
+    std::string configFile = parser.value("config_file");
+    bool use_large_splits = stoi(parser.value("use_large_splits")) != 0;
+    size_t data_size = static_cast<size_t>(stoll(parser.value("data_size")));
 
     int max_compute_units = 16;
-
+    if (test_mode == 0)
+    {
+        std::cout << "Static Test Mode Selected" << std::endl;
+    }
     num_workers = std::min(num_workers, max_compute_units);
 
     if (xclbinFile.empty())
@@ -392,28 +439,24 @@ int main(int argc, char **argv)
     buf_size_bytes -= buf_size_bytes % 16;
 
     KernelConfig crc32;
-    loadConfig("Configs/CRC_32", crc32);
+    loadConfig("Configs/" + configFile, crc32);
+
     std::vector<KernelConfig *> configs;
     configs.push_back(&crc32);
-    // printConfiguration(configs);
-    // crc32.chunkSize = 32;
-    KernelConfig crc16;
-    loadConfig("Configs/CRC_16", crc32);
 
-    std::vector<unsigned char> data1(6553600);
-    std::vector<unsigned char> data2(655360);
+    std::vector<unsigned char> data1(data_size);
 
     for (size_t i = 0; i < data1.size(); i++)
     {
         data1[i] = static_cast<unsigned char>((i + (i / 65536)) & 0xFF);
     }
-    // std::memcpy(data1.data(), testStr1, 32);
-    std::cout << data1.size() << std::endl;
-    crc32.refInput = true;
-    std::vector<KernelConfig> cfgs = {crc32};
 
+    std::cout << data1.size() << std::endl;
+    // crc32.refInput = true;
+    std::vector<KernelConfig> cfgs = {crc32};
+    std::vector<unsigned char> data2(65536);
     FpgaManager mgr(xclbinFile, buf_size_bytes, max_compute_units, num_workers, cfgs);
-    auto res1a = mgr.calculate_crc(data1, crc32);
+    auto res1a = mgr.calculate_crc(data2, crc32);
 
     // Delay 100ms
     std::this_thread::sleep_for(std::chrono::milliseconds(100));
@@ -422,17 +465,9 @@ int main(int argc, char **argv)
 
     // Test Independent Run Time
 
-    CRC_Config crc_cfg;
-    crc_cfg.polynomial = crc32.polynomial;
-    crc_cfg.initial_value = crc32.init_val;
-    crc_cfg.final_xor_value = crc32.xor_out;
-    crc_cfg.reflect_input = crc32.refInput;
-    crc_cfg.reflect_output = crc32.refOutput;
-    crc_cfg.width = static_cast<uint8_t>(crc32.crcWidth);
-    crc_cfg.chunk_size = static_cast<size_t>(crc32.chunkSize);
-    auto stdTbl = create_standard_table(crc_cfg);
-    // for (int i = 0; i < 256; i++)
-    // {
+    // auto stdTbl = create_standard_table(crc_cfg);
+    //  for (int i = 0; i < 256; i++)
+    //  {
 
     //     printFourByteHex(std::vector<uint32_t>{stdTbl[i]});
     //     if (i % 8 == 7)
@@ -440,30 +475,23 @@ int main(int argc, char **argv)
     // }
 
     auto start_time = std::chrono::high_resolution_clock::now();
-    auto resFPGA = mgr.calculate_crc(data1, crc32);
+    auto resFPGA = mgr.calculate_crc(data1, crc32, use_large_splits);
     auto end_time = std::chrono::high_resolution_clock::now();
     auto duration = std::chrono::duration_cast<std::chrono::microseconds>(end_time - start_time).count();
     double throughput = get_throughput(data1.size(), duration);
-    std::cout << "FPGA CRC32 Time: " << duration << " us, Throughput: " << throughput << " MB/s" << std::endl;
-    crc_cfg.polynomial = crc32.polynomial;
-    crc_cfg.initial_value = crc32.init_val;
-    crc_cfg.final_xor_value = crc32.xor_out;
-    crc_cfg.reflect_input = crc32.refInput;
-    crc_cfg.reflect_output = crc32.refOutput;
-    crc_cfg.width = static_cast<uint8_t>(crc32.crcWidth);
-    crc_cfg.chunk_size = static_cast<size_t>(crc32.chunkSize);
+    std::cout << (configFile + " FPGA Time: ") << duration << " us, Throughput: " << throughput << " MB/s" << std::endl;
 
     start_time = std::chrono::high_resolution_clock::now();
     auto resHost = fast_crc(data1, crc32);
     end_time = std::chrono::high_resolution_clock::now();
     duration = std::chrono::duration_cast<std::chrono::microseconds>(end_time - start_time).count();
     throughput = get_throughput(data1.size(), duration);
-    std::cout << "Host CRC32 Time: " << duration << " us, Throughput: " << throughput << " MB/s" << std::endl;
+    std::cout << (configFile + " Host Time: ") << duration << " us, Throughput: " << throughput << " MB/s" << std::endl;
     // std::vector<uint32_t> resHost;
     // resHost.push_back(uin);
     std::cout << "Input Data:" << std::endl;
     printData(data1);
-    int numTests = 10;
+    // int numTests = 10;
 
     // auto sequentialFPGA = calc_fpga_sequential(mgr, data1, crc32, data2, crc32, numTests);
     // auto parallelFPGA = calc_fpga_parallel(mgr, data1, crc32, data2, crc32, numTests);
@@ -494,7 +522,11 @@ int main(int argc, char **argv)
     // std::cout << "Results:" << std::endl;
     for (size_t i = 0; i < resHost.size() && i < 5; i++)
     {
-        std::cout << "Host: " << std::hex << resHost[i] << " | " << reflect(resHost[i], 16) << " FPGA: " << std::hex << resFPGA[i] << " | " << reflect(resFPGA[i], 16) << std::endl;
+        std::string labelHost = configFile + " Host: ";
+        std::string labelFPGA = configFile + " FPGA: ";
+
+        print_result(labelHost.c_str(), resHost[i], resHost[i], crc32.crcWidth);
+        print_result(labelFPGA.c_str(), resFPGA[i], resHost[i], crc32.crcWidth);
     }
 
     return 0;

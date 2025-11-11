@@ -59,73 +59,126 @@ static void process_blocks(
     int numChunks, int chunkSize)
 {
 #pragma HLS INLINE off
-// 16 independent LUT memories -> 16 parallel reads each cycle
 #pragma HLS ARRAY_PARTITION variable = crcTables complete dim = 1
 #pragma HLS BIND_STORAGE variable = crcTables type = ram_1p impl = bram
 
-    const int total_bytes = numChunks * chunkSize;
-    const int total_blocks = total_bytes / 16; // each iter consumes 16 bytes
-
+    // guard mask
     ap_uint<32> mask = 0xFFFFFFFFu;
     if (crc_size < 32)
         mask = (1u << crc_size) - 1u;
 
-    ap_uint<32> crc = init_value;
-    int bytes_in_chunk = 0;
-
-block_loop:
-    for (int i = 0; i < total_blocks; ++i)
+    // enforce chunk structure to HLS (prevents boundary reordering)
+chunk_loop:
+    for (int c = 0; c < numChunks; ++c)
     {
+        ap_uint<32> crc = init_value;
+
+        const int blocks_in_chunk = chunkSize / 16;
+        const int tail_bytes = chunkSize - blocks_in_chunk * 16;
+
+    block_loop:
+        for (int b = 0; b < blocks_in_chunk; ++b)
+        {
 #pragma HLS PIPELINE II = 1
 
-        // First 4 bytes mix in the running CRC per the 16-way table method
-        // ap_uint<32> t0 = crcTables[0][((crc) & 0xFF) ^ byte0.read()];
-        // ap_uint<32> t1 = crcTables[1][((crc >> 8) & 0xFF) ^ byte1.read()];
-        // ap_uint<32> t2 = crcTables[2][((crc >> 16) & 0xFF) ^ byte2.read()];
-        // ap_uint<32> t3 = crcTables[3][((crc >> 24) & 0xFF) ^ byte3.read()];
-        // ap_uint<32> t4 = crcTables[4][byte4.read()];
-        // ap_uint<32> t5 = crcTables[5][byte5.read()];
-        // ap_uint<32> t6 = crcTables[6][byte6.read()];
-        // ap_uint<32> t7 = crcTables[7][byte7.read()];
-        // ap_uint<32> t8 = crcTables[8][byte8.read()];
-        // ap_uint<32> t9 = crcTables[9][byte9.read()];
-        // ap_uint<32> t10 = crcTables[10][byte10.read()];
-        // ap_uint<32> t11 = crcTables[11][byte11.read()];
-        // ap_uint<32> t12 = crcTables[12][byte12.read()];
-        // ap_uint<32> t13 = crcTables[13][byte13.read()];
-        // ap_uint<32> t14 = crcTables[14][byte14.read()];
-        // ap_uint<32> t15 = crcTables[15][byte15.read()];
+            ap_uint<8> b0 = byte0.read();
+            ap_uint<8> b1 = byte1.read();
+            ap_uint<8> b2 = byte2.read();
+            ap_uint<8> b3 = byte3.read();
+            ap_uint<8> b4 = byte4.read();
+            ap_uint<8> b5 = byte5.read();
+            ap_uint<8> b6 = byte6.read();
+            ap_uint<8> b7 = byte7.read();
+            ap_uint<8> b8 = byte8.read();
+            ap_uint<8> b9 = byte9.read();
+            ap_uint<8> b10 = byte10.read();
+            ap_uint<8> b11 = byte11.read();
+            ap_uint<8> b12 = byte12.read();
+            ap_uint<8> b13 = byte13.read();
+            ap_uint<8> b14 = byte14.read();
+            ap_uint<8> b15 = byte15.read();
 
-        crc = ((crcTables[0][((crc) & 0xFF) ^ byte0.read()] ^
-                crcTables[1][((crc >> 8) & 0xFF) ^ byte1.read()]) ^
-               (crcTables[2][((crc >> 16) & 0xFF) ^ byte2.read()] ^
-                crcTables[3][((crc >> 24) & 0xFF) ^ byte3.read()]) ^
-               (crcTables[4][byte4.read()] ^
-                crcTables[5][byte5.read()]) ^
-               (crcTables[6][byte6.read()] ^
-                crcTables[7][byte7.read()]) ^
-               (crcTables[8][byte8.read()] ^
-                crcTables[9][byte9.read()]) ^
-               (crcTables[10][byte10.read()] ^
-                crcTables[11][byte11.read()]) ^
-               (crcTables[12][byte12.read()] ^
-                crcTables[13][byte13.read()]) ^
-               (crcTables[14][byte14.read()] ^
-                crcTables[15][byte15.read()])) &
-              mask;
+            ap_uint<32> next =
+                (crcTables[0][((crc) & 0xFF) ^ b0] ^
+                 crcTables[1][((crc >> 8) & 0xFF) ^ b1]) ^
+                (crcTables[2][((crc >> 16) & 0xFF) ^ b2] ^
+                 crcTables[3][((crc >> 24) & 0xFF) ^ b3]) ^
+                (crcTables[4][b4] ^ crcTables[5][b5]) ^
+                (crcTables[6][b6] ^ crcTables[7][b7]) ^
+                (crcTables[8][b8] ^ crcTables[9][b9]) ^
+                (crcTables[10][b10] ^ crcTables[11][b11]) ^
+                (crcTables[12][b12] ^ crcTables[13][b13]) ^
+                (crcTables[14][b14] ^ crcTables[15][b15]);
 
-        bytes_in_chunk += 16;
-        if (bytes_in_chunk >= chunkSize)
-        {
-            outStream << (ap_uint<32>)crc;
-            crc = init_value;
-            bytes_in_chunk = 0;
+            crc = next & mask;
         }
-    }
 
-    // Safety: if chunkSize wasn’t multiple of 16 (shouldn’t happen), flush
-    if (bytes_in_chunk != 0)
-    {
+        // If your producer can emit non-multiple-of-16 tails per chunk, handle them here.
+        // (If you never have tails, you can remove this section.)
+        if (tail_bytes)
+        {
+        tail_loop:
+            for (int t = 0; t < tail_bytes; ++t)
+            {
+#pragma HLS PIPELINE II = 1
+                // Read only the lane that corresponds to position t (0..15)
+                ap_uint<8> bt;
+                switch (t & 15)
+                {
+                case 0:
+                    bt = byte0.read();
+                    break;
+                case 1:
+                    bt = byte1.read();
+                    break;
+                case 2:
+                    bt = byte2.read();
+                    break;
+                case 3:
+                    bt = byte3.read();
+                    break;
+                case 4:
+                    bt = byte4.read();
+                    break;
+                case 5:
+                    bt = byte5.read();
+                    break;
+                case 6:
+                    bt = byte6.read();
+                    break;
+                case 7:
+                    bt = byte7.read();
+                    break;
+                case 8:
+                    bt = byte8.read();
+                    break;
+                case 9:
+                    bt = byte9.read();
+                    break;
+                case 10:
+                    bt = byte10.read();
+                    break;
+                case 11:
+                    bt = byte11.read();
+                    break;
+                case 12:
+                    bt = byte12.read();
+                    break;
+                case 13:
+                    bt = byte13.read();
+                    break;
+                case 14:
+                    bt = byte14.read();
+                    break;
+                default:
+                    bt = byte15.read();
+                    break;
+                }
+
+                crc = ((crc >> 8) ^ crcTables[0][(crc ^ bt) & 0xFF]) & mask;
+            }
+        }
+
         outStream << (ap_uint<32>)crc;
     }
 }

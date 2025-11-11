@@ -173,7 +173,7 @@ public:
 
     // Non-Blocking CRC calculation
     std::future<std::vector<uint32_t>>
-    submit(const std::vector<unsigned char> &data, const KernelConfig &config)
+    submit(const std::vector<unsigned char> &data, const KernelConfig &config, bool large_split = false)
     {
 
         size_t totalBytes = data.size();
@@ -186,7 +186,11 @@ public:
             int chunks_per_task = num_chunks / workers_.size();
             data_per_task = chunks_per_task * chunkBytes;
         }
-        data_per_task = chunkBytes; // TODO
+        if (!large_split)
+        {
+            data_per_task = chunkBytes; // TODO
+        }
+
         size_t bytesToProcess = std::min(data_per_task, totalBytes);
         std::vector<std::future<std::vector<uint32_t>>> futures;
         for (size_t offset = 0; offset < totalBytes; offset += bytesToProcess)
@@ -215,9 +219,9 @@ public:
 
     // Blocking Syncronous Function
     std::vector<uint32_t>
-    calculate_crc(const std::vector<unsigned char> &data, const KernelConfig &config)
+    calculate_crc(const std::vector<unsigned char> &data, const KernelConfig &config, bool large_split = false)
     {
-        return submit(data, config).get();
+        return submit(data, config, large_split).get();
     }
 
 private:
@@ -297,11 +301,11 @@ private:
         if (!crc_cfg.reflect_input)
         {
             // Reflect first 4 bytes of each chunk
-            for (size_t i = 0; i < totalBytes; i += 16)
+            for (size_t i = 0; i < totalBytes; i++)
             {
-                for (size_t b = 0; b < 4; ++b)
+                if (i % 16 < 4)
                 {
-                    data_ptr[i + b] = ((uint8_t)reflect(data_ptr[i + b], 8) & 0xFF);
+                    data_ptr[i] = static_cast<uint8_t>(reflect(data_ptr[i], 8) & 0xFF);
                 }
             }
         }
@@ -321,17 +325,19 @@ private:
             OCL_CHECK(err, err = w.kernel.setArg(1, w.dOutA));
             OCL_CHECK(err, err = w.kernel.setArg(2, *w.tableBuffers[config_index]));
             OCL_CHECK(err, err = w.kernel.setArg(3, static_cast<uint32_t>(chunksToProcess)));
-            OCL_CHECK(err, err = w.kernel.setArg(4, static_cast<uint32_t>(chunkBytes)));
+            OCL_CHECK(err, err = w.kernel.setArg(4, static_cast<uint32_t>(cfg.chunkSize)));
             OCL_CHECK(err, err = w.kernel.setArg(5, static_cast<uint32_t>(cfg.crcWidth)));
             OCL_CHECK(err, err = w.kernel.setArg(6, static_cast<uint32_t>(cfg.init_val)));
 
             cl::Event evH2D, evRun, evD2H;
 
             OCL_CHECK(err, err = w.qH2D.enqueueWriteBuffer(
-                               w.dInA, CL_FALSE, 0, chunkBytes, chunkData.data(), nullptr, &evH2D));
+                               w.dInA, CL_FALSE, 0, bytesToProcess, chunkData.data(), nullptr, &evH2D));
 
             auto waitList = cl::vector<cl::Event>{evH2D};
-            OCL_CHECK(err, err = w.qK.enqueueTask(w.kernel, &waitList, &evRun));
+            cl::NDRange one(1);
+            OCL_CHECK(err, err = w.qK.enqueueNDRangeKernel(
+                               w.kernel, cl::NullRange, one, one, &waitList, &evRun));
 
             auto waitList2 = cl::vector<cl::Event>{evRun};
             std::vector<uint32_t, aligned_allocator<uint32_t>> crcOut(chunksToProcess);
@@ -344,11 +350,11 @@ private:
         {
             result[i] ^= (cfg.xor_out);
         }
-        if (!crc_cfg.reflect_output)
+        if (crc_cfg.reflect_output != crc_cfg.reflect_input)
         {
             for (size_t i = 0; i < result.size(); ++i)
             {
-                result[i] = reflect(result[i], static_cast<uint8_t>(cfg.crcWidth)) & ((cfg.crcWidth == 32) ? 0xFFFFFFFF : ((1u << cfg.crcWidth) - 1u));
+                result[i] = reflect(result[i], static_cast<uint8_t>(cfg.crcWidth));
             }
         }
 
@@ -423,7 +429,7 @@ private:
         {
             cl::Buffer *table_buf = new cl::Buffer(w.context, CL_MEM_READ_ONLY, 256 * 16 * sizeof(uint32_t), nullptr, &err);
             OCL_CHECK(err, err = w.kernel.setArg(2, *table_buf));
-            if (i < configs.size())
+            if ((size_t)i < configs.size())
             {
                 // Generate tables
                 CRC_Config crc_cfg;

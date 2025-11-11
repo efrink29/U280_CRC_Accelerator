@@ -111,7 +111,7 @@ uint32_t standard_compute(const uint8_t *data,
     {
         return crc & mask;
     }
-    if (config.reflect_output != config.reflect_input)
+    if (!config.reflect_output)
     {
         crc = reflect(crc, w) & mask;
     }
@@ -161,7 +161,7 @@ uint32_t standard_compute_golden(const uint8_t *data,
 
     delete[] table;
 
-    if (config.reflect_output != config.reflect_input)
+    if (!config.reflect_output)
     {
         crc = reflect(crc, w) & mask;
     }
@@ -223,7 +223,7 @@ uint32_t **create_parallel_tables(const CRC_Config &config)
         for (int i = 0; i < 16; ++i)
         {
             reflected_T[i] = new uint32_t[256];
-            if (i < 4)
+            if (i > 11)
             {
                 for (int j = 0; j < 256; ++j)
                 {
