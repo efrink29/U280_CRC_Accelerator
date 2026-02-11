@@ -1,6 +1,6 @@
 <ENTRY>
 {
- "thisFile": "/home/efrink/Documents/Examples/Kernel_Tools/parallel_crc/build_dir.sw_emu.xilinx_u280_gen3x16_xdma_1_202211_1/kernel.xclbin.package_summary",
+ "thisFile": "/home/asarabi3/U280_CRC_Accelerator/build_dir.sw_emu.xilinx_u280_gen3x16_xdma_1_202211_1/kernel.xclbin.package_summary",
  "connectId": "",
  "serverToken": "",
  "timestamp": "0"
@@ -9,13 +9,13 @@
 <ENTRY>
 {
  "type": "ET_CmdStep",
- "dateTimestamp": "Sat Nov  1 17:57:00 2025",
- "timestampMillis": "1762019820039",
+ "dateTimestamp": "Tue Feb 10 07:34:00 2026",
+ "timestampMillis": "1770708840297",
  "buildStep": {
-  "cmdId": "42cceb27-bbdd-4b08-b254-d46a1afef808",
+  "cmdId": "0a65a829-c373-4ff2-9c3b-e4d462574c69",
   "name": "v++",
-  "logFile": "/home/efrink/Documents/Examples/Kernel_Tools/parallel_crc/_x/package/package.steps.log",
-  "commandLine": "/tools/Xilinx/Vitis/2023.1/bin/unwrapped/lnx64.o/v++  --vivado.prop \"run.__KERNEL__.{STEPS.SYNTH_DESIGN.ARGS.MORE OPTIONS}={-directive sdx_optimization_effort_high}\" --advanced.misc \"report=type report_timing_summary name impl_report_timing_summary_route_design_summary steps {route_design} runs {impl_1} options {-max_paths 10}\" --advanced.misc \"report=type report_timing_summary name impl_report_timing_summary_post_route_phys_opt_design_summary steps {post_route_phys_opt_design} runs {impl_1} options {-max_paths 10}\" -p ./build_dir.sw_emu.xilinx_u280_gen3x16_xdma_1_202211_1/kernel.link.xclbin -g --save-temps -t sw_emu --platform /opt/xilinx/platforms/xilinx_u280_gen3x16_xdma_1_202211_1/xilinx_u280_gen3x16_xdma_1_202211_1.xpfm --package.out_dir ./package.sw_emu -o ./build_dir.sw_emu.xilinx_u280_gen3x16_xdma_1_202211_1/kernel.xclbin ",
+  "logFile": "/home/asarabi3/U280_CRC_Accelerator/_x/package/package.steps.log",
+  "commandLine": "/tools/Xilinx/Vitis/2023.1/bin/unwrapped/lnx64.o/v++  --vivado.prop \"run.__KERNEL__.{STEPS.SYNTH_DESIGN.ARGS.MORE OPTIONS}={-directive sdx_optimization_effort_high}\" --advanced.misc \"report=type report_timing_summary name impl_report_timing_summary_route_design_summary steps {route_design} runs {impl_1} options {-max_paths 10}\" --advanced.misc \"report=type report_timing_summary name impl_report_timing_summary_post_route_phys_opt_design_summary steps {post_route_phys_opt_design} runs {impl_1} options {-max_paths 10}\" -p ./build_dir.sw_emu.xilinx_u280_gen3x16_xdma_1_202211_1/kernel.link.xclbin -g --save-temps -t sw_emu --platform xilinx_u280_gen3x16_xdma_1_202211_1 --package.out_dir ./package.sw_emu -o ./build_dir.sw_emu.xilinx_u280_gen3x16_xdma_1_202211_1/kernel.xclbin ",
   "args": [
    "-p",
    "./build_dir.sw_emu.xilinx_u280_gen3x16_xdma_1_202211_1/kernel.link.xclbin",
@@ -24,24 +24,24 @@
    "-t",
    "sw_emu",
    "--platform",
-   "/opt/xilinx/platforms/xilinx_u280_gen3x16_xdma_1_202211_1/xilinx_u280_gen3x16_xdma_1_202211_1.xpfm",
+   "xilinx_u280_gen3x16_xdma_1_202211_1",
    "--package.out_dir",
    "./package.sw_emu",
    "-o",
    "./build_dir.sw_emu.xilinx_u280_gen3x16_xdma_1_202211_1/kernel.xclbin"
   ],
   "iniFiles": [],
-  "cwd": "/home/efrink/Documents/Examples/Kernel_Tools/parallel_crc"
+  "cwd": "/home/asarabi3/U280_CRC_Accelerator"
  }
 }
 </ENTRY>
 <ENTRY>
 {
  "type": "ET_Status",
- "dateTimestamp": "Sat Nov  1 17:57:00 2025",
- "timestampMillis": "1762019820039",
+ "dateTimestamp": "Tue Feb 10 07:34:00 2026",
+ "timestampMillis": "1770708840297",
  "status": {
-  "cmdId": "42cceb27-bbdd-4b08-b254-d46a1afef808",
+  "cmdId": "0a65a829-c373-4ff2-9c3b-e4d462574c69",
   "state": "CS_RUNNING"
  }
 }
@@ -49,8 +49,8 @@
 <ENTRY>
 {
  "type": "ET_FlowMetaData",
- "dateTimestamp": "Sat Nov  1 17:57:04 2025",
- "timestampMillis": "1762019824401",
+ "dateTimestamp": "Tue Feb 10 07:34:04 2026",
+ "timestampMillis": "1770708844682",
  "buildSummary": {
   "hardwarePlatform": "xilinx_u280_gen3x16_xdma_1_202211_1.xpfm",
   "hardwareDsa": "",
@@ -63,7 +63,7 @@
    "base": {
     "type": "BT_UKNOWN",
     "name": "kernel",
-    "file": "/home/efrink/Documents/Examples/Kernel_Tools/parallel_crc/build_dir.sw_emu.xilinx_u280_gen3x16_xdma_1_202211_1/kernel.xclbin",
+    "file": "/home/asarabi3/U280_CRC_Accelerator/build_dir.sw_emu.xilinx_u280_gen3x16_xdma_1_202211_1/kernel.xclbin",
     "reports": [],
     "uuid": ""
    },
@@ -75,9 +75,9 @@
    "base": {
     "type": "BT_UKNOWN",
     "name": "kernel.link",
-    "file": "/home/efrink/Documents/Examples/Kernel_Tools/parallel_crc/build_dir.sw_emu.xilinx_u280_gen3x16_xdma_1_202211_1/kernel.link.xclbin",
+    "file": "/home/asarabi3/U280_CRC_Accelerator/build_dir.sw_emu.xilinx_u280_gen3x16_xdma_1_202211_1/kernel.link.xclbin",
     "reports": [],
-    "uuid": "28690387-91c0-430e-b796-3f8acd80b9c7"
+    "uuid": "b653d244-fdb8-4b65-a685-cbc2645d6159"
    },
    "kernels": []
   }
@@ -87,10 +87,10 @@
 <ENTRY>
 {
  "type": "ET_Status",
- "dateTimestamp": "Sat Nov  1 17:57:04 2025",
- "timestampMillis": "1762019824624",
+ "dateTimestamp": "Tue Feb 10 07:34:04 2026",
+ "timestampMillis": "1770708844897",
  "status": {
-  "cmdId": "42cceb27-bbdd-4b08-b254-d46a1afef808",
+  "cmdId": "0a65a829-c373-4ff2-9c3b-e4d462574c69",
   "state": "CS_PASSED"
  }
 }
@@ -98,10 +98,10 @@
 <ENTRY>
 {
  "type": "ET_Report",
- "dateTimestamp": "Sat Nov  1 17:57:04 2025",
- "timestampMillis": "1762019824716",
+ "dateTimestamp": "Tue Feb 10 07:34:04 2026",
+ "timestampMillis": "1770708844984",
  "report": {
-  "path": "/home/efrink/Documents/Examples/Kernel_Tools/parallel_crc/_x/reports/package/v++_package_kernel_guidance.html",
+  "path": "/home/asarabi3/U280_CRC_Accelerator/_x/reports/package/v++_package_kernel_guidance.html",
   "name": "",
   "fileType": "HTML",
   "reportType": "GLOBAL_RULECHECK_GUIDANCE",
@@ -112,10 +112,10 @@
 <ENTRY>
 {
  "type": "ET_Report",
- "dateTimestamp": "Sat Nov  1 17:57:04 2025",
- "timestampMillis": "1762019824717",
+ "dateTimestamp": "Tue Feb 10 07:34:04 2026",
+ "timestampMillis": "1770708844985",
  "report": {
-  "path": "/home/efrink/Documents/Examples/Kernel_Tools/parallel_crc/_x/v++_package_kernel_guidance.pb3",
+  "path": "/home/asarabi3/U280_CRC_Accelerator/_x/v++_package_kernel_guidance.pb3",
   "name": "",
   "fileType": "BINARY_PROTOBUF",
   "reportType": "GLOBAL_RULECHECK_GUIDANCE",

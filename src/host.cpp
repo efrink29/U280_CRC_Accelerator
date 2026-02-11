@@ -11,10 +11,13 @@
 #include "xcl2.hpp"
 #include "manager.hpp"
 #include "helpers/crc.h"
+#include "helpers/sha256.h"
 
 #include <unistd.h>
 #include <string>
 #include <chrono>
+#include <algorithm>
+#include <cctype>
 
 #define DATA_SIZE 32
 #define BLOCK_SIZE 16
@@ -60,6 +63,27 @@ void print_result(const char *label, uint32_t result, uint32_t expected, uint8_t
     std::cout << std::endl;
 }
 
+void print_hash_result(const char *label, const uint32_t *result, const uint32_t *expected)
+{
+    std::cout << label;
+    for (int i = 0; i < 8; ++i)
+    {
+        std::cout << std::hex << std::setw(8) << std::setfill('0') << result[i];
+    }
+
+    bool match = true;
+    for (int i = 0; i < 8; ++i)
+    {
+        if (result[i] != expected[i])
+        {
+            match = false;
+            break;
+        }
+    }
+
+    std::cout << (match ? " [OK]" : " [MISMATCH]") << std::dec << std::endl;
+}
+
 void load_data_chunk(unsigned char *data, std::ifstream &inputfile, size_t size)
 {
     inputfile.read(reinterpret_cast<char *>(data), size);
@@ -94,6 +118,35 @@ void loadConfig(std::string filename, KernelConfig &cfg)
     // cfg.refOutput = !cfg.refOutput;
     file >> std::hex >> cfg.xor_out;
     file >> std::dec >> cfg.chunkSize;
+    cfg.checkMode = CHECK_MODE_CRC;
+    cfg.hashAlgorithm = 0;
+
+    std::string modeToken;
+    if (file >> modeToken)
+    {
+        std::transform(modeToken.begin(), modeToken.end(), modeToken.begin(),
+                       [](unsigned char c)
+                       { return static_cast<char>(std::toupper(c)); });
+        if (modeToken == "TCP" || modeToken == "CHECKSUM" || modeToken == "TCP_CHECKSUM" || modeToken == "1")
+        {
+            cfg.checkMode = CHECK_MODE_TCP_CHECKSUM;
+        }
+        else if (modeToken == "HASH" || modeToken == "SHA256" || modeToken == "2")
+        {
+            cfg.checkMode = CHECK_MODE_HASH;
+            cfg.hashAlgorithm = 0;
+        }
+        else if (modeToken == "SHA1")
+        {
+            cfg.checkMode = CHECK_MODE_HASH;
+            cfg.hashAlgorithm = 1;
+        }
+        else if (modeToken == "MD5")
+        {
+            cfg.checkMode = CHECK_MODE_HASH;
+            cfg.hashAlgorithm = 2;
+        }
+    }
 }
 
 void printData(const Bytes &data)
@@ -124,8 +177,80 @@ void printData(const Bytes &data)
     std::cout << std::endl;
 }
 
+static uint16_t mled_tcp_checksum(const unsigned char *data, size_t len)
+{
+    unsigned int sum = 0;
+    size_t i = 0;
+
+    for (; i + 1 < len; i += 2)
+    {
+        sum += (static_cast<unsigned int>(static_cast<unsigned char>(data[i])) << 8) |
+               static_cast<unsigned int>(static_cast<unsigned char>(data[i + 1]));
+        while (sum >> 16)
+        {
+            sum = (sum & 0xFFFF) + (sum >> 16);
+        }
+    }
+
+    if (i < len)
+    {
+        sum += static_cast<unsigned int>(static_cast<unsigned char>(data[i])) << 8;
+        while (sum >> 16)
+        {
+            sum = (sum & 0xFFFF) + (sum >> 16);
+        }
+    }
+
+    sum = ~sum;
+    return static_cast<uint16_t>(sum & 0xFFFF);
+}
+
 std::vector<uint32_t> fast_crc(const Bytes &data, const KernelConfig &cfg)
 {
+    size_t chunkBytes = static_cast<size_t>(cfg.chunkSize);
+    if (chunkBytes == 0)
+    {
+        throw std::runtime_error("chunkSize must be > 0");
+    }
+
+    size_t totalBytes = data.size();
+    if ((totalBytes % chunkBytes) != 0)
+    {
+        throw std::runtime_error("Input size must be an integer multiple of chunkSize");
+    }
+    size_t nChunks = totalBytes / chunkBytes;
+
+    if (cfg.checkMode == CHECK_MODE_HASH)
+    {
+        if (cfg.hashAlgorithm != 0)
+        {
+            throw std::runtime_error("Only SHA-256 hashAlgorithm=0 is implemented in host reference.");
+        }
+
+        std::vector<uint32_t> results(nChunks * 8, 0);
+        for (size_t chunk = 0; chunk < nChunks; ++chunk)
+        {
+            const size_t offset = chunk * chunkBytes;
+            const auto digest = sha256(data.data() + offset, chunkBytes);
+            for (size_t i = 0; i < digest.size(); ++i)
+            {
+                results[(chunk * 8) + i] = digest[i];
+            }
+        }
+        return results;
+    }
+
+    std::vector<uint32_t> results(nChunks, 0);
+    if (cfg.checkMode == CHECK_MODE_TCP_CHECKSUM)
+    {
+        for (size_t chunk = 0; chunk < nChunks; ++chunk)
+        {
+            size_t offset = chunk * chunkBytes;
+            results[chunk] = static_cast<uint32_t>(mled_tcp_checksum(data.data() + offset, chunkBytes));
+        }
+        return results;
+    }
+
     CRC_Config crc_cfg;
     crc_cfg.polynomial = cfg.polynomial;
     crc_cfg.initial_value = cfg.init_val;
@@ -134,28 +259,11 @@ std::vector<uint32_t> fast_crc(const Bytes &data, const KernelConfig &cfg)
     crc_cfg.reflect_output = cfg.refOutput;
     crc_cfg.width = static_cast<uint8_t>(cfg.crcWidth);
     crc_cfg.chunk_size = static_cast<size_t>(cfg.chunkSize);
-    // uint32_t *stdTbl = create_standard_table(crc_cfg);
-    uint32_t mask = (cfg.crcWidth == 32) ? 0xFFFFFFFF : ((1u << cfg.crcWidth) - 1u);
-    uint32_t crc = cfg.init_val & mask;
-    size_t chunkBytes = static_cast<size_t>(cfg.chunkSize);
-    if (chunkBytes == 0)
-        throw std::runtime_error("chunkSize must be > 0");
-    size_t totalBytes = data.size();
-    size_t nChunks = (totalBytes + chunkBytes - 1) / chunkBytes;
-
-    std::vector<uint32_t> results(nChunks, 0);
 
     for (size_t chunk = 0; chunk < nChunks; ++chunk)
     {
         size_t offset = chunk * chunkBytes;
-        size_t bytesToProcess = std::min(chunkBytes, totalBytes - offset);
-
-        std::vector<unsigned char, aligned_allocator<unsigned char>> chunkData(bytesToProcess, 0);
-        std::copy(data.begin() + offset, data.begin() + offset + bytesToProcess, chunkData.begin());
-        // crc_cfg.initial_value = crc;
-        crc = standard_compute(chunkData.data(), bytesToProcess, crc_cfg) & mask;
-
-        results[chunk] = crc;
+        results[chunk] = parallel_compute(data.data() + offset, chunkBytes, crc_cfg);
     }
 
     return results;
@@ -396,6 +504,7 @@ int main(int argc, char **argv)
     parser.addSwitch("--filename", "-o", "Output filename", "output.dat");
     parser.addSwitch("--test_mode", "-t", "Test mode (0=static, 1=dynamic)", "0");
     parser.addSwitch("--config_file", "-c", "Configuration file", "CRC_32");
+    parser.addSwitch("--input_file", "-i", "Input binary file", "");
     parser.addSwitch("--data_size", "-s", "Data size in bytes", "6553600");
     parser.addSwitch("--use_large_splits", "-l", "Use large splits for tasks", "0");
     parser.parse(argc, argv);
@@ -409,6 +518,7 @@ int main(int argc, char **argv)
     std::string outputFileName = parser.value("filename");
     int test_mode = stoi(parser.value("test_mode"));
     std::string configFile = parser.value("config_file");
+    std::string inputFile = parser.value("input_file");
     bool use_large_splits = stoi(parser.value("use_large_splits")) != 0;
     size_t data_size = static_cast<size_t>(stoll(parser.value("data_size")));
 
@@ -440,21 +550,68 @@ int main(int argc, char **argv)
 
     KernelConfig crc32;
     loadConfig("Configs/" + configFile, crc32);
+    if (crc32.chunkSize <= 0)
+    {
+        throw std::runtime_error("chunkSize must be > 0 in config");
+    }
 
     std::vector<KernelConfig *> configs;
     configs.push_back(&crc32);
 
-    std::vector<unsigned char> data1(data_size);
-
-    for (size_t i = 0; i < data1.size(); i++)
+    std::vector<unsigned char> data1;
+    if (!inputFile.empty())
     {
-        data1[i] = static_cast<unsigned char>((i + (i / 65536)) & 0xFF);
+        std::ifstream inputData(inputFile, std::ios::binary | std::ios::ate);
+        if (!inputData.is_open())
+        {
+            throw std::runtime_error("Failed to open input file: " + inputFile);
+        }
+
+        const std::streamsize fileSize = inputData.tellg();
+        if (fileSize < 0)
+        {
+            throw std::runtime_error("Failed to read input file size: " + inputFile);
+        }
+        inputData.seekg(0, std::ios::beg);
+
+        data1.resize(static_cast<size_t>(fileSize));
+        if (!data1.empty())
+        {
+            if (!inputData.read(reinterpret_cast<char *>(data1.data()), fileSize))
+            {
+                throw std::runtime_error("Failed to read input file contents: " + inputFile);
+            }
+        }
+        std::cout << "Loaded input file: " << inputFile << " (" << data1.size() << " bytes)" << std::endl;
+    }
+    else
+    {
+        data1.resize(data_size);
+        for (size_t i = 0; i < data1.size(); i++)
+        {
+            data1[i] = static_cast<unsigned char>((i + (i / 65536)) & 0xFF);
+        }
+    }
+    {
+        const size_t chunkBytes = static_cast<size_t>(crc32.chunkSize);
+        const size_t tailBytes = data1.size() % chunkBytes;
+        if (tailBytes != 0)
+        {
+            data1.resize(data1.size() - tailBytes);
+            std::cout << "Trimmed input by " << tailBytes
+                      << " bytes to keep an integer number of chunks." << std::endl;
+        }
+    }
+
+    if (data1.empty())
+    {
+        throw std::runtime_error("No complete chunks available after trimming input");
     }
 
     std::cout << data1.size() << std::endl;
     // crc32.refInput = true;
     std::vector<KernelConfig> cfgs = {crc32};
-    std::vector<unsigned char> data2(65536);
+    std::vector<unsigned char> data2(static_cast<size_t>(crc32.chunkSize), 0);
     FpgaManager mgr(xclbinFile, buf_size_bytes, max_compute_units, num_workers, cfgs);
     auto res1a = mgr.calculate_crc(data2, crc32);
 
@@ -520,13 +677,29 @@ int main(int argc, char **argv)
     // std::cout << "Sequential Host Throughput: " << seqHostThru << " MB/s" << std::endl;
     // std::cout << "Parallel Host Throughput: " << parHostThru << " MB/s" << std::endl;
     // std::cout << "Results:" << std::endl;
-    for (size_t i = 0; i < resHost.size() && i < 5; i++)
+    if (crc32.checkMode == CHECK_MODE_HASH)
     {
-        std::string labelHost = configFile + " Host: ";
-        std::string labelFPGA = configFile + " FPGA: ";
+        const size_t hostChunks = resHost.size() / 8;
+        const size_t fpgaChunks = resFPGA.size() / 8;
+        const size_t chunksToPrint = std::min<size_t>(5, std::min(hostChunks, fpgaChunks));
+        for (size_t i = 0; i < chunksToPrint; ++i)
+        {
+            std::string labelHost = configFile + " Host: ";
+            std::string labelFPGA = configFile + " FPGA: ";
+            print_hash_result(labelHost.c_str(), &resHost[i * 8], &resHost[i * 8]);
+            print_hash_result(labelFPGA.c_str(), &resFPGA[i * 8], &resHost[i * 8]);
+        }
+    }
+    else
+    {
+        for (size_t i = 0; i < resHost.size() && i < 5; i++)
+        {
+            std::string labelHost = configFile + " Host: ";
+            std::string labelFPGA = configFile + " FPGA: ";
 
-        print_result(labelHost.c_str(), resHost[i], resHost[i], crc32.crcWidth);
-        print_result(labelFPGA.c_str(), resFPGA[i], resHost[i], crc32.crcWidth);
+            print_result(labelHost.c_str(), resHost[i], resHost[i], static_cast<uint8_t>(crc32.crcWidth));
+            print_result(labelFPGA.c_str(), resFPGA[i], resHost[i], static_cast<uint8_t>(crc32.crcWidth));
+        }
     }
 
     return 0;

@@ -1,0 +1,877 @@
+<ENTRY>
+{
+ "thisFile": "/home/asarabi3/U280_CRC_Accelerator/build_test/tcp_checksum_hw_emu_crc16cu.xclbin.link_summary",
+ "connectId": "",
+ "serverToken": "",
+ "timestamp": "0"
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_CmdStep",
+ "dateTimestamp": "Thu Feb  5 22:23:55 2026",
+ "timestampMillis": "1770330235201",
+ "buildStep": {
+  "cmdId": "181b3a84-68b7-443d-afe5-b2d9185d760c",
+  "name": "v++",
+  "logFile": "/home/asarabi3/U280_CRC_Accelerator/_x/link/link.steps.log",
+  "commandLine": "/tools/Xilinx/Vitis/2023.1/bin/unwrapped/lnx64.o/v++  --vivado.prop \"run.__KERNEL__.{STEPS.SYNTH_DESIGN.ARGS.MORE OPTIONS}={-directive sdx_optimization_effort_high}\" --advanced.misc \"report=type report_timing_summary name impl_report_timing_summary_route_design_summary steps {route_design} runs {impl_1} options {-max_paths 10}\" --advanced.misc \"report=type report_timing_summary name impl_report_timing_summary_post_route_phys_opt_design_summary steps {post_route_phys_opt_design} runs {impl_1} options {-max_paths 10}\" -t hw_emu -l --config build_test/connectivity.cfg -f /opt/xilinx/platforms/xilinx_u280_gen3x16_xdma_1_202211_1/xilinx_u280_gen3x16_xdma_1_202211_1.xpfm -o build_test/tcp_checksum_hw_emu_crc16cu.xclbin build_test/tcp_checksum_hw_emu.xo ",
+  "args": [
+   "-t",
+   "hw_emu",
+   "-l",
+   "--config",
+   "build_test/connectivity.cfg",
+   "-f",
+   "/opt/xilinx/platforms/xilinx_u280_gen3x16_xdma_1_202211_1/xilinx_u280_gen3x16_xdma_1_202211_1.xpfm",
+   "-o",
+   "build_test/tcp_checksum_hw_emu_crc16cu.xclbin",
+   "build_test/tcp_checksum_hw_emu.xo"
+  ],
+  "iniFiles": [
+   {
+    "path": "/home/asarabi3/U280_CRC_Accelerator/build_test/connectivity.cfg",
+    "content": "[connectivity]\nnk=calculate_crc:16:CRC_0,CRC_1,CRC_2,CRC_3,CRC_4,CRC_5,CRC_6,CRC_7,CRC_8,CRC_9,CRC_10,CRC_11,CRC_12,CRC_13,CRC_14,CRC_15\nsp=CRC_0.data_in:HBM[0]\nsp=CRC_0.crc_out:HBM[0]\nsp=CRC_0.tables:HBM[1]\nsp=CRC_1.data_in:HBM[2]\nsp=CRC_1.crc_out:HBM[2]\nsp=CRC_1.tables:HBM[3]\nsp=CRC_2.data_in:HBM[4]\nsp=CRC_2.crc_out:HBM[4]\nsp=CRC_2.tables:HBM[5]\nsp=CRC_3.data_in:HBM[6]\nsp=CRC_3.crc_out:HBM[6]\nsp=CRC_3.tables:HBM[7]\nsp=CRC_4.data_in:HBM[8]\nsp=CRC_4.crc_out:HBM[8]\nsp=CRC_4.tables:HBM[9]\nsp=CRC_5.data_in:HBM[10]\nsp=CRC_5.crc_out:HBM[10]\nsp=CRC_5.tables:HBM[11]\nsp=CRC_6.data_in:HBM[12]\nsp=CRC_6.crc_out:HBM[12]\nsp=CRC_6.tables:HBM[13]\nsp=CRC_7.data_in:HBM[14]\nsp=CRC_7.crc_out:HBM[14]\nsp=CRC_7.tables:HBM[15]\nsp=CRC_8.data_in:HBM[16]\nsp=CRC_8.crc_out:HBM[16]\nsp=CRC_8.tables:HBM[17]\nsp=CRC_9.data_in:HBM[18]\nsp=CRC_9.crc_out:HBM[18]\nsp=CRC_9.tables:HBM[19]\nsp=CRC_10.data_in:HBM[20]\nsp=CRC_10.crc_out:HBM[20]\nsp=CRC_10.tables:HBM[21]\nsp=CRC_11.data_in:HBM[22]\nsp=CRC_11.crc_out:HBM[22]\nsp=CRC_11.tables:HBM[23]\nsp=CRC_12.data_in:HBM[24]\nsp=CRC_12.crc_out:HBM[24]\nsp=CRC_12.tables:HBM[25]\nsp=CRC_13.data_in:HBM[26]\nsp=CRC_13.crc_out:HBM[26]\nsp=CRC_13.tables:HBM[27]\nsp=CRC_14.data_in:HBM[28]\nsp=CRC_14.crc_out:HBM[28]\nsp=CRC_14.tables:HBM[29]\nsp=CRC_15.data_in:HBM[30]\nsp=CRC_15.crc_out:HBM[30]\nsp=CRC_15.tables:HBM[31]"
+   }
+  ],
+  "cwd": "/home/asarabi3/U280_CRC_Accelerator"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Status",
+ "dateTimestamp": "Thu Feb  5 22:23:55 2026",
+ "timestampMillis": "1770330235202",
+ "status": {
+  "cmdId": "181b3a84-68b7-443d-afe5-b2d9185d760c",
+  "state": "CS_RUNNING"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_FlowMetaData",
+ "dateTimestamp": "Thu Feb  5 22:24:00 2026",
+ "timestampMillis": "1770330240364",
+ "buildSummary": {
+  "hardwarePlatform": "xilinx_u280_gen3x16_xdma_1_202211_1.xpfm",
+  "hardwareDsa": "",
+  "platformDirectory": "/opt/xilinx/platforms/xilinx_u280_gen3x16_xdma_1_202211_1",
+  "runtime": "OpenCL",
+  "systemConfig": "Linux",
+  "flow": "BF_LINK",
+  "target": "TT_HW_EMU",
+  "binaryContainer": {
+   "base": {
+    "type": "BT_UKNOWN",
+    "name": "tcp_checksum_hw_emu_crc16cu",
+    "file": "/home/asarabi3/U280_CRC_Accelerator/build_test/tcp_checksum_hw_emu_crc16cu.xclbin",
+    "reports": [],
+    "uuid": ""
+   },
+   "kernels": []
+  },
+  "kernels": [
+   {
+    "base": {
+     "type": "KERNEL",
+     "name": "calculate_crc",
+     "file": "/home/asarabi3/U280_CRC_Accelerator/build_test/tcp_checksum_hw_emu.xo",
+     "reports": [],
+     "uuid": ""
+    },
+    "sources": [
+     "/home/asarabi3/U280_CRC_Accelerator/_x/link/int/xo/calculate_crc/calculate_crc/cpu_sources/kernel.cpp"
+    ],
+    "psSources": [],
+    "cuNames": [
+     "CRC_0",
+     "CRC_1",
+     "CRC_2",
+     "CRC_3",
+     "CRC_4",
+     "CRC_5",
+     "CRC_6",
+     "CRC_7",
+     "CRC_8",
+     "CRC_9",
+     "CRC_10",
+     "CRC_11",
+     "CRC_12",
+     "CRC_13",
+     "CRC_14",
+     "CRC_15"
+    ],
+    "type": "HLS",
+    "frequency": 0,
+    "freqUnits": ""
+   }
+  ],
+  "toolVersion": "Vitis V++ Compiler Release 2023.1. SW Build 3860322 on 2023-05-04-06:32:48"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_SubCmdStep",
+ "dateTimestamp": "Thu Feb  5 22:24:00 2026",
+ "timestampMillis": "1770330240594",
+ "buildStep": {
+  "cmdId": "b4576d1f-0a50-4c1d-9e05-cea4ecde5fd7",
+  "name": "system_link",
+  "logFile": "",
+  "commandLine": "system_link --xo /home/asarabi3/U280_CRC_Accelerator/build_test/tcp_checksum_hw_emu.xo --config /home/asarabi3/U280_CRC_Accelerator/_x/link/int/syslinkConfig.ini --xpfm /opt/xilinx/platforms/xilinx_u280_gen3x16_xdma_1_202211_1/xilinx_u280_gen3x16_xdma_1_202211_1.xpfm --target emu --output_dir /home/asarabi3/U280_CRC_Accelerator/_x/link/int --temp_dir /home/asarabi3/U280_CRC_Accelerator/_x/link/sys_link",
+  "args": [
+   "--xo",
+   "/home/asarabi3/U280_CRC_Accelerator/build_test/tcp_checksum_hw_emu.xo",
+   "--config",
+   "/home/asarabi3/U280_CRC_Accelerator/_x/link/int/syslinkConfig.ini",
+   "--xpfm",
+   "/opt/xilinx/platforms/xilinx_u280_gen3x16_xdma_1_202211_1/xilinx_u280_gen3x16_xdma_1_202211_1.xpfm",
+   "--target",
+   "emu",
+   "--output_dir",
+   "/home/asarabi3/U280_CRC_Accelerator/_x/link/int",
+   "--temp_dir",
+   "/home/asarabi3/U280_CRC_Accelerator/_x/link/sys_link"
+  ],
+  "iniFiles": [
+   {
+    "path": "/home/asarabi3/U280_CRC_Accelerator/_x/link/int/syslinkConfig.ini",
+    "content": "nk=calculate_crc:16:CRC_0,CRC_1,CRC_2,CRC_3,CRC_4,CRC_5,CRC_6,CRC_7,CRC_8,CRC_9,CRC_10,CRC_11,CRC_12,CRC_13,CRC_14,CRC_15\nsp=CRC_0.data_in:HBM[0]\nsp=CRC_0.crc_out:HBM[0]\nsp=CRC_0.tables:HBM[1]\nsp=CRC_1.data_in:HBM[2]\nsp=CRC_1.crc_out:HBM[2]\nsp=CRC_1.tables:HBM[3]\nsp=CRC_2.data_in:HBM[4]\nsp=CRC_2.crc_out:HBM[4]\nsp=CRC_2.tables:HBM[5]\nsp=CRC_3.data_in:HBM[6]\nsp=CRC_3.crc_out:HBM[6]\nsp=CRC_3.tables:HBM[7]\nsp=CRC_4.data_in:HBM[8]\nsp=CRC_4.crc_out:HBM[8]\nsp=CRC_4.tables:HBM[9]\nsp=CRC_5.data_in:HBM[10]\nsp=CRC_5.crc_out:HBM[10]\nsp=CRC_5.tables:HBM[11]\nsp=CRC_6.data_in:HBM[12]\nsp=CRC_6.crc_out:HBM[12]\nsp=CRC_6.tables:HBM[13]\nsp=CRC_7.data_in:HBM[14]\nsp=CRC_7.crc_out:HBM[14]\nsp=CRC_7.tables:HBM[15]\nsp=CRC_8.data_in:HBM[16]\nsp=CRC_8.crc_out:HBM[16]\nsp=CRC_8.tables:HBM[17]\nsp=CRC_9.data_in:HBM[18]\nsp=CRC_9.crc_out:HBM[18]\nsp=CRC_9.tables:HBM[19]\nsp=CRC_10.data_in:HBM[20]\nsp=CRC_10.crc_out:HBM[20]\nsp=CRC_10.tables:HBM[21]\nsp=CRC_11.data_in:HBM[22]\nsp=CRC_11.crc_out:HBM[22]\nsp=CRC_11.tables:HBM[23]\nsp=CRC_12.data_in:HBM[24]\nsp=CRC_12.crc_out:HBM[24]\nsp=CRC_12.tables:HBM[25]\nsp=CRC_13.data_in:HBM[26]\nsp=CRC_13.crc_out:HBM[26]\nsp=CRC_13.tables:HBM[27]\nsp=CRC_14.data_in:HBM[28]\nsp=CRC_14.crc_out:HBM[28]\nsp=CRC_14.tables:HBM[29]\nsp=CRC_15.data_in:HBM[30]\nsp=CRC_15.crc_out:HBM[30]\nsp=CRC_15.tables:HBM[31]\n\n"
+   }
+  ],
+  "cwd": "/home/asarabi3/U280_CRC_Accelerator"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Status",
+ "dateTimestamp": "Thu Feb  5 22:24:00 2026",
+ "timestampMillis": "1770330240595",
+ "status": {
+  "cmdId": "b4576d1f-0a50-4c1d-9e05-cea4ecde5fd7",
+  "state": "CS_RUNNING"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Status",
+ "dateTimestamp": "Thu Feb  5 22:24:25 2026",
+ "timestampMillis": "1770330265366",
+ "status": {
+  "cmdId": "b4576d1f-0a50-4c1d-9e05-cea4ecde5fd7",
+  "state": "CS_PASSED"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_SubCmdStep",
+ "dateTimestamp": "Thu Feb  5 22:24:25 2026",
+ "timestampMillis": "1770330265370",
+ "buildStep": {
+  "cmdId": "bc47a456-d469-4da8-9ff4-1b6c4136c88f",
+  "name": "cf2sw",
+  "logFile": "",
+  "commandLine": "cf2sw -sdsl /home/asarabi3/U280_CRC_Accelerator/_x/link/int/sdsl.dat -rtd /home/asarabi3/U280_CRC_Accelerator/_x/link/int/cf2sw.rtd -nofilter /home/asarabi3/U280_CRC_Accelerator/_x/link/int/cf2sw_full.rtd -xclbin /home/asarabi3/U280_CRC_Accelerator/_x/link/int/xclbin_orig.xml -o /home/asarabi3/U280_CRC_Accelerator/_x/link/int/xclbin_orig.1.xml",
+  "args": [
+   "-sdsl",
+   "/home/asarabi3/U280_CRC_Accelerator/_x/link/int/sdsl.dat",
+   "-rtd",
+   "/home/asarabi3/U280_CRC_Accelerator/_x/link/int/cf2sw.rtd",
+   "-nofilter",
+   "/home/asarabi3/U280_CRC_Accelerator/_x/link/int/cf2sw_full.rtd",
+   "-xclbin",
+   "/home/asarabi3/U280_CRC_Accelerator/_x/link/int/xclbin_orig.xml",
+   "-o",
+   "/home/asarabi3/U280_CRC_Accelerator/_x/link/int/xclbin_orig.1.xml"
+  ],
+  "iniFiles": [],
+  "cwd": "/home/asarabi3/U280_CRC_Accelerator"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Status",
+ "dateTimestamp": "Thu Feb  5 22:24:25 2026",
+ "timestampMillis": "1770330265371",
+ "status": {
+  "cmdId": "bc47a456-d469-4da8-9ff4-1b6c4136c88f",
+  "state": "CS_RUNNING"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Status",
+ "dateTimestamp": "Thu Feb  5 22:24:35 2026",
+ "timestampMillis": "1770330275856",
+ "status": {
+  "cmdId": "bc47a456-d469-4da8-9ff4-1b6c4136c88f",
+  "state": "CS_PASSED"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_SubCmdStep",
+ "dateTimestamp": "Thu Feb  5 22:24:35 2026",
+ "timestampMillis": "1770330275860",
+ "buildStep": {
+  "cmdId": "ead72946-8d10-4b68-8c6b-0062e0919762",
+  "name": "rtd2_system_diagram",
+  "logFile": "",
+  "commandLine": "rtd2SystemDiagram",
+  "args": [],
+  "iniFiles": [],
+  "cwd": "/home/asarabi3/U280_CRC_Accelerator"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Status",
+ "dateTimestamp": "Thu Feb  5 22:24:35 2026",
+ "timestampMillis": "1770330275860",
+ "status": {
+  "cmdId": "ead72946-8d10-4b68-8c6b-0062e0919762",
+  "state": "CS_RUNNING"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Report",
+ "dateTimestamp": "Thu Feb  5 22:24:36 2026",
+ "timestampMillis": "1770330276131",
+ "report": {
+  "path": "/home/asarabi3/U280_CRC_Accelerator/_x/link/int/systemDiagramModel.json",
+  "name": "",
+  "fileType": "JSON",
+  "reportType": "SYSTEM_DIAGRAM",
+  "cmdId": ""
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Status",
+ "dateTimestamp": "Thu Feb  5 22:24:36 2026",
+ "timestampMillis": "1770330276132",
+ "status": {
+  "cmdId": "ead72946-8d10-4b68-8c6b-0062e0919762",
+  "state": "CS_PASSED"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_SubCmdStep",
+ "dateTimestamp": "Thu Feb  5 22:24:36 2026",
+ "timestampMillis": "1770330276134",
+ "buildStep": {
+  "cmdId": "94838999-6cee-43c2-832c-d0726cd7259a",
+  "name": "vpl",
+  "logFile": "",
+  "commandLine": "vpl -t hw_emu -f /opt/xilinx/platforms/xilinx_u280_gen3x16_xdma_1_202211_1/xilinx_u280_gen3x16_xdma_1_202211_1.xpfm --remote_ip_cache /home/asarabi3/U280_CRC_Accelerator/.ipcache --output_dir /home/asarabi3/U280_CRC_Accelerator/_x/link/int --log_dir /home/asarabi3/U280_CRC_Accelerator/_x/logs/link --report_dir /home/asarabi3/U280_CRC_Accelerator/_x/reports/link --config /home/asarabi3/U280_CRC_Accelerator/_x/link/int/vplConfig.ini -k /home/asarabi3/U280_CRC_Accelerator/_x/link/int/kernel_info.dat --webtalk_flag Vitis --temp_dir /home/asarabi3/U280_CRC_Accelerator/_x/link --emulation_mode debug_waveform --no-info --iprepo /home/asarabi3/U280_CRC_Accelerator/_x/link/int/xo/ip_repo/xilinx_com_hls_calculate_crc_1_0 --messageDb /home/asarabi3/U280_CRC_Accelerator/_x/link/run_link/vpl.pb /home/asarabi3/U280_CRC_Accelerator/_x/link/int/dr.bd.tcl",
+  "args": [
+   "-t",
+   "hw_emu",
+   "-f",
+   "/opt/xilinx/platforms/xilinx_u280_gen3x16_xdma_1_202211_1/xilinx_u280_gen3x16_xdma_1_202211_1.xpfm",
+   "--remote_ip_cache",
+   "/home/asarabi3/U280_CRC_Accelerator/.ipcache",
+   "--output_dir",
+   "/home/asarabi3/U280_CRC_Accelerator/_x/link/int",
+   "--log_dir",
+   "/home/asarabi3/U280_CRC_Accelerator/_x/logs/link",
+   "--report_dir",
+   "/home/asarabi3/U280_CRC_Accelerator/_x/reports/link",
+   "--config",
+   "/home/asarabi3/U280_CRC_Accelerator/_x/link/int/vplConfig.ini",
+   "-k",
+   "/home/asarabi3/U280_CRC_Accelerator/_x/link/int/kernel_info.dat",
+   "--webtalk_flag",
+   "Vitis",
+   "--temp_dir",
+   "/home/asarabi3/U280_CRC_Accelerator/_x/link",
+   "--emulation_mode",
+   "debug_waveform",
+   "--no-info",
+   "--iprepo",
+   "/home/asarabi3/U280_CRC_Accelerator/_x/link/int/xo/ip_repo/xilinx_com_hls_calculate_crc_1_0",
+   "--messageDb",
+   "/home/asarabi3/U280_CRC_Accelerator/_x/link/run_link/vpl.pb",
+   "/home/asarabi3/U280_CRC_Accelerator/_x/link/int/dr.bd.tcl"
+  ],
+  "iniFiles": [
+   {
+    "path": "/home/asarabi3/U280_CRC_Accelerator/_x/link/int/vplConfig.ini",
+    "content": "[advanced]\nmisc=report=type report_timing_summary name impl_report_timing_summary_route_design_summary steps {route_design} runs {impl_1} options {-max_paths 10}\nmisc=report=type report_timing_summary name impl_report_timing_summary_post_route_phys_opt_design_summary steps {post_route_phys_opt_design} runs {impl_1} options {-max_paths 10}\nparam=compiler.enablePerformanceTrace=1\nparam=compiler.vppCurrentWorkingDir=/home/asarabi3/U280_CRC_Accelerator\nmisc=BinaryName=tcp_checksum_hw_emu_crc16cu\n\n[connectivity]\nnk=calculate_crc:16:CRC_0,CRC_1,CRC_2,CRC_3,CRC_4,CRC_5,CRC_6,CRC_7,CRC_8,CRC_9,CRC_10,CRC_11,CRC_12,CRC_13,CRC_14,CRC_15\n\n[vivado]\nprop=run.__KERNEL__.{STEPS.SYNTH_DESIGN.ARGS.MORE OPTIONS}={-directive sdx_optimization_effort_high}\n\n"
+   }
+  ],
+  "cwd": "/home/asarabi3/U280_CRC_Accelerator"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Status",
+ "dateTimestamp": "Thu Feb  5 22:24:36 2026",
+ "timestampMillis": "1770330276135",
+ "status": {
+  "cmdId": "94838999-6cee-43c2-832c-d0726cd7259a",
+  "state": "CS_RUNNING"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_CmdStep",
+ "dateTimestamp": "Thu Feb  5 22:24:37 2026",
+ "timestampMillis": "1770330277573",
+ "buildStep": {
+  "cmdId": "410f8c1d-02e0-4e9c-89ea-d0fa222b8d2c",
+  "name": "vpl",
+  "logFile": "/home/asarabi3/U280_CRC_Accelerator/_x/link/link.steps.log",
+  "commandLine": "/tools/Xilinx/Vitis/2023.1/bin/unwrapped/lnx64.o/vpl -t hw_emu -f /opt/xilinx/platforms/xilinx_u280_gen3x16_xdma_1_202211_1/xilinx_u280_gen3x16_xdma_1_202211_1.xpfm --remote_ip_cache /home/asarabi3/U280_CRC_Accelerator/.ipcache --output_dir /home/asarabi3/U280_CRC_Accelerator/_x/link/int --log_dir /home/asarabi3/U280_CRC_Accelerator/_x/logs/link --report_dir /home/asarabi3/U280_CRC_Accelerator/_x/reports/link --config /home/asarabi3/U280_CRC_Accelerator/_x/link/int/vplConfig.ini -k /home/asarabi3/U280_CRC_Accelerator/_x/link/int/kernel_info.dat --webtalk_flag Vitis --temp_dir /home/asarabi3/U280_CRC_Accelerator/_x/link --emulation_mode debug_waveform --no-info --iprepo /home/asarabi3/U280_CRC_Accelerator/_x/link/int/xo/ip_repo/xilinx_com_hls_calculate_crc_1_0 --messageDb /home/asarabi3/U280_CRC_Accelerator/_x/link/run_link/vpl.pb /home/asarabi3/U280_CRC_Accelerator/_x/link/int/dr.bd.tcl ",
+  "args": [],
+  "iniFiles": [],
+  "cwd": "/home/asarabi3/U280_CRC_Accelerator/_x/link/run_link"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Status",
+ "dateTimestamp": "Thu Feb  5 22:24:37 2026",
+ "timestampMillis": "1770330277573",
+ "status": {
+  "cmdId": "410f8c1d-02e0-4e9c-89ea-d0fa222b8d2c",
+  "state": "CS_RUNNING"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_VivadoProject",
+ "dateTimestamp": "Thu Feb  5 22:24:44 2026",
+ "timestampMillis": "1770330284159",
+ "vivadoProject": {
+  "openDir": "/home/asarabi3/U280_CRC_Accelerator/_x/link/vivado/vpl",
+  "openScript": "openprj.tcl",
+  "relativeProject": "prj/prj.xpr"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_SubCmdStep",
+ "dateTimestamp": "Thu Feb  5 22:24:44 2026",
+ "timestampMillis": "1770330284160",
+ "buildStep": {
+  "cmdId": "b4af6e47-8cf1-434b-82dd-ac8e5861f7bb",
+  "name": "vivado",
+  "logFile": "/home/asarabi3/U280_CRC_Accelerator/_x/link/vivado/vpl/vivado.log",
+  "commandLine": "vivado -log vivado.log -applog -m64 -messageDb vivado.pb -mode batch -source vpl.tcl -notrace",
+  "args": [
+   "-log",
+   "vivado.log",
+   "-applog",
+   " -m64",
+   "-messageDb",
+   "vivado.pb",
+   "-mode",
+   "batch",
+   "-source",
+   "vpl.tcl",
+   "-notrace"
+  ],
+  "iniFiles": [],
+  "cwd": "/home/asarabi3/U280_CRC_Accelerator/_x/link/run_link"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Status",
+ "dateTimestamp": "Thu Feb  5 22:24:44 2026",
+ "timestampMillis": "1770330284161",
+ "status": {
+  "cmdId": "b4af6e47-8cf1-434b-82dd-ac8e5861f7bb",
+  "state": "CS_RUNNING"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Report",
+ "dateTimestamp": "Thu Feb  5 22:25:53 2026",
+ "timestampMillis": "1770330353459",
+ "report": {
+  "path": "/home/asarabi3/U280_CRC_Accelerator/_x/link/int/automation_summary_update_bd.txt",
+  "name": "",
+  "fileType": "TEXT",
+  "reportType": "VITIS_DESIGN_FLOW",
+  "cmdId": ""
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Status",
+ "dateTimestamp": "Thu Feb  5 22:37:30 2026",
+ "timestampMillis": "1770331050283",
+ "status": {
+  "cmdId": "b4af6e47-8cf1-434b-82dd-ac8e5861f7bb",
+  "state": "CS_PASSED"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Status",
+ "dateTimestamp": "Thu Feb  5 22:37:31 2026",
+ "timestampMillis": "1770331051291",
+ "status": {
+  "cmdId": "410f8c1d-02e0-4e9c-89ea-d0fa222b8d2c",
+  "state": "CS_PASSED"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Status",
+ "dateTimestamp": "Thu Feb  5 22:37:31 2026",
+ "timestampMillis": "1770331051308",
+ "status": {
+  "cmdId": "94838999-6cee-43c2-832c-d0726cd7259a",
+  "state": "CS_PASSED"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_SubCmdStep",
+ "dateTimestamp": "Thu Feb  5 22:37:31 2026",
+ "timestampMillis": "1770331051312",
+ "buildStep": {
+  "cmdId": "cf41984c-cc57-41e9-9abb-885eb9f33373",
+  "name": "rtdgen",
+  "logFile": "",
+  "commandLine": "rtdgen",
+  "args": [],
+  "iniFiles": [],
+  "cwd": "/home/asarabi3/U280_CRC_Accelerator"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Status",
+ "dateTimestamp": "Thu Feb  5 22:37:31 2026",
+ "timestampMillis": "1770331051313",
+ "status": {
+  "cmdId": "cf41984c-cc57-41e9-9abb-885eb9f33373",
+  "state": "CS_RUNNING"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Report",
+ "dateTimestamp": "Thu Feb  5 22:37:31 2026",
+ "timestampMillis": "1770331051318",
+ "report": {
+  "path": "/home/asarabi3/U280_CRC_Accelerator/_x/link/int/tcp_checksum_hw_emu_crc16cu_xml.rtd",
+  "name": "",
+  "fileType": "JSON",
+  "reportType": "XCLBIN_INFO",
+  "cmdId": ""
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_SubCmdStep",
+ "dateTimestamp": "Thu Feb  5 22:37:31 2026",
+ "timestampMillis": "1770331051320",
+ "buildStep": {
+  "cmdId": "1e4f0a53-e80a-4845-b10a-20868fca2418",
+  "name": "cf2sw",
+  "logFile": "",
+  "commandLine": "cf2sw -a /home/asarabi3/U280_CRC_Accelerator/_x/link/int/address_map.xml -sdsl /home/asarabi3/U280_CRC_Accelerator/_x/link/int/sdsl.dat -xclbin /home/asarabi3/U280_CRC_Accelerator/_x/link/int/xclbin_orig.xml -rtd /home/asarabi3/U280_CRC_Accelerator/_x/link/int/tcp_checksum_hw_emu_crc16cu.rtd -o /home/asarabi3/U280_CRC_Accelerator/_x/link/int/tcp_checksum_hw_emu_crc16cu.xml",
+  "args": [
+   "-a",
+   "/home/asarabi3/U280_CRC_Accelerator/_x/link/int/address_map.xml",
+   "-sdsl",
+   "/home/asarabi3/U280_CRC_Accelerator/_x/link/int/sdsl.dat",
+   "-xclbin",
+   "/home/asarabi3/U280_CRC_Accelerator/_x/link/int/xclbin_orig.xml",
+   "-rtd",
+   "/home/asarabi3/U280_CRC_Accelerator/_x/link/int/tcp_checksum_hw_emu_crc16cu.rtd",
+   "-o",
+   "/home/asarabi3/U280_CRC_Accelerator/_x/link/int/tcp_checksum_hw_emu_crc16cu.xml"
+  ],
+  "iniFiles": [],
+  "cwd": "/home/asarabi3/U280_CRC_Accelerator"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Status",
+ "dateTimestamp": "Thu Feb  5 22:37:31 2026",
+ "timestampMillis": "1770331051320",
+ "status": {
+  "cmdId": "1e4f0a53-e80a-4845-b10a-20868fca2418",
+  "state": "CS_RUNNING"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Status",
+ "dateTimestamp": "Thu Feb  5 22:37:40 2026",
+ "timestampMillis": "1770331060565",
+ "status": {
+  "cmdId": "1e4f0a53-e80a-4845-b10a-20868fca2418",
+  "state": "CS_PASSED"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_SubCmdStep",
+ "dateTimestamp": "Thu Feb  5 22:37:49 2026",
+ "timestampMillis": "1770331069713",
+ "buildStep": {
+  "cmdId": "2d25f76f-ce62-4e30-9aaf-d5cc92854e12",
+  "name": "rtdgen",
+  "logFile": "",
+  "commandLine": "writeSystemDiagram",
+  "args": [
+   "/home/asarabi3/U280_CRC_Accelerator/_x/link/int/tcp_checksum_hw_emu_crc16cu.rtd",
+   "/home/asarabi3/U280_CRC_Accelerator/_x/link/int/systemDiagramModelSlrBaseAddress.json"
+  ],
+  "iniFiles": [],
+  "cwd": "/home/asarabi3/U280_CRC_Accelerator"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Status",
+ "dateTimestamp": "Thu Feb  5 22:37:49 2026",
+ "timestampMillis": "1770331069714",
+ "status": {
+  "cmdId": "2d25f76f-ce62-4e30-9aaf-d5cc92854e12",
+  "state": "CS_RUNNING"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Report",
+ "dateTimestamp": "Thu Feb  5 22:37:49 2026",
+ "timestampMillis": "1770331069727",
+ "report": {
+  "path": "/home/asarabi3/U280_CRC_Accelerator/_x/link/int/systemDiagramModelSlrBaseAddress.json",
+  "name": "",
+  "fileType": "JSON",
+  "reportType": "SYSTEM_DIAGRAM_PLUS",
+  "cmdId": ""
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Status",
+ "dateTimestamp": "Thu Feb  5 22:37:49 2026",
+ "timestampMillis": "1770331069728",
+ "status": {
+  "cmdId": "2d25f76f-ce62-4e30-9aaf-d5cc92854e12",
+  "state": "CS_PASSED"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_SubCmdStep",
+ "dateTimestamp": "Thu Feb  5 22:37:49 2026",
+ "timestampMillis": "1770331069728",
+ "buildStep": {
+  "cmdId": "ecdd3edd-b747-4bf7-ac3e-6592cbd6f318",
+  "name": "rtdgen",
+  "logFile": "",
+  "commandLine": "writeAutomationSummary",
+  "args": [
+   "/home/asarabi3/U280_CRC_Accelerator/_x/link/int/automation_summary.txt"
+  ],
+  "iniFiles": [],
+  "cwd": "/home/asarabi3/U280_CRC_Accelerator"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Status",
+ "dateTimestamp": "Thu Feb  5 22:37:49 2026",
+ "timestampMillis": "1770331069728",
+ "status": {
+  "cmdId": "ecdd3edd-b747-4bf7-ac3e-6592cbd6f318",
+  "state": "CS_RUNNING"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Report",
+ "dateTimestamp": "Thu Feb  5 22:37:49 2026",
+ "timestampMillis": "1770331069730",
+ "report": {
+  "path": "/home/asarabi3/U280_CRC_Accelerator/_x/link/int/automation_summary.txt",
+  "name": "",
+  "fileType": "TEXT",
+  "reportType": "VITIS_DESIGN_FLOW",
+  "cmdId": ""
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Status",
+ "dateTimestamp": "Thu Feb  5 22:37:49 2026",
+ "timestampMillis": "1770331069731",
+ "status": {
+  "cmdId": "ecdd3edd-b747-4bf7-ac3e-6592cbd6f318",
+  "state": "CS_PASSED"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Status",
+ "dateTimestamp": "Thu Feb  5 22:37:49 2026",
+ "timestampMillis": "1770331069731",
+ "status": {
+  "cmdId": "cf41984c-cc57-41e9-9abb-885eb9f33373",
+  "state": "CS_PASSED"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_SubCmdStep",
+ "dateTimestamp": "Thu Feb  5 22:37:49 2026",
+ "timestampMillis": "1770331069735",
+ "buildStep": {
+  "cmdId": "1c2f9f16-6976-4f34-9f7e-e8cec5884aed",
+  "name": "xclbinutil",
+  "logFile": "",
+  "commandLine": "xclbinutil --add-section BITSTREAM:RAW:/home/asarabi3/U280_CRC_Accelerator/_x/link/int/behav.xse --force --target hw_emu --key-value SYS:dfx_enable:false --add-section :JSON:/home/asarabi3/U280_CRC_Accelerator/_x/link/int/tcp_checksum_hw_emu_crc16cu.rtd --add-section CLOCK_FREQ_TOPOLOGY:JSON:/home/asarabi3/U280_CRC_Accelerator/_x/link/int/tcp_checksum_hw_emu_crc16cu_xml.rtd --add-section BUILD_METADATA:JSON:/home/asarabi3/U280_CRC_Accelerator/_x/link/int/tcp_checksum_hw_emu_crc16cu_build.rtd --add-section EMBEDDED_METADATA:RAW:/home/asarabi3/U280_CRC_Accelerator/_x/link/int/tcp_checksum_hw_emu_crc16cu.xml --add-section SYSTEM_METADATA:RAW:/home/asarabi3/U280_CRC_Accelerator/_x/link/int/systemDiagramModelSlrBaseAddress.json --key-value SYS:PlatformVBNV:xilinx_u280_gen3x16_xdma_1_202211_1 --output /home/asarabi3/U280_CRC_Accelerator/build_test/tcp_checksum_hw_emu_crc16cu.xclbin",
+  "args": [
+   "--add-section",
+   "BITSTREAM:RAW:/home/asarabi3/U280_CRC_Accelerator/_x/link/int/behav.xse",
+   "--force",
+   "--target",
+   "hw_emu",
+   "--key-value",
+   "SYS:dfx_enable:false",
+   "--add-section",
+   ":JSON:/home/asarabi3/U280_CRC_Accelerator/_x/link/int/tcp_checksum_hw_emu_crc16cu.rtd",
+   "--add-section",
+   "CLOCK_FREQ_TOPOLOGY:JSON:/home/asarabi3/U280_CRC_Accelerator/_x/link/int/tcp_checksum_hw_emu_crc16cu_xml.rtd",
+   "--add-section",
+   "BUILD_METADATA:JSON:/home/asarabi3/U280_CRC_Accelerator/_x/link/int/tcp_checksum_hw_emu_crc16cu_build.rtd",
+   "--add-section",
+   "EMBEDDED_METADATA:RAW:/home/asarabi3/U280_CRC_Accelerator/_x/link/int/tcp_checksum_hw_emu_crc16cu.xml",
+   "--add-section",
+   "SYSTEM_METADATA:RAW:/home/asarabi3/U280_CRC_Accelerator/_x/link/int/systemDiagramModelSlrBaseAddress.json",
+   "--key-value",
+   "SYS:PlatformVBNV:xilinx_u280_gen3x16_xdma_1_202211_1",
+   "--output",
+   "/home/asarabi3/U280_CRC_Accelerator/build_test/tcp_checksum_hw_emu_crc16cu.xclbin"
+  ],
+  "iniFiles": [],
+  "cwd": "/home/asarabi3/U280_CRC_Accelerator"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Status",
+ "dateTimestamp": "Thu Feb  5 22:37:49 2026",
+ "timestampMillis": "1770331069735",
+ "status": {
+  "cmdId": "1c2f9f16-6976-4f34-9f7e-e8cec5884aed",
+  "state": "CS_RUNNING"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Status",
+ "dateTimestamp": "Thu Feb  5 22:37:50 2026",
+ "timestampMillis": "1770331070888",
+ "status": {
+  "cmdId": "1c2f9f16-6976-4f34-9f7e-e8cec5884aed",
+  "state": "CS_PASSED"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_SubCmdStep",
+ "dateTimestamp": "Thu Feb  5 22:37:50 2026",
+ "timestampMillis": "1770331070891",
+ "buildStep": {
+  "cmdId": "880dfd8a-eb6b-4cf4-bc26-56cd75cb62b9",
+  "name": "xclbinutilinfo",
+  "logFile": "",
+  "commandLine": "xclbinutil --quiet --force --info /home/asarabi3/U280_CRC_Accelerator/build_test/tcp_checksum_hw_emu_crc16cu.xclbin.info --input /home/asarabi3/U280_CRC_Accelerator/build_test/tcp_checksum_hw_emu_crc16cu.xclbin",
+  "args": [
+   "--quiet",
+   "--force",
+   "--info",
+   "/home/asarabi3/U280_CRC_Accelerator/build_test/tcp_checksum_hw_emu_crc16cu.xclbin.info",
+   "--input",
+   "/home/asarabi3/U280_CRC_Accelerator/build_test/tcp_checksum_hw_emu_crc16cu.xclbin"
+  ],
+  "iniFiles": [],
+  "cwd": "/home/asarabi3/U280_CRC_Accelerator"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Status",
+ "dateTimestamp": "Thu Feb  5 22:37:50 2026",
+ "timestampMillis": "1770331070892",
+ "status": {
+  "cmdId": "880dfd8a-eb6b-4cf4-bc26-56cd75cb62b9",
+  "state": "CS_RUNNING"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Status",
+ "dateTimestamp": "Thu Feb  5 22:37:51 2026",
+ "timestampMillis": "1770331071969",
+ "status": {
+  "cmdId": "880dfd8a-eb6b-4cf4-bc26-56cd75cb62b9",
+  "state": "CS_PASSED"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_SubCmdStep",
+ "dateTimestamp": "Thu Feb  5 22:37:51 2026",
+ "timestampMillis": "1770331071972",
+ "buildStep": {
+  "cmdId": "6bfd2a2b-6545-46b1-b5cb-c2c3dc42022c",
+  "name": "generate_sc_driver",
+  "logFile": "",
+  "commandLine": "",
+  "args": [],
+  "iniFiles": [],
+  "cwd": "/home/asarabi3/U280_CRC_Accelerator"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Status",
+ "dateTimestamp": "Thu Feb  5 22:37:51 2026",
+ "timestampMillis": "1770331071973",
+ "status": {
+  "cmdId": "6bfd2a2b-6545-46b1-b5cb-c2c3dc42022c",
+  "state": "CS_RUNNING"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Status",
+ "dateTimestamp": "Thu Feb  5 22:37:51 2026",
+ "timestampMillis": "1770331071974",
+ "status": {
+  "cmdId": "6bfd2a2b-6545-46b1-b5cb-c2c3dc42022c",
+  "state": "CS_PASSED"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Report",
+ "dateTimestamp": "Thu Feb  5 22:37:52 2026",
+ "timestampMillis": "1770331072012",
+ "report": {
+  "path": "/home/asarabi3/U280_CRC_Accelerator/_x/reports/link/system_estimate_tcp_checksum_hw_emu_crc16cu.xtxt",
+  "name": "",
+  "fileType": "TEXT",
+  "reportType": "GLOBAL_SYSTEM_ESTIMATE",
+  "cmdId": ""
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Report",
+ "dateTimestamp": "Thu Feb  5 22:37:52 2026",
+ "timestampMillis": "1770331072846",
+ "report": {
+  "path": "/home/asarabi3/U280_CRC_Accelerator/_x/logs/optraceViewer.html",
+  "name": "",
+  "fileType": "HTML",
+  "reportType": "OPERATION_TRACE",
+  "cmdId": ""
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Status",
+ "dateTimestamp": "Thu Feb  5 22:37:52 2026",
+ "timestampMillis": "1770331072847",
+ "status": {
+  "cmdId": "181b3a84-68b7-443d-afe5-b2d9185d760c",
+  "state": "CS_PASSED"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Report",
+ "dateTimestamp": "Thu Feb  5 22:37:52 2026",
+ "timestampMillis": "1770331072937",
+ "report": {
+  "path": "/home/asarabi3/U280_CRC_Accelerator/_x/reports/link/v++_link_tcp_checksum_hw_emu_crc16cu_guidance.html",
+  "name": "",
+  "fileType": "HTML",
+  "reportType": "GLOBAL_RULECHECK_GUIDANCE",
+  "cmdId": ""
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Report",
+ "dateTimestamp": "Thu Feb  5 22:37:52 2026",
+ "timestampMillis": "1770331072938",
+ "report": {
+  "path": "/home/asarabi3/U280_CRC_Accelerator/_x/v++_link_tcp_checksum_hw_emu_crc16cu_guidance.pb3",
+  "name": "",
+  "fileType": "BINARY_PROTOBUF",
+  "reportType": "GLOBAL_RULECHECK_GUIDANCE",
+  "cmdId": ""
+ }
+}
+</ENTRY>

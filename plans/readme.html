@@ -1,0 +1,341 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>U280 CRC/HASH Runtime Readme</title>
+  <style>
+    :root {
+      --bg: #f5f7fb;
+      --card: #ffffff;
+      --text: #15202b;
+      --muted: #44566c;
+      --accent: #0b6fa4;
+      --ok: #0a7a33;
+      --warn: #9c5f00;
+    }
+    body {
+      margin: 0;
+      padding: 24px;
+      font-family: "Segoe UI", Tahoma, sans-serif;
+      background: linear-gradient(180deg, #ecf3ff 0%, var(--bg) 100%);
+      color: var(--text);
+      line-height: 1.45;
+    }
+    .wrap {
+      max-width: 980px;
+      margin: 0 auto;
+    }
+    .card {
+      background: var(--card);
+      border: 1px solid #d9e2ef;
+      border-radius: 12px;
+      padding: 18px 20px;
+      margin-bottom: 16px;
+      box-shadow: 0 2px 10px rgba(16, 38, 74, 0.05);
+    }
+    h1, h2 {
+      margin: 0 0 10px 0;
+      color: #0d2f49;
+    }
+    h1 { font-size: 28px; }
+    h2 { font-size: 20px; }
+    p { margin: 8px 0; }
+    ul { margin: 8px 0 0 20px; }
+    li { margin: 4px 0; }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 8px;
+      font-size: 15px;
+    }
+    th, td {
+      border: 1px solid #d9e2ef;
+      padding: 8px;
+      text-align: left;
+      vertical-align: top;
+    }
+    th { background: #eef5ff; }
+    .ok { color: var(--ok); font-weight: 600; }
+    .warn { color: var(--warn); font-weight: 600; }
+    code {
+      background: #f1f5fb;
+      border: 1px solid #d9e2ef;
+      border-radius: 6px;
+      padding: 1px 6px;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    }
+    .muted { color: var(--muted); }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="card">
+      <h1>U280 CRC Accelerator: Hash Extension + Runtime Readme</h1>
+      <p class="muted">Last updated: 2026-02-10</p>
+      <p>
+        This document explains what was implemented for hash support and also how runtime execution
+        works between host, manager, and kernel.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>What Was Implemented</h2>
+      <ul>
+        <li>Added a new mode so one kernel can run CRC, TCP checksum, or SHA-256.</li>
+        <li>Implemented SHA-256 in the FPGA kernel path (chunk-by-chunk).</li>
+        <li>Implemented software SHA-256 on host side as a golden reference.</li>
+        <li>Updated manager output handling for SHA-256 (8 words per chunk, not 1).</li>
+        <li>Added input safety checks for chunk alignment and invalid chunk sizes.</li>
+        <li>Added file input support in host app with <code>-i/--input_file</code>.</li>
+        <li>Added <code>plans/run_swemu_compare.sh</code> for interactive testing of CRC/TCP/SHA.</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h2>Runtime Flow (Host -> Manager -> Kernel)</h2>
+      <ol>
+        <li><b>Host parses args + config:</b> <code>src/host.cpp</code> reads CLI, checks xclbin path, and loads <code>KernelConfig</code>.</li>
+        <li><b>Host creates manager:</b> <code>FpgaManager(xclbin,...)</code> initializes OpenCL objects and worker threads.</li>
+        <li><b>Manager loads xclbin:</b> creates <code>cl::Program</code>, discovers CUs named <code>calculate_crc:{CRC_i}</code>.</li>
+        <li><b>Manager sets up buffers:</b> input/output buffers plus table buffers (real CRC tables for CRC mode, zero table otherwise).</li>
+        <li><b>Host submits work:</b> <code>mgr.calculate_crc(data, cfg, ...)</code> creates tasks.</li>
+        <li><b>Worker launches kernel:</b> manager sets kernel args, writes input, launches kernel, reads output.</li>
+        <li><b>Kernel dispatches by mode:</b> TCP path, HASH path, or default CRC path.</li>
+        <li><b>Host compares results:</b> software reference vs FPGA output and prints OK/MISMATCH.</li>
+      </ol>
+    </div>
+
+    <div class="card">
+      <h2>Key Terms You Asked About</h2>
+      <ul>
+        <li><b>What is <code>cfg</code>?</b> A variable of type <code>KernelConfig</code> that carries run settings (polynomial/init/xor/chunk size/mode/hash algo).</li>
+        <li><b>What is <code>cfg.checkMode</code>?</b> Mode selector sent to kernel:
+          <code>0 = CRC</code>, <code>1 = TCP checksum</code>, <code>2 = HASH</code>.</li>
+        <li><b>What is argument <code>7</code>?</b> Kernel arg index in <code>setArg(7,...)</code> (0-based). It maps to kernel function parameter <code>mode</code>.</li>
+        <li><b>What is a "path"?</b> In code, a path means the execution route/branch taken by conditions (CRC path, TCP path, HASH path).</li>
+      </ul>
+      <p><b>Kernel dispatch behavior:</b> mode <code>1</code> -> TCP path, mode <code>2</code> -> HASH path, otherwise CRC path.</p>
+    </div>
+
+    <div class="card">
+      <h2>Kernel Argument Map (What "7" Means)</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Arg Index</th>
+            <th>Kernel Parameter</th>
+            <th>Meaning</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td><code>0</code></td><td><code>data_in</code></td><td>Input bytes</td></tr>
+          <tr><td><code>1</code></td><td><code>crc_out</code></td><td>Output buffer</td></tr>
+          <tr><td><code>2</code></td><td><code>tables</code></td><td>CRC tables buffer</td></tr>
+          <tr><td><code>3</code></td><td><code>numChunks</code></td><td>How many chunks to process</td></tr>
+          <tr><td><code>4</code></td><td><code>chunkSize</code></td><td>Bytes per chunk</td></tr>
+          <tr><td><code>5</code></td><td><code>crc_size</code></td><td>CRC width (used by CRC path)</td></tr>
+          <tr><td><code>6</code></td><td><code>init_value</code></td><td>CRC initial value</td></tr>
+          <tr><td><code>7</code></td><td><code>mode</code></td><td>Execution path selector (<code>cfg.checkMode</code>)</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="card">
+      <h2>When Loading a New xclbin: Responsibilities</h2>
+      <ul>
+        <li><b>Host app responsibility:</b> provide xclbin path and valid runtime config/input shape.</li>
+        <li><b>Manager responsibility:</b> load/program xclbin, find CUs, bind args correctly, transfer data, launch/readback.</li>
+        <li><b>Kernel responsibility:</b> keep function signature + arg order compatible, implement mode behavior, and write expected output layout.</li>
+      </ul>
+      <p><b>Checklist when kernel changes:</b></p>
+      <ul>
+        <li>If signature changes, update all manager <code>setArg(...)</code> mappings.</li>
+        <li>Keep mode enum values aligned between manager and kernel (<code>0/1/2</code>).</li>
+        <li>If output shape changes, update manager output sizing (<code>wordsPerChunk</code>).</li>
+        <li>If CRC table contract changes, update table generation/upload logic.</li>
+        <li>Keep CU naming compatible with discovery pattern or update discovery code.</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h2>Simple Explanation of hash.md (Phase by Phase)</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Phase</th>
+            <th>What it means (simple)</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1. Algorithm decisions</td>
+            <td>Choose SHA-256 and decide to hash each chunk separately.</td>
+            <td class="ok">Done</td>
+          </tr>
+          <tr>
+            <td>2. Config + mode system</td>
+            <td>Add HASH mode and a config file format that can select SHA-256.</td>
+            <td class="ok">Done</td>
+          </tr>
+          <tr>
+            <td>3. HLS kernel</td>
+            <td>Add SHA-256 constants/functions and connect HASH path in kernel.</td>
+            <td class="warn">Implemented; synthesis report capture still open</td>
+          </tr>
+          <tr>
+            <td>4. Host reference</td>
+            <td>Add software SHA-256 so host can verify FPGA output.</td>
+            <td class="ok">Done</td>
+          </tr>
+          <tr>
+            <td>5. Manager pipeline</td>
+            <td>Handle SHA output sizing and keep CRC/TCP behavior correct.</td>
+            <td class="ok">Done</td>
+          </tr>
+          <tr>
+            <td>6. Build system</td>
+            <td>Compile new host source and build xclbin with HASH support.</td>
+            <td class="warn">sw_emu done; hw_emu/hardware still open</td>
+          </tr>
+          <tr>
+            <td>7. Testing</td>
+            <td>Run emulation and compare FPGA vs host results.</td>
+            <td class="warn">sw_emu done; more edge/performance/hw_emu tests open</td>
+          </tr>
+          <tr>
+            <td>8. Output display</td>
+            <td>Print SHA digest (256-bit) and compare line-by-line in terminal.</td>
+            <td class="ok">Done</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="card">
+      <h2>How Each Part Works</h2>
+      <ul>
+        <li><b>Kernel:</b> For each chunk, SHA-256 digest is computed and 8 words are written to output.</li>
+        <li><b>Host reference:</b> The same chunk is hashed in software and compared to FPGA digest.</li>
+        <li><b>Manager:</b> Uses <code>wordsPerChunk = 8</code> for HASH mode, <code>1</code> for CRC/TCP.</li>
+        <li><b>Result check:</b> Terminal prints digest/checksum lines with <code>[OK]</code> or <code>[MISMATCH]</code>.</li>
+      </ul>
+      <p><b>Important:</b> SHA mode is chunk-based. It is not a single full-file digest unless chunk size equals the file size.</p>
+    </div>
+
+    <div class="card">
+      <h2>How SHA-256 Works (Professor-Ready)</h2>
+      <p>
+        SHA-256 takes any input length and produces a fixed 256-bit digest (32 bytes).
+        It is a compression-based algorithm that processes data in 512-bit blocks (64 bytes).
+      </p>
+      <ul>
+        <li><b>Step 1 - Padding:</b> Append a <code>1</code> bit, then <code>0</code> bits, then the 64-bit original length so total size is a multiple of 512 bits.</li>
+        <li><b>Step 2 - Initialize State:</b> Start from 8 fixed 32-bit initial words (<code>H0..H7</code>).</li>
+        <li><b>Step 3 - Message Schedule:</b> Build <code>W[0..63]</code> where first 16 words come from the current block, and the rest are expanded with rotate/shift functions.</li>
+        <li><b>Step 4 - 64 Compression Rounds:</b> Update working variables <code>a..h</code> using SHA-256 boolean/rotate functions (<code>Ch</code>, <code>Maj</code>, <code>BigSigma</code>, <code>SmallSigma</code>) and constant table <code>K[0..63]</code>.</li>
+        <li><b>Step 5 - State Update:</b> Add the final <code>a..h</code> back into <code>H0..H7</code>.</li>
+        <li><b>Step 6 - Final Digest:</b> Concatenate <code>H0..H7</code> to get the 256-bit output.</li>
+      </ul>
+      <p><b>How this project uses SHA-256:</b></p>
+      <ul>
+        <li>Hashing is <b>chunk-based</b>, not streaming across the full file by default.</li>
+        <li>Each chunk is hashed independently, and FPGA writes <code>8 x uint32_t</code> per chunk.</li>
+        <li>Host software computes the same digest and compares with FPGA output for verification.</li>
+      </ul>
+      <p><b>Simple talking points for presentation:</b></p>
+      <ul>
+        <li>SHA-256 always outputs 256 bits regardless of input size.</li>
+        <li>Internally it processes 64-byte blocks and runs 64 rounds per block.</li>
+        <li>In our accelerator, each chunk is one SHA job and returns 8 words.</li>
+        <li>We validate FPGA results against a software SHA-256 reference implementation.</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h2>FPGA SHA-256 Example (Step-by-Step)</h2>
+      <p>
+        Example: input is <code>abcabc</code> (hex: <code>61 62 63 61 62 63</code>), mode is <code>HASH</code>,
+        and <code>chunkSize = 3</code>. So FPGA processes 2 chunks: <code>abc</code> and <code>abc</code>.
+      </p>
+      <table>
+        <thead>
+          <tr>
+            <th>Step</th>
+            <th>What FPGA/Host Path Does</th>
+            <th>Data Snapshot</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1. Chunk split</td>
+            <td>Manager splits input by <code>chunkSize</code>.</td>
+            <td>Chunk0 = <code>61 62 63</code>, Chunk1 = <code>61 62 63</code></td>
+          </tr>
+          <tr>
+            <td>2. Kernel launch</td>
+            <td>Manager sets args: <code>numChunks=2</code>, <code>chunkSize=3</code>, <code>mode=HASH</code>.</td>
+            <td>Output buffer reserved for <code>2 * 8 = 16</code> words</td>
+          </tr>
+          <tr>
+            <td>3. Per-chunk loop</td>
+            <td><code>process_hash()</code> loops over chunks (<code>c=0,1</code>).</td>
+            <td>Chunk pointer = <code>data_in + c*chunkSize</code></td>
+          </tr>
+          <tr>
+            <td>4. Padding inside SHA</td>
+            <td><code>sha256_process_chunk()</code>: for each 3-byte chunk, no full 64-byte blocks, so one padded block is built.</td>
+            <td><code>61 62 63 80 00 ... 00 00 00 00 00 00 00 18</code> (24-bit length)</td>
+          </tr>
+          <tr>
+            <td>5. Compression</td>
+            <td><code>sha256_compress()</code> runs 64 rounds using <code>W[0..63]</code> and <code>K[0..63]</code>.</td>
+            <td>State updates from initial <code>H0..H7</code> to final digest words</td>
+          </tr>
+          <tr>
+            <td>6. Write digest</td>
+            <td>Kernel writes 8 digest words to global output.</td>
+            <td>Chunk0 -> <code>crc_out[0..7]</code>, Chunk1 -> <code>crc_out[8..15]</code></td>
+          </tr>
+          <tr>
+            <td>7. Host compare</td>
+            <td>Host computes software SHA-256 and compares each 8-word digest.</td>
+            <td>Both chunks match <code>ba7816bf...f20015ad</code> (SHA-256 of <code>abc</code>)</td>
+          </tr>
+        </tbody>
+      </table>
+      <p>
+        Why both outputs are identical here: both chunks contain the exact same bytes (<code>abc</code>),
+        and SHA-256 is deterministic.
+      </p>
+      <p>
+        For your default <code>SHA_256</code> config (<code>chunkSize=1024</code>): each chunk has
+        <code>16</code> full 64-byte blocks plus one final padding block, so the kernel performs
+        <code>17</code> compression calls per chunk.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>How To Run</h2>
+      <p>From repo root:</p>
+      <ul>
+        <li><code>plans/run_swemu_compare.sh</code></li>
+        <li>Select <code>CRC_32</code>, <code>TCP_CHECKSUM</code>, <code>SHA_256</code>, or <code>ALL</code>.</li>
+        <li>Enter a file path, or press Enter to use/create <code>BinaryData/hash_10mb.bin</code>.</li>
+      </ul>
+      <p>The script builds missing artifacts, runs sw emulation, and compares FPGA output with software output.</p>
+    </div>
+
+    <div class="card">
+      <h2>Latest Verified Result Snapshot</h2>
+      <ul>
+        <li>Command: <code>printf "4\n\n" | plans/run_swemu_compare.sh</code></li>
+        <li>Input: <code>BinaryData/hash_10mb.bin</code> (10 MB)</li>
+        <li>Modes: CRC_32, TCP_CHECKSUM, SHA_256</li>
+        <li class="ok">All selected modes passed host-vs-FPGA comparison.</li>
+      </ul>
+    </div>
+  </div>
+</body>
+</html>

@@ -13,6 +13,7 @@
 #include <condition_variable>
 #include <atomic>
 #include <algorithm>
+#include <cstring>
 #include "helpers/crc.h"
 #include "xcl2.hpp"
 
@@ -26,6 +27,15 @@ struct KernelConfig
     int crcWidth;
     int chunkSize;
     size_t dataSize;
+    uint32_t checkMode = 0;
+    uint32_t hashAlgorithm = 0;
+};
+
+enum KernelCheckMode : uint32_t
+{
+    CHECK_MODE_CRC = 0,
+    CHECK_MODE_TCP_CHECKSUM = 1,
+    CHECK_MODE_HASH = 2
 };
 
 struct CrcTask
@@ -178,24 +188,33 @@ public:
 
         size_t totalBytes = data.size();
         size_t chunkBytes = static_cast<size_t>(config.chunkSize);
-        int chunks_per_buf = static_cast<int>(buffer_size_ / chunkBytes);
+        if (chunkBytes == 0)
+            throw std::runtime_error("chunkSize must be > 0");
+        if ((totalBytes % chunkBytes) != 0)
+            throw std::runtime_error("Input size must be an integer multiple of chunkSize");
+
+        size_t chunks_per_buf = buffer_size_ / chunkBytes;
+        if (chunks_per_buf == 0)
+            throw std::runtime_error("chunkSize is larger than worker buffer size");
+
         size_t data_per_task = chunkBytes * chunks_per_buf;
         if (workers_.size() * buffer_size_ > totalBytes)
         {
-            int num_chunks = (totalBytes) / chunkBytes;
-            int chunks_per_task = num_chunks / workers_.size();
+            size_t num_chunks = totalBytes / chunkBytes;
+            size_t chunks_per_task = num_chunks / workers_.size();
+            chunks_per_task = std::max<size_t>(1, chunks_per_task);
             data_per_task = chunks_per_task * chunkBytes;
         }
         if (!large_split)
         {
-            data_per_task = chunkBytes; // TODO
+            data_per_task = chunkBytes;
         }
+        data_per_task = std::max(chunkBytes, data_per_task);
 
-        size_t bytesToProcess = std::min(data_per_task, totalBytes);
         std::vector<std::future<std::vector<uint32_t>>> futures;
-        for (size_t offset = 0; offset < totalBytes; offset += bytesToProcess)
+        for (size_t offset = 0; offset < totalBytes; offset += data_per_task)
         {
-            bytesToProcess = std::min(data_per_task, totalBytes - offset);
+            const size_t bytesToProcess = std::min(data_per_task, totalBytes - offset);
             CrcTask t;
             t.data = std::vector<unsigned char>(data.begin() + offset, data.begin() + offset + bytesToProcess);
             t.config = config;
@@ -233,13 +252,19 @@ private:
 
         const size_t totalBytes = data.size();
         const size_t chunkBytes = static_cast<size_t>(cfg.chunkSize);
-        const size_t nChunks = (totalBytes) / chunkBytes;
         if (chunkBytes == 0)
             throw std::runtime_error("chunkSize must be > 0");
+        if ((totalBytes % chunkBytes) != 0)
+            throw std::runtime_error("Input size must be an integer multiple of chunkSize");
+        if (cfg.checkMode == CHECK_MODE_HASH && cfg.hashAlgorithm != 0)
+            throw std::runtime_error("Only SHA-256 hashAlgorithm=0 is implemented in the kernel.");
+        const size_t nChunks = (totalBytes) / chunkBytes;
 
-        const size_t chunksPerBuf = w.buffer_size / chunkBytes;
+        const size_t wordsPerChunk = (cfg.checkMode == CHECK_MODE_HASH) ? 8u : 1u;
+        const size_t outputBytesPerChunk = wordsPerChunk * sizeof(uint32_t);
+        const size_t chunksPerBuf = std::min(w.buffer_size / chunkBytes, w.buffer_size / outputBytesPerChunk);
         if (chunksPerBuf == 0)
-            throw std::runtime_error("buffer_size must be >= chunkSize");
+            throw std::runtime_error("buffer_size is too small for configured chunk input/output footprint");
 
         // Generate tables
         CRC_Config crc_cfg;
@@ -261,7 +286,9 @@ private:
                 c.xor_out == cfg.xor_out &&
                 c.refInput == cfg.refInput &&
                 c.refOutput == cfg.refOutput &&
-                c.crcWidth == cfg.crcWidth)
+                c.crcWidth == cfg.crcWidth &&
+                c.checkMode == cfg.checkMode &&
+                c.hashAlgorithm == cfg.hashAlgorithm)
             {
                 config_index = static_cast<int>(i);
                 table_buf = *w.tableBuffers[config_index];
@@ -276,15 +303,16 @@ private:
             config_index = static_cast<int>(w.configs.size());
             table_buf = *w.tableBuffers[config_index];
 
-            auto parTbl = create_parallel_tables(crc_cfg);
-
             std::vector<uint32_t> flatTbl(16 * 256);
-            for (int i = 0; i < 16; ++i)
+            if (cfg.checkMode == CHECK_MODE_CRC)
             {
-                for (int j = 0; j < 256; ++j)
+                auto parTbl = create_parallel_tables(crc_cfg);
+                for (int i = 0; i < 16; ++i)
                 {
-
-                    flatTbl[(i << 8) + j] = parTbl[i][j];
+                    for (int j = 0; j < 256; ++j)
+                    {
+                        flatTbl[(i << 8) + j] = parTbl[i][j];
+                    }
                 }
             }
             OCL_CHECK(err, err = w.kernel.setArg(0, w.dInA));
@@ -296,9 +324,8 @@ private:
             //  std::cout << "Num tables now: " << w.dTbl.size() << std::endl;
         }
 
-        uint8_t *data_ptr = new uint8_t[data.size()];
-        memcpy(data_ptr, data.data(), data.size());
-        if (!crc_cfg.reflect_input)
+        std::vector<uint8_t> data_ptr(data.begin(), data.end());
+        if (cfg.checkMode == CHECK_MODE_CRC && !crc_cfg.reflect_input)
         {
             // Reflect first 4 bytes of each chunk
             for (size_t i = 0; i < totalBytes; i++)
@@ -310,7 +337,7 @@ private:
             }
         }
         std::vector<uint32_t> result;
-        result.reserve(nChunks);
+        result.reserve(nChunks * wordsPerChunk);
 
         for (size_t k = 0; k < nChunks; k += chunksPerBuf)
         {
@@ -319,7 +346,7 @@ private:
             const size_t chunksToProcess = (bytesToProcess) / chunkBytes;
 
             std::vector<unsigned char, aligned_allocator<unsigned char>> chunkData(bytesToProcess, 0);
-            std::memcpy(chunkData.data(), data_ptr + offset, bytesToProcess);
+            std::memcpy(chunkData.data(), data_ptr.data() + offset, bytesToProcess);
 
             OCL_CHECK(err, err = w.kernel.setArg(0, w.dInA));
             OCL_CHECK(err, err = w.kernel.setArg(1, w.dOutA));
@@ -328,6 +355,7 @@ private:
             OCL_CHECK(err, err = w.kernel.setArg(4, static_cast<uint32_t>(cfg.chunkSize)));
             OCL_CHECK(err, err = w.kernel.setArg(5, static_cast<uint32_t>(cfg.crcWidth)));
             OCL_CHECK(err, err = w.kernel.setArg(6, static_cast<uint32_t>(cfg.init_val)));
+            OCL_CHECK(err, err = w.kernel.setArg(7, static_cast<uint32_t>(cfg.checkMode)));
 
             cl::Event evH2D, evRun, evD2H;
 
@@ -340,21 +368,24 @@ private:
                                w.kernel, cl::NullRange, one, one, &waitList, &evRun));
 
             auto waitList2 = cl::vector<cl::Event>{evRun};
-            std::vector<uint32_t, aligned_allocator<uint32_t>> crcOut(chunksToProcess);
+            std::vector<uint32_t, aligned_allocator<uint32_t>> crcOut(chunksToProcess * wordsPerChunk);
             OCL_CHECK(err, err = w.qD2H.enqueueReadBuffer(
-                               w.dOutA, CL_TRUE, 0, sizeof(uint32_t) * chunksToProcess, crcOut.data(), &waitList2, &evD2H));
+                               w.dOutA, CL_TRUE, 0, sizeof(uint32_t) * chunksToProcess * wordsPerChunk, crcOut.data(), &waitList2, &evD2H));
 
             result.insert(result.end(), crcOut.begin(), crcOut.end());
         }
-        for (size_t i = 0; i < result.size(); ++i)
-        {
-            result[i] ^= (cfg.xor_out);
-        }
-        if (crc_cfg.reflect_output != crc_cfg.reflect_input)
+        if (cfg.checkMode == CHECK_MODE_CRC)
         {
             for (size_t i = 0; i < result.size(); ++i)
             {
-                result[i] = reflect(result[i], static_cast<uint8_t>(cfg.crcWidth));
+                result[i] ^= (cfg.xor_out);
+            }
+            if (crc_cfg.reflect_output != crc_cfg.reflect_input)
+            {
+                for (size_t i = 0; i < result.size(); ++i)
+                {
+                    result[i] = reflect(result[i], static_cast<uint8_t>(cfg.crcWidth));
+                }
             }
         }
 
@@ -429,7 +460,7 @@ private:
         {
             cl::Buffer *table_buf = new cl::Buffer(w.context, CL_MEM_READ_ONLY, 256 * 16 * sizeof(uint32_t), nullptr, &err);
             OCL_CHECK(err, err = w.kernel.setArg(2, *table_buf));
-            if ((size_t)i < configs.size())
+            if ((size_t)i < configs.size() && configs[i].checkMode == CHECK_MODE_CRC)
             {
                 // Generate tables
                 CRC_Config crc_cfg;
@@ -454,6 +485,11 @@ private:
                 }
                 // std::cout << "Uploading table " << i << std::endl;
 
+                OCL_CHECK(err, err = w.qH2D.enqueueWriteBuffer(*table_buf, CL_TRUE, 0, flatTbl.size() * sizeof(uint32_t), flatTbl.data()));
+            }
+            else
+            {
+                std::vector<uint32_t> flatTbl(16 * 256, 0);
                 OCL_CHECK(err, err = w.qH2D.enqueueWriteBuffer(*table_buf, CL_TRUE, 0, flatTbl.size() * sizeof(uint32_t), flatTbl.data()));
             }
             w.tableBuffers[i] = table_buf;

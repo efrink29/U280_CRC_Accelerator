@@ -18,3 +18,6 @@ _x/
 */kernel/
 */link/
 host_xrt_tmp
+mledcpp/
+build_test/dual_mode_hw_emu.xclbin
+build_test/tcp_checksum_hw_emu_crc16cu.xclbin

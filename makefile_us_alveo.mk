@@ -53,17 +53,24 @@ PACKAGE_OUT = ./package.$(TARGET)
 
 VPP_PFLAGS := 
 CMD_ARGS = -x $(BUILD_DIR)/kernel.xclbin
+XILINX_XRT ?= /opt/xilinx/xrt
+XILINX_VIVADO ?= /tools/Xilinx/Vivado/2023.1
 CXXFLAGS += -I$(XILINX_XRT)/include -I$(XILINX_VIVADO)/include -Wall -O0 -g -std=c++1y
 LDFLAGS += -L$(XILINX_XRT)/lib -pthread -lOpenCL
 
 ########################## Checking if PLATFORM in allowlist #######################
 PLATFORM_BLOCKLIST += nodma 
 ############################## Setting up Host Variables ##############################
+COMMON_INCLUDES_DIR := $(XF_PROJ_ROOT)/common/includes
+ifeq ($(wildcard $(COMMON_INCLUDES_DIR)/cmdparser/cmdlineparser.h),)
+COMMON_INCLUDES_DIR := $(XF_PROJ_ROOT)/mledcpp/common/includes
+endif
+
 #Include Required Host Source Files
-CXXFLAGS += -I$(XF_PROJ_ROOT)/common/includes/cmdparser
-CXXFLAGS += -I$(XF_PROJ_ROOT)/common/includes/logger
-CXXFLAGS += -I$(XF_PROJ_ROOT)/common/includes/xcl2
-HOST_SRCS += $(XF_PROJ_ROOT)/common/includes/cmdparser/cmdlineparser.cpp $(XF_PROJ_ROOT)/common/includes/xcl2/xcl2.cpp $(XF_PROJ_ROOT)/common/includes/logger/logger.cpp ./src/host.cpp ./src/helpers/crc.cpp
+CXXFLAGS += -I$(COMMON_INCLUDES_DIR)/cmdparser
+CXXFLAGS += -I$(COMMON_INCLUDES_DIR)/logger
+CXXFLAGS += -I$(COMMON_INCLUDES_DIR)/xcl2
+HOST_SRCS += $(COMMON_INCLUDES_DIR)/cmdparser/cmdlineparser.cpp $(COMMON_INCLUDES_DIR)/xcl2/xcl2.cpp $(COMMON_INCLUDES_DIR)/logger/logger.cpp ./src/host.cpp ./src/helpers/crc.cpp ./src/helpers/sha256.cpp
 # Host compiler global settings
 CXXFLAGS += -fmessage-length=0
 LDFLAGS += -lrt -lstdc++ 
@@ -136,4 +143,3 @@ cleanall: clean
 	-$(RMDIR) build_dir*
 	-$(RMDIR) package.*
 	-$(RMDIR) _x* *xclbin.run_summary qemu-memory-_* emulation _vimage pl* start_simulation.sh *.xclbin
-
