@@ -14,6 +14,21 @@ EMCONFIG_SRC="${REPO_ROOT}/_x.${EMU_TARGET}.${PLATFORM}/emconfig.json"
 EMCONFIG_DST="${REPO_ROOT}/emconfig.json"
 TOOL_VITIS_VERSION=""
 TOOL_XRT_BRANCH=""
+HWEMU_FORCE_REBUILD="${HWEMU_FORCE_REBUILD:-0}"
+HWEMU_DISABLE_DEBUG_BUILD="${HWEMU_DISABLE_DEBUG_BUILD:-1}"
+
+resolve_vitis_settings() {
+    local candidate=""
+    for candidate in \
+        /share/Xilinx/Vitis/2023.1/settings64.sh \
+        /tools/Xilinx/Vitis/2023.1/settings64.sh; do
+        if [[ -f "${candidate}" ]]; then
+            echo "${candidate}"
+            return 0
+        fi
+    done
+    return 1
+}
 
 detect_tool_versions() {
     TOOL_VITIS_VERSION="$(v++ --version 2>/dev/null | sed -n 's/.*v++ v\([0-9][0-9]*\.[0-9][0-9]*\).*/\1/p' | head -n1)"
@@ -40,8 +55,10 @@ check_toolchain_compatibility() {
 }
 
 setup_hwemu_env() {
-    if [[ ! -f /tools/Xilinx/Vitis/2023.1/settings64.sh ]]; then
-        echo "Missing /tools/Xilinx/Vitis/2023.1/settings64.sh"
+    local vitis_settings=""
+    if ! vitis_settings="$(resolve_vitis_settings)"; then
+        echo "Missing Vitis settings64.sh."
+        echo "Checked: /share/Xilinx/Vitis/2023.1/settings64.sh and /tools/Xilinx/Vitis/2023.1/settings64.sh"
         exit 1
     fi
     if [[ ! -f /opt/xilinx/xrt/setup.sh ]]; then
@@ -50,13 +67,14 @@ setup_hwemu_env() {
     fi
 
     # shellcheck disable=SC1091
-    source /tools/Xilinx/Vitis/2023.1/settings64.sh >/dev/null 2>&1
+    source "${vitis_settings}" >/dev/null 2>&1
     # shellcheck disable=SC1091
     source /opt/xilinx/xrt/setup.sh >/dev/null 2>&1
 
     export XCL_EMULATION_MODE="${EMU_TARGET}"
     # Ensure hw_emu xsim runs headless and exits without waiting for a GUI session.
-    export VITIS_LAUNCH_WAVEFORM_BATCH=1
+    export VITIS_LAUNCH_WAVEFORM_BATCH="${VITIS_LAUNCH_WAVEFORM_BATCH:-1}"
+    unset VITIS_LAUNCH_WAVEFORM_GUI
 
     local runtime_ini="${REPO_ROOT}/plans/.xrt_runtime.ini"
     cat > "${runtime_ini}" <<'EOF'
@@ -65,6 +83,51 @@ verbosity=0
 EOF
     export XRT_INI_PATH="${runtime_ini}"
     check_toolchain_compatibility
+}
+
+xclbin_has_debug_kernel() {
+    local xclbin="$1"
+    local meta_xml=""
+
+    if [[ ! -f "${xclbin}" ]]; then
+        return 1
+    fi
+    if ! command -v xclbinutil >/dev/null 2>&1; then
+        return 1
+    fi
+
+    meta_xml="$(mktemp)"
+    if ! xclbinutil --quiet --force \
+        --input "${xclbin}" \
+        --dump-section "EMBEDDED_METADATA:RAW:${meta_xml}" >/dev/null 2>&1; then
+        rm -f "${meta_xml}"
+        return 1
+    fi
+
+    if grep -q 'debug="true"' "${meta_xml}"; then
+        rm -f "${meta_xml}"
+        return 0
+    fi
+
+    rm -f "${meta_xml}"
+    return 1
+}
+
+build_hwemu_xclbin() {
+    local make_args=(
+        build
+        TARGET="${EMU_TARGET}"
+        PLATFORM="${PLATFORM}"
+    )
+
+    if [[ "${HWEMU_DISABLE_DEBUG_BUILD}" == "1" ]]; then
+        make_args+=(VPP_FLAGS=)
+        echo "Building ${EMU_TARGET} xclbin without debug waveform flags (VPP_FLAGS=)."
+    else
+        echo "Building ${EMU_TARGET} xclbin with Makefile defaults."
+    fi
+
+    make "${make_args[@]}"
 }
 
 ensure_build_artifacts() {
@@ -77,9 +140,22 @@ ensure_build_artifacts() {
         make host PLATFORM="${PLATFORM}"
     fi
 
+    if [[ -f "${XCLBIN_PATH}" ]] && [[ "${HWEMU_DISABLE_DEBUG_BUILD}" == "1" ]] && xclbin_has_debug_kernel "${XCLBIN_PATH}"; then
+        echo "Existing ${EMU_TARGET} xclbin is debug-enabled; forcing rebuild without debug."
+        HWEMU_FORCE_REBUILD=1
+    fi
+
+    if [[ "${HWEMU_FORCE_REBUILD}" == "1" ]]; then
+        echo "Forcing clean ${EMU_TARGET} rebuild."
+        rm -rf \
+            "${REPO_ROOT}/_x.${EMU_TARGET}.${PLATFORM}" \
+            "${REPO_ROOT}/build_dir.${EMU_TARGET}.${PLATFORM}" \
+            "${REPO_ROOT}/package.${EMU_TARGET}"
+    fi
+
     if [[ ! -f "${XCLBIN_PATH}" ]]; then
         echo "Building ${EMU_TARGET} xclbin for platform ${PLATFORM}..."
-        make build TARGET="${EMU_TARGET}" PLATFORM="${PLATFORM}"
+        build_hwemu_xclbin
     fi
 
     if [[ ! -f "${EMCONFIG_SRC}" ]]; then
@@ -93,14 +169,15 @@ ensure_build_artifacts() {
 }
 
 prepare_input_file() {
-    local default_input="${REPO_ROOT}/BinaryData/hash_10mb.bin"
+    local default_input="${REPO_ROOT}/BinaryData/hash_64kb.bin"
+    local default_input_bytes="${HWEMU_DEFAULT_INPUT_BYTES:-65536}"
     read -r -p "Input binary file path [${default_input}]: " INPUT_FILE
     INPUT_FILE="${INPUT_FILE:-${default_input}}"
 
     if [[ ! -f "${INPUT_FILE}" ]]; then
-        echo "Creating 10MB random test file at ${INPUT_FILE}"
+        echo "Creating ${default_input_bytes}-byte random test file at ${INPUT_FILE}"
         mkdir -p "$(dirname -- "${INPUT_FILE}")"
-        dd if=/dev/urandom of="${INPUT_FILE}" bs=1M count=10 status=none
+        dd if=/dev/urandom of="${INPUT_FILE}" bs="${default_input_bytes}" count=1 status=none
     fi
 
     local input_size
@@ -139,7 +216,8 @@ run_one_mode() {
 
         if grep -q "libprotobuf ERROR" "${log_file}"; then
             echo "Detected hw_emu runtime protocol error (protobuf)."
-            echo "This is typically caused by a Vitis/XRT version mismatch."
+            echo "This is commonly caused by simulator crashes (for example from debug-waveform hw_emu builds)"
+            echo "or by a Vitis/XRT version mismatch."
             echo "Detected versions: Vitis=${TOOL_VITIS_VERSION:-unknown}, XRT=${TOOL_XRT_BRANCH:-unknown}"
             rm -f "${log_file}"
             return 2

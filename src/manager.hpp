@@ -357,20 +357,17 @@ private:
             OCL_CHECK(err, err = w.kernel.setArg(6, static_cast<uint32_t>(cfg.init_val)));
             OCL_CHECK(err, err = w.kernel.setArg(7, static_cast<uint32_t>(cfg.checkMode)));
 
-            cl::Event evH2D, evRun, evD2H;
-
             OCL_CHECK(err, err = w.qH2D.enqueueWriteBuffer(
-                               w.dInA, CL_FALSE, 0, bytesToProcess, chunkData.data(), nullptr, &evH2D));
+                               w.dInA, CL_TRUE, 0, bytesToProcess, chunkData.data()));
 
-            auto waitList = cl::vector<cl::Event>{evH2D};
             cl::NDRange one(1);
             OCL_CHECK(err, err = w.qK.enqueueNDRangeKernel(
-                               w.kernel, cl::NullRange, one, one, &waitList, &evRun));
+                               w.kernel, cl::NullRange, one, one));
+            OCL_CHECK(err, err = w.qK.finish());
 
-            auto waitList2 = cl::vector<cl::Event>{evRun};
             std::vector<uint32_t, aligned_allocator<uint32_t>> crcOut(chunksToProcess * wordsPerChunk);
             OCL_CHECK(err, err = w.qD2H.enqueueReadBuffer(
-                               w.dOutA, CL_TRUE, 0, sizeof(uint32_t) * chunksToProcess * wordsPerChunk, crcOut.data(), &waitList2, &evD2H));
+                               w.dOutA, CL_TRUE, 0, sizeof(uint32_t) * chunksToProcess * wordsPerChunk, crcOut.data()));
 
             result.insert(result.end(), crcOut.begin(), crcOut.end());
         }
@@ -436,9 +433,10 @@ private:
         if (err != CL_SUCCESS)
             throw std::runtime_error("Kernel create failed");
 
-        w.qH2D = cl::CommandQueue(w.context, w.device, CL_QUEUE_OUT_OF_ORDER_EXEC_MODE_ENABLE, &err);
-        w.qK = cl::CommandQueue(w.context, w.device, CL_QUEUE_OUT_OF_ORDER_EXEC_MODE_ENABLE, &err);
-        w.qD2H = cl::CommandQueue(w.context, w.device, CL_QUEUE_OUT_OF_ORDER_EXEC_MODE_ENABLE, &err);
+        // Use in-order queues for deterministic synchronization on hardware.
+        w.qH2D = cl::CommandQueue(w.context, w.device, 0, &err);
+        w.qK = cl::CommandQueue(w.context, w.device, 0, &err);
+        w.qD2H = cl::CommandQueue(w.context, w.device, 0, &err);
 
         // Host Memory
 
