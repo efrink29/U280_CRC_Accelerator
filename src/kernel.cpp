@@ -17,6 +17,7 @@
 #endif
 
 typedef hls::stream<ap_uint<8>> bStream;
+typedef ap_uint<512> wide_t;
 
 enum KernelCheckMode : uint32_t
 {
@@ -89,7 +90,35 @@ static uint32_t sha256_ssig1(const uint32_t x)
     return rotr32(x, 17) ^ rotr32(x, 19) ^ (x >> 10);
 }
 
-static void sha256_compress(const unsigned char *block, uint32_t state[8])
+static ap_uint<16> to_be16(const ap_uint<16> x)
+{
+#pragma HLS INLINE
+    return (x << 8) | (x >> 8);
+}
+
+static uint32_t to_be32(const ap_uint<32> x)
+{
+#pragma HLS INLINE
+    return (static_cast<uint32_t>(x.range(7, 0)) << 24) |
+           (static_cast<uint32_t>(x.range(15, 8)) << 16) |
+           (static_cast<uint32_t>(x.range(23, 16)) << 8) |
+           static_cast<uint32_t>(x.range(31, 24));
+}
+
+static wide_t pack_block_64(const unsigned char *block)
+{
+#pragma HLS INLINE
+    wide_t packed = 0;
+pack_block_bytes:
+    for (int i = 0; i < 64; ++i)
+    {
+#pragma HLS UNROLL
+        packed.range((i * 8) + 7, i * 8) = block[i];
+    }
+    return packed;
+}
+
+static void sha256_compress_block(const wide_t &block, uint32_t state[8])
 {
 #pragma HLS INLINE off
     uint32_t w[64];
@@ -98,11 +127,8 @@ init_words:
     for (int i = 0; i < 16; ++i)
     {
 #pragma HLS PIPELINE II = 1
-        const int base = i << 2;
-        w[i] = (static_cast<uint32_t>(block[base]) << 24) |
-               (static_cast<uint32_t>(block[base + 1]) << 16) |
-               (static_cast<uint32_t>(block[base + 2]) << 8) |
-               static_cast<uint32_t>(block[base + 3]);
+        const ap_uint<32> word_le = block.range((i * 32) + 31, i * 32);
+        w[i] = to_be32(word_le);
     }
 
 expand_words:
@@ -164,12 +190,27 @@ init_state:
 
     const unsigned int full_blocks = chunk_size / 64;
     const unsigned int rem = chunk_size % 64;
+    const bool vector_blocks = ((chunk_size & 63u) == 0u);
 
-full_block_loop:
-    for (unsigned int b = 0; b < full_blocks; ++b)
+    if (vector_blocks)
     {
-        const unsigned char *block = chunk + (static_cast<size_t>(b) << 6);
-        sha256_compress(block, state);
+        const wide_t *chunk_words = reinterpret_cast<const wide_t *>(chunk);
+    full_block_loop_vec:
+        for (unsigned int b = 0; b < full_blocks; ++b)
+        {
+            const wide_t block = chunk_words[b];
+            sha256_compress_block(block, state);
+        }
+    }
+    else
+    {
+    full_block_loop_scalar:
+        for (unsigned int b = 0; b < full_blocks; ++b)
+        {
+            const unsigned char *block = chunk + (static_cast<size_t>(b) << 6);
+            const wide_t packed = pack_block_64(block);
+            sha256_compress_block(packed, state);
+        }
     }
 
     unsigned char pad_block[64];
@@ -198,11 +239,13 @@ copy_remainder:
 #pragma HLS PIPELINE II = 1
             pad_block[56 + i] = static_cast<unsigned char>((bit_len >> ((7 - i) * 8)) & 0xFF);
         }
-        sha256_compress(pad_block, state);
+        const wide_t packed_pad = pack_block_64(pad_block);
+        sha256_compress_block(packed_pad, state);
     }
     else
     {
-        sha256_compress(pad_block, state);
+        wide_t packed_pad = pack_block_64(pad_block);
+        sha256_compress_block(packed_pad, state);
 
     clear_second_block:
         for (int i = 0; i < 64; ++i)
@@ -217,7 +260,8 @@ copy_remainder:
 #pragma HLS PIPELINE II = 1
             pad_block[56 + i] = static_cast<unsigned char>((bit_len >> ((7 - i) * 8)) & 0xFF);
         }
-        sha256_compress(pad_block, state);
+        packed_pad = pack_block_64(pad_block);
+        sha256_compress_block(packed_pad, state);
     }
 
 write_digest:
@@ -409,7 +453,7 @@ static ap_uint<17> fold_add(ap_uint<17> sum, ap_uint<16> word)
     return (tmp & 0xFFFF) + (tmp >> 16);
 }
 
-static ap_uint<16> tcp_checksum_chunk(const unsigned char *chunk, const unsigned int chunk_size)
+static ap_uint<16> tcp_checksum_chunk_scalar(const unsigned char *chunk, const unsigned int chunk_size)
 {
 #pragma HLS INLINE
     ap_uint<17> sum = 0;
@@ -436,30 +480,134 @@ word_loop:
     return ~folded;
 }
 
-static void process_tcp_checksum(const unsigned char *data_in,
+static ap_uint<16> tcp_checksum_chunk_vector(const wide_t *chunk_words,
+                                             const unsigned char *chunk_bytes,
+                                             const unsigned int chunk_size)
+{
+#pragma HLS INLINE
+    ap_uint<48> sum = 0;
+    const unsigned int vec_words = chunk_size >> 6;
+
+vec_word_loop:
+    for (unsigned int w = 0; w < vec_words; ++w)
+    {
+#pragma HLS PIPELINE II = 1
+        const wide_t packed = chunk_words[w];
+
+        ap_uint<17> lvl1[16];
+        ap_uint<18> lvl2[8];
+        ap_uint<19> lvl3[4];
+        ap_uint<20> lvl4[2];
+#pragma HLS ARRAY_PARTITION variable = lvl1 complete
+#pragma HLS ARRAY_PARTITION variable = lvl2 complete
+#pragma HLS ARRAY_PARTITION variable = lvl3 complete
+#pragma HLS ARRAY_PARTITION variable = lvl4 complete
+
+    reduce_lvl1:
+        for (int i = 0; i < 16; ++i)
+        {
+#pragma HLS UNROLL
+            const int idx0 = i << 1;
+            const int idx1 = idx0 + 1;
+            const ap_uint<16> word0 = to_be16(packed.range((idx0 * 16) + 15, idx0 * 16));
+            const ap_uint<16> word1 = to_be16(packed.range((idx1 * 16) + 15, idx1 * 16));
+            lvl1[i] = static_cast<ap_uint<17>>(word0) + static_cast<ap_uint<17>>(word1);
+        }
+
+    reduce_lvl2:
+        for (int i = 0; i < 8; ++i)
+        {
+#pragma HLS UNROLL
+            lvl2[i] = static_cast<ap_uint<18>>(lvl1[i << 1]) + static_cast<ap_uint<18>>(lvl1[(i << 1) + 1]);
+        }
+
+    reduce_lvl3:
+        for (int i = 0; i < 4; ++i)
+        {
+#pragma HLS UNROLL
+            lvl3[i] = static_cast<ap_uint<19>>(lvl2[i << 1]) + static_cast<ap_uint<19>>(lvl2[(i << 1) + 1]);
+        }
+
+    reduce_lvl4:
+        for (int i = 0; i < 2; ++i)
+        {
+#pragma HLS UNROLL
+            lvl4[i] = static_cast<ap_uint<20>>(lvl3[i << 1]) + static_cast<ap_uint<20>>(lvl3[(i << 1) + 1]);
+        }
+
+        sum += static_cast<ap_uint<48>>(lvl4[0]) + static_cast<ap_uint<48>>(lvl4[1]);
+    }
+
+    const unsigned int tail_offset = vec_words << 6;
+    const unsigned int tail_bytes = chunk_size - tail_offset;
+
+tail_word_loop:
+    for (unsigned int i = 0; i + 1 < tail_bytes; i += 2)
+    {
+#pragma HLS PIPELINE II = 1
+        const ap_uint<16> word =
+            (static_cast<ap_uint<16>>(chunk_bytes[tail_offset + i]) << 8) |
+            static_cast<ap_uint<16>>(chunk_bytes[tail_offset + i + 1]);
+        sum += word;
+    }
+
+    if ((tail_bytes & 1u) != 0u)
+    {
+        const ap_uint<16> last_word =
+            static_cast<ap_uint<16>>(chunk_bytes[tail_offset + tail_bytes - 1]) << 8;
+        sum += last_word;
+    }
+
+    ap_uint<32> folded = static_cast<ap_uint<32>>(sum);
+fold_carry:
+    for (int i = 0; i < 4; ++i)
+    {
+#pragma HLS UNROLL
+        folded = (folded & 0xFFFF) + (folded >> 16);
+    }
+    return static_cast<ap_uint<16>>(~folded);
+}
+
+static void process_tcp_checksum(const wide_t *data_in,
                                  uint32_t *crc_out,
                                  const unsigned int numChunks,
                                  const unsigned int chunkSize)
 {
+    const unsigned char *data_bytes = reinterpret_cast<const unsigned char *>(data_in);
+    const bool vector_blocks = ((chunkSize & 63u) == 0u);
+
 tcp_chunk_loop:
     for (unsigned int c = 0; c < numChunks; ++c)
     {
 #pragma HLS PIPELINE II = 1
-        const unsigned char *chunk = data_in + (static_cast<size_t>(c) * chunkSize);
-        const ap_uint<16> checksum = tcp_checksum_chunk(chunk, chunkSize);
+        const size_t chunk_offset = static_cast<size_t>(c) * chunkSize;
+        const unsigned char *chunk_bytes = data_bytes + chunk_offset;
+
+        ap_uint<16> checksum = 0;
+        if (vector_blocks)
+        {
+            const wide_t *chunk_words = data_in + (chunk_offset >> 6);
+            checksum = tcp_checksum_chunk_vector(chunk_words, chunk_bytes, chunkSize);
+        }
+        else
+        {
+            checksum = tcp_checksum_chunk_scalar(chunk_bytes, chunkSize);
+        }
         crc_out[c] = static_cast<uint32_t>(checksum);
     }
 }
 
-static void process_hash(const unsigned char *data_in,
+static void process_hash(const wide_t *data_in,
                          uint32_t *crc_out,
                          const unsigned int numChunks,
                          const unsigned int chunkSize)
 {
+    const unsigned char *data_bytes = reinterpret_cast<const unsigned char *>(data_in);
+
 hash_chunk_loop:
     for (unsigned int c = 0; c < numChunks; ++c)
     {
-        const unsigned char *chunk = data_in + (static_cast<size_t>(c) * chunkSize);
+        const unsigned char *chunk = data_bytes + (static_cast<size_t>(c) * chunkSize);
         uint32_t digest[8];
 #pragma HLS ARRAY_PARTITION variable = digest complete dim = 1
         sha256_process_chunk(chunk, chunkSize, digest);
@@ -563,7 +711,7 @@ extern "C"
 #endif
 
 #if KERNEL_VARIANT == KERNEL_VARIANT_TCP
-    void calculate_tcp_checksum(const unsigned char *data_in,
+    void calculate_tcp_checksum(const wide_t *data_in,
                                 uint32_t *crc_out,
                                 const unsigned int numChunks,
                                 const unsigned int chunkSize)
@@ -575,7 +723,7 @@ extern "C"
 #endif
 
 #if KERNEL_VARIANT == KERNEL_VARIANT_SHA
-    void calculate_sha256(const unsigned char *data_in,
+    void calculate_sha256(const wide_t *data_in,
                           uint32_t *crc_out,
                           const unsigned int numChunks,
                           const unsigned int chunkSize)

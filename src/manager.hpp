@@ -153,12 +153,22 @@ public:
         if (max_workers > 0)
             crc_workers = std::min(crc_workers, max_workers);
 
-        int tcp_workers = detect_cu_count("calculate_tcp_checksum", "TCP", 1);
-        int sha_workers = detect_cu_count("calculate_sha256", "SHA", 1);
+        const int tcp_probe_limit = std::min(max_cu, 4);
+        const int sha_probe_limit = std::min(max_cu, 4);
+        const int tcp_cu_available = detect_cu_count("calculate_tcp_checksum", "TCP", tcp_probe_limit);
+        const int sha_cu_available = detect_cu_count("calculate_sha256", "SHA", sha_probe_limit);
+
+        int tcp_workers = tcp_cu_available;
+        int sha_workers = sha_cu_available;
+        if (max_workers > 0)
+        {
+            tcp_workers = std::min(tcp_workers, max_workers);
+            sha_workers = std::min(sha_workers, max_workers);
+        }
 
         std::cout << "Found CRC CU instances: " << crc_cu_available << std::endl;
-        std::cout << "Found TCP CU instances: " << tcp_workers << std::endl;
-        std::cout << "Found SHA CU instances: " << sha_workers << std::endl;
+        std::cout << "Found TCP CU instances: " << tcp_cu_available << std::endl;
+        std::cout << "Found SHA CU instances: " << sha_cu_available << std::endl;
 
         std::vector<KernelConfig> crc_configs;
         for (const auto &cfg : configs)

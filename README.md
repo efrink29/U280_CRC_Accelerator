@@ -3,8 +3,8 @@
 This project builds one FPGA binary (`kernel.xclbin`) that contains:
 
 - `calculate_crc` (16 CUs: `CRC_0..CRC_15`)
-- `calculate_tcp_checksum` (1 CU: `TCP_0`)
-- `calculate_sha256` (1 CU: `SHA_0`)
+- `calculate_tcp_checksum` (4 CUs: `TCP_0..TCP_3`)
+- `calculate_sha256` (4 CUs: `SHA_0..SHA_3`)
 
 The host app is `host_xrt` and dispatches by config mode:
 
