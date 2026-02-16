@@ -80,6 +80,9 @@ LDFLAGS += -luuid -lxrt_coreutil
 # Kernel compiler global settings
 VPP_FLAGS +=  --save-temps 
 
+KERNEL_OBJS := $(TEMP_DIR)/calculate_crc.xo \
+	       $(TEMP_DIR)/calculate_tcp_checksum.xo \
+	       $(TEMP_DIR)/calculate_sha256.xo
 
 EXECUTABLE = ./host_xrt
 EMCONFIG_DIR = $(TEMP_DIR)
@@ -98,13 +101,21 @@ build: check-vitis check-device $(BUILD_DIR)/kernel.xclbin
 xclbin: build
 
 ############################## Setting Rules for Binary Containers (Building Kernels) ##############################
-$(TEMP_DIR)/kernel.xo: src/kernel.cpp
+$(TEMP_DIR)/calculate_crc.xo: src/kernel.cpp
 	mkdir -p $(TEMP_DIR)
-	v++ -c $(VPP_FLAGS) -t $(TARGET) --platform $(PLATFORM) -k calculate_crc --temp_dir $(TEMP_DIR)  -I'$(<D)'  --config ./xrt.ini -o'$@' '$<' 
+	v++ -c $(VPP_FLAGS) -t $(TARGET) --platform $(PLATFORM) -k calculate_crc --temp_dir $(TEMP_DIR) -D KERNEL_VARIANT=KERNEL_VARIANT_CRC -I'$(<D)' -o'$@' '$<' 
 
-$(BUILD_DIR)/kernel.xclbin: $(TEMP_DIR)/kernel.xo
+$(TEMP_DIR)/calculate_tcp_checksum.xo: src/kernel.cpp
+	mkdir -p $(TEMP_DIR)
+	v++ -c $(VPP_FLAGS) -t $(TARGET) --platform $(PLATFORM) -k calculate_tcp_checksum --temp_dir $(TEMP_DIR) -D KERNEL_VARIANT=KERNEL_VARIANT_TCP -I'$(<D)' -o'$@' '$<' 
+
+$(TEMP_DIR)/calculate_sha256.xo: src/kernel.cpp
+	mkdir -p $(TEMP_DIR)
+	v++ -c $(VPP_FLAGS) -t $(TARGET) --platform $(PLATFORM) -k calculate_sha256 --temp_dir $(TEMP_DIR) -D KERNEL_VARIANT=KERNEL_VARIANT_SHA -I'$(<D)' -o'$@' '$<' 
+
+$(BUILD_DIR)/kernel.xclbin: $(KERNEL_OBJS)
 	mkdir -p $(BUILD_DIR)
-	v++ -l $(VPP_FLAGS) $(VPP_LDFLAGS) -t $(TARGET) --platform $(PLATFORM) --temp_dir $(TEMP_DIR)  --config ./xrt.ini -o'$(LINK_OUTPUT)' $(+)
+	v++ -l $(VPP_FLAGS) $(VPP_LDFLAGS) -t $(TARGET) --platform $(PLATFORM) --temp_dir $(TEMP_DIR)  --config ./vpp_connectivity.cfg -o'$(LINK_OUTPUT)' $(+)
 	v++  -p $(LINK_OUTPUT) $(VPP_FLAGS) -t $(TARGET) --platform $(PLATFORM) --package.out_dir $(PACKAGE_OUT) -o $(BUILD_DIR)/kernel.xclbin
 
 ############################## Setting Rules for Host (Building Host Executable) ##############################

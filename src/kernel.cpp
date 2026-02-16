@@ -8,6 +8,13 @@
 #define TABLE_SIZE 256
 #define BLOCK_SIZE 16
 #define DATA_SIZE 32
+#define KERNEL_VARIANT_CRC 1
+#define KERNEL_VARIANT_TCP 2
+#define KERNEL_VARIANT_SHA 3
+
+#ifndef KERNEL_VARIANT
+#define KERNEL_VARIANT KERNEL_VARIANT_CRC
+#endif
 
 typedef hls::stream<ap_uint<8>> bStream;
 
@@ -221,12 +228,12 @@ write_digest:
     }
 }
 
-void read_input(const unsigned char *in,
-                bStream &b0, bStream &b1, bStream &b2, bStream &b3,
-                bStream &b4, bStream &b5, bStream &b6, bStream &b7,
-                bStream &b8, bStream &b9, bStream &b10, bStream &b11,
-                bStream &b12, bStream &b13, bStream &b14, bStream &b15,
-                const unsigned int numChunks, const unsigned int chunkSize)
+static void read_input(const unsigned char *in,
+                       bStream &b0, bStream &b1, bStream &b2, bStream &b3,
+                       bStream &b4, bStream &b5, bStream &b6, bStream &b7,
+                       bStream &b8, bStream &b9, bStream &b10, bStream &b11,
+                       bStream &b12, bStream &b13, bStream &b14, bStream &b15,
+                       const unsigned int numChunks, const unsigned int chunkSize)
 {
     const int total_bytes = numChunks * (int)chunkSize;
     const int loop_count = total_bytes / 16;
@@ -466,51 +473,33 @@ hash_chunk_loop:
     }
 }
 
-extern "C"
+static void process_crc(const unsigned char *data_in,
+                        uint32_t *crc_out,
+                        const uint32_t *tables,
+                        const unsigned int numChunks,
+                        const unsigned int chunkSize,
+                        const uint32_t crc_size,
+                        const uint32_t init_value)
 {
-    void calculate_crc(const unsigned char *data_in,
-                       uint32_t *crc_out,
-                       const uint32_t *tables,
-                       const unsigned int numChunks,
-                       const unsigned int chunkSize,
-                       const uint32_t crc_size,
-                       const uint32_t init_value,
-                       const uint32_t mode)
-    {
-#pragma HLS INTERFACE m_axi port = data_in bundle = gmem0 depth = 1024 offset = slave
-#pragma HLS INTERFACE m_axi port = tables bundle = gmem1 depth = 4096 offset = slave
-#pragma HLS INTERFACE m_axi port = crc_out bundle = gmem0 depth = 1024 offset = slave
+    bStream inByte0;
+    bStream inByte1;
+    bStream inByte2;
+    bStream inByte3;
 
-        if (mode == CHECK_MODE_TCP_CHECKSUM)
-        {
-            process_tcp_checksum(data_in, crc_out, numChunks, chunkSize);
-            return;
-        }
-        if (mode == CHECK_MODE_HASH)
-        {
-            process_hash(data_in, crc_out, numChunks, chunkSize);
-            return;
-        }
+    bStream inByte4;
+    bStream inByte5;
+    bStream inByte6;
+    bStream inByte7;
 
-        bStream inByte0;
-        bStream inByte1;
-        bStream inByte2;
-        bStream inByte3;
+    bStream inByte8;
+    bStream inByte9;
+    bStream inByte10;
+    bStream inByte11;
 
-        bStream inByte4;
-        bStream inByte5;
-        bStream inByte6;
-        bStream inByte7;
-
-        bStream inByte8;
-        bStream inByte9;
-        bStream inByte10;
-        bStream inByte11;
-
-        bStream inByte12;
-        bStream inByte13;
-        bStream inByte14;
-        bStream inByte15;
+    bStream inByte12;
+    bStream inByte13;
+    bStream inByte14;
+    bStream inByte15;
 #pragma HLS STREAM variable = inByte0 depth = 64
 #pragma HLS STREAM variable = inByte1 depth = 64
 #pragma HLS STREAM variable = inByte2 depth = 64
@@ -528,30 +517,72 @@ extern "C"
 #pragma HLS STREAM variable = inByte14 depth = 64
 #pragma HLS STREAM variable = inByte15 depth = 64
 
-        hls::stream<ap_uint<32>> outStream;
+    hls::stream<ap_uint<32>> outStream;
 #pragma HLS STREAM variable = outStream depth = 64
 
-        uint32_t crcTables[BLOCK_SIZE][TABLE_SIZE];
+    uint32_t crcTables[BLOCK_SIZE][TABLE_SIZE];
 #pragma HLS ARRAY_PARTITION variable = crcTables complete dim = 1
 #pragma HLS BIND_STORAGE variable = crcTables type = ram_1p impl = bram
 
-    init_lut:
-        for (int i = 0; i < BLOCK_SIZE; ++i)
+init_lut:
+    for (int i = 0; i < BLOCK_SIZE; ++i)
+    {
+        for (int j = 0; j < TABLE_SIZE; ++j)
         {
-            for (int j = 0; j < TABLE_SIZE; ++j)
-            {
 #pragma HLS PIPELINE II = 1
-                crcTables[i][j] = tables[(i << 8) + j];
-            }
+            crcTables[i][j] = tables[(i << 8) + j];
         }
+    }
 
 #pragma HLS DATAFLOW
-        read_input(data_in, inByte0, inByte1, inByte2, inByte3, inByte4, inByte5, inByte6, inByte7,
+    read_input(data_in, inByte0, inByte1, inByte2, inByte3, inByte4, inByte5, inByte6, inByte7,
+               inByte8, inByte9, inByte10, inByte11, inByte12, inByte13, inByte14, inByte15,
+               numChunks, chunkSize);
+    process_blocks(crcTables, inByte0, inByte1, inByte2, inByte3, inByte4, inByte5, inByte6, inByte7,
                    inByte8, inByte9, inByte10, inByte11, inByte12, inByte13, inByte14, inByte15,
-                   numChunks, chunkSize);
-        process_blocks(crcTables, inByte0, inByte1, inByte2, inByte3, inByte4, inByte5, inByte6, inByte7,
-                       inByte8, inByte9, inByte10, inByte11, inByte12, inByte13, inByte14, inByte15,
-                       crc_size, init_value, outStream, numChunks, chunkSize);
-        write_output(outStream, numChunks, crc_out);
+                   crc_size, init_value, outStream, numChunks, chunkSize);
+    write_output(outStream, numChunks, crc_out);
+}
+
+extern "C"
+{
+#if KERNEL_VARIANT == KERNEL_VARIANT_CRC
+    void calculate_crc(const unsigned char *data_in,
+                       uint32_t *crc_out,
+                       const uint32_t *tables,
+                       const unsigned int numChunks,
+                       const unsigned int chunkSize,
+                       const uint32_t crc_size,
+                       const uint32_t init_value)
+    {
+#pragma HLS INTERFACE m_axi port = data_in bundle = gmem0 depth = 1024 offset = slave
+#pragma HLS INTERFACE m_axi port = tables bundle = gmem1 depth = 4096 offset = slave
+#pragma HLS INTERFACE m_axi port = crc_out bundle = gmem0 depth = 1024 offset = slave
+        process_crc(data_in, crc_out, tables, numChunks, chunkSize, crc_size, init_value);
     }
+#endif
+
+#if KERNEL_VARIANT == KERNEL_VARIANT_TCP
+    void calculate_tcp_checksum(const unsigned char *data_in,
+                                uint32_t *crc_out,
+                                const unsigned int numChunks,
+                                const unsigned int chunkSize)
+    {
+#pragma HLS INTERFACE m_axi port = data_in bundle = gmem0 depth = 1024 offset = slave
+#pragma HLS INTERFACE m_axi port = crc_out bundle = gmem0 depth = 1024 offset = slave
+        process_tcp_checksum(data_in, crc_out, numChunks, chunkSize);
+    }
+#endif
+
+#if KERNEL_VARIANT == KERNEL_VARIANT_SHA
+    void calculate_sha256(const unsigned char *data_in,
+                          uint32_t *crc_out,
+                          const unsigned int numChunks,
+                          const unsigned int chunkSize)
+    {
+#pragma HLS INTERFACE m_axi port = data_in bundle = gmem0 depth = 1024 offset = slave
+#pragma HLS INTERFACE m_axi port = crc_out bundle = gmem0 depth = 1024 offset = slave
+        process_hash(data_in, crc_out, numChunks, chunkSize);
+    }
+#endif
 }

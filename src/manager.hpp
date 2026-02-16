@@ -2,18 +2,21 @@
 #define MANAGER_HPP
 
 #include <CL/cl.h>
+#include <algorithm>
+#include <atomic>
+#include <condition_variable>
 #include <cstdint>
-#include <vector>
+#include <cstring>
+#include <fstream>
+#include <future>
+#include <iostream>
+#include <mutex>
+#include <queue>
 #include <stdexcept>
 #include <string>
 #include <thread>
-#include <future>
-#include <queue>
-#include <mutex>
-#include <condition_variable>
-#include <atomic>
-#include <algorithm>
-#include <cstring>
+#include <vector>
+
 #include "helpers/crc.h"
 #include "xcl2.hpp"
 
@@ -84,8 +87,16 @@ private:
     bool stop_ = false;
 };
 
+enum class WorkerKernelType
+{
+    CRC,
+    TCP,
+    SHA
+};
+
 struct Worker
 {
+    WorkerKernelType mode = WorkerKernelType::CRC;
 
     cl::Context context;
     cl::Device device;
@@ -95,13 +106,12 @@ struct Worker
     cl::CommandQueue qK;
     cl::CommandQueue qD2H;
 
-    // Device Memory
-    size_t buffer_size;
-    cl::Buffer dInA, dOutA;
-    cl::Buffer **tableBuffers;
+    size_t buffer_size = 0;
+    cl::Buffer dInA;
+    cl::Buffer dOutA;
 
-    // Host Memory
-
+    cl::Buffer **tableBuffers = nullptr;
+    size_t tableCount = 0;
     std::vector<KernelConfig> configs;
 
     std::thread th;
@@ -110,84 +120,121 @@ struct Worker
 class FpgaManager
 {
 public:
-    explicit FpgaManager(const std::string &binaryFile, size_t buffer_size = 16 * 1024 * 1024, int max_cu = 16, int max_workers = -1, std::vector<KernelConfig> configs = {})
+    explicit FpgaManager(const std::string &binaryFile,
+                         size_t buffer_size = 16 * 1024 * 1024,
+                         int max_cu = 16,
+                         int max_workers = -1,
+                         std::vector<KernelConfig> configs = {})
     {
         buffer_size_ = buffer_size;
-        // Initialize Device
+
         auto devices = xcl::get_xil_devices();
         if (devices.empty())
             throw std::runtime_error("No devices found");
         device_ = devices[0];
         context_ = cl::Context(device_);
 
-        // Load xclbin
         std::ifstream bin(binaryFile, std::ios::binary);
         if (!bin)
             throw std::runtime_error("Cannot open xclbin: " + binaryFile);
         bin.seekg(0, std::ios::end);
-        size_t nb = static_cast<size_t>(bin.tellg());
+        const size_t nb = static_cast<size_t>(bin.tellg());
         bin.seekg(0, std::ios::beg);
         std::vector<char> buf(nb);
         bin.read(buf.data(), nb);
         cl::Program::Binaries bins{{buf.data(), nb}};
         program_ = cl::Program(context_, {device_}, bins);
 
-        // Identify availible Kernels
-        // std::cout << "Check 1" << std::endl;
-        int cu_count = 0;
-        while (cu_count < max_cu)
-        {
-
-            std::string kname = "calculate_crc:{CRC_" + std::to_string(cu_count) + "}";
-            cl_int err = CL_SUCCESS;
-            cl::Kernel testK(program_, kname.c_str(), &err);
-            if (err != CL_SUCCESS)
-            {
-                break;
-            }
-            cu_count++;
-        }
-        std::cout << "Found " << cu_count << " CU instances" << std::endl;
-        if (cu_count == 0)
+        const int crc_cu_available = detect_cu_count("calculate_crc", "CRC", max_cu);
+        if (crc_cu_available == 0)
             throw std::runtime_error("No CU instances named CRC_* found in xclbin");
 
+        int crc_workers = crc_cu_available;
         if (max_workers > 0)
-            cu_count = std::min(cu_count, max_workers);
+            crc_workers = std::min(crc_workers, max_workers);
 
-        // Build workers (one per Kernel)
+        int tcp_workers = detect_cu_count("calculate_tcp_checksum", "TCP", 1);
+        int sha_workers = detect_cu_count("calculate_sha256", "SHA", 1);
 
-        workers_.resize(cu_count);
-        for (int i = 0; i < cu_count; ++i)
-            init_worker(i, buffer_size, configs);
+        std::cout << "Found CRC CU instances: " << crc_cu_available << std::endl;
+        std::cout << "Found TCP CU instances: " << tcp_workers << std::endl;
+        std::cout << "Found SHA CU instances: " << sha_workers << std::endl;
 
-        // Start threads
-        for (int i = 0; i < cu_count; ++i)
+        std::vector<KernelConfig> crc_configs;
+        for (const auto &cfg : configs)
         {
-            workers_[i].th = std::thread([this, i]
-                                         { worker_loop(i); });
+            if (cfg.checkMode == CHECK_MODE_CRC)
+            {
+                crc_configs.push_back(cfg);
+            }
+        }
+
+        crc_workers_.resize(static_cast<size_t>(crc_workers));
+        for (int i = 0; i < crc_workers; ++i)
+        {
+            init_worker(crc_workers_[static_cast<size_t>(i)],
+                        WorkerKernelType::CRC,
+                        "calculate_crc:{CRC_" + std::to_string(i) + "}",
+                        buffer_size,
+                        crc_configs);
+        }
+
+        tcp_workers_.resize(static_cast<size_t>(tcp_workers));
+        for (int i = 0; i < tcp_workers; ++i)
+        {
+            init_worker(tcp_workers_[static_cast<size_t>(i)],
+                        WorkerKernelType::TCP,
+                        "calculate_tcp_checksum:{TCP_" + std::to_string(i) + "}",
+                        buffer_size,
+                        {});
+        }
+
+        sha_workers_.resize(static_cast<size_t>(sha_workers));
+        for (int i = 0; i < sha_workers; ++i)
+        {
+            init_worker(sha_workers_[static_cast<size_t>(i)],
+                        WorkerKernelType::SHA,
+                        "calculate_sha256:{SHA_" + std::to_string(i) + "}",
+                        buffer_size,
+                        {});
+        }
+
+        for (size_t i = 0; i < crc_workers_.size(); ++i)
+        {
+            crc_workers_[i].th = std::thread([this, i]
+                                             { worker_loop(crc_queue_, crc_workers_[i]); });
+        }
+        for (size_t i = 0; i < tcp_workers_.size(); ++i)
+        {
+            tcp_workers_[i].th = std::thread([this, i]
+                                             { worker_loop(tcp_queue_, tcp_workers_[i]); });
+        }
+        for (size_t i = 0; i < sha_workers_.size(); ++i)
+        {
+            sha_workers_[i].th = std::thread([this, i]
+                                             { worker_loop(sha_queue_, sha_workers_[i]); });
         }
     }
 
     ~FpgaManager()
     {
-        // Hold till all tasks exit
-        queue_.stop();
-        for (auto &w : workers_)
-        {
-            if (w.th.joinable())
-            {
-                w.th.join();
-            }
-        }
+        crc_queue_.stop();
+        tcp_queue_.stop();
+        sha_queue_.stop();
+
+        join_workers(crc_workers_);
+        join_workers(tcp_workers_);
+        join_workers(sha_workers_);
     }
 
-    // Non-Blocking CRC calculation
-    std::future<std::vector<uint32_t>>
-    submit(const std::vector<unsigned char> &data, const KernelConfig &config, bool large_split = false)
+    std::future<std::vector<uint32_t>> submit(const std::vector<unsigned char> &data,
+                                              const KernelConfig &config,
+                                              bool large_split = false)
     {
+        const TaskRoute route = route_for_mode(config.checkMode);
 
-        size_t totalBytes = data.size();
-        size_t chunkBytes = static_cast<size_t>(config.chunkSize);
+        const size_t totalBytes = data.size();
+        const size_t chunkBytes = static_cast<size_t>(config.chunkSize);
         if (chunkBytes == 0)
             throw std::runtime_error("chunkSize must be > 0");
         if ((totalBytes % chunkBytes) != 0)
@@ -198,10 +245,10 @@ public:
             throw std::runtime_error("chunkSize is larger than worker buffer size");
 
         size_t data_per_task = chunkBytes * chunks_per_buf;
-        if (workers_.size() * buffer_size_ > totalBytes)
+        if (route.worker_count * buffer_size_ > totalBytes)
         {
             size_t num_chunks = totalBytes / chunkBytes;
-            size_t chunks_per_task = num_chunks / workers_.size();
+            size_t chunks_per_task = num_chunks / route.worker_count;
             chunks_per_task = std::max<size_t>(1, chunks_per_task);
             data_per_task = chunks_per_task * chunkBytes;
         }
@@ -221,9 +268,10 @@ public:
             std::promise<std::vector<uint32_t>> p;
             auto fut = p.get_future();
             t.promise = std::move(p);
-            queue_.push(std::move(t));
+            route.queue->push(std::move(t));
             futures.push_back(std::move(fut));
         }
+
         std::cout << "Tasks on queue: " << futures.size() << std::endl;
         return std::async(std::launch::deferred, [futures = std::move(futures)]() mutable
                           {
@@ -236,37 +284,95 @@ public:
             return result; });
     }
 
-    // Blocking Syncronous Function
-    std::vector<uint32_t>
-    calculate_crc(const std::vector<unsigned char> &data, const KernelConfig &config, bool large_split = false)
+    std::vector<uint32_t> calculate_crc(const std::vector<unsigned char> &data,
+                                        const KernelConfig &config,
+                                        bool large_split = false)
     {
         return submit(data, config, large_split).get();
     }
 
 private:
+    struct TaskRoute
+    {
+        TaskQueue *queue;
+        size_t worker_count;
+    };
+
+    TaskRoute route_for_mode(uint32_t mode)
+    {
+        if (mode == CHECK_MODE_CRC)
+        {
+            if (crc_workers_.empty())
+                throw std::runtime_error("No CRC workers available in xclbin");
+            return {&crc_queue_, crc_workers_.size()};
+        }
+        if (mode == CHECK_MODE_TCP_CHECKSUM)
+        {
+            if (tcp_workers_.empty())
+                throw std::runtime_error("No TCP workers available in xclbin");
+            return {&tcp_queue_, tcp_workers_.size()};
+        }
+        if (mode == CHECK_MODE_HASH)
+        {
+            if (sha_workers_.empty())
+                throw std::runtime_error("No SHA workers available in xclbin");
+            return {&sha_queue_, sha_workers_.size()};
+        }
+        throw std::runtime_error("Unsupported checkMode value");
+    }
+
+    static void join_workers(std::vector<Worker> &workers)
+    {
+        for (auto &w : workers)
+        {
+            if (w.th.joinable())
+            {
+                w.th.join();
+            }
+        }
+    }
+
+    int detect_cu_count(const std::string &kernel_name,
+                        const std::string &instance_prefix,
+                        int max_cu)
+    {
+        int cu_count = 0;
+        while (cu_count < max_cu)
+        {
+            std::string kname = kernel_name + ":{" + instance_prefix + "_" + std::to_string(cu_count) + "}";
+            cl_int err = CL_SUCCESS;
+            cl::Kernel testK(program_, kname.c_str(), &err);
+            if (err != CL_SUCCESS)
+            {
+                break;
+            }
+            cu_count++;
+        }
+        return cu_count;
+    }
+
     static std::vector<uint32_t> execute_crc(Worker &w,
                                              const std::vector<unsigned char> &data,
                                              const KernelConfig &cfg)
     {
-        cl_int err = CL_SUCCESS;
+        if (cfg.checkMode != CHECK_MODE_CRC)
+            throw std::runtime_error("CRC worker received non-CRC task");
 
+        cl_int err = CL_SUCCESS;
         const size_t totalBytes = data.size();
         const size_t chunkBytes = static_cast<size_t>(cfg.chunkSize);
         if (chunkBytes == 0)
             throw std::runtime_error("chunkSize must be > 0");
         if ((totalBytes % chunkBytes) != 0)
             throw std::runtime_error("Input size must be an integer multiple of chunkSize");
-        if (cfg.checkMode == CHECK_MODE_HASH && cfg.hashAlgorithm != 0)
-            throw std::runtime_error("Only SHA-256 hashAlgorithm=0 is implemented in the kernel.");
-        const size_t nChunks = (totalBytes) / chunkBytes;
 
-        const size_t wordsPerChunk = (cfg.checkMode == CHECK_MODE_HASH) ? 8u : 1u;
+        const size_t nChunks = totalBytes / chunkBytes;
+        const size_t wordsPerChunk = 1;
         const size_t outputBytesPerChunk = wordsPerChunk * sizeof(uint32_t);
         const size_t chunksPerBuf = std::min(w.buffer_size / chunkBytes, w.buffer_size / outputBytesPerChunk);
         if (chunksPerBuf == 0)
             throw std::runtime_error("buffer_size is too small for configured chunk input/output footprint");
 
-        // Generate tables
         CRC_Config crc_cfg;
         crc_cfg.polynomial = cfg.polynomial;
         crc_cfg.initial_value = cfg.init_val;
@@ -286,48 +392,39 @@ private:
                 c.xor_out == cfg.xor_out &&
                 c.refInput == cfg.refInput &&
                 c.refOutput == cfg.refOutput &&
-                c.crcWidth == cfg.crcWidth &&
-                c.checkMode == cfg.checkMode &&
-                c.hashAlgorithm == cfg.hashAlgorithm)
+                c.crcWidth == cfg.crcWidth)
             {
                 config_index = static_cast<int>(i);
-                table_buf = *w.tableBuffers[config_index];
+                table_buf = *w.tableBuffers[static_cast<size_t>(config_index)];
                 break;
             }
         }
-        // std::cout << "Tables stored: " << w.tableBuffers.size() << ", using index: " << config_index << std::endl;
+
         if (config_index == -1)
         {
-
-            // w.configs.push_back(cfg);
             config_index = static_cast<int>(w.configs.size());
-            table_buf = *w.tableBuffers[config_index];
+            table_buf = *w.tableBuffers[static_cast<size_t>(config_index)];
 
             std::vector<uint32_t> flatTbl(16 * 256);
-            if (cfg.checkMode == CHECK_MODE_CRC)
+            auto parTbl = create_parallel_tables(crc_cfg);
+            for (int i = 0; i < 16; ++i)
             {
-                auto parTbl = create_parallel_tables(crc_cfg);
-                for (int i = 0; i < 16; ++i)
+                for (int j = 0; j < 256; ++j)
                 {
-                    for (int j = 0; j < 256; ++j)
-                    {
-                        flatTbl[(i << 8) + j] = parTbl[i][j];
-                    }
+                    flatTbl[(i << 8) + j] = parTbl[i][j];
                 }
             }
-            OCL_CHECK(err, err = w.kernel.setArg(0, w.dInA));
-            OCL_CHECK(err, err = w.kernel.setArg(1, w.dOutA));
-            OCL_CHECK(err, err = w.kernel.setArg(2, table_buf));
-            OCL_CHECK(err, err = w.qH2D.enqueueWriteBuffer(table_buf, CL_TRUE, 0, flatTbl.size() * sizeof(uint32_t), flatTbl.data()));
 
-            // std::cout << "Created new table for config index " << config_index << std::endl;
-            //  std::cout << "Num tables now: " << w.dTbl.size() << std::endl;
+            OCL_CHECK(err, err = w.qH2D.enqueueWriteBuffer(table_buf,
+                                                           CL_TRUE,
+                                                           0,
+                                                           flatTbl.size() * sizeof(uint32_t),
+                                                           flatTbl.data()));
         }
 
         std::vector<uint8_t> data_ptr(data.begin(), data.end());
-        if (cfg.checkMode == CHECK_MODE_CRC && !crc_cfg.reflect_input)
+        if (!crc_cfg.reflect_input)
         {
-            // Reflect first 4 bytes of each chunk
             for (size_t i = 0; i < totalBytes; i++)
             {
                 if (i % 16 < 4)
@@ -336,6 +433,7 @@ private:
                 }
             }
         }
+
         std::vector<uint32_t> result;
         result.reserve(nChunks * wordsPerChunk);
 
@@ -343,61 +441,215 @@ private:
         {
             const size_t offset = k * chunkBytes;
             const size_t bytesToProcess = std::min(chunksPerBuf * chunkBytes, totalBytes - offset);
-            const size_t chunksToProcess = (bytesToProcess) / chunkBytes;
+            const size_t chunksToProcess = bytesToProcess / chunkBytes;
 
             std::vector<unsigned char, aligned_allocator<unsigned char>> chunkData(bytesToProcess, 0);
             std::memcpy(chunkData.data(), data_ptr.data() + offset, bytesToProcess);
 
             OCL_CHECK(err, err = w.kernel.setArg(0, w.dInA));
             OCL_CHECK(err, err = w.kernel.setArg(1, w.dOutA));
-            OCL_CHECK(err, err = w.kernel.setArg(2, *w.tableBuffers[config_index]));
+            OCL_CHECK(err, err = w.kernel.setArg(2, *w.tableBuffers[static_cast<size_t>(config_index)]));
             OCL_CHECK(err, err = w.kernel.setArg(3, static_cast<uint32_t>(chunksToProcess)));
             OCL_CHECK(err, err = w.kernel.setArg(4, static_cast<uint32_t>(cfg.chunkSize)));
             OCL_CHECK(err, err = w.kernel.setArg(5, static_cast<uint32_t>(cfg.crcWidth)));
             OCL_CHECK(err, err = w.kernel.setArg(6, static_cast<uint32_t>(cfg.init_val)));
-            OCL_CHECK(err, err = w.kernel.setArg(7, static_cast<uint32_t>(cfg.checkMode)));
 
-            OCL_CHECK(err, err = w.qH2D.enqueueWriteBuffer(
-                               w.dInA, CL_TRUE, 0, bytesToProcess, chunkData.data()));
+            OCL_CHECK(err, err = w.qH2D.enqueueWriteBuffer(w.dInA,
+                                                           CL_TRUE,
+                                                           0,
+                                                           bytesToProcess,
+                                                           chunkData.data()));
 
             cl::NDRange one(1);
-            OCL_CHECK(err, err = w.qK.enqueueNDRangeKernel(
-                               w.kernel, cl::NullRange, one, one));
+            OCL_CHECK(err, err = w.qK.enqueueNDRangeKernel(w.kernel,
+                                                           cl::NullRange,
+                                                           one,
+                                                           one));
             OCL_CHECK(err, err = w.qK.finish());
 
             std::vector<uint32_t, aligned_allocator<uint32_t>> crcOut(chunksToProcess * wordsPerChunk);
-            OCL_CHECK(err, err = w.qD2H.enqueueReadBuffer(
-                               w.dOutA, CL_TRUE, 0, sizeof(uint32_t) * chunksToProcess * wordsPerChunk, crcOut.data()));
+            OCL_CHECK(err, err = w.qD2H.enqueueReadBuffer(w.dOutA,
+                                                          CL_TRUE,
+                                                          0,
+                                                          sizeof(uint32_t) * chunksToProcess * wordsPerChunk,
+                                                          crcOut.data()));
 
             result.insert(result.end(), crcOut.begin(), crcOut.end());
         }
-        if (cfg.checkMode == CHECK_MODE_CRC)
+
+        for (size_t i = 0; i < result.size(); ++i)
+        {
+            result[i] ^= (cfg.xor_out);
+        }
+        if (crc_cfg.reflect_output != crc_cfg.reflect_input)
         {
             for (size_t i = 0; i < result.size(); ++i)
             {
-                result[i] ^= (cfg.xor_out);
-            }
-            if (crc_cfg.reflect_output != crc_cfg.reflect_input)
-            {
-                for (size_t i = 0; i < result.size(); ++i)
-                {
-                    result[i] = reflect(result[i], static_cast<uint8_t>(cfg.crcWidth));
-                }
+                result[i] = reflect(result[i], static_cast<uint8_t>(cfg.crcWidth));
             }
         }
 
         return result;
     }
 
-    void worker_loop(int idx)
+    static std::vector<uint32_t> execute_tcp(Worker &w,
+                                             const std::vector<unsigned char> &data,
+                                             const KernelConfig &cfg)
     {
-        auto &w = workers_[idx];
+        if (cfg.checkMode != CHECK_MODE_TCP_CHECKSUM)
+            throw std::runtime_error("TCP worker received non-TCP task");
+
+        cl_int err = CL_SUCCESS;
+        const size_t totalBytes = data.size();
+        const size_t chunkBytes = static_cast<size_t>(cfg.chunkSize);
+        if (chunkBytes == 0)
+            throw std::runtime_error("chunkSize must be > 0");
+        if ((totalBytes % chunkBytes) != 0)
+            throw std::runtime_error("Input size must be an integer multiple of chunkSize");
+
+        const size_t nChunks = totalBytes / chunkBytes;
+        const size_t wordsPerChunk = 1;
+        const size_t outputBytesPerChunk = wordsPerChunk * sizeof(uint32_t);
+        const size_t chunksPerBuf = std::min(w.buffer_size / chunkBytes, w.buffer_size / outputBytesPerChunk);
+        if (chunksPerBuf == 0)
+            throw std::runtime_error("buffer_size is too small for configured chunk input/output footprint");
+
+        std::vector<uint8_t> data_ptr(data.begin(), data.end());
+        std::vector<uint32_t> result;
+        result.reserve(nChunks * wordsPerChunk);
+
+        for (size_t k = 0; k < nChunks; k += chunksPerBuf)
+        {
+            const size_t offset = k * chunkBytes;
+            const size_t bytesToProcess = std::min(chunksPerBuf * chunkBytes, totalBytes - offset);
+            const size_t chunksToProcess = bytesToProcess / chunkBytes;
+
+            std::vector<unsigned char, aligned_allocator<unsigned char>> chunkData(bytesToProcess, 0);
+            std::memcpy(chunkData.data(), data_ptr.data() + offset, bytesToProcess);
+
+            OCL_CHECK(err, err = w.kernel.setArg(0, w.dInA));
+            OCL_CHECK(err, err = w.kernel.setArg(1, w.dOutA));
+            OCL_CHECK(err, err = w.kernel.setArg(2, static_cast<uint32_t>(chunksToProcess)));
+            OCL_CHECK(err, err = w.kernel.setArg(3, static_cast<uint32_t>(cfg.chunkSize)));
+
+            OCL_CHECK(err, err = w.qH2D.enqueueWriteBuffer(w.dInA,
+                                                           CL_TRUE,
+                                                           0,
+                                                           bytesToProcess,
+                                                           chunkData.data()));
+
+            cl::NDRange one(1);
+            OCL_CHECK(err, err = w.qK.enqueueNDRangeKernel(w.kernel,
+                                                           cl::NullRange,
+                                                           one,
+                                                           one));
+            OCL_CHECK(err, err = w.qK.finish());
+
+            std::vector<uint32_t, aligned_allocator<uint32_t>> out(chunksToProcess * wordsPerChunk);
+            OCL_CHECK(err, err = w.qD2H.enqueueReadBuffer(w.dOutA,
+                                                          CL_TRUE,
+                                                          0,
+                                                          sizeof(uint32_t) * chunksToProcess * wordsPerChunk,
+                                                          out.data()));
+
+            result.insert(result.end(), out.begin(), out.end());
+        }
+
+        return result;
+    }
+
+    static std::vector<uint32_t> execute_sha(Worker &w,
+                                             const std::vector<unsigned char> &data,
+                                             const KernelConfig &cfg)
+    {
+        if (cfg.checkMode != CHECK_MODE_HASH)
+            throw std::runtime_error("SHA worker received non-SHA task");
+        if (cfg.hashAlgorithm != 0)
+            throw std::runtime_error("Only SHA-256 hashAlgorithm=0 is implemented in the kernel.");
+
+        cl_int err = CL_SUCCESS;
+        const size_t totalBytes = data.size();
+        const size_t chunkBytes = static_cast<size_t>(cfg.chunkSize);
+        if (chunkBytes == 0)
+            throw std::runtime_error("chunkSize must be > 0");
+        if ((totalBytes % chunkBytes) != 0)
+            throw std::runtime_error("Input size must be an integer multiple of chunkSize");
+
+        const size_t nChunks = totalBytes / chunkBytes;
+        const size_t wordsPerChunk = 8;
+        const size_t outputBytesPerChunk = wordsPerChunk * sizeof(uint32_t);
+        const size_t chunksPerBuf = std::min(w.buffer_size / chunkBytes, w.buffer_size / outputBytesPerChunk);
+        if (chunksPerBuf == 0)
+            throw std::runtime_error("buffer_size is too small for configured chunk input/output footprint");
+
+        std::vector<uint8_t> data_ptr(data.begin(), data.end());
+        std::vector<uint32_t> result;
+        result.reserve(nChunks * wordsPerChunk);
+
+        for (size_t k = 0; k < nChunks; k += chunksPerBuf)
+        {
+            const size_t offset = k * chunkBytes;
+            const size_t bytesToProcess = std::min(chunksPerBuf * chunkBytes, totalBytes - offset);
+            const size_t chunksToProcess = bytesToProcess / chunkBytes;
+
+            std::vector<unsigned char, aligned_allocator<unsigned char>> chunkData(bytesToProcess, 0);
+            std::memcpy(chunkData.data(), data_ptr.data() + offset, bytesToProcess);
+
+            OCL_CHECK(err, err = w.kernel.setArg(0, w.dInA));
+            OCL_CHECK(err, err = w.kernel.setArg(1, w.dOutA));
+            OCL_CHECK(err, err = w.kernel.setArg(2, static_cast<uint32_t>(chunksToProcess)));
+            OCL_CHECK(err, err = w.kernel.setArg(3, static_cast<uint32_t>(cfg.chunkSize)));
+
+            OCL_CHECK(err, err = w.qH2D.enqueueWriteBuffer(w.dInA,
+                                                           CL_TRUE,
+                                                           0,
+                                                           bytesToProcess,
+                                                           chunkData.data()));
+
+            cl::NDRange one(1);
+            OCL_CHECK(err, err = w.qK.enqueueNDRangeKernel(w.kernel,
+                                                           cl::NullRange,
+                                                           one,
+                                                           one));
+            OCL_CHECK(err, err = w.qK.finish());
+
+            std::vector<uint32_t, aligned_allocator<uint32_t>> out(chunksToProcess * wordsPerChunk);
+            OCL_CHECK(err, err = w.qD2H.enqueueReadBuffer(w.dOutA,
+                                                          CL_TRUE,
+                                                          0,
+                                                          sizeof(uint32_t) * chunksToProcess * wordsPerChunk,
+                                                          out.data()));
+
+            result.insert(result.end(), out.begin(), out.end());
+        }
+
+        return result;
+    }
+
+    static std::vector<uint32_t> execute_task(Worker &w,
+                                              const std::vector<unsigned char> &data,
+                                              const KernelConfig &cfg)
+    {
+        switch (w.mode)
+        {
+        case WorkerKernelType::CRC:
+            return execute_crc(w, data, cfg);
+        case WorkerKernelType::TCP:
+            return execute_tcp(w, data, cfg);
+        case WorkerKernelType::SHA:
+            return execute_sha(w, data, cfg);
+        }
+        throw std::runtime_error("Unsupported worker mode");
+    }
+
+    static void worker_loop(TaskQueue &queue, Worker &w)
+    {
         CrcTask task;
-        while (queue_.pop(task))
+        while (queue.pop(task))
         {
             try
             {
-                auto out = execute_crc(w, task.data, task.config);
+                auto out = execute_task(w, task.data, task.config);
                 task.promise.set_value(std::move(out));
             }
             catch (...)
@@ -413,38 +665,29 @@ private:
         }
     }
 
-    void init_worker(int cu_index, size_t buffer_size, std::vector<KernelConfig> configs = {})
+    void init_worker(Worker &w,
+                     WorkerKernelType mode,
+                     const std::string &kernel_name,
+                     size_t buffer_size,
+                     const std::vector<KernelConfig> &configs)
     {
-
-        std::cout << "Init worker " << cu_index << " with " << configs.size() << " tables" << std::endl;
-        std::flush(std::cout);
-        Worker w;
+        w.mode = mode;
         w.context = context_;
         w.device = device_;
         w.program = program_;
         w.buffer_size = buffer_size;
-
         w.configs = configs;
-        w.tableBuffers = new cl::Buffer *[configs.size() + 1];
 
         cl_int err = CL_SUCCESS;
-        std::string kname = "calculate_crc:{CRC_" + std::to_string(cu_index) + "}";
-        w.kernel = cl::Kernel(w.program, kname.c_str(), &err);
+        w.kernel = cl::Kernel(w.program, kernel_name.c_str(), &err);
         if (err != CL_SUCCESS)
-            throw std::runtime_error("Kernel create failed");
+            throw std::runtime_error("Kernel create failed: " + kernel_name);
 
-        // Use in-order queues for deterministic synchronization on hardware.
         w.qH2D = cl::CommandQueue(w.context, w.device, 0, &err);
         w.qK = cl::CommandQueue(w.context, w.device, 0, &err);
         w.qD2H = cl::CommandQueue(w.context, w.device, 0, &err);
 
-        // Host Memory
-
-        int numTables = static_cast<int>(w.configs.size() + 1);
-
-        // Device buffers
         w.dInA = cl::Buffer(w.context, CL_MEM_READ_ONLY, buffer_size, nullptr, &err);
-
         if (err != CL_SUCCESS)
             throw std::runtime_error("dInA alloc failed");
         OCL_CHECK(err, err = w.kernel.setArg(0, w.dInA));
@@ -454,48 +697,68 @@ private:
             throw std::runtime_error("dOutA alloc failed");
         OCL_CHECK(err, err = w.kernel.setArg(1, w.dOutA));
 
+        if (mode != WorkerKernelType::CRC)
+        {
+            w.tableBuffers = nullptr;
+            w.tableCount = 0;
+            return;
+        }
+
+        const int numTables = static_cast<int>(w.configs.size() + 1);
+        w.tableCount = static_cast<size_t>(numTables);
+        w.tableBuffers = new cl::Buffer *[w.tableCount];
+
         for (int i = 0; i < numTables; ++i)
         {
-            cl::Buffer *table_buf = new cl::Buffer(w.context, CL_MEM_READ_ONLY, 256 * 16 * sizeof(uint32_t), nullptr, &err);
+            cl::Buffer *table_buf = new cl::Buffer(w.context,
+                                                   CL_MEM_READ_ONLY,
+                                                   256 * 16 * sizeof(uint32_t),
+                                                   nullptr,
+                                                   &err);
             OCL_CHECK(err, err = w.kernel.setArg(2, *table_buf));
-            if ((size_t)i < configs.size() && configs[i].checkMode == CHECK_MODE_CRC)
-            {
-                // Generate tables
-                CRC_Config crc_cfg;
-                crc_cfg.polynomial = configs[i].polynomial;
-                crc_cfg.initial_value = configs[i].init_val;
-                crc_cfg.final_xor_value = configs[i].xor_out;
-                crc_cfg.reflect_input = configs[i].refInput;
-                crc_cfg.reflect_output = configs[i].refOutput;
-                crc_cfg.width = static_cast<uint8_t>(configs[i].crcWidth);
-                crc_cfg.chunk_size = static_cast<size_t>(configs[i].chunkSize);
-                auto parTbl = create_parallel_tables(crc_cfg);
 
+            if ((size_t)i < w.configs.size())
+            {
+                CRC_Config crc_cfg;
+                crc_cfg.polynomial = w.configs[(size_t)i].polynomial;
+                crc_cfg.initial_value = w.configs[(size_t)i].init_val;
+                crc_cfg.final_xor_value = w.configs[(size_t)i].xor_out;
+                crc_cfg.reflect_input = w.configs[(size_t)i].refInput;
+                crc_cfg.reflect_output = w.configs[(size_t)i].refOutput;
+                crc_cfg.width = static_cast<uint8_t>(w.configs[(size_t)i].crcWidth);
+                crc_cfg.chunk_size = static_cast<size_t>(w.configs[(size_t)i].chunkSize);
+
+                auto parTbl = create_parallel_tables(crc_cfg);
                 std::vector<uint32_t> flatTbl(16 * 256);
                 for (int m = 0; m < 16; ++m)
                 {
                     for (int n = 0; n < 256; ++n)
                     {
-
                         flatTbl[(m << 8) + n] = parTbl[m][n];
-                        ;
                     }
                 }
-                // std::cout << "Uploading table " << i << std::endl;
 
-                OCL_CHECK(err, err = w.qH2D.enqueueWriteBuffer(*table_buf, CL_TRUE, 0, flatTbl.size() * sizeof(uint32_t), flatTbl.data()));
+                OCL_CHECK(err, err = w.qH2D.enqueueWriteBuffer(*table_buf,
+                                                               CL_TRUE,
+                                                               0,
+                                                               flatTbl.size() * sizeof(uint32_t),
+                                                               flatTbl.data()));
             }
             else
             {
                 std::vector<uint32_t> flatTbl(16 * 256, 0);
-                OCL_CHECK(err, err = w.qH2D.enqueueWriteBuffer(*table_buf, CL_TRUE, 0, flatTbl.size() * sizeof(uint32_t), flatTbl.data()));
+                OCL_CHECK(err, err = w.qH2D.enqueueWriteBuffer(*table_buf,
+                                                               CL_TRUE,
+                                                               0,
+                                                               flatTbl.size() * sizeof(uint32_t),
+                                                               flatTbl.data()));
             }
-            w.tableBuffers[i] = table_buf;
-        }
-        if (err != CL_SUCCESS)
-            throw std::runtime_error("dTbl alloc failed");
 
-        workers_[cu_index] = std::move(w);
+            w.tableBuffers[(size_t)i] = table_buf;
+        }
+
+        if (err != CL_SUCCESS)
+            throw std::runtime_error("table buffer setup failed");
     }
 
 private:
@@ -503,10 +766,15 @@ private:
     cl::Program program_;
     cl::Device device_;
 
-    size_t buffer_size_;
+    size_t buffer_size_ = 0;
 
-    TaskQueue queue_;
-    std::vector<Worker> workers_;
+    TaskQueue crc_queue_;
+    TaskQueue tcp_queue_;
+    TaskQueue sha_queue_;
+
+    std::vector<Worker> crc_workers_;
+    std::vector<Worker> tcp_workers_;
+    std::vector<Worker> sha_workers_;
 };
 
 #endif // MANAGER_HPP
