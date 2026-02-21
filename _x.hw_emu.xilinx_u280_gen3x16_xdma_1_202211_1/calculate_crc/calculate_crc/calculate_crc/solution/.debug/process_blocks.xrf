@@ -1,0 +1,52 @@
+Begin Function 'process_blocks'
+
+RTL state condition: (1'b1 == ap_CS_fsm_state1)
+# ST_1
+local init_value_2 <> <integer> <FifoRead> 'read' <>
+reg: init_value_2_reg_472[31:0] lv
+
+local crc_size_1 <> <integer> <FifoRead> 'read' <>
+reg: crc_size_1_reg_477[31:0] lv
+
+local chunkSize_1 <> <integer> <FifoRead> 'read' <>
+reg: chunkSize_1_reg_482[31:0] lv
+
+local numChunks_2 <> <integer> <FifoRead> 'read' <>
+reg: numChunks_2_reg_487[31:0] lv
+
+local icmp_ln325 <icmp_325> <integer> <Comparator> 'icmp' </users/arashs/U280_CRC_Accelerator/src/kernel.cpp:325>
+icmp_ln325 /users/arashs/U280_CRC_Accelerator/src/kernel.cpp:325
+reg: icmp_ln325_reg_492[0:0] lv
+
+local tmp_1 <> <integer> <> 'bitselect' <>
+reg: tmp_1_reg_497[0:0] lv
+
+local p_lshr_cast_cast <> <integer> <> 'partselect' <>
+reg: p_lshr_cast_cast_reg_502[27:0] lv
+
+local p_lshr_f_cast_cast <> <integer> <> 'partselect' <>
+reg: p_lshr_f_cast_cast_reg_507[27:0] lv
+
+
+RTL state condition: (1'b1 == ap_CS_fsm_state2)
+# ST_2
+local mask_1 <select_325> <integer> <> 'select' </users/arashs/U280_CRC_Accelerator/src/kernel.cpp:325>
+mask /users/arashs/U280_CRC_Accelerator/src/kernel.cpp:325
+reg: mask_1_reg_512[31:0] lv
+
+local blocks_in_chunk <> <integer> <> 'select' <>
+reg: blocks_in_chunk_reg_518[28:0] lv
+
+local sub_ln329 <sub_329> <integer> <Arithmetic> 'sub' </users/arashs/U280_CRC_Accelerator/src/kernel.cpp:329>
+sub_ln329 /users/arashs/U280_CRC_Accelerator/src/kernel.cpp:329
+reg: sub_ln329_reg_523[31:0] lv
+
+
+RTL state condition: (1'b1 == ap_CS_fsm_state4)
+# ST_4
+
+RTL state condition: (1'b1 == ap_CS_fsm_state7)
+# ST_7
+
+End Function 'process_blocks'
+

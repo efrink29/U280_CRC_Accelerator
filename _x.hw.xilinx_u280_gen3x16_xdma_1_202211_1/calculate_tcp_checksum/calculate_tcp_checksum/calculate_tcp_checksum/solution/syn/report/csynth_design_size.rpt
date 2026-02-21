@@ -1,0 +1,34 @@
+================================================================
+== Design Size Report
+================================================================
+
+* Instructions per Function for each Compilation Phase
++-------------------------------+----------------+-----------------+---------------+----------------------+---------------+
+| Function                      | Location       | Compile/Link    | Unroll/Inline | Performance/Pipeline | Optimizations |
++-------------------------------+----------------+-----------------+---------------+----------------------+---------------+
+| + calculate_tcp_checksum      | kernel.cpp:714 | 3,992           | 776           | 555                  | 620           |
+|  + process_tcp_checksum       | kernel.cpp:571 | 3,988           | 772           | 541                  | 603           |
+|   + tcp_checksum_chunk_vector | kernel.cpp:483 | 2,297           |               |                      |               |
+|      to_be16                  | kernel.cpp:93  |   308 (2 calls) |               |                      |               |
+|   + tcp_checksum_chunk_scalar | kernel.cpp:456 | 1,619           |               |                      |               |
+|      fold_add                 | kernel.cpp:449 |   764 (2 calls) |               |                      |               |
++-------------------------------+----------------+-----------------+---------------+----------------------+---------------+
+
+* Description of Compilation Phases
++----------------------+------------------------------------------------------------+
+| Compilation Phase    | Description                                                |
++----------------------+------------------------------------------------------------+
+| Compile/Link         | All functions are compiled and linked into a single design |
+| Unroll/Inline        | After user unroll and inline pragmas are applied           |
+| Performance/Pipeline | After performance and pipeline pragmas are applied         |
+| Optimizations        | After high level synthesis optimizations                   |
++----------------------+------------------------------------------------------------+
+
+* Design Size Message Settings
++---------------------------------------------+--------+------------------------------------------------------------------+
+| Message Setting                             | Value  | Description                                                      |
++---------------------------------------------+--------+------------------------------------------------------------------+
+| config_compile -design_size_maximum_warning | 100000 | Show a warning when total design instructions exceeds this value |
++---------------------------------------------+--------+------------------------------------------------------------------+
+
+

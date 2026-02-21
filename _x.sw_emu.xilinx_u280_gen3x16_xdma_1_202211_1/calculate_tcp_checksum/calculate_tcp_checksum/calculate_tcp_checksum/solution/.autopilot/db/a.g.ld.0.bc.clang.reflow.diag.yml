@@ -1,0 +1,341 @@
+--- !Passed
+Pass:            inline
+Name:            AlwaysInline
+DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                   Line: 513, Column: 39 }
+Function:        _ZL25tcp_checksum_chunk_vectorPK7ap_uintILi512EEPKhj
+Args:            
+  - String:          'Inlining function '''
+  - Callee:          'to_be16(ap_uint<16>)'
+    DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                       Line: 94, Column: 0 }
+  - String:          ''' into '''
+  - Caller:          'tcp_checksum_chunk_vector(ap_uint<512> const*, unsigned char const*, unsigned int)'
+    DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                       Line: 486, Column: 0 }
+  - String:          ''''
+...
+--- !Passed
+Pass:            inline
+Name:            AlwaysInline
+DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                   Line: 512, Column: 39 }
+Function:        _ZL25tcp_checksum_chunk_vectorPK7ap_uintILi512EEPKhj
+Args:            
+  - String:          'Inlining function '''
+  - Callee:          'to_be16(ap_uint<16>)'
+    DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                       Line: 94, Column: 0 }
+  - String:          ''' into '''
+  - Caller:          'tcp_checksum_chunk_vector(ap_uint<512> const*, unsigned char const*, unsigned int)'
+    DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                       Line: 486, Column: 0 }
+  - String:          ''''
+...
+--- !Passed
+Pass:            inline
+Name:            AlwaysInline
+DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                   Line: 475, Column: 15 }
+Function:        _ZL25tcp_checksum_chunk_scalarPKhj
+Args:            
+  - String:          'Inlining function '''
+  - Callee:          'fold_add(ap_uint<17>, ap_uint<16>)'
+    DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                       Line: 450, Column: 0 }
+  - String:          ''' into '''
+  - Caller:          'tcp_checksum_chunk_scalar(unsigned char const*, unsigned int)'
+    DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                       Line: 457, Column: 0 }
+  - String:          ''''
+...
+--- !Passed
+Pass:            inline
+Name:            AlwaysInline
+DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                   Line: 469, Column: 15 }
+Function:        _ZL25tcp_checksum_chunk_scalarPKhj
+Args:            
+  - String:          'Inlining function '''
+  - Callee:          'fold_add(ap_uint<17>, ap_uint<16>)'
+    DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                       Line: 450, Column: 0 }
+  - String:          ''' into '''
+  - Caller:          'tcp_checksum_chunk_scalar(unsigned char const*, unsigned int)'
+    DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                       Line: 457, Column: 0 }
+  - String:          ''''
+...
+--- !Passed
+Pass:            inline
+Name:            AlwaysInline
+DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                   Line: 594, Column: 24 }
+Function:        _ZL20process_tcp_checksumPK7ap_uintILi512EEPjjj
+Args:            
+  - String:          'Inlining function '''
+  - Callee:          'tcp_checksum_chunk_scalar(unsigned char const*, unsigned int)'
+    DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                       Line: 457, Column: 0 }
+  - String:          ''' into '''
+  - Caller:          'process_tcp_checksum(ap_uint<512> const*, unsigned int*, unsigned int, unsigned int)'
+    DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                       Line: 575, Column: 0 }
+  - String:          ''''
+...
+--- !Passed
+Pass:            inline
+Name:            AlwaysInline
+DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                   Line: 590, Column: 24 }
+Function:        _ZL20process_tcp_checksumPK7ap_uintILi512EEPjjj
+Args:            
+  - String:          'Inlining function '''
+  - Callee:          'tcp_checksum_chunk_vector(ap_uint<512> const*, unsigned char const*, unsigned int)'
+    DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                       Line: 486, Column: 0 }
+  - String:          ''' into '''
+  - Caller:          'process_tcp_checksum(ap_uint<512> const*, unsigned int*, unsigned int, unsigned int)'
+    DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                       Line: 575, Column: 0 }
+  - String:          ''''
+...
+--- !Passed
+Pass:            reflow-infer-unroll
+Name:            ImplicitUnroll
+DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                   Line: 463, Column: 5 }
+Function:        _ZL20process_tcp_checksumPK7ap_uintILi512EEPjjj
+Args:            
+  - String:          'Loop '''
+  - LoopName:        word_loop
+  - String:          ''' is marked as complete unroll implied by the pipeline pragma'
+...
+--- !Passed
+Pass:            reflow-infer-unroll
+Name:            ImplicitUnroll
+DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                   Line: 492, Column: 5 }
+Function:        _ZL20process_tcp_checksumPK7ap_uintILi512EEPjjj
+Args:            
+  - String:          'Loop '''
+  - LoopName:        vec_word_loop
+  - String:          ''' is marked as complete unroll implied by the pipeline pragma'
+...
+--- !Passed
+Pass:            reflow-infer-unroll
+Name:            ImplicitUnroll
+DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                   Line: 507, Column: 9 }
+Function:        _ZL20process_tcp_checksumPK7ap_uintILi512EEPjjj
+Args:            
+  - String:          'Loop '''
+  - LoopName:        reduce_lvl1
+  - String:          ''' is marked as complete unroll implied by the pipeline pragma'
+...
+--- !Passed
+Pass:            reflow-infer-unroll
+Name:            ImplicitUnroll
+DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                   Line: 518, Column: 9 }
+Function:        _ZL20process_tcp_checksumPK7ap_uintILi512EEPjjj
+Args:            
+  - String:          'Loop '''
+  - LoopName:        reduce_lvl2
+  - String:          ''' is marked as complete unroll implied by the pipeline pragma'
+...
+--- !Passed
+Pass:            reflow-infer-unroll
+Name:            ImplicitUnroll
+DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                   Line: 525, Column: 9 }
+Function:        _ZL20process_tcp_checksumPK7ap_uintILi512EEPjjj
+Args:            
+  - String:          'Loop '''
+  - LoopName:        reduce_lvl3
+  - String:          ''' is marked as complete unroll implied by the pipeline pragma'
+...
+--- !Passed
+Pass:            reflow-infer-unroll
+Name:            ImplicitUnroll
+DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                   Line: 532, Column: 9 }
+Function:        _ZL20process_tcp_checksumPK7ap_uintILi512EEPjjj
+Args:            
+  - String:          'Loop '''
+  - LoopName:        reduce_lvl4
+  - String:          ''' is marked as complete unroll implied by the pipeline pragma'
+...
+--- !Passed
+Pass:            reflow-infer-unroll
+Name:            ImplicitUnroll
+DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                   Line: 545, Column: 5 }
+Function:        _ZL20process_tcp_checksumPK7ap_uintILi512EEPjjj
+Args:            
+  - String:          'Loop '''
+  - LoopName:        tail_word_loop
+  - String:          ''' is marked as complete unroll implied by the pipeline pragma'
+...
+--- !Passed
+Pass:            reflow-infer-unroll
+Name:            ImplicitUnroll
+DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                   Line: 563, Column: 5 }
+Function:        _ZL20process_tcp_checksumPK7ap_uintILi512EEPjjj
+Args:            
+  - String:          'Loop '''
+  - LoopName:        fold_carry
+  - String:          ''' is marked as complete unroll implied by the pipeline pragma'
+...
+--- !Passed
+Pass:            reflow-pragma-loop-unroll
+Name:            PragmaFullyUnroll
+DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                   Line: 575, Column: 0 }
+Function:        _ZL20process_tcp_checksumPK7ap_uintILi512EEPjjj
+Args:            
+  - String:          'Unrolling loop '''
+  - LoopName:        reduce_lvl1
+  - String:          ''' ('
+  - LoopLoc:         '/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:507:9'
+  - String:          ') '
+  - String:          'in function '''
+  - String:          process_tcp_checksum
+  - String:          ''' completely with a factor of '
+  - Factor:          '16'
+...
+--- !Passed
+Pass:            reflow-pragma-loop-unroll
+Name:            PragmaFullyUnroll
+DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                   Line: 575, Column: 0 }
+Function:        _ZL20process_tcp_checksumPK7ap_uintILi512EEPjjj
+Args:            
+  - String:          'Unrolling loop '''
+  - LoopName:        reduce_lvl2
+  - String:          ''' ('
+  - LoopLoc:         '/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:518:9'
+  - String:          ') '
+  - String:          'in function '''
+  - String:          process_tcp_checksum
+  - String:          ''' completely with a factor of '
+  - Factor:          '8'
+...
+--- !Passed
+Pass:            reflow-pragma-loop-unroll
+Name:            PragmaFullyUnroll
+DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                   Line: 575, Column: 0 }
+Function:        _ZL20process_tcp_checksumPK7ap_uintILi512EEPjjj
+Args:            
+  - String:          'Unrolling loop '''
+  - LoopName:        reduce_lvl3
+  - String:          ''' ('
+  - LoopLoc:         '/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:525:9'
+  - String:          ') '
+  - String:          'in function '''
+  - String:          process_tcp_checksum
+  - String:          ''' completely with a factor of '
+  - Factor:          '4'
+...
+--- !Passed
+Pass:            reflow-pragma-loop-unroll
+Name:            PragmaFullyUnroll
+DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                   Line: 575, Column: 0 }
+Function:        _ZL20process_tcp_checksumPK7ap_uintILi512EEPjjj
+Args:            
+  - String:          'Unrolling loop '''
+  - LoopName:        reduce_lvl4
+  - String:          ''' ('
+  - LoopLoc:         '/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:532:9'
+  - String:          ') '
+  - String:          'in function '''
+  - String:          process_tcp_checksum
+  - String:          ''' completely with a factor of '
+  - Factor:          '2'
+...
+--- !Passed
+Pass:            reflow-pragma-loop-unroll
+Name:            PragmaFullyUnroll
+DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                   Line: 575, Column: 0 }
+Function:        _ZL20process_tcp_checksumPK7ap_uintILi512EEPjjj
+Args:            
+  - String:          'Unrolling loop '''
+  - LoopName:        fold_carry
+  - String:          ''' ('
+  - LoopLoc:         '/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:563:5'
+  - String:          ') '
+  - String:          'in function '''
+  - String:          process_tcp_checksum
+  - String:          ''' completely with a factor of '
+  - Factor:          '4'
+...
+--- !Passed
+Pass:            reflow-infer-unroll
+Name:            ImplicitUnroll
+DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                   Line: 463, Column: 5 }
+Function:        _ZL20process_tcp_checksumPK7ap_uintILi512EEPjjj
+Args:            
+  - String:          'Loop '''
+  - LoopName:        word_loop
+  - String:          ''' is marked as complete unroll implied by the pipeline pragma'
+...
+--- !Passed
+Pass:            reflow-infer-unroll
+Name:            ImplicitUnroll
+DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                   Line: 492, Column: 5 }
+Function:        _ZL20process_tcp_checksumPK7ap_uintILi512EEPjjj
+Args:            
+  - String:          'Loop '''
+  - LoopName:        vec_word_loop
+  - String:          ''' is marked as complete unroll implied by the pipeline pragma'
+...
+--- !Passed
+Pass:            reflow-infer-unroll
+Name:            ImplicitUnroll
+DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                   Line: 545, Column: 5 }
+Function:        _ZL20process_tcp_checksumPK7ap_uintILi512EEPjjj
+Args:            
+  - String:          'Loop '''
+  - LoopName:        tail_word_loop
+  - String:          ''' is marked as complete unroll implied by the pipeline pragma'
+...
+--- !Passed
+Pass:            reflow-infer-unroll
+Name:            ImplicitUnroll
+DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                   Line: 463, Column: 5 }
+Function:        _ZL20process_tcp_checksumPK7ap_uintILi512EEPjjj
+Args:            
+  - String:          'Loop '''
+  - LoopName:        word_loop
+  - String:          ''' is marked as complete unroll implied by the pipeline pragma'
+...
+--- !Passed
+Pass:            reflow-infer-unroll
+Name:            ImplicitUnroll
+DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                   Line: 492, Column: 5 }
+Function:        _ZL20process_tcp_checksumPK7ap_uintILi512EEPjjj
+Args:            
+  - String:          'Loop '''
+  - LoopName:        vec_word_loop
+  - String:          ''' is marked as complete unroll implied by the pipeline pragma'
+...
+--- !Passed
+Pass:            reflow-infer-unroll
+Name:            ImplicitUnroll
+DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                   Line: 545, Column: 5 }
+Function:        _ZL20process_tcp_checksumPK7ap_uintILi512EEPjjj
+Args:            
+  - String:          'Loop '''
+  - LoopName:        tail_word_loop
+  - String:          ''' is marked as complete unroll implied by the pipeline pragma'
+...

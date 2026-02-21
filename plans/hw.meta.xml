@@ -1,0 +1,493 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="kernel.link">
+  <platform vendor="xilinx" boardid="u280" name="gen3x16_xdma_1" featureRomTime="0">
+    <version major="202211" minor="1"/>
+    <description/>
+    <board name="xilinx.com:au280:1.3" vendor="xilinx.com" fpga="xcu280-fsvh2892-2L-e">
+      <interfaces>
+        <interface id="int1" name="PCIe" type="gen3x16"/>
+      </interfaces>
+      <memories>
+        <memory name="mem0" type="hbm" size="8GB"/>
+      </memories>
+      <images>
+        <image name="" type="HDPI"/>
+        <image name="" type="MDPI"/>
+        <image name="" type="LDPI"/>
+      </images>
+      <id>
+        <vendor/>
+        <device/>
+        <subsystem/>
+      </id>
+    </board>
+    <build_flow/>
+    <host architecture="x86_64"/>
+    <device name="fpga0" fpgaDevice="virtexuplusHBM:xcu280:fsvh2892:-2L:e" addrWidth="0">
+      <systemClocks>
+        <clock port="hbm_aclk" frequency="450.0MHz" name="hbm_aclk"/>
+      </systemClocks>
+      <core name="OCL_REGION_0" target="bitstream" type="clc_region" clockFreq="0MHz" numComputeUnits="60">
+        <kernelClocks>
+          <clock port="KERNEL_CLK" frequency="500.0MHz" name="ulp_ucs/aclk_kernel_01"/>
+          <clock port="DATA_CLK" frequency="290.9MHz" name="ulp_ucs/aclk_kernel_00"/>
+        </kernelClocks>
+        <kernel name="calculate_crc" language="c" vlnv="xilinx.com:hls:calculate_crc:1.0" preferredWorkGroupSizeMultiple="0" workGroupSize="1" debug="false" interrupt="true" hwControlProtocol="ap_ctrl_chain" countedAutoRestart="0" deadlockDetection="local" mailbox="none" swReset="false">
+          <module name="calculate_crc">
+            <module name="entry_proc" instName="entry_proc_U0" type="DataflowHS">
+              <rtlPort name="crc_out" object="crc_out" protocol="ap_none"/>
+              <rtlPort name="crc_size" object="crc_size" protocol="ap_none"/>
+              <rtlPort name="init_value" object="init_value" protocol="ap_none"/>
+            </module>
+            <module name="Loop_init_lut_proc" instName="Loop_init_lut_proc_U0" type="DataflowHS">
+              <rtlPort name="m_axi_gmem1_AWVALID" object="gmem1" protocol="m_axi"/>
+              <rtlPort name="tables" object="tables" protocol="ap_none"/>
+              <rtlPort name="crcTables_15_d0" object="crcTables_15" protocol="ap_memory"/>
+              <rtlPort name="crcTables_14_d0" object="crcTables_14" protocol="ap_memory"/>
+              <rtlPort name="crcTables_13_d0" object="crcTables_13" protocol="ap_memory"/>
+              <rtlPort name="crcTables_12_d0" object="crcTables_12" protocol="ap_memory"/>
+              <rtlPort name="crcTables_11_d0" object="crcTables_11" protocol="ap_memory"/>
+              <rtlPort name="crcTables_10_d0" object="crcTables_10" protocol="ap_memory"/>
+              <rtlPort name="crcTables_9_d0" object="crcTables_9" protocol="ap_memory"/>
+              <rtlPort name="crcTables_8_d0" object="crcTables_8" protocol="ap_memory"/>
+              <rtlPort name="crcTables_7_d0" object="crcTables_7" protocol="ap_memory"/>
+              <rtlPort name="crcTables_6_d0" object="crcTables_6" protocol="ap_memory"/>
+              <rtlPort name="crcTables_5_d0" object="crcTables_5" protocol="ap_memory"/>
+              <rtlPort name="crcTables_4_d0" object="crcTables_4" protocol="ap_memory"/>
+              <rtlPort name="crcTables_3_d0" object="crcTables_3" protocol="ap_memory"/>
+              <rtlPort name="crcTables_2_d0" object="crcTables_2" protocol="ap_memory"/>
+              <rtlPort name="crcTables_1_d0" object="crcTables_1" protocol="ap_memory"/>
+              <rtlPort name="crcTables_d0" object="crcTables" protocol="ap_memory"/>
+            </module>
+            <module name="read_input" instName="read_input_U0" type="DataflowHS">
+              <rtlPort name="m_axi_gmem0_AWVALID" object="gmem0" protocol="m_axi"/>
+              <rtlPort name="in_r" object="in_r" protocol="ap_none"/>
+              <rtlPort name="numChunks" object="numChunks" protocol="ap_none"/>
+              <rtlPort name="chunkSize" object="chunkSize" protocol="ap_none"/>
+              <module name="read_input_Pipeline_mem_rd" instName="grp_read_input_Pipeline_mem_rd_fu_142" type="NonDataflowHS">
+                <rtlPort name="m_axi_gmem0_AWVALID" object="gmem0" protocol="m_axi"/>
+                <rtlPort name="sext_ln28" object="sext_ln28" protocol="ap_none"/>
+                <rtlPort name="loop_count" object="loop_count" protocol="ap_none"/>
+              </module>
+            </module>
+            <module name="process_blocks" instName="process_blocks_U0" type="DataflowHS">
+              <rtlPort name="crcTables_0_q0" object="crcTables_0" protocol="ap_memory"/>
+              <rtlPort name="crcTables_1_q0" object="crcTables_1" protocol="ap_memory"/>
+              <rtlPort name="crcTables_2_q0" object="crcTables_2" protocol="ap_memory"/>
+              <rtlPort name="crcTables_3_q0" object="crcTables_3" protocol="ap_memory"/>
+              <rtlPort name="crcTables_4_q0" object="crcTables_4" protocol="ap_memory"/>
+              <rtlPort name="crcTables_5_q0" object="crcTables_5" protocol="ap_memory"/>
+              <rtlPort name="crcTables_6_q0" object="crcTables_6" protocol="ap_memory"/>
+              <rtlPort name="crcTables_7_q0" object="crcTables_7" protocol="ap_memory"/>
+              <rtlPort name="crcTables_8_q0" object="crcTables_8" protocol="ap_memory"/>
+              <rtlPort name="crcTables_9_q0" object="crcTables_9" protocol="ap_memory"/>
+              <rtlPort name="crcTables_10_q0" object="crcTables_10" protocol="ap_memory"/>
+              <rtlPort name="crcTables_11_q0" object="crcTables_11" protocol="ap_memory"/>
+              <rtlPort name="crcTables_12_q0" object="crcTables_12" protocol="ap_memory"/>
+              <rtlPort name="crcTables_13_q0" object="crcTables_13" protocol="ap_memory"/>
+              <rtlPort name="crcTables_14_q0" object="crcTables_14" protocol="ap_memory"/>
+              <rtlPort name="crcTables_15_q0" object="crcTables_15" protocol="ap_memory"/>
+              <module name="process_blocks_Pipeline_block_loop" instName="grp_process_blocks_Pipeline_block_loop_fu_181" type="NonDataflowHS">
+                <rtlPort name="init_value_2" object="init_value_2" protocol="ap_none"/>
+                <rtlPort name="total_blocks" object="total_blocks" protocol="ap_none"/>
+                <rtlPort name="crcTables_0_q0" object="crcTables_0" protocol="ap_memory"/>
+                <rtlPort name="crcTables_1_q0" object="crcTables_1" protocol="ap_memory"/>
+                <rtlPort name="crcTables_2_q0" object="crcTables_2" protocol="ap_memory"/>
+                <rtlPort name="crcTables_3_q0" object="crcTables_3" protocol="ap_memory"/>
+                <rtlPort name="crcTables_4_q0" object="crcTables_4" protocol="ap_memory"/>
+                <rtlPort name="crcTables_5_q0" object="crcTables_5" protocol="ap_memory"/>
+                <rtlPort name="crcTables_6_q0" object="crcTables_6" protocol="ap_memory"/>
+                <rtlPort name="crcTables_7_q0" object="crcTables_7" protocol="ap_memory"/>
+                <rtlPort name="crcTables_8_q0" object="crcTables_8" protocol="ap_memory"/>
+                <rtlPort name="crcTables_9_q0" object="crcTables_9" protocol="ap_memory"/>
+                <rtlPort name="crcTables_10_q0" object="crcTables_10" protocol="ap_memory"/>
+                <rtlPort name="crcTables_11_q0" object="crcTables_11" protocol="ap_memory"/>
+                <rtlPort name="crcTables_12_q0" object="crcTables_12" protocol="ap_memory"/>
+                <rtlPort name="crcTables_13_q0" object="crcTables_13" protocol="ap_memory"/>
+                <rtlPort name="crcTables_14_q0" object="crcTables_14" protocol="ap_memory"/>
+                <rtlPort name="crcTables_15_q0" object="crcTables_15" protocol="ap_memory"/>
+                <rtlPort name="mask_1" object="mask_1" protocol="ap_none"/>
+                <rtlPort name="chunkSize_1" object="chunkSize_1" protocol="ap_none"/>
+              </module>
+            </module>
+            <module name="write_output" instName="write_output_U0" type="DataflowHS">
+              <rtlPort name="m_axi_gmem0_AWVALID" object="gmem0" protocol="m_axi"/>
+              <module name="write_output_Pipeline_VITIS_LOOP_351_1" instName="grp_write_output_Pipeline_VITIS_LOOP_351_1_fu_58" type="NonDataflowHS">
+                <rtlPort name="m_axi_gmem0_AWVALID" object="gmem0" protocol="m_axi"/>
+                <rtlPort name="numChunks_1" object="numChunks_1" protocol="ap_none"/>
+                <rtlPort name="crc_out_1" object="crc_out_1" protocol="ap_none"/>
+                <rtlPort name="trunc_ln354_1" object="trunc_ln354_1" protocol="ap_none"/>
+              </module>
+            </module>
+          </module>
+          <port name="M_AXI_GMEM0" mode="master" range="0xFFFFFFFF" dataWidth="128" portType="addressable" base="0x0"/>
+          <port name="M_AXI_GMEM1" mode="master" range="0xFFFFFFFF" dataWidth="512" portType="addressable" base="0x0"/>
+          <port name="S_AXI_CONTROL" mode="slave" range="0x1054" dataWidth="32" portType="addressable" base="0x0"/>
+          <arg name="data_in" addressQualifier="1" id="0" port="M_AXI_GMEM0" size="0x8" offset="0x10" hostOffset="0x0" hostSize="0x8" type="void*"/>
+          <arg name="crc_out" addressQualifier="1" id="1" port="M_AXI_GMEM0" size="0x8" offset="0x1C" hostOffset="0x0" hostSize="0x8" type="void*"/>
+          <arg name="tables" addressQualifier="1" id="2" port="M_AXI_GMEM1" size="0x8" offset="0x28" hostOffset="0x0" hostSize="0x8" type="void*"/>
+          <arg name="numChunks" addressQualifier="0" id="3" port="S_AXI_CONTROL" size="0x4" offset="0x34" hostOffset="0x0" hostSize="0x4" type="unsigned int"/>
+          <arg name="chunkSize" addressQualifier="0" id="4" port="S_AXI_CONTROL" size="0x4" offset="0x3C" hostOffset="0x0" hostSize="0x4" type="unsigned int"/>
+          <arg name="crc_size" addressQualifier="0" id="5" port="S_AXI_CONTROL" size="0x4" offset="0x44" hostOffset="0x0" hostSize="0x4" type="unsigned int"/>
+          <arg name="init_value" addressQualifier="0" id="6" port="S_AXI_CONTROL" size="0x4" offset="0x4C" hostOffset="0x0" hostSize="0x4" type="unsigned int"/>
+          <compileWorkGroupSize x="1" y="1" z="1"/>
+          <maxWorkGroupSize x="1" y="1" z="1"/>
+          <string_table/>
+          <instance name="CRC_0">
+            <addrRemap base="0x0800000" range="0x10000" port="S_AXI_CONTROL"/>
+          </instance>
+          <instance name="CRC_1">
+            <addrRemap base="0x0810000" range="0x10000" port="S_AXI_CONTROL"/>
+          </instance>
+          <instance name="CRC_2">
+            <addrRemap base="0x0880000" range="0x10000" port="S_AXI_CONTROL"/>
+          </instance>
+          <instance name="CRC_3">
+            <addrRemap base="0x0890000" range="0x10000" port="S_AXI_CONTROL"/>
+          </instance>
+          <instance name="CRC_4">
+            <addrRemap base="0x08A0000" range="0x10000" port="S_AXI_CONTROL"/>
+          </instance>
+          <instance name="CRC_5">
+            <addrRemap base="0x08B0000" range="0x10000" port="S_AXI_CONTROL"/>
+          </instance>
+          <instance name="CRC_6">
+            <addrRemap base="0x08C0000" range="0x10000" port="S_AXI_CONTROL"/>
+          </instance>
+          <instance name="CRC_7">
+            <addrRemap base="0x08D0000" range="0x10000" port="S_AXI_CONTROL"/>
+          </instance>
+          <instance name="CRC_8">
+            <addrRemap base="0x08E0000" range="0x10000" port="S_AXI_CONTROL"/>
+          </instance>
+          <instance name="CRC_9">
+            <addrRemap base="0x08F0000" range="0x10000" port="S_AXI_CONTROL"/>
+          </instance>
+          <instance name="CRC_10">
+            <addrRemap base="0x0820000" range="0x10000" port="S_AXI_CONTROL"/>
+          </instance>
+          <instance name="CRC_11">
+            <addrRemap base="0x0830000" range="0x10000" port="S_AXI_CONTROL"/>
+          </instance>
+          <instance name="CRC_12">
+            <addrRemap base="0x0840000" range="0x10000" port="S_AXI_CONTROL"/>
+          </instance>
+          <instance name="CRC_13">
+            <addrRemap base="0x0850000" range="0x10000" port="S_AXI_CONTROL"/>
+          </instance>
+          <instance name="CRC_14">
+            <addrRemap base="0x0860000" range="0x10000" port="S_AXI_CONTROL"/>
+          </instance>
+          <instance name="CRC_15">
+            <addrRemap base="0x0870000" range="0x10000" port="S_AXI_CONTROL"/>
+          </instance>
+          <FIFOInformation>
+            <FIFOInst>
+              <Name>inByte0_U</Name>
+              <ParentInst/>
+              <StaticDepth>64</StaticDepth>
+              <RuntimeDepth>mOutPtr</RuntimeDepth>
+              <InterfaceList>
+                <Interface>clk</Interface>
+                <Interface>reset</Interface>
+                <Interface>if_write</Interface>
+                <Interface>if_din</Interface>
+                <Interface>if_full_n</Interface>
+                <Interface>if_read</Interface>
+                <Interface>if_empty_n</Interface>
+              </InterfaceList>
+            </FIFOInst>
+            <FIFOInst>
+              <Name>inByte1_U</Name>
+              <ParentInst/>
+              <StaticDepth>64</StaticDepth>
+              <RuntimeDepth>mOutPtr</RuntimeDepth>
+              <InterfaceList>
+                <Interface>clk</Interface>
+                <Interface>reset</Interface>
+                <Interface>if_write</Interface>
+                <Interface>if_din</Interface>
+                <Interface>if_full_n</Interface>
+                <Interface>if_read</Interface>
+                <Interface>if_empty_n</Interface>
+              </InterfaceList>
+            </FIFOInst>
+            <FIFOInst>
+              <Name>inByte2_U</Name>
+              <ParentInst/>
+              <StaticDepth>64</StaticDepth>
+              <RuntimeDepth>mOutPtr</RuntimeDepth>
+              <InterfaceList>
+                <Interface>clk</Interface>
+                <Interface>reset</Interface>
+                <Interface>if_write</Interface>
+                <Interface>if_din</Interface>
+                <Interface>if_full_n</Interface>
+                <Interface>if_read</Interface>
+                <Interface>if_empty_n</Interface>
+              </InterfaceList>
+            </FIFOInst>
+            <FIFOInst>
+              <Name>inByte3_U</Name>
+              <ParentInst/>
+              <StaticDepth>64</StaticDepth>
+              <RuntimeDepth>mOutPtr</RuntimeDepth>
+              <InterfaceList>
+                <Interface>clk</Interface>
+                <Interface>reset</Interface>
+                <Interface>if_write</Interface>
+                <Interface>if_din</Interface>
+                <Interface>if_full_n</Interface>
+                <Interface>if_read</Interface>
+                <Interface>if_empty_n</Interface>
+              </InterfaceList>
+            </FIFOInst>
+            <FIFOInst>
+              <Name>inByte4_U</Name>
+              <ParentInst/>
+              <StaticDepth>64</StaticDepth>
+              <RuntimeDepth>mOutPtr</RuntimeDepth>
+              <InterfaceList>
+                <Interface>clk</Interface>
+                <Interface>reset</Interface>
+                <Interface>if_write</Interface>
+                <Interface>if_din</Interface>
+                <Interface>if_full_n</Interface>
+                <Interface>if_read</Interface>
+                <Interface>if_empty_n</Interface>
+              </InterfaceList>
+            </FIFOInst>
+            <FIFOInst>
+              <Name>inByte5_U</Name>
+              <ParentInst/>
+              <StaticDepth>64</StaticDepth>
+              <RuntimeDepth>mOutPtr</RuntimeDepth>
+              <InterfaceList>
+                <Interface>clk</Interface>
+                <Interface>reset</Interface>
+                <Interface>if_write</Interface>
+                <Interface>if_din</Interface>
+                <Interface>if_full_n</Interface>
+                <Interface>if_read</Interface>
+                <Interface>if_empty_n</Interface>
+              </InterfaceList>
+            </FIFOInst>
+            <FIFOInst>
+              <Name>inByte6_U</Name>
+              <ParentInst/>
+              <StaticDepth>64</StaticDepth>
+              <RuntimeDepth>mOutPtr</RuntimeDepth>
+              <InterfaceList>
+                <Interface>clk</Interface>
+                <Interface>reset</Interface>
+                <Interface>if_write</Interface>
+                <Interface>if_din</Interface>
+                <Interface>if_full_n</Interface>
+                <Interface>if_read</Interface>
+                <Interface>if_empty_n</Interface>
+              </InterfaceList>
+            </FIFOInst>
+            <FIFOInst>
+              <Name>inByte7_U</Name>
+              <ParentInst/>
+              <StaticDepth>64</StaticDepth>
+              <RuntimeDepth>mOutPtr</RuntimeDepth>
+              <InterfaceList>
+                <Interface>clk</Interface>
+                <Interface>reset</Interface>
+                <Interface>if_write</Interface>
+                <Interface>if_din</Interface>
+                <Interface>if_full_n</Interface>
+                <Interface>if_read</Interface>
+                <Interface>if_empty_n</Interface>
+              </InterfaceList>
+            </FIFOInst>
+            <FIFOInst>
+              <Name>inByte8_U</Name>
+              <ParentInst/>
+              <StaticDepth>64</StaticDepth>
+              <RuntimeDepth>mOutPtr</RuntimeDepth>
+              <InterfaceList>
+                <Interface>clk</Interface>
+                <Interface>reset</Interface>
+                <Interface>if_write</Interface>
+                <Interface>if_din</Interface>
+                <Interface>if_full_n</Interface>
+                <Interface>if_read</Interface>
+                <Interface>if_empty_n</Interface>
+              </InterfaceList>
+            </FIFOInst>
+            <FIFOInst>
+              <Name>inByte9_U</Name>
+              <ParentInst/>
+              <StaticDepth>64</StaticDepth>
+              <RuntimeDepth>mOutPtr</RuntimeDepth>
+              <InterfaceList>
+                <Interface>clk</Interface>
+                <Interface>reset</Interface>
+                <Interface>if_write</Interface>
+                <Interface>if_din</Interface>
+                <Interface>if_full_n</Interface>
+                <Interface>if_read</Interface>
+                <Interface>if_empty_n</Interface>
+              </InterfaceList>
+            </FIFOInst>
+            <FIFOInst>
+              <Name>inByte10_U</Name>
+              <ParentInst/>
+              <StaticDepth>64</StaticDepth>
+              <RuntimeDepth>mOutPtr</RuntimeDepth>
+              <InterfaceList>
+                <Interface>clk</Interface>
+                <Interface>reset</Interface>
+                <Interface>if_write</Interface>
+                <Interface>if_din</Interface>
+                <Interface>if_full_n</Interface>
+                <Interface>if_read</Interface>
+                <Interface>if_empty_n</Interface>
+              </InterfaceList>
+            </FIFOInst>
+            <FIFOInst>
+              <Name>inByte11_U</Name>
+              <ParentInst/>
+              <StaticDepth>64</StaticDepth>
+              <RuntimeDepth>mOutPtr</RuntimeDepth>
+              <InterfaceList>
+                <Interface>clk</Interface>
+                <Interface>reset</Interface>
+                <Interface>if_write</Interface>
+                <Interface>if_din</Interface>
+                <Interface>if_full_n</Interface>
+                <Interface>if_read</Interface>
+                <Interface>if_empty_n</Interface>
+              </InterfaceList>
+            </FIFOInst>
+            <FIFOInst>
+              <Name>inByte12_U</Name>
+              <ParentInst/>
+              <StaticDepth>64</StaticDepth>
+              <RuntimeDepth>mOutPtr</RuntimeDepth>
+              <InterfaceList>
+                <Interface>clk</Interface>
+                <Interface>reset</Interface>
+                <Interface>if_write</Interface>
+                <Interface>if_din</Interface>
+                <Interface>if_full_n</Interface>
+                <Interface>if_read</Interface>
+                <Interface>if_empty_n</Interface>
+              </InterfaceList>
+            </FIFOInst>
+            <FIFOInst>
+              <Name>inByte13_U</Name>
+              <ParentInst/>
+              <StaticDepth>64</StaticDepth>
+              <RuntimeDepth>mOutPtr</RuntimeDepth>
+              <InterfaceList>
+                <Interface>clk</Interface>
+                <Interface>reset</Interface>
+                <Interface>if_write</Interface>
+                <Interface>if_din</Interface>
+                <Interface>if_full_n</Interface>
+                <Interface>if_read</Interface>
+                <Interface>if_empty_n</Interface>
+              </InterfaceList>
+            </FIFOInst>
+            <FIFOInst>
+              <Name>inByte14_U</Name>
+              <ParentInst/>
+              <StaticDepth>64</StaticDepth>
+              <RuntimeDepth>mOutPtr</RuntimeDepth>
+              <InterfaceList>
+                <Interface>clk</Interface>
+                <Interface>reset</Interface>
+                <Interface>if_write</Interface>
+                <Interface>if_din</Interface>
+                <Interface>if_full_n</Interface>
+                <Interface>if_read</Interface>
+                <Interface>if_empty_n</Interface>
+              </InterfaceList>
+            </FIFOInst>
+            <FIFOInst>
+              <Name>inByte15_U</Name>
+              <ParentInst/>
+              <StaticDepth>64</StaticDepth>
+              <RuntimeDepth>mOutPtr</RuntimeDepth>
+              <InterfaceList>
+                <Interface>clk</Interface>
+                <Interface>reset</Interface>
+                <Interface>if_write</Interface>
+                <Interface>if_din</Interface>
+                <Interface>if_full_n</Interface>
+                <Interface>if_read</Interface>
+                <Interface>if_empty_n</Interface>
+              </InterfaceList>
+            </FIFOInst>
+            <FIFOInst>
+              <Name>outStream_U</Name>
+              <ParentInst/>
+              <StaticDepth>64</StaticDepth>
+              <RuntimeDepth>mOutPtr</RuntimeDepth>
+              <InterfaceList>
+                <Interface>clk</Interface>
+                <Interface>reset</Interface>
+                <Interface>if_write</Interface>
+                <Interface>if_din</Interface>
+                <Interface>if_full_n</Interface>
+                <Interface>if_read</Interface>
+                <Interface>if_empty_n</Interface>
+              </InterfaceList>
+            </FIFOInst>
+          </FIFOInformation>
+        </kernel>
+        <connection srcType="core" srcInst="OCL_REGION_0" srcPort="SLR0/interconnect_axilite_user_M01_AXI" dstType="kernel" dstInst="CRC_0" dstPort="S_AXI_CONTROL"/>
+        <connection srcType="core" srcInst="OCL_REGION_0" srcPort="hmss_0" dstType="kernel" dstInst="CRC_0" dstPort="M_AXI_GMEM0"/>
+        <connection srcType="core" srcInst="OCL_REGION_0" srcPort="hmss_0" dstType="kernel" dstInst="CRC_0" dstPort="M_AXI_GMEM1"/>
+        <connection srcType="core" srcInst="OCL_REGION_0" srcPort="SLR0/interconnect_axilite_user_M01_AXI" dstType="kernel" dstInst="CRC_1" dstPort="S_AXI_CONTROL"/>
+        <connection srcType="core" srcInst="OCL_REGION_0" srcPort="hmss_0" dstType="kernel" dstInst="CRC_1" dstPort="M_AXI_GMEM0"/>
+        <connection srcType="core" srcInst="OCL_REGION_0" srcPort="hmss_0" dstType="kernel" dstInst="CRC_1" dstPort="M_AXI_GMEM1"/>
+        <connection srcType="core" srcInst="OCL_REGION_0" srcPort="SLR0/interconnect_axilite_user_M01_AXI" dstType="kernel" dstInst="CRC_2" dstPort="S_AXI_CONTROL"/>
+        <connection srcType="core" srcInst="OCL_REGION_0" srcPort="hmss_0" dstType="kernel" dstInst="CRC_2" dstPort="M_AXI_GMEM0"/>
+        <connection srcType="core" srcInst="OCL_REGION_0" srcPort="hmss_0" dstType="kernel" dstInst="CRC_2" dstPort="M_AXI_GMEM1"/>
+        <connection srcType="core" srcInst="OCL_REGION_0" srcPort="SLR0/interconnect_axilite_user_M01_AXI" dstType="kernel" dstInst="CRC_3" dstPort="S_AXI_CONTROL"/>
+        <connection srcType="core" srcInst="OCL_REGION_0" srcPort="hmss_0" dstType="kernel" dstInst="CRC_3" dstPort="M_AXI_GMEM0"/>
+        <connection srcType="core" srcInst="OCL_REGION_0" srcPort="hmss_0" dstType="kernel" dstInst="CRC_3" dstPort="M_AXI_GMEM1"/>
+        <connection srcType="core" srcInst="OCL_REGION_0" srcPort="SLR0/interconnect_axilite_user_M01_AXI" dstType="kernel" dstInst="CRC_4" dstPort="S_AXI_CONTROL"/>
+        <connection srcType="core" srcInst="OCL_REGION_0" srcPort="hmss_0" dstType="kernel" dstInst="CRC_4" dstPort="M_AXI_GMEM0"/>
+        <connection srcType="core" srcInst="OCL_REGION_0" srcPort="hmss_0" dstType="kernel" dstInst="CRC_4" dstPort="M_AXI_GMEM1"/>
+        <connection srcType="core" srcInst="OCL_REGION_0" srcPort="SLR0/interconnect_axilite_user_M01_AXI" dstType="kernel" dstInst="CRC_5" dstPort="S_AXI_CONTROL"/>
+        <connection srcType="core" srcInst="OCL_REGION_0" srcPort="hmss_0" dstType="kernel" dstInst="CRC_5" dstPort="M_AXI_GMEM0"/>
+        <connection srcType="core" srcInst="OCL_REGION_0" srcPort="hmss_0" dstType="kernel" dstInst="CRC_5" dstPort="M_AXI_GMEM1"/>
+        <connection srcType="core" srcInst="OCL_REGION_0" srcPort="SLR0/interconnect_axilite_user_M01_AXI" dstType="kernel" dstInst="CRC_6" dstPort="S_AXI_CONTROL"/>
+        <connection srcType="core" srcInst="OCL_REGION_0" srcPort="hmss_0" dstType="kernel" dstInst="CRC_6" dstPort="M_AXI_GMEM0"/>
+        <connection srcType="core" srcInst="OCL_REGION_0" srcPort="hmss_0" dstType="kernel" dstInst="CRC_6" dstPort="M_AXI_GMEM1"/>
+        <connection srcType="core" srcInst="OCL_REGION_0" srcPort="SLR0/interconnect_axilite_user_M01_AXI" dstType="kernel" dstInst="CRC_7" dstPort="S_AXI_CONTROL"/>
+        <connection srcType="core" srcInst="OCL_REGION_0" srcPort="hmss_0" dstType="kernel" dstInst="CRC_7" dstPort="M_AXI_GMEM0"/>
+        <connection srcType="core" srcInst="OCL_REGION_0" srcPort="hmss_0" dstType="kernel" dstInst="CRC_7" dstPort="M_AXI_GMEM1"/>
+        <connection srcType="core" srcInst="OCL_REGION_0" srcPort="SLR0/interconnect_axilite_user_M01_AXI" dstType="kernel" dstInst="CRC_8" dstPort="S_AXI_CONTROL"/>
+        <connection srcType="core" srcInst="OCL_REGION_0" srcPort="hmss_0" dstType="kernel" dstInst="CRC_8" dstPort="M_AXI_GMEM0"/>
+        <connection srcType="core" srcInst="OCL_REGION_0" srcPort="hmss_0" dstType="kernel" dstInst="CRC_8" dstPort="M_AXI_GMEM1"/>
+        <connection srcType="core" srcInst="OCL_REGION_0" srcPort="SLR0/interconnect_axilite_user_M01_AXI" dstType="kernel" dstInst="CRC_9" dstPort="S_AXI_CONTROL"/>
+        <connection srcType="core" srcInst="OCL_REGION_0" srcPort="hmss_0" dstType="kernel" dstInst="CRC_9" dstPort="M_AXI_GMEM0"/>
+        <connection srcType="core" srcInst="OCL_REGION_0" srcPort="hmss_0" dstType="kernel" dstInst="CRC_9" dstPort="M_AXI_GMEM1"/>
+        <connection srcType="core" srcInst="OCL_REGION_0" srcPort="SLR0/interconnect_axilite_user_M01_AXI" dstType="kernel" dstInst="CRC_10" dstPort="S_AXI_CONTROL"/>
+        <connection srcType="core" srcInst="OCL_REGION_0" srcPort="hmss_0" dstType="kernel" dstInst="CRC_10" dstPort="M_AXI_GMEM0"/>
+        <connection srcType="core" srcInst="OCL_REGION_0" srcPort="hmss_0" dstType="kernel" dstInst="CRC_10" dstPort="M_AXI_GMEM1"/>
+        <connection srcType="core" srcInst="OCL_REGION_0" srcPort="SLR0/interconnect_axilite_user_M01_AXI" dstType="kernel" dstInst="CRC_11" dstPort="S_AXI_CONTROL"/>
+        <connection srcType="core" srcInst="OCL_REGION_0" srcPort="hmss_0" dstType="kernel" dstInst="CRC_11" dstPort="M_AXI_GMEM0"/>
+        <connection srcType="core" srcInst="OCL_REGION_0" srcPort="hmss_0" dstType="kernel" dstInst="CRC_11" dstPort="M_AXI_GMEM1"/>
+        <connection srcType="core" srcInst="OCL_REGION_0" srcPort="SLR0/interconnect_axilite_user_M01_AXI" dstType="kernel" dstInst="CRC_12" dstPort="S_AXI_CONTROL"/>
+        <connection srcType="core" srcInst="OCL_REGION_0" srcPort="hmss_0" dstType="kernel" dstInst="CRC_12" dstPort="M_AXI_GMEM0"/>
+        <connection srcType="core" srcInst="OCL_REGION_0" srcPort="hmss_0" dstType="kernel" dstInst="CRC_12" dstPort="M_AXI_GMEM1"/>
+        <connection srcType="core" srcInst="OCL_REGION_0" srcPort="SLR0/interconnect_axilite_user_M01_AXI" dstType="kernel" dstInst="CRC_13" dstPort="S_AXI_CONTROL"/>
+        <connection srcType="core" srcInst="OCL_REGION_0" srcPort="hmss_0" dstType="kernel" dstInst="CRC_13" dstPort="M_AXI_GMEM0"/>
+        <connection srcType="core" srcInst="OCL_REGION_0" srcPort="hmss_0" dstType="kernel" dstInst="CRC_13" dstPort="M_AXI_GMEM1"/>
+        <connection srcType="core" srcInst="OCL_REGION_0" srcPort="SLR0/interconnect_axilite_user_M01_AXI" dstType="kernel" dstInst="CRC_14" dstPort="S_AXI_CONTROL"/>
+        <connection srcType="core" srcInst="OCL_REGION_0" srcPort="hmss_0" dstType="kernel" dstInst="CRC_14" dstPort="M_AXI_GMEM0"/>
+        <connection srcType="core" srcInst="OCL_REGION_0" srcPort="hmss_0" dstType="kernel" dstInst="CRC_14" dstPort="M_AXI_GMEM1"/>
+        <connection srcType="core" srcInst="OCL_REGION_0" srcPort="SLR0/interconnect_axilite_user_M01_AXI" dstType="kernel" dstInst="CRC_15" dstPort="S_AXI_CONTROL"/>
+        <connection srcType="core" srcInst="OCL_REGION_0" srcPort="hmss_0" dstType="kernel" dstInst="CRC_15" dstPort="M_AXI_GMEM0"/>
+        <connection srcType="core" srcInst="OCL_REGION_0" srcPort="hmss_0" dstType="kernel" dstInst="CRC_15" dstPort="M_AXI_GMEM1"/>
+      </core>
+    </device>
+  </platform>
+</project>

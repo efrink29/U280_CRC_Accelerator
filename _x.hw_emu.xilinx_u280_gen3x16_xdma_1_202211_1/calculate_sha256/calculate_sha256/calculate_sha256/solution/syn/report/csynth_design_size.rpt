@@ -1,0 +1,46 @@
+================================================================
+== Design Size Report
+================================================================
+
+* Instructions per Function for each Compilation Phase
++----------------------------+----------------+------------------+-----------------+----------------------+-----------------+
+| Function                   | Location       | Compile/Link     | Unroll/Inline   | Performance/Pipeline | Optimizations   |
++----------------------------+----------------+------------------+-----------------+----------------------+-----------------+
+| + calculate_sha256         | kernel.cpp:726 | 2,929            | 2,315           | 1,816                | 2,489           |
+|  + process_hash            | kernel.cpp:600 | 2,925            | 2,311           |                      |                 |
+|   + sha256_process_chunk   | kernel.cpp:177 | 2,884            | 2,271           |                      |                 |
+|    + sha256_compress_block | kernel.cpp:121 | 2,345 (5 calls)  |   955 (5 calls) |                      |                 |
+|       to_be32              | kernel.cpp:99  |   915 (5 calls)  |                 |                      |                 |
+|     + sha256_ssig1         | kernel.cpp:87  |    80 (5 calls)  |                 |                      |                 |
+|        rotr32              | kernel.cpp:51  |    50 (10 calls) |                 |                      |                 |
+|     + sha256_ssig0         | kernel.cpp:81  |    80 (5 calls)  |                 |                      |                 |
+|        rotr32              | kernel.cpp:51  |    50 (10 calls) |                 |                      |                 |
+|     + sha256_bsig1         | kernel.cpp:75  |   105 (5 calls)  |                 |                      |                 |
+|        rotr32              | kernel.cpp:51  |    75 (15 calls) |                 |                      |                 |
+|       sha256_ch            | kernel.cpp:57  |    25 (5 calls)  |                 |                      |                 |
+|     + sha256_bsig0         | kernel.cpp:69  |   105 (5 calls)  |                 |                      |                 |
+|        rotr32              | kernel.cpp:51  |    75 (15 calls) |                 |                      |                 |
+|       sha256_maj           | kernel.cpp:63  |    30 (5 calls)  |                 |                      |                 |
+|      pack_block_64         | kernel.cpp:108 |   332 (4 calls)  |                 |                      |                 |
+|  + sha256_process_chunk    | kernel.cpp:177 |                  |                 | 1,731                | 2,413           |
+|     sha256_compress_block  | kernel.cpp:121 |                  |                 | 1,140 (5 calls)      | 1,225 (5 calls) |
++----------------------------+----------------+------------------+-----------------+----------------------+-----------------+
+
+* Description of Compilation Phases
++----------------------+------------------------------------------------------------+
+| Compilation Phase    | Description                                                |
++----------------------+------------------------------------------------------------+
+| Compile/Link         | All functions are compiled and linked into a single design |
+| Unroll/Inline        | After user unroll and inline pragmas are applied           |
+| Performance/Pipeline | After performance and pipeline pragmas are applied         |
+| Optimizations        | After high level synthesis optimizations                   |
++----------------------+------------------------------------------------------------+
+
+* Design Size Message Settings
++---------------------------------------------+--------+------------------------------------------------------------------+
+| Message Setting                             | Value  | Description                                                      |
++---------------------------------------------+--------+------------------------------------------------------------------+
+| config_compile -design_size_maximum_warning | 100000 | Show a warning when total design instructions exceeds this value |
++---------------------------------------------+--------+------------------------------------------------------------------+
+
+

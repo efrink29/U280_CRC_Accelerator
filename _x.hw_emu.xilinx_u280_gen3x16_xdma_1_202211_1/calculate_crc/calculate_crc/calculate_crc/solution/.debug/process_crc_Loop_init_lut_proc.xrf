@@ -1,0 +1,14 @@
+Begin Function 'process_crc_Loop_init_lut_proc'
+
+RTL state condition: (1'b1 == ap_CS_fsm_state1)
+# ST_1
+local trunc_ln676_1 <partselect_676> <integer> <> 'partselect' </users/arashs/U280_CRC_Accelerator/src/kernel.cpp:676>
+trunc_ln676_1 /users/arashs/U280_CRC_Accelerator/src/kernel.cpp:676
+reg: trunc_ln676_1_reg_151[57:0] lv
+
+
+RTL state condition: (1'b1 == ap_CS_fsm_state73)
+# ST_73
+
+End Function 'process_crc_Loop_init_lut_proc'
+

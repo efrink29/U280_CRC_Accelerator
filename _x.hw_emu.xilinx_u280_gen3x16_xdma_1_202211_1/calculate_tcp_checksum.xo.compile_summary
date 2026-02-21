@@ -1,0 +1,241 @@
+<ENTRY>
+{
+ "thisFile": "/users/arashs/U280_CRC_Accelerator/_x.hw_emu.xilinx_u280_gen3x16_xdma_1_202211_1/calculate_tcp_checksum.xo.compile_summary",
+ "connectId": "",
+ "serverToken": "",
+ "timestamp": "0"
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_CmdStep",
+ "dateTimestamp": "Mon Feb 16 01:31:36 2026",
+ "timestampMillis": "1771230696786",
+ "buildStep": {
+  "cmdId": "10c0947e-1cd9-48a1-a760-b2810c6a812d",
+  "name": "v++",
+  "logFile": "/users/arashs/U280_CRC_Accelerator/_x.hw_emu.xilinx_u280_gen3x16_xdma_1_202211_1/calculate_tcp_checksum/calculate_tcp_checksum.steps.log",
+  "commandLine": "/share/Xilinx/Vitis/2023.1/bin/unwrapped/lnx64.o/v++  --vivado.prop \"run.__KERNEL__.{STEPS.SYNTH_DESIGN.ARGS.MORE OPTIONS}={-directive sdx_optimization_effort_high}\" --advanced.misc \"report=type report_timing_summary name impl_report_timing_summary_route_design_summary steps {route_design} runs {impl_1} options {-max_paths 10}\" --advanced.misc \"report=type report_timing_summary name impl_report_timing_summary_post_route_phys_opt_design_summary steps {post_route_phys_opt_design} runs {impl_1} options {-max_paths 10}\" -c -g --save-temps -t hw_emu --platform xilinx_u280_gen3x16_xdma_1_202211_1 -k calculate_tcp_checksum --temp_dir ./_x.hw_emu.xilinx_u280_gen3x16_xdma_1_202211_1 -D KERNEL_VARIANT=KERNEL_VARIANT_TCP -Isrc -o_x.hw_emu.xilinx_u280_gen3x16_xdma_1_202211_1/calculate_tcp_checksum.xo src/kernel.cpp ",
+  "args": [
+   "-c",
+   "-g",
+   "--save-temps",
+   "-t",
+   "hw_emu",
+   "--platform",
+   "xilinx_u280_gen3x16_xdma_1_202211_1",
+   "-k",
+   "calculate_tcp_checksum",
+   "--temp_dir",
+   "./_x.hw_emu.xilinx_u280_gen3x16_xdma_1_202211_1",
+   "-D",
+   "KERNEL_VARIANT=KERNEL_VARIANT_TCP",
+   "-Isrc",
+   "-o_x.hw_emu.xilinx_u280_gen3x16_xdma_1_202211_1/calculate_tcp_checksum.xo",
+   "src/kernel.cpp"
+  ],
+  "iniFiles": [],
+  "cwd": "/users/arashs/U280_CRC_Accelerator"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Status",
+ "dateTimestamp": "Mon Feb 16 01:31:36 2026",
+ "timestampMillis": "1771230696786",
+ "status": {
+  "cmdId": "10c0947e-1cd9-48a1-a760-b2810c6a812d",
+  "state": "CS_RUNNING"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_FlowMetaData",
+ "dateTimestamp": "Mon Feb 16 01:31:42 2026",
+ "timestampMillis": "1771230702297",
+ "buildSummary": {
+  "hardwarePlatform": "xilinx_u280_gen3x16_xdma_1_202211_1.xpfm",
+  "hardwareDsa": "",
+  "platformDirectory": "/opt/xilinx/platforms/xilinx_u280_gen3x16_xdma_1_202211_1",
+  "runtime": "OpenCL",
+  "systemConfig": "Linux",
+  "flow": "BF_COMPILE",
+  "target": "TT_HW_EMU",
+  "kernels": [
+   {
+    "base": {
+     "type": "KERNEL",
+     "name": "calculate_tcp_checksum",
+     "file": "/users/arashs/U280_CRC_Accelerator/_x.hw_emu.xilinx_u280_gen3x16_xdma_1_202211_1/calculate_tcp_checksum.xo",
+     "reports": [],
+     "uuid": ""
+    },
+    "sources": [
+     "/users/arashs/U280_CRC_Accelerator/src/kernel.cpp"
+    ],
+    "psSources": [],
+    "cuNames": [],
+    "type": "HLS",
+    "frequency": 0,
+    "freqUnits": ""
+   }
+  ],
+  "toolVersion": "Vitis V++ Compiler Release 2023.1. SW Build 3860322 on 2023-05-04-06:32:48"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_SubCmdStep",
+ "dateTimestamp": "Mon Feb 16 01:31:42 2026",
+ "timestampMillis": "1771230702300",
+ "buildStep": {
+  "cmdId": "d3cb51bc-9583-4b39-8970-eccc85bb85e3",
+  "name": "vitis_hls",
+  "logFile": "/users/arashs/U280_CRC_Accelerator/_x.hw_emu.xilinx_u280_gen3x16_xdma_1_202211_1/calculate_tcp_checksum/calculate_tcp_checksum/vitis_hls.log",
+  "commandLine": "vitis_hls -f /users/arashs/U280_CRC_Accelerator/_x.hw_emu.xilinx_u280_gen3x16_xdma_1_202211_1/calculate_tcp_checksum/calculate_tcp_checksum/calculate_tcp_checksum.tcl -messageDb vitis_hls.pb",
+  "args": [
+   "vitis_hls",
+   "-f",
+   "/users/arashs/U280_CRC_Accelerator/_x.hw_emu.xilinx_u280_gen3x16_xdma_1_202211_1/calculate_tcp_checksum/calculate_tcp_checksum/calculate_tcp_checksum.tcl",
+   "-messageDb",
+   "vitis_hls.pb"
+  ],
+  "iniFiles": [],
+  "cwd": "/users/arashs/U280_CRC_Accelerator"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Status",
+ "dateTimestamp": "Mon Feb 16 01:31:42 2026",
+ "timestampMillis": "1771230702301",
+ "status": {
+  "cmdId": "d3cb51bc-9583-4b39-8970-eccc85bb85e3",
+  "state": "CS_RUNNING"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Status",
+ "dateTimestamp": "Mon Feb 16 01:32:46 2026",
+ "timestampMillis": "1771230766988",
+ "status": {
+  "cmdId": "d3cb51bc-9583-4b39-8970-eccc85bb85e3",
+  "state": "CS_PASSED"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Report",
+ "dateTimestamp": "Mon Feb 16 01:32:47 2026",
+ "timestampMillis": "1771230767006",
+ "report": {
+  "path": "/users/arashs/U280_CRC_Accelerator/_x.hw_emu.xilinx_u280_gen3x16_xdma_1_202211_1/calculate_tcp_checksum/calculate_tcp_checksum/calculate_tcp_checksum/solution/.autopilot/db/calculate_tcp_checksum.design.xml",
+  "name": "calculate_tcp_checksum",
+  "fileType": "XML",
+  "reportType": "KERNEL_HLS_REPORT",
+  "cmdId": ""
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Report",
+ "dateTimestamp": "Mon Feb 16 01:32:47 2026",
+ "timestampMillis": "1771230767007",
+ "report": {
+  "path": "/users/arashs/U280_CRC_Accelerator/_x.hw_emu.xilinx_u280_gen3x16_xdma_1_202211_1/calculate_tcp_checksum/calculate_tcp_checksum/calculate_tcp_checksum/solution/.autopilot/db/.message_syn.xml",
+  "name": "calculate_tcp_checksum",
+  "fileType": "XML",
+  "reportType": "KERNEL_HLS_DRC_SYNTHESIS",
+  "cmdId": ""
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Report",
+ "dateTimestamp": "Mon Feb 16 01:32:47 2026",
+ "timestampMillis": "1771230767008",
+ "report": {
+  "path": "/users/arashs/U280_CRC_Accelerator/_x.hw_emu.xilinx_u280_gen3x16_xdma_1_202211_1/reports/calculate_tcp_checksum/hls_reports/calculate_tcp_checksum_csynth.rpt",
+  "name": "calculate_tcp_checksum",
+  "fileType": "TEXT",
+  "reportType": "KERNEL_HLS_CSYNTH",
+  "cmdId": ""
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Report",
+ "dateTimestamp": "Mon Feb 16 01:32:47 2026",
+ "timestampMillis": "1771230767008",
+ "report": {
+  "path": "/users/arashs/U280_CRC_Accelerator/_x.hw_emu.xilinx_u280_gen3x16_xdma_1_202211_1/calculate_tcp_checksum/calculate_tcp_checksum/calculate_tcp_checksum/solution/syn/report/calculate_tcp_checksum_csynth.xml",
+  "name": "calculate_tcp_checksum",
+  "fileType": "XML",
+  "reportType": "KERNEL_HLS_CSYNTH",
+  "cmdId": ""
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Report",
+ "dateTimestamp": "Mon Feb 16 01:32:47 2026",
+ "timestampMillis": "1771230767013",
+ "report": {
+  "path": "/users/arashs/U280_CRC_Accelerator/_x.hw_emu.xilinx_u280_gen3x16_xdma_1_202211_1/reports/calculate_tcp_checksum/system_estimate_calculate_tcp_checksum.xtxt",
+  "name": "",
+  "fileType": "TEXT",
+  "reportType": "GLOBAL_SYSTEM_ESTIMATE",
+  "cmdId": ""
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Status",
+ "dateTimestamp": "Mon Feb 16 01:32:47 2026",
+ "timestampMillis": "1771230767082",
+ "status": {
+  "cmdId": "10c0947e-1cd9-48a1-a760-b2810c6a812d",
+  "state": "CS_PASSED"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Report",
+ "dateTimestamp": "Mon Feb 16 01:32:47 2026",
+ "timestampMillis": "1771230767179",
+ "report": {
+  "path": "/users/arashs/U280_CRC_Accelerator/_x.hw_emu.xilinx_u280_gen3x16_xdma_1_202211_1/reports/calculate_tcp_checksum/v++_compile_calculate_tcp_checksum_guidance.html",
+  "name": "",
+  "fileType": "HTML",
+  "reportType": "GLOBAL_RULECHECK_GUIDANCE",
+  "cmdId": ""
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Report",
+ "dateTimestamp": "Mon Feb 16 01:32:47 2026",
+ "timestampMillis": "1771230767180",
+ "report": {
+  "path": "/users/arashs/U280_CRC_Accelerator/_x.hw_emu.xilinx_u280_gen3x16_xdma_1_202211_1/v++_compile_calculate_tcp_checksum_guidance.pb3",
+  "name": "",
+  "fileType": "BINARY_PROTOBUF",
+  "reportType": "GLOBAL_RULECHECK_GUIDANCE",
+  "cmdId": ""
+ }
+}
+</ENTRY>

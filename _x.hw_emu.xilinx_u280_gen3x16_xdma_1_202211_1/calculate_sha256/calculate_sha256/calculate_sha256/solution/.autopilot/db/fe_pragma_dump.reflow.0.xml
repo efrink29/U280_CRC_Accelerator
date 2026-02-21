@@ -1,0 +1,48 @@
+<pragmas>
+<pragma file="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp" line="731" pragmaType="interface" parentfunction="calculate_sha256" mode="m_axi" port="data_in" bundle="gmem0" offset="slave" name="" depth="1024" num_read_outstanding="-1" num_write_outstanding="-1" max_burst_read_length="-1" max_burst_write_length="-1" latency="-1" max_widen_bitwidth="-1" channel=""/>
+<pragma file="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp" line="732" pragmaType="interface" parentfunction="calculate_sha256" mode="m_axi" port="crc_out" bundle="gmem0" offset="slave" name="" depth="1024" num_read_outstanding="-1" num_write_outstanding="-1" max_burst_read_length="-1" max_burst_write_length="-1" latency="-1" max_widen_bitwidth="-1" channel=""/>
+<pragma file="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp" line="181" pragmaType="inline" parentfunction="sha256_process_chunk" off="1" region="0" recursive="0"/>
+<pragma file="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp" line="270" pragmaType="unroll" parentfunction="sha256_process_chunk" factor="-1" skip_exit_check="0"/>
+<pragma file="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp" line="239" pragmaType="pipeline" parentfunction="sha256_process_chunk" off="0" ii="1" rewind="0" style=""/>
+<pragma file="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp" line="260" pragmaType="pipeline" parentfunction="sha256_process_chunk" off="0" ii="1" rewind="0" style=""/>
+<pragma file="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp" line="253" pragmaType="pipeline" parentfunction="sha256_process_chunk" off="0" ii="1" rewind="0" style=""/>
+<pragma file="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp" line="227" pragmaType="pipeline" parentfunction="sha256_process_chunk" off="0" ii="1" rewind="0" style=""/>
+<pragma file="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp" line="220" pragmaType="pipeline" parentfunction="sha256_process_chunk" off="0" ii="1" rewind="0" style=""/>
+<pragma file="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp" line="187" pragmaType="unroll" parentfunction="sha256_process_chunk" factor="-1" skip_exit_check="0"/>
+<pragma file="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp" line="123" pragmaType="inline" parentfunction="sha256_compress_block" off="1" region="0" recursive="0"/>
+<pragma file="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp" line="153" pragmaType="pipeline" parentfunction="sha256_compress_block" off="0" ii="1" rewind="0" style=""/>
+<pragma file="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp" line="137" pragmaType="pipeline" parentfunction="sha256_compress_block" off="0" ii="1" rewind="0" style=""/>
+<pragma file="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp" line="129" pragmaType="pipeline" parentfunction="sha256_compress_block" off="0" ii="1" rewind="0" style=""/>
+<pragma file="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp" line="110" pragmaType="inline" parentfunction="pack_block_64" off="0" region="0" recursive="0"/>
+<pragma file="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp" line="115" pragmaType="unroll" parentfunction="pack_block_64" factor="-1" skip_exit_check="0"/>
+<pragma file="" line="0" pragmaType="inline" parentfunction="ap_uint<512>::ap_uint(int)" off="0" region="0" recursive="0"/>
+<pragma file="" line="0" pragmaType="inline" parentfunction="range" off="0" region="0" recursive="0"/>
+<pragma file="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp" line="59" pragmaType="inline" parentfunction="sha256_ch" off="0" region="0" recursive="0"/>
+<pragma file="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp" line="71" pragmaType="inline" parentfunction="sha256_bsig0" off="0" region="0" recursive="0"/>
+<pragma file="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp" line="65" pragmaType="inline" parentfunction="sha256_maj" off="0" region="0" recursive="0"/>
+<pragma file="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp" line="53" pragmaType="inline" parentfunction="rotr32" off="0" region="0" recursive="0"/>
+<pragma file="" line="0" pragmaType="inline" parentfunction="checkOverflowBaseC" off="0" region="0" recursive="0"/>
+<pragma file="" line="0" pragmaType="inline" parentfunction="ap_int_base<512, false>::ap_int_base(unsigned char)" off="0" region="0" recursive="0"/>
+<pragma file="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp" line="83" pragmaType="inline" parentfunction="sha256_ssig0" off="0" region="0" recursive="0"/>
+<pragma file="" line="0" pragmaType="inline" parentfunction="range" off="0" region="0" recursive="0"/>
+<pragma file="" line="0" pragmaType="inline" parentfunction="ap_range_ref<32, false>::operator unsigned long long() const" off="0" region="0" recursive="0"/>
+<pragma file="" line="0" pragmaType="inline" parentfunction="to_uint64" off="0" region="0" recursive="0"/>
+<pragma file="" line="0" pragmaType="inline" parentfunction="ap_int_base<32, false>::ap_int_base()" off="0" region="0" recursive="0"/>
+<pragma file="/share/Xilinx/Vitis_HLS/2023.1/common/technology/autopilot/etc/ap_common.h" line="523" pragmaType="inline" parentfunction="_ZN8ssdm_intILi512ELb0EEC2EDq512_j" off="0" region="0" recursive="0"/>
+<pragma file="" line="0" pragmaType="inline" parentfunction="ap_range_ref<512, false>::ap_range_ref(ap_int_base<512, false>*, int, int)" off="0" region="0" recursive="0"/>
+<pragma file="" line="0" pragmaType="inline" parentfunction="ap_int_base<512, false>::ap_int_base(int)" off="0" region="0" recursive="0"/>
+<pragma file="/share/Xilinx/Vitis_HLS/2023.1/common/technology/autopilot/etc/ap_common.h" line="0" pragmaType="inline" parentfunction="ssdm_int<32, false>::ssdm_int()" off="0" region="0" recursive="0"/>
+<pragma file="" line="0" pragmaType="inline" parentfunction="ap_range_ref<32, false>::ap_range_ref(ap_int_base<32, false>*, int, int)" off="0" region="0" recursive="0"/>
+<pragma file="" line="0" pragmaType="inline" parentfunction="ap_int_base<32, false>::ap_int_base<512, false>(ap_range_ref<512, false> const&)" off="0" region="0" recursive="0"/>
+<pragma file="" line="0" pragmaType="inline" parentfunction="get" off="0" region="0" recursive="0"/>
+<pragma file="" line="0" pragmaType="inline" parentfunction="ap_int_base<512, false>::ap_int_base()" off="0" region="0" recursive="0"/>
+<pragma file="" line="0" pragmaType="inline" parentfunction="range" off="0" region="0" recursive="0"/>
+<pragma file="" line="0" pragmaType="inline" parentfunction="ap_uint<32>::ap_uint<512, false>(ap_range_ref<512, false> const&)" off="0" region="0" recursive="0"/>
+<pragma file="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp" line="101" pragmaType="inline" parentfunction="to_be32" off="0" region="0" recursive="0"/>
+<pragma file="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp" line="89" pragmaType="inline" parentfunction="sha256_ssig1" off="0" region="0" recursive="0"/>
+<pragma file="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp" line="77" pragmaType="inline" parentfunction="sha256_bsig1" off="0" region="0" recursive="0"/>
+<pragma file="/share/Xilinx/Vitis_HLS/2023.1/common/technology/autopilot/etc/ap_common.h" line="0" pragmaType="inline" parentfunction="ssdm_int<512, false>::ssdm_int()" off="0" region="0" recursive="0"/>
+<pragma file="" line="0" pragmaType="inline" parentfunction="ap_range_ref<512, false>::operator=(unsigned char)" off="0" region="0" recursive="0"/>
+<pragma file="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp" line="618" pragmaType="pipeline" parentfunction="process_hash" off="0" ii="1" rewind="0" style=""/>
+<pragma file="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp" line="612" pragmaType="array_partition" parentfunction="process_hash" dim="1" factor="0" mode="complete" dynamic="0" variable="digest"/>
+</pragmas>

@@ -1,0 +1,449 @@
+
+
+================================================================
+== Synthesis Summary Report of 'calculate_sha256'
+================================================================
++ General Information: 
+    * Date:           Fri Feb 20 12:35:02 2026
+    * Version:        2023.1 (Build 3854077 on May  4 2023)
+    * Project:        calculate_sha256
+    * Solution:       solution (Vitis Kernel Flow Target)
+    * Product family: virtexuplusHBM
+    * Target device:  xcu280-fsvh2892-2L-e
+    
+
++ Performance & Resource Estimates: 
+    
+    PS: '+' for module; 'o' for loop; '*' for dataflow
+    +-------------------------------------------------------+--------+-------+-------------+-----------+-------------+-------------+----------+----------+----------+----+------------+--------------+-----+
+    |                        Modules                        |  Issue |       |   Latency   |  Latency  |  Iteration  |             |   Trip   |          |          |    |            |              |     |
+    |                        & Loops                        |  Type  | Slack |   (cycles)  |    (ns)   |   Latency   |   Interval  |   Count  | Pipelined|   BRAM   | DSP|     FF     |      LUT     | URAM|
+    +-------------------------------------------------------+--------+-------+-------------+-----------+-------------+-------------+----------+----------+----------+----+------------+--------------+-----+
+    |+ calculate_sha256                                     |  Timing|  -1.00|            -|          -|            -|            -|         -|        no|  30 (~0%)|   -|  49955 (1%)|  164121 (12%)|    -|
+    | o hash_chunk_loop                                     |       -|   2.43|            -|          -|  22749905333|            -|         -|        no|         -|   -|           -|             -|    -|
+    |  + sha256_process_chunk                               |  Timing|  -1.00|  22749905249|  7.801e+10|            -|  22749905249|         -|        no|         -|   -|  44485 (1%)|  158039 (12%)|    -|
+    |   + sha256_process_chunk_Pipeline_clear_pad_block     |       -|   1.06|           66|    219.978|            -|           66|         -|        no|         -|   -|     9 (~0%)|      56 (~0%)|    -|
+    |    o clear_pad_block                                  |       -|   2.43|           64|    213.312|            1|            1|        64|       yes|         -|   -|           -|             -|    -|
+    |   + sha256_process_chunk_Pipeline_copy_remainder      |  Timing|  -0.00|          137|    456.621|            -|          137|         -|        no|         -|   -|   863 (~0%)|    2460 (~0%)|    -|
+    |    o copy_remainder                                   |       -|   2.43|          135|    449.955|           74|            1|        63|       yes|         -|   -|           -|             -|    -|
+    |   + sha256_process_chunk_Pipeline_clear_second_block  |       -|   1.06|           66|    219.978|            -|           66|         -|        no|         -|   -|     9 (~0%)|      56 (~0%)|    -|
+    |    o clear_second_block                               |       -|   2.43|           64|    213.312|            1|            1|        64|       yes|         -|   -|           -|             -|    -|
+    |   + sha256_process_chunk_Pipeline_len_store_double    |       -|   0.60|           10|     33.330|            -|           10|         -|        no|         -|   -|     6 (~0%)|     241 (~0%)|    -|
+    |    o len_store_double                                 |       -|   2.43|            8|     26.664|            1|            1|         8|       yes|         -|   -|           -|             -|    -|
+    |   + sha256_process_chunk_Pipeline_len_store_single    |       -|   0.60|           10|     33.330|            -|           10|         -|        no|         -|   -|     6 (~0%)|     241 (~0%)|    -|
+    |    o len_store_single                                 |       -|   2.43|            8|     26.664|            1|            1|         8|       yes|         -|   -|           -|             -|    -|
+    |   o full_block_loop_vec                               |       -|   2.43|  13690208052|  4.694e+10|          204|            -|  67108863|        no|         -|   -|           -|             -|    -|
+    |   o full_block_loop_scalar                            |       -|   2.43|  22749904557|  7.801e+10|          339|            -|  67108863|        no|         -|   -|           -|             -|    -|
+    |    + sha256_compress_block                            |  Timing|  -1.00|          200|    685.771|            -|          200|         -|        no|         -|   -|   860 (~0%)|    4795 (~0%)|    -|
+    |     + sha256_compress_block_Pipeline_init_words       |       -|   0.29|           18|     59.994|            -|           18|         -|        no|         -|   -|    22 (~0%)|    2305 (~0%)|    -|
+    |      o init_words                                     |       -|   2.43|           16|     53.328|            1|            1|        16|       yes|         -|   -|           -|             -|    -|
+    |     + sha256_compress_block_Pipeline_expand_words     |  Timing|  -1.00|          108|    370.317|            -|          108|         -|        no|         -|   -|   344 (~0%)|     921 (~0%)|    -|
+    |      o expand_words                                   |      II|   2.43|          106|    363.459|           13|            2|        48|       yes|         -|   -|           -|             -|    -|
+    |     + sha256_compress_block_Pipeline_round_loop       |  Timing|  -0.51|           68|    226.644|            -|           68|         -|        no|         -|   -|   388 (~0%)|     884 (~0%)|    -|
+    |      o round_loop                                     |       -|   2.43|           66|    219.978|            3|            1|        64|       yes|         -|   -|           -|             -|    -|
+    |  + calculate_sha256_Pipeline_hash_write_digest        |  Timing|  -0.00|           79|    263.307|            -|           79|         -|        no|         -|   -|  1071 (~0%)|    2632 (~0%)|    -|
+    |   o hash_write_digest                                 |       -|   2.43|           77|    256.641|           71|            1|         8|       yes|         -|   -|           -|             -|    -|
+    +-------------------------------------------------------+--------+-------+-------------+-----------+-------------+-------------+----------+----------+----------+----+------------+--------------+-----+
+
+
+================================================================
+== HW Interfaces
+================================================================
+* M_AXI
++-------------+------------+---------------+---------+--------+----------+-----------+--------------+--------------+-------------+-------------+-------------------+
+| Interface   | Data Width | Address Width | Latency | Offset | Register | Max Widen | Max Read     | Max Write    | Num Read    | Num Write   | Resource Estimate |
+|             | (SW->HW)   |               |         |        |          | Bitwidth  | Burst Length | Burst Length | Outstanding | Outstanding |                   |
++-------------+------------+---------------+---------+--------+----------+-----------+--------------+--------------+-------------+-------------+-------------------+
+| m_axi_gmem0 | 512 -> 512 | 64            | 64      | slave  | 0        | 512       | 16           | 16           | 16          | 16          | BRAM=30           |
++-------------+------------+---------------+---------+--------+----------+-----------+--------------+--------------+-------------+-------------+-------------------+
+
+* S_AXILITE Interfaces
++---------------+------------+---------------+--------+----------+
+| Interface     | Data Width | Address Width | Offset | Register |
++---------------+------------+---------------+--------+----------+
+| s_axi_control | 32         | 6             | 16     | 0        |
++---------------+------------+---------------+--------+----------+
+
+* S_AXILITE Registers
++---------------+-----------+--------+-------+--------+----------------------------------+------------------------------------------------------------------------------------+
+| Interface     | Register  | Offset | Width | Access | Description                      | Bit Fields                                                                         |
++---------------+-----------+--------+-------+--------+----------------------------------+------------------------------------------------------------------------------------+
+| s_axi_control | CTRL      | 0x00   | 32    | RW     | Control signals                  | 0=AP_START 1=AP_DONE 2=AP_IDLE 3=AP_READY 4=AP_CONTINUE 7=AUTO_RESTART 9=INTERRUPT |
+| s_axi_control | GIER      | 0x04   | 32    | RW     | Global Interrupt Enable Register | 0=Enable                                                                           |
+| s_axi_control | IP_IER    | 0x08   | 32    | RW     | IP Interrupt Enable Register     | 0=CHAN0_INT_EN 1=CHAN1_INT_EN                                                      |
+| s_axi_control | IP_ISR    | 0x0c   | 32    | RW     | IP Interrupt Status Register     | 0=CHAN0_INT_ST 1=CHAN1_INT_ST                                                      |
+| s_axi_control | data_in_1 | 0x10   | 32    | W      | Data signal of data_in           |                                                                                    |
+| s_axi_control | data_in_2 | 0x14   | 32    | W      | Data signal of data_in           |                                                                                    |
+| s_axi_control | crc_out_1 | 0x1c   | 32    | W      | Data signal of crc_out           |                                                                                    |
+| s_axi_control | crc_out_2 | 0x20   | 32    | W      | Data signal of crc_out           |                                                                                    |
+| s_axi_control | numChunks | 0x28   | 32    | W      | Data signal of numChunks         |                                                                                    |
+| s_axi_control | chunkSize | 0x30   | 32    | W      | Data signal of chunkSize         |                                                                                    |
++---------------+-----------+--------+-------+--------+----------------------------------+------------------------------------------------------------------------------------+
+
+* TOP LEVEL CONTROL
++-----------+---------------+-----------+
+| Interface | Type          | Ports     |
++-----------+---------------+-----------+
+| ap_clk    | clock         | ap_clk    |
+| ap_rst_n  | reset         | ap_rst_n  |
+| interrupt | interrupt     | interrupt |
+| ap_ctrl   | ap_ctrl_chain |           |
++-----------+---------------+-----------+
+
+
+================================================================
+== SW I/O Information
+================================================================
+* Top Function Arguments
++-----------+-----------+----------------------+
+| Argument  | Direction | Datatype             |
++-----------+-----------+----------------------+
+| data_in   | inout     | ap_uint<512> const * |
+| crc_out   | inout     | unsigned int*        |
+| numChunks | in        | unsigned int const   |
+| chunkSize | in        | unsigned int const   |
++-----------+-----------+----------------------+
+
+* SW-to-HW Mapping
++-----------+---------------+-----------+----------+-------------------------------------+
+| Argument  | HW Interface  | HW Type   | HW Usage | HW Info                             |
++-----------+---------------+-----------+----------+-------------------------------------+
+| data_in   | m_axi_gmem0   | interface |          |                                     |
+| data_in   | s_axi_control | register  | offset   | name=data_in_1 offset=0x10 range=32 |
+| data_in   | s_axi_control | register  | offset   | name=data_in_2 offset=0x14 range=32 |
+| crc_out   | m_axi_gmem0   | interface |          |                                     |
+| crc_out   | s_axi_control | register  | offset   | name=crc_out_1 offset=0x1c range=32 |
+| crc_out   | s_axi_control | register  | offset   | name=crc_out_2 offset=0x20 range=32 |
+| numChunks | s_axi_control | register  |          | name=numChunks offset=0x28 range=32 |
+| chunkSize | s_axi_control | register  |          | name=chunkSize offset=0x30 range=32 |
++-----------+---------------+-----------+----------+-------------------------------------+
+
+
+================================================================
+== M_AXI Burst Information
+================================================================
+ Note: All burst requests might be further partitioned into multiple requests during RTL generation based on max_read_burst_length or max_write_burst_length settings.
+
+* Inferred Burst Summary
++--------------+-----------+----------+-------+---------------------+---------------------------------------------------------+
+| HW Interface | Direction | Length   | Width | Loop                | Loop Location                                           |
++--------------+-----------+----------+-------+---------------------+---------------------------------------------------------+
+| m_axi_gmem0  | read      | variable | 512   | full_block_loop_vec | /users/arashs/U280_CRC_Accelerator/src/kernel.cpp:199:9 |
++--------------+-----------+----------+-------+---------------------+---------------------------------------------------------+
+
+* All M_AXI Variable Accesses
++--------------+----------+----------------------------------------------------------+-----------+--------------+----------+------------------------+---------------------------------------------------------+------------+----------------------------------------------------------------------------------------------------------+
+| HW Interface | Variable | Access Location                                          | Direction | Burst Status | Length   | Loop                   | Loop Location                                           | Resolution | Problem                                                                                                  |
++--------------+----------+----------------------------------------------------------+-----------+--------------+----------+------------------------+---------------------------------------------------------+------------+----------------------------------------------------------------------------------------------------------+
+| m_axi_gmem0  | chunk    | /users/arashs/U280_CRC_Accelerator/src/kernel.cpp:116:37 | read      | Widen Fail   |          | full_block_loop_scalar | /users/arashs/U280_CRC_Accelerator/src/kernel.cpp:208:9 | 214-307    | Could not widen since type i8 size is greater than or equal to alignment 1(bytes)                        |
+| m_axi_gmem0  | chunk    | /users/arashs/U280_CRC_Accelerator/src/kernel.cpp:116:37 | read      | Inferred     | variable | full_block_loop_scalar | /users/arashs/U280_CRC_Accelerator/src/kernel.cpp:208:9 |            |                                                                                                          |
+| m_axi_gmem0  | chunk    | /users/arashs/U280_CRC_Accelerator/src/kernel.cpp:201:34 | read      | Widen Fail   |          | full_block_loop_vec    | /users/arashs/U280_CRC_Accelerator/src/kernel.cpp:199:9 | 214-353    | Could not widen since type i512 size is greater than or equal to the max_widen_bitwidth threshold of 512 |
+| m_axi_gmem0  | chunk    | /users/arashs/U280_CRC_Accelerator/src/kernel.cpp:201:34 | read      | Inferred     | variable | full_block_loop_vec    | /users/arashs/U280_CRC_Accelerator/src/kernel.cpp:199:9 |            |                                                                                                          |
+| m_axi_gmem0  | chunk    | /users/arashs/U280_CRC_Accelerator/src/kernel.cpp:228:17 | read      | Widen Fail   |          | copy_remainder         | /users/arashs/U280_CRC_Accelerator/src/kernel.cpp:225:5 | 214-307    | Could not widen since type i8 size is greater than or equal to alignment 1(bytes)                        |
+| m_axi_gmem0  | chunk    | /users/arashs/U280_CRC_Accelerator/src/kernel.cpp:228:17 | read      | Inferred     | variable | copy_remainder         | /users/arashs/U280_CRC_Accelerator/src/kernel.cpp:225:5 |            |                                                                                                          |
+| m_axi_gmem0  | crc_out  | /users/arashs/U280_CRC_Accelerator/src/kernel.cpp:608:5  | write     | Widen Fail   |          | hash_chunk_loop        | /users/arashs/U280_CRC_Accelerator/src/kernel.cpp:608:5 | 214-234    | Sequential access length is not divisible by 2                                                           |
+| m_axi_gmem0  | crc_out  | /users/arashs/U280_CRC_Accelerator/src/kernel.cpp:619:45 | write     | Widened      | variable | hash_write_digest      | /users/arashs/U280_CRC_Accelerator/src/kernel.cpp:616:9 |            |                                                                                                          |
+| m_axi_gmem0  | crc_out  | /users/arashs/U280_CRC_Accelerator/src/kernel.cpp:619:45 | write     | Inferred     | variable | hash_chunk_loop        | /users/arashs/U280_CRC_Accelerator/src/kernel.cpp:608:5 |            |                                                                                                          |
++--------------+----------+----------------------------------------------------------+-----------+--------------+----------+------------------------+---------------------------------------------------------+------------+----------------------------------------------------------------------------------------------------------+
+
+    * Resolution URL: www.xilinx.com/cgi-bin/docs/rdoc?v=2023.1;t=hls+guidance;d=XXX-YYY.html (replace XXX-YYY with column value)
+
+================================================================
+== Bind Op Report
+================================================================
++------------------------------------------------------+-----+--------+--------------+-----+--------+---------+
+| Name                                                 | DSP | Pragma | Variable     | Op  | Impl   | Latency |
++------------------------------------------------------+-----+--------+--------------+-----+--------+---------+
+| + calculate_sha256                                   | 0   |        |              |     |        |         |
+|   add_ln608_1_fu_157_p2                              | -   |        | add_ln608_1  | add | fabric | 0       |
+|   add_ln608_fu_167_p2                                | -   |        | add_ln608    | add | fabric | 0       |
+|   chunk_fu_173_p2                                    | -   |        | chunk        | add | fabric | 0       |
+|  + sha256_process_chunk                              | 0   |        |              |     |        |         |
+|    add_ln208_fu_2917_p2                              | -   |        | add_ln208    | add | fabric | 0       |
+|    add_ln208_1_fu_2923_p2                            | -   |        | add_ln208_1  | add | fabric | 0       |
+|    add_ln208_2_fu_2929_p2                            | -   |        | add_ln208_2  | add | fabric | 0       |
+|    add_ln208_3_fu_2935_p2                            | -   |        | add_ln208_3  | add | fabric | 0       |
+|    add_ln208_4_fu_2941_p2                            | -   |        | add_ln208_4  | add | fabric | 0       |
+|    add_ln208_5_fu_2947_p2                            | -   |        | add_ln208_5  | add | fabric | 0       |
+|    add_ln208_6_fu_2953_p2                            | -   |        | add_ln208_6  | add | fabric | 0       |
+|    add_ln208_7_fu_2959_p2                            | -   |        | add_ln208_7  | add | fabric | 0       |
+|    add_ln208_8_fu_2965_p2                            | -   |        | add_ln208_8  | add | fabric | 0       |
+|    add_ln208_9_fu_2971_p2                            | -   |        | add_ln208_9  | add | fabric | 0       |
+|    add_ln208_10_fu_2977_p2                           | -   |        | add_ln208_10 | add | fabric | 0       |
+|    add_ln208_11_fu_2983_p2                           | -   |        | add_ln208_11 | add | fabric | 0       |
+|    add_ln208_12_fu_2989_p2                           | -   |        | add_ln208_12 | add | fabric | 0       |
+|    add_ln208_13_fu_2995_p2                           | -   |        | add_ln208_13 | add | fabric | 0       |
+|    add_ln208_14_fu_3001_p2                           | -   |        | add_ln208_14 | add | fabric | 0       |
+|    add_ln208_15_fu_3007_p2                           | -   |        | add_ln208_15 | add | fabric | 0       |
+|    add_ln208_16_fu_3013_p2                           | -   |        | add_ln208_16 | add | fabric | 0       |
+|    add_ln208_17_fu_3019_p2                           | -   |        | add_ln208_17 | add | fabric | 0       |
+|    add_ln208_18_fu_3025_p2                           | -   |        | add_ln208_18 | add | fabric | 0       |
+|    add_ln208_19_fu_3031_p2                           | -   |        | add_ln208_19 | add | fabric | 0       |
+|    add_ln208_20_fu_3037_p2                           | -   |        | add_ln208_20 | add | fabric | 0       |
+|    add_ln208_21_fu_3043_p2                           | -   |        | add_ln208_21 | add | fabric | 0       |
+|    add_ln208_22_fu_3049_p2                           | -   |        | add_ln208_22 | add | fabric | 0       |
+|    add_ln208_23_fu_3055_p2                           | -   |        | add_ln208_23 | add | fabric | 0       |
+|    add_ln208_24_fu_3061_p2                           | -   |        | add_ln208_24 | add | fabric | 0       |
+|    add_ln208_25_fu_3067_p2                           | -   |        | add_ln208_25 | add | fabric | 0       |
+|    add_ln208_26_fu_3073_p2                           | -   |        | add_ln208_26 | add | fabric | 0       |
+|    add_ln208_27_fu_3079_p2                           | -   |        | add_ln208_27 | add | fabric | 0       |
+|    add_ln208_28_fu_3085_p2                           | -   |        | add_ln208_28 | add | fabric | 0       |
+|    add_ln208_29_fu_3091_p2                           | -   |        | add_ln208_29 | add | fabric | 0       |
+|    add_ln208_30_fu_3097_p2                           | -   |        | add_ln208_30 | add | fabric | 0       |
+|    add_ln208_31_fu_3109_p2                           | -   |        | add_ln208_31 | add | fabric | 0       |
+|    add_ln208_32_fu_3115_p2                           | -   |        | add_ln208_32 | add | fabric | 0       |
+|    add_ln208_33_fu_3121_p2                           | -   |        | add_ln208_33 | add | fabric | 0       |
+|    add_ln208_34_fu_3127_p2                           | -   |        | add_ln208_34 | add | fabric | 0       |
+|    add_ln208_35_fu_3133_p2                           | -   |        | add_ln208_35 | add | fabric | 0       |
+|    add_ln208_36_fu_3139_p2                           | -   |        | add_ln208_36 | add | fabric | 0       |
+|    add_ln208_37_fu_3145_p2                           | -   |        | add_ln208_37 | add | fabric | 0       |
+|    add_ln208_38_fu_3151_p2                           | -   |        | add_ln208_38 | add | fabric | 0       |
+|    add_ln208_39_fu_3157_p2                           | -   |        | add_ln208_39 | add | fabric | 0       |
+|    add_ln208_40_fu_3163_p2                           | -   |        | add_ln208_40 | add | fabric | 0       |
+|    add_ln208_41_fu_3169_p2                           | -   |        | add_ln208_41 | add | fabric | 0       |
+|    add_ln208_42_fu_3175_p2                           | -   |        | add_ln208_42 | add | fabric | 0       |
+|    add_ln208_43_fu_3181_p2                           | -   |        | add_ln208_43 | add | fabric | 0       |
+|    add_ln208_44_fu_3187_p2                           | -   |        | add_ln208_44 | add | fabric | 0       |
+|    add_ln208_45_fu_3193_p2                           | -   |        | add_ln208_45 | add | fabric | 0       |
+|    add_ln208_46_fu_3199_p2                           | -   |        | add_ln208_46 | add | fabric | 0       |
+|    add_ln208_47_fu_3205_p2                           | -   |        | add_ln208_47 | add | fabric | 0       |
+|    add_ln208_48_fu_3211_p2                           | -   |        | add_ln208_48 | add | fabric | 0       |
+|    add_ln208_49_fu_3217_p2                           | -   |        | add_ln208_49 | add | fabric | 0       |
+|    add_ln208_50_fu_3223_p2                           | -   |        | add_ln208_50 | add | fabric | 0       |
+|    add_ln208_51_fu_3229_p2                           | -   |        | add_ln208_51 | add | fabric | 0       |
+|    add_ln208_52_fu_3235_p2                           | -   |        | add_ln208_52 | add | fabric | 0       |
+|    add_ln208_53_fu_3241_p2                           | -   |        | add_ln208_53 | add | fabric | 0       |
+|    add_ln208_54_fu_3247_p2                           | -   |        | add_ln208_54 | add | fabric | 0       |
+|    add_ln208_55_fu_3253_p2                           | -   |        | add_ln208_55 | add | fabric | 0       |
+|    add_ln208_56_fu_3259_p2                           | -   |        | add_ln208_56 | add | fabric | 0       |
+|    add_ln208_57_fu_3265_p2                           | -   |        | add_ln208_57 | add | fabric | 0       |
+|    add_ln208_58_fu_3271_p2                           | -   |        | add_ln208_58 | add | fabric | 0       |
+|    add_ln208_59_fu_3277_p2                           | -   |        | add_ln208_59 | add | fabric | 0       |
+|    add_ln208_60_fu_3283_p2                           | -   |        | add_ln208_60 | add | fabric | 0       |
+|    add_ln208_61_fu_3289_p2                           | -   |        | add_ln208_61 | add | fabric | 0       |
+|    grp_fu_2585_p2                                    | -   |        | add_ln208_62 | add | fabric | 0       |
+|    add_ln116_fu_4186_p2                              | -   |        | add_ln116    | add | fabric | 0       |
+|    add_ln116_1_fu_4225_p2                            | -   |        | add_ln116_1  | add | fabric | 0       |
+|    add_ln116_2_fu_4259_p2                            | -   |        | add_ln116_2  | add | fabric | 0       |
+|    add_ln116_3_fu_4293_p2                            | -   |        | add_ln116_3  | add | fabric | 0       |
+|    add_ln116_4_fu_4327_p2                            | -   |        | add_ln116_4  | add | fabric | 0       |
+|    add_ln116_5_fu_4361_p2                            | -   |        | add_ln116_5  | add | fabric | 0       |
+|    add_ln116_6_fu_4395_p2                            | -   |        | add_ln116_6  | add | fabric | 0       |
+|    add_ln116_7_fu_4429_p2                            | -   |        | add_ln116_7  | add | fabric | 0       |
+|    add_ln116_8_fu_4463_p2                            | -   |        | add_ln116_8  | add | fabric | 0       |
+|    add_ln116_9_fu_4497_p2                            | -   |        | add_ln116_9  | add | fabric | 0       |
+|    add_ln116_10_fu_4531_p2                           | -   |        | add_ln116_10 | add | fabric | 0       |
+|    add_ln116_11_fu_4565_p2                           | -   |        | add_ln116_11 | add | fabric | 0       |
+|    add_ln116_12_fu_4599_p2                           | -   |        | add_ln116_12 | add | fabric | 0       |
+|    add_ln116_13_fu_4633_p2                           | -   |        | add_ln116_13 | add | fabric | 0       |
+|    add_ln116_14_fu_4667_p2                           | -   |        | add_ln116_14 | add | fabric | 0       |
+|    add_ln116_15_fu_4701_p2                           | -   |        | add_ln116_15 | add | fabric | 0       |
+|    add_ln116_16_fu_4735_p2                           | -   |        | add_ln116_16 | add | fabric | 0       |
+|    add_ln116_17_fu_4769_p2                           | -   |        | add_ln116_17 | add | fabric | 0       |
+|    add_ln116_18_fu_4803_p2                           | -   |        | add_ln116_18 | add | fabric | 0       |
+|    add_ln116_19_fu_4837_p2                           | -   |        | add_ln116_19 | add | fabric | 0       |
+|    add_ln116_20_fu_4871_p2                           | -   |        | add_ln116_20 | add | fabric | 0       |
+|    add_ln116_21_fu_4905_p2                           | -   |        | add_ln116_21 | add | fabric | 0       |
+|    add_ln116_22_fu_4939_p2                           | -   |        | add_ln116_22 | add | fabric | 0       |
+|    add_ln116_23_fu_4973_p2                           | -   |        | add_ln116_23 | add | fabric | 0       |
+|    add_ln116_24_fu_5007_p2                           | -   |        | add_ln116_24 | add | fabric | 0       |
+|    add_ln116_25_fu_5041_p2                           | -   |        | add_ln116_25 | add | fabric | 0       |
+|    add_ln116_26_fu_5075_p2                           | -   |        | add_ln116_26 | add | fabric | 0       |
+|    add_ln116_27_fu_5109_p2                           | -   |        | add_ln116_27 | add | fabric | 0       |
+|    add_ln116_28_fu_5143_p2                           | -   |        | add_ln116_28 | add | fabric | 0       |
+|    add_ln116_29_fu_5177_p2                           | -   |        | add_ln116_29 | add | fabric | 0       |
+|    add_ln116_30_fu_5211_p2                           | -   |        | add_ln116_30 | add | fabric | 0       |
+|    add_ln116_31_fu_5245_p2                           | -   |        | add_ln116_31 | add | fabric | 0       |
+|    add_ln116_32_fu_5279_p2                           | -   |        | add_ln116_32 | add | fabric | 0       |
+|    add_ln116_33_fu_5313_p2                           | -   |        | add_ln116_33 | add | fabric | 0       |
+|    add_ln116_34_fu_5347_p2                           | -   |        | add_ln116_34 | add | fabric | 0       |
+|    add_ln116_35_fu_5381_p2                           | -   |        | add_ln116_35 | add | fabric | 0       |
+|    add_ln116_36_fu_5415_p2                           | -   |        | add_ln116_36 | add | fabric | 0       |
+|    add_ln116_37_fu_5449_p2                           | -   |        | add_ln116_37 | add | fabric | 0       |
+|    add_ln116_38_fu_5483_p2                           | -   |        | add_ln116_38 | add | fabric | 0       |
+|    add_ln116_39_fu_5517_p2                           | -   |        | add_ln116_39 | add | fabric | 0       |
+|    add_ln116_40_fu_5551_p2                           | -   |        | add_ln116_40 | add | fabric | 0       |
+|    add_ln116_41_fu_5585_p2                           | -   |        | add_ln116_41 | add | fabric | 0       |
+|    add_ln116_42_fu_5619_p2                           | -   |        | add_ln116_42 | add | fabric | 0       |
+|    add_ln116_43_fu_5653_p2                           | -   |        | add_ln116_43 | add | fabric | 0       |
+|    add_ln116_44_fu_5687_p2                           | -   |        | add_ln116_44 | add | fabric | 0       |
+|    add_ln116_45_fu_5721_p2                           | -   |        | add_ln116_45 | add | fabric | 0       |
+|    add_ln116_46_fu_5755_p2                           | -   |        | add_ln116_46 | add | fabric | 0       |
+|    add_ln116_47_fu_5789_p2                           | -   |        | add_ln116_47 | add | fabric | 0       |
+|    add_ln116_48_fu_5823_p2                           | -   |        | add_ln116_48 | add | fabric | 0       |
+|    add_ln116_49_fu_5857_p2                           | -   |        | add_ln116_49 | add | fabric | 0       |
+|    add_ln116_50_fu_5891_p2                           | -   |        | add_ln116_50 | add | fabric | 0       |
+|    add_ln116_51_fu_5925_p2                           | -   |        | add_ln116_51 | add | fabric | 0       |
+|    add_ln116_52_fu_5959_p2                           | -   |        | add_ln116_52 | add | fabric | 0       |
+|    add_ln116_53_fu_5993_p2                           | -   |        | add_ln116_53 | add | fabric | 0       |
+|    add_ln116_54_fu_6027_p2                           | -   |        | add_ln116_54 | add | fabric | 0       |
+|    add_ln116_55_fu_6061_p2                           | -   |        | add_ln116_55 | add | fabric | 0       |
+|    add_ln116_56_fu_6095_p2                           | -   |        | add_ln116_56 | add | fabric | 0       |
+|    add_ln116_57_fu_6129_p2                           | -   |        | add_ln116_57 | add | fabric | 0       |
+|    add_ln116_58_fu_6163_p2                           | -   |        | add_ln116_58 | add | fabric | 0       |
+|    add_ln116_59_fu_6197_p2                           | -   |        | add_ln116_59 | add | fabric | 0       |
+|    add_ln116_60_fu_6231_p2                           | -   |        | add_ln116_60 | add | fabric | 0       |
+|    add_ln116_61_fu_6265_p2                           | -   |        | add_ln116_61 | add | fabric | 0       |
+|    add_ln116_62_fu_6299_p2                           | -   |        | add_ln116_62 | add | fabric | 0       |
+|    add_ln116_63_fu_6333_p2                           | -   |        | add_ln116_63 | add | fabric | 0       |
+|    grp_fu_2585_p2                                    | -   |        | add_ln199    | add | fabric | 0       |
+|   + sha256_compress_block                            | 0   |        |              |     |        |         |
+|     add_ln167_fu_208_p2                              | -   |        | add_ln167    | add | fabric | 0       |
+|     add_ln168_fu_213_p2                              | -   |        | add_ln168    | add | fabric | 0       |
+|     add_ln169_fu_218_p2                              | -   |        | add_ln169    | add | fabric | 0       |
+|     add_ln170_fu_223_p2                              | -   |        | add_ln170    | add | fabric | 0       |
+|     add_ln171_fu_228_p2                              | -   |        | add_ln171    | add | fabric | 0       |
+|     add_ln172_fu_233_p2                              | -   |        | add_ln172    | add | fabric | 0       |
+|     add_ln173_fu_238_p2                              | -   |        | add_ln173    | add | fabric | 0       |
+|     add_ln174_fu_243_p2                              | -   |        | add_ln174    | add | fabric | 0       |
+|    + sha256_compress_block_Pipeline_init_words       | 0   |        |              |     |        |         |
+|      add_ln127_fu_152_p2                             | -   |        | add_ln127    | add | fabric | 0       |
+|      add_ln127_1_fu_161_p2                           | -   |        | add_ln127_1  | add | fabric | 0       |
+|      add_ln127_2_fu_259_p2                           | -   |        | add_ln127_2  | add | fabric | 0       |
+|    + sha256_compress_block_Pipeline_expand_words     | 0   |        |              |     |        |         |
+|      mul_7ns_9ns_14_1_1_U9                           | -   |        | mul_ln135    | mul | auto   | 0       |
+|      add_ln138_fu_285_p2                             | -   |        | add_ln138    | add | fabric | 0       |
+|      mul_6ns_8ns_13_1_1_U6                           | -   |        | mul_ln138    | mul | auto   | 0       |
+|      add_ln138_1_fu_311_p2                           | -   |        | add_ln138_1  | add | fabric | 0       |
+|      mul_6ns_8ns_13_1_1_U7                           | -   |        | mul_ln138_1  | mul | auto   | 0       |
+|      add_ln138_2_fu_337_p2                           | -   |        | add_ln138_2  | add | fabric | 0       |
+|      mul_6ns_8ns_13_1_1_U8                           | -   |        | mul_ln138_2  | mul | auto   | 0       |
+|      add_ln138_3_fu_363_p2                           | -   |        | add_ln138_3  | add | fabric | 0       |
+|      mul_6ns_8ns_13_1_1_U10                          | -   |        | mul_ln138_3  | mul | auto   | 0       |
+|      add_ln138_4_fu_628_p2                           | -   |        | add_ln138_4  | add | fabric | 0       |
+|      add_ln135_fu_267_p2                             | -   |        | add_ln135    | add | fabric | 0       |
+|    + sha256_compress_block_Pipeline_round_loop       | 0   |        |              |     |        |         |
+|      add_ln151_fu_384_p2                             | -   |        | add_ln151    | add | fabric | 0       |
+|      add_ln151_1_fu_434_p2                           | -   |        | add_ln151_1  | add | fabric | 0       |
+|      add_ln75_fu_398_p2                              | -   |        | add_ln75     | add | fabric | 0       |
+|      e_1_fu_671_p2                                   | -   |        | e_1          | add | fabric | 0       |
+|   + sha256_process_chunk_Pipeline_clear_pad_block    | 0   |        |              |     |        |         |
+|     add_ln218_fu_60_p2                               | -   |        | add_ln218    | add | fabric | 0       |
+|   + sha256_process_chunk_Pipeline_copy_remainder     | 0   |        |              |     |        |         |
+|     add_ln225_fu_143_p2                              | -   |        | add_ln225    | add | fabric | 0       |
+|     add_ln228_1_fu_175_p2                            | -   |        | add_ln228_1  | add | fabric | 0       |
+|   + sha256_process_chunk_Pipeline_clear_second_block | 0   |        |              |     |        |         |
+|     add_ln251_fu_60_p2                               | -   |        | add_ln251    | add | fabric | 0       |
+|   + sha256_process_chunk_Pipeline_len_store_double   | 0   |        |              |     |        |         |
+|     add_ln258_fu_77_p2                               | -   |        | add_ln258    | add | fabric | 0       |
+|   + sha256_process_chunk_Pipeline_len_store_single   | 0   |        |              |     |        |         |
+|     add_ln237_fu_77_p2                               | -   |        | add_ln237    | add | fabric | 0       |
+|  + calculate_sha256_Pipeline_hash_write_digest       | 0   |        |              |     |        |         |
+|    add_ln616_fu_216_p2                               | -   |        | add_ln616    | add | fabric | 0       |
+|    add_ln621_fu_244_p2                               | -   |        | add_ln621    | add | fabric | 0       |
+|    add_ln621_1_fu_304_p2                             | -   |        | add_ln621_1  | add | fabric | 0       |
++------------------------------------------------------+-----+--------+--------------+-----+--------+---------+
+
+
+================================================================
+== Bind Storage Report
+================================================================
++------------------------------------------------+------+------+--------+-----------+---------+------+---------+
+| Name                                           | BRAM | URAM | Pragma | Variable  | Storage | Impl | Latency |
++------------------------------------------------+------+------+--------+-----------+---------+------+---------+
+| + calculate_sha256                             | 30   | 0    |        |           |         |      |         |
+|  + sha256_process_chunk                        | 0    | 0    |        |           |         |      |         |
+|    pad_block_U                                 | -    | -    |        | pad_block | ram_s2p | auto | 1       |
+|   + sha256_compress_block                      | 0    | 0    |        |           |         |      |         |
+|     w_U                                        | -    | -    |        | w         | rom_np  | auto | 1       |
+|     w_1_U                                      | -    | -    |        | w_1       | rom_np  | auto | 1       |
+|     w_2_U                                      | -    | -    |        | w_2       | rom_np  | auto | 1       |
+|    + sha256_compress_block_Pipeline_round_loop | 0    | 0    |        |           |         |      |         |
+|      SHA256_K_U                                | -    | -    |        | SHA256_K  | rom_1p  | auto | 1       |
++------------------------------------------------+------+------+--------+-----------+---------+------+---------+
+
+
+================================================================
+== Pragma Report
+================================================================
+* Pragmas with Warnings
++----------+---------+--------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| Type     | Options | Location                                   | Messages                                                                                                                                                                           |
++----------+---------+--------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| dataflow |         | ../../../src/kernel.cpp:685 in process_crc | Since the only kind of statements allowed in a canonical dataflow region are variable declarations and function calls, the compiler may not be able to correctly handle the region |
++----------+---------+--------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+* Valid Pragma Syntax
++-----------------+-----------------------------------------------------------------+----------------------------------------------------------+
+| Type            | Options                                                         | Location                                                 |
++-----------------+-----------------------------------------------------------------+----------------------------------------------------------+
+| inline          |                                                                 | ../../../src/kernel.cpp:53 in rotr32                     |
+| inline          |                                                                 | ../../../src/kernel.cpp:59 in sha256_ch                  |
+| inline          |                                                                 | ../../../src/kernel.cpp:65 in sha256_maj                 |
+| inline          |                                                                 | ../../../src/kernel.cpp:71 in sha256_bsig0               |
+| inline          |                                                                 | ../../../src/kernel.cpp:77 in sha256_bsig1               |
+| inline          |                                                                 | ../../../src/kernel.cpp:83 in sha256_ssig0               |
+| inline          |                                                                 | ../../../src/kernel.cpp:89 in sha256_ssig1               |
+| inline          |                                                                 | ../../../src/kernel.cpp:95 in to_be16                    |
+| inline          |                                                                 | ../../../src/kernel.cpp:101 in to_be32                   |
+| inline          |                                                                 | ../../../src/kernel.cpp:110 in pack_block_64             |
+| unroll          |                                                                 | ../../../src/kernel.cpp:115 in pack_block_64             |
+| inline          | off                                                             | ../../../src/kernel.cpp:123 in sha256_compress_block     |
+| pipeline        | II = 1                                                          | ../../../src/kernel.cpp:129 in sha256_compress_block     |
+| pipeline        | II = 1                                                          | ../../../src/kernel.cpp:137 in sha256_compress_block     |
+| pipeline        | II = 1                                                          | ../../../src/kernel.cpp:153 in sha256_compress_block     |
+| inline          | off                                                             | ../../../src/kernel.cpp:181 in sha256_process_chunk      |
+| unroll          |                                                                 | ../../../src/kernel.cpp:187 in sha256_process_chunk      |
+| pipeline        | II = 1                                                          | ../../../src/kernel.cpp:220 in sha256_process_chunk      |
+| pipeline        | II = 1                                                          | ../../../src/kernel.cpp:227 in sha256_process_chunk      |
+| pipeline        | II = 1                                                          | ../../../src/kernel.cpp:239 in sha256_process_chunk      |
+| pipeline        | II = 1                                                          | ../../../src/kernel.cpp:253 in sha256_process_chunk      |
+| pipeline        | II = 1                                                          | ../../../src/kernel.cpp:260 in sha256_process_chunk      |
+| unroll          |                                                                 | ../../../src/kernel.cpp:270 in sha256_process_chunk      |
+| pipeline        | II = 1                                                          | ../../../src/kernel.cpp:289 in read_input                |
+| inline          | off                                                             | ../../../src/kernel.cpp:320 in process_blocks            |
+| array_partition | variable = crcTables complete dim = 1                           | ../../../src/kernel.cpp:321 in process_blocks            |
+| bind_storage    | variable = crcTables type = ram_1p impl = bram                  | ../../../src/kernel.cpp:322 in process_blocks            |
+| pipeline        | II = 1                                                          | ../../../src/kernel.cpp:339 in process_blocks            |
+| pipeline        | II = 1                                                          | ../../../src/kernel.cpp:378 in process_blocks            |
+| pipeline        | II = 1                                                          | ../../../src/kernel.cpp:444 in write_output              |
+| inline          |                                                                 | ../../../src/kernel.cpp:451 in fold_add                  |
+| inline          |                                                                 | ../../../src/kernel.cpp:458 in tcp_checksum_chunk_scalar |
+| pipeline        | II = 1                                                          | ../../../src/kernel.cpp:465 in tcp_checksum_chunk_scalar |
+| inline          |                                                                 | ../../../src/kernel.cpp:487 in tcp_checksum_chunk_vector |
+| pipeline        | II = 1                                                          | ../../../src/kernel.cpp:494 in tcp_checksum_chunk_vector |
+| array_partition | variable = lvl1 complete                                        | ../../../src/kernel.cpp:501 in tcp_checksum_chunk_vector |
+| array_partition | variable = lvl2 complete                                        | ../../../src/kernel.cpp:502 in tcp_checksum_chunk_vector |
+| array_partition | variable = lvl3 complete                                        | ../../../src/kernel.cpp:503 in tcp_checksum_chunk_vector |
+| array_partition | variable = lvl4 complete                                        | ../../../src/kernel.cpp:504 in tcp_checksum_chunk_vector |
+| unroll          |                                                                 | ../../../src/kernel.cpp:509 in tcp_checksum_chunk_vector |
+| unroll          |                                                                 | ../../../src/kernel.cpp:520 in tcp_checksum_chunk_vector |
+| unroll          |                                                                 | ../../../src/kernel.cpp:527 in tcp_checksum_chunk_vector |
+| unroll          |                                                                 | ../../../src/kernel.cpp:534 in tcp_checksum_chunk_vector |
+| pipeline        | II = 1                                                          | ../../../src/kernel.cpp:547 in tcp_checksum_chunk_vector |
+| unroll          |                                                                 | ../../../src/kernel.cpp:565 in tcp_checksum_chunk_vector |
+| pipeline        | II = 1                                                          | ../../../src/kernel.cpp:582 in process_tcp_checksum      |
+| array_partition | variable = digest complete dim = 1                              | ../../../src/kernel.cpp:612 in process_hash              |
+| pipeline        | II = 1                                                          | ../../../src/kernel.cpp:618 in process_hash              |
+| stream          | variable = inByte0 depth = 64                                   | ../../../src/kernel.cpp:651 in process_crc               |
+| stream          | variable = inByte1 depth = 64                                   | ../../../src/kernel.cpp:652 in process_crc               |
+| stream          | variable = inByte2 depth = 64                                   | ../../../src/kernel.cpp:653 in process_crc               |
+| stream          | variable = inByte3 depth = 64                                   | ../../../src/kernel.cpp:654 in process_crc               |
+| stream          | variable = inByte4 depth = 64                                   | ../../../src/kernel.cpp:655 in process_crc               |
+| stream          | variable = inByte5 depth = 64                                   | ../../../src/kernel.cpp:656 in process_crc               |
+| stream          | variable = inByte6 depth = 64                                   | ../../../src/kernel.cpp:657 in process_crc               |
+| stream          | variable = inByte7 depth = 64                                   | ../../../src/kernel.cpp:658 in process_crc               |
+| stream          | variable = inByte8 depth = 64                                   | ../../../src/kernel.cpp:659 in process_crc               |
+| stream          | variable = inByte9 depth = 64                                   | ../../../src/kernel.cpp:660 in process_crc               |
+| stream          | variable = inByte10 depth = 64                                  | ../../../src/kernel.cpp:661 in process_crc               |
+| stream          | variable = inByte11 depth = 64                                  | ../../../src/kernel.cpp:662 in process_crc               |
+| stream          | variable = inByte12 depth = 64                                  | ../../../src/kernel.cpp:663 in process_crc               |
+| stream          | variable = inByte13 depth = 64                                  | ../../../src/kernel.cpp:664 in process_crc               |
+| stream          | variable = inByte14 depth = 64                                  | ../../../src/kernel.cpp:665 in process_crc               |
+| stream          | variable = inByte15 depth = 64                                  | ../../../src/kernel.cpp:666 in process_crc               |
+| stream          | variable = outStream depth = 64                                 | ../../../src/kernel.cpp:669 in process_crc               |
+| array_partition | variable = crcTables complete dim = 1                           | ../../../src/kernel.cpp:672 in process_crc               |
+| bind_storage    | variable = crcTables type = ram_1p impl = bram                  | ../../../src/kernel.cpp:673 in process_crc               |
+| pipeline        | II = 1                                                          | ../../../src/kernel.cpp:680 in process_crc               |
+| interface       | m_axi port = data_in bundle = gmem0 depth = 1024 offset = slave | ../../../src/kernel.cpp:731 in calculate_sha256          |
+| interface       | m_axi port = crc_out bundle = gmem0 depth = 1024 offset = slave | ../../../src/kernel.cpp:732 in calculate_sha256          |
++-----------------+-----------------------------------------------------------------+----------------------------------------------------------+
+
+* Inferred Pragmas
++--------------------------------------+-----------------+---------------------------------------+-------------------------------------+
+| Source Pragma                        | Inferred Pragma | Options                               | Location                            |
++--------------------------------------+-----------------+---------------------------------------+-------------------------------------+
+| pipeline ../../../src/kernel.cpp:137 | array_partition | dim=1 type=cyclic factor=3 variable=w | variable w in sha256_compress_block |
++--------------------------------------+-----------------+---------------------------------------+-------------------------------------+
+
+

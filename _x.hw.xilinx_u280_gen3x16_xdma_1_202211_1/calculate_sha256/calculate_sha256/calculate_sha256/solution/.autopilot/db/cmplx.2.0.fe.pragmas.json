@@ -1,0 +1,57 @@
+{
+  "0": {
+    "basicblocks": 1,
+    "calls": "1",
+    "file": "kernel.cpp",
+    "fileloc": 726,
+    "instructions": 4,
+    "name": "calculate_sha256",
+    "total_instructions": 2315
+  },
+  "1": {
+    "basicblocks": 9,
+    "calls": "3",
+    "file": "kernel.cpp",
+    "fileloc": 600,
+    "instructions": 40,
+    "loads": {
+      "L": 1
+    },
+    "name": "process_hash",
+    "stores": {
+      "L": 1
+    },
+    "total_instructions": 2311
+  },
+  "2": {
+    "basicblocks": 13,
+    "calls": "",
+    "file": "kernel.cpp",
+    "fileloc": 121,
+    "instructions": 191,
+    "loads": {
+      "G": 1,
+      "L": 22
+    },
+    "name": "sha256_compress_block",
+    "stores": {
+      "L": 10
+    },
+    "total_instructions": 191
+  },
+  "3": {
+    "basicblocks": 51,
+    "calls": "2 2 2 2 2",
+    "file": "kernel.cpp",
+    "fileloc": 177,
+    "instructions": 1316,
+    "loads": {
+      "L": 269
+    },
+    "name": "sha256_process_chunk",
+    "stores": {
+      "L": 33
+    },
+    "total_instructions": 2271
+  }
+}

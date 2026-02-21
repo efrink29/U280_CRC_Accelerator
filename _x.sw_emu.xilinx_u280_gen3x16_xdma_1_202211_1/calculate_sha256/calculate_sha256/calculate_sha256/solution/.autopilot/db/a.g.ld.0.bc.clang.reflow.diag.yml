@@ -1,0 +1,476 @@
+--- !Passed
+Pass:            inline
+Name:            AlwaysInline
+DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                   Line: 90, Column: 9 }
+Function:        _ZL12sha256_ssig1j
+Args:            
+  - String:          'Inlining function '''
+  - Callee:          'rotr32(unsigned int, unsigned int)'
+    DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                       Line: 52, Column: 0 }
+  - String:          ''' into '''
+  - Caller:          'sha256_ssig1(unsigned int)'
+    DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                       Line: 88, Column: 0 }
+  - String:          ''''
+...
+--- !Passed
+Pass:            inline
+Name:            AlwaysInline
+DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                   Line: 90, Column: 25 }
+Function:        _ZL12sha256_ssig1j
+Args:            
+  - String:          'Inlining function '''
+  - Callee:          'rotr32(unsigned int, unsigned int)'
+    DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                       Line: 52, Column: 0 }
+  - String:          ''' into '''
+  - Caller:          'sha256_ssig1(unsigned int)'
+    DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                       Line: 88, Column: 0 }
+  - String:          ''''
+...
+--- !Passed
+Pass:            inline
+Name:            AlwaysInline
+DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                   Line: 84, Column: 9 }
+Function:        _ZL12sha256_ssig0j
+Args:            
+  - String:          'Inlining function '''
+  - Callee:          'rotr32(unsigned int, unsigned int)'
+    DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                       Line: 52, Column: 0 }
+  - String:          ''' into '''
+  - Caller:          'sha256_ssig0(unsigned int)'
+    DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                       Line: 82, Column: 0 }
+  - String:          ''''
+...
+--- !Passed
+Pass:            inline
+Name:            AlwaysInline
+DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                   Line: 84, Column: 24 }
+Function:        _ZL12sha256_ssig0j
+Args:            
+  - String:          'Inlining function '''
+  - Callee:          'rotr32(unsigned int, unsigned int)'
+    DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                       Line: 52, Column: 0 }
+  - String:          ''' into '''
+  - Caller:          'sha256_ssig0(unsigned int)'
+    DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                       Line: 82, Column: 0 }
+  - String:          ''''
+...
+--- !Passed
+Pass:            inline
+Name:            AlwaysInline
+DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                   Line: 78, Column: 9 }
+Function:        _ZL12sha256_bsig1j
+Args:            
+  - String:          'Inlining function '''
+  - Callee:          'rotr32(unsigned int, unsigned int)'
+    DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                       Line: 52, Column: 0 }
+  - String:          ''' into '''
+  - Caller:          'sha256_bsig1(unsigned int)'
+    DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                       Line: 76, Column: 0 }
+  - String:          ''''
+...
+--- !Passed
+Pass:            inline
+Name:            AlwaysInline
+DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                   Line: 78, Column: 40 }
+Function:        _ZL12sha256_bsig1j
+Args:            
+  - String:          'Inlining function '''
+  - Callee:          'rotr32(unsigned int, unsigned int)'
+    DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                       Line: 52, Column: 0 }
+  - String:          ''' into '''
+  - Caller:          'sha256_bsig1(unsigned int)'
+    DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                       Line: 76, Column: 0 }
+  - String:          ''''
+...
+--- !Passed
+Pass:            inline
+Name:            AlwaysInline
+DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                   Line: 78, Column: 24 }
+Function:        _ZL12sha256_bsig1j
+Args:            
+  - String:          'Inlining function '''
+  - Callee:          'rotr32(unsigned int, unsigned int)'
+    DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                       Line: 52, Column: 0 }
+  - String:          ''' into '''
+  - Caller:          'sha256_bsig1(unsigned int)'
+    DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                       Line: 76, Column: 0 }
+  - String:          ''''
+...
+--- !Passed
+Pass:            inline
+Name:            AlwaysInline
+DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                   Line: 72, Column: 9 }
+Function:        _ZL12sha256_bsig0j
+Args:            
+  - String:          'Inlining function '''
+  - Callee:          'rotr32(unsigned int, unsigned int)'
+    DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                       Line: 52, Column: 0 }
+  - String:          ''' into '''
+  - Caller:          'sha256_bsig0(unsigned int)'
+    DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                       Line: 70, Column: 0 }
+  - String:          ''''
+...
+--- !Passed
+Pass:            inline
+Name:            AlwaysInline
+DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                   Line: 72, Column: 40 }
+Function:        _ZL12sha256_bsig0j
+Args:            
+  - String:          'Inlining function '''
+  - Callee:          'rotr32(unsigned int, unsigned int)'
+    DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                       Line: 52, Column: 0 }
+  - String:          ''' into '''
+  - Caller:          'sha256_bsig0(unsigned int)'
+    DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                       Line: 70, Column: 0 }
+  - String:          ''''
+...
+--- !Passed
+Pass:            inline
+Name:            AlwaysInline
+DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                   Line: 72, Column: 24 }
+Function:        _ZL12sha256_bsig0j
+Args:            
+  - String:          'Inlining function '''
+  - Callee:          'rotr32(unsigned int, unsigned int)'
+    DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                       Line: 52, Column: 0 }
+  - String:          ''' into '''
+  - Caller:          'sha256_bsig0(unsigned int)'
+    DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                       Line: 70, Column: 0 }
+  - String:          ''''
+...
+--- !Passed
+Pass:            inline
+Name:            AlwaysInline
+DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                   Line: 155, Column: 47 }
+Function:        _ZL21sha256_compress_blockRK7ap_uintILi512EEPj
+Args:            
+  - String:          'Inlining function '''
+  - Callee:          'sha256_maj(unsigned int, unsigned int, unsigned int)'
+    DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                       Line: 64, Column: 0 }
+  - String:          ''' into '''
+  - Caller:          'sha256_compress_block(ap_uint<512> const&, unsigned int*)'
+    DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                       Line: 122, Column: 0 }
+  - String:          ''''
+...
+--- !Passed
+Pass:            inline
+Name:            AlwaysInline
+DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                   Line: 155, Column: 29 }
+Function:        _ZL21sha256_compress_blockRK7ap_uintILi512EEPj
+Args:            
+  - String:          'Inlining function '''
+  - Callee:          'sha256_bsig0(unsigned int)'
+    DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                       Line: 70, Column: 0 }
+  - String:          ''' into '''
+  - Caller:          'sha256_compress_block(ap_uint<512> const&, unsigned int*)'
+    DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                       Line: 122, Column: 0 }
+  - String:          ''''
+...
+--- !Passed
+Pass:            inline
+Name:            AlwaysInline
+DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                   Line: 154, Column: 44 }
+Function:        _ZL21sha256_compress_blockRK7ap_uintILi512EEPj
+Args:            
+  - String:          'Inlining function '''
+  - Callee:          'sha256_ch(unsigned int, unsigned int, unsigned int)'
+    DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                       Line: 58, Column: 0 }
+  - String:          ''' into '''
+  - Caller:          'sha256_compress_block(ap_uint<512> const&, unsigned int*)'
+    DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                       Line: 122, Column: 0 }
+  - String:          ''''
+...
+--- !Passed
+Pass:            inline
+Name:            AlwaysInline
+DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                   Line: 154, Column: 26 }
+Function:        _ZL21sha256_compress_blockRK7ap_uintILi512EEPj
+Args:            
+  - String:          'Inlining function '''
+  - Callee:          'sha256_bsig1(unsigned int)'
+    DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                       Line: 76, Column: 0 }
+  - String:          ''' into '''
+  - Caller:          'sha256_compress_block(ap_uint<512> const&, unsigned int*)'
+    DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                       Line: 122, Column: 0 }
+  - String:          ''''
+...
+--- !Passed
+Pass:            inline
+Name:            AlwaysInline
+DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                   Line: 138, Column: 45 }
+Function:        _ZL21sha256_compress_blockRK7ap_uintILi512EEPj
+Args:            
+  - String:          'Inlining function '''
+  - Callee:          'sha256_ssig0(unsigned int)'
+    DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                       Line: 82, Column: 0 }
+  - String:          ''' into '''
+  - Caller:          'sha256_compress_block(ap_uint<512> const&, unsigned int*)'
+    DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                       Line: 122, Column: 0 }
+  - String:          ''''
+...
+--- !Passed
+Pass:            inline
+Name:            AlwaysInline
+DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                   Line: 138, Column: 9 }
+Function:        _ZL21sha256_compress_blockRK7ap_uintILi512EEPj
+Args:            
+  - String:          'Inlining function '''
+  - Callee:          'sha256_ssig1(unsigned int)'
+    DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                       Line: 88, Column: 0 }
+  - String:          ''' into '''
+  - Caller:          'sha256_compress_block(ap_uint<512> const&, unsigned int*)'
+    DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                       Line: 122, Column: 0 }
+  - String:          ''''
+...
+--- !Passed
+Pass:            inline
+Name:            AlwaysInline
+DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                   Line: 131, Column: 16 }
+Function:        _ZL21sha256_compress_blockRK7ap_uintILi512EEPj
+Args:            
+  - String:          'Inlining function '''
+  - Callee:          'to_be32(ap_uint<32>)'
+    DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                       Line: 100, Column: 0 }
+  - String:          ''' into '''
+  - Caller:          'sha256_compress_block(ap_uint<512> const&, unsigned int*)'
+    DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                       Line: 122, Column: 0 }
+  - String:          ''''
+...
+--- !Passed
+Pass:            inline
+Name:            AlwaysInline
+DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                   Line: 211, Column: 35 }
+Function:        _ZL20sha256_process_chunkPKhjPj
+Args:            
+  - String:          'Inlining function '''
+  - Callee:          'pack_block_64(unsigned char const*)'
+    DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                       Line: 109, Column: 0 }
+  - String:          ''' into '''
+  - Caller:          'sha256_process_chunk(unsigned char const*, unsigned int, unsigned int*)'
+    DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                       Line: 180, Column: 0 }
+  - String:          ''''
+...
+--- !Passed
+Pass:            inline
+Name:            AlwaysInline
+DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                   Line: 242, Column: 35 }
+Function:        _ZL20sha256_process_chunkPKhjPj
+Args:            
+  - String:          'Inlining function '''
+  - Callee:          'pack_block_64(unsigned char const*)'
+    DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                       Line: 109, Column: 0 }
+  - String:          ''' into '''
+  - Caller:          'sha256_process_chunk(unsigned char const*, unsigned int, unsigned int*)'
+    DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                       Line: 180, Column: 0 }
+  - String:          ''''
+...
+--- !Passed
+Pass:            inline
+Name:            AlwaysInline
+DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                   Line: 263, Column: 22 }
+Function:        _ZL20sha256_process_chunkPKhjPj
+Args:            
+  - String:          'Inlining function '''
+  - Callee:          'pack_block_64(unsigned char const*)'
+    DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                       Line: 109, Column: 0 }
+  - String:          ''' into '''
+  - Caller:          'sha256_process_chunk(unsigned char const*, unsigned int, unsigned int*)'
+    DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                       Line: 180, Column: 0 }
+  - String:          ''''
+...
+--- !Passed
+Pass:            inline
+Name:            AlwaysInline
+DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                   Line: 247, Column: 29 }
+Function:        _ZL20sha256_process_chunkPKhjPj
+Args:            
+  - String:          'Inlining function '''
+  - Callee:          'pack_block_64(unsigned char const*)'
+    DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                       Line: 109, Column: 0 }
+  - String:          ''' into '''
+  - Caller:          'sha256_process_chunk(unsigned char const*, unsigned int, unsigned int*)'
+    DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                       Line: 180, Column: 0 }
+  - String:          ''''
+...
+--- !Passed
+Pass:            reflow-pragma-loop-unroll
+Name:            PragmaFullyUnroll
+DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                   Line: 180, Column: 0 }
+Function:        _ZL20sha256_process_chunkPKhjPj
+Args:            
+  - String:          'Unrolling loop '''
+  - LoopName:        write_digest
+  - String:          ''' ('
+  - LoopLoc:         '/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:268:5'
+  - String:          ') '
+  - String:          'in function '''
+  - String:          sha256_process_chunk
+  - String:          ''' completely with a factor of '
+  - Factor:          '8'
+...
+--- !Passed
+Pass:            reflow-pragma-loop-unroll
+Name:            PragmaFullyUnroll
+DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                   Line: 180, Column: 0 }
+Function:        _ZL20sha256_process_chunkPKhjPj
+Args:            
+  - String:          'Unrolling loop '''
+  - LoopName:        pack_block_bytes
+  - String:          ''' ('
+  - LoopLoc:         '/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:113:5'
+  - String:          ') '
+  - String:          'in function '''
+  - String:          sha256_process_chunk
+  - String:          ''' completely with a factor of '
+  - Factor:          '64'
+...
+--- !Passed
+Pass:            reflow-pragma-loop-unroll
+Name:            PragmaFullyUnroll
+DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                   Line: 180, Column: 0 }
+Function:        _ZL20sha256_process_chunkPKhjPj
+Args:            
+  - String:          'Unrolling loop '''
+  - LoopName:        pack_block_bytes
+  - String:          ''' ('
+  - LoopLoc:         '/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:113:5'
+  - String:          ') '
+  - String:          'in function '''
+  - String:          sha256_process_chunk
+  - String:          ''' completely with a factor of '
+  - Factor:          '64'
+...
+--- !Passed
+Pass:            reflow-pragma-loop-unroll
+Name:            PragmaFullyUnroll
+DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                   Line: 180, Column: 0 }
+Function:        _ZL20sha256_process_chunkPKhjPj
+Args:            
+  - String:          'Unrolling loop '''
+  - LoopName:        pack_block_bytes
+  - String:          ''' ('
+  - LoopLoc:         '/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:113:5'
+  - String:          ') '
+  - String:          'in function '''
+  - String:          sha256_process_chunk
+  - String:          ''' completely with a factor of '
+  - Factor:          '64'
+...
+--- !Passed
+Pass:            reflow-pragma-loop-unroll
+Name:            PragmaFullyUnroll
+DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                   Line: 180, Column: 0 }
+Function:        _ZL20sha256_process_chunkPKhjPj
+Args:            
+  - String:          'Unrolling loop '''
+  - LoopName:        pack_block_bytes
+  - String:          ''' ('
+  - LoopLoc:         '/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:113:5'
+  - String:          ') '
+  - String:          'in function '''
+  - String:          sha256_process_chunk
+  - String:          ''' completely with a factor of '
+  - Factor:          '64'
+...
+--- !Passed
+Pass:            reflow-pragma-loop-unroll
+Name:            PragmaFullyUnroll
+DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                   Line: 180, Column: 0 }
+Function:        _ZL20sha256_process_chunkPKhjPj
+Args:            
+  - String:          'Unrolling loop '''
+  - LoopName:        init_state
+  - String:          ''' ('
+  - LoopLoc:         '/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:185:5'
+  - String:          ') '
+  - String:          'in function '''
+  - String:          sha256_process_chunk
+  - String:          ''' completely with a factor of '
+  - Factor:          '8'
+...
+--- !Passed
+Pass:            reflow-inliner
+Name:            AutoInline
+DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                   Line: 730, Column: 0 }
+Function:        calculate_sha256
+Args:            
+  - String:          'Inlining function '''
+  - Callee:          'process_hash(ap_uint<512> const*, unsigned int*, unsigned int, unsigned int)'
+    DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                       Line: 604, Column: 0 }
+  - String:          ''' into '''
+  - Caller:          calculate_sha256
+    DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                       Line: 730, Column: 0 }
+  - String:          ''''
+...

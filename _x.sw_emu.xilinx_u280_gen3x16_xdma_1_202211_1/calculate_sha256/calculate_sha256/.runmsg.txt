@@ -1,0 +1,2 @@
+performing high-level synthesis for kernel: calculate_sha256
+Log file: /users/arashs/U280_CRC_Accelerator/_x.sw_emu.xilinx_u280_gen3x16_xdma_1_202211_1/calculate_sha256/calculate_sha256/vitis_hls.log

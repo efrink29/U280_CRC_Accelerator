@@ -1,0 +1,280 @@
+
+
+================================================================
+== Vitis HLS Report for 'process_crc'
+================================================================
+* Date:           Fri Feb 20 12:32:08 2026
+
+* Version:        2023.1 (Build 3854077 on May  4 2023)
+* Project:        calculate_crc
+* Solution:       solution (Vitis Kernel Flow Target)
+* Product family: virtexuplusHBM
+* Target device:  xcu280-fsvh2892-2L-e
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing: 
+    * Summary: 
+    +--------+---------+----------+------------+
+    |  Clock |  Target | Estimated| Uncertainty|
+    +--------+---------+----------+------------+
+    |ap_clk  |  3.33 ns|  2.641 ns|     0.90 ns|
+    +--------+---------+----------+------------+
+
++ Latency: 
+    * Summary: 
+    +---------+---------+----------+----------+-----+-----+----------+
+    |  Latency (cycles) |  Latency (absolute) |  Interval | Pipeline |
+    |   min   |   max   |    min   |    max   | min | max |   Type   |
+    +---------+---------+----------+----------+-----+-----+----------+
+    |        ?|        ?|         ?|         ?|    ?|    ?|  dataflow|
+    +---------+---------+----------+----------+-----+-----+----------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        N/A
+
+============================================================
++ Verbose Summary: Synthesis Manager
+============================================================
+InlineROM: 1
+ExposeGlobal: 0
+============================================================
++ Verbose Summary: CDFG Model
+============================================================
+IsTopModel: 0
+ResetActiveHigh: 1
+IsCombinational: 2
+IsDatapathOnly: 0
+HasWiredReturn: 1
+HasMFsm: 0
+HasVarLatency: 1
+IsPipeline: 0
+IsRtlPipelined: 0
+IsInstanceOverlapped: 0
+IsDontTouch: 0
+HasImplIP: 0
+IsGatedGlobalClock: 0
+
+
+============================================================
++ Verbose Summary: Schedule
+============================================================
+* Number of FSM states : 6
+* Pipeline : 0
+* Dataflow Pipeline: 1
+  DF-Pipeline-0: Size = 6, States = { 1 2 3 4 5 6 }
+
+* FSM state transitions: 
+1 --> 2 
+2 --> 3 
+3 --> 4 
+4 --> 5 
+5 --> 6 
+6 --> 
+
+* FSM state operations: 
+
+State 1 <SV = 0> <Delay = 2.43>
+ST_1 : Operation 7 [1/1] (0.00ns)   --->   "%chunkSize_read = read i32 @_ssdm_op_Read.ap_auto.i32, i32 %chunkSize" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:685]   --->   Operation 7 'read' 'chunkSize_read' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 8 [1/1] (0.00ns)   --->   "%numChunks_read = read i32 @_ssdm_op_Read.ap_auto.i32, i32 %numChunks" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:685]   --->   Operation 8 'read' 'numChunks_read' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 9 [1/1] (0.00ns)   --->   "%tables_read = read i64 @_ssdm_op_Read.ap_auto.i64, i64 %tables" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:685]   --->   Operation 9 'read' 'tables_read' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 10 [1/1] (0.00ns)   --->   "%data_in_read = read i64 @_ssdm_op_Read.ap_auto.i64, i64 %data_in" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:685]   --->   Operation 10 'read' 'data_in_read' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 11 [1/1] (0.00ns)   --->   "%init_value_c = alloca i64 1" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:685]   --->   Operation 11 'alloca' 'init_value_c' <Predicate = true> <Delay = 0.00> <CoreInst = "FIFO_SRL">   --->   Core 81 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.46> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 32> <Depth = 3> <FIFO>
+ST_1 : Operation 12 [1/1] (0.00ns)   --->   "%crc_size_c = alloca i64 1" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:685]   --->   Operation 12 'alloca' 'crc_size_c' <Predicate = true> <Delay = 0.00> <CoreInst = "FIFO_SRL">   --->   Core 81 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.46> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 32> <Depth = 3> <FIFO>
+ST_1 : Operation 13 [1/1] (0.00ns)   --->   "%chunkSize_c = alloca i64 1" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:685]   --->   Operation 13 'alloca' 'chunkSize_c' <Predicate = true> <Delay = 0.00> <CoreInst = "FIFO_SRL">   --->   Core 81 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.39> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 32> <Depth = 2> <FIFO>
+ST_1 : Operation 14 [1/1] (0.00ns)   --->   "%numChunks_c12 = alloca i64 1" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:685]   --->   Operation 14 'alloca' 'numChunks_c12' <Predicate = true> <Delay = 0.00> <CoreInst = "FIFO_SRL">   --->   Core 81 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.39> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 32> <Depth = 2> <FIFO>
+ST_1 : Operation 15 [1/1] (0.00ns)   --->   "%numChunks_c = alloca i64 1" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:685]   --->   Operation 15 'alloca' 'numChunks_c' <Predicate = true> <Delay = 0.00> <CoreInst = "FIFO_SRL">   --->   Core 81 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.39> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 32> <Depth = 2> <FIFO>
+ST_1 : Operation 16 [1/1] (0.00ns)   --->   "%crc_out_c = alloca i64 1" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:685]   --->   Operation 16 'alloca' 'crc_out_c' <Predicate = true> <Delay = 0.00> <CoreInst = "FIFO_SRL">   --->   Core 81 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.41> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 64> <Depth = 4> <FIFO>
+ST_1 : Operation 17 [1/1] (0.00ns)   --->   "%inByte0 = alloca i64 1" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:632]   --->   Operation 17 'alloca' 'inByte0' <Predicate = true> <Delay = 0.00> <CoreInst = "FIFO_SRL">   --->   Core 81 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.35> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 8> <Depth = 64> <FIFO>
+ST_1 : Operation 18 [1/1] (0.00ns)   --->   "%inByte1 = alloca i64 1" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:633]   --->   Operation 18 'alloca' 'inByte1' <Predicate = true> <Delay = 0.00> <CoreInst = "FIFO_SRL">   --->   Core 81 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.35> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 8> <Depth = 64> <FIFO>
+ST_1 : Operation 19 [1/1] (0.00ns)   --->   "%inByte2 = alloca i64 1" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:634]   --->   Operation 19 'alloca' 'inByte2' <Predicate = true> <Delay = 0.00> <CoreInst = "FIFO_SRL">   --->   Core 81 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.35> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 8> <Depth = 64> <FIFO>
+ST_1 : Operation 20 [1/1] (0.00ns)   --->   "%inByte3 = alloca i64 1" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:635]   --->   Operation 20 'alloca' 'inByte3' <Predicate = true> <Delay = 0.00> <CoreInst = "FIFO_SRL">   --->   Core 81 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.35> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 8> <Depth = 64> <FIFO>
+ST_1 : Operation 21 [1/1] (0.00ns)   --->   "%inByte4 = alloca i64 1" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:637]   --->   Operation 21 'alloca' 'inByte4' <Predicate = true> <Delay = 0.00> <CoreInst = "FIFO_SRL">   --->   Core 81 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.35> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 8> <Depth = 64> <FIFO>
+ST_1 : Operation 22 [1/1] (0.00ns)   --->   "%inByte5 = alloca i64 1" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:638]   --->   Operation 22 'alloca' 'inByte5' <Predicate = true> <Delay = 0.00> <CoreInst = "FIFO_SRL">   --->   Core 81 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.35> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 8> <Depth = 64> <FIFO>
+ST_1 : Operation 23 [1/1] (0.00ns)   --->   "%inByte6 = alloca i64 1" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:639]   --->   Operation 23 'alloca' 'inByte6' <Predicate = true> <Delay = 0.00> <CoreInst = "FIFO_SRL">   --->   Core 81 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.35> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 8> <Depth = 64> <FIFO>
+ST_1 : Operation 24 [1/1] (0.00ns)   --->   "%inByte7 = alloca i64 1" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:640]   --->   Operation 24 'alloca' 'inByte7' <Predicate = true> <Delay = 0.00> <CoreInst = "FIFO_SRL">   --->   Core 81 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.35> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 8> <Depth = 64> <FIFO>
+ST_1 : Operation 25 [1/1] (0.00ns)   --->   "%inByte8 = alloca i64 1" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:642]   --->   Operation 25 'alloca' 'inByte8' <Predicate = true> <Delay = 0.00> <CoreInst = "FIFO_SRL">   --->   Core 81 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.35> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 8> <Depth = 64> <FIFO>
+ST_1 : Operation 26 [1/1] (0.00ns)   --->   "%inByte9 = alloca i64 1" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:643]   --->   Operation 26 'alloca' 'inByte9' <Predicate = true> <Delay = 0.00> <CoreInst = "FIFO_SRL">   --->   Core 81 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.35> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 8> <Depth = 64> <FIFO>
+ST_1 : Operation 27 [1/1] (0.00ns)   --->   "%inByte10 = alloca i64 1" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:644]   --->   Operation 27 'alloca' 'inByte10' <Predicate = true> <Delay = 0.00> <CoreInst = "FIFO_SRL">   --->   Core 81 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.35> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 8> <Depth = 64> <FIFO>
+ST_1 : Operation 28 [1/1] (0.00ns)   --->   "%inByte11 = alloca i64 1" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:645]   --->   Operation 28 'alloca' 'inByte11' <Predicate = true> <Delay = 0.00> <CoreInst = "FIFO_SRL">   --->   Core 81 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.35> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 8> <Depth = 64> <FIFO>
+ST_1 : Operation 29 [1/1] (0.00ns)   --->   "%inByte12 = alloca i64 1" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:647]   --->   Operation 29 'alloca' 'inByte12' <Predicate = true> <Delay = 0.00> <CoreInst = "FIFO_SRL">   --->   Core 81 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.35> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 8> <Depth = 64> <FIFO>
+ST_1 : Operation 30 [1/1] (0.00ns)   --->   "%inByte13 = alloca i64 1" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:648]   --->   Operation 30 'alloca' 'inByte13' <Predicate = true> <Delay = 0.00> <CoreInst = "FIFO_SRL">   --->   Core 81 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.35> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 8> <Depth = 64> <FIFO>
+ST_1 : Operation 31 [1/1] (0.00ns)   --->   "%inByte14 = alloca i64 1" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:649]   --->   Operation 31 'alloca' 'inByte14' <Predicate = true> <Delay = 0.00> <CoreInst = "FIFO_SRL">   --->   Core 81 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.35> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 8> <Depth = 64> <FIFO>
+ST_1 : Operation 32 [1/1] (0.00ns)   --->   "%inByte15 = alloca i64 1" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:650]   --->   Operation 32 'alloca' 'inByte15' <Predicate = true> <Delay = 0.00> <CoreInst = "FIFO_SRL">   --->   Core 81 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.35> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 8> <Depth = 64> <FIFO>
+ST_1 : Operation 33 [1/1] (0.00ns)   --->   "%outStream = alloca i64 1" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:668]   --->   Operation 33 'alloca' 'outStream' <Predicate = true> <Delay = 0.00> <CoreInst = "FIFO">   --->   Core 78 'FIFO' <Latency = 0> <II = 1> <Delay = 1.31> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 32> <Depth = 64> <FIFO>
+ST_1 : Operation 34 [1/1] (0.00ns)   --->   "%crcTables = alloca i64 1"   --->   Operation 34 'alloca' 'crcTables' <Predicate = true> <Delay = 0.00> <CoreInst = "RAM_1P_BRAM">   --->   Core 90 'RAM_1P_BRAM' <Latency = 1> <II = 1> <Delay = 1.19> <Storage> <Opcode : 'load' 'store'> <Ports = 1> <Width = 32> <Depth = 256> <RAM>
+ST_1 : Operation 35 [1/1] (0.00ns)   --->   "%crcTables_1 = alloca i64 1"   --->   Operation 35 'alloca' 'crcTables_1' <Predicate = true> <Delay = 0.00> <CoreInst = "RAM_1P_BRAM">   --->   Core 90 'RAM_1P_BRAM' <Latency = 1> <II = 1> <Delay = 1.19> <Storage> <Opcode : 'load' 'store'> <Ports = 1> <Width = 32> <Depth = 256> <RAM>
+ST_1 : Operation 36 [1/1] (0.00ns)   --->   "%crcTables_2 = alloca i64 1"   --->   Operation 36 'alloca' 'crcTables_2' <Predicate = true> <Delay = 0.00> <CoreInst = "RAM_1P_BRAM">   --->   Core 90 'RAM_1P_BRAM' <Latency = 1> <II = 1> <Delay = 1.19> <Storage> <Opcode : 'load' 'store'> <Ports = 1> <Width = 32> <Depth = 256> <RAM>
+ST_1 : Operation 37 [1/1] (0.00ns)   --->   "%crcTables_3 = alloca i64 1"   --->   Operation 37 'alloca' 'crcTables_3' <Predicate = true> <Delay = 0.00> <CoreInst = "RAM_1P_BRAM">   --->   Core 90 'RAM_1P_BRAM' <Latency = 1> <II = 1> <Delay = 1.19> <Storage> <Opcode : 'load' 'store'> <Ports = 1> <Width = 32> <Depth = 256> <RAM>
+ST_1 : Operation 38 [1/1] (0.00ns)   --->   "%crcTables_4 = alloca i64 1"   --->   Operation 38 'alloca' 'crcTables_4' <Predicate = true> <Delay = 0.00> <CoreInst = "RAM_1P_BRAM">   --->   Core 90 'RAM_1P_BRAM' <Latency = 1> <II = 1> <Delay = 1.19> <Storage> <Opcode : 'load' 'store'> <Ports = 1> <Width = 32> <Depth = 256> <RAM>
+ST_1 : Operation 39 [1/1] (0.00ns)   --->   "%crcTables_5 = alloca i64 1"   --->   Operation 39 'alloca' 'crcTables_5' <Predicate = true> <Delay = 0.00> <CoreInst = "RAM_1P_BRAM">   --->   Core 90 'RAM_1P_BRAM' <Latency = 1> <II = 1> <Delay = 1.19> <Storage> <Opcode : 'load' 'store'> <Ports = 1> <Width = 32> <Depth = 256> <RAM>
+ST_1 : Operation 40 [1/1] (0.00ns)   --->   "%crcTables_6 = alloca i64 1"   --->   Operation 40 'alloca' 'crcTables_6' <Predicate = true> <Delay = 0.00> <CoreInst = "RAM_1P_BRAM">   --->   Core 90 'RAM_1P_BRAM' <Latency = 1> <II = 1> <Delay = 1.19> <Storage> <Opcode : 'load' 'store'> <Ports = 1> <Width = 32> <Depth = 256> <RAM>
+ST_1 : Operation 41 [1/1] (0.00ns)   --->   "%crcTables_7 = alloca i64 1"   --->   Operation 41 'alloca' 'crcTables_7' <Predicate = true> <Delay = 0.00> <CoreInst = "RAM_1P_BRAM">   --->   Core 90 'RAM_1P_BRAM' <Latency = 1> <II = 1> <Delay = 1.19> <Storage> <Opcode : 'load' 'store'> <Ports = 1> <Width = 32> <Depth = 256> <RAM>
+ST_1 : Operation 42 [1/1] (0.00ns)   --->   "%crcTables_8 = alloca i64 1"   --->   Operation 42 'alloca' 'crcTables_8' <Predicate = true> <Delay = 0.00> <CoreInst = "RAM_1P_BRAM">   --->   Core 90 'RAM_1P_BRAM' <Latency = 1> <II = 1> <Delay = 1.19> <Storage> <Opcode : 'load' 'store'> <Ports = 1> <Width = 32> <Depth = 256> <RAM>
+ST_1 : Operation 43 [1/1] (0.00ns)   --->   "%crcTables_9 = alloca i64 1"   --->   Operation 43 'alloca' 'crcTables_9' <Predicate = true> <Delay = 0.00> <CoreInst = "RAM_1P_BRAM">   --->   Core 90 'RAM_1P_BRAM' <Latency = 1> <II = 1> <Delay = 1.19> <Storage> <Opcode : 'load' 'store'> <Ports = 1> <Width = 32> <Depth = 256> <RAM>
+ST_1 : Operation 44 [1/1] (0.00ns)   --->   "%crcTables_10 = alloca i64 1"   --->   Operation 44 'alloca' 'crcTables_10' <Predicate = true> <Delay = 0.00> <CoreInst = "RAM_1P_BRAM">   --->   Core 90 'RAM_1P_BRAM' <Latency = 1> <II = 1> <Delay = 1.19> <Storage> <Opcode : 'load' 'store'> <Ports = 1> <Width = 32> <Depth = 256> <RAM>
+ST_1 : Operation 45 [1/1] (0.00ns)   --->   "%crcTables_11 = alloca i64 1"   --->   Operation 45 'alloca' 'crcTables_11' <Predicate = true> <Delay = 0.00> <CoreInst = "RAM_1P_BRAM">   --->   Core 90 'RAM_1P_BRAM' <Latency = 1> <II = 1> <Delay = 1.19> <Storage> <Opcode : 'load' 'store'> <Ports = 1> <Width = 32> <Depth = 256> <RAM>
+ST_1 : Operation 46 [1/1] (0.00ns)   --->   "%crcTables_12 = alloca i64 1"   --->   Operation 46 'alloca' 'crcTables_12' <Predicate = true> <Delay = 0.00> <CoreInst = "RAM_1P_BRAM">   --->   Core 90 'RAM_1P_BRAM' <Latency = 1> <II = 1> <Delay = 1.19> <Storage> <Opcode : 'load' 'store'> <Ports = 1> <Width = 32> <Depth = 256> <RAM>
+ST_1 : Operation 47 [1/1] (0.00ns)   --->   "%crcTables_13 = alloca i64 1"   --->   Operation 47 'alloca' 'crcTables_13' <Predicate = true> <Delay = 0.00> <CoreInst = "RAM_1P_BRAM">   --->   Core 90 'RAM_1P_BRAM' <Latency = 1> <II = 1> <Delay = 1.19> <Storage> <Opcode : 'load' 'store'> <Ports = 1> <Width = 32> <Depth = 256> <RAM>
+ST_1 : Operation 48 [1/1] (0.00ns)   --->   "%crcTables_14 = alloca i64 1"   --->   Operation 48 'alloca' 'crcTables_14' <Predicate = true> <Delay = 0.00> <CoreInst = "RAM_1P_BRAM">   --->   Core 90 'RAM_1P_BRAM' <Latency = 1> <II = 1> <Delay = 1.19> <Storage> <Opcode : 'load' 'store'> <Ports = 1> <Width = 32> <Depth = 256> <RAM>
+ST_1 : Operation 49 [1/1] (0.00ns)   --->   "%crcTables_15 = alloca i64 1"   --->   Operation 49 'alloca' 'crcTables_15' <Predicate = true> <Delay = 0.00> <CoreInst = "RAM_1P_BRAM">   --->   Core 90 'RAM_1P_BRAM' <Latency = 1> <II = 1> <Delay = 1.19> <Storage> <Opcode : 'load' 'store'> <Ports = 1> <Width = 32> <Depth = 256> <RAM>
+ST_1 : Operation 50 [2/2] (2.43ns)   --->   "%call_ln685 = call void @process_crc_Loop_init_lut_proc, i64 %tables_read, i512 %gmem1, i32 %crcTables_15, i32 %crcTables_14, i32 %crcTables_13, i32 %crcTables_12, i32 %crcTables_11, i32 %crcTables_10, i32 %crcTables_9, i32 %crcTables_8, i32 %crcTables_7, i32 %crcTables_6, i32 %crcTables_5, i32 %crcTables_4, i32 %crcTables_3, i32 %crcTables_2, i32 %crcTables_1, i32 %crcTables" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:685]   --->   Operation 50 'call' 'call_ln685' <Predicate = true> <Delay = 2.43> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_1 : Operation 51 [2/2] (2.43ns)   --->   "%call_ln686 = call void @read_input, i128 %gmem0, i64 %data_in_read, i8 %inByte0, i8 %inByte1, i8 %inByte2, i8 %inByte3, i8 %inByte4, i8 %inByte5, i8 %inByte6, i8 %inByte7, i8 %inByte8, i8 %inByte9, i8 %inByte10, i8 %inByte11, i8 %inByte12, i8 %inByte13, i8 %inByte14, i8 %inByte15, i32 %numChunks_read, i32 %chunkSize_read, i32 %numChunks_c12, i32 %chunkSize_c" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:686]   --->   Operation 51 'call' 'call_ln686' <Predicate = true> <Delay = 2.43> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+
+State 2 <SV = 1> <Delay = 1.21>
+ST_2 : Operation 52 [1/1] (0.00ns)   --->   "%init_value_read = read i32 @_ssdm_op_Read.ap_auto.i32, i32 %init_value" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:685]   --->   Operation 52 'read' 'init_value_read' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 53 [1/1] (0.00ns)   --->   "%crc_size_read = read i32 @_ssdm_op_Read.ap_auto.i32, i32 %crc_size" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:685]   --->   Operation 53 'read' 'crc_size_read' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 54 [1/1] (0.00ns)   --->   "%crc_out_read = read i64 @_ssdm_op_Read.ap_auto.i64, i64 %crc_out" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:685]   --->   Operation 54 'read' 'crc_out_read' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 55 [1/1] (1.21ns)   --->   "%call_ln685 = call void @entry_proc, i64 %crc_out_read, i64 %crc_out_c, i32 %crc_size_read, i32 %crc_size_c, i32 %init_value_read, i32 %init_value_c" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:685]   --->   Operation 55 'call' 'call_ln685' <Predicate = true> <Delay = 1.21> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_2 : Operation 56 [1/2] (0.00ns)   --->   "%call_ln685 = call void @process_crc_Loop_init_lut_proc, i64 %tables_read, i512 %gmem1, i32 %crcTables_15, i32 %crcTables_14, i32 %crcTables_13, i32 %crcTables_12, i32 %crcTables_11, i32 %crcTables_10, i32 %crcTables_9, i32 %crcTables_8, i32 %crcTables_7, i32 %crcTables_6, i32 %crcTables_5, i32 %crcTables_4, i32 %crcTables_3, i32 %crcTables_2, i32 %crcTables_1, i32 %crcTables" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:685]   --->   Operation 56 'call' 'call_ln685' <Predicate = true> <Delay = 0.00> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_2 : Operation 57 [1/2] (0.00ns)   --->   "%call_ln686 = call void @read_input, i128 %gmem0, i64 %data_in_read, i8 %inByte0, i8 %inByte1, i8 %inByte2, i8 %inByte3, i8 %inByte4, i8 %inByte5, i8 %inByte6, i8 %inByte7, i8 %inByte8, i8 %inByte9, i8 %inByte10, i8 %inByte11, i8 %inByte12, i8 %inByte13, i8 %inByte14, i8 %inByte15, i32 %numChunks_read, i32 %chunkSize_read, i32 %numChunks_c12, i32 %chunkSize_c" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:686]   --->   Operation 57 'call' 'call_ln686' <Predicate = true> <Delay = 0.00> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+
+State 3 <SV = 2> <Delay = 0.00>
+ST_3 : Operation 58 [2/2] (0.00ns)   --->   "%call_ln689 = call void @process_blocks, i32 %crcTables, i32 %crcTables_1, i32 %crcTables_2, i32 %crcTables_3, i32 %crcTables_4, i32 %crcTables_5, i32 %crcTables_6, i32 %crcTables_7, i32 %crcTables_8, i32 %crcTables_9, i32 %crcTables_10, i32 %crcTables_11, i32 %crcTables_12, i32 %crcTables_13, i32 %crcTables_14, i32 %crcTables_15, i8 %inByte0, i8 %inByte1, i8 %inByte2, i8 %inByte3, i8 %inByte4, i8 %inByte5, i8 %inByte6, i8 %inByte7, i8 %inByte8, i8 %inByte9, i8 %inByte10, i8 %inByte11, i8 %inByte12, i8 %inByte13, i8 %inByte14, i8 %inByte15, i32 %crc_size_c, i32 %init_value_c, i32 %outStream, i32 %numChunks_c12, i32 %chunkSize_c, i32 %numChunks_c" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:689]   --->   Operation 58 'call' 'call_ln689' <Predicate = true> <Delay = 0.00> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+
+State 4 <SV = 3> <Delay = 0.00>
+ST_4 : Operation 59 [1/2] (0.00ns)   --->   "%call_ln689 = call void @process_blocks, i32 %crcTables, i32 %crcTables_1, i32 %crcTables_2, i32 %crcTables_3, i32 %crcTables_4, i32 %crcTables_5, i32 %crcTables_6, i32 %crcTables_7, i32 %crcTables_8, i32 %crcTables_9, i32 %crcTables_10, i32 %crcTables_11, i32 %crcTables_12, i32 %crcTables_13, i32 %crcTables_14, i32 %crcTables_15, i8 %inByte0, i8 %inByte1, i8 %inByte2, i8 %inByte3, i8 %inByte4, i8 %inByte5, i8 %inByte6, i8 %inByte7, i8 %inByte8, i8 %inByte9, i8 %inByte10, i8 %inByte11, i8 %inByte12, i8 %inByte13, i8 %inByte14, i8 %inByte15, i32 %crc_size_c, i32 %init_value_c, i32 %outStream, i32 %numChunks_c12, i32 %chunkSize_c, i32 %numChunks_c" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:689]   --->   Operation 59 'call' 'call_ln689' <Predicate = true> <Delay = 0.00> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+
+State 5 <SV = 4> <Delay = 0.00>
+ST_5 : Operation 60 [2/2] (0.00ns)   --->   "%call_ln692 = call void @write_output, i32 %outStream, i32 %numChunks_c, i128 %gmem0, i64 %crc_out_c" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:692]   --->   Operation 60 'call' 'call_ln692' <Predicate = true> <Delay = 0.00> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+
+State 6 <SV = 5> <Delay = 0.00>
+ST_6 : Operation 61 [1/1] (0.00ns)   --->   "%empty = specchannel i32 @_ssdm_op_SpecChannel, void @init_value_c_str, i32 1, void @p_str, void @p_str, i32 3, i32 0, i32 %init_value_c, i32 %init_value_c" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:685]   --->   Operation 61 'specchannel' 'empty' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 62 [1/1] (0.00ns)   --->   "%specinterface_ln685 = specinterface void @_ssdm_op_SpecInterface, i32 %init_value_c, void @ap_fifo_str, i32 0, i32 0, void @p_str, i32 0, i32 0, void @p_str, void @p_str, void @p_str, i32 2, i32 2, i32 16, i32 16, void @p_str, void @p_str, i32 4294967295, i32 0" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:685]   --->   Operation 62 'specinterface' 'specinterface_ln685' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 63 [1/1] (0.00ns)   --->   "%empty_42 = specchannel i32 @_ssdm_op_SpecChannel, void @crc_size_c_str, i32 1, void @p_str, void @p_str, i32 3, i32 0, i32 %crc_size_c, i32 %crc_size_c" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:685]   --->   Operation 63 'specchannel' 'empty_42' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 64 [1/1] (0.00ns)   --->   "%specinterface_ln685 = specinterface void @_ssdm_op_SpecInterface, i32 %crc_size_c, void @ap_fifo_str, i32 0, i32 0, void @p_str, i32 0, i32 0, void @p_str, void @p_str, void @p_str, i32 2, i32 2, i32 16, i32 16, void @p_str, void @p_str, i32 4294967295, i32 0" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:685]   --->   Operation 64 'specinterface' 'specinterface_ln685' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 65 [1/1] (0.00ns)   --->   "%empty_43 = specchannel i32 @_ssdm_op_SpecChannel, void @chunkSize_c_str, i32 1, void @p_str, void @p_str, i32 2, i32 0, i32 %chunkSize_c, i32 %chunkSize_c" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:685]   --->   Operation 65 'specchannel' 'empty_43' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 66 [1/1] (0.00ns)   --->   "%specinterface_ln685 = specinterface void @_ssdm_op_SpecInterface, i32 %chunkSize_c, void @ap_fifo_str, i32 0, i32 0, void @p_str, i32 0, i32 0, void @p_str, void @p_str, void @p_str, i32 2, i32 2, i32 16, i32 16, void @p_str, void @p_str, i32 4294967295, i32 0" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:685]   --->   Operation 66 'specinterface' 'specinterface_ln685' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 67 [1/1] (0.00ns)   --->   "%empty_44 = specchannel i32 @_ssdm_op_SpecChannel, void @numChunks_c12_str, i32 1, void @p_str, void @p_str, i32 2, i32 0, i32 %numChunks_c12, i32 %numChunks_c12" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:685]   --->   Operation 67 'specchannel' 'empty_44' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 68 [1/1] (0.00ns)   --->   "%specinterface_ln685 = specinterface void @_ssdm_op_SpecInterface, i32 %numChunks_c12, void @ap_fifo_str, i32 0, i32 0, void @p_str, i32 0, i32 0, void @p_str, void @p_str, void @p_str, i32 2, i32 2, i32 16, i32 16, void @p_str, void @p_str, i32 4294967295, i32 0" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:685]   --->   Operation 68 'specinterface' 'specinterface_ln685' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 69 [1/1] (0.00ns)   --->   "%empty_45 = specchannel i32 @_ssdm_op_SpecChannel, void @numChunks_c_str, i32 1, void @p_str, void @p_str, i32 2, i32 0, i32 %numChunks_c, i32 %numChunks_c" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:685]   --->   Operation 69 'specchannel' 'empty_45' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 70 [1/1] (0.00ns)   --->   "%specinterface_ln685 = specinterface void @_ssdm_op_SpecInterface, i32 %numChunks_c, void @ap_fifo_str, i32 0, i32 0, void @p_str, i32 0, i32 0, void @p_str, void @p_str, void @p_str, i32 2, i32 2, i32 16, i32 16, void @p_str, void @p_str, i32 4294967295, i32 0" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:685]   --->   Operation 70 'specinterface' 'specinterface_ln685' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 71 [1/1] (0.00ns)   --->   "%empty_46 = specchannel i32 @_ssdm_op_SpecChannel, void @crc_out_c_str, i32 1, void @p_str, void @p_str, i32 4, i32 0, i64 %crc_out_c, i64 %crc_out_c" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:685]   --->   Operation 71 'specchannel' 'empty_46' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 72 [1/1] (0.00ns)   --->   "%specinterface_ln685 = specinterface void @_ssdm_op_SpecInterface, i64 %crc_out_c, void @ap_fifo_str, i32 0, i32 0, void @p_str, i32 0, i32 0, void @p_str, void @p_str, void @p_str, i32 2, i32 2, i32 16, i32 16, void @p_str, void @p_str, i32 4294967295, i32 0" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:685]   --->   Operation 72 'specinterface' 'specinterface_ln685' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 73 [1/1] (0.00ns)   --->   "%specdataflowpipeline_ln685 = specdataflowpipeline void @_ssdm_op_SpecDataflowPipeline, i32 4294967295, i32 0, void @empty_18" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:685]   --->   Operation 73 'specdataflowpipeline' 'specdataflowpipeline_ln685' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 74 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i512 %gmem1, void @empty_17, i32 0, i32 0, void @empty_18, i32 64, i32 4096, void @empty_20, void @empty_4, void @empty_18, i32 16, i32 16, i32 16, i32 16, void @empty_18, void @empty_18, i32 4294967295, i32 0"   --->   Operation 74 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 75 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i128 %gmem0, void @empty_17, i32 0, i32 0, void @empty_18, i32 64, i32 1024, void @empty_19, void @empty_4, void @empty_18, i32 16, i32 16, i32 16, i32 16, void @empty_18, void @empty_18, i32 4294967295, i32 0"   --->   Operation 75 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 76 [1/1] (0.00ns)   --->   "%empty_47 = specchannel i32 @_ssdm_op_SpecChannel, void @inByte0_str, i32 1, void @p_str, void @p_str, i32 64, i32 64, i8 %inByte0, i8 %inByte0"   --->   Operation 76 'specchannel' 'empty_47' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 77 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i8 %inByte0, void @empty_5, i32 0, i32 0, void @empty_18, i32 0, i32 0, void @empty_18, void @empty_18, void @empty_18, i32 0, i32 0, i32 0, i32 0, void @empty_18, void @empty_18, i32 4294967295, i32 0"   --->   Operation 77 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 78 [1/1] (0.00ns)   --->   "%empty_48 = specchannel i32 @_ssdm_op_SpecChannel, void @inByte1_str, i32 1, void @p_str, void @p_str, i32 64, i32 64, i8 %inByte1, i8 %inByte1"   --->   Operation 78 'specchannel' 'empty_48' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 79 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i8 %inByte1, void @empty_5, i32 0, i32 0, void @empty_18, i32 0, i32 0, void @empty_18, void @empty_18, void @empty_18, i32 0, i32 0, i32 0, i32 0, void @empty_18, void @empty_18, i32 4294967295, i32 0"   --->   Operation 79 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 80 [1/1] (0.00ns)   --->   "%empty_49 = specchannel i32 @_ssdm_op_SpecChannel, void @inByte2_str, i32 1, void @p_str, void @p_str, i32 64, i32 64, i8 %inByte2, i8 %inByte2"   --->   Operation 80 'specchannel' 'empty_49' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 81 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i8 %inByte2, void @empty_5, i32 0, i32 0, void @empty_18, i32 0, i32 0, void @empty_18, void @empty_18, void @empty_18, i32 0, i32 0, i32 0, i32 0, void @empty_18, void @empty_18, i32 4294967295, i32 0"   --->   Operation 81 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 82 [1/1] (0.00ns)   --->   "%empty_50 = specchannel i32 @_ssdm_op_SpecChannel, void @inByte3_str, i32 1, void @p_str, void @p_str, i32 64, i32 64, i8 %inByte3, i8 %inByte3"   --->   Operation 82 'specchannel' 'empty_50' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 83 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i8 %inByte3, void @empty_5, i32 0, i32 0, void @empty_18, i32 0, i32 0, void @empty_18, void @empty_18, void @empty_18, i32 0, i32 0, i32 0, i32 0, void @empty_18, void @empty_18, i32 4294967295, i32 0"   --->   Operation 83 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 84 [1/1] (0.00ns)   --->   "%empty_51 = specchannel i32 @_ssdm_op_SpecChannel, void @inByte4_str, i32 1, void @p_str, void @p_str, i32 64, i32 64, i8 %inByte4, i8 %inByte4"   --->   Operation 84 'specchannel' 'empty_51' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 85 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i8 %inByte4, void @empty_5, i32 0, i32 0, void @empty_18, i32 0, i32 0, void @empty_18, void @empty_18, void @empty_18, i32 0, i32 0, i32 0, i32 0, void @empty_18, void @empty_18, i32 4294967295, i32 0"   --->   Operation 85 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 86 [1/1] (0.00ns)   --->   "%empty_52 = specchannel i32 @_ssdm_op_SpecChannel, void @inByte5_str, i32 1, void @p_str, void @p_str, i32 64, i32 64, i8 %inByte5, i8 %inByte5"   --->   Operation 86 'specchannel' 'empty_52' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 87 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i8 %inByte5, void @empty_5, i32 0, i32 0, void @empty_18, i32 0, i32 0, void @empty_18, void @empty_18, void @empty_18, i32 0, i32 0, i32 0, i32 0, void @empty_18, void @empty_18, i32 4294967295, i32 0"   --->   Operation 87 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 88 [1/1] (0.00ns)   --->   "%empty_53 = specchannel i32 @_ssdm_op_SpecChannel, void @inByte6_str, i32 1, void @p_str, void @p_str, i32 64, i32 64, i8 %inByte6, i8 %inByte6"   --->   Operation 88 'specchannel' 'empty_53' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 89 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i8 %inByte6, void @empty_5, i32 0, i32 0, void @empty_18, i32 0, i32 0, void @empty_18, void @empty_18, void @empty_18, i32 0, i32 0, i32 0, i32 0, void @empty_18, void @empty_18, i32 4294967295, i32 0"   --->   Operation 89 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 90 [1/1] (0.00ns)   --->   "%empty_54 = specchannel i32 @_ssdm_op_SpecChannel, void @inByte7_str, i32 1, void @p_str, void @p_str, i32 64, i32 64, i8 %inByte7, i8 %inByte7"   --->   Operation 90 'specchannel' 'empty_54' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 91 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i8 %inByte7, void @empty_5, i32 0, i32 0, void @empty_18, i32 0, i32 0, void @empty_18, void @empty_18, void @empty_18, i32 0, i32 0, i32 0, i32 0, void @empty_18, void @empty_18, i32 4294967295, i32 0"   --->   Operation 91 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 92 [1/1] (0.00ns)   --->   "%empty_55 = specchannel i32 @_ssdm_op_SpecChannel, void @inByte8_str, i32 1, void @p_str, void @p_str, i32 64, i32 64, i8 %inByte8, i8 %inByte8"   --->   Operation 92 'specchannel' 'empty_55' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 93 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i8 %inByte8, void @empty_5, i32 0, i32 0, void @empty_18, i32 0, i32 0, void @empty_18, void @empty_18, void @empty_18, i32 0, i32 0, i32 0, i32 0, void @empty_18, void @empty_18, i32 4294967295, i32 0"   --->   Operation 93 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 94 [1/1] (0.00ns)   --->   "%empty_56 = specchannel i32 @_ssdm_op_SpecChannel, void @inByte9_str, i32 1, void @p_str, void @p_str, i32 64, i32 64, i8 %inByte9, i8 %inByte9"   --->   Operation 94 'specchannel' 'empty_56' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 95 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i8 %inByte9, void @empty_5, i32 0, i32 0, void @empty_18, i32 0, i32 0, void @empty_18, void @empty_18, void @empty_18, i32 0, i32 0, i32 0, i32 0, void @empty_18, void @empty_18, i32 4294967295, i32 0"   --->   Operation 95 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 96 [1/1] (0.00ns)   --->   "%empty_57 = specchannel i32 @_ssdm_op_SpecChannel, void @inByte10_str, i32 1, void @p_str, void @p_str, i32 64, i32 64, i8 %inByte10, i8 %inByte10"   --->   Operation 96 'specchannel' 'empty_57' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 97 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i8 %inByte10, void @empty_5, i32 0, i32 0, void @empty_18, i32 0, i32 0, void @empty_18, void @empty_18, void @empty_18, i32 0, i32 0, i32 0, i32 0, void @empty_18, void @empty_18, i32 4294967295, i32 0"   --->   Operation 97 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 98 [1/1] (0.00ns)   --->   "%empty_58 = specchannel i32 @_ssdm_op_SpecChannel, void @inByte11_str, i32 1, void @p_str, void @p_str, i32 64, i32 64, i8 %inByte11, i8 %inByte11"   --->   Operation 98 'specchannel' 'empty_58' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 99 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i8 %inByte11, void @empty_5, i32 0, i32 0, void @empty_18, i32 0, i32 0, void @empty_18, void @empty_18, void @empty_18, i32 0, i32 0, i32 0, i32 0, void @empty_18, void @empty_18, i32 4294967295, i32 0"   --->   Operation 99 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 100 [1/1] (0.00ns)   --->   "%empty_59 = specchannel i32 @_ssdm_op_SpecChannel, void @inByte12_str, i32 1, void @p_str, void @p_str, i32 64, i32 64, i8 %inByte12, i8 %inByte12"   --->   Operation 100 'specchannel' 'empty_59' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 101 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i8 %inByte12, void @empty_5, i32 0, i32 0, void @empty_18, i32 0, i32 0, void @empty_18, void @empty_18, void @empty_18, i32 0, i32 0, i32 0, i32 0, void @empty_18, void @empty_18, i32 4294967295, i32 0"   --->   Operation 101 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 102 [1/1] (0.00ns)   --->   "%empty_60 = specchannel i32 @_ssdm_op_SpecChannel, void @inByte13_str, i32 1, void @p_str, void @p_str, i32 64, i32 64, i8 %inByte13, i8 %inByte13"   --->   Operation 102 'specchannel' 'empty_60' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 103 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i8 %inByte13, void @empty_5, i32 0, i32 0, void @empty_18, i32 0, i32 0, void @empty_18, void @empty_18, void @empty_18, i32 0, i32 0, i32 0, i32 0, void @empty_18, void @empty_18, i32 4294967295, i32 0"   --->   Operation 103 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 104 [1/1] (0.00ns)   --->   "%empty_61 = specchannel i32 @_ssdm_op_SpecChannel, void @inByte14_str, i32 1, void @p_str, void @p_str, i32 64, i32 64, i8 %inByte14, i8 %inByte14"   --->   Operation 104 'specchannel' 'empty_61' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 105 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i8 %inByte14, void @empty_5, i32 0, i32 0, void @empty_18, i32 0, i32 0, void @empty_18, void @empty_18, void @empty_18, i32 0, i32 0, i32 0, i32 0, void @empty_18, void @empty_18, i32 4294967295, i32 0"   --->   Operation 105 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 106 [1/1] (0.00ns)   --->   "%empty_62 = specchannel i32 @_ssdm_op_SpecChannel, void @inByte15_str, i32 1, void @p_str, void @p_str, i32 64, i32 64, i8 %inByte15, i8 %inByte15"   --->   Operation 106 'specchannel' 'empty_62' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 107 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i8 %inByte15, void @empty_5, i32 0, i32 0, void @empty_18, i32 0, i32 0, void @empty_18, void @empty_18, void @empty_18, i32 0, i32 0, i32 0, i32 0, void @empty_18, void @empty_18, i32 4294967295, i32 0"   --->   Operation 107 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 108 [1/1] (0.00ns)   --->   "%empty_63 = specchannel i32 @_ssdm_op_SpecChannel, void @outStream_str, i32 1, void @p_str, void @p_str, i32 64, i32 64, i32 %outStream, i32 %outStream"   --->   Operation 108 'specchannel' 'empty_63' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 109 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i32 %outStream, void @empty_5, i32 0, i32 0, void @empty_18, i32 0, i32 0, void @empty_18, void @empty_18, void @empty_18, i32 0, i32 0, i32 0, i32 0, void @empty_18, void @empty_18, i32 4294967295, i32 0"   --->   Operation 109 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 110 [1/1] (0.00ns)   --->   "%specmemcore_ln673 = specmemcore void @_ssdm_op_SpecMemCore, i32 %crcTables, i64 666, i64 18, i64 18446744073709551615" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:673]   --->   Operation 110 'specmemcore' 'specmemcore_ln673' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 111 [1/1] (0.00ns)   --->   "%specmemcore_ln689 = specmemcore void @_ssdm_op_SpecMemCore, i32 %crcTables, i64 666, i64 18, i64 18446744073709551615" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:689]   --->   Operation 111 'specmemcore' 'specmemcore_ln689' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 112 [1/1] (0.00ns)   --->   "%specmemcore_ln673 = specmemcore void @_ssdm_op_SpecMemCore, i32 %crcTables_1, i64 666, i64 18, i64 18446744073709551615" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:673]   --->   Operation 112 'specmemcore' 'specmemcore_ln673' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 113 [1/1] (0.00ns)   --->   "%specmemcore_ln689 = specmemcore void @_ssdm_op_SpecMemCore, i32 %crcTables_1, i64 666, i64 18, i64 18446744073709551615" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:689]   --->   Operation 113 'specmemcore' 'specmemcore_ln689' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 114 [1/1] (0.00ns)   --->   "%specmemcore_ln673 = specmemcore void @_ssdm_op_SpecMemCore, i32 %crcTables_2, i64 666, i64 18, i64 18446744073709551615" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:673]   --->   Operation 114 'specmemcore' 'specmemcore_ln673' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 115 [1/1] (0.00ns)   --->   "%specmemcore_ln689 = specmemcore void @_ssdm_op_SpecMemCore, i32 %crcTables_2, i64 666, i64 18, i64 18446744073709551615" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:689]   --->   Operation 115 'specmemcore' 'specmemcore_ln689' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 116 [1/1] (0.00ns)   --->   "%specmemcore_ln673 = specmemcore void @_ssdm_op_SpecMemCore, i32 %crcTables_3, i64 666, i64 18, i64 18446744073709551615" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:673]   --->   Operation 116 'specmemcore' 'specmemcore_ln673' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 117 [1/1] (0.00ns)   --->   "%specmemcore_ln689 = specmemcore void @_ssdm_op_SpecMemCore, i32 %crcTables_3, i64 666, i64 18, i64 18446744073709551615" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:689]   --->   Operation 117 'specmemcore' 'specmemcore_ln689' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 118 [1/1] (0.00ns)   --->   "%specmemcore_ln673 = specmemcore void @_ssdm_op_SpecMemCore, i32 %crcTables_4, i64 666, i64 18, i64 18446744073709551615" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:673]   --->   Operation 118 'specmemcore' 'specmemcore_ln673' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 119 [1/1] (0.00ns)   --->   "%specmemcore_ln689 = specmemcore void @_ssdm_op_SpecMemCore, i32 %crcTables_4, i64 666, i64 18, i64 18446744073709551615" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:689]   --->   Operation 119 'specmemcore' 'specmemcore_ln689' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 120 [1/1] (0.00ns)   --->   "%specmemcore_ln673 = specmemcore void @_ssdm_op_SpecMemCore, i32 %crcTables_5, i64 666, i64 18, i64 18446744073709551615" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:673]   --->   Operation 120 'specmemcore' 'specmemcore_ln673' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 121 [1/1] (0.00ns)   --->   "%specmemcore_ln689 = specmemcore void @_ssdm_op_SpecMemCore, i32 %crcTables_5, i64 666, i64 18, i64 18446744073709551615" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:689]   --->   Operation 121 'specmemcore' 'specmemcore_ln689' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 122 [1/1] (0.00ns)   --->   "%specmemcore_ln673 = specmemcore void @_ssdm_op_SpecMemCore, i32 %crcTables_6, i64 666, i64 18, i64 18446744073709551615" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:673]   --->   Operation 122 'specmemcore' 'specmemcore_ln673' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 123 [1/1] (0.00ns)   --->   "%specmemcore_ln689 = specmemcore void @_ssdm_op_SpecMemCore, i32 %crcTables_6, i64 666, i64 18, i64 18446744073709551615" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:689]   --->   Operation 123 'specmemcore' 'specmemcore_ln689' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 124 [1/1] (0.00ns)   --->   "%specmemcore_ln673 = specmemcore void @_ssdm_op_SpecMemCore, i32 %crcTables_7, i64 666, i64 18, i64 18446744073709551615" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:673]   --->   Operation 124 'specmemcore' 'specmemcore_ln673' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 125 [1/1] (0.00ns)   --->   "%specmemcore_ln689 = specmemcore void @_ssdm_op_SpecMemCore, i32 %crcTables_7, i64 666, i64 18, i64 18446744073709551615" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:689]   --->   Operation 125 'specmemcore' 'specmemcore_ln689' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 126 [1/1] (0.00ns)   --->   "%specmemcore_ln673 = specmemcore void @_ssdm_op_SpecMemCore, i32 %crcTables_8, i64 666, i64 18, i64 18446744073709551615" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:673]   --->   Operation 126 'specmemcore' 'specmemcore_ln673' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 127 [1/1] (0.00ns)   --->   "%specmemcore_ln689 = specmemcore void @_ssdm_op_SpecMemCore, i32 %crcTables_8, i64 666, i64 18, i64 18446744073709551615" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:689]   --->   Operation 127 'specmemcore' 'specmemcore_ln689' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 128 [1/1] (0.00ns)   --->   "%specmemcore_ln673 = specmemcore void @_ssdm_op_SpecMemCore, i32 %crcTables_9, i64 666, i64 18, i64 18446744073709551615" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:673]   --->   Operation 128 'specmemcore' 'specmemcore_ln673' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 129 [1/1] (0.00ns)   --->   "%specmemcore_ln689 = specmemcore void @_ssdm_op_SpecMemCore, i32 %crcTables_9, i64 666, i64 18, i64 18446744073709551615" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:689]   --->   Operation 129 'specmemcore' 'specmemcore_ln689' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 130 [1/1] (0.00ns)   --->   "%specmemcore_ln673 = specmemcore void @_ssdm_op_SpecMemCore, i32 %crcTables_10, i64 666, i64 18, i64 18446744073709551615" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:673]   --->   Operation 130 'specmemcore' 'specmemcore_ln673' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 131 [1/1] (0.00ns)   --->   "%specmemcore_ln689 = specmemcore void @_ssdm_op_SpecMemCore, i32 %crcTables_10, i64 666, i64 18, i64 18446744073709551615" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:689]   --->   Operation 131 'specmemcore' 'specmemcore_ln689' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 132 [1/1] (0.00ns)   --->   "%specmemcore_ln673 = specmemcore void @_ssdm_op_SpecMemCore, i32 %crcTables_11, i64 666, i64 18, i64 18446744073709551615" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:673]   --->   Operation 132 'specmemcore' 'specmemcore_ln673' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 133 [1/1] (0.00ns)   --->   "%specmemcore_ln689 = specmemcore void @_ssdm_op_SpecMemCore, i32 %crcTables_11, i64 666, i64 18, i64 18446744073709551615" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:689]   --->   Operation 133 'specmemcore' 'specmemcore_ln689' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 134 [1/1] (0.00ns)   --->   "%specmemcore_ln673 = specmemcore void @_ssdm_op_SpecMemCore, i32 %crcTables_12, i64 666, i64 18, i64 18446744073709551615" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:673]   --->   Operation 134 'specmemcore' 'specmemcore_ln673' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 135 [1/1] (0.00ns)   --->   "%specmemcore_ln689 = specmemcore void @_ssdm_op_SpecMemCore, i32 %crcTables_12, i64 666, i64 18, i64 18446744073709551615" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:689]   --->   Operation 135 'specmemcore' 'specmemcore_ln689' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 136 [1/1] (0.00ns)   --->   "%specmemcore_ln673 = specmemcore void @_ssdm_op_SpecMemCore, i32 %crcTables_13, i64 666, i64 18, i64 18446744073709551615" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:673]   --->   Operation 136 'specmemcore' 'specmemcore_ln673' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 137 [1/1] (0.00ns)   --->   "%specmemcore_ln689 = specmemcore void @_ssdm_op_SpecMemCore, i32 %crcTables_13, i64 666, i64 18, i64 18446744073709551615" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:689]   --->   Operation 137 'specmemcore' 'specmemcore_ln689' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 138 [1/1] (0.00ns)   --->   "%specmemcore_ln673 = specmemcore void @_ssdm_op_SpecMemCore, i32 %crcTables_14, i64 666, i64 18, i64 18446744073709551615" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:673]   --->   Operation 138 'specmemcore' 'specmemcore_ln673' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 139 [1/1] (0.00ns)   --->   "%specmemcore_ln689 = specmemcore void @_ssdm_op_SpecMemCore, i32 %crcTables_14, i64 666, i64 18, i64 18446744073709551615" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:689]   --->   Operation 139 'specmemcore' 'specmemcore_ln689' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 140 [1/1] (0.00ns)   --->   "%specmemcore_ln673 = specmemcore void @_ssdm_op_SpecMemCore, i32 %crcTables_15, i64 666, i64 18, i64 18446744073709551615" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:673]   --->   Operation 140 'specmemcore' 'specmemcore_ln673' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 141 [1/1] (0.00ns)   --->   "%specmemcore_ln689 = specmemcore void @_ssdm_op_SpecMemCore, i32 %crcTables_15, i64 666, i64 18, i64 18446744073709551615" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:689]   --->   Operation 141 'specmemcore' 'specmemcore_ln689' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 142 [1/2] (0.00ns)   --->   "%call_ln692 = call void @write_output, i32 %outStream, i32 %numChunks_c, i128 %gmem0, i64 %crc_out_c" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:692]   --->   Operation 142 'call' 'call_ln692' <Predicate = true> <Delay = 0.00> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_6 : Operation 143 [1/1] (0.00ns)   --->   "%ret_ln693 = ret" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:693]   --->   Operation 143 'ret' 'ret_ln693' <Predicate = true> <Delay = 0.00>
+
+
+============================================================
++ Verbose Summary: Timing violations
+============================================================
+Target clock period: 3.333ns, clock uncertainty: 0.900ns.
+
+ <State 1>: 2.433ns
+The critical path consists of the following:
+	wire read operation ('tables_read', /users/arashs/U280_CRC_Accelerator/src/kernel.cpp:685) on port 'tables' (/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:685) [14]  (0.000 ns)
+	'call' operation ('call_ln685', /users/arashs/U280_CRC_Accelerator/src/kernel.cpp:685) to 'process_crc_Loop_init_lut_proc' [138]  (2.433 ns)
+
+ <State 2>: 1.217ns
+The critical path consists of the following:
+	wire read operation ('init_value_read', /users/arashs/U280_CRC_Accelerator/src/kernel.cpp:685) on port 'init_value' (/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:685) [10]  (0.000 ns)
+	'call' operation ('call_ln685', /users/arashs/U280_CRC_Accelerator/src/kernel.cpp:685) to 'entry_proc' [137]  (1.217 ns)
+
+ <State 3>: 0.000ns
+The critical path consists of the following:
+
+ <State 4>: 0.000ns
+The critical path consists of the following:
+
+ <State 5>: 0.000ns
+The critical path consists of the following:
+
+ <State 6>: 0.000ns
+The critical path consists of the following:
+
+
+============================================================
++ Verbose Summary: Binding
+============================================================
+N/A
+* FSMD analyzer results:
+  - Output states:
+ - Input state : 
+  - Chain level:
+	State 1
+	State 2
+	State 3
+	State 4
+	State 5
+	State 6
+
+
+============================================================
++ Verbose Summary: Datapath Resource usage 
+============================================================
+N/A

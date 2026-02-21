@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="calculate_tcp_checksum" dir="">
+  <FileSets>
+    <FileSet Name="kernel_calculate_tcp_checksum" Type="DesignSrcs">
+      <File Path="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp"/>
+      <Config/>
+    </FileSet>
+  </FileSets>
+  <Runs/>
+</project>

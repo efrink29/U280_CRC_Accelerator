@@ -1,0 +1,33 @@
+Begin Function 'calculate_sha256_Pipeline_hash_write_digest'
+
+RTL state condition: (1'b1 == ap_CS_fsm_pp0_stage0)
+# ST_1
+local trunc_ln616 <trunc_733> <integer> <> 'trunc' </users/arashs/U280_CRC_Accelerator/src/kernel.cpp:616->/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:733>
+trunc_ln616 /users/arashs/U280_CRC_Accelerator/src/kernel.cpp:616
+trunc_ln616 /users/arashs/U280_CRC_Accelerator/src/kernel.cpp:733
+reg: trunc_ln616_reg_442[2:0] lv
+
+local icmp_ln616_1 <icmp_733> <integer> <Comparator> 'icmp' </users/arashs/U280_CRC_Accelerator/src/kernel.cpp:616->/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:733>
+icmp_ln616_1 /users/arashs/U280_CRC_Accelerator/src/kernel.cpp:616
+icmp_ln616_1 /users/arashs/U280_CRC_Accelerator/src/kernel.cpp:733
+reg: icmp_ln616_1_reg_447[0:0] lv
+
+local trunc_ln9 <partselect_733> <integer> <> 'partselect' </users/arashs/U280_CRC_Accelerator/src/kernel.cpp:621->/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:733>
+trunc_ln9 /users/arashs/U280_CRC_Accelerator/src/kernel.cpp:621
+trunc_ln9 /users/arashs/U280_CRC_Accelerator/src/kernel.cpp:733
+reg: trunc_ln9_reg_451[57:0] lv
+
+# ST_2
+local shl_ln621 <shl_733> <integer> <Shift> 'shl' </users/arashs/U280_CRC_Accelerator/src/kernel.cpp:621->/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:733>
+shl_ln621 /users/arashs/U280_CRC_Accelerator/src/kernel.cpp:621
+shl_ln621 /users/arashs/U280_CRC_Accelerator/src/kernel.cpp:733
+reg: shl_ln621_reg_456[63:0] lv
+
+local shl_ln621_1 <shl_733> <integer> <Shift> 'shl' </users/arashs/U280_CRC_Accelerator/src/kernel.cpp:621->/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:733>
+shl_ln621_1 /users/arashs/U280_CRC_Accelerator/src/kernel.cpp:621
+shl_ln621_1 /users/arashs/U280_CRC_Accelerator/src/kernel.cpp:733
+reg: shl_ln621_1_reg_461[511:0] lv
+
+
+End Function 'calculate_sha256_Pipeline_hash_write_digest'
+

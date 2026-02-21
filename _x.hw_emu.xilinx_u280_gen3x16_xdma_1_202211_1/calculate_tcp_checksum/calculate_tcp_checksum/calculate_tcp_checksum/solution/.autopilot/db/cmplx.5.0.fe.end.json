@@ -1,0 +1,83 @@
+{
+    "0": {
+        "name": "calculate_tcp_checksum",
+        "file": "kernel.cpp",
+        "fileloc": "714",
+        "instructions": "21",
+        "total_instructions": "513",
+        "calls": "3",
+        "basicblocks": "1"
+    },
+    "1": {
+        "name": "process_tcp_checksum_Pipeline_word_loop",
+        "file": "kernel.cpp",
+        "fileloc": "0",
+        "instructions": "57",
+        "total_instructions": "57",
+        "calls": "",
+        "basicblocks": "3",
+        "loads": {
+            "L": "2"
+        },
+        "stores": {
+            "L": "4"
+        },
+        "loops": {
+            "L": "1"
+        }
+    },
+    "2": {
+        "name": "process_tcp_checksum_Pipeline_tail_word_loop",
+        "file": "kernel.cpp",
+        "fileloc": "0",
+        "instructions": "57",
+        "total_instructions": "57",
+        "calls": "",
+        "basicblocks": "3",
+        "loads": {
+            "L": "2"
+        },
+        "stores": {
+            "L": "4"
+        },
+        "loops": {
+            "L": "1"
+        }
+    },
+    "3": {
+        "name": "process_tcp_checksum",
+        "file": "kernel.cpp",
+        "fileloc": "571",
+        "instructions": "162",
+        "total_instructions": "492",
+        "calls": "4 2 1",
+        "basicblocks": "15",
+        "loads": {
+            "L": "6"
+        },
+        "stores": {
+            "L": "4"
+        },
+        "loops": {
+            "L": "1"
+        }
+    },
+    "4": {
+        "name": "process_tcp_checksum_Pipeline_vec_word_loop",
+        "file": "kernel.cpp",
+        "fileloc": "0",
+        "instructions": "216",
+        "total_instructions": "216",
+        "calls": "",
+        "basicblocks": "4",
+        "loads": {
+            "L": "3"
+        },
+        "stores": {
+            "L": "4"
+        },
+        "loops": {
+            "L": "1"
+        }
+    }
+}

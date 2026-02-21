@@ -1,6 +1,6 @@
 <ENTRY>
 {
- "thisFile": "/home/efrink/Documents/Examples/Kernel_Tools/parallel_crc/build_dir.hw.xilinx_u280_gen3x16_xdma_1_202211_1/kernel.xclbin.package_summary",
+ "thisFile": "/users/arashs/U280_CRC_Accelerator/build_dir.hw.xilinx_u280_gen3x16_xdma_1_202211_1/kernel.xclbin.package_summary",
  "connectId": "",
  "serverToken": "",
  "timestamp": "0"
@@ -9,13 +9,13 @@
 <ENTRY>
 {
  "type": "ET_CmdStep",
- "dateTimestamp": "Mon Nov  3 22:05:18 2025",
- "timestampMillis": "1762207518946",
+ "dateTimestamp": "Fri Feb 20 16:49:16 2026",
+ "timestampMillis": "1771631356817",
  "buildStep": {
-  "cmdId": "539a3e48-8d78-4168-9210-fec81f813df3",
+  "cmdId": "34781213-b8cd-4d01-85ca-99ad6b2a08ea",
   "name": "v++",
-  "logFile": "/home/efrink/Documents/Examples/Kernel_Tools/parallel_crc/_x/package/package.steps.log",
-  "commandLine": "/tools/Xilinx/Vitis/2023.1/bin/unwrapped/lnx64.o/v++  --vivado.prop \"run.__KERNEL__.{STEPS.SYNTH_DESIGN.ARGS.MORE OPTIONS}={-directive sdx_optimization_effort_high}\" --advanced.misc \"report=type report_timing_summary name impl_report_timing_summary_route_design_summary steps {route_design} runs {impl_1} options {-max_paths 10}\" --advanced.misc \"report=type report_timing_summary name impl_report_timing_summary_post_route_phys_opt_design_summary steps {post_route_phys_opt_design} runs {impl_1} options {-max_paths 10}\" -p ./build_dir.hw.xilinx_u280_gen3x16_xdma_1_202211_1/kernel.link.xclbin --save-temps -t hw --platform /opt/xilinx/platforms/xilinx_u280_gen3x16_xdma_1_202211_1/xilinx_u280_gen3x16_xdma_1_202211_1.xpfm --package.out_dir ./package.hw -o ./build_dir.hw.xilinx_u280_gen3x16_xdma_1_202211_1/kernel.xclbin ",
+  "logFile": "/users/arashs/U280_CRC_Accelerator/_x/package/package.steps.log",
+  "commandLine": "/share/Xilinx/Vitis/2023.1/bin/unwrapped/lnx64.o/v++  --vivado.prop \"run.__KERNEL__.{STEPS.SYNTH_DESIGN.ARGS.MORE OPTIONS}={-directive sdx_optimization_effort_high}\" --advanced.misc \"report=type report_timing_summary name impl_report_timing_summary_route_design_summary steps {route_design} runs {impl_1} options {-max_paths 10}\" --advanced.misc \"report=type report_timing_summary name impl_report_timing_summary_post_route_phys_opt_design_summary steps {post_route_phys_opt_design} runs {impl_1} options {-max_paths 10}\" -p ./build_dir.hw.xilinx_u280_gen3x16_xdma_1_202211_1/kernel.link.xclbin --save-temps -t hw --platform xilinx_u280_gen3x16_xdma_1_202211_1 --package.out_dir ./package.hw -o ./build_dir.hw.xilinx_u280_gen3x16_xdma_1_202211_1/kernel.xclbin ",
   "args": [
    "-p",
    "./build_dir.hw.xilinx_u280_gen3x16_xdma_1_202211_1/kernel.link.xclbin",
@@ -23,24 +23,24 @@
    "-t",
    "hw",
    "--platform",
-   "/opt/xilinx/platforms/xilinx_u280_gen3x16_xdma_1_202211_1/xilinx_u280_gen3x16_xdma_1_202211_1.xpfm",
+   "xilinx_u280_gen3x16_xdma_1_202211_1",
    "--package.out_dir",
    "./package.hw",
    "-o",
    "./build_dir.hw.xilinx_u280_gen3x16_xdma_1_202211_1/kernel.xclbin"
   ],
   "iniFiles": [],
-  "cwd": "/home/efrink/Documents/Examples/Kernel_Tools/parallel_crc"
+  "cwd": "/users/arashs/U280_CRC_Accelerator"
  }
 }
 </ENTRY>
 <ENTRY>
 {
  "type": "ET_Status",
- "dateTimestamp": "Mon Nov  3 22:05:18 2025",
- "timestampMillis": "1762207518946",
+ "dateTimestamp": "Fri Feb 20 16:49:16 2026",
+ "timestampMillis": "1771631356818",
  "status": {
-  "cmdId": "539a3e48-8d78-4168-9210-fec81f813df3",
+  "cmdId": "34781213-b8cd-4d01-85ca-99ad6b2a08ea",
   "state": "CS_RUNNING"
  }
 }
@@ -48,8 +48,8 @@
 <ENTRY>
 {
  "type": "ET_FlowMetaData",
- "dateTimestamp": "Mon Nov  3 22:05:23 2025",
- "timestampMillis": "1762207523407",
+ "dateTimestamp": "Fri Feb 20 16:49:21 2026",
+ "timestampMillis": "1771631361332",
  "buildSummary": {
   "hardwarePlatform": "xilinx_u280_gen3x16_xdma_1_202211_1.xpfm",
   "hardwareDsa": "",
@@ -62,7 +62,7 @@
    "base": {
     "type": "BT_UKNOWN",
     "name": "kernel",
-    "file": "/home/efrink/Documents/Examples/Kernel_Tools/parallel_crc/build_dir.hw.xilinx_u280_gen3x16_xdma_1_202211_1/kernel.xclbin",
+    "file": "/users/arashs/U280_CRC_Accelerator/build_dir.hw.xilinx_u280_gen3x16_xdma_1_202211_1/kernel.xclbin",
     "reports": [],
     "uuid": ""
    },
@@ -74,9 +74,9 @@
    "base": {
     "type": "BT_UKNOWN",
     "name": "kernel.link",
-    "file": "/home/efrink/Documents/Examples/Kernel_Tools/parallel_crc/build_dir.hw.xilinx_u280_gen3x16_xdma_1_202211_1/kernel.link.xclbin",
+    "file": "/users/arashs/U280_CRC_Accelerator/build_dir.hw.xilinx_u280_gen3x16_xdma_1_202211_1/kernel.link.xclbin",
     "reports": [],
-    "uuid": "dd633cbb-ddab-4097-9733-b1a2c3960072"
+    "uuid": "f5fcf41e-c4b7-484c-ad71-b7b9165e229d"
    },
    "kernels": []
   }
@@ -86,10 +86,10 @@
 <ENTRY>
 {
  "type": "ET_Status",
- "dateTimestamp": "Mon Nov  3 22:05:24 2025",
- "timestampMillis": "1762207524093",
+ "dateTimestamp": "Fri Feb 20 16:49:21 2026",
+ "timestampMillis": "1771631361796",
  "status": {
-  "cmdId": "539a3e48-8d78-4168-9210-fec81f813df3",
+  "cmdId": "34781213-b8cd-4d01-85ca-99ad6b2a08ea",
   "state": "CS_PASSED"
  }
 }
@@ -97,10 +97,10 @@
 <ENTRY>
 {
  "type": "ET_Report",
- "dateTimestamp": "Mon Nov  3 22:05:24 2025",
- "timestampMillis": "1762207524186",
+ "dateTimestamp": "Fri Feb 20 16:49:21 2026",
+ "timestampMillis": "1771631361883",
  "report": {
-  "path": "/home/efrink/Documents/Examples/Kernel_Tools/parallel_crc/_x/reports/package/v++_package_kernel_guidance.html",
+  "path": "/users/arashs/U280_CRC_Accelerator/_x/reports/package/v++_package_kernel_guidance.html",
   "name": "",
   "fileType": "HTML",
   "reportType": "GLOBAL_RULECHECK_GUIDANCE",
@@ -111,10 +111,10 @@
 <ENTRY>
 {
  "type": "ET_Report",
- "dateTimestamp": "Mon Nov  3 22:05:24 2025",
- "timestampMillis": "1762207524187",
+ "dateTimestamp": "Fri Feb 20 16:49:21 2026",
+ "timestampMillis": "1771631361883",
  "report": {
-  "path": "/home/efrink/Documents/Examples/Kernel_Tools/parallel_crc/_x/v++_package_kernel_guidance.pb3",
+  "path": "/users/arashs/U280_CRC_Accelerator/_x/v++_package_kernel_guidance.pb3",
   "name": "",
   "fileType": "BINARY_PROTOBUF",
   "reportType": "GLOBAL_RULECHECK_GUIDANCE",

@@ -1,0 +1,62 @@
+{
+  "0": {
+    "basicblocks": 1,
+    "calls": "1",
+    "file": "kernel.cpp",
+    "fileloc": 698,
+    "instructions": 5,
+    "name": "calculate_crc",
+    "total_instructions": 428
+  },
+  "1": {
+    "basicblocks": 8,
+    "calls": "4 3 2",
+    "file": "kernel.cpp",
+    "fileloc": 624,
+    "instructions": 127,
+    "loads": {
+      "L": 1
+    },
+    "name": "process_crc",
+    "stores": {
+      "L": 1
+    },
+    "total_instructions": 423
+  },
+  "2": {
+    "basicblocks": 7,
+    "calls": "",
+    "file": "kernel.cpp",
+    "fileloc": 440,
+    "instructions": 17,
+    "name": "write_output",
+    "stores": {
+      "L": 1
+    },
+    "total_instructions": 17
+  },
+  "3": {
+    "basicblocks": 36,
+    "calls": "",
+    "file": "kernel.cpp",
+    "fileloc": 310,
+    "instructions": 196,
+    "loads": {
+      "L": 17
+    },
+    "name": "process_blocks",
+    "total_instructions": 196
+  },
+  "4": {
+    "basicblocks": 7,
+    "calls": "",
+    "file": "kernel.cpp",
+    "fileloc": 275,
+    "instructions": 83,
+    "loads": {
+      "L": 1
+    },
+    "name": "read_input",
+    "total_instructions": 83
+  }
+}

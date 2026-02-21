@@ -1,0 +1,13 @@
+Begin Function 'sha256_compress_block'
+
+RTL state condition: (1'b1 == ap_CS_fsm_state2)
+# ST_2
+
+RTL state condition: (1'b1 == ap_CS_fsm_state4)
+# ST_4
+
+RTL state condition: (1'b1 == ap_CS_fsm_state6)
+# ST_6
+
+End Function 'sha256_compress_block'
+

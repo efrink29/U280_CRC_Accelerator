@@ -1,0 +1,23 @@
+[
+  {
+    "functionLabel": "",
+    "functionName": "calculate_sha256",
+    "id": 0,
+    "ifcond": "",
+    "insert_position": "",
+    "label": "",
+    "pragma": {
+      "name": "TOP",
+      "option": [
+        {
+          "name": "name",
+          "value": "calculate_sha256"
+        }
+      ]
+    },
+    "slx": false,
+    "sourceFile": "/users/arashs/U280_CRC_Accelerator/_x.sw_emu.xilinx_u280_gen3x16_xdma_1_202211_1/calculate_sha256/calculate_sha256/calculate_sha256.tcl",
+    "sourceLine": 29,
+    "success": true
+  }
+]

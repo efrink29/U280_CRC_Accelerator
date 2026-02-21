@@ -1,0 +1,22 @@
+Begin Function 'calculate_crc'
+
+RTL state condition: (1'b1 == ap_CS_fsm_state1)
+# ST_1
+local tables_read <read_698> <integer> <> 'read' </users/arashs/U280_CRC_Accelerator/src/kernel.cpp:698>
+tables_read /users/arashs/U280_CRC_Accelerator/src/kernel.cpp:698
+reg: tables_read_reg_157[63:0] lv
+
+local crc_out_read <read_698> <integer> <> 'read' </users/arashs/U280_CRC_Accelerator/src/kernel.cpp:698>
+crc_out_read /users/arashs/U280_CRC_Accelerator/src/kernel.cpp:698
+reg: crc_out_read_reg_162[63:0] lv
+
+local data_in_read <read_698> <integer> <> 'read' </users/arashs/U280_CRC_Accelerator/src/kernel.cpp:698>
+data_in_read /users/arashs/U280_CRC_Accelerator/src/kernel.cpp:698
+reg: data_in_read_reg_167[63:0] lv
+
+
+RTL state condition: (1'b1 == ap_CS_fsm_state3)
+# ST_3
+
+End Function 'calculate_crc'
+

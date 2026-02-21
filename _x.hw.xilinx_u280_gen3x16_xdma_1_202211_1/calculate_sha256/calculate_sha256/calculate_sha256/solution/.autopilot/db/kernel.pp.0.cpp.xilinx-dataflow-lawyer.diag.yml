@@ -1,0 +1,8 @@
+---
+MainSourceFile:  /users/arashs/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/calculate_sha256/calculate_sha256/calculate_sha256/solution/.autopilot/db/kernel.pp.0.cpp
+Diagnostics:     
+  - DiagnosticName:  clang-diagnostic-warning
+    Message:         '[xlx-df-check-11] Since the only kind of statements allowed in a canonical dataflow region are variable declarations and function calls, the compiler may not be able to correctly handle the region'
+    FileOffset:      '685:9'
+    FilePath:        /users/arashs/U280_CRC_Accelerator/src/kernel.cpp
+...

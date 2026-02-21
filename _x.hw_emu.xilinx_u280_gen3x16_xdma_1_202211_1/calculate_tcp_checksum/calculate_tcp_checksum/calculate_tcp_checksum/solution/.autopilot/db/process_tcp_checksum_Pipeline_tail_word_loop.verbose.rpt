@@ -1,0 +1,2385 @@
+
+
+================================================================
+== Vitis HLS Report for 'process_tcp_checksum_Pipeline_tail_word_loop'
+================================================================
+* Date:           Mon Feb 16 01:32:12 2026
+
+* Version:        2023.1 (Build 3854077 on May  4 2023)
+* Project:        calculate_tcp_checksum
+* Solution:       solution (Vitis Kernel Flow Target)
+* Product family: virtexuplusHBM
+* Target device:  xcu280-fsvh2892-2L-e
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing: 
+    * Summary: 
+    +--------+---------+----------+------------+
+    |  Clock |  Target | Estimated| Uncertainty|
+    +--------+---------+----------+------------+
+    |ap_clk  |  3.33 ns|  2.433 ns|     0.90 ns|
+    +--------+---------+----------+------------+
+
++ Latency: 
+    * Summary: 
+    +---------+---------+----------+----------+-----+-----+---------+
+    |  Latency (cycles) |  Latency (absolute) |  Interval | Pipeline|
+    |   min   |   max   |    min   |    max   | min | max |   Type  |
+    +---------+---------+----------+----------+-----+-----+---------+
+    |        ?|        ?|         ?|         ?|    ?|    ?|       no|
+    +---------+---------+----------+----------+-----+-----+---------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        +------------------+---------+---------+----------+-----------+-----------+------+----------+
+        |                  |  Latency (cycles) | Iteration|  Initiation Interval  | Trip |          |
+        |     Loop Name    |   min   |   max   |  Latency |  achieved |   target  | Count| Pipelined|
+        +------------------+---------+---------+----------+-----------+-----------+------+----------+
+        |- tail_word_loop  |        ?|        ?|        76|          2|          1|     ?|       yes|
+        +------------------+---------+---------+----------+-----------+-----------+------+----------+
+
+
+
+================================================================
+== Utilization Estimates
+================================================================
+* Summary: 
++---------------------+---------+------+---------+---------+-----+
+|         Name        | BRAM_18K|  DSP |    FF   |   LUT   | URAM|
++---------------------+---------+------+---------+---------+-----+
+|DSP                  |        -|     -|        -|        -|    -|
+|Expression           |        -|     -|        0|     4847|    -|
+|FIFO                 |        -|     -|        -|        -|    -|
+|Instance             |        -|     -|        -|        -|    -|
+|Memory               |        -|     -|        -|        -|    -|
+|Multiplexer          |        -|     -|        -|      100|    -|
+|Register             |        -|     -|     1513|       64|    -|
++---------------------+---------+------+---------+---------+-----+
+|Total                |        0|     0|     1513|     5011|    0|
++---------------------+---------+------+---------+---------+-----+
+|Available SLR        |     1344|  3008|   869120|   434560|  320|
++---------------------+---------+------+---------+---------+-----+
+|Utilization SLR (%)  |        0|     0|       ~0|        1|    0|
++---------------------+---------+------+---------+---------+-----+
+|Available            |     4032|  9024|  2607360|  1303680|  960|
++---------------------+---------+------+---------+---------+-----+
+|Utilization (%)      |        0|     0|       ~0|       ~0|    0|
++---------------------+---------+------+---------+---------+-----+
+
++ Detail: 
+    * Instance: 
+    N/A
+
+    * DSP: 
+    N/A
+
+    * Memory: 
+    N/A
+
+    * FIFO: 
+    N/A
+
+    * Expression: 
+    +---------------------------+----------+----+---+------+------------+------------+
+    |       Variable Name       | Operation| DSP| FF|  LUT | Bitwidth P0| Bitwidth P1|
+    +---------------------------+----------+----+---+------+------------+------------+
+    |add_ln545_1_out            |         +|   0|  0|    39|          32|          32|
+    |add_ln545_fu_212_p2        |         +|   0|  0|    39|          32|           2|
+    |add_ln549_1_fu_174_p2      |         +|   0|  0|    71|          64|          64|
+    |add_ln549_2_fu_184_p2      |         +|   0|  0|    71|          64|          64|
+    |add_ln549_3_fu_239_p2      |         +|   0|  0|    71|          64|           1|
+    |add_ln549_4_fu_200_p2      |         +|   0|  0|    13|           6|           6|
+    |add_ln549_5_fu_284_p2      |         +|   0|  0|    13|           6|           1|
+    |add_ln549_fu_164_p2        |         +|   0|  0|    39|          32|          32|
+    |i_4_fu_206_p2              |         +|   0|  0|    39|          32|           2|
+    |sum_5_fu_331_p2            |         +|   0|  0|    55|          48|          48|
+    |ap_block_pp0_stage1_01001  |       and|   0|  0|     2|           1|           1|
+    |ap_ext_blocking_cur_n      |       and|   0|  0|     2|           1|           1|
+    |ap_ext_blocking_n          |       and|   0|  0|     2|           1|           2|
+    |ap_int_blocking_n          |       and|   0|  0|     2|           2|           2|
+    |ap_str_blocking_n          |       and|   0|  0|     2|           2|           2|
+    |icmp_ln545_fu_218_p2       |      icmp|   0|  0|    39|          32|          32|
+    |lshr_ln549_1_fu_301_p2     |      lshr|   0|  0|  2171|         512|         512|
+    |lshr_ln549_fu_275_p2       |      lshr|   0|  0|  2171|         512|         512|
+    |ap_block_pp0_stage0_11001  |        or|   0|  0|     2|           1|           1|
+    |ap_block_pp0_stage1_11001  |        or|   0|  0|     2|           1|           1|
+    |ap_enable_pp0              |       xor|   0|  0|     2|           1|           2|
+    +---------------------------+----------+----+---+------+------------+------------+
+    |Total                      |          |   0|  0|  4847|        1446|        1320|
+    +---------------------------+----------+----+---+------+------------+------------+
+
+    * Multiplexer: 
+    +-----------------------------------+----+-----------+-----+-----------+
+    |                Name               | LUT| Input Size| Bits| Total Bits|
+    +-----------------------------------+----+-----------+-----+-----------+
+    |ap_NS_fsm                          |  14|          3|    1|          3|
+    |ap_done_int                        |   9|          2|    1|          2|
+    |ap_enable_reg_pp0_iter0            |   9|          2|    1|          2|
+    |ap_loop_exit_ready_pp0_iter37_reg  |   9|          2|    1|          2|
+    |ap_sig_allocacmp_i                 |   9|          2|   32|         64|
+    |gmem0_blk_n_AR                     |   9|          2|    1|          2|
+    |gmem0_blk_n_R                      |   9|          2|    1|          2|
+    |i_2_fu_78                          |   9|          2|   32|         64|
+    |m_axi_gmem0_ARADDR                 |  14|          3|   64|        192|
+    |sum_fu_74                          |   9|          2|   48|         96|
+    +-----------------------------------+----+-----------+-----+-----------+
+    |Total                              | 100|         22|  182|        429|
+    +-----------------------------------+----+-----------+-----+-----------+
+
+    * Register: 
+    +-----------------------------------+-----+----+-----+-----------+
+    |                Name               |  FF | LUT| Bits| Const Bits|
+    +-----------------------------------+-----+----+-----+-----------+
+    |add_ln549_2_reg_363                |   64|   0|   64|          0|
+    |add_ln549_4_reg_373                |    6|   0|    6|          0|
+    |ap_CS_fsm                          |    2|   0|    2|          0|
+    |ap_done_reg                        |    1|   0|    1|          0|
+    |ap_enable_reg_pp0_iter0_reg        |    1|   0|    1|          0|
+    |ap_enable_reg_pp0_iter1            |    1|   0|    1|          0|
+    |ap_enable_reg_pp0_iter10           |    1|   0|    1|          0|
+    |ap_enable_reg_pp0_iter11           |    1|   0|    1|          0|
+    |ap_enable_reg_pp0_iter12           |    1|   0|    1|          0|
+    |ap_enable_reg_pp0_iter13           |    1|   0|    1|          0|
+    |ap_enable_reg_pp0_iter14           |    1|   0|    1|          0|
+    |ap_enable_reg_pp0_iter15           |    1|   0|    1|          0|
+    |ap_enable_reg_pp0_iter16           |    1|   0|    1|          0|
+    |ap_enable_reg_pp0_iter17           |    1|   0|    1|          0|
+    |ap_enable_reg_pp0_iter18           |    1|   0|    1|          0|
+    |ap_enable_reg_pp0_iter19           |    1|   0|    1|          0|
+    |ap_enable_reg_pp0_iter2            |    1|   0|    1|          0|
+    |ap_enable_reg_pp0_iter20           |    1|   0|    1|          0|
+    |ap_enable_reg_pp0_iter21           |    1|   0|    1|          0|
+    |ap_enable_reg_pp0_iter22           |    1|   0|    1|          0|
+    |ap_enable_reg_pp0_iter23           |    1|   0|    1|          0|
+    |ap_enable_reg_pp0_iter24           |    1|   0|    1|          0|
+    |ap_enable_reg_pp0_iter25           |    1|   0|    1|          0|
+    |ap_enable_reg_pp0_iter26           |    1|   0|    1|          0|
+    |ap_enable_reg_pp0_iter27           |    1|   0|    1|          0|
+    |ap_enable_reg_pp0_iter28           |    1|   0|    1|          0|
+    |ap_enable_reg_pp0_iter29           |    1|   0|    1|          0|
+    |ap_enable_reg_pp0_iter3            |    1|   0|    1|          0|
+    |ap_enable_reg_pp0_iter30           |    1|   0|    1|          0|
+    |ap_enable_reg_pp0_iter31           |    1|   0|    1|          0|
+    |ap_enable_reg_pp0_iter32           |    1|   0|    1|          0|
+    |ap_enable_reg_pp0_iter33           |    1|   0|    1|          0|
+    |ap_enable_reg_pp0_iter34           |    1|   0|    1|          0|
+    |ap_enable_reg_pp0_iter35           |    1|   0|    1|          0|
+    |ap_enable_reg_pp0_iter36           |    1|   0|    1|          0|
+    |ap_enable_reg_pp0_iter37           |    1|   0|    1|          0|
+    |ap_enable_reg_pp0_iter4            |    1|   0|    1|          0|
+    |ap_enable_reg_pp0_iter5            |    1|   0|    1|          0|
+    |ap_enable_reg_pp0_iter6            |    1|   0|    1|          0|
+    |ap_enable_reg_pp0_iter7            |    1|   0|    1|          0|
+    |ap_enable_reg_pp0_iter8            |    1|   0|    1|          0|
+    |ap_enable_reg_pp0_iter9            |    1|   0|    1|          0|
+    |ap_loop_exit_ready_pp0_iter10_reg  |    1|   0|    1|          0|
+    |ap_loop_exit_ready_pp0_iter11_reg  |    1|   0|    1|          0|
+    |ap_loop_exit_ready_pp0_iter12_reg  |    1|   0|    1|          0|
+    |ap_loop_exit_ready_pp0_iter13_reg  |    1|   0|    1|          0|
+    |ap_loop_exit_ready_pp0_iter14_reg  |    1|   0|    1|          0|
+    |ap_loop_exit_ready_pp0_iter15_reg  |    1|   0|    1|          0|
+    |ap_loop_exit_ready_pp0_iter16_reg  |    1|   0|    1|          0|
+    |ap_loop_exit_ready_pp0_iter17_reg  |    1|   0|    1|          0|
+    |ap_loop_exit_ready_pp0_iter18_reg  |    1|   0|    1|          0|
+    |ap_loop_exit_ready_pp0_iter19_reg  |    1|   0|    1|          0|
+    |ap_loop_exit_ready_pp0_iter1_reg   |    1|   0|    1|          0|
+    |ap_loop_exit_ready_pp0_iter20_reg  |    1|   0|    1|          0|
+    |ap_loop_exit_ready_pp0_iter21_reg  |    1|   0|    1|          0|
+    |ap_loop_exit_ready_pp0_iter22_reg  |    1|   0|    1|          0|
+    |ap_loop_exit_ready_pp0_iter23_reg  |    1|   0|    1|          0|
+    |ap_loop_exit_ready_pp0_iter24_reg  |    1|   0|    1|          0|
+    |ap_loop_exit_ready_pp0_iter25_reg  |    1|   0|    1|          0|
+    |ap_loop_exit_ready_pp0_iter26_reg  |    1|   0|    1|          0|
+    |ap_loop_exit_ready_pp0_iter27_reg  |    1|   0|    1|          0|
+    |ap_loop_exit_ready_pp0_iter28_reg  |    1|   0|    1|          0|
+    |ap_loop_exit_ready_pp0_iter29_reg  |    1|   0|    1|          0|
+    |ap_loop_exit_ready_pp0_iter2_reg   |    1|   0|    1|          0|
+    |ap_loop_exit_ready_pp0_iter30_reg  |    1|   0|    1|          0|
+    |ap_loop_exit_ready_pp0_iter31_reg  |    1|   0|    1|          0|
+    |ap_loop_exit_ready_pp0_iter32_reg  |    1|   0|    1|          0|
+    |ap_loop_exit_ready_pp0_iter33_reg  |    1|   0|    1|          0|
+    |ap_loop_exit_ready_pp0_iter34_reg  |    1|   0|    1|          0|
+    |ap_loop_exit_ready_pp0_iter35_reg  |    1|   0|    1|          0|
+    |ap_loop_exit_ready_pp0_iter36_reg  |    1|   0|    1|          0|
+    |ap_loop_exit_ready_pp0_iter37_reg  |    1|   0|    1|          0|
+    |ap_loop_exit_ready_pp0_iter3_reg   |    1|   0|    1|          0|
+    |ap_loop_exit_ready_pp0_iter4_reg   |    1|   0|    1|          0|
+    |ap_loop_exit_ready_pp0_iter5_reg   |    1|   0|    1|          0|
+    |ap_loop_exit_ready_pp0_iter6_reg   |    1|   0|    1|          0|
+    |ap_loop_exit_ready_pp0_iter7_reg   |    1|   0|    1|          0|
+    |ap_loop_exit_ready_pp0_iter8_reg   |    1|   0|    1|          0|
+    |ap_loop_exit_ready_pp0_iter9_reg   |    1|   0|    1|          0|
+    |gmem0_addr_2_read_reg_410          |  512|   0|  512|          0|
+    |gmem0_addr_read_reg_400            |  512|   0|  512|          0|
+    |i_2_fu_78                          |   32|   0|   32|          0|
+    |icmp_ln545_reg_379                 |    1|   0|    1|          0|
+    |sum_fu_74                          |   48|   0|   48|          0|
+    |trunc_ln4_reg_389                  |   58|   0|   58|          0|
+    |trunc_ln549_2_reg_405              |    8|   0|    8|          0|
+    |trunc_ln549_3_reg_415              |    8|   0|    8|          0|
+    |trunc_ln549_5_reg_368              |   58|   0|   58|          0|
+    |add_ln549_4_reg_373                |   64|  32|    6|          0|
+    |icmp_ln545_reg_379                 |   64|  32|    1|          0|
+    +-----------------------------------+-----+----+-----+-----------+
+    |Total                              | 1513|  64| 1392|          0|
+    +-----------------------------------+-----+----+-----+-----------+
+
+
+
+================================================================
+== Interface
+================================================================
+* Summary: 
++------------------------+-----+-----+------------+----------------------------------------------+--------------+
+|        RTL Ports       | Dir | Bits|  Protocol  |                 Source Object                |    C Type    |
++------------------------+-----+-----+------------+----------------------------------------------+--------------+
+|ap_clk                  |   in|    1|  ap_ctrl_hs|  process_tcp_checksum_Pipeline_tail_word_loop|  return value|
+|ap_rst                  |   in|    1|  ap_ctrl_hs|  process_tcp_checksum_Pipeline_tail_word_loop|  return value|
+|ap_start                |   in|    1|  ap_ctrl_hs|  process_tcp_checksum_Pipeline_tail_word_loop|  return value|
+|ap_done                 |  out|    1|  ap_ctrl_hs|  process_tcp_checksum_Pipeline_tail_word_loop|  return value|
+|ap_idle                 |  out|    1|  ap_ctrl_hs|  process_tcp_checksum_Pipeline_tail_word_loop|  return value|
+|ap_ready                |  out|    1|  ap_ctrl_hs|  process_tcp_checksum_Pipeline_tail_word_loop|  return value|
+|ap_ext_blocking_n       |  out|    1|  ap_ctrl_hs|  process_tcp_checksum_Pipeline_tail_word_loop|  return value|
+|ap_str_blocking_n       |  out|    1|  ap_ctrl_hs|  process_tcp_checksum_Pipeline_tail_word_loop|  return value|
+|ap_int_blocking_n       |  out|    1|  ap_ctrl_hs|  process_tcp_checksum_Pipeline_tail_word_loop|  return value|
+|m_axi_gmem0_AWVALID     |  out|    1|       m_axi|                                         gmem0|       pointer|
+|m_axi_gmem0_AWREADY     |   in|    1|       m_axi|                                         gmem0|       pointer|
+|m_axi_gmem0_AWADDR      |  out|   64|       m_axi|                                         gmem0|       pointer|
+|m_axi_gmem0_AWID        |  out|    1|       m_axi|                                         gmem0|       pointer|
+|m_axi_gmem0_AWLEN       |  out|   32|       m_axi|                                         gmem0|       pointer|
+|m_axi_gmem0_AWSIZE      |  out|    3|       m_axi|                                         gmem0|       pointer|
+|m_axi_gmem0_AWBURST     |  out|    2|       m_axi|                                         gmem0|       pointer|
+|m_axi_gmem0_AWLOCK      |  out|    2|       m_axi|                                         gmem0|       pointer|
+|m_axi_gmem0_AWCACHE     |  out|    4|       m_axi|                                         gmem0|       pointer|
+|m_axi_gmem0_AWPROT      |  out|    3|       m_axi|                                         gmem0|       pointer|
+|m_axi_gmem0_AWQOS       |  out|    4|       m_axi|                                         gmem0|       pointer|
+|m_axi_gmem0_AWREGION    |  out|    4|       m_axi|                                         gmem0|       pointer|
+|m_axi_gmem0_AWUSER      |  out|    1|       m_axi|                                         gmem0|       pointer|
+|m_axi_gmem0_WVALID      |  out|    1|       m_axi|                                         gmem0|       pointer|
+|m_axi_gmem0_WREADY      |   in|    1|       m_axi|                                         gmem0|       pointer|
+|m_axi_gmem0_WDATA       |  out|  512|       m_axi|                                         gmem0|       pointer|
+|m_axi_gmem0_WSTRB       |  out|   64|       m_axi|                                         gmem0|       pointer|
+|m_axi_gmem0_WLAST       |  out|    1|       m_axi|                                         gmem0|       pointer|
+|m_axi_gmem0_WID         |  out|    1|       m_axi|                                         gmem0|       pointer|
+|m_axi_gmem0_WUSER       |  out|    1|       m_axi|                                         gmem0|       pointer|
+|m_axi_gmem0_ARVALID     |  out|    1|       m_axi|                                         gmem0|       pointer|
+|m_axi_gmem0_ARREADY     |   in|    1|       m_axi|                                         gmem0|       pointer|
+|m_axi_gmem0_ARADDR      |  out|   64|       m_axi|                                         gmem0|       pointer|
+|m_axi_gmem0_ARID        |  out|    1|       m_axi|                                         gmem0|       pointer|
+|m_axi_gmem0_ARLEN       |  out|   32|       m_axi|                                         gmem0|       pointer|
+|m_axi_gmem0_ARSIZE      |  out|    3|       m_axi|                                         gmem0|       pointer|
+|m_axi_gmem0_ARBURST     |  out|    2|       m_axi|                                         gmem0|       pointer|
+|m_axi_gmem0_ARLOCK      |  out|    2|       m_axi|                                         gmem0|       pointer|
+|m_axi_gmem0_ARCACHE     |  out|    4|       m_axi|                                         gmem0|       pointer|
+|m_axi_gmem0_ARPROT      |  out|    3|       m_axi|                                         gmem0|       pointer|
+|m_axi_gmem0_ARQOS       |  out|    4|       m_axi|                                         gmem0|       pointer|
+|m_axi_gmem0_ARREGION    |  out|    4|       m_axi|                                         gmem0|       pointer|
+|m_axi_gmem0_ARUSER      |  out|    1|       m_axi|                                         gmem0|       pointer|
+|m_axi_gmem0_RVALID      |   in|    1|       m_axi|                                         gmem0|       pointer|
+|m_axi_gmem0_RREADY      |  out|    1|       m_axi|                                         gmem0|       pointer|
+|m_axi_gmem0_RDATA       |   in|  512|       m_axi|                                         gmem0|       pointer|
+|m_axi_gmem0_RLAST       |   in|    1|       m_axi|                                         gmem0|       pointer|
+|m_axi_gmem0_RID         |   in|    1|       m_axi|                                         gmem0|       pointer|
+|m_axi_gmem0_RFIFONUM    |   in|    9|       m_axi|                                         gmem0|       pointer|
+|m_axi_gmem0_RUSER       |   in|    1|       m_axi|                                         gmem0|       pointer|
+|m_axi_gmem0_RRESP       |   in|    2|       m_axi|                                         gmem0|       pointer|
+|m_axi_gmem0_BVALID      |   in|    1|       m_axi|                                         gmem0|       pointer|
+|m_axi_gmem0_BREADY      |  out|    1|       m_axi|                                         gmem0|       pointer|
+|m_axi_gmem0_BRESP       |   in|    2|       m_axi|                                         gmem0|       pointer|
+|m_axi_gmem0_BID         |   in|    1|       m_axi|                                         gmem0|       pointer|
+|m_axi_gmem0_BUSER       |   in|    1|       m_axi|                                         gmem0|       pointer|
+|zext_ln492              |   in|   47|     ap_none|                                    zext_ln492|        scalar|
+|tail_offset             |   in|   32|     ap_none|                                   tail_offset|        scalar|
+|phi_mul                 |   in|   64|     ap_none|                                       phi_mul|        scalar|
+|data_in                 |   in|   64|     ap_none|                                       data_in|        scalar|
+|tail_bytes              |   in|   32|     ap_none|                                    tail_bytes|        scalar|
+|add_ln545_1_out         |  out|   32|      ap_vld|                               add_ln545_1_out|       pointer|
+|add_ln545_1_out_ap_vld  |  out|    1|      ap_vld|                               add_ln545_1_out|       pointer|
++------------------------+-----+-----+------------+----------------------------------------------+--------------+
+
+============================================================
++ Verbose Summary: Synthesis Manager
+============================================================
+InlineROM: 1
+ExposeGlobal: 0
+============================================================
++ Verbose Summary: CDFG Model
+============================================================
+IsTopModel: 0
+ResetActiveHigh: 1
+IsCombinational: 2
+IsDatapathOnly: 2
+HasWiredReturn: 1
+HasMFsm: 2
+HasVarLatency: 1
+IsPipeline: 0
+IsRtlPipelined: 0
+IsInstanceOverlapped: 0
+IsDontTouch: 0
+HasImplIP: 0
+IsGatedGlobalClock: 0
+
++ Individual pipeline summary: 
+  * Pipeline-0: initiation interval (II) = 2, depth = 76
+
+
+============================================================
++ Verbose Summary: Schedule
+============================================================
+* Number of FSM states : 76
+* Pipeline : 1
+  Pipeline-0 : II = 2, D = 76, States = { 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69 70 71 72 73 74 75 76 }
+* Dataflow Pipeline: 0
+
+* FSM state transitions: 
+1 --> 2 
+2 --> 3 
+3 --> 4 
+4 --> 5 
+5 --> 6 
+6 --> 7 
+7 --> 8 
+8 --> 9 
+9 --> 10 
+10 --> 11 
+11 --> 12 
+12 --> 13 
+13 --> 14 
+14 --> 15 
+15 --> 16 
+16 --> 17 
+17 --> 18 
+18 --> 19 
+19 --> 20 
+20 --> 21 
+21 --> 22 
+22 --> 23 
+23 --> 24 
+24 --> 25 
+25 --> 26 
+26 --> 27 
+27 --> 28 
+28 --> 29 
+29 --> 30 
+30 --> 31 
+31 --> 32 
+32 --> 33 
+33 --> 34 
+34 --> 35 
+35 --> 36 
+36 --> 37 
+37 --> 38 
+38 --> 39 
+39 --> 40 
+40 --> 41 
+41 --> 42 
+42 --> 43 
+43 --> 44 
+44 --> 45 
+45 --> 46 
+46 --> 47 
+47 --> 48 
+48 --> 49 
+49 --> 50 
+50 --> 51 
+51 --> 52 
+52 --> 53 
+53 --> 54 
+54 --> 55 
+55 --> 56 
+56 --> 57 
+57 --> 58 
+58 --> 59 
+59 --> 60 
+60 --> 61 
+61 --> 62 
+62 --> 63 
+63 --> 64 
+64 --> 65 
+65 --> 66 
+66 --> 67 
+67 --> 68 
+68 --> 69 
+69 --> 70 
+70 --> 71 
+71 --> 72 
+72 --> 73 
+73 --> 74 
+74 --> 75 
+75 --> 76 
+76 --> 
+
+* FSM state operations: 
+
+State 1 <SV = 0> <Delay = 2.29>
+ST_1 : Operation 79 [1/1] (0.00ns)   --->   "%sum = alloca i32 1"   --->   Operation 79 'alloca' 'sum' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 80 [1/1] (0.00ns)   --->   "%i_2 = alloca i32 1"   --->   Operation 80 'alloca' 'i_2' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 81 [1/1] (0.00ns)   --->   "%tail_bytes_read = read i32 @_ssdm_op_Read.ap_auto.i32, i32 %tail_bytes"   --->   Operation 81 'read' 'tail_bytes_read' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 82 [1/1] (0.00ns)   --->   "%data_in_read = read i64 @_ssdm_op_Read.ap_auto.i64, i64 %data_in"   --->   Operation 82 'read' 'data_in_read' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 83 [1/1] (0.00ns)   --->   "%phi_mul_read = read i64 @_ssdm_op_Read.ap_auto.i64, i64 %phi_mul"   --->   Operation 83 'read' 'phi_mul_read' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 84 [1/1] (0.00ns)   --->   "%tail_offset_read = read i32 @_ssdm_op_Read.ap_auto.i32, i32 %tail_offset"   --->   Operation 84 'read' 'tail_offset_read' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 85 [1/1] (0.00ns)   --->   "%zext_ln492_read = read i47 @_ssdm_op_Read.ap_auto.i47, i47 %zext_ln492"   --->   Operation 85 'read' 'zext_ln492_read' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 86 [1/1] (0.00ns)   --->   "%zext_ln492_cast = zext i47 %zext_ln492_read"   --->   Operation 86 'zext' 'zext_ln492_cast' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 87 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i512 %gmem0, void @empty_4, i32 0, i32 0, void @empty_5, i32 64, i32 1024, void @empty_6, void @empty_7, void @empty_5, i32 16, i32 16, i32 16, i32 16, void @empty_5, void @empty_5, i32 4294967295, i32 0"   --->   Operation 87 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 88 [1/1] (0.38ns)   --->   "%store_ln0 = store i32 0, i32 %i_2"   --->   Operation 88 'store' 'store_ln0' <Predicate = true> <Delay = 0.38>
+ST_1 : Operation 89 [1/1] (0.38ns)   --->   "%store_ln0 = store i48 %zext_ln492_cast, i48 %sum"   --->   Operation 89 'store' 'store_ln0' <Predicate = true> <Delay = 0.38>
+ST_1 : Operation 90 [1/1] (0.00ns)   --->   "%br_ln0 = br void %for.body118.i"   --->   Operation 90 'br' 'br_ln0' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 91 [1/1] (0.00ns)   --->   "%i = load i32 %i_2" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:549->/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:590]   --->   Operation 91 'load' 'i' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 92 [1/1] (0.00ns)   --->   "%trunc_ln549 = trunc i32 %i" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:549->/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:590]   --->   Operation 92 'trunc' 'trunc_ln549' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 93 [1/1] (0.88ns)   --->   "%add_ln549 = add i32 %i, i32 %tail_offset_read" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:549->/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:590]   --->   Operation 93 'add' 'add_ln549' <Predicate = true> <Delay = 0.88> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 0.88> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 94 [1/1] (0.00ns)   --->   "%zext_ln549 = zext i32 %add_ln549" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:549->/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:590]   --->   Operation 94 'zext' 'zext_ln549' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 95 [1/1] (1.14ns)   --->   "%add_ln549_1 = add i64 %phi_mul_read, i64 %data_in_read" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:549->/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:590]   --->   Operation 95 'add' 'add_ln549_1' <Predicate = true> <Delay = 1.14> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 1.14> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 96 [1/1] (0.00ns)   --->   "%trunc_ln549_1 = trunc i64 %add_ln549_1" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:549->/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:590]   --->   Operation 96 'trunc' 'trunc_ln549_1' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 97 [1/1] (1.14ns)   --->   "%add_ln549_2 = add i64 %add_ln549_1, i64 %zext_ln549" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:549->/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:590]   --->   Operation 97 'add' 'add_ln549_2' <Predicate = true> <Delay = 1.14> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 1.14> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 98 [1/1] (0.00ns)   --->   "%trunc_ln549_5 = partselect i58 @_ssdm_op_PartSelect.i58.i64.i32.i32, i64 %add_ln549_2, i32 6, i32 63" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:549->/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:590]   --->   Operation 98 'partselect' 'trunc_ln549_5' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 99 [1/1] (0.70ns)   --->   "%add_ln549_4 = add i6 %trunc_ln549_1, i6 %trunc_ln549" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:549->/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:590]   --->   Operation 99 'add' 'add_ln549_4' <Predicate = true> <Delay = 0.70> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 0.70> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 100 [1/1] (0.88ns)   --->   "%i_4 = add i32 %i, i32 2" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:545->/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:590]   --->   Operation 100 'add' 'i_4' <Predicate = true> <Delay = 0.88> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 0.88> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 101 [1/1] (0.88ns)   --->   "%add_ln545 = add i32 %i, i32 3" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:545->/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:590]   --->   Operation 101 'add' 'add_ln545' <Predicate = true> <Delay = 0.88> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 0.88> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 102 [1/1] (0.88ns)   --->   "%icmp_ln545 = icmp_ult  i32 %add_ln545, i32 %tail_bytes_read" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:545->/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:590]   --->   Operation 102 'icmp' 'icmp_ln545' <Predicate = true> <Delay = 0.88> <CoreInst = "Cmp">   --->   Core 9 'Cmp' <Latency = 0> <II = 1> <Delay = 0.88> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 103 [1/1] (0.38ns)   --->   "%store_ln545 = store i32 %i_4, i32 %i_2" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:545->/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:590]   --->   Operation 103 'store' 'store_ln545' <Predicate = true> <Delay = 0.38>
+ST_1 : Operation 104 [1/1] (0.00ns)   --->   "%br_ln545 = br i1 %icmp_ln545, void %for.cond.cleanup117.i.loopexit.exitStub, void %for.body118.i" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:545->/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:590]   --->   Operation 104 'br' 'br_ln545' <Predicate = true> <Delay = 0.00>
+
+State 2 <SV = 1> <Delay = 2.43>
+ST_2 : Operation 105 [1/1] (0.00ns)   --->   "%sext_ln549 = sext i58 %trunc_ln549_5" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:549->/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:590]   --->   Operation 105 'sext' 'sext_ln549' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 106 [1/1] (0.00ns)   --->   "%gmem0_addr = getelementptr i512 %gmem0, i64 %sext_ln549" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:549->/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:590]   --->   Operation 106 'getelementptr' 'gmem0_addr' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 107 [71/71] (2.43ns)   --->   "%gmem0_load_2_req = readreq i1 @_ssdm_op_ReadReq.m_axi.i512P1A, i64 %gmem0_addr, i32 1" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:549->/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:590]   --->   Operation 107 'readreq' 'gmem0_load_2_req' <Predicate = true> <Delay = 2.43> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_2 : Operation 108 [1/1] (1.14ns)   --->   "%add_ln549_3 = add i64 %add_ln549_2, i64 1" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:549->/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:590]   --->   Operation 108 'add' 'add_ln549_3' <Predicate = true> <Delay = 1.14> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 1.14> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 109 [1/1] (0.00ns)   --->   "%trunc_ln4 = partselect i58 @_ssdm_op_PartSelect.i58.i64.i32.i32, i64 %add_ln549_3, i32 6, i32 63" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:549->/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:590]   --->   Operation 109 'partselect' 'trunc_ln4' <Predicate = true> <Delay = 0.00>
+
+State 3 <SV = 2> <Delay = 2.43>
+ST_3 : Operation 110 [70/71] (2.43ns)   --->   "%gmem0_load_2_req = readreq i1 @_ssdm_op_ReadReq.m_axi.i512P1A, i64 %gmem0_addr, i32 1" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:549->/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:590]   --->   Operation 110 'readreq' 'gmem0_load_2_req' <Predicate = true> <Delay = 2.43> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_3 : Operation 111 [1/1] (0.00ns)   --->   "%sext_ln549_1 = sext i58 %trunc_ln4" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:549->/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:590]   --->   Operation 111 'sext' 'sext_ln549_1' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 112 [1/1] (0.00ns)   --->   "%gmem0_addr_2 = getelementptr i512 %gmem0, i64 %sext_ln549_1" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:549->/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:590]   --->   Operation 112 'getelementptr' 'gmem0_addr_2' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 113 [71/71] (2.43ns)   --->   "%gmem0_load_3_req = readreq i1 @_ssdm_op_ReadReq.m_axi.i512P1A, i64 %gmem0_addr_2, i32 1" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:549->/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:590]   --->   Operation 113 'readreq' 'gmem0_load_3_req' <Predicate = true> <Delay = 2.43> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 4 <SV = 3> <Delay = 2.43>
+ST_4 : Operation 114 [69/71] (2.43ns)   --->   "%gmem0_load_2_req = readreq i1 @_ssdm_op_ReadReq.m_axi.i512P1A, i64 %gmem0_addr, i32 1" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:549->/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:590]   --->   Operation 114 'readreq' 'gmem0_load_2_req' <Predicate = true> <Delay = 2.43> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_4 : Operation 115 [70/71] (2.43ns)   --->   "%gmem0_load_3_req = readreq i1 @_ssdm_op_ReadReq.m_axi.i512P1A, i64 %gmem0_addr_2, i32 1" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:549->/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:590]   --->   Operation 115 'readreq' 'gmem0_load_3_req' <Predicate = true> <Delay = 2.43> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 5 <SV = 4> <Delay = 2.43>
+ST_5 : Operation 116 [68/71] (2.43ns)   --->   "%gmem0_load_2_req = readreq i1 @_ssdm_op_ReadReq.m_axi.i512P1A, i64 %gmem0_addr, i32 1" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:549->/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:590]   --->   Operation 116 'readreq' 'gmem0_load_2_req' <Predicate = true> <Delay = 2.43> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_5 : Operation 117 [69/71] (2.43ns)   --->   "%gmem0_load_3_req = readreq i1 @_ssdm_op_ReadReq.m_axi.i512P1A, i64 %gmem0_addr_2, i32 1" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:549->/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:590]   --->   Operation 117 'readreq' 'gmem0_load_3_req' <Predicate = true> <Delay = 2.43> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 6 <SV = 5> <Delay = 2.43>
+ST_6 : Operation 118 [67/71] (2.43ns)   --->   "%gmem0_load_2_req = readreq i1 @_ssdm_op_ReadReq.m_axi.i512P1A, i64 %gmem0_addr, i32 1" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:549->/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:590]   --->   Operation 118 'readreq' 'gmem0_load_2_req' <Predicate = true> <Delay = 2.43> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_6 : Operation 119 [68/71] (2.43ns)   --->   "%gmem0_load_3_req = readreq i1 @_ssdm_op_ReadReq.m_axi.i512P1A, i64 %gmem0_addr_2, i32 1" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:549->/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:590]   --->   Operation 119 'readreq' 'gmem0_load_3_req' <Predicate = true> <Delay = 2.43> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 7 <SV = 6> <Delay = 2.43>
+ST_7 : Operation 120 [66/71] (2.43ns)   --->   "%gmem0_load_2_req = readreq i1 @_ssdm_op_ReadReq.m_axi.i512P1A, i64 %gmem0_addr, i32 1" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:549->/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:590]   --->   Operation 120 'readreq' 'gmem0_load_2_req' <Predicate = true> <Delay = 2.43> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_7 : Operation 121 [67/71] (2.43ns)   --->   "%gmem0_load_3_req = readreq i1 @_ssdm_op_ReadReq.m_axi.i512P1A, i64 %gmem0_addr_2, i32 1" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:549->/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:590]   --->   Operation 121 'readreq' 'gmem0_load_3_req' <Predicate = true> <Delay = 2.43> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 8 <SV = 7> <Delay = 2.43>
+ST_8 : Operation 122 [65/71] (2.43ns)   --->   "%gmem0_load_2_req = readreq i1 @_ssdm_op_ReadReq.m_axi.i512P1A, i64 %gmem0_addr, i32 1" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:549->/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:590]   --->   Operation 122 'readreq' 'gmem0_load_2_req' <Predicate = true> <Delay = 2.43> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_8 : Operation 123 [66/71] (2.43ns)   --->   "%gmem0_load_3_req = readreq i1 @_ssdm_op_ReadReq.m_axi.i512P1A, i64 %gmem0_addr_2, i32 1" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:549->/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:590]   --->   Operation 123 'readreq' 'gmem0_load_3_req' <Predicate = true> <Delay = 2.43> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 9 <SV = 8> <Delay = 2.43>
+ST_9 : Operation 124 [64/71] (2.43ns)   --->   "%gmem0_load_2_req = readreq i1 @_ssdm_op_ReadReq.m_axi.i512P1A, i64 %gmem0_addr, i32 1" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:549->/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:590]   --->   Operation 124 'readreq' 'gmem0_load_2_req' <Predicate = true> <Delay = 2.43> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_9 : Operation 125 [65/71] (2.43ns)   --->   "%gmem0_load_3_req = readreq i1 @_ssdm_op_ReadReq.m_axi.i512P1A, i64 %gmem0_addr_2, i32 1" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:549->/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:590]   --->   Operation 125 'readreq' 'gmem0_load_3_req' <Predicate = true> <Delay = 2.43> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 10 <SV = 9> <Delay = 2.43>
+ST_10 : Operation 126 [63/71] (2.43ns)   --->   "%gmem0_load_2_req = readreq i1 @_ssdm_op_ReadReq.m_axi.i512P1A, i64 %gmem0_addr, i32 1" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:549->/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:590]   --->   Operation 126 'readreq' 'gmem0_load_2_req' <Predicate = true> <Delay = 2.43> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_10 : Operation 127 [64/71] (2.43ns)   --->   "%gmem0_load_3_req = readreq i1 @_ssdm_op_ReadReq.m_axi.i512P1A, i64 %gmem0_addr_2, i32 1" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:549->/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:590]   --->   Operation 127 'readreq' 'gmem0_load_3_req' <Predicate = true> <Delay = 2.43> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 11 <SV = 10> <Delay = 2.43>
+ST_11 : Operation 128 [62/71] (2.43ns)   --->   "%gmem0_load_2_req = readreq i1 @_ssdm_op_ReadReq.m_axi.i512P1A, i64 %gmem0_addr, i32 1" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:549->/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:590]   --->   Operation 128 'readreq' 'gmem0_load_2_req' <Predicate = true> <Delay = 2.43> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_11 : Operation 129 [63/71] (2.43ns)   --->   "%gmem0_load_3_req = readreq i1 @_ssdm_op_ReadReq.m_axi.i512P1A, i64 %gmem0_addr_2, i32 1" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:549->/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:590]   --->   Operation 129 'readreq' 'gmem0_load_3_req' <Predicate = true> <Delay = 2.43> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 12 <SV = 11> <Delay = 2.43>
+ST_12 : Operation 130 [61/71] (2.43ns)   --->   "%gmem0_load_2_req = readreq i1 @_ssdm_op_ReadReq.m_axi.i512P1A, i64 %gmem0_addr, i32 1" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:549->/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:590]   --->   Operation 130 'readreq' 'gmem0_load_2_req' <Predicate = true> <Delay = 2.43> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_12 : Operation 131 [62/71] (2.43ns)   --->   "%gmem0_load_3_req = readreq i1 @_ssdm_op_ReadReq.m_axi.i512P1A, i64 %gmem0_addr_2, i32 1" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:549->/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:590]   --->   Operation 131 'readreq' 'gmem0_load_3_req' <Predicate = true> <Delay = 2.43> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 13 <SV = 12> <Delay = 2.43>
+ST_13 : Operation 132 [60/71] (2.43ns)   --->   "%gmem0_load_2_req = readreq i1 @_ssdm_op_ReadReq.m_axi.i512P1A, i64 %gmem0_addr, i32 1" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:549->/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:590]   --->   Operation 132 'readreq' 'gmem0_load_2_req' <Predicate = true> <Delay = 2.43> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_13 : Operation 133 [61/71] (2.43ns)   --->   "%gmem0_load_3_req = readreq i1 @_ssdm_op_ReadReq.m_axi.i512P1A, i64 %gmem0_addr_2, i32 1" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:549->/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:590]   --->   Operation 133 'readreq' 'gmem0_load_3_req' <Predicate = true> <Delay = 2.43> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 14 <SV = 13> <Delay = 2.43>
+ST_14 : Operation 134 [59/71] (2.43ns)   --->   "%gmem0_load_2_req = readreq i1 @_ssdm_op_ReadReq.m_axi.i512P1A, i64 %gmem0_addr, i32 1" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:549->/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:590]   --->   Operation 134 'readreq' 'gmem0_load_2_req' <Predicate = true> <Delay = 2.43> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_14 : Operation 135 [60/71] (2.43ns)   --->   "%gmem0_load_3_req = readreq i1 @_ssdm_op_ReadReq.m_axi.i512P1A, i64 %gmem0_addr_2, i32 1" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:549->/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:590]   --->   Operation 135 'readreq' 'gmem0_load_3_req' <Predicate = true> <Delay = 2.43> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 15 <SV = 14> <Delay = 2.43>
+ST_15 : Operation 136 [58/71] (2.43ns)   --->   "%gmem0_load_2_req = readreq i1 @_ssdm_op_ReadReq.m_axi.i512P1A, i64 %gmem0_addr, i32 1" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:549->/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:590]   --->   Operation 136 'readreq' 'gmem0_load_2_req' <Predicate = true> <Delay = 2.43> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_15 : Operation 137 [59/71] (2.43ns)   --->   "%gmem0_load_3_req = readreq i1 @_ssdm_op_ReadReq.m_axi.i512P1A, i64 %gmem0_addr_2, i32 1" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:549->/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:590]   --->   Operation 137 'readreq' 'gmem0_load_3_req' <Predicate = true> <Delay = 2.43> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 16 <SV = 15> <Delay = 2.43>
+ST_16 : Operation 138 [57/71] (2.43ns)   --->   "%gmem0_load_2_req = readreq i1 @_ssdm_op_ReadReq.m_axi.i512P1A, i64 %gmem0_addr, i32 1" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:549->/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:590]   --->   Operation 138 'readreq' 'gmem0_load_2_req' <Predicate = true> <Delay = 2.43> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_16 : Operation 139 [58/71] (2.43ns)   --->   "%gmem0_load_3_req = readreq i1 @_ssdm_op_ReadReq.m_axi.i512P1A, i64 %gmem0_addr_2, i32 1" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:549->/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:590]   --->   Operation 139 'readreq' 'gmem0_load_3_req' <Predicate = true> <Delay = 2.43> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 17 <SV = 16> <Delay = 2.43>
+ST_17 : Operation 140 [56/71] (2.43ns)   --->   "%gmem0_load_2_req = readreq i1 @_ssdm_op_ReadReq.m_axi.i512P1A, i64 %gmem0_addr, i32 1" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:549->/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:590]   --->   Operation 140 'readreq' 'gmem0_load_2_req' <Predicate = true> <Delay = 2.43> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_17 : Operation 141 [57/71] (2.43ns)   --->   "%gmem0_load_3_req = readreq i1 @_ssdm_op_ReadReq.m_axi.i512P1A, i64 %gmem0_addr_2, i32 1" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:549->/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:590]   --->   Operation 141 'readreq' 'gmem0_load_3_req' <Predicate = true> <Delay = 2.43> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 18 <SV = 17> <Delay = 2.43>
+ST_18 : Operation 142 [55/71] (2.43ns)   --->   "%gmem0_load_2_req = readreq i1 @_ssdm_op_ReadReq.m_axi.i512P1A, i64 %gmem0_addr, i32 1" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:549->/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:590]   --->   Operation 142 'readreq' 'gmem0_load_2_req' <Predicate = true> <Delay = 2.43> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_18 : Operation 143 [56/71] (2.43ns)   --->   "%gmem0_load_3_req = readreq i1 @_ssdm_op_ReadReq.m_axi.i512P1A, i64 %gmem0_addr_2, i32 1" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:549->/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:590]   --->   Operation 143 'readreq' 'gmem0_load_3_req' <Predicate = true> <Delay = 2.43> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 19 <SV = 18> <Delay = 2.43>
+ST_19 : Operation 144 [54/71] (2.43ns)   --->   "%gmem0_load_2_req = readreq i1 @_ssdm_op_ReadReq.m_axi.i512P1A, i64 %gmem0_addr, i32 1" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:549->/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:590]   --->   Operation 144 'readreq' 'gmem0_load_2_req' <Predicate = true> <Delay = 2.43> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_19 : Operation 145 [55/71] (2.43ns)   --->   "%gmem0_load_3_req = readreq i1 @_ssdm_op_ReadReq.m_axi.i512P1A, i64 %gmem0_addr_2, i32 1" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:549->/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:590]   --->   Operation 145 'readreq' 'gmem0_load_3_req' <Predicate = true> <Delay = 2.43> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 20 <SV = 19> <Delay = 2.43>
+ST_20 : Operation 146 [53/71] (2.43ns)   --->   "%gmem0_load_2_req = readreq i1 @_ssdm_op_ReadReq.m_axi.i512P1A, i64 %gmem0_addr, i32 1" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:549->/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:590]   --->   Operation 146 'readreq' 'gmem0_load_2_req' <Predicate = true> <Delay = 2.43> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_20 : Operation 147 [54/71] (2.43ns)   --->   "%gmem0_load_3_req = readreq i1 @_ssdm_op_ReadReq.m_axi.i512P1A, i64 %gmem0_addr_2, i32 1" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:549->/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:590]   --->   Operation 147 'readreq' 'gmem0_load_3_req' <Predicate = true> <Delay = 2.43> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 21 <SV = 20> <Delay = 2.43>
+ST_21 : Operation 148 [52/71] (2.43ns)   --->   "%gmem0_load_2_req = readreq i1 @_ssdm_op_ReadReq.m_axi.i512P1A, i64 %gmem0_addr, i32 1" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:549->/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:590]   --->   Operation 148 'readreq' 'gmem0_load_2_req' <Predicate = true> <Delay = 2.43> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_21 : Operation 149 [53/71] (2.43ns)   --->   "%gmem0_load_3_req = readreq i1 @_ssdm_op_ReadReq.m_axi.i512P1A, i64 %gmem0_addr_2, i32 1" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:549->/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:590]   --->   Operation 149 'readreq' 'gmem0_load_3_req' <Predicate = true> <Delay = 2.43> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 22 <SV = 21> <Delay = 2.43>
+ST_22 : Operation 150 [51/71] (2.43ns)   --->   "%gmem0_load_2_req = readreq i1 @_ssdm_op_ReadReq.m_axi.i512P1A, i64 %gmem0_addr, i32 1" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:549->/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:590]   --->   Operation 150 'readreq' 'gmem0_load_2_req' <Predicate = true> <Delay = 2.43> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_22 : Operation 151 [52/71] (2.43ns)   --->   "%gmem0_load_3_req = readreq i1 @_ssdm_op_ReadReq.m_axi.i512P1A, i64 %gmem0_addr_2, i32 1" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:549->/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:590]   --->   Operation 151 'readreq' 'gmem0_load_3_req' <Predicate = true> <Delay = 2.43> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 23 <SV = 22> <Delay = 2.43>
+ST_23 : Operation 152 [50/71] (2.43ns)   --->   "%gmem0_load_2_req = readreq i1 @_ssdm_op_ReadReq.m_axi.i512P1A, i64 %gmem0_addr, i32 1" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:549->/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:590]   --->   Operation 152 'readreq' 'gmem0_load_2_req' <Predicate = true> <Delay = 2.43> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_23 : Operation 153 [51/71] (2.43ns)   --->   "%gmem0_load_3_req = readreq i1 @_ssdm_op_ReadReq.m_axi.i512P1A, i64 %gmem0_addr_2, i32 1" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:549->/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:590]   --->   Operation 153 'readreq' 'gmem0_load_3_req' <Predicate = true> <Delay = 2.43> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 24 <SV = 23> <Delay = 2.43>
+ST_24 : Operation 154 [49/71] (2.43ns)   --->   "%gmem0_load_2_req = readreq i1 @_ssdm_op_ReadReq.m_axi.i512P1A, i64 %gmem0_addr, i32 1" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:549->/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:590]   --->   Operation 154 'readreq' 'gmem0_load_2_req' <Predicate = true> <Delay = 2.43> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_24 : Operation 155 [50/71] (2.43ns)   --->   "%gmem0_load_3_req = readreq i1 @_ssdm_op_ReadReq.m_axi.i512P1A, i64 %gmem0_addr_2, i32 1" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:549->/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:590]   --->   Operation 155 'readreq' 'gmem0_load_3_req' <Predicate = true> <Delay = 2.43> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 25 <SV = 24> <Delay = 2.43>
+ST_25 : Operation 156 [48/71] (2.43ns)   --->   "%gmem0_load_2_req = readreq i1 @_ssdm_op_ReadReq.m_axi.i512P1A, i64 %gmem0_addr, i32 1" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:549->/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:590]   --->   Operation 156 'readreq' 'gmem0_load_2_req' <Predicate = true> <Delay = 2.43> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_25 : Operation 157 [49/71] (2.43ns)   --->   "%gmem0_load_3_req = readreq i1 @_ssdm_op_ReadReq.m_axi.i512P1A, i64 %gmem0_addr_2, i32 1" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:549->/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:590]   --->   Operation 157 'readreq' 'gmem0_load_3_req' <Predicate = true> <Delay = 2.43> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 26 <SV = 25> <Delay = 2.43>
+ST_26 : Operation 158 [47/71] (2.43ns)   --->   "%gmem0_load_2_req = readreq i1 @_ssdm_op_ReadReq.m_axi.i512P1A, i64 %gmem0_addr, i32 1" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:549->/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:590]   --->   Operation 158 'readreq' 'gmem0_load_2_req' <Predicate = true> <Delay = 2.43> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_26 : Operation 159 [48/71] (2.43ns)   --->   "%gmem0_load_3_req = readreq i1 @_ssdm_op_ReadReq.m_axi.i512P1A, i64 %gmem0_addr_2, i32 1" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:549->/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:590]   --->   Operation 159 'readreq' 'gmem0_load_3_req' <Predicate = true> <Delay = 2.43> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 27 <SV = 26> <Delay = 2.43>
+ST_27 : Operation 160 [46/71] (2.43ns)   --->   "%gmem0_load_2_req = readreq i1 @_ssdm_op_ReadReq.m_axi.i512P1A, i64 %gmem0_addr, i32 1" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:549->/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:590]   --->   Operation 160 'readreq' 'gmem0_load_2_req' <Predicate = true> <Delay = 2.43> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_27 : Operation 161 [47/71] (2.43ns)   --->   "%gmem0_load_3_req = readreq i1 @_ssdm_op_ReadReq.m_axi.i512P1A, i64 %gmem0_addr_2, i32 1" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:549->/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:590]   --->   Operation 161 'readreq' 'gmem0_load_3_req' <Predicate = true> <Delay = 2.43> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 28 <SV = 27> <Delay = 2.43>
+ST_28 : Operation 162 [45/71] (2.43ns)   --->   "%gmem0_load_2_req = readreq i1 @_ssdm_op_ReadReq.m_axi.i512P1A, i64 %gmem0_addr, i32 1" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:549->/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:590]   --->   Operation 162 'readreq' 'gmem0_load_2_req' <Predicate = true> <Delay = 2.43> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_28 : Operation 163 [46/71] (2.43ns)   --->   "%gmem0_load_3_req = readreq i1 @_ssdm_op_ReadReq.m_axi.i512P1A, i64 %gmem0_addr_2, i32 1" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:549->/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:590]   --->   Operation 163 'readreq' 'gmem0_load_3_req' <Predicate = true> <Delay = 2.43> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 29 <SV = 28> <Delay = 2.43>
+ST_29 : Operation 164 [44/71] (2.43ns)   --->   "%gmem0_load_2_req = readreq i1 @_ssdm_op_ReadReq.m_axi.i512P1A, i64 %gmem0_addr, i32 1" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:549->/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:590]   --->   Operation 164 'readreq' 'gmem0_load_2_req' <Predicate = true> <Delay = 2.43> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_29 : Operation 165 [45/71] (2.43ns)   --->   "%gmem0_load_3_req = readreq i1 @_ssdm_op_ReadReq.m_axi.i512P1A, i64 %gmem0_addr_2, i32 1" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:549->/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:590]   --->   Operation 165 'readreq' 'gmem0_load_3_req' <Predicate = true> <Delay = 2.43> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 30 <SV = 29> <Delay = 2.43>
+ST_30 : Operation 166 [43/71] (2.43ns)   --->   "%gmem0_load_2_req = readreq i1 @_ssdm_op_ReadReq.m_axi.i512P1A, i64 %gmem0_addr, i32 1" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:549->/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:590]   --->   Operation 166 'readreq' 'gmem0_load_2_req' <Predicate = true> <Delay = 2.43> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_30 : Operation 167 [44/71] (2.43ns)   --->   "%gmem0_load_3_req = readreq i1 @_ssdm_op_ReadReq.m_axi.i512P1A, i64 %gmem0_addr_2, i32 1" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:549->/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:590]   --->   Operation 167 'readreq' 'gmem0_load_3_req' <Predicate = true> <Delay = 2.43> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 31 <SV = 30> <Delay = 2.43>
+ST_31 : Operation 168 [42/71] (2.43ns)   --->   "%gmem0_load_2_req = readreq i1 @_ssdm_op_ReadReq.m_axi.i512P1A, i64 %gmem0_addr, i32 1" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:549->/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:590]   --->   Operation 168 'readreq' 'gmem0_load_2_req' <Predicate = true> <Delay = 2.43> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_31 : Operation 169 [43/71] (2.43ns)   --->   "%gmem0_load_3_req = readreq i1 @_ssdm_op_ReadReq.m_axi.i512P1A, i64 %gmem0_addr_2, i32 1" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:549->/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:590]   --->   Operation 169 'readreq' 'gmem0_load_3_req' <Predicate = true> <Delay = 2.43> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 32 <SV = 31> <Delay = 2.43>
+ST_32 : Operation 170 [41/71] (2.43ns)   --->   "%gmem0_load_2_req = readreq i1 @_ssdm_op_ReadReq.m_axi.i512P1A, i64 %gmem0_addr, i32 1" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:549->/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:590]   --->   Operation 170 'readreq' 'gmem0_load_2_req' <Predicate = true> <Delay = 2.43> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_32 : Operation 171 [42/71] (2.43ns)   --->   "%gmem0_load_3_req = readreq i1 @_ssdm_op_ReadReq.m_axi.i512P1A, i64 %gmem0_addr_2, i32 1" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:549->/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:590]   --->   Operation 171 'readreq' 'gmem0_load_3_req' <Predicate = true> <Delay = 2.43> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 33 <SV = 32> <Delay = 2.43>
+ST_33 : Operation 172 [40/71] (2.43ns)   --->   "%gmem0_load_2_req = readreq i1 @_ssdm_op_ReadReq.m_axi.i512P1A, i64 %gmem0_addr, i32 1" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:549->/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:590]   --->   Operation 172 'readreq' 'gmem0_load_2_req' <Predicate = true> <Delay = 2.43> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_33 : Operation 173 [41/71] (2.43ns)   --->   "%gmem0_load_3_req = readreq i1 @_ssdm_op_ReadReq.m_axi.i512P1A, i64 %gmem0_addr_2, i32 1" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:549->/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:590]   --->   Operation 173 'readreq' 'gmem0_load_3_req' <Predicate = true> <Delay = 2.43> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 34 <SV = 33> <Delay = 2.43>
+ST_34 : Operation 174 [39/71] (2.43ns)   --->   "%gmem0_load_2_req = readreq i1 @_ssdm_op_ReadReq.m_axi.i512P1A, i64 %gmem0_addr, i32 1" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:549->/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:590]   --->   Operation 174 'readreq' 'gmem0_load_2_req' <Predicate = true> <Delay = 2.43> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_34 : Operation 175 [40/71] (2.43ns)   --->   "%gmem0_load_3_req = readreq i1 @_ssdm_op_ReadReq.m_axi.i512P1A, i64 %gmem0_addr_2, i32 1" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:549->/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:590]   --->   Operation 175 'readreq' 'gmem0_load_3_req' <Predicate = true> <Delay = 2.43> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 35 <SV = 34> <Delay = 2.43>
+ST_35 : Operation 176 [38/71] (2.43ns)   --->   "%gmem0_load_2_req = readreq i1 @_ssdm_op_ReadReq.m_axi.i512P1A, i64 %gmem0_addr, i32 1" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:549->/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:590]   --->   Operation 176 'readreq' 'gmem0_load_2_req' <Predicate = true> <Delay = 2.43> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_35 : Operation 177 [39/71] (2.43ns)   --->   "%gmem0_load_3_req = readreq i1 @_ssdm_op_ReadReq.m_axi.i512P1A, i64 %gmem0_addr_2, i32 1" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:549->/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:590]   --->   Operation 177 'readreq' 'gmem0_load_3_req' <Predicate = true> <Delay = 2.43> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 36 <SV = 35> <Delay = 2.43>
+ST_36 : Operation 178 [37/71] (2.43ns)   --->   "%gmem0_load_2_req = readreq i1 @_ssdm_op_ReadReq.m_axi.i512P1A, i64 %gmem0_addr, i32 1" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:549->/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:590]   --->   Operation 178 'readreq' 'gmem0_load_2_req' <Predicate = true> <Delay = 2.43> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_36 : Operation 179 [38/71] (2.43ns)   --->   "%gmem0_load_3_req = readreq i1 @_ssdm_op_ReadReq.m_axi.i512P1A, i64 %gmem0_addr_2, i32 1" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:549->/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:590]   --->   Operation 179 'readreq' 'gmem0_load_3_req' <Predicate = true> <Delay = 2.43> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 37 <SV = 36> <Delay = 2.43>
+ST_37 : Operation 180 [36/71] (2.43ns)   --->   "%gmem0_load_2_req = readreq i1 @_ssdm_op_ReadReq.m_axi.i512P1A, i64 %gmem0_addr, i32 1" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:549->/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:590]   --->   Operation 180 'readreq' 'gmem0_load_2_req' <Predicate = true> <Delay = 2.43> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_37 : Operation 181 [37/71] (2.43ns)   --->   "%gmem0_load_3_req = readreq i1 @_ssdm_op_ReadReq.m_axi.i512P1A, i64 %gmem0_addr_2, i32 1" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:549->/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:590]   --->   Operation 181 'readreq' 'gmem0_load_3_req' <Predicate = true> <Delay = 2.43> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 38 <SV = 37> <Delay = 2.43>
+ST_38 : Operation 182 [35/71] (2.43ns)   --->   "%gmem0_load_2_req = readreq i1 @_ssdm_op_ReadReq.m_axi.i512P1A, i64 %gmem0_addr, i32 1" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:549->/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:590]   --->   Operation 182 'readreq' 'gmem0_load_2_req' <Predicate = true> <Delay = 2.43> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_38 : Operation 183 [36/71] (2.43ns)   --->   "%gmem0_load_3_req = readreq i1 @_ssdm_op_ReadReq.m_axi.i512P1A, i64 %gmem0_addr_2, i32 1" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:549->/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:590]   --->   Operation 183 'readreq' 'gmem0_load_3_req' <Predicate = true> <Delay = 2.43> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 39 <SV = 38> <Delay = 2.43>
+ST_39 : Operation 184 [34/71] (2.43ns)   --->   "%gmem0_load_2_req = readreq i1 @_ssdm_op_ReadReq.m_axi.i512P1A, i64 %gmem0_addr, i32 1" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:549->/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:590]   --->   Operation 184 'readreq' 'gmem0_load_2_req' <Predicate = true> <Delay = 2.43> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_39 : Operation 185 [35/71] (2.43ns)   --->   "%gmem0_load_3_req = readreq i1 @_ssdm_op_ReadReq.m_axi.i512P1A, i64 %gmem0_addr_2, i32 1" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:549->/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:590]   --->   Operation 185 'readreq' 'gmem0_load_3_req' <Predicate = true> <Delay = 2.43> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 40 <SV = 39> <Delay = 2.43>
+ST_40 : Operation 186 [33/71] (2.43ns)   --->   "%gmem0_load_2_req = readreq i1 @_ssdm_op_ReadReq.m_axi.i512P1A, i64 %gmem0_addr, i32 1" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:549->/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:590]   --->   Operation 186 'readreq' 'gmem0_load_2_req' <Predicate = true> <Delay = 2.43> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_40 : Operation 187 [34/71] (2.43ns)   --->   "%gmem0_load_3_req = readreq i1 @_ssdm_op_ReadReq.m_axi.i512P1A, i64 %gmem0_addr_2, i32 1" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:549->/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:590]   --->   Operation 187 'readreq' 'gmem0_load_3_req' <Predicate = true> <Delay = 2.43> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 41 <SV = 40> <Delay = 2.43>
+ST_41 : Operation 188 [32/71] (2.43ns)   --->   "%gmem0_load_2_req = readreq i1 @_ssdm_op_ReadReq.m_axi.i512P1A, i64 %gmem0_addr, i32 1" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:549->/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:590]   --->   Operation 188 'readreq' 'gmem0_load_2_req' <Predicate = true> <Delay = 2.43> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_41 : Operation 189 [33/71] (2.43ns)   --->   "%gmem0_load_3_req = readreq i1 @_ssdm_op_ReadReq.m_axi.i512P1A, i64 %gmem0_addr_2, i32 1" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:549->/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:590]   --->   Operation 189 'readreq' 'gmem0_load_3_req' <Predicate = true> <Delay = 2.43> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 42 <SV = 41> <Delay = 2.43>
+ST_42 : Operation 190 [31/71] (2.43ns)   --->   "%gmem0_load_2_req = readreq i1 @_ssdm_op_ReadReq.m_axi.i512P1A, i64 %gmem0_addr, i32 1" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:549->/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:590]   --->   Operation 190 'readreq' 'gmem0_load_2_req' <Predicate = true> <Delay = 2.43> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_42 : Operation 191 [32/71] (2.43ns)   --->   "%gmem0_load_3_req = readreq i1 @_ssdm_op_ReadReq.m_axi.i512P1A, i64 %gmem0_addr_2, i32 1" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:549->/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:590]   --->   Operation 191 'readreq' 'gmem0_load_3_req' <Predicate = true> <Delay = 2.43> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 43 <SV = 42> <Delay = 2.43>
+ST_43 : Operation 192 [30/71] (2.43ns)   --->   "%gmem0_load_2_req = readreq i1 @_ssdm_op_ReadReq.m_axi.i512P1A, i64 %gmem0_addr, i32 1" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:549->/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:590]   --->   Operation 192 'readreq' 'gmem0_load_2_req' <Predicate = true> <Delay = 2.43> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_43 : Operation 193 [31/71] (2.43ns)   --->   "%gmem0_load_3_req = readreq i1 @_ssdm_op_ReadReq.m_axi.i512P1A, i64 %gmem0_addr_2, i32 1" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:549->/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:590]   --->   Operation 193 'readreq' 'gmem0_load_3_req' <Predicate = true> <Delay = 2.43> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 44 <SV = 43> <Delay = 2.43>
+ST_44 : Operation 194 [29/71] (2.43ns)   --->   "%gmem0_load_2_req = readreq i1 @_ssdm_op_ReadReq.m_axi.i512P1A, i64 %gmem0_addr, i32 1" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:549->/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:590]   --->   Operation 194 'readreq' 'gmem0_load_2_req' <Predicate = true> <Delay = 2.43> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_44 : Operation 195 [30/71] (2.43ns)   --->   "%gmem0_load_3_req = readreq i1 @_ssdm_op_ReadReq.m_axi.i512P1A, i64 %gmem0_addr_2, i32 1" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:549->/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:590]   --->   Operation 195 'readreq' 'gmem0_load_3_req' <Predicate = true> <Delay = 2.43> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 45 <SV = 44> <Delay = 2.43>
+ST_45 : Operation 196 [28/71] (2.43ns)   --->   "%gmem0_load_2_req = readreq i1 @_ssdm_op_ReadReq.m_axi.i512P1A, i64 %gmem0_addr, i32 1" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:549->/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:590]   --->   Operation 196 'readreq' 'gmem0_load_2_req' <Predicate = true> <Delay = 2.43> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_45 : Operation 197 [29/71] (2.43ns)   --->   "%gmem0_load_3_req = readreq i1 @_ssdm_op_ReadReq.m_axi.i512P1A, i64 %gmem0_addr_2, i32 1" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:549->/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:590]   --->   Operation 197 'readreq' 'gmem0_load_3_req' <Predicate = true> <Delay = 2.43> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 46 <SV = 45> <Delay = 2.43>
+ST_46 : Operation 198 [27/71] (2.43ns)   --->   "%gmem0_load_2_req = readreq i1 @_ssdm_op_ReadReq.m_axi.i512P1A, i64 %gmem0_addr, i32 1" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:549->/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:590]   --->   Operation 198 'readreq' 'gmem0_load_2_req' <Predicate = true> <Delay = 2.43> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_46 : Operation 199 [28/71] (2.43ns)   --->   "%gmem0_load_3_req = readreq i1 @_ssdm_op_ReadReq.m_axi.i512P1A, i64 %gmem0_addr_2, i32 1" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:549->/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:590]   --->   Operation 199 'readreq' 'gmem0_load_3_req' <Predicate = true> <Delay = 2.43> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 47 <SV = 46> <Delay = 2.43>
+ST_47 : Operation 200 [26/71] (2.43ns)   --->   "%gmem0_load_2_req = readreq i1 @_ssdm_op_ReadReq.m_axi.i512P1A, i64 %gmem0_addr, i32 1" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:549->/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:590]   --->   Operation 200 'readreq' 'gmem0_load_2_req' <Predicate = true> <Delay = 2.43> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_47 : Operation 201 [27/71] (2.43ns)   --->   "%gmem0_load_3_req = readreq i1 @_ssdm_op_ReadReq.m_axi.i512P1A, i64 %gmem0_addr_2, i32 1" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:549->/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:590]   --->   Operation 201 'readreq' 'gmem0_load_3_req' <Predicate = true> <Delay = 2.43> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 48 <SV = 47> <Delay = 2.43>
+ST_48 : Operation 202 [25/71] (2.43ns)   --->   "%gmem0_load_2_req = readreq i1 @_ssdm_op_ReadReq.m_axi.i512P1A, i64 %gmem0_addr, i32 1" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:549->/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:590]   --->   Operation 202 'readreq' 'gmem0_load_2_req' <Predicate = true> <Delay = 2.43> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_48 : Operation 203 [26/71] (2.43ns)   --->   "%gmem0_load_3_req = readreq i1 @_ssdm_op_ReadReq.m_axi.i512P1A, i64 %gmem0_addr_2, i32 1" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:549->/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:590]   --->   Operation 203 'readreq' 'gmem0_load_3_req' <Predicate = true> <Delay = 2.43> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 49 <SV = 48> <Delay = 2.43>
+ST_49 : Operation 204 [24/71] (2.43ns)   --->   "%gmem0_load_2_req = readreq i1 @_ssdm_op_ReadReq.m_axi.i512P1A, i64 %gmem0_addr, i32 1" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:549->/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:590]   --->   Operation 204 'readreq' 'gmem0_load_2_req' <Predicate = true> <Delay = 2.43> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_49 : Operation 205 [25/71] (2.43ns)   --->   "%gmem0_load_3_req = readreq i1 @_ssdm_op_ReadReq.m_axi.i512P1A, i64 %gmem0_addr_2, i32 1" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:549->/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:590]   --->   Operation 205 'readreq' 'gmem0_load_3_req' <Predicate = true> <Delay = 2.43> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 50 <SV = 49> <Delay = 2.43>
+ST_50 : Operation 206 [23/71] (2.43ns)   --->   "%gmem0_load_2_req = readreq i1 @_ssdm_op_ReadReq.m_axi.i512P1A, i64 %gmem0_addr, i32 1" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:549->/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:590]   --->   Operation 206 'readreq' 'gmem0_load_2_req' <Predicate = true> <Delay = 2.43> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_50 : Operation 207 [24/71] (2.43ns)   --->   "%gmem0_load_3_req = readreq i1 @_ssdm_op_ReadReq.m_axi.i512P1A, i64 %gmem0_addr_2, i32 1" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:549->/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:590]   --->   Operation 207 'readreq' 'gmem0_load_3_req' <Predicate = true> <Delay = 2.43> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 51 <SV = 50> <Delay = 2.43>
+ST_51 : Operation 208 [22/71] (2.43ns)   --->   "%gmem0_load_2_req = readreq i1 @_ssdm_op_ReadReq.m_axi.i512P1A, i64 %gmem0_addr, i32 1" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:549->/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:590]   --->   Operation 208 'readreq' 'gmem0_load_2_req' <Predicate = true> <Delay = 2.43> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_51 : Operation 209 [23/71] (2.43ns)   --->   "%gmem0_load_3_req = readreq i1 @_ssdm_op_ReadReq.m_axi.i512P1A, i64 %gmem0_addr_2, i32 1" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:549->/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:590]   --->   Operation 209 'readreq' 'gmem0_load_3_req' <Predicate = true> <Delay = 2.43> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 52 <SV = 51> <Delay = 2.43>
+ST_52 : Operation 210 [21/71] (2.43ns)   --->   "%gmem0_load_2_req = readreq i1 @_ssdm_op_ReadReq.m_axi.i512P1A, i64 %gmem0_addr, i32 1" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:549->/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:590]   --->   Operation 210 'readreq' 'gmem0_load_2_req' <Predicate = true> <Delay = 2.43> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_52 : Operation 211 [22/71] (2.43ns)   --->   "%gmem0_load_3_req = readreq i1 @_ssdm_op_ReadReq.m_axi.i512P1A, i64 %gmem0_addr_2, i32 1" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:549->/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:590]   --->   Operation 211 'readreq' 'gmem0_load_3_req' <Predicate = true> <Delay = 2.43> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 53 <SV = 52> <Delay = 2.43>
+ST_53 : Operation 212 [20/71] (2.43ns)   --->   "%gmem0_load_2_req = readreq i1 @_ssdm_op_ReadReq.m_axi.i512P1A, i64 %gmem0_addr, i32 1" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:549->/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:590]   --->   Operation 212 'readreq' 'gmem0_load_2_req' <Predicate = true> <Delay = 2.43> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_53 : Operation 213 [21/71] (2.43ns)   --->   "%gmem0_load_3_req = readreq i1 @_ssdm_op_ReadReq.m_axi.i512P1A, i64 %gmem0_addr_2, i32 1" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:549->/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:590]   --->   Operation 213 'readreq' 'gmem0_load_3_req' <Predicate = true> <Delay = 2.43> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 54 <SV = 53> <Delay = 2.43>
+ST_54 : Operation 214 [19/71] (2.43ns)   --->   "%gmem0_load_2_req = readreq i1 @_ssdm_op_ReadReq.m_axi.i512P1A, i64 %gmem0_addr, i32 1" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:549->/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:590]   --->   Operation 214 'readreq' 'gmem0_load_2_req' <Predicate = true> <Delay = 2.43> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_54 : Operation 215 [20/71] (2.43ns)   --->   "%gmem0_load_3_req = readreq i1 @_ssdm_op_ReadReq.m_axi.i512P1A, i64 %gmem0_addr_2, i32 1" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:549->/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:590]   --->   Operation 215 'readreq' 'gmem0_load_3_req' <Predicate = true> <Delay = 2.43> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 55 <SV = 54> <Delay = 2.43>
+ST_55 : Operation 216 [18/71] (2.43ns)   --->   "%gmem0_load_2_req = readreq i1 @_ssdm_op_ReadReq.m_axi.i512P1A, i64 %gmem0_addr, i32 1" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:549->/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:590]   --->   Operation 216 'readreq' 'gmem0_load_2_req' <Predicate = true> <Delay = 2.43> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_55 : Operation 217 [19/71] (2.43ns)   --->   "%gmem0_load_3_req = readreq i1 @_ssdm_op_ReadReq.m_axi.i512P1A, i64 %gmem0_addr_2, i32 1" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:549->/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:590]   --->   Operation 217 'readreq' 'gmem0_load_3_req' <Predicate = true> <Delay = 2.43> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 56 <SV = 55> <Delay = 2.43>
+ST_56 : Operation 218 [17/71] (2.43ns)   --->   "%gmem0_load_2_req = readreq i1 @_ssdm_op_ReadReq.m_axi.i512P1A, i64 %gmem0_addr, i32 1" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:549->/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:590]   --->   Operation 218 'readreq' 'gmem0_load_2_req' <Predicate = true> <Delay = 2.43> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_56 : Operation 219 [18/71] (2.43ns)   --->   "%gmem0_load_3_req = readreq i1 @_ssdm_op_ReadReq.m_axi.i512P1A, i64 %gmem0_addr_2, i32 1" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:549->/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:590]   --->   Operation 219 'readreq' 'gmem0_load_3_req' <Predicate = true> <Delay = 2.43> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 57 <SV = 56> <Delay = 2.43>
+ST_57 : Operation 220 [16/71] (2.43ns)   --->   "%gmem0_load_2_req = readreq i1 @_ssdm_op_ReadReq.m_axi.i512P1A, i64 %gmem0_addr, i32 1" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:549->/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:590]   --->   Operation 220 'readreq' 'gmem0_load_2_req' <Predicate = true> <Delay = 2.43> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_57 : Operation 221 [17/71] (2.43ns)   --->   "%gmem0_load_3_req = readreq i1 @_ssdm_op_ReadReq.m_axi.i512P1A, i64 %gmem0_addr_2, i32 1" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:549->/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:590]   --->   Operation 221 'readreq' 'gmem0_load_3_req' <Predicate = true> <Delay = 2.43> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 58 <SV = 57> <Delay = 2.43>
+ST_58 : Operation 222 [15/71] (2.43ns)   --->   "%gmem0_load_2_req = readreq i1 @_ssdm_op_ReadReq.m_axi.i512P1A, i64 %gmem0_addr, i32 1" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:549->/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:590]   --->   Operation 222 'readreq' 'gmem0_load_2_req' <Predicate = true> <Delay = 2.43> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_58 : Operation 223 [16/71] (2.43ns)   --->   "%gmem0_load_3_req = readreq i1 @_ssdm_op_ReadReq.m_axi.i512P1A, i64 %gmem0_addr_2, i32 1" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:549->/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:590]   --->   Operation 223 'readreq' 'gmem0_load_3_req' <Predicate = true> <Delay = 2.43> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 59 <SV = 58> <Delay = 2.43>
+ST_59 : Operation 224 [14/71] (2.43ns)   --->   "%gmem0_load_2_req = readreq i1 @_ssdm_op_ReadReq.m_axi.i512P1A, i64 %gmem0_addr, i32 1" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:549->/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:590]   --->   Operation 224 'readreq' 'gmem0_load_2_req' <Predicate = true> <Delay = 2.43> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_59 : Operation 225 [15/71] (2.43ns)   --->   "%gmem0_load_3_req = readreq i1 @_ssdm_op_ReadReq.m_axi.i512P1A, i64 %gmem0_addr_2, i32 1" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:549->/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:590]   --->   Operation 225 'readreq' 'gmem0_load_3_req' <Predicate = true> <Delay = 2.43> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 60 <SV = 59> <Delay = 2.43>
+ST_60 : Operation 226 [13/71] (2.43ns)   --->   "%gmem0_load_2_req = readreq i1 @_ssdm_op_ReadReq.m_axi.i512P1A, i64 %gmem0_addr, i32 1" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:549->/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:590]   --->   Operation 226 'readreq' 'gmem0_load_2_req' <Predicate = true> <Delay = 2.43> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_60 : Operation 227 [14/71] (2.43ns)   --->   "%gmem0_load_3_req = readreq i1 @_ssdm_op_ReadReq.m_axi.i512P1A, i64 %gmem0_addr_2, i32 1" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:549->/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:590]   --->   Operation 227 'readreq' 'gmem0_load_3_req' <Predicate = true> <Delay = 2.43> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 61 <SV = 60> <Delay = 2.43>
+ST_61 : Operation 228 [12/71] (2.43ns)   --->   "%gmem0_load_2_req = readreq i1 @_ssdm_op_ReadReq.m_axi.i512P1A, i64 %gmem0_addr, i32 1" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:549->/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:590]   --->   Operation 228 'readreq' 'gmem0_load_2_req' <Predicate = true> <Delay = 2.43> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_61 : Operation 229 [13/71] (2.43ns)   --->   "%gmem0_load_3_req = readreq i1 @_ssdm_op_ReadReq.m_axi.i512P1A, i64 %gmem0_addr_2, i32 1" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:549->/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:590]   --->   Operation 229 'readreq' 'gmem0_load_3_req' <Predicate = true> <Delay = 2.43> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 62 <SV = 61> <Delay = 2.43>
+ST_62 : Operation 230 [11/71] (2.43ns)   --->   "%gmem0_load_2_req = readreq i1 @_ssdm_op_ReadReq.m_axi.i512P1A, i64 %gmem0_addr, i32 1" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:549->/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:590]   --->   Operation 230 'readreq' 'gmem0_load_2_req' <Predicate = true> <Delay = 2.43> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_62 : Operation 231 [12/71] (2.43ns)   --->   "%gmem0_load_3_req = readreq i1 @_ssdm_op_ReadReq.m_axi.i512P1A, i64 %gmem0_addr_2, i32 1" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:549->/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:590]   --->   Operation 231 'readreq' 'gmem0_load_3_req' <Predicate = true> <Delay = 2.43> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 63 <SV = 62> <Delay = 2.43>
+ST_63 : Operation 232 [10/71] (2.43ns)   --->   "%gmem0_load_2_req = readreq i1 @_ssdm_op_ReadReq.m_axi.i512P1A, i64 %gmem0_addr, i32 1" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:549->/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:590]   --->   Operation 232 'readreq' 'gmem0_load_2_req' <Predicate = true> <Delay = 2.43> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_63 : Operation 233 [11/71] (2.43ns)   --->   "%gmem0_load_3_req = readreq i1 @_ssdm_op_ReadReq.m_axi.i512P1A, i64 %gmem0_addr_2, i32 1" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:549->/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:590]   --->   Operation 233 'readreq' 'gmem0_load_3_req' <Predicate = true> <Delay = 2.43> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 64 <SV = 63> <Delay = 2.43>
+ST_64 : Operation 234 [9/71] (2.43ns)   --->   "%gmem0_load_2_req = readreq i1 @_ssdm_op_ReadReq.m_axi.i512P1A, i64 %gmem0_addr, i32 1" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:549->/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:590]   --->   Operation 234 'readreq' 'gmem0_load_2_req' <Predicate = true> <Delay = 2.43> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_64 : Operation 235 [10/71] (2.43ns)   --->   "%gmem0_load_3_req = readreq i1 @_ssdm_op_ReadReq.m_axi.i512P1A, i64 %gmem0_addr_2, i32 1" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:549->/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:590]   --->   Operation 235 'readreq' 'gmem0_load_3_req' <Predicate = true> <Delay = 2.43> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 65 <SV = 64> <Delay = 2.43>
+ST_65 : Operation 236 [8/71] (2.43ns)   --->   "%gmem0_load_2_req = readreq i1 @_ssdm_op_ReadReq.m_axi.i512P1A, i64 %gmem0_addr, i32 1" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:549->/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:590]   --->   Operation 236 'readreq' 'gmem0_load_2_req' <Predicate = true> <Delay = 2.43> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_65 : Operation 237 [9/71] (2.43ns)   --->   "%gmem0_load_3_req = readreq i1 @_ssdm_op_ReadReq.m_axi.i512P1A, i64 %gmem0_addr_2, i32 1" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:549->/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:590]   --->   Operation 237 'readreq' 'gmem0_load_3_req' <Predicate = true> <Delay = 2.43> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 66 <SV = 65> <Delay = 2.43>
+ST_66 : Operation 238 [7/71] (2.43ns)   --->   "%gmem0_load_2_req = readreq i1 @_ssdm_op_ReadReq.m_axi.i512P1A, i64 %gmem0_addr, i32 1" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:549->/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:590]   --->   Operation 238 'readreq' 'gmem0_load_2_req' <Predicate = true> <Delay = 2.43> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_66 : Operation 239 [8/71] (2.43ns)   --->   "%gmem0_load_3_req = readreq i1 @_ssdm_op_ReadReq.m_axi.i512P1A, i64 %gmem0_addr_2, i32 1" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:549->/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:590]   --->   Operation 239 'readreq' 'gmem0_load_3_req' <Predicate = true> <Delay = 2.43> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 67 <SV = 66> <Delay = 2.43>
+ST_67 : Operation 240 [6/71] (2.43ns)   --->   "%gmem0_load_2_req = readreq i1 @_ssdm_op_ReadReq.m_axi.i512P1A, i64 %gmem0_addr, i32 1" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:549->/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:590]   --->   Operation 240 'readreq' 'gmem0_load_2_req' <Predicate = true> <Delay = 2.43> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_67 : Operation 241 [7/71] (2.43ns)   --->   "%gmem0_load_3_req = readreq i1 @_ssdm_op_ReadReq.m_axi.i512P1A, i64 %gmem0_addr_2, i32 1" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:549->/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:590]   --->   Operation 241 'readreq' 'gmem0_load_3_req' <Predicate = true> <Delay = 2.43> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 68 <SV = 67> <Delay = 2.43>
+ST_68 : Operation 242 [5/71] (2.43ns)   --->   "%gmem0_load_2_req = readreq i1 @_ssdm_op_ReadReq.m_axi.i512P1A, i64 %gmem0_addr, i32 1" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:549->/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:590]   --->   Operation 242 'readreq' 'gmem0_load_2_req' <Predicate = true> <Delay = 2.43> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_68 : Operation 243 [6/71] (2.43ns)   --->   "%gmem0_load_3_req = readreq i1 @_ssdm_op_ReadReq.m_axi.i512P1A, i64 %gmem0_addr_2, i32 1" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:549->/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:590]   --->   Operation 243 'readreq' 'gmem0_load_3_req' <Predicate = true> <Delay = 2.43> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 69 <SV = 68> <Delay = 2.43>
+ST_69 : Operation 244 [4/71] (2.43ns)   --->   "%gmem0_load_2_req = readreq i1 @_ssdm_op_ReadReq.m_axi.i512P1A, i64 %gmem0_addr, i32 1" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:549->/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:590]   --->   Operation 244 'readreq' 'gmem0_load_2_req' <Predicate = true> <Delay = 2.43> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_69 : Operation 245 [5/71] (2.43ns)   --->   "%gmem0_load_3_req = readreq i1 @_ssdm_op_ReadReq.m_axi.i512P1A, i64 %gmem0_addr_2, i32 1" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:549->/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:590]   --->   Operation 245 'readreq' 'gmem0_load_3_req' <Predicate = true> <Delay = 2.43> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 70 <SV = 69> <Delay = 2.43>
+ST_70 : Operation 246 [3/71] (2.43ns)   --->   "%gmem0_load_2_req = readreq i1 @_ssdm_op_ReadReq.m_axi.i512P1A, i64 %gmem0_addr, i32 1" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:549->/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:590]   --->   Operation 246 'readreq' 'gmem0_load_2_req' <Predicate = true> <Delay = 2.43> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_70 : Operation 247 [4/71] (2.43ns)   --->   "%gmem0_load_3_req = readreq i1 @_ssdm_op_ReadReq.m_axi.i512P1A, i64 %gmem0_addr_2, i32 1" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:549->/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:590]   --->   Operation 247 'readreq' 'gmem0_load_3_req' <Predicate = true> <Delay = 2.43> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 71 <SV = 70> <Delay = 2.43>
+ST_71 : Operation 248 [2/71] (2.43ns)   --->   "%gmem0_load_2_req = readreq i1 @_ssdm_op_ReadReq.m_axi.i512P1A, i64 %gmem0_addr, i32 1" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:549->/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:590]   --->   Operation 248 'readreq' 'gmem0_load_2_req' <Predicate = true> <Delay = 2.43> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_71 : Operation 249 [3/71] (2.43ns)   --->   "%gmem0_load_3_req = readreq i1 @_ssdm_op_ReadReq.m_axi.i512P1A, i64 %gmem0_addr_2, i32 1" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:549->/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:590]   --->   Operation 249 'readreq' 'gmem0_load_3_req' <Predicate = true> <Delay = 2.43> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 72 <SV = 71> <Delay = 2.43>
+ST_72 : Operation 250 [1/71] (2.43ns)   --->   "%gmem0_load_2_req = readreq i1 @_ssdm_op_ReadReq.m_axi.i512P1A, i64 %gmem0_addr, i32 1" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:549->/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:590]   --->   Operation 250 'readreq' 'gmem0_load_2_req' <Predicate = true> <Delay = 2.43> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_72 : Operation 251 [2/71] (2.43ns)   --->   "%gmem0_load_3_req = readreq i1 @_ssdm_op_ReadReq.m_axi.i512P1A, i64 %gmem0_addr_2, i32 1" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:549->/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:590]   --->   Operation 251 'readreq' 'gmem0_load_3_req' <Predicate = true> <Delay = 2.43> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 73 <SV = 72> <Delay = 2.43>
+ST_73 : Operation 252 [1/1] (2.43ns)   --->   "%gmem0_addr_read = read i512 @_ssdm_op_Read.m_axi.i512P1A, i64 %gmem0_addr" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:549->/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:590]   --->   Operation 252 'read' 'gmem0_addr_read' <Predicate = true> <Delay = 2.43> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_73 : Operation 253 [1/71] (2.43ns)   --->   "%gmem0_load_3_req = readreq i1 @_ssdm_op_ReadReq.m_axi.i512P1A, i64 %gmem0_addr_2, i32 1" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:549->/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:590]   --->   Operation 253 'readreq' 'gmem0_load_3_req' <Predicate = true> <Delay = 2.43> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 74 <SV = 73> <Delay = 2.43>
+ST_74 : Operation 254 [1/1] (0.00ns)   --->   "%shl_ln1 = bitconcatenate i9 @_ssdm_op_BitConcatenate.i9.i6.i3, i6 %add_ln549_4, i3 0" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:549->/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:590]   --->   Operation 254 'bitconcatenate' 'shl_ln1' <Predicate = true> <Delay = 0.00>
+ST_74 : Operation 255 [1/1] (0.00ns)   --->   "%zext_ln549_1 = zext i9 %shl_ln1" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:549->/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:590]   --->   Operation 255 'zext' 'zext_ln549_1' <Predicate = true> <Delay = 0.00>
+ST_74 : Operation 256 [1/1] (1.44ns)   --->   "%lshr_ln549 = lshr i512 %gmem0_addr_read, i512 %zext_ln549_1" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:549->/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:590]   --->   Operation 256 'lshr' 'lshr_ln549' <Predicate = true> <Delay = 1.44> <CoreInst = "Shifter">   --->   Core 75 'Shifter' <Latency = 0> <II = 1> <Delay = 1.44> <FuncUnit> <Opcode : 'shl' 'lshr' 'ashr'> <InPorts = 2> <OutPorts = 1>
+ST_74 : Operation 257 [1/1] (0.00ns)   --->   "%trunc_ln549_2 = trunc i512 %lshr_ln549" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:549->/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:590]   --->   Operation 257 'trunc' 'trunc_ln549_2' <Predicate = true> <Delay = 0.00>
+ST_74 : Operation 258 [1/1] (2.43ns)   --->   "%gmem0_addr_2_read = read i512 @_ssdm_op_Read.m_axi.i512P1A, i64 %gmem0_addr_2" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:549->/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:590]   --->   Operation 258 'read' 'gmem0_addr_2_read' <Predicate = true> <Delay = 2.43> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 75 <SV = 74> <Delay = 2.14>
+ST_75 : Operation 259 [1/1] (0.70ns)   --->   "%add_ln549_5 = add i6 %add_ln549_4, i6 1" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:549->/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:590]   --->   Operation 259 'add' 'add_ln549_5' <Predicate = true> <Delay = 0.70> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 0.70> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_75 : Operation 260 [1/1] (0.00ns)   --->   "%shl_ln549_1 = bitconcatenate i9 @_ssdm_op_BitConcatenate.i9.i6.i3, i6 %add_ln549_5, i3 0" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:549->/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:590]   --->   Operation 260 'bitconcatenate' 'shl_ln549_1' <Predicate = true> <Delay = 0.00>
+ST_75 : Operation 261 [1/1] (0.00ns)   --->   "%zext_ln549_2 = zext i9 %shl_ln549_1" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:549->/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:590]   --->   Operation 261 'zext' 'zext_ln549_2' <Predicate = true> <Delay = 0.00>
+ST_75 : Operation 262 [1/1] (1.44ns)   --->   "%lshr_ln549_1 = lshr i512 %gmem0_addr_2_read, i512 %zext_ln549_2" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:549->/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:590]   --->   Operation 262 'lshr' 'lshr_ln549_1' <Predicate = true> <Delay = 1.44> <CoreInst = "Shifter">   --->   Core 75 'Shifter' <Latency = 0> <II = 1> <Delay = 1.44> <FuncUnit> <Opcode : 'shl' 'lshr' 'ashr'> <InPorts = 2> <OutPorts = 1>
+ST_75 : Operation 263 [1/1] (0.00ns)   --->   "%trunc_ln549_3 = trunc i512 %lshr_ln549_1" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:549->/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:590]   --->   Operation 263 'trunc' 'trunc_ln549_3' <Predicate = true> <Delay = 0.00>
+
+State 76 <SV = 75> <Delay = 1.34>
+ST_76 : Operation 264 [1/1] (0.00ns)   --->   "%sum_4 = load i48 %sum" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:551->/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:590]   --->   Operation 264 'load' 'sum_4' <Predicate = true> <Delay = 0.00>
+ST_76 : Operation 265 [1/1] (0.00ns)   --->   "%specpipeline_ln547 = specpipeline void @_ssdm_op_SpecPipeline, i32 1, i32 0, i32 0, i32 0, void @empty_5" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:547->/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:590]   --->   Operation 265 'specpipeline' 'specpipeline_ln547' <Predicate = true> <Delay = 0.00>
+ST_76 : Operation 266 [1/1] (0.00ns)   --->   "%specloopname_ln545 = specloopname void @_ssdm_op_SpecLoopName, void @empty_12" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:545->/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:590]   --->   Operation 266 'specloopname' 'specloopname_ln545' <Predicate = true> <Delay = 0.00>
+ST_76 : Operation 267 [1/1] (0.00ns)   --->   "%word = bitconcatenate i16 @_ssdm_op_BitConcatenate.i16.i8.i8, i8 %trunc_ln549_2, i8 %trunc_ln549_3" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:549->/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:590]   --->   Operation 267 'bitconcatenate' 'word' <Predicate = true> <Delay = 0.00>
+ST_76 : Operation 268 [1/1] (0.00ns)   --->   "%zext_ln551 = zext i16 %word" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:551->/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:590]   --->   Operation 268 'zext' 'zext_ln551' <Predicate = true> <Delay = 0.00>
+ST_76 : Operation 269 [1/1] (0.00ns)   --->   "%trunc_ln551 = trunc i48 %sum_4" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:551->/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:590]   --->   Operation 269 'trunc' 'trunc_ln551' <Predicate = true> <Delay = 0.00>
+ST_76 : Operation 270 [1/1] (0.00ns)   --->   "%zext_ln551_1 = zext i16 %word" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:551->/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:590]   --->   Operation 270 'zext' 'zext_ln551_1' <Predicate = true> <Delay = 0.00>
+ST_76 : Operation 271 [1/1] (0.95ns)   --->   "%sum_5 = add i48 %zext_ln551, i48 %sum_4" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:551->/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:590]   --->   Operation 271 'add' 'sum_5' <Predicate = true> <Delay = 0.95> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 0.95> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_76 : Operation 272 [1/1] (0.88ns)   --->   "%add_ln545_1 = add i32 %zext_ln551_1, i32 %trunc_ln551" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:545->/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:590]   --->   Operation 272 'add' 'add_ln545_1' <Predicate = true> <Delay = 0.88> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 0.88> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_76 : Operation 273 [1/1] (0.38ns)   --->   "%store_ln545 = store i48 %sum_5, i48 %sum" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:545->/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:590]   --->   Operation 273 'store' 'store_ln545' <Predicate = true> <Delay = 0.38>
+ST_76 : Operation 274 [1/1] (0.00ns)   --->   "%write_ln545 = write void @_ssdm_op_Write.ap_auto.i32P0A, i32 %add_ln545_1_out, i32 %add_ln545_1" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:545->/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:590]   --->   Operation 274 'write' 'write_ln545' <Predicate = (!icmp_ln545)> <Delay = 0.00>
+ST_76 : Operation 275 [1/1] (0.00ns)   --->   "%ret_ln0 = ret"   --->   Operation 275 'ret' 'ret_ln0' <Predicate = (!icmp_ln545)> <Delay = 0.00>
+
+
+============================================================
++ Verbose Summary: Binding
+============================================================
+STG Binding: 
+---------------- STG Properties BEGIN ----------------
+- Is combinational: 0
+- Is one-state seq: 0
+- Is datapath-only: 0
+- Is pipelined: 0
+- Is top level: 0
+Port [ Return ] is wired: 1; IO mode=ap_ctrl_hs:ce=0
+Port [ zext_ln492]:  wired=1; compound=0; hidden=0; nouse=0; global=0; static=0; extern=0; dir=0; type=0; pingpong=0; private_global=0; IO mode=ap_none:ce=0
+Port [ tail_offset]:  wired=1; compound=0; hidden=0; nouse=0; global=0; static=0; extern=0; dir=0; type=0; pingpong=0; private_global=0; IO mode=ap_none:ce=0
+Port [ phi_mul]:  wired=1; compound=0; hidden=0; nouse=0; global=0; static=0; extern=0; dir=0; type=0; pingpong=0; private_global=0; IO mode=ap_none:ce=0
+Port [ data_in]:  wired=1; compound=0; hidden=0; nouse=0; global=0; static=0; extern=0; dir=0; type=0; pingpong=0; private_global=0; IO mode=ap_none:ce=0
+Port [ gmem0]:  wired=1; compound=1; hidden=0; nouse=0; global=0; static=0; extern=0; dir=0; type=4; pingpong=0; private_global=0; IO mode=m_axi:ce=0
+Port [ tail_bytes]:  wired=1; compound=0; hidden=0; nouse=0; global=0; static=0; extern=0; dir=0; type=0; pingpong=0; private_global=0; IO mode=ap_none:ce=0
+Port [ add_ln545_1_out]:  wired=1; compound=0; hidden=0; nouse=0; global=0; static=0; extern=0; dir=1; type=0; pingpong=0; private_global=0; IO mode=ap_vld:ce=0
+---------------- STG Properties END ------------------
+
+---------------- Datapath Model BEGIN ----------------
+
+<LifeTime>
+<method=bitvector/>
+sum                (alloca        ) [ 01111111111111111111111111111111111111111111111111111111111111111111111111111]
+i_2                (alloca        ) [ 01000000000000000000000000000000000000000000000000000000000000000000000000000]
+tail_bytes_read    (read          ) [ 00000000000000000000000000000000000000000000000000000000000000000000000000000]
+data_in_read       (read          ) [ 00000000000000000000000000000000000000000000000000000000000000000000000000000]
+phi_mul_read       (read          ) [ 00000000000000000000000000000000000000000000000000000000000000000000000000000]
+tail_offset_read   (read          ) [ 00000000000000000000000000000000000000000000000000000000000000000000000000000]
+zext_ln492_read    (read          ) [ 00000000000000000000000000000000000000000000000000000000000000000000000000000]
+zext_ln492_cast    (zext          ) [ 00000000000000000000000000000000000000000000000000000000000000000000000000000]
+specinterface_ln0  (specinterface ) [ 00000000000000000000000000000000000000000000000000000000000000000000000000000]
+store_ln0          (store         ) [ 00000000000000000000000000000000000000000000000000000000000000000000000000000]
+store_ln0          (store         ) [ 00000000000000000000000000000000000000000000000000000000000000000000000000000]
+br_ln0             (br            ) [ 00000000000000000000000000000000000000000000000000000000000000000000000000000]
+i                  (load          ) [ 00000000000000000000000000000000000000000000000000000000000000000000000000000]
+trunc_ln549        (trunc         ) [ 00000000000000000000000000000000000000000000000000000000000000000000000000000]
+add_ln549          (add           ) [ 00000000000000000000000000000000000000000000000000000000000000000000000000000]
+zext_ln549         (zext          ) [ 00000000000000000000000000000000000000000000000000000000000000000000000000000]
+add_ln549_1        (add           ) [ 00000000000000000000000000000000000000000000000000000000000000000000000000000]
+trunc_ln549_1      (trunc         ) [ 00000000000000000000000000000000000000000000000000000000000000000000000000000]
+add_ln549_2        (add           ) [ 00100000000000000000000000000000000000000000000000000000000000000000000000000]
+trunc_ln549_5      (partselect    ) [ 00100000000000000000000000000000000000000000000000000000000000000000000000000]
+add_ln549_4        (add           ) [ 01111111111111111111111111111111111111111111111111111111111111111111111111110]
+i_4                (add           ) [ 00000000000000000000000000000000000000000000000000000000000000000000000000000]
+add_ln545          (add           ) [ 00000000000000000000000000000000000000000000000000000000000000000000000000000]
+icmp_ln545         (icmp          ) [ 01111111111111111111111111111111111111111111111111111111111111111111111111111]
+store_ln545        (store         ) [ 00000000000000000000000000000000000000000000000000000000000000000000000000000]
+br_ln545           (br            ) [ 00000000000000000000000000000000000000000000000000000000000000000000000000000]
+sext_ln549         (sext          ) [ 00000000000000000000000000000000000000000000000000000000000000000000000000000]
+gmem0_addr         (getelementptr ) [ 01111111111111111111111111111111111111111111111111111111111111111111111111000]
+add_ln549_3        (add           ) [ 00000000000000000000000000000000000000000000000000000000000000000000000000000]
+trunc_ln4          (partselect    ) [ 01010000000000000000000000000000000000000000000000000000000000000000000000000]
+sext_ln549_1       (sext          ) [ 00000000000000000000000000000000000000000000000000000000000000000000000000000]
+gmem0_addr_2       (getelementptr ) [ 01101111111111111111111111111111111111111111111111111111111111111111111111100]
+gmem0_load_2_req   (readreq       ) [ 00000000000000000000000000000000000000000000000000000000000000000000000000000]
+gmem0_addr_read    (read          ) [ 00100000000000000000000000000000000000000000000000000000000000000000000000100]
+gmem0_load_3_req   (readreq       ) [ 00000000000000000000000000000000000000000000000000000000000000000000000000000]
+shl_ln1            (bitconcatenate) [ 00000000000000000000000000000000000000000000000000000000000000000000000000000]
+zext_ln549_1       (zext          ) [ 00000000000000000000000000000000000000000000000000000000000000000000000000000]
+lshr_ln549         (lshr          ) [ 00000000000000000000000000000000000000000000000000000000000000000000000000000]
+trunc_ln549_2      (trunc         ) [ 01100000000000000000000000000000000000000000000000000000000000000000000000011]
+gmem0_addr_2_read  (read          ) [ 01000000000000000000000000000000000000000000000000000000000000000000000000010]
+add_ln549_5        (add           ) [ 00000000000000000000000000000000000000000000000000000000000000000000000000000]
+shl_ln549_1        (bitconcatenate) [ 00000000000000000000000000000000000000000000000000000000000000000000000000000]
+zext_ln549_2       (zext          ) [ 00000000000000000000000000000000000000000000000000000000000000000000000000000]
+lshr_ln549_1       (lshr          ) [ 00000000000000000000000000000000000000000000000000000000000000000000000000000]
+trunc_ln549_3      (trunc         ) [ 00100000000000000000000000000000000000000000000000000000000000000000000000001]
+sum_4              (load          ) [ 00000000000000000000000000000000000000000000000000000000000000000000000000000]
+specpipeline_ln547 (specpipeline  ) [ 00000000000000000000000000000000000000000000000000000000000000000000000000000]
+specloopname_ln545 (specloopname  ) [ 00000000000000000000000000000000000000000000000000000000000000000000000000000]
+word               (bitconcatenate) [ 00000000000000000000000000000000000000000000000000000000000000000000000000000]
+zext_ln551         (zext          ) [ 00000000000000000000000000000000000000000000000000000000000000000000000000000]
+trunc_ln551        (trunc         ) [ 00000000000000000000000000000000000000000000000000000000000000000000000000000]
+zext_ln551_1       (zext          ) [ 00000000000000000000000000000000000000000000000000000000000000000000000000000]
+sum_5              (add           ) [ 00000000000000000000000000000000000000000000000000000000000000000000000000000]
+add_ln545_1        (add           ) [ 00000000000000000000000000000000000000000000000000000000000000000000000000000]
+store_ln545        (store         ) [ 00000000000000000000000000000000000000000000000000000000000000000000000000000]
+write_ln545        (write         ) [ 00000000000000000000000000000000000000000000000000000000000000000000000000000]
+ret_ln0            (ret           ) [ 00000000000000000000000000000000000000000000000000000000000000000000000000000]
+</LifeTime>
+
+<model>
+
+<comp_list>
+<comp id="0" class="1000" name="zext_ln492">
+<pin_list>
+<pin id="1" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="zext_ln492"/></StgValue>
+</bind>
+</comp>
+
+<comp id="2" class="1000" name="tail_offset">
+<pin_list>
+<pin id="3" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="tail_offset"/></StgValue>
+</bind>
+</comp>
+
+<comp id="4" class="1000" name="phi_mul">
+<pin_list>
+<pin id="5" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="phi_mul"/></StgValue>
+</bind>
+</comp>
+
+<comp id="6" class="1000" name="data_in">
+<pin_list>
+<pin id="7" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="data_in"/></StgValue>
+</bind>
+</comp>
+
+<comp id="8" class="1000" name="gmem0">
+<pin_list>
+<pin id="9" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="gmem0"/></StgValue>
+</bind>
+</comp>
+
+<comp id="10" class="1000" name="tail_bytes">
+<pin_list>
+<pin id="11" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="tail_bytes"/></StgValue>
+</bind>
+</comp>
+
+<comp id="12" class="1000" name="add_ln545_1_out">
+<pin_list>
+<pin id="13" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="add_ln545_1_out"/></StgValue>
+</bind>
+</comp>
+
+<comp id="14" class="1001" name="const_14">
+<pin_list>
+<pin id="15" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name=""/></StgValue>
+</bind>
+</comp>
+
+<comp id="16" class="1001" name="const_16">
+<pin_list>
+<pin id="17" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="_ssdm_op_Read.ap_auto.i32"/></StgValue>
+</bind>
+</comp>
+
+<comp id="18" class="1001" name="const_18">
+<pin_list>
+<pin id="19" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="_ssdm_op_Read.ap_auto.i64"/></StgValue>
+</bind>
+</comp>
+
+<comp id="20" class="1001" name="const_20">
+<pin_list>
+<pin id="21" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="_ssdm_op_Read.ap_auto.i47"/></StgValue>
+</bind>
+</comp>
+
+<comp id="22" class="1001" name="const_22">
+<pin_list>
+<pin id="23" dir="1" index="0" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="_ssdm_op_SpecInterface"/></StgValue>
+</bind>
+</comp>
+
+<comp id="24" class="1001" name="const_24">
+<pin_list>
+<pin id="25" dir="1" index="0" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="empty_4"/></StgValue>
+</bind>
+</comp>
+
+<comp id="26" class="1001" name="const_26">
+<pin_list>
+<pin id="27" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name=""/></StgValue>
+</bind>
+</comp>
+
+<comp id="28" class="1001" name="const_28">
+<pin_list>
+<pin id="29" dir="1" index="0" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="empty_5"/></StgValue>
+</bind>
+</comp>
+
+<comp id="30" class="1001" name="const_30">
+<pin_list>
+<pin id="31" dir="1" index="0" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name=""/></StgValue>
+</bind>
+</comp>
+
+<comp id="32" class="1001" name="const_32">
+<pin_list>
+<pin id="33" dir="1" index="0" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name=""/></StgValue>
+</bind>
+</comp>
+
+<comp id="34" class="1001" name="const_34">
+<pin_list>
+<pin id="35" dir="1" index="0" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="empty_6"/></StgValue>
+</bind>
+</comp>
+
+<comp id="36" class="1001" name="const_36">
+<pin_list>
+<pin id="37" dir="1" index="0" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="empty_7"/></StgValue>
+</bind>
+</comp>
+
+<comp id="38" class="1001" name="const_38">
+<pin_list>
+<pin id="39" dir="1" index="0" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name=""/></StgValue>
+</bind>
+</comp>
+
+<comp id="40" class="1001" name="const_40">
+<pin_list>
+<pin id="41" dir="1" index="0" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name=""/></StgValue>
+</bind>
+</comp>
+
+<comp id="42" class="1001" name="const_42">
+<pin_list>
+<pin id="43" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="_ssdm_op_PartSelect.i58.i64.i32.i32"/></StgValue>
+</bind>
+</comp>
+
+<comp id="44" class="1001" name="const_44">
+<pin_list>
+<pin id="45" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name=""/></StgValue>
+</bind>
+</comp>
+
+<comp id="46" class="1001" name="const_46">
+<pin_list>
+<pin id="47" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name=""/></StgValue>
+</bind>
+</comp>
+
+<comp id="48" class="1001" name="const_48">
+<pin_list>
+<pin id="49" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name=""/></StgValue>
+</bind>
+</comp>
+
+<comp id="50" class="1001" name="const_50">
+<pin_list>
+<pin id="51" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name=""/></StgValue>
+</bind>
+</comp>
+
+<comp id="52" class="1001" name="const_52">
+<pin_list>
+<pin id="53" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="_ssdm_op_ReadReq.m_axi.i512P1A"/></StgValue>
+</bind>
+</comp>
+
+<comp id="54" class="1001" name="const_54">
+<pin_list>
+<pin id="55" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name=""/></StgValue>
+</bind>
+</comp>
+
+<comp id="56" class="1001" name="const_56">
+<pin_list>
+<pin id="57" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="_ssdm_op_Read.m_axi.i512P1A"/></StgValue>
+</bind>
+</comp>
+
+<comp id="58" class="1001" name="const_58">
+<pin_list>
+<pin id="59" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="_ssdm_op_BitConcatenate.i9.i6.i3"/></StgValue>
+</bind>
+</comp>
+
+<comp id="60" class="1001" name="const_60">
+<pin_list>
+<pin id="61" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name=""/></StgValue>
+</bind>
+</comp>
+
+<comp id="62" class="1001" name="const_62">
+<pin_list>
+<pin id="63" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name=""/></StgValue>
+</bind>
+</comp>
+
+<comp id="64" class="1001" name="const_64">
+<pin_list>
+<pin id="65" dir="1" index="0" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="_ssdm_op_SpecPipeline"/></StgValue>
+</bind>
+</comp>
+
+<comp id="66" class="1001" name="const_66">
+<pin_list>
+<pin id="67" dir="1" index="0" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="_ssdm_op_SpecLoopName"/></StgValue>
+</bind>
+</comp>
+
+<comp id="68" class="1001" name="const_68">
+<pin_list>
+<pin id="69" dir="1" index="0" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="empty_12"/></StgValue>
+</bind>
+</comp>
+
+<comp id="70" class="1001" name="const_70">
+<pin_list>
+<pin id="71" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="_ssdm_op_BitConcatenate.i16.i8.i8"/></StgValue>
+</bind>
+</comp>
+
+<comp id="72" class="1001" name="const_72">
+<pin_list>
+<pin id="73" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="_ssdm_op_Write.ap_auto.i32P0A"/></StgValue>
+</bind>
+</comp>
+
+<comp id="74" class="1004" name="sum_fu_74">
+<pin_list>
+<pin id="75" dir="0" index="0" bw="1" slack="0"/>
+<pin id="76" dir="1" index="1" bw="48" slack="0"/>
+</pin_list>
+<bind>
+<opcode="alloca(26) " fcode="alloca"/>
+<opset="sum/1 "/>
+</bind>
+</comp>
+
+<comp id="78" class="1004" name="i_2_fu_78">
+<pin_list>
+<pin id="79" dir="0" index="0" bw="1" slack="0"/>
+<pin id="80" dir="1" index="1" bw="32" slack="0"/>
+</pin_list>
+<bind>
+<opcode="alloca(26) " fcode="alloca"/>
+<opset="i_2/1 "/>
+</bind>
+</comp>
+
+<comp id="82" class="1004" name="tail_bytes_read_read_fu_82">
+<pin_list>
+<pin id="83" dir="0" index="0" bw="32" slack="0"/>
+<pin id="84" dir="0" index="1" bw="32" slack="0"/>
+<pin id="85" dir="1" index="2" bw="32" slack="0"/>
+</pin_list>
+<bind>
+<opcode="read(1150) " fcode="read"/>
+<opset="tail_bytes_read/1 "/>
+</bind>
+</comp>
+
+<comp id="88" class="1004" name="data_in_read_read_fu_88">
+<pin_list>
+<pin id="89" dir="0" index="0" bw="64" slack="0"/>
+<pin id="90" dir="0" index="1" bw="64" slack="0"/>
+<pin id="91" dir="1" index="2" bw="64" slack="0"/>
+</pin_list>
+<bind>
+<opcode="read(1150) " fcode="read"/>
+<opset="data_in_read/1 "/>
+</bind>
+</comp>
+
+<comp id="94" class="1004" name="phi_mul_read_read_fu_94">
+<pin_list>
+<pin id="95" dir="0" index="0" bw="64" slack="0"/>
+<pin id="96" dir="0" index="1" bw="64" slack="0"/>
+<pin id="97" dir="1" index="2" bw="64" slack="0"/>
+</pin_list>
+<bind>
+<opcode="read(1150) " fcode="read"/>
+<opset="phi_mul_read/1 "/>
+</bind>
+</comp>
+
+<comp id="100" class="1004" name="tail_offset_read_read_fu_100">
+<pin_list>
+<pin id="101" dir="0" index="0" bw="32" slack="0"/>
+<pin id="102" dir="0" index="1" bw="32" slack="0"/>
+<pin id="103" dir="1" index="2" bw="32" slack="0"/>
+</pin_list>
+<bind>
+<opcode="read(1150) " fcode="read"/>
+<opset="tail_offset_read/1 "/>
+</bind>
+</comp>
+
+<comp id="106" class="1004" name="zext_ln492_read_read_fu_106">
+<pin_list>
+<pin id="107" dir="0" index="0" bw="47" slack="0"/>
+<pin id="108" dir="0" index="1" bw="47" slack="0"/>
+<pin id="109" dir="1" index="2" bw="47" slack="0"/>
+</pin_list>
+<bind>
+<opcode="read(1150) " fcode="read"/>
+<opset="zext_ln492_read/1 "/>
+</bind>
+</comp>
+
+<comp id="112" class="1004" name="grp_readreq_fu_112">
+<pin_list>
+<pin id="113" dir="0" index="0" bw="1" slack="0"/>
+<pin id="114" dir="0" index="1" bw="512" slack="0"/>
+<pin id="115" dir="0" index="2" bw="1" slack="0"/>
+<pin id="116" dir="1" index="3" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<opcode="readreq(1154) " fcode="readreq"/>
+<opset="gmem0_load_2_req/2 "/>
+</bind>
+</comp>
+
+<comp id="119" class="1004" name="grp_readreq_fu_119">
+<pin_list>
+<pin id="120" dir="0" index="0" bw="1" slack="0"/>
+<pin id="121" dir="0" index="1" bw="512" slack="0"/>
+<pin id="122" dir="0" index="2" bw="1" slack="0"/>
+<pin id="123" dir="1" index="3" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<opcode="readreq(1154) " fcode="readreq"/>
+<opset="gmem0_load_3_req/3 "/>
+</bind>
+</comp>
+
+<comp id="126" class="1004" name="gmem0_addr_read_read_fu_126">
+<pin_list>
+<pin id="127" dir="0" index="0" bw="512" slack="0"/>
+<pin id="128" dir="0" index="1" bw="512" slack="71"/>
+<pin id="129" dir="1" index="2" bw="512" slack="1"/>
+</pin_list>
+<bind>
+<opcode="read(1150) " fcode="read"/>
+<opset="gmem0_addr_read/73 "/>
+</bind>
+</comp>
+
+<comp id="131" class="1004" name="gmem0_addr_2_read_read_fu_131">
+<pin_list>
+<pin id="132" dir="0" index="0" bw="512" slack="0"/>
+<pin id="133" dir="0" index="1" bw="512" slack="71"/>
+<pin id="134" dir="1" index="2" bw="512" slack="1"/>
+</pin_list>
+<bind>
+<opcode="read(1150) " fcode="read"/>
+<opset="gmem0_addr_2_read/74 "/>
+</bind>
+</comp>
+
+<comp id="136" class="1004" name="write_ln545_write_fu_136">
+<pin_list>
+<pin id="137" dir="0" index="0" bw="0" slack="0"/>
+<pin id="138" dir="0" index="1" bw="32" slack="0"/>
+<pin id="139" dir="0" index="2" bw="32" slack="0"/>
+<pin id="140" dir="1" index="3" bw="0" slack="2147483647"/>
+</pin_list>
+<bind>
+<opcode="write(1151) " fcode="write"/>
+<opset="write_ln545/76 "/>
+</bind>
+</comp>
+
+<comp id="143" class="1004" name="zext_ln492_cast_fu_143">
+<pin_list>
+<pin id="144" dir="0" index="0" bw="47" slack="0"/>
+<pin id="145" dir="1" index="1" bw="48" slack="0"/>
+</pin_list>
+<bind>
+<opcode="zext(34) " fcode="zext"/>
+<opset="zext_ln492_cast/1 "/>
+</bind>
+</comp>
+
+<comp id="147" class="1004" name="store_ln0_store_fu_147">
+<pin_list>
+<pin id="148" dir="0" index="0" bw="1" slack="0"/>
+<pin id="149" dir="0" index="1" bw="32" slack="0"/>
+<pin id="150" dir="1" index="2" bw="0" slack="2147483647"/>
+</pin_list>
+<bind>
+<opcode="store(28) " fcode="store"/>
+<opset="store_ln0/1 "/>
+</bind>
+</comp>
+
+<comp id="152" class="1004" name="store_ln0_store_fu_152">
+<pin_list>
+<pin id="153" dir="0" index="0" bw="47" slack="0"/>
+<pin id="154" dir="0" index="1" bw="48" slack="0"/>
+<pin id="155" dir="1" index="2" bw="0" slack="2147483647"/>
+</pin_list>
+<bind>
+<opcode="store(28) " fcode="store"/>
+<opset="store_ln0/1 "/>
+</bind>
+</comp>
+
+<comp id="157" class="1004" name="i_load_fu_157">
+<pin_list>
+<pin id="158" dir="0" index="0" bw="32" slack="0"/>
+<pin id="159" dir="1" index="1" bw="32" slack="0"/>
+</pin_list>
+<bind>
+<opcode="load(27) " fcode="load"/>
+<opset="i/1 "/>
+</bind>
+</comp>
+
+<comp id="160" class="1004" name="trunc_ln549_fu_160">
+<pin_list>
+<pin id="161" dir="0" index="0" bw="32" slack="0"/>
+<pin id="162" dir="1" index="1" bw="6" slack="0"/>
+</pin_list>
+<bind>
+<opcode="trunc(33) " fcode="trunc"/>
+<opset="trunc_ln549/1 "/>
+</bind>
+</comp>
+
+<comp id="164" class="1004" name="add_ln549_fu_164">
+<pin_list>
+<pin id="165" dir="0" index="0" bw="32" slack="0"/>
+<pin id="166" dir="0" index="1" bw="32" slack="0"/>
+<pin id="167" dir="1" index="2" bw="32" slack="0"/>
+</pin_list>
+<bind>
+<opcode="add(8) " fcode="add"/>
+<opset="add_ln549/1 "/>
+</bind>
+</comp>
+
+<comp id="170" class="1004" name="zext_ln549_fu_170">
+<pin_list>
+<pin id="171" dir="0" index="0" bw="32" slack="0"/>
+<pin id="172" dir="1" index="1" bw="64" slack="0"/>
+</pin_list>
+<bind>
+<opcode="zext(34) " fcode="zext"/>
+<opset="zext_ln549/1 "/>
+</bind>
+</comp>
+
+<comp id="174" class="1004" name="add_ln549_1_fu_174">
+<pin_list>
+<pin id="175" dir="0" index="0" bw="64" slack="0"/>
+<pin id="176" dir="0" index="1" bw="64" slack="0"/>
+<pin id="177" dir="1" index="2" bw="64" slack="0"/>
+</pin_list>
+<bind>
+<opcode="add(8) " fcode="add"/>
+<opset="add_ln549_1/1 "/>
+</bind>
+</comp>
+
+<comp id="180" class="1004" name="trunc_ln549_1_fu_180">
+<pin_list>
+<pin id="181" dir="0" index="0" bw="64" slack="0"/>
+<pin id="182" dir="1" index="1" bw="6" slack="0"/>
+</pin_list>
+<bind>
+<opcode="trunc(33) " fcode="trunc"/>
+<opset="trunc_ln549_1/1 "/>
+</bind>
+</comp>
+
+<comp id="184" class="1004" name="add_ln549_2_fu_184">
+<pin_list>
+<pin id="185" dir="0" index="0" bw="64" slack="0"/>
+<pin id="186" dir="0" index="1" bw="32" slack="0"/>
+<pin id="187" dir="1" index="2" bw="64" slack="0"/>
+</pin_list>
+<bind>
+<opcode="add(8) " fcode="add"/>
+<opset="add_ln549_2/1 "/>
+</bind>
+</comp>
+
+<comp id="190" class="1004" name="trunc_ln549_5_fu_190">
+<pin_list>
+<pin id="191" dir="0" index="0" bw="58" slack="0"/>
+<pin id="192" dir="0" index="1" bw="64" slack="0"/>
+<pin id="193" dir="0" index="2" bw="4" slack="0"/>
+<pin id="194" dir="0" index="3" bw="7" slack="0"/>
+<pin id="195" dir="1" index="4" bw="58" slack="1"/>
+</pin_list>
+<bind>
+<opcode="partselect(1002) " fcode="partselect"/>
+<opset="trunc_ln549_5/1 "/>
+</bind>
+</comp>
+
+<comp id="200" class="1004" name="add_ln549_4_fu_200">
+<pin_list>
+<pin id="201" dir="0" index="0" bw="6" slack="0"/>
+<pin id="202" dir="0" index="1" bw="6" slack="0"/>
+<pin id="203" dir="1" index="2" bw="6" slack="73"/>
+</pin_list>
+<bind>
+<opcode="add(8) " fcode="add"/>
+<opset="add_ln549_4/1 "/>
+</bind>
+</comp>
+
+<comp id="206" class="1004" name="i_4_fu_206">
+<pin_list>
+<pin id="207" dir="0" index="0" bw="32" slack="0"/>
+<pin id="208" dir="0" index="1" bw="3" slack="0"/>
+<pin id="209" dir="1" index="2" bw="32" slack="0"/>
+</pin_list>
+<bind>
+<opcode="add(8) " fcode="add"/>
+<opset="i_4/1 "/>
+</bind>
+</comp>
+
+<comp id="212" class="1004" name="add_ln545_fu_212">
+<pin_list>
+<pin id="213" dir="0" index="0" bw="32" slack="0"/>
+<pin id="214" dir="0" index="1" bw="3" slack="0"/>
+<pin id="215" dir="1" index="2" bw="32" slack="0"/>
+</pin_list>
+<bind>
+<opcode="add(8) " fcode="add"/>
+<opset="add_ln545/1 "/>
+</bind>
+</comp>
+
+<comp id="218" class="1004" name="icmp_ln545_fu_218">
+<pin_list>
+<pin id="219" dir="0" index="0" bw="32" slack="0"/>
+<pin id="220" dir="0" index="1" bw="32" slack="0"/>
+<pin id="221" dir="1" index="2" bw="1" slack="75"/>
+</pin_list>
+<bind>
+<opcode="icmp(45) " fcode="icmp"/>
+<opset="icmp_ln545/1 "/>
+</bind>
+</comp>
+
+<comp id="224" class="1004" name="store_ln545_store_fu_224">
+<pin_list>
+<pin id="225" dir="0" index="0" bw="32" slack="0"/>
+<pin id="226" dir="0" index="1" bw="32" slack="0"/>
+<pin id="227" dir="1" index="2" bw="0" slack="2147483647"/>
+</pin_list>
+<bind>
+<opcode="store(28) " fcode="store"/>
+<opset="store_ln545/1 "/>
+</bind>
+</comp>
+
+<comp id="229" class="1004" name="sext_ln549_fu_229">
+<pin_list>
+<pin id="230" dir="0" index="0" bw="58" slack="1"/>
+<pin id="231" dir="1" index="1" bw="64" slack="0"/>
+</pin_list>
+<bind>
+<opcode="sext(35) " fcode="sext"/>
+<opset="sext_ln549/2 "/>
+</bind>
+</comp>
+
+<comp id="232" class="1004" name="gmem0_addr_fu_232">
+<pin_list>
+<pin id="233" dir="0" index="0" bw="64" slack="0"/>
+<pin id="234" dir="0" index="1" bw="64" slack="0"/>
+<pin id="235" dir="1" index="2" bw="64" slack="0"/>
+</pin_list>
+<bind>
+<opcode="getelementptr(29) " fcode="getelementptr"/>
+<opset="gmem0_addr/2 "/>
+</bind>
+</comp>
+
+<comp id="239" class="1004" name="add_ln549_3_fu_239">
+<pin_list>
+<pin id="240" dir="0" index="0" bw="64" slack="1"/>
+<pin id="241" dir="0" index="1" bw="1" slack="0"/>
+<pin id="242" dir="1" index="2" bw="64" slack="0"/>
+</pin_list>
+<bind>
+<opcode="add(8) " fcode="add"/>
+<opset="add_ln549_3/2 "/>
+</bind>
+</comp>
+
+<comp id="244" class="1004" name="trunc_ln4_fu_244">
+<pin_list>
+<pin id="245" dir="0" index="0" bw="58" slack="0"/>
+<pin id="246" dir="0" index="1" bw="64" slack="0"/>
+<pin id="247" dir="0" index="2" bw="4" slack="0"/>
+<pin id="248" dir="0" index="3" bw="7" slack="0"/>
+<pin id="249" dir="1" index="4" bw="58" slack="1"/>
+</pin_list>
+<bind>
+<opcode="partselect(1002) " fcode="partselect"/>
+<opset="trunc_ln4/2 "/>
+</bind>
+</comp>
+
+<comp id="254" class="1004" name="sext_ln549_1_fu_254">
+<pin_list>
+<pin id="255" dir="0" index="0" bw="58" slack="1"/>
+<pin id="256" dir="1" index="1" bw="64" slack="0"/>
+</pin_list>
+<bind>
+<opcode="sext(35) " fcode="sext"/>
+<opset="sext_ln549_1/3 "/>
+</bind>
+</comp>
+
+<comp id="257" class="1004" name="gmem0_addr_2_fu_257">
+<pin_list>
+<pin id="258" dir="0" index="0" bw="64" slack="0"/>
+<pin id="259" dir="0" index="1" bw="64" slack="0"/>
+<pin id="260" dir="1" index="2" bw="64" slack="0"/>
+</pin_list>
+<bind>
+<opcode="getelementptr(29) " fcode="getelementptr"/>
+<opset="gmem0_addr_2/3 "/>
+</bind>
+</comp>
+
+<comp id="264" class="1004" name="shl_ln1_fu_264">
+<pin_list>
+<pin id="265" dir="0" index="0" bw="9" slack="0"/>
+<pin id="266" dir="0" index="1" bw="6" slack="73"/>
+<pin id="267" dir="0" index="2" bw="1" slack="0"/>
+<pin id="268" dir="1" index="3" bw="9" slack="0"/>
+</pin_list>
+<bind>
+<opcode="bitconcatenate(1004) " fcode="bitconcatenate"/>
+<opset="shl_ln1/74 "/>
+</bind>
+</comp>
+
+<comp id="271" class="1004" name="zext_ln549_1_fu_271">
+<pin_list>
+<pin id="272" dir="0" index="0" bw="9" slack="0"/>
+<pin id="273" dir="1" index="1" bw="512" slack="0"/>
+</pin_list>
+<bind>
+<opcode="zext(34) " fcode="zext"/>
+<opset="zext_ln549_1/74 "/>
+</bind>
+</comp>
+
+<comp id="275" class="1004" name="lshr_ln549_fu_275">
+<pin_list>
+<pin id="276" dir="0" index="0" bw="512" slack="1"/>
+<pin id="277" dir="0" index="1" bw="9" slack="0"/>
+<pin id="278" dir="1" index="2" bw="512" slack="0"/>
+</pin_list>
+<bind>
+<opcode="lshr(21) " fcode="lshr"/>
+<opset="lshr_ln549/74 "/>
+</bind>
+</comp>
+
+<comp id="280" class="1004" name="trunc_ln549_2_fu_280">
+<pin_list>
+<pin id="281" dir="0" index="0" bw="512" slack="0"/>
+<pin id="282" dir="1" index="1" bw="8" slack="2"/>
+</pin_list>
+<bind>
+<opcode="trunc(33) " fcode="trunc"/>
+<opset="trunc_ln549_2/74 "/>
+</bind>
+</comp>
+
+<comp id="284" class="1004" name="add_ln549_5_fu_284">
+<pin_list>
+<pin id="285" dir="0" index="0" bw="6" slack="74"/>
+<pin id="286" dir="0" index="1" bw="1" slack="0"/>
+<pin id="287" dir="1" index="2" bw="6" slack="0"/>
+</pin_list>
+<bind>
+<opcode="add(8) " fcode="add"/>
+<opset="add_ln549_5/75 "/>
+</bind>
+</comp>
+
+<comp id="289" class="1004" name="shl_ln549_1_fu_289">
+<pin_list>
+<pin id="290" dir="0" index="0" bw="9" slack="0"/>
+<pin id="291" dir="0" index="1" bw="6" slack="0"/>
+<pin id="292" dir="0" index="2" bw="1" slack="0"/>
+<pin id="293" dir="1" index="3" bw="9" slack="0"/>
+</pin_list>
+<bind>
+<opcode="bitconcatenate(1004) " fcode="bitconcatenate"/>
+<opset="shl_ln549_1/75 "/>
+</bind>
+</comp>
+
+<comp id="297" class="1004" name="zext_ln549_2_fu_297">
+<pin_list>
+<pin id="298" dir="0" index="0" bw="9" slack="0"/>
+<pin id="299" dir="1" index="1" bw="512" slack="0"/>
+</pin_list>
+<bind>
+<opcode="zext(34) " fcode="zext"/>
+<opset="zext_ln549_2/75 "/>
+</bind>
+</comp>
+
+<comp id="301" class="1004" name="lshr_ln549_1_fu_301">
+<pin_list>
+<pin id="302" dir="0" index="0" bw="512" slack="1"/>
+<pin id="303" dir="0" index="1" bw="9" slack="0"/>
+<pin id="304" dir="1" index="2" bw="512" slack="0"/>
+</pin_list>
+<bind>
+<opcode="lshr(21) " fcode="lshr"/>
+<opset="lshr_ln549_1/75 "/>
+</bind>
+</comp>
+
+<comp id="306" class="1004" name="trunc_ln549_3_fu_306">
+<pin_list>
+<pin id="307" dir="0" index="0" bw="512" slack="0"/>
+<pin id="308" dir="1" index="1" bw="8" slack="1"/>
+</pin_list>
+<bind>
+<opcode="trunc(33) " fcode="trunc"/>
+<opset="trunc_ln549_3/75 "/>
+</bind>
+</comp>
+
+<comp id="310" class="1004" name="sum_4_load_fu_310">
+<pin_list>
+<pin id="311" dir="0" index="0" bw="48" slack="75"/>
+<pin id="312" dir="1" index="1" bw="48" slack="0"/>
+</pin_list>
+<bind>
+<opcode="load(27) " fcode="load"/>
+<opset="sum_4/76 "/>
+</bind>
+</comp>
+
+<comp id="313" class="1004" name="word_fu_313">
+<pin_list>
+<pin id="314" dir="0" index="0" bw="16" slack="0"/>
+<pin id="315" dir="0" index="1" bw="8" slack="2"/>
+<pin id="316" dir="0" index="2" bw="8" slack="1"/>
+<pin id="317" dir="1" index="3" bw="16" slack="0"/>
+</pin_list>
+<bind>
+<opcode="bitconcatenate(1004) " fcode="bitconcatenate"/>
+<opset="word/76 "/>
+</bind>
+</comp>
+
+<comp id="319" class="1004" name="zext_ln551_fu_319">
+<pin_list>
+<pin id="320" dir="0" index="0" bw="16" slack="0"/>
+<pin id="321" dir="1" index="1" bw="48" slack="0"/>
+</pin_list>
+<bind>
+<opcode="zext(34) " fcode="zext"/>
+<opset="zext_ln551/76 "/>
+</bind>
+</comp>
+
+<comp id="323" class="1004" name="trunc_ln551_fu_323">
+<pin_list>
+<pin id="324" dir="0" index="0" bw="48" slack="0"/>
+<pin id="325" dir="1" index="1" bw="32" slack="0"/>
+</pin_list>
+<bind>
+<opcode="trunc(33) " fcode="trunc"/>
+<opset="trunc_ln551/76 "/>
+</bind>
+</comp>
+
+<comp id="327" class="1004" name="zext_ln551_1_fu_327">
+<pin_list>
+<pin id="328" dir="0" index="0" bw="16" slack="0"/>
+<pin id="329" dir="1" index="1" bw="32" slack="0"/>
+</pin_list>
+<bind>
+<opcode="zext(34) " fcode="zext"/>
+<opset="zext_ln551_1/76 "/>
+</bind>
+</comp>
+
+<comp id="331" class="1004" name="sum_5_fu_331">
+<pin_list>
+<pin id="332" dir="0" index="0" bw="16" slack="0"/>
+<pin id="333" dir="0" index="1" bw="48" slack="0"/>
+<pin id="334" dir="1" index="2" bw="48" slack="0"/>
+</pin_list>
+<bind>
+<opcode="add(8) " fcode="add"/>
+<opset="sum_5/76 "/>
+</bind>
+</comp>
+
+<comp id="337" class="1004" name="add_ln545_1_fu_337">
+<pin_list>
+<pin id="338" dir="0" index="0" bw="16" slack="0"/>
+<pin id="339" dir="0" index="1" bw="32" slack="0"/>
+<pin id="340" dir="1" index="2" bw="32" slack="0"/>
+</pin_list>
+<bind>
+<opcode="add(8) " fcode="add"/>
+<opset="add_ln545_1/76 "/>
+</bind>
+</comp>
+
+<comp id="344" class="1004" name="store_ln545_store_fu_344">
+<pin_list>
+<pin id="345" dir="0" index="0" bw="48" slack="0"/>
+<pin id="346" dir="0" index="1" bw="48" slack="75"/>
+<pin id="347" dir="1" index="2" bw="0" slack="2147483647"/>
+</pin_list>
+<bind>
+<opcode="store(28) " fcode="store"/>
+<opset="store_ln545/76 "/>
+</bind>
+</comp>
+
+<comp id="349" class="1005" name="sum_reg_349">
+<pin_list>
+<pin id="350" dir="0" index="0" bw="48" slack="0"/>
+<pin id="351" dir="1" index="1" bw="48" slack="0"/>
+</pin_list>
+<bind>
+<opset="sum "/>
+</bind>
+</comp>
+
+<comp id="356" class="1005" name="i_2_reg_356">
+<pin_list>
+<pin id="357" dir="0" index="0" bw="32" slack="0"/>
+<pin id="358" dir="1" index="1" bw="32" slack="0"/>
+</pin_list>
+<bind>
+<opset="i_2 "/>
+</bind>
+</comp>
+
+<comp id="363" class="1005" name="add_ln549_2_reg_363">
+<pin_list>
+<pin id="364" dir="0" index="0" bw="64" slack="1"/>
+<pin id="365" dir="1" index="1" bw="64" slack="1"/>
+</pin_list>
+<bind>
+<opset="add_ln549_2 "/>
+</bind>
+</comp>
+
+<comp id="368" class="1005" name="trunc_ln549_5_reg_368">
+<pin_list>
+<pin id="369" dir="0" index="0" bw="58" slack="1"/>
+<pin id="370" dir="1" index="1" bw="58" slack="1"/>
+</pin_list>
+<bind>
+<opset="trunc_ln549_5 "/>
+</bind>
+</comp>
+
+<comp id="373" class="1005" name="add_ln549_4_reg_373">
+<pin_list>
+<pin id="374" dir="0" index="0" bw="6" slack="73"/>
+<pin id="375" dir="1" index="1" bw="6" slack="73"/>
+</pin_list>
+<bind>
+<opset="add_ln549_4 "/>
+</bind>
+</comp>
+
+<comp id="379" class="1005" name="icmp_ln545_reg_379">
+<pin_list>
+<pin id="380" dir="0" index="0" bw="1" slack="75"/>
+<pin id="381" dir="1" index="1" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<opset="icmp_ln545 "/>
+</bind>
+</comp>
+
+<comp id="383" class="1005" name="gmem0_addr_reg_383">
+<pin_list>
+<pin id="384" dir="0" index="0" bw="512" slack="1"/>
+<pin id="385" dir="1" index="1" bw="512" slack="1"/>
+</pin_list>
+<bind>
+<opset="gmem0_addr "/>
+</bind>
+</comp>
+
+<comp id="389" class="1005" name="trunc_ln4_reg_389">
+<pin_list>
+<pin id="390" dir="0" index="0" bw="58" slack="1"/>
+<pin id="391" dir="1" index="1" bw="58" slack="1"/>
+</pin_list>
+<bind>
+<opset="trunc_ln4 "/>
+</bind>
+</comp>
+
+<comp id="394" class="1005" name="gmem0_addr_2_reg_394">
+<pin_list>
+<pin id="395" dir="0" index="0" bw="512" slack="1"/>
+<pin id="396" dir="1" index="1" bw="512" slack="1"/>
+</pin_list>
+<bind>
+<opset="gmem0_addr_2 "/>
+</bind>
+</comp>
+
+<comp id="400" class="1005" name="gmem0_addr_read_reg_400">
+<pin_list>
+<pin id="401" dir="0" index="0" bw="512" slack="1"/>
+<pin id="402" dir="1" index="1" bw="512" slack="1"/>
+</pin_list>
+<bind>
+<opset="gmem0_addr_read "/>
+</bind>
+</comp>
+
+<comp id="405" class="1005" name="trunc_ln549_2_reg_405">
+<pin_list>
+<pin id="406" dir="0" index="0" bw="8" slack="2"/>
+<pin id="407" dir="1" index="1" bw="8" slack="2"/>
+</pin_list>
+<bind>
+<opset="trunc_ln549_2 "/>
+</bind>
+</comp>
+
+<comp id="410" class="1005" name="gmem0_addr_2_read_reg_410">
+<pin_list>
+<pin id="411" dir="0" index="0" bw="512" slack="1"/>
+<pin id="412" dir="1" index="1" bw="512" slack="1"/>
+</pin_list>
+<bind>
+<opset="gmem0_addr_2_read "/>
+</bind>
+</comp>
+
+<comp id="415" class="1005" name="trunc_ln549_3_reg_415">
+<pin_list>
+<pin id="416" dir="0" index="0" bw="8" slack="1"/>
+<pin id="417" dir="1" index="1" bw="8" slack="1"/>
+</pin_list>
+<bind>
+<opset="trunc_ln549_3 "/>
+</bind>
+</comp>
+
+</comp_list>
+
+<net_list>
+<net id="77"><net_src comp="14" pin="0"/><net_sink comp="74" pin=0"/></net>
+
+<net id="81"><net_src comp="14" pin="0"/><net_sink comp="78" pin=0"/></net>
+
+<net id="86"><net_src comp="16" pin="0"/><net_sink comp="82" pin=0"/></net>
+
+<net id="87"><net_src comp="10" pin="0"/><net_sink comp="82" pin=1"/></net>
+
+<net id="92"><net_src comp="18" pin="0"/><net_sink comp="88" pin=0"/></net>
+
+<net id="93"><net_src comp="6" pin="0"/><net_sink comp="88" pin=1"/></net>
+
+<net id="98"><net_src comp="18" pin="0"/><net_sink comp="94" pin=0"/></net>
+
+<net id="99"><net_src comp="4" pin="0"/><net_sink comp="94" pin=1"/></net>
+
+<net id="104"><net_src comp="16" pin="0"/><net_sink comp="100" pin=0"/></net>
+
+<net id="105"><net_src comp="2" pin="0"/><net_sink comp="100" pin=1"/></net>
+
+<net id="110"><net_src comp="20" pin="0"/><net_sink comp="106" pin=0"/></net>
+
+<net id="111"><net_src comp="0" pin="0"/><net_sink comp="106" pin=1"/></net>
+
+<net id="117"><net_src comp="52" pin="0"/><net_sink comp="112" pin=0"/></net>
+
+<net id="118"><net_src comp="14" pin="0"/><net_sink comp="112" pin=2"/></net>
+
+<net id="124"><net_src comp="52" pin="0"/><net_sink comp="119" pin=0"/></net>
+
+<net id="125"><net_src comp="14" pin="0"/><net_sink comp="119" pin=2"/></net>
+
+<net id="130"><net_src comp="56" pin="0"/><net_sink comp="126" pin=0"/></net>
+
+<net id="135"><net_src comp="56" pin="0"/><net_sink comp="131" pin=0"/></net>
+
+<net id="141"><net_src comp="72" pin="0"/><net_sink comp="136" pin=0"/></net>
+
+<net id="142"><net_src comp="12" pin="0"/><net_sink comp="136" pin=1"/></net>
+
+<net id="146"><net_src comp="106" pin="2"/><net_sink comp="143" pin=0"/></net>
+
+<net id="151"><net_src comp="26" pin="0"/><net_sink comp="147" pin=0"/></net>
+
+<net id="156"><net_src comp="143" pin="1"/><net_sink comp="152" pin=0"/></net>
+
+<net id="163"><net_src comp="157" pin="1"/><net_sink comp="160" pin=0"/></net>
+
+<net id="168"><net_src comp="157" pin="1"/><net_sink comp="164" pin=0"/></net>
+
+<net id="169"><net_src comp="100" pin="2"/><net_sink comp="164" pin=1"/></net>
+
+<net id="173"><net_src comp="164" pin="2"/><net_sink comp="170" pin=0"/></net>
+
+<net id="178"><net_src comp="94" pin="2"/><net_sink comp="174" pin=0"/></net>
+
+<net id="179"><net_src comp="88" pin="2"/><net_sink comp="174" pin=1"/></net>
+
+<net id="183"><net_src comp="174" pin="2"/><net_sink comp="180" pin=0"/></net>
+
+<net id="188"><net_src comp="174" pin="2"/><net_sink comp="184" pin=0"/></net>
+
+<net id="189"><net_src comp="170" pin="1"/><net_sink comp="184" pin=1"/></net>
+
+<net id="196"><net_src comp="42" pin="0"/><net_sink comp="190" pin=0"/></net>
+
+<net id="197"><net_src comp="184" pin="2"/><net_sink comp="190" pin=1"/></net>
+
+<net id="198"><net_src comp="44" pin="0"/><net_sink comp="190" pin=2"/></net>
+
+<net id="199"><net_src comp="46" pin="0"/><net_sink comp="190" pin=3"/></net>
+
+<net id="204"><net_src comp="180" pin="1"/><net_sink comp="200" pin=0"/></net>
+
+<net id="205"><net_src comp="160" pin="1"/><net_sink comp="200" pin=1"/></net>
+
+<net id="210"><net_src comp="157" pin="1"/><net_sink comp="206" pin=0"/></net>
+
+<net id="211"><net_src comp="48" pin="0"/><net_sink comp="206" pin=1"/></net>
+
+<net id="216"><net_src comp="157" pin="1"/><net_sink comp="212" pin=0"/></net>
+
+<net id="217"><net_src comp="50" pin="0"/><net_sink comp="212" pin=1"/></net>
+
+<net id="222"><net_src comp="212" pin="2"/><net_sink comp="218" pin=0"/></net>
+
+<net id="223"><net_src comp="82" pin="2"/><net_sink comp="218" pin=1"/></net>
+
+<net id="228"><net_src comp="206" pin="2"/><net_sink comp="224" pin=0"/></net>
+
+<net id="236"><net_src comp="8" pin="0"/><net_sink comp="232" pin=0"/></net>
+
+<net id="237"><net_src comp="229" pin="1"/><net_sink comp="232" pin=1"/></net>
+
+<net id="238"><net_src comp="232" pin="2"/><net_sink comp="112" pin=1"/></net>
+
+<net id="243"><net_src comp="54" pin="0"/><net_sink comp="239" pin=1"/></net>
+
+<net id="250"><net_src comp="42" pin="0"/><net_sink comp="244" pin=0"/></net>
+
+<net id="251"><net_src comp="239" pin="2"/><net_sink comp="244" pin=1"/></net>
+
+<net id="252"><net_src comp="44" pin="0"/><net_sink comp="244" pin=2"/></net>
+
+<net id="253"><net_src comp="46" pin="0"/><net_sink comp="244" pin=3"/></net>
+
+<net id="261"><net_src comp="8" pin="0"/><net_sink comp="257" pin=0"/></net>
+
+<net id="262"><net_src comp="254" pin="1"/><net_sink comp="257" pin=1"/></net>
+
+<net id="263"><net_src comp="257" pin="2"/><net_sink comp="119" pin=1"/></net>
+
+<net id="269"><net_src comp="58" pin="0"/><net_sink comp="264" pin=0"/></net>
+
+<net id="270"><net_src comp="60" pin="0"/><net_sink comp="264" pin=2"/></net>
+
+<net id="274"><net_src comp="264" pin="3"/><net_sink comp="271" pin=0"/></net>
+
+<net id="279"><net_src comp="271" pin="1"/><net_sink comp="275" pin=1"/></net>
+
+<net id="283"><net_src comp="275" pin="2"/><net_sink comp="280" pin=0"/></net>
+
+<net id="288"><net_src comp="62" pin="0"/><net_sink comp="284" pin=1"/></net>
+
+<net id="294"><net_src comp="58" pin="0"/><net_sink comp="289" pin=0"/></net>
+
+<net id="295"><net_src comp="284" pin="2"/><net_sink comp="289" pin=1"/></net>
+
+<net id="296"><net_src comp="60" pin="0"/><net_sink comp="289" pin=2"/></net>
+
+<net id="300"><net_src comp="289" pin="3"/><net_sink comp="297" pin=0"/></net>
+
+<net id="305"><net_src comp="297" pin="1"/><net_sink comp="301" pin=1"/></net>
+
+<net id="309"><net_src comp="301" pin="2"/><net_sink comp="306" pin=0"/></net>
+
+<net id="318"><net_src comp="70" pin="0"/><net_sink comp="313" pin=0"/></net>
+
+<net id="322"><net_src comp="313" pin="3"/><net_sink comp="319" pin=0"/></net>
+
+<net id="326"><net_src comp="310" pin="1"/><net_sink comp="323" pin=0"/></net>
+
+<net id="330"><net_src comp="313" pin="3"/><net_sink comp="327" pin=0"/></net>
+
+<net id="335"><net_src comp="319" pin="1"/><net_sink comp="331" pin=0"/></net>
+
+<net id="336"><net_src comp="310" pin="1"/><net_sink comp="331" pin=1"/></net>
+
+<net id="341"><net_src comp="327" pin="1"/><net_sink comp="337" pin=0"/></net>
+
+<net id="342"><net_src comp="323" pin="1"/><net_sink comp="337" pin=1"/></net>
+
+<net id="343"><net_src comp="337" pin="2"/><net_sink comp="136" pin=2"/></net>
+
+<net id="348"><net_src comp="331" pin="2"/><net_sink comp="344" pin=0"/></net>
+
+<net id="352"><net_src comp="74" pin="1"/><net_sink comp="349" pin=0"/></net>
+
+<net id="353"><net_src comp="349" pin="1"/><net_sink comp="152" pin=1"/></net>
+
+<net id="354"><net_src comp="349" pin="1"/><net_sink comp="310" pin=0"/></net>
+
+<net id="355"><net_src comp="349" pin="1"/><net_sink comp="344" pin=1"/></net>
+
+<net id="359"><net_src comp="78" pin="1"/><net_sink comp="356" pin=0"/></net>
+
+<net id="360"><net_src comp="356" pin="1"/><net_sink comp="147" pin=1"/></net>
+
+<net id="361"><net_src comp="356" pin="1"/><net_sink comp="157" pin=0"/></net>
+
+<net id="362"><net_src comp="356" pin="1"/><net_sink comp="224" pin=1"/></net>
+
+<net id="366"><net_src comp="184" pin="2"/><net_sink comp="363" pin=0"/></net>
+
+<net id="367"><net_src comp="363" pin="1"/><net_sink comp="239" pin=0"/></net>
+
+<net id="371"><net_src comp="190" pin="4"/><net_sink comp="368" pin=0"/></net>
+
+<net id="372"><net_src comp="368" pin="1"/><net_sink comp="229" pin=0"/></net>
+
+<net id="376"><net_src comp="200" pin="2"/><net_sink comp="373" pin=0"/></net>
+
+<net id="377"><net_src comp="373" pin="1"/><net_sink comp="264" pin=1"/></net>
+
+<net id="378"><net_src comp="373" pin="1"/><net_sink comp="284" pin=0"/></net>
+
+<net id="382"><net_src comp="218" pin="2"/><net_sink comp="379" pin=0"/></net>
+
+<net id="386"><net_src comp="232" pin="2"/><net_sink comp="383" pin=0"/></net>
+
+<net id="387"><net_src comp="383" pin="1"/><net_sink comp="112" pin=1"/></net>
+
+<net id="388"><net_src comp="383" pin="1"/><net_sink comp="126" pin=1"/></net>
+
+<net id="392"><net_src comp="244" pin="4"/><net_sink comp="389" pin=0"/></net>
+
+<net id="393"><net_src comp="389" pin="1"/><net_sink comp="254" pin=0"/></net>
+
+<net id="397"><net_src comp="257" pin="2"/><net_sink comp="394" pin=0"/></net>
+
+<net id="398"><net_src comp="394" pin="1"/><net_sink comp="119" pin=1"/></net>
+
+<net id="399"><net_src comp="394" pin="1"/><net_sink comp="131" pin=1"/></net>
+
+<net id="403"><net_src comp="126" pin="2"/><net_sink comp="400" pin=0"/></net>
+
+<net id="404"><net_src comp="400" pin="1"/><net_sink comp="275" pin=0"/></net>
+
+<net id="408"><net_src comp="280" pin="1"/><net_sink comp="405" pin=0"/></net>
+
+<net id="409"><net_src comp="405" pin="1"/><net_sink comp="313" pin=1"/></net>
+
+<net id="413"><net_src comp="131" pin="2"/><net_sink comp="410" pin=0"/></net>
+
+<net id="414"><net_src comp="410" pin="1"/><net_sink comp="301" pin=0"/></net>
+
+<net id="418"><net_src comp="306" pin="1"/><net_sink comp="415" pin=0"/></net>
+
+<net id="419"><net_src comp="415" pin="1"/><net_sink comp="313" pin=2"/></net>
+
+</net_list>
+
+</model> 
+---------------- Datapath Model END ------------------
+
+* FSMD analyzer results:
+  - Output states:
+	Port: gmem0 | {}
+	Port: add_ln545_1_out | {76 }
+ - Input state : 
+	Port: process_tcp_checksum_Pipeline_tail_word_loop : zext_ln492 | {1 }
+	Port: process_tcp_checksum_Pipeline_tail_word_loop : tail_offset | {1 }
+	Port: process_tcp_checksum_Pipeline_tail_word_loop : phi_mul | {1 }
+	Port: process_tcp_checksum_Pipeline_tail_word_loop : data_in | {1 }
+	Port: process_tcp_checksum_Pipeline_tail_word_loop : gmem0 | {2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69 70 71 72 73 74 }
+	Port: process_tcp_checksum_Pipeline_tail_word_loop : tail_bytes | {1 }
+  - Chain level:
+	State 1
+		store_ln0 : 1
+		store_ln0 : 1
+		i : 1
+		trunc_ln549 : 2
+		add_ln549 : 2
+		zext_ln549 : 3
+		trunc_ln549_1 : 1
+		add_ln549_2 : 4
+		trunc_ln549_5 : 5
+		add_ln549_4 : 2
+		i_4 : 2
+		add_ln545 : 2
+		icmp_ln545 : 3
+		store_ln545 : 3
+		br_ln545 : 4
+	State 2
+		gmem0_addr : 1
+		gmem0_load_2_req : 2
+		trunc_ln4 : 1
+	State 3
+		gmem0_addr_2 : 1
+		gmem0_load_3_req : 2
+	State 4
+	State 5
+	State 6
+	State 7
+	State 8
+	State 9
+	State 10
+	State 11
+	State 12
+	State 13
+	State 14
+	State 15
+	State 16
+	State 17
+	State 18
+	State 19
+	State 20
+	State 21
+	State 22
+	State 23
+	State 24
+	State 25
+	State 26
+	State 27
+	State 28
+	State 29
+	State 30
+	State 31
+	State 32
+	State 33
+	State 34
+	State 35
+	State 36
+	State 37
+	State 38
+	State 39
+	State 40
+	State 41
+	State 42
+	State 43
+	State 44
+	State 45
+	State 46
+	State 47
+	State 48
+	State 49
+	State 50
+	State 51
+	State 52
+	State 53
+	State 54
+	State 55
+	State 56
+	State 57
+	State 58
+	State 59
+	State 60
+	State 61
+	State 62
+	State 63
+	State 64
+	State 65
+	State 66
+	State 67
+	State 68
+	State 69
+	State 70
+	State 71
+	State 72
+	State 73
+	State 74
+		zext_ln549_1 : 1
+		lshr_ln549 : 2
+		trunc_ln549_2 : 3
+	State 75
+		shl_ln549_1 : 1
+		zext_ln549_2 : 2
+		lshr_ln549_1 : 3
+		trunc_ln549_3 : 4
+	State 76
+		zext_ln551 : 1
+		trunc_ln551 : 1
+		zext_ln551_1 : 1
+		sum_5 : 2
+		add_ln545_1 : 2
+		store_ln545 : 3
+		write_ln545 : 3
+
+
+============================================================
++ Verbose Summary: Datapath Resource usage 
+============================================================
+
+* Functional unit list:
+|----------|-------------------------------|---------|---------|
+| Operation|        Functional Unit        |    FF   |   LUT   |
+|----------|-------------------------------|---------|---------|
+|   lshr   |       lshr_ln549_fu_275       |    0    |   2171  |
+|          |      lshr_ln549_1_fu_301      |    0    |   2171  |
+|----------|-------------------------------|---------|---------|
+|          |        add_ln549_fu_164       |    0    |    39   |
+|          |       add_ln549_1_fu_174      |    0    |    71   |
+|          |       add_ln549_2_fu_184      |    0    |    71   |
+|          |       add_ln549_4_fu_200      |    0    |    13   |
+|    add   |           i_4_fu_206          |    0    |    39   |
+|          |        add_ln545_fu_212       |    0    |    39   |
+|          |       add_ln549_3_fu_239      |    0    |    71   |
+|          |       add_ln549_5_fu_284      |    0    |    13   |
+|          |          sum_5_fu_331         |    0    |    55   |
+|          |       add_ln545_1_fu_337      |    0    |    39   |
+|----------|-------------------------------|---------|---------|
+|   icmp   |       icmp_ln545_fu_218       |    0    |    39   |
+|----------|-------------------------------|---------|---------|
+|          |   tail_bytes_read_read_fu_82  |    0    |    0    |
+|          |    data_in_read_read_fu_88    |    0    |    0    |
+|          |    phi_mul_read_read_fu_94    |    0    |    0    |
+|   read   |  tail_offset_read_read_fu_100 |    0    |    0    |
+|          |  zext_ln492_read_read_fu_106  |    0    |    0    |
+|          |  gmem0_addr_read_read_fu_126  |    0    |    0    |
+|          | gmem0_addr_2_read_read_fu_131 |    0    |    0    |
+|----------|-------------------------------|---------|---------|
+|  readreq |       grp_readreq_fu_112      |    0    |    0    |
+|          |       grp_readreq_fu_119      |    0    |    0    |
+|----------|-------------------------------|---------|---------|
+|   write  |    write_ln545_write_fu_136   |    0    |    0    |
+|----------|-------------------------------|---------|---------|
+|          |     zext_ln492_cast_fu_143    |    0    |    0    |
+|          |       zext_ln549_fu_170       |    0    |    0    |
+|   zext   |      zext_ln549_1_fu_271      |    0    |    0    |
+|          |      zext_ln549_2_fu_297      |    0    |    0    |
+|          |       zext_ln551_fu_319       |    0    |    0    |
+|          |      zext_ln551_1_fu_327      |    0    |    0    |
+|----------|-------------------------------|---------|---------|
+|          |       trunc_ln549_fu_160      |    0    |    0    |
+|          |      trunc_ln549_1_fu_180     |    0    |    0    |
+|   trunc  |      trunc_ln549_2_fu_280     |    0    |    0    |
+|          |      trunc_ln549_3_fu_306     |    0    |    0    |
+|          |       trunc_ln551_fu_323      |    0    |    0    |
+|----------|-------------------------------|---------|---------|
+|partselect|      trunc_ln549_5_fu_190     |    0    |    0    |
+|          |        trunc_ln4_fu_244       |    0    |    0    |
+|----------|-------------------------------|---------|---------|
+|   sext   |       sext_ln549_fu_229       |    0    |    0    |
+|          |      sext_ln549_1_fu_254      |    0    |    0    |
+|----------|-------------------------------|---------|---------|
+|          |         shl_ln1_fu_264        |    0    |    0    |
+|bitconcatenate|       shl_ln549_1_fu_289      |    0    |    0    |
+|          |          word_fu_313          |    0    |    0    |
+|----------|-------------------------------|---------|---------|
+|   Total  |                               |    0    |   4831  |
+|----------|-------------------------------|---------|---------|
+
+Memories:
+N/A
+
+* Register list:
++-------------------------+--------+
+|                         |   FF   |
++-------------------------+--------+
+|   add_ln549_2_reg_363   |   64   |
+|   add_ln549_4_reg_373   |    6   |
+|gmem0_addr_2_read_reg_410|   512  |
+|   gmem0_addr_2_reg_394  |   512  |
+| gmem0_addr_read_reg_400 |   512  |
+|    gmem0_addr_reg_383   |   512  |
+|       i_2_reg_356       |   32   |
+|    icmp_ln545_reg_379   |    1   |
+|       sum_reg_349       |   48   |
+|    trunc_ln4_reg_389    |   58   |
+|  trunc_ln549_2_reg_405  |    8   |
+|  trunc_ln549_3_reg_415  |    8   |
+|  trunc_ln549_5_reg_368  |   58   |
++-------------------------+--------+
+|          Total          |  2331  |
++-------------------------+--------+
+
+* Multiplexer (MUX) list: 
+|--------------------|------|------|------|--------||---------||---------|
+|        Comp        |  Pin | Size |  BW  | S x BW ||  Delay  ||   LUT   |
+|--------------------|------|------|------|--------||---------||---------|
+| grp_readreq_fu_112 |  p1  |   2  |  512 |  1024  ||    9    |
+| grp_readreq_fu_119 |  p1  |   2  |  512 |  1024  ||    9    |
+|--------------------|------|------|------|--------||---------||---------|
+|        Total       |      |      |      |  2048  ||  0.774  ||    18   |
+|--------------------|------|------|------|--------||---------||---------|
+
+
+
+* Summary:
++-----------+--------+--------+--------+
+|           |  Delay |   FF   |   LUT  |
++-----------+--------+--------+--------+
+|  Function |    -   |    0   |  4831  |
+|   Memory  |    -   |    -   |    -   |
+|Multiplexer|    0   |    -   |   18   |
+|  Register |    -   |  2331  |    -   |
++-----------+--------+--------+--------+
+|   Total   |    0   |  2331  |  4849  |
++-----------+--------+--------+--------+

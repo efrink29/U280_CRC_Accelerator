@@ -1,0 +1,271 @@
+
+
+================================================================
+== Vitis HLS Report for 'sha256_compress_block_Pipeline_round_loop'
+================================================================
+* Date:           Fri Feb 20 12:34:46 2026
+
+* Version:        2023.1 (Build 3854077 on May  4 2023)
+* Project:        calculate_sha256
+* Solution:       solution (Vitis Kernel Flow Target)
+* Product family: virtexuplusHBM
+* Target device:  xcu280-fsvh2892-2L-e
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing: 
+    * Summary: 
+    +--------+---------+----------+------------+
+    |  Clock |  Target | Estimated| Uncertainty|
+    +--------+---------+----------+------------+
+    |ap_clk  |  3.33 ns|  2.939 ns|     0.90 ns|
+    +--------+---------+----------+------------+
+
++ Latency: 
+    * Summary: 
+    +---------+---------+----------+----------+-----+-----+---------+
+    |  Latency (cycles) |  Latency (absolute) |  Interval | Pipeline|
+    |   min   |   max   |    min   |    max   | min | max |   Type  |
+    +---------+---------+----------+----------+-----+-----+---------+
+    |       68|       68|  0.227 us|  0.227 us|   68|   68|       no|
+    +---------+---------+----------+----------+-----+-----+---------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        +--------------+---------+---------+----------+-----------+-----------+------+----------+
+        |              |  Latency (cycles) | Iteration|  Initiation Interval  | Trip |          |
+        |   Loop Name  |   min   |   max   |  Latency |  achieved |   target  | Count| Pipelined|
+        +--------------+---------+---------+----------+-----------+-----------+------+----------+
+        |- round_loop  |       66|       66|         3|          1|          1|    64|       yes|
+        +--------------+---------+---------+----------+-----------+-----------+------+----------+
+
+============================================================
++ Verbose Summary: Synthesis Manager
+============================================================
+InlineROM: 1
+ExposeGlobal: 0
+============================================================
++ Verbose Summary: CDFG Model
+============================================================
+IsTopModel: 0
+ResetActiveHigh: 1
+IsCombinational: 0
+IsDatapathOnly: 0
+HasWiredReturn: 1
+HasMFsm: 2
+HasVarLatency: 1
+IsPipeline: 0
+IsRtlPipelined: 0
+IsInstanceOverlapped: 0
+IsDontTouch: 0
+HasImplIP: 0
+IsGatedGlobalClock: 0
+
++ Individual pipeline summary: 
+  * Pipeline-0: initiation interval (II) = 1, depth = 3
+
+
+============================================================
++ Verbose Summary: Schedule
+============================================================
+* Number of FSM states : 3
+* Pipeline : 1
+  Pipeline-0 : II = 1, D = 3, States = { 1 2 3 }
+* Dataflow Pipeline: 0
+
+* FSM state transitions: 
+1 --> 2 
+2 --> 3 
+3 --> 
+
+* FSM state operations: 
+
+State 1 <SV = 0> <Delay = 1.15>
+ST_1 : Operation 6 [1/1] (0.00ns)   --->   "%phi_urem147 = alloca i32 1"   --->   Operation 6 'alloca' 'phi_urem147' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 7 [1/1] (0.00ns)   --->   "%phi_mul145 = alloca i32 1"   --->   Operation 7 'alloca' 'phi_mul145' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 8 [1/1] (0.00ns)   --->   "%d = alloca i32 1"   --->   Operation 8 'alloca' 'd' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 9 [1/1] (0.00ns)   --->   "%h = alloca i32 1"   --->   Operation 9 'alloca' 'h' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 10 [1/1] (0.00ns)   --->   "%i = alloca i32 1"   --->   Operation 10 'alloca' 'i' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 11 [1/1] (0.00ns)   --->   "%h_1 = alloca i32 1"   --->   Operation 11 'alloca' 'h_1' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 12 [1/1] (0.00ns)   --->   "%g = alloca i32 1"   --->   Operation 12 'alloca' 'g' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 13 [1/1] (0.00ns)   --->   "%f = alloca i32 1"   --->   Operation 13 'alloca' 'f' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 14 [1/1] (0.00ns)   --->   "%d_1 = alloca i32 1"   --->   Operation 14 'alloca' 'd_1' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 15 [1/1] (0.00ns)   --->   "%c = alloca i32 1"   --->   Operation 15 'alloca' 'c' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 16 [1/1] (0.00ns)   --->   "%b = alloca i32 1"   --->   Operation 16 'alloca' 'b' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 17 [1/1] (0.00ns)   --->   "%state_6_read_1 = read i32 @_ssdm_op_Read.ap_auto.i32, i32 %state_6_read"   --->   Operation 17 'read' 'state_6_read_1' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 18 [1/1] (0.00ns)   --->   "%state_5_read_1 = read i32 @_ssdm_op_Read.ap_auto.i32, i32 %state_5_read"   --->   Operation 18 'read' 'state_5_read_1' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 19 [1/1] (0.00ns)   --->   "%state_4_read_1 = read i32 @_ssdm_op_Read.ap_auto.i32, i32 %state_4_read"   --->   Operation 19 'read' 'state_4_read_1' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 20 [1/1] (0.00ns)   --->   "%state_3_read_1 = read i32 @_ssdm_op_Read.ap_auto.i32, i32 %state_3_read"   --->   Operation 20 'read' 'state_3_read_1' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 21 [1/1] (0.00ns)   --->   "%state_2_read_1 = read i32 @_ssdm_op_Read.ap_auto.i32, i32 %state_2_read"   --->   Operation 21 'read' 'state_2_read_1' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 22 [1/1] (0.00ns)   --->   "%state_1_read_1 = read i32 @_ssdm_op_Read.ap_auto.i32, i32 %state_1_read"   --->   Operation 22 'read' 'state_1_read_1' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 23 [1/1] (0.00ns)   --->   "%state_0_read_1 = read i32 @_ssdm_op_Read.ap_auto.i32, i32 %state_0_read"   --->   Operation 23 'read' 'state_0_read_1' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 24 [1/1] (0.00ns)   --->   "%state_7_read_1 = read i32 @_ssdm_op_Read.ap_auto.i32, i32 %state_7_read"   --->   Operation 24 'read' 'state_7_read_1' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 25 [1/1] (0.38ns)   --->   "%store_ln0 = store i32 %state_0_read_1, i32 %b"   --->   Operation 25 'store' 'store_ln0' <Predicate = true> <Delay = 0.38>
+ST_1 : Operation 26 [1/1] (0.38ns)   --->   "%store_ln0 = store i32 %state_1_read_1, i32 %c"   --->   Operation 26 'store' 'store_ln0' <Predicate = true> <Delay = 0.38>
+ST_1 : Operation 27 [1/1] (0.38ns)   --->   "%store_ln0 = store i32 %state_2_read_1, i32 %d_1"   --->   Operation 27 'store' 'store_ln0' <Predicate = true> <Delay = 0.38>
+ST_1 : Operation 28 [1/1] (0.38ns)   --->   "%store_ln0 = store i32 %state_4_read_1, i32 %f"   --->   Operation 28 'store' 'store_ln0' <Predicate = true> <Delay = 0.38>
+ST_1 : Operation 29 [1/1] (0.38ns)   --->   "%store_ln0 = store i32 %state_5_read_1, i32 %g"   --->   Operation 29 'store' 'store_ln0' <Predicate = true> <Delay = 0.38>
+ST_1 : Operation 30 [1/1] (0.38ns)   --->   "%store_ln0 = store i32 %state_6_read_1, i32 %h_1"   --->   Operation 30 'store' 'store_ln0' <Predicate = true> <Delay = 0.38>
+ST_1 : Operation 31 [1/1] (0.38ns)   --->   "%store_ln0 = store i7 0, i7 %i"   --->   Operation 31 'store' 'store_ln0' <Predicate = true> <Delay = 0.38>
+ST_1 : Operation 32 [1/1] (0.38ns)   --->   "%store_ln0 = store i32 %state_7_read_1, i32 %h"   --->   Operation 32 'store' 'store_ln0' <Predicate = true> <Delay = 0.38>
+ST_1 : Operation 33 [1/1] (0.38ns)   --->   "%store_ln0 = store i32 %state_3_read_1, i32 %d"   --->   Operation 33 'store' 'store_ln0' <Predicate = true> <Delay = 0.38>
+ST_1 : Operation 34 [1/1] (0.38ns)   --->   "%store_ln0 = store i14 0, i14 %phi_mul145"   --->   Operation 34 'store' 'store_ln0' <Predicate = true> <Delay = 0.38>
+ST_1 : Operation 35 [1/1] (0.38ns)   --->   "%store_ln0 = store i7 0, i7 %phi_urem147"   --->   Operation 35 'store' 'store_ln0' <Predicate = true> <Delay = 0.38>
+ST_1 : Operation 36 [1/1] (0.00ns)   --->   "%br_ln0 = br void %for.inc56"   --->   Operation 36 'br' 'br_ln0' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 37 [1/1] (0.00ns)   --->   "%i_5 = load i7 %i" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:151]   --->   Operation 37 'load' 'i_5' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 38 [1/1] (0.70ns)   --->   "%icmp_ln151 = icmp_eq  i7 %i_5, i7 64" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:151]   --->   Operation 38 'icmp' 'icmp_ln151' <Predicate = true> <Delay = 0.70> <CoreInst = "Cmp">   --->   Core 9 'Cmp' <Latency = 0> <II = 1> <Delay = 0.70> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 39 [1/1] (0.70ns)   --->   "%add_ln151 = add i7 %i_5, i7 1" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:151]   --->   Operation 39 'add' 'add_ln151' <Predicate = true> <Delay = 0.70> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 0.70> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 40 [1/1] (0.00ns)   --->   "%br_ln151 = br i1 %icmp_ln151, void %for.inc56.split, void %for.end58.exitStub" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:151]   --->   Operation 40 'br' 'br_ln151' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 41 [1/1] (0.00ns)   --->   "%phi_mul145_load = load i14 %phi_mul145" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:75->/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:154]   --->   Operation 41 'load' 'phi_mul145_load' <Predicate = (!icmp_ln151)> <Delay = 0.00>
+ST_1 : Operation 42 [1/1] (0.00ns)   --->   "%zext_ln151 = zext i7 %i_5" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:151]   --->   Operation 42 'zext' 'zext_ln151' <Predicate = (!icmp_ln151)> <Delay = 0.00>
+ST_1 : Operation 43 [1/1] (0.76ns)   --->   "%add_ln75 = add i14 %phi_mul145_load, i14 171" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:75->/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:154]   --->   Operation 43 'add' 'add_ln75' <Predicate = (!icmp_ln151)> <Delay = 0.76> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 0.76> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 44 [1/1] (0.00ns)   --->   "%tmp = partselect i5 @_ssdm_op_PartSelect.i5.i14.i32.i32, i14 %phi_mul145_load, i32 9, i32 13" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:75->/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:154]   --->   Operation 44 'partselect' 'tmp' <Predicate = (!icmp_ln151)> <Delay = 0.00>
+ST_1 : Operation 45 [1/1] (0.00ns)   --->   "%zext_ln75 = zext i5 %tmp" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:75->/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:154]   --->   Operation 45 'zext' 'zext_ln75' <Predicate = (!icmp_ln151)> <Delay = 0.00>
+ST_1 : Operation 46 [1/1] (0.00ns)   --->   "%SHA256_K_addr = getelementptr i32 %SHA256_K, i64 0, i64 %zext_ln151" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:154]   --->   Operation 46 'getelementptr' 'SHA256_K_addr' <Predicate = (!icmp_ln151)> <Delay = 0.00>
+ST_1 : Operation 47 [2/2] (0.69ns)   --->   "%SHA256_K_load = load i6 %SHA256_K_addr" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:154]   --->   Operation 47 'load' 'SHA256_K_load' <Predicate = (!icmp_ln151)> <Delay = 0.69> <CoreInst = "ROM">   --->   Core 101 'ROM' <Latency = 1> <II = 1> <Delay = 0.69> <Storage> <Opcode : 'load'> <Ports = 0> <Width = 32> <Depth = 64> <ROM>
+ST_1 : Operation 48 [1/1] (0.00ns)   --->   "%w_addr = getelementptr i32 %w, i64 0, i64 %zext_ln75" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:154]   --->   Operation 48 'getelementptr' 'w_addr' <Predicate = (!icmp_ln151)> <Delay = 0.00>
+ST_1 : Operation 49 [1/1] (0.00ns)   --->   "%w_1_addr = getelementptr i32 %w_1, i64 0, i64 %zext_ln75" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:154]   --->   Operation 49 'getelementptr' 'w_1_addr' <Predicate = (!icmp_ln151)> <Delay = 0.00>
+ST_1 : Operation 50 [1/1] (0.00ns)   --->   "%w_2_addr = getelementptr i32 %w_2, i64 0, i64 %zext_ln75" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:154]   --->   Operation 50 'getelementptr' 'w_2_addr' <Predicate = (!icmp_ln151)> <Delay = 0.00>
+ST_1 : Operation 51 [2/2] (0.69ns)   --->   "%w_load = load i5 %w_addr" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:154]   --->   Operation 51 'load' 'w_load' <Predicate = (!icmp_ln151)> <Delay = 0.69> <CoreInst = "RAM_1WnR">   --->   Core 84 'RAM_1WnR' <Latency = 1> <II = 1> <Delay = 0.69> <Storage> <Opcode : 'load' 'store'> <Ports = 17> <Width = 32> <Depth = 22> <RAM>
+ST_1 : Operation 52 [2/2] (0.69ns)   --->   "%w_1_load = load i5 %w_1_addr" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:154]   --->   Operation 52 'load' 'w_1_load' <Predicate = (!icmp_ln151)> <Delay = 0.69> <CoreInst = "RAM_1WnR">   --->   Core 84 'RAM_1WnR' <Latency = 1> <II = 1> <Delay = 0.69> <Storage> <Opcode : 'load' 'store'> <Ports = 17> <Width = 32> <Depth = 22> <RAM>
+ST_1 : Operation 53 [2/2] (0.69ns)   --->   "%w_2_load = load i5 %w_2_addr" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:154]   --->   Operation 53 'load' 'w_2_load' <Predicate = (!icmp_ln151)> <Delay = 0.69> <CoreInst = "RAM_1WnR">   --->   Core 84 'RAM_1WnR' <Latency = 1> <II = 1> <Delay = 0.69> <Storage> <Opcode : 'load' 'store'> <Ports = 17> <Width = 32> <Depth = 22> <RAM>
+ST_1 : Operation 54 [1/1] (0.38ns)   --->   "%store_ln151 = store i7 %add_ln151, i7 %i" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:151]   --->   Operation 54 'store' 'store_ln151' <Predicate = (!icmp_ln151)> <Delay = 0.38>
+ST_1 : Operation 55 [1/1] (0.38ns)   --->   "%store_ln151 = store i14 %add_ln75, i14 %phi_mul145" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:151]   --->   Operation 55 'store' 'store_ln151' <Predicate = (!icmp_ln151)> <Delay = 0.38>
+
+State 2 <SV = 1> <Delay = 2.10>
+ST_2 : Operation 56 [1/1] (0.00ns)   --->   "%phi_urem147_load = load i7 %phi_urem147" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:75->/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:154]   --->   Operation 56 'load' 'phi_urem147_load' <Predicate = (!icmp_ln151)> <Delay = 0.00>
+ST_2 : Operation 57 [1/1] (0.70ns)   --->   "%add_ln151_1 = add i7 %phi_urem147_load, i7 1" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:151]   --->   Operation 57 'add' 'add_ln151_1' <Predicate = (!icmp_ln151)> <Delay = 0.70> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 0.70> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 58 [1/1] (0.70ns)   --->   "%icmp_ln151_1 = icmp_ult  i7 %add_ln151_1, i7 3" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:151]   --->   Operation 58 'icmp' 'icmp_ln151_1' <Predicate = (!icmp_ln151)> <Delay = 0.70> <CoreInst = "Cmp">   --->   Core 9 'Cmp' <Latency = 0> <II = 1> <Delay = 0.70> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 59 [1/1] (0.30ns)   --->   "%select_ln151 = select i1 %icmp_ln151_1, i7 %add_ln151_1, i7 0" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:151]   --->   Operation 59 'select' 'select_ln151' <Predicate = (!icmp_ln151)> <Delay = 0.30> <CoreInst = "Sel">   --->   Core 73 'Sel' <Latency = 0> <II = 1> <Delay = 0.30> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_2 : Operation 60 [1/1] (0.00ns)   --->   "%trunc_ln75 = trunc i7 %phi_urem147_load" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:75->/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:154]   --->   Operation 60 'trunc' 'trunc_ln75' <Predicate = (!icmp_ln151)> <Delay = 0.00>
+ST_2 : Operation 61 [1/2] (0.69ns)   --->   "%SHA256_K_load = load i6 %SHA256_K_addr" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:154]   --->   Operation 61 'load' 'SHA256_K_load' <Predicate = (!icmp_ln151)> <Delay = 0.69> <CoreInst = "ROM">   --->   Core 101 'ROM' <Latency = 1> <II = 1> <Delay = 0.69> <Storage> <Opcode : 'load'> <Ports = 0> <Width = 32> <Depth = 64> <ROM>
+ST_2 : Operation 62 [1/2] (0.69ns)   --->   "%w_load = load i5 %w_addr" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:154]   --->   Operation 62 'load' 'w_load' <Predicate = (!icmp_ln151)> <Delay = 0.69> <CoreInst = "RAM_1WnR">   --->   Core 84 'RAM_1WnR' <Latency = 1> <II = 1> <Delay = 0.69> <Storage> <Opcode : 'load' 'store'> <Ports = 17> <Width = 32> <Depth = 22> <RAM>
+ST_2 : Operation 63 [1/2] (0.69ns)   --->   "%w_1_load = load i5 %w_1_addr" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:154]   --->   Operation 63 'load' 'w_1_load' <Predicate = (!icmp_ln151)> <Delay = 0.69> <CoreInst = "RAM_1WnR">   --->   Core 84 'RAM_1WnR' <Latency = 1> <II = 1> <Delay = 0.69> <Storage> <Opcode : 'load' 'store'> <Ports = 17> <Width = 32> <Depth = 22> <RAM>
+ST_2 : Operation 64 [1/2] (0.69ns)   --->   "%w_2_load = load i5 %w_2_addr" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:154]   --->   Operation 64 'load' 'w_2_load' <Predicate = (!icmp_ln151)> <Delay = 0.69> <CoreInst = "RAM_1WnR">   --->   Core 84 'RAM_1WnR' <Latency = 1> <II = 1> <Delay = 0.69> <Storage> <Opcode : 'load' 'store'> <Ports = 17> <Width = 32> <Depth = 22> <RAM>
+ST_2 : Operation 65 [1/1] (0.41ns)   --->   "%tmp_8 = mux i32 @_ssdm_op_Mux.ap_auto.3i32.i2, i32 %w_load, i32 %w_1_load, i32 %w_2_load, i2 %trunc_ln75" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:154]   --->   Operation 65 'mux' 'tmp_8' <Predicate = (!icmp_ln151)> <Delay = 0.41> <CoreInst = "Multiplexer">   --->   Core 76 'Multiplexer' <Latency = 0> <II = 1> <Delay = 0.41> <FuncUnit> <Opcode : 'mux'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 66 [1/1] (0.38ns)   --->   "%store_ln151 = store i7 %select_ln151, i7 %phi_urem147" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:151]   --->   Operation 66 'store' 'store_ln151' <Predicate = (!icmp_ln151)> <Delay = 0.38>
+
+State 3 <SV = 2> <Delay = 2.93>
+ST_3 : Operation 67 [1/1] (0.00ns)   --->   "%g_3 = load i32 %h_1" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:154]   --->   Operation 67 'load' 'g_3' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 68 [1/1] (0.00ns)   --->   "%f_3 = load i32 %g" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:154]   --->   Operation 68 'load' 'f_3' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 69 [1/1] (0.00ns)   --->   "%f_2 = load i32 %f" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:54->/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:78->/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:154]   --->   Operation 69 'load' 'f_2' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 70 [1/1] (0.00ns)   --->   "%c_3 = load i32 %d_1" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:164]   --->   Operation 70 'load' 'c_3' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 71 [1/1] (0.00ns)   --->   "%b_5 = load i32 %c" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:164]   --->   Operation 71 'load' 'b_5' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 72 [1/1] (0.00ns)   --->   "%a_2 = load i32 %b" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:54->/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:72->/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:155]   --->   Operation 72 'load' 'a_2' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 73 [1/1] (0.00ns)   --->   "%d_load = load i32 %d" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:160]   --->   Operation 73 'load' 'd_load' <Predicate = (!icmp_ln151)> <Delay = 0.00>
+ST_3 : Operation 74 [1/1] (0.00ns)   --->   "%h_load = load i32 %h" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:154]   --->   Operation 74 'load' 'h_load' <Predicate = (!icmp_ln151)> <Delay = 0.00>
+ST_3 : Operation 75 [1/1] (0.00ns)   --->   "%specpipeline_ln153 = specpipeline void @_ssdm_op_SpecPipeline, i32 1, i32 0, i32 0, i32 0, void @empty" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:153]   --->   Operation 75 'specpipeline' 'specpipeline_ln153' <Predicate = (!icmp_ln151)> <Delay = 0.00>
+ST_3 : Operation 76 [1/1] (0.00ns)   --->   "%speclooptripcount_ln75 = speclooptripcount void @_ssdm_op_SpecLoopTripCount, i64 64, i64 64, i64 64" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:75->/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:154]   --->   Operation 76 'speclooptripcount' 'speclooptripcount_ln75' <Predicate = (!icmp_ln151)> <Delay = 0.00>
+ST_3 : Operation 77 [1/1] (0.00ns)   --->   "%specloopname_ln151 = specloopname void @_ssdm_op_SpecLoopName, void @empty_17" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:151]   --->   Operation 77 'specloopname' 'specloopname_ln151' <Predicate = (!icmp_ln151)> <Delay = 0.00>
+ST_3 : Operation 78 [1/1] (0.00ns) (grouped into LUT with out node xor_ln154_3)   --->   "%lshr_ln54_4 = partselect i26 @_ssdm_op_PartSelect.i26.i32.i32.i32, i32 %f_2, i32 6, i32 31" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:54->/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:78->/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:154]   --->   Operation 78 'partselect' 'lshr_ln54_4' <Predicate = (!icmp_ln151)> <Delay = 0.00>
+ST_3 : Operation 79 [1/1] (0.00ns) (grouped into LUT with out node xor_ln154_3)   --->   "%trunc_ln54 = trunc i32 %f_2" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:54->/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:78->/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:154]   --->   Operation 79 'trunc' 'trunc_ln54' <Predicate = (!icmp_ln151)> <Delay = 0.00>
+ST_3 : Operation 80 [1/1] (0.00ns) (grouped into LUT with out node xor_ln154_3)   --->   "%lshr_ln54_5 = partselect i21 @_ssdm_op_PartSelect.i21.i32.i32.i32, i32 %f_2, i32 11, i32 31" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:54->/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:78->/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:154]   --->   Operation 80 'partselect' 'lshr_ln54_5' <Predicate = (!icmp_ln151)> <Delay = 0.00>
+ST_3 : Operation 81 [1/1] (0.00ns) (grouped into LUT with out node xor_ln154_3)   --->   "%trunc_ln54_1 = trunc i32 %f_2" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:54->/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:78->/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:154]   --->   Operation 81 'trunc' 'trunc_ln54_1' <Predicate = (!icmp_ln151)> <Delay = 0.00>
+ST_3 : Operation 82 [1/1] (0.00ns) (grouped into LUT with out node xor_ln154_3)   --->   "%lshr_ln54_6 = partselect i7 @_ssdm_op_PartSelect.i7.i32.i32.i32, i32 %f_2, i32 25, i32 31" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:54->/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:78->/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:154]   --->   Operation 82 'partselect' 'lshr_ln54_6' <Predicate = (!icmp_ln151)> <Delay = 0.00>
+ST_3 : Operation 83 [1/1] (0.00ns) (grouped into LUT with out node xor_ln154_3)   --->   "%trunc_ln54_2 = trunc i32 %f_2" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:54->/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:78->/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:154]   --->   Operation 83 'trunc' 'trunc_ln54_2' <Predicate = (!icmp_ln151)> <Delay = 0.00>
+ST_3 : Operation 84 [1/1] (0.00ns) (grouped into LUT with out node xor_ln154_1)   --->   "%xor_ln154 = xor i32 %f_2, i32 4294967295" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:154]   --->   Operation 84 'xor' 'xor_ln154' <Predicate = (!icmp_ln151)> <Delay = 0.00> <CoreInst = "LogicGate">   --->   Core 74 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.21> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 85 [1/1] (0.00ns) (grouped into LUT with out node xor_ln154_3)   --->   "%or_ln1 = bitconcatenate i32 @_ssdm_op_BitConcatenate.i32.i6.i26, i6 %trunc_ln54, i26 %lshr_ln54_4" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:154]   --->   Operation 85 'bitconcatenate' 'or_ln1' <Predicate = (!icmp_ln151)> <Delay = 0.00>
+ST_3 : Operation 86 [1/1] (0.00ns) (grouped into LUT with out node xor_ln154_3)   --->   "%or_ln154_1 = bitconcatenate i32 @_ssdm_op_BitConcatenate.i32.i11.i21, i11 %trunc_ln54_1, i21 %lshr_ln54_5" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:154]   --->   Operation 86 'bitconcatenate' 'or_ln154_1' <Predicate = (!icmp_ln151)> <Delay = 0.00>
+ST_3 : Operation 87 [1/1] (0.00ns) (grouped into LUT with out node xor_ln154_1)   --->   "%and_ln154 = and i32 %f_3, i32 %f_2" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:154]   --->   Operation 87 'and' 'and_ln154' <Predicate = (!icmp_ln151)> <Delay = 0.00> <CoreInst = "LogicGate">   --->   Core 74 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.21> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 88 [1/1] (0.00ns) (grouped into LUT with out node xor_ln154_1)   --->   "%and_ln154_1 = and i32 %g_3, i32 %xor_ln154" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:154]   --->   Operation 88 'and' 'and_ln154_1' <Predicate = (!icmp_ln151)> <Delay = 0.00> <CoreInst = "LogicGate">   --->   Core 74 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.21> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 89 [1/1] (0.00ns) (grouped into LUT with out node xor_ln154_3)   --->   "%or_ln154_2 = bitconcatenate i32 @_ssdm_op_BitConcatenate.i32.i25.i7, i25 %trunc_ln54_2, i7 %lshr_ln54_6" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:154]   --->   Operation 89 'bitconcatenate' 'or_ln154_2' <Predicate = (!icmp_ln151)> <Delay = 0.00>
+ST_3 : Operation 90 [1/1] (0.21ns) (out node of the LUT)   --->   "%xor_ln154_1 = xor i32 %and_ln154_1, i32 %and_ln154" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:154]   --->   Operation 90 'xor' 'xor_ln154_1' <Predicate = (!icmp_ln151)> <Delay = 0.21> <CoreInst = "LogicGate">   --->   Core 74 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.21> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 91 [1/1] (0.00ns) (grouped into LUT with out node xor_ln154_3)   --->   "%xor_ln154_2 = xor i32 %or_ln1, i32 %or_ln154_1" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:154]   --->   Operation 91 'xor' 'xor_ln154_2' <Predicate = (!icmp_ln151)> <Delay = 0.00> <CoreInst = "LogicGate">   --->   Core 74 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.21> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 92 [1/1] (0.21ns) (out node of the LUT)   --->   "%xor_ln154_3 = xor i32 %xor_ln154_2, i32 %or_ln154_2" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:154]   --->   Operation 92 'xor' 'xor_ln154_3' <Predicate = (!icmp_ln151)> <Delay = 0.21> <CoreInst = "LogicGate">   --->   Core 74 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.21> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 93 [1/1] (0.00ns) (grouped into TernaryAdder)   --->   "%add_ln154 = add i32 %SHA256_K_load, i32 %h_load" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:154]   --->   Operation 93 'add' 'add_ln154' <Predicate = (!icmp_ln151)> <Delay = 0.00> <CoreInst = "TAddSub">   --->   Core 10 'TAddSub' <Latency = 0> <II = 1> <Delay = 0.36> <IPBlock> <Opcode : '<invalid operator> ' 'add' 'sub'> <InPorts = 3> <OutPorts = 1> <Sync> <CReg>
+ST_3 : Operation 94 [1/1] (0.00ns) (grouped into TernaryAdder)   --->   "%add_ln154_1 = add i32 %tmp_8, i32 %xor_ln154_3" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:154]   --->   Operation 94 'add' 'add_ln154_1' <Predicate = (!icmp_ln151)> <Delay = 0.00> <CoreInst = "TAddSub">   --->   Core 10 'TAddSub' <Latency = 0> <II = 1> <Delay = 0.36> <IPBlock> <Opcode : '<invalid operator> ' 'add' 'sub'> <InPorts = 3> <OutPorts = 1> <Sync> <CReg>
+ST_3 : Operation 95 [1/1] (0.73ns) (root node of TernaryAdder)   --->   "%add_ln154_2 = add i32 %add_ln154_1, i32 %xor_ln154_1" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:154]   --->   Operation 95 'add' 'add_ln154_2' <Predicate = (!icmp_ln151)> <Delay = 0.73> <CoreInst = "TAddSub">   --->   Core 10 'TAddSub' <Latency = 0> <II = 1> <Delay = 0.36> <IPBlock> <Opcode : '<invalid operator> ' 'add' 'sub'> <InPorts = 3> <OutPorts = 1> <Sync> <CReg>
+ST_3 : Operation 96 [1/1] (0.73ns) (root node of TernaryAdder)   --->   "%t1 = add i32 %add_ln154_2, i32 %add_ln154" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:154]   --->   Operation 96 'add' 't1' <Predicate = (!icmp_ln151)> <Delay = 0.73> <CoreInst = "TAddSub">   --->   Core 10 'TAddSub' <Latency = 0> <II = 1> <Delay = 0.36> <IPBlock> <Opcode : '<invalid operator> ' 'add' 'sub'> <InPorts = 3> <OutPorts = 1> <Sync> <CReg>
+ST_3 : Operation 97 [1/1] (0.00ns) (grouped into LUT with out node xor_ln164_3)   --->   "%lshr_ln54_7 = partselect i30 @_ssdm_op_PartSelect.i30.i32.i32.i32, i32 %a_2, i32 2, i32 31" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:54->/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:72->/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:155]   --->   Operation 97 'partselect' 'lshr_ln54_7' <Predicate = (!icmp_ln151)> <Delay = 0.00>
+ST_3 : Operation 98 [1/1] (0.00ns) (grouped into LUT with out node xor_ln164_3)   --->   "%trunc_ln54_3 = trunc i32 %a_2" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:54->/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:72->/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:155]   --->   Operation 98 'trunc' 'trunc_ln54_3' <Predicate = (!icmp_ln151)> <Delay = 0.00>
+ST_3 : Operation 99 [1/1] (0.00ns) (grouped into LUT with out node xor_ln164_3)   --->   "%lshr_ln54_8 = partselect i19 @_ssdm_op_PartSelect.i19.i32.i32.i32, i32 %a_2, i32 13, i32 31" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:54->/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:72->/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:155]   --->   Operation 99 'partselect' 'lshr_ln54_8' <Predicate = (!icmp_ln151)> <Delay = 0.00>
+ST_3 : Operation 100 [1/1] (0.00ns) (grouped into LUT with out node xor_ln164_3)   --->   "%trunc_ln54_4 = trunc i32 %a_2" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:54->/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:72->/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:155]   --->   Operation 100 'trunc' 'trunc_ln54_4' <Predicate = (!icmp_ln151)> <Delay = 0.00>
+ST_3 : Operation 101 [1/1] (0.00ns) (grouped into LUT with out node xor_ln164_3)   --->   "%lshr_ln54_9 = partselect i10 @_ssdm_op_PartSelect.i10.i32.i32.i32, i32 %a_2, i32 22, i32 31" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:54->/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:72->/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:155]   --->   Operation 101 'partselect' 'lshr_ln54_9' <Predicate = (!icmp_ln151)> <Delay = 0.00>
+ST_3 : Operation 102 [1/1] (0.00ns) (grouped into LUT with out node xor_ln164_3)   --->   "%trunc_ln54_5 = trunc i32 %a_2" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:54->/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:72->/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:155]   --->   Operation 102 'trunc' 'trunc_ln54_5' <Predicate = (!icmp_ln151)> <Delay = 0.00>
+ST_3 : Operation 103 [1/1] (0.88ns)   --->   "%e_1 = add i32 %t1, i32 %d_load" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:160]   --->   Operation 103 'add' 'e_1' <Predicate = (!icmp_ln151)> <Delay = 0.88> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 0.88> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 104 [1/1] (0.00ns) (grouped into LUT with out node xor_ln164_1)   --->   "%xor_ln164 = xor i32 %c_3, i32 %b_5" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:164]   --->   Operation 104 'xor' 'xor_ln164' <Predicate = (!icmp_ln151)> <Delay = 0.00> <CoreInst = "LogicGate">   --->   Core 74 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.21> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 105 [1/1] (0.00ns) (grouped into LUT with out node xor_ln164_1)   --->   "%and_ln164 = and i32 %xor_ln164, i32 %a_2" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:164]   --->   Operation 105 'and' 'and_ln164' <Predicate = (!icmp_ln151)> <Delay = 0.00> <CoreInst = "LogicGate">   --->   Core 74 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.21> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 106 [1/1] (0.00ns) (grouped into LUT with out node xor_ln164_1)   --->   "%and_ln164_1 = and i32 %c_3, i32 %b_5" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:164]   --->   Operation 106 'and' 'and_ln164_1' <Predicate = (!icmp_ln151)> <Delay = 0.00> <CoreInst = "LogicGate">   --->   Core 74 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.21> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 107 [1/1] (0.00ns) (grouped into LUT with out node xor_ln164_3)   --->   "%or_ln2 = bitconcatenate i32 @_ssdm_op_BitConcatenate.i32.i2.i30, i2 %trunc_ln54_3, i30 %lshr_ln54_7" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:164]   --->   Operation 107 'bitconcatenate' 'or_ln2' <Predicate = (!icmp_ln151)> <Delay = 0.00>
+ST_3 : Operation 108 [1/1] (0.00ns) (grouped into LUT with out node xor_ln164_3)   --->   "%or_ln164_1 = bitconcatenate i32 @_ssdm_op_BitConcatenate.i32.i13.i19, i13 %trunc_ln54_4, i19 %lshr_ln54_8" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:164]   --->   Operation 108 'bitconcatenate' 'or_ln164_1' <Predicate = (!icmp_ln151)> <Delay = 0.00>
+ST_3 : Operation 109 [1/1] (0.21ns) (out node of the LUT)   --->   "%xor_ln164_1 = xor i32 %and_ln164, i32 %and_ln164_1" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:164]   --->   Operation 109 'xor' 'xor_ln164_1' <Predicate = (!icmp_ln151)> <Delay = 0.21> <CoreInst = "LogicGate">   --->   Core 74 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.21> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 110 [1/1] (0.00ns) (grouped into LUT with out node xor_ln164_3)   --->   "%or_ln164_2 = bitconcatenate i32 @_ssdm_op_BitConcatenate.i32.i22.i10, i22 %trunc_ln54_5, i10 %lshr_ln54_9" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:164]   --->   Operation 110 'bitconcatenate' 'or_ln164_2' <Predicate = (!icmp_ln151)> <Delay = 0.00>
+ST_3 : Operation 111 [1/1] (0.00ns) (grouped into LUT with out node xor_ln164_3)   --->   "%xor_ln164_2 = xor i32 %or_ln2, i32 %or_ln164_1" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:164]   --->   Operation 111 'xor' 'xor_ln164_2' <Predicate = (!icmp_ln151)> <Delay = 0.00> <CoreInst = "LogicGate">   --->   Core 74 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.21> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 112 [1/1] (0.21ns) (out node of the LUT)   --->   "%xor_ln164_3 = xor i32 %xor_ln164_2, i32 %or_ln164_2" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:164]   --->   Operation 112 'xor' 'xor_ln164_3' <Predicate = (!icmp_ln151)> <Delay = 0.21> <CoreInst = "LogicGate">   --->   Core 74 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.21> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 113 [1/1] (0.00ns) (grouped into TernaryAdder)   --->   "%add_ln164 = add i32 %t1, i32 %xor_ln164_3" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:164]   --->   Operation 113 'add' 'add_ln164' <Predicate = (!icmp_ln151)> <Delay = 0.00> <CoreInst = "TAddSub">   --->   Core 10 'TAddSub' <Latency = 0> <II = 1> <Delay = 0.36> <IPBlock> <Opcode : '<invalid operator> ' 'add' 'sub'> <InPorts = 3> <OutPorts = 1> <Sync> <CReg>
+ST_3 : Operation 114 [1/1] (0.73ns) (root node of TernaryAdder)   --->   "%a = add i32 %add_ln164, i32 %xor_ln164_1" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:164]   --->   Operation 114 'add' 'a' <Predicate = (!icmp_ln151)> <Delay = 0.73> <CoreInst = "TAddSub">   --->   Core 10 'TAddSub' <Latency = 0> <II = 1> <Delay = 0.36> <IPBlock> <Opcode : '<invalid operator> ' 'add' 'sub'> <InPorts = 3> <OutPorts = 1> <Sync> <CReg>
+ST_3 : Operation 115 [1/1] (0.38ns)   --->   "%store_ln151 = store i32 %a, i32 %b" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:151]   --->   Operation 115 'store' 'store_ln151' <Predicate = (!icmp_ln151)> <Delay = 0.38>
+ST_3 : Operation 116 [1/1] (0.38ns)   --->   "%store_ln151 = store i32 %a_2, i32 %c" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:151]   --->   Operation 116 'store' 'store_ln151' <Predicate = (!icmp_ln151)> <Delay = 0.38>
+ST_3 : Operation 117 [1/1] (0.38ns)   --->   "%store_ln151 = store i32 %b_5, i32 %d_1" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:151]   --->   Operation 117 'store' 'store_ln151' <Predicate = (!icmp_ln151)> <Delay = 0.38>
+ST_3 : Operation 118 [1/1] (0.38ns)   --->   "%store_ln151 = store i32 %e_1, i32 %f" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:151]   --->   Operation 118 'store' 'store_ln151' <Predicate = (!icmp_ln151)> <Delay = 0.38>
+ST_3 : Operation 119 [1/1] (0.38ns)   --->   "%store_ln151 = store i32 %f_2, i32 %g" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:151]   --->   Operation 119 'store' 'store_ln151' <Predicate = (!icmp_ln151)> <Delay = 0.38>
+ST_3 : Operation 120 [1/1] (0.38ns)   --->   "%store_ln151 = store i32 %f_3, i32 %h_1" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:151]   --->   Operation 120 'store' 'store_ln151' <Predicate = (!icmp_ln151)> <Delay = 0.38>
+ST_3 : Operation 121 [1/1] (0.38ns)   --->   "%store_ln151 = store i32 %g_3, i32 %h" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:151]   --->   Operation 121 'store' 'store_ln151' <Predicate = (!icmp_ln151)> <Delay = 0.38>
+ST_3 : Operation 122 [1/1] (0.38ns)   --->   "%store_ln151 = store i32 %c_3, i32 %d" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:151]   --->   Operation 122 'store' 'store_ln151' <Predicate = (!icmp_ln151)> <Delay = 0.38>
+ST_3 : Operation 123 [1/1] (0.00ns)   --->   "%br_ln151 = br void %for.inc56" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:151]   --->   Operation 123 'br' 'br_ln151' <Predicate = (!icmp_ln151)> <Delay = 0.00>
+ST_3 : Operation 124 [1/1] (0.00ns)   --->   "%d_load_1 = load i32 %d"   --->   Operation 124 'load' 'd_load_1' <Predicate = (icmp_ln151)> <Delay = 0.00>
+ST_3 : Operation 125 [1/1] (0.00ns)   --->   "%h_load_1 = load i32 %h"   --->   Operation 125 'load' 'h_load_1' <Predicate = (icmp_ln151)> <Delay = 0.00>
+ST_3 : Operation 126 [1/1] (0.00ns)   --->   "%write_ln0 = write void @_ssdm_op_Write.ap_auto.i32P0A, i32 %h_out, i32 %h_load_1"   --->   Operation 126 'write' 'write_ln0' <Predicate = (icmp_ln151)> <Delay = 0.00>
+ST_3 : Operation 127 [1/1] (0.00ns)   --->   "%write_ln54 = write void @_ssdm_op_Write.ap_auto.i32P0A, i32 %a_2_out, i32 %a_2" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:54->/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:72->/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:155]   --->   Operation 127 'write' 'write_ln54' <Predicate = (icmp_ln151)> <Delay = 0.00>
+ST_3 : Operation 128 [1/1] (0.00ns)   --->   "%write_ln164 = write void @_ssdm_op_Write.ap_auto.i32P0A, i32 %b_out, i32 %b_5" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:164]   --->   Operation 128 'write' 'write_ln164' <Predicate = (icmp_ln151)> <Delay = 0.00>
+ST_3 : Operation 129 [1/1] (0.00ns)   --->   "%write_ln164 = write void @_ssdm_op_Write.ap_auto.i32P0A, i32 %c_out, i32 %c_3" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:164]   --->   Operation 129 'write' 'write_ln164' <Predicate = (icmp_ln151)> <Delay = 0.00>
+ST_3 : Operation 130 [1/1] (0.00ns)   --->   "%write_ln0 = write void @_ssdm_op_Write.ap_auto.i32P0A, i32 %d_out, i32 %d_load_1"   --->   Operation 130 'write' 'write_ln0' <Predicate = (icmp_ln151)> <Delay = 0.00>
+ST_3 : Operation 131 [1/1] (0.00ns)   --->   "%write_ln54 = write void @_ssdm_op_Write.ap_auto.i32P0A, i32 %f_1_out, i32 %f_2" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:54->/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:78->/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:154]   --->   Operation 131 'write' 'write_ln54' <Predicate = (icmp_ln151)> <Delay = 0.00>
+ST_3 : Operation 132 [1/1] (0.00ns)   --->   "%write_ln154 = write void @_ssdm_op_Write.ap_auto.i32P0A, i32 %f_out, i32 %f_3" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:154]   --->   Operation 132 'write' 'write_ln154' <Predicate = (icmp_ln151)> <Delay = 0.00>
+ST_3 : Operation 133 [1/1] (0.00ns)   --->   "%write_ln154 = write void @_ssdm_op_Write.ap_auto.i32P0A, i32 %g_1_out, i32 %g_3" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:154]   --->   Operation 133 'write' 'write_ln154' <Predicate = (icmp_ln151)> <Delay = 0.00>
+ST_3 : Operation 134 [1/1] (0.00ns)   --->   "%ret_ln0 = ret"   --->   Operation 134 'ret' 'ret_ln0' <Predicate = (icmp_ln151)> <Delay = 0.00>
+
+
+============================================================
++ Verbose Summary: Timing violations
+============================================================
+Target clock period: 3.333ns, clock uncertainty: 0.900ns.
+
+ <State 1>: 1.152ns
+The critical path consists of the following:
+	'alloca' operation ('phi_mul145') [22]  (0.000 ns)
+	'load' operation ('phi_mul145_load', /users/arashs/U280_CRC_Accelerator/src/kernel.cpp:75->/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:154) on local variable 'phi_mul145' [65]  (0.000 ns)
+	'add' operation ('add_ln75', /users/arashs/U280_CRC_Accelerator/src/kernel.cpp:75->/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:154) [75]  (0.765 ns)
+	'store' operation ('store_ln151', /users/arashs/U280_CRC_Accelerator/src/kernel.cpp:151) of variable 'add_ln75', /users/arashs/U280_CRC_Accelerator/src/kernel.cpp:75->/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:154 on local variable 'phi_mul145' [134]  (0.387 ns)
+
+ <State 2>: 2.107ns
+The critical path consists of the following:
+	'load' operation ('phi_urem147_load', /users/arashs/U280_CRC_Accelerator/src/kernel.cpp:75->/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:154) on local variable 'phi_urem147' [64]  (0.000 ns)
+	'add' operation ('add_ln151_1', /users/arashs/U280_CRC_Accelerator/src/kernel.cpp:151) [68]  (0.706 ns)
+	'icmp' operation ('icmp_ln151_1', /users/arashs/U280_CRC_Accelerator/src/kernel.cpp:151) [69]  (0.706 ns)
+	'select' operation ('select_ln151', /users/arashs/U280_CRC_Accelerator/src/kernel.cpp:151) [70]  (0.308 ns)
+	'store' operation ('store_ln151', /users/arashs/U280_CRC_Accelerator/src/kernel.cpp:151) of variable 'select_ln151', /users/arashs/U280_CRC_Accelerator/src/kernel.cpp:151 on local variable 'phi_urem147' [135]  (0.387 ns)
+
+ <State 3>: 2.939ns
+The critical path consists of the following:
+	'load' operation ('g', /users/arashs/U280_CRC_Accelerator/src/kernel.cpp:154) on local variable 'h' [54]  (0.000 ns)
+	'and' operation ('and_ln154_1', /users/arashs/U280_CRC_Accelerator/src/kernel.cpp:154) [98]  (0.000 ns)
+	'xor' operation ('xor_ln154_1', /users/arashs/U280_CRC_Accelerator/src/kernel.cpp:154) [100]  (0.210 ns)
+	'add' operation ('add_ln154_2', /users/arashs/U280_CRC_Accelerator/src/kernel.cpp:154) [105]  (0.731 ns)
+	'add' operation ('t1', /users/arashs/U280_CRC_Accelerator/src/kernel.cpp:154) [106]  (0.731 ns)
+	'add' operation ('e', /users/arashs/U280_CRC_Accelerator/src/kernel.cpp:160) [113]  (0.880 ns)
+	'store' operation ('store_ln151', /users/arashs/U280_CRC_Accelerator/src/kernel.cpp:151) of variable 'e', /users/arashs/U280_CRC_Accelerator/src/kernel.cpp:160 on local variable 'f' [128]  (0.387 ns)
+
+
+============================================================
++ Verbose Summary: Binding
+============================================================
+N/A
+* FSMD analyzer results:
+  - Output states:
+ - Input state : 
+  - Chain level:
+	State 1
+	State 2
+	State 3
+
+
+============================================================
++ Verbose Summary: Datapath Resource usage 
+============================================================
+N/A

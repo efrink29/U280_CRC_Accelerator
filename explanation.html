@@ -1,0 +1,1074 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>U280 Accelerator – Architecture Explained</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --bg: #0d1117;
+            --surface: #161b22;
+            --surface2: #21262d;
+            --border: #30363d;
+            --accent: #58a6ff;
+            --accent2: #3fb950;
+            --accent3: #f78166;
+            --accent4: #d2a8ff;
+            --accent5: #ffa657;
+            --text: #e6edf3;
+            --muted: #8b949e;
+            --warning: #d29922;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: var(--bg);
+            color: var(--text);
+            font-family: 'Inter', sans-serif;
+            font-size: 15px;
+            line-height: 1.7;
+        }
+
+        /* ── Header ── */
+        header {
+            background: linear-gradient(135deg, #0d1117 0%, #1a2332 50%, #0d1117 100%);
+            border-bottom: 1px solid var(--border);
+            padding: 60px 40px 50px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(88, 166, 255, .12) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .chip-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(88, 166, 255, .12);
+            border: 1px solid rgba(88, 166, 255, .3);
+            border-radius: 20px;
+            padding: 6px 16px;
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: .08em;
+            color: var(--accent);
+            text-transform: uppercase;
+            margin-bottom: 24px;
+        }
+
+        header h1 {
+            font-size: clamp(28px, 5vw, 48px);
+            font-weight: 700;
+            background: linear-gradient(135deg, #e6edf3 30%, #58a6ff 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 16px;
+        }
+
+        header p {
+            color: var(--muted);
+            font-size: 16px;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* ── Layout ── */
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 48px 24px;
+        }
+
+        /* ── TOC ── */
+        .toc {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 28px 32px;
+            margin-bottom: 48px;
+        }
+
+        .toc h2 {
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: .1em;
+            color: var(--muted);
+            margin-bottom: 16px;
+        }
+
+        .toc ol {
+            padding-left: 20px;
+        }
+
+        .toc li {
+            margin: 8px 0;
+        }
+
+        .toc a {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .toc a:hover {
+            text-decoration: underline;
+        }
+
+        /* ── Sections ── */
+        .section {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 36px 40px;
+            margin-bottom: 32px;
+            transition: border-color .2s;
+        }
+
+        .section:hover {
+            border-color: rgba(88, 166, 255, .3);
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            margin-bottom: 24px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .section-num {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 14px;
+            flex-shrink: 0;
+        }
+
+        .num-blue {
+            background: rgba(88, 166, 255, .15);
+            color: var(--accent);
+        }
+
+        .num-green {
+            background: rgba(63, 185, 80, .15);
+            color: var(--accent2);
+        }
+
+        .num-red {
+            background: rgba(247, 129, 102, .15);
+            color: var(--accent3);
+        }
+
+        .num-purple {
+            background: rgba(210, 168, 255, .15);
+            color: var(--accent4);
+        }
+
+        .num-orange {
+            background: rgba(255, 166, 87, .15);
+            color: var(--accent5);
+        }
+
+        .section h2 {
+            font-size: 20px;
+            font-weight: 600;
+        }
+
+        .section p {
+            color: #c9d1d9;
+            margin-bottom: 14px;
+        }
+
+        .section p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* ── Code blocks ── */
+        pre {
+            background: #010409;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 20px 24px;
+            overflow-x: auto;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 13px;
+            line-height: 1.6;
+            margin: 18px 0;
+            position: relative;
+        }
+
+        pre .c {
+            color: #6e7681;
+        }
+
+        /* comment / muted */
+        pre .k {
+            color: var(--accent4);
+        }
+
+        /* keyword */
+        pre .s {
+            color: var(--accent2);
+        }
+
+        /* string / value */
+        pre .n {
+            color: var(--accent);
+        }
+
+        /* name */
+        pre .e {
+            color: var(--accent3);
+        }
+
+        /* error */
+        pre .w {
+            color: var(--warning);
+        }
+
+        /* warning */
+        code {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 13px;
+            background: rgba(88, 166, 255, .1);
+            color: var(--accent);
+            padding: 2px 7px;
+            border-radius: 4px;
+        }
+
+        /* ── Callout boxes ── */
+        .callout {
+            border-radius: 8px;
+            padding: 16px 20px;
+            margin: 18px 0;
+            display: flex;
+            gap: 12px;
+            align-items: flex-start;
+        }
+
+        .callout-icon {
+            font-size: 18px;
+            flex-shrink: 0;
+            margin-top: 1px;
+        }
+
+        .callout.info {
+            background: rgba(88, 166, 255, .08);
+            border-left: 3px solid var(--accent);
+        }
+
+        .callout.warn {
+            background: rgba(210, 153, 34, .08);
+            border-left: 3px solid var(--warning);
+        }
+
+        .callout.good {
+            background: rgba(63, 185, 80, .08);
+            border-left: 3px solid var(--accent2);
+        }
+
+        .callout.bad {
+            background: rgba(247, 129, 102, .08);
+            border-left: 3px solid var(--accent3);
+        }
+
+        /* ── Tables ── */
+        .table-wrap {
+            overflow-x: auto;
+            margin: 18px 0;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 14px;
+        }
+
+        th {
+            background: var(--surface2);
+            color: var(--muted);
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: .08em;
+            padding: 12px 16px;
+            text-align: left;
+            border-bottom: 1px solid var(--border);
+        }
+
+        td {
+            padding: 12px 16px;
+            border-bottom: 1px solid var(--border);
+            color: #c9d1d9;
+        }
+
+        tr:last-child td {
+            border-bottom: none;
+        }
+
+        tr:hover td {
+            background: rgba(88, 166, 255, .04);
+        }
+
+        .pass {
+            color: var(--accent2);
+            font-weight: 600;
+        }
+
+        .fail {
+            color: var(--accent3);
+            font-weight: 600;
+        }
+
+        /* ── Architecture diagram ── */
+        .diagram {
+            background: #010409;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 24px;
+            margin: 18px 0;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 13px;
+            line-height: 1.8;
+            overflow-x: auto;
+            white-space: pre;
+        }
+
+        .d-blue {
+            color: var(--accent);
+        }
+
+        .d-green {
+            color: var(--accent2);
+        }
+
+        .d-red {
+            color: var(--accent3);
+        }
+
+        .d-purple {
+            color: var(--accent4);
+        }
+
+        .d-orange {
+            color: var(--accent5);
+        }
+
+        .d-muted {
+            color: #6e7681;
+        }
+
+        /* ── Build stages ── */
+        .stages {
+            display: flex;
+            gap: 0;
+            margin: 18px 0;
+        }
+
+        .stage {
+            flex: 1;
+            background: var(--surface2);
+            border: 1px solid var(--border);
+            padding: 20px;
+            position: relative;
+        }
+
+        .stage:first-child {
+            border-radius: 8px 0 0 8px;
+        }
+
+        .stage:last-child {
+            border-radius: 0 8px 8px 0;
+        }
+
+        .stage-num {
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: .08em;
+            color: var(--muted);
+            margin-bottom: 8px;
+        }
+
+        .stage-title {
+            font-weight: 600;
+            font-size: 15px;
+            margin-bottom: 6px;
+        }
+
+        .stage-time {
+            font-size: 12px;
+            color: var(--muted);
+        }
+
+        .arrow-sep {
+            width: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--surface2);
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+            color: var(--accent);
+            font-size: 18px;
+            flex-shrink: 0;
+        }
+
+        @media(max-width:640px) {
+            .stages {
+                flex-direction: column;
+            }
+
+            .stage:first-child {
+                border-radius: 8px 8px 0 0;
+            }
+
+            .stage:last-child {
+                border-radius: 0 0 8px 8px;
+            }
+
+            .arrow-sep {
+                width: 100%;
+                height: 32px;
+                border: none;
+                border-left: 1px solid var(--border);
+                border-right: 1px solid var(--border);
+            }
+        }
+
+        @media(max-width:700px) {
+            .section {
+                padding: 24px 20px;
+            }
+
+            .section-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <div class="chip-badge">🔬 Xilinx U280 · Vitis HLS · FPGA Architecture</div>
+        <h1>U280 CRC Accelerator<br>Architecture Deep Dive</h1>
+        <p>A complete explanation of the monolithic → split-kernel redesign, memory mapping, host scheduler, and timing
+            failure analysis.</p>
+    </header>
+
+    <div class="container">
+
+        <!-- TOC -->
+        <div class="toc">
+            <h2>Contents</h2>
+            <ol>
+                <li><a href="#s1">Kernel Architecture: Monolithic → Split</a></li>
+                <li><a href="#s2">CU Replication: Per-Function, Not Per-Kernel</a></li>
+                <li><a href="#s3">Memory Mapping: Reducing Interconnect Pressure</a></li>
+                <li><a href="#s4">Host Runtime: The FpgaManager Scheduler</a></li>
+                <li><a href="#s5">Performance Path: Wide-Bus &amp; Table Caching</a></li>
+                <li><a href="#s6">Why sw_emu Passed but hw Failed (−0.118 ns)</a></li>
+                <li><a href="#s7">Changing CU Counts: What Needs Recompilation?</a></li>
+                <li><a href="#s8">FPGA Resource Isolation: Can CUs Share?</a></li>
+                <li><a href="#s9">Why Not Go Back to a Monolithic CU?</a></li>
+                <li><a href="#s10">Recommendations &amp; Fix Options</a></li>
+                <li><a href="#s11">Monolithic Deep-Dive: Every Reason It Fails on Hardware</a></li>
+                <li><a href="#s12">What "Timing" Means &amp; Why Reducing Frequency Helps</a></li>
+                <li><a href="#s13">HLS Pipeline Internals: What II=1 Actually Means</a></li>
+                <li><a href="#s14">Emulation Tiers: sw_emu vs hw_emu vs hw</a></li>
+                <li><a href="#s15">Practical Workload Sizing Guide</a></li>
+            </ol>
+        </div>
+
+        <!-- ── Section 11 ── -->
+        <div class="section" id="s11">
+            <div class="section-header">
+                <div class="section-num num-red">11</div>
+                <h2>Monolithic Deep-Dive: Every Reason It Fails on Hardware</h2>
+            </div>
+
+            <p>This section goes deeper into why a monolithic kernel — one CU handling CRC + TCP + SHA via a runtime
+                <code>mode</code> switch — is the wrong direction for hardware, even though it seems simpler from a
+                software perspective.
+            </p>
+
+            <h3 style="margin:24px 0 10px;font-size:16px;color:var(--accent4)">🔴 Problem 1: Dead Logic That Still Costs
+                Real Silicon</h3>
+            <p>In a monolithic kernel, Vitis HLS synthesizes <strong>all three algorithm datapaths into every single
+                    CU</strong> regardless of which one runs at runtime. The <code>if (mode == CRC)</code> control logic
+                becomes a hardware multiplexer — it does not eliminate the unused circuitry.</p>
+            <p>Think of it like building three full kitchens inside one house and only ever cooking in one at a time.
+                The other two still consume floor space, plumbing, wiring, and construction cost — whether or not anyone
+                uses them.</p>
+
+            <pre><span class="c">// What the old monolithic kernel looks like on silicon</span>
+<span class="k">void</span> <span class="n">kernel</span>(data_in, data_out, <span class="n">mode</span>, tables) {
+    <span class="k">if</span> (mode == CRC)  → process_crc(...)       <span class="c">// CRC datapath always synthesized</span>
+    <span class="k">if</span> (mode == TCP)  → process_tcp_checksum()  <span class="c">// TCP datapath always synthesized</span>
+    <span class="k">if</span> (mode == SHA)  → process_hash()          <span class="c">// SHA datapath always synthesized</span>
+    <span class="c">// A hardware MUX at the output selects which result to forward</span>
+    <span class="c">// but ALL THREE sets of logic gates physically exist in every CU</span>
+}</pre>
+
+            <h3 style="margin:24px 0 10px;font-size:16px;color:var(--accent4)">🔴 Problem 2: BRAM Explosion Per CU</h3>
+            <p>The CRC kernel requires a 16×256 <code>uint32_t</code> parallel slice table in BRAM:</p>
+            <pre><span class="c">// kernel.cpp line 671 — inside every CRC path</span>
+uint32_t crcTables[<span class="s">16</span>][<span class="s">256</span>];  <span class="c">// = 16 × 256 × 4 bytes = 16,384 bytes per CU</span>
+<span class="k">#pragma HLS BIND_STORAGE</span> variable=crcTables type=ram_1p impl=bram
+<span class="k">#pragma HLS ARRAY_PARTITION</span> variable=crcTables complete dim=1
+<span class="c">// "complete dim=1" = 16 independent BRAM blocks instantiated per CU</span>
+<span class="c">// so it can read all 16 table rows simultaneously → II=1</span></pre>
+
+            <p>In a monolithic CU these 16 BRAMs are present in <em>every instance</em> — even when the CU is processing
+                a TCP or SHA packet. In a split design, TCP and SHA CUs have <strong>zero BRAM overhead</strong> (they
+                use DDR).</p>
+
+            <div class="table-wrap">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Design style</th>
+                            <th>BRAM blocks per CU</th>
+                            <th>For 8 CU instances</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Split SHA CU</td>
+                            <td>0 (uses DDR)</td>
+                            <td>0 BRAM blocks consumed</td>
+                        </tr>
+                        <tr>
+                            <td>Split CRC CU</td>
+                            <td>~16</td>
+                            <td>~128 BRAM blocks</td>
+                        </tr>
+                        <tr>
+                            <td>Monolithic CU (all 3)</td>
+                            <td>~16 (CRC tables always present)</td>
+                            <td>~128 BRAM blocks — even when doing SHA work</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h3 style="margin:24px 0 10px;font-size:16px;color:var(--accent4)">🔴 Problem 3: Mixed Memory Interfaces
+                Create Port Conflicts</h3>
+            <p>CRC is optimized for <strong>HBM</strong> (low-latency, many banks). TCP/SHA are optimized for
+                <strong>DDR</strong> (wide 512-bit streaming). A monolithic CU needs <em>both</em> memory systems
+                simultaneously:
+            </p>
+
+            <div class="diagram"><span class="d-red">Monolithic CU: conflicting memory requirements</span>
+                <span class="d-muted">┌─────────────────────────────────────────────────┐
+                    │ Monolithic CU │</span>
+                <span class="d-blue">│ gmem0 → CRC needs HBM (low-latency random access)</span>
+                <span class="d-orange">│ gmem0 → TCP/SHA need DDR (wide 512-bit stream) </span>
+                <span class="d-muted">│ tables → HBM bank (CRC-only feature) │</span>
+                <span class="d-red">│ → port conflicts, wider AXI, harder routing │
+                    └─────────────────────────────────────────────────┘</span>
+
+                <span class="d-green">Split CUs: each has exactly the right interface</span>
+                <span class="d-muted">┌────────────────┐ ┌──────────────────┐ ┌──────────────────┐</span>
+                <span class="d-blue">│ CRC CU │ </span><span class="d-orange">│ TCP CU │ </span><span class="d-purple">│
+                    SHA CU │</span>
+                <span class="d-blue">│ gmem0 → HBM │ </span><span class="d-orange">│ gmem0 → DDR[0/1] │ </span><span
+                    class="d-purple">│ gmem0 → DDR[0/1] │</span>
+                <span class="d-blue">│ gmem1 → HBM │ </span><span class="d-orange">│ (512-bit wide) │ </span><span
+                    class="d-purple">│ (512-bit wide) │</span>
+                <span class="d-muted">└────────────────┘ └──────────────────┘ └──────────────────┘</span>
+            </div>
+
+            <h3 style="margin:24px 0 10px;font-size:16px;color:var(--accent4)">🔴 Problem 4: Critical Path Is the Worst
+                of All Three</h3>
+            <p>When HLS compiles a monolithic function, it must find one clock period that satisfies timing across
+                <em>all</em> combinational paths inside it — including paths from all three algorithms. The critical
+                path is set by the slowest one after they are combined inside the same RTL module:
+            </p>
+
+            <div class="table-wrap">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Kernel (standalone)</th>
+                            <th>HLS Fmax estimate</th>
+                            <th>Dominant critical path</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><code>calculate_crc</code></td>
+                            <td>275.55 MHz</td>
+                            <td>16-wide BRAM lookup + XOR reduction tree</td>
+                        </tr>
+                        <tr>
+                            <td><code>calculate_tcp_checksum</code></td>
+                            <td>411.00 MHz</td>
+                            <td>4-level partial-sum adder chain</td>
+                        </tr>
+                        <tr>
+                            <td><code>calculate_sha256</code></td>
+                            <td>291.64 MHz</td>
+                            <td>SHA-256 round: Σ₀/Σ₁, Ch, Maj + additions</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <p>In a monolithic kernel all three logic clouds share the same routing region. The resulting combined
+                critical path after place-and-route is <strong>always worse</strong> than any individual HLS estimate
+                because: (1) Vivado has to fit more logic into the same area, increasing wire lengths and (2) the logic
+                from one algorithm interferes with the placement of another.</p>
+
+            <h3 style="margin:24px 0 10px;font-size:16px;color:var(--accent4)">🔴 Problem 5: Scaling Is All-or-Nothing
+            </h3>
+            <p>Every time you add one monolithic CU, you add one full copy of all three algorithms. You cannot say "I
+                need 2× more SHA throughput" without also doubling CRC and TCP logic. With split CUs you can add 4 SHA
+                CUs independently and leave CRC and TCP unchanged.</p>
+
+            <div class="callout bad">
+                <span class="callout-icon">❌</span>
+                <div><strong>Bottom line on monolithic:</strong> The split design failed timing at 24 CUs with −0.118
+                    ns. A monolithic design offering equivalent throughput would need ~8 CUs but each would be ~3×
+                    larger in area and routing complexity. The timing problem would be at least as bad — likely worse —
+                    and the design permanently wastes silicon on two out of three idle algorithms at any given moment.
+                </div>
+            </div>
+        </div>
+
+        <!-- ── Section 12 ── -->
+        <div class="section" id="s12">
+            <div class="section-header">
+                <div class="section-num num-orange">12</div>
+                <h2>What "Timing" Means &amp; Why Reducing Frequency Helps</h2>
+            </div>
+
+            <p>This is one of the most important concepts in FPGA design, and it directly explains your −0.118 ns
+                failure and how reducing the clock frequency can fix it without changing any logic.</p>
+
+            <h3 style="margin:20px 0 10px;font-size:16px;color:var(--accent4)">What Is a Clock Period?</h3>
+            <p>Every flip-flop (register) in the FPGA captures its input on a clock edge. The <strong>clock
+                    period</strong> is how much time exists between two edges — this is the maximum time any
+                combinational logic path has to propagate its result from one register to the next.</p>
+
+            <pre><span class="c">At 220 MHz:  clock period = 1 / 220,000,000 = 4.545 ns
+At 200 MHz:  clock period = 1 / 200,000,000 = 5.000 ns
+At 300 MHz:  clock period = 1 / 300,000,000 = 3.333 ns</span></pre>
+
+            <div class="diagram"><span class="d-muted">Clock edge Clock edge
+                    │ │
+                    ▼ ▼
+                    ──────┬─────────────────────┬────── clock
+                    │◄─── 4.545 ns ──────►│ ← budget at 220 MHz
+                    │ │
+                    [FF] ──→ [LUT] → [LUT] → [LUT] → [LUT] ──→ [FF]
+                    ↑
+                    all this logic must complete within 4.545 ns
+                    the longest such path is called the CRITICAL PATH</span></div>
+
+            <h3 style="margin:24px 0 10px;font-size:16px;color:var(--accent4)">What Is Slack?</h3>
+            <p><strong>Slack</strong> is the difference between the available time budget and the actual propagation
+                time of the critical path:</p>
+            <pre><span class="s">Slack = Clock Period − Critical Path Delay</span>
+
+<span class="c">Your build result:</span>
+<span class="s">Slack = 4.545 ns − 4.663 ns = −0.118 ns</span>    <span class="e">← NEGATIVE = timing FAILURE</span>
+
+<span class="c">If you had 200 MHz instead:</span>
+<span class="s">Slack = 5.000 ns − 4.663 ns = +0.337 ns</span>    <span class="n">← POSITIVE = timing PASSES ✅</span></pre>
+
+            <p>A <strong>negative slack</strong> means the logic path is physically too slow for the requested clock
+                speed. The signal from one register cannot reach the next register in time before the next clock edge
+                arrives. The FPGA would sample incorrect (transitioning) data — it would be broken hardware.</p>
+
+            <h3 style="margin:24px 0 10px;font-size:16px;color:var(--accent4)">Why Does Routing Congestion Make Slack
+                Worse?</h3>
+            <p>With 24 CUs crammed onto the U280, the FPGA fabric is very dense. Vivado cannot always place two
+                logically connected elements close together — it has to route signals across longer distances on the
+                chip, and longer wires have more resistance and capacitance, which means <strong>longer propagation
+                    delays</strong>.</p>
+
+            <div class="diagram"><span class="d-green">Sparse placement (few CUs) → short wires → fast paths:</span>
+                <span class="d-muted">[FF_A] ──short wire──→ [FF_B] delay = 2 ns slack = +2.5 ns ✅</span>
+
+                <span class="d-red">Dense placement (24 CUs, congested) → long detour wires → slow paths:</span>
+                <span class="d-muted">[FF_A] ──long detour─────────────→ [FF_B] delay = 4.7 ns slack = −0.1 ns ❌</span>
+            </div>
+
+            <h3 style="margin:24px 0 10px;font-size:16px;color:var(--accent4)">Why Reducing Frequency Helps — Without
+                Changing Any Code</h3>
+            <p>Your critical path delay is a <strong>physical property of the placed and routed circuit</strong> — it
+                does not change when you change the target frequency. What changes is how much time you are
+                <em>giving</em> that path:
+            </p>
+
+            <div class="table-wrap">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Frequency</th>
+                            <th>Clock period (budget)</th>
+                            <th>Critical path delay</th>
+                            <th>Slack</th>
+                            <th>Result</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>220 MHz</td>
+                            <td>4.545 ns</td>
+                            <td>~4.663 ns</td>
+                            <td class="fail">−0.118 ns</td>
+                            <td class="fail">❌ FAIL</td>
+                        </tr>
+                        <tr>
+                            <td>210 MHz</td>
+                            <td>4.762 ns</td>
+                            <td>~4.663 ns</td>
+                            <td class="pass">+0.099 ns</td>
+                            <td class="pass">✅ PASS</td>
+                        </tr>
+                        <tr>
+                            <td>200 MHz</td>
+                            <td>5.000 ns</td>
+                            <td>~4.663 ns</td>
+                            <td class="pass">+0.337 ns</td>
+                            <td class="pass">✅ PASS (comfortable)</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="callout info">
+                <span class="callout-icon">ℹ️</span>
+                <div>The critical path delay (~4.663 ns) is an estimate — actual routing may shift it. But the key
+                    insight is: <strong>you only need to recover 0.118 ns of slack</strong>. Dropping from 220 → 210 MHz
+                    adds 0.217 ns of budget — more than enough. You keep all 24 CUs, you just run them slightly slower.
+                    At 200 MHz you have a comfortable margin.</div>
+            </div>
+
+            <h3 style="margin:24px 0 10px;font-size:16px;color:var(--accent4)">The Throughput Cost of Lowering Frequency
+            </h3>
+            <p>Reducing from 220 → 200 MHz is a 9% frequency drop. Since throughput scales linearly with clock speed
+                (CRC = N bytes/cycle × clock), you lose about 9% of throughput per CU. For context:</p>
+            <pre><span class="c">CRC at 220 MHz: 16 bytes/cycle × 220M cycles/s ≈ 3.52 GB/s per CU</span>
+<span class="c">CRC at 200 MHz: 16 bytes/cycle × 200M cycles/s ≈ 3.20 GB/s per CU  (−9%)</span>
+<span class="c">
+With 16 CRC CUs:</span>
+<span class="s">220 MHz → ~56 GB/s aggregate CRC throughput</span>
+<span class="s">200 MHz → ~51 GB/s aggregate CRC throughput</span>
+<span class="c">
+A small price to pay for hardware that actually works.</span></pre>
+
+            <div class="callout good">
+                <span class="callout-icon">✅</span>
+                <div><strong>Practical recommendation:</strong> Try <code>--kernel_frequency 210</code> first. This
+                    recovers 0.217 ns of slack (nearly 2× what you need) while only costing ~4.5% throughput. If that
+                    still fails, drop to 200 MHz.</div>
+            </div>
+        </div>
+
+        <!-- ── Section 13 ── -->
+        <div class="section" id="s13">
+            <div class="section-header">
+                <div class="section-num num-blue">13</div>
+                <h2>HLS Pipeline Internals: What II=1 Actually Means</h2>
+            </div>
+
+            <p>The build log reports results like <em>"Pipelining result: Target II = 1, Final II = 1"</em>.
+                Understanding this is key to knowing how fast the kernels actually run.</p>
+
+            <h3 style="margin:20px 0 10px;font-size:16px;color:var(--accent4)">Initiation Interval (II)</h3>
+            <p><strong>II = 1</strong> means the pipelined loop can accept a new input <em>every single clock cycle</em>
+                — the best possible result. Think of a car assembly line: even though it takes 10 stations to complete a
+                car, a new car can enter station 1 every cycle because all stations work in parallel.</p>
+            <p><strong>II = 2</strong> means 2 cycles must pass before the next input can start — effectively halving
+                throughput. Your TCP kernel has this problem on its scalar fallback path due to a memory port
+                bottleneck:</p>
+
+            <pre><span class="w">WARNING: [v++ 200-885] II Violation in 'word_loop':</span>
+<span class="w">Unable to schedule bus request on port 'gmem0' due to limited memory ports.</span>
+<span class="w">Final II = 2.  (needs two loads from same port in one cycle → must stagger)</span></pre>
+
+            <div class="table-wrap">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Loop</th>
+                            <th>Kernel</th>
+                            <th>Final II</th>
+                            <th>Throughput impact</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><code>block_loop</code></td>
+                            <td>CRC</td>
+                            <td>1</td>
+                            <td>16 bytes processed per cycle ✅</td>
+                        </tr>
+                        <tr>
+                            <td><code>vec_word_loop</code></td>
+                            <td>TCP</td>
+                            <td>1</td>
+                            <td>64 bytes per cycle (vectorized path) ✅</td>
+                        </tr>
+                        <tr>
+                            <td><code>word_loop</code></td>
+                            <td>TCP scalar</td>
+                            <td>2</td>
+                            <td>1 byte-pair per 2 cycles ⚠️</td>
+                        </tr>
+                        <tr>
+                            <td><code>round_loop</code></td>
+                            <td>SHA</td>
+                            <td>1</td>
+                            <td>1 SHA-256 round per cycle ✅</td>
+                        </tr>
+                        <tr>
+                            <td><code>expand_words</code></td>
+                            <td>SHA</td>
+                            <td>2</td>
+                            <td>Data dependency in schedule ⚠️</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h3 style="margin:24px 0 10px;font-size:16px;color:var(--accent4)">The DATAFLOW Pragma in CRC</h3>
+            <p>The CRC kernel uses <code>#pragma HLS DATAFLOW</code> which allows three sub-functions to overlap like a
+                pipeline of pipelines:</p>
+
+            <pre><span class="k">#pragma HLS DATAFLOW</span>
+<span class="n">read_input</span>(data_in, inByte0...inByte15, ...);   <span class="c">← loads 16 bytes, fans into 16 streams</span>
+<span class="c">                      ↓ FIFO streams (depth=64)</span>
+<span class="n">process_blocks</span>(crcTables, inByte0...inByte15, ...outStream);  <span class="c">← 16-parallel table lookup</span>
+<span class="c">                      ↓ outStream FIFO</span>
+<span class="n">write_output</span>(outStream, numChunks, crc_out);    <span class="c">← drains results to DDR/HBM</span>
+
+<span class="c">// While process_blocks computes chunk N,
+// read_input is already loading chunk N+1 into the byte streams.
+// All three functions run simultaneously — latency is hidden.</span></pre>
+        </div>
+
+        <!-- ── Section 14 ── -->
+        <div class="section" id="s14">
+            <div class="section-header">
+                <div class="section-num num-purple">14</div>
+                <h2>Emulation Tiers: sw_emu vs hw_emu vs hw</h2>
+            </div>
+
+            <p>Vitis provides three build targets with very different fidelity levels. This is exactly why the design
+                can pass sw_emu and fail hw.</p>
+
+            <div class="table-wrap">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Target</th>
+                            <th>What runs</th>
+                            <th>Checks timing?</th>
+                            <th>Build time</th>
+                            <th>Use for</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><code>sw_emu</code></td>
+                            <td>Pure C++ on CPU, kernels as libraries</td>
+                            <td class="fail">❌ Never</td>
+                            <td>Seconds</td>
+                            <td>Algorithm correctness during development</td>
+                        </tr>
+                        <tr>
+                            <td><code>hw_emu</code></td>
+                            <td>RTL (Verilog) simulation with AXI bus models</td>
+                            <td class="fail">❌ No real timing</td>
+                            <td>Minutes</td>
+                            <td>Interface bugs, DMA, AXI protocol</td>
+                        </tr>
+                        <tr>
+                            <td><code>hw</code></td>
+                            <td>Full Vivado synthesis + place &amp; route → bitstream</td>
+                            <td class="pass">✅ Yes — must meet clock</td>
+                            <td>Hours</td>
+                            <td>Real deployment on physical FPGA</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <p><strong>sw_emu always passes</strong> for correct algorithms because: there is no clock (time doesn't
+                exist), memory accesses are instant C++ pointer dereferences, there is no routing, and all HLS pragmas
+                like <code>#pragma HLS PIPELINE</code> are silently ignored. A logically correct but physically
+                infeasible design always passes sw_emu.</p>
+
+            <p><strong>hw_emu passes but hw can fail</strong> because hw_emu runs the Verilog RTL in a simulator with
+                modeled AXI buses — it catches interface bugs but does <em>not</em> perform physical P&amp;R and cannot
+                detect timing violations.</p>
+
+            <p>Looking at your actual build log timeline for the 24-CU hw build:</p>
+            <pre><span class="s">[12:18:24]</span> Synthesis started
+<span class="s">[12:30:43]</span> Synthesis complete <span class="c">(~12 min — HLS RTL → Vivado netlist)</span>
+<span class="s">[13:10:07]</span> Logic optimization complete <span class="c">(17 min)</span>
+<span class="s">[14:52:42]</span> Placement complete <span class="c">(1h 42min — 24 CU floorplan)</span>
+<span class="s">[16:39:01]</span> Routing complete <span class="c">(1h 46min — many rip-up/reroute iterations)</span>
+<span class="e">[16:59:37]</span> <span class="e">FAILED — timing not met, slack: -0.118 ns</span></pre>
+        </div>
+
+        <!-- ── Section 15 ── -->
+        <div class="section" id="s15">
+            <div class="section-header">
+                <div class="section-num num-green">15</div>
+                <h2>Practical Workload Sizing Guide</h2>
+            </div>
+
+            <p>Choosing the right CU mix is the most impactful design decision. Here's a framework for thinking about it
+                rationally.</p>
+
+            <h3 style="margin:20px 0 10px;font-size:16px;color:var(--accent4)">Step 1: Know Per-CU Throughput</h3>
+            <div class="table-wrap">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>CU type</th>
+                            <th>Throughput per CU @ 220 MHz</th>
+                            <th>Bottleneck</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><code>calculate_crc</code></td>
+                            <td>~3.5 GB/s (16 bytes × 220M/s)</td>
+                            <td>BRAM read bandwidth</td>
+                        </tr>
+                        <tr>
+                            <td><code>calculate_tcp_checksum</code></td>
+                            <td>~14 GB/s vectorized (64 bytes × 220M/s)</td>
+                            <td>DDR memory bandwidth</td>
+                        </tr>
+                        <tr>
+                            <td><code>calculate_sha256</code></td>
+                            <td>~0.4–1 GB/s (compute-bound: 64 rounds / 64-byte block)</td>
+                            <td>Compute (SHA rounds)</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <p>SHA is the slowest per CU because it is compute-bound: 64 rounds of complex arithmetic are needed for
+                every 64-byte block. TCP benefits enormously from the 512-bit wide bus.</p>
+
+            <h3 style="margin:24px 0 10px;font-size:16px;color:var(--accent4)">Step 2: Watch the DDR Bandwidth Ceiling
+            </h3>
+            <p>TCP and SHA both alternate between DDR[0] and DDR[1]. Each U280 DDR4 channel has ~19.2 GB/s peak
+                bandwidth. If you add too many TCP/SHA CUs they will compete for the same two channels and memory
+                becomes the new bottleneck:</p>
+            <pre><span class="c"># DDR[0]: serves TCP_0, TCP_2, SHA_0, SHA_2, SHA_4 ... (all even indices)</span>
+<span class="c"># DDR[1]: serves TCP_1, TCP_3, SHA_1, SHA_3, SHA_5 ... (all odd indices)</span>
+
+<span class="c"># Example: 1 TCP CU + 5 SHA CUs sharing DDR[0]:</span>
+<span class="s">TCP:  14 GB/s  +  SHA: 5 × 1 GB/s = 19 GB/s  ← right at the DDR ceiling</span>
+<span class="c"># Adding a 6th SHA CU on DDR[0] would not improve throughput — DDR is saturated</span></pre>
+
+            <h3 style="margin:24px 0 10px;font-size:16px;color:var(--accent4)">Step 3: Recommended Configurations</h3>
+            <div class="table-wrap">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Use case</th>
+                            <th>CRC</th>
+                            <th>TCP</th>
+                            <th>SHA</th>
+                            <th>Total</th>
+                            <th>Notes</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Fix timing now (220 MHz)</td>
+                            <td>8</td>
+                            <td>2</td>
+                            <td>2</td>
+                            <td>12</td>
+                            <td>Half the CUs → much more routing slack</td>
+                        </tr>
+                        <tr>
+                            <td>Keep all 24 CUs (200 MHz)</td>
+                            <td>16</td>
+                            <td>4</td>
+                            <td>4</td>
+                            <td>24</td>
+                            <td>Drop freq only, no CU changes, −9% throughput</td>
+                        </tr>
+                        <tr>
+                            <td>CRC-heavy network traffic</td>
+                            <td>14</td>
+                            <td>1</td>
+                            <td>1</td>
+                            <td>16</td>
+                            <td>Good timing with max CRC throughput</td>
+                        </tr>
+                        <tr>
+                            <td>Security/hash-heavy</td>
+                            <td>4</td>
+                            <td>2</td>
+                            <td>10</td>
+                            <td>16</td>
+                            <td>Watch DDR ceiling; 10 SHA ≈ 10 GB/s</td>
+                        </tr>
+                        <tr>
+                            <td>TCP validation only</td>
+                            <td>2</td>
+                            <td>6</td>
+                            <td>2</td>
+                            <td>10</td>
+                            <td>~84 GB/s TCP aggregate; DDR limited</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="callout good">
+                <span class="callout-icon">🎯</span>
+                <div><strong>Quickest path to working hardware:</strong> Change <code>--kernel_frequency 220</code> to
+                    <code>--kernel_frequency 210</code> in the linker command, rebuild the xclbin (Stage 2 only, ~5
+                    hours), run on hardware. This recovers 0.217 ns of slack with only ~4.5% throughput cost and
+                    requires zero changes to kernel code or CU counts.
+                </div>
+            </div>
+        </div>
+
+        <p style="text-align:center;color:var(--muted);font-size:13px;padding:32px 0 16px;">
+            Generated from codebase analysis of <code>src/kernel.cpp</code> · <code>vpp_connectivity.cfg</code> ·
+            <code>src/manager.hpp</code> · <code>u280_hw_multicu_build.log</code>
+        </p>
+
+    </div>
+</body>
+
+</html>

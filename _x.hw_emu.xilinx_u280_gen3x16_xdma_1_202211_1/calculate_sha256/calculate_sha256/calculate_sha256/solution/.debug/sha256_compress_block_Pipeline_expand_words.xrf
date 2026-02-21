@@ -1,0 +1,43 @@
+Begin Function 'sha256_compress_block_Pipeline_expand_words'
+
+RTL state condition: (1'b1 == ap_CS_fsm_pp0_stage0)
+# ST_1
+local i <load_135> <integer> <> 'load' </users/arashs/U280_CRC_Accelerator/src/kernel.cpp:135>
+i /users/arashs/U280_CRC_Accelerator/src/kernel.cpp:135
+reg: i_reg_650[6:0] lv
+
+local icmp_ln135 <icmp_135> <integer> <Comparator> 'icmp' </users/arashs/U280_CRC_Accelerator/src/kernel.cpp:135>
+icmp_ln135 /users/arashs/U280_CRC_Accelerator/src/kernel.cpp:135
+reg: icmp_ln135_reg_657[0:0] lv
+
+# ST_11
+local trunc_ln135_1 <trunc_135> <integer> <> 'trunc' </users/arashs/U280_CRC_Accelerator/src/kernel.cpp:135>
+trunc_ln135_1 /users/arashs/U280_CRC_Accelerator/src/kernel.cpp:135
+reg: trunc_ln135_1_reg_661[1:0] lv
+
+local tmp_1 <partselect_138> <integer> <> 'partselect' </users/arashs/U280_CRC_Accelerator/src/kernel.cpp:138>
+tmp_1 /users/arashs/U280_CRC_Accelerator/src/kernel.cpp:138
+reg: tmp_1_reg_669[4:0] lv
+
+local tmp_2 <partselect_138> <integer> <> 'partselect' </users/arashs/U280_CRC_Accelerator/src/kernel.cpp:138>
+tmp_2 /users/arashs/U280_CRC_Accelerator/src/kernel.cpp:138
+reg: tmp_2_reg_674[4:0] lv
+
+local tmp_3 <partselect_138> <integer> <> 'partselect' </users/arashs/U280_CRC_Accelerator/src/kernel.cpp:138>
+tmp_3 /users/arashs/U280_CRC_Accelerator/src/kernel.cpp:138
+reg: tmp_3_reg_679[4:0] lv
+
+local add_ln138_3 <add_138> <integer> <Arithmetic> 'add' </users/arashs/U280_CRC_Accelerator/src/kernel.cpp:138>
+add_ln138_3 /users/arashs/U280_CRC_Accelerator/src/kernel.cpp:138
+reg: add_ln138_3_reg_684[5:0] lv
+
+
+RTL state condition: (1'b1 == ap_CS_fsm_pp0_stage1)
+# ST_12
+local tmp <partselect_135> <integer> <> 'partselect' </users/arashs/U280_CRC_Accelerator/src/kernel.cpp:135>
+tmp /users/arashs/U280_CRC_Accelerator/src/kernel.cpp:135
+reg: tmp_reg_689[4:0] lv
+
+
+End Function 'sha256_compress_block_Pipeline_expand_words'
+

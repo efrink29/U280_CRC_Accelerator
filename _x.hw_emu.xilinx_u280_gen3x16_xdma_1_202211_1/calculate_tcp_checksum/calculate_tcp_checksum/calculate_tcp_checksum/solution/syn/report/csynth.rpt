@@ -1,0 +1,332 @@
+
+
+================================================================
+== Synthesis Summary Report of 'calculate_tcp_checksum'
+================================================================
++ General Information: 
+    * Date:           Mon Feb 16 01:32:14 2026
+    * Version:        2023.1 (Build 3854077 on May  4 2023)
+    * Project:        calculate_tcp_checksum
+    * Solution:       solution (Vitis Kernel Flow Target)
+    * Product family: virtexuplusHBM
+    * Target device:  xcu280-fsvh2892-2L-e
+    
+
++ Performance & Resource Estimates: 
+    
+    PS: '+' for module; 'o' for loop; '*' for dataflow
+    +---------------------------------------------------+--------+-------+----------+-----------+----------+----------+----------+----------+----------+----+-------------+------------+-----+
+    |                      Modules                      |  Issue |       | Latency  |  Latency  | Iteration|          |   Trip   |          |          |    |             |            |     |
+    |                      & Loops                      |  Type  | Slack | (cycles) |    (ns)   |  Latency | Interval |   Count  | Pipelined|   BRAM   | DSP|      FF     |     LUT    | URAM|
+    +---------------------------------------------------+--------+-------+----------+-----------+----------+----------+----------+----------+----------+----+-------------+------------+-----+
+    |+ calculate_tcp_checksum                           |  Timing|  -0.00|         -|          -|         -|         -|         -|        no|  30 (~0%)|   -|  10597 (~0%)|  24041 (1%)|    -|
+    | + process_tcp_checksum                            |  Timing|  -0.00|         -|          -|         -|         -|         -|        no|         -|   -|   6685 (~0%)|  20840 (1%)|    -|
+    |  o tcp_chunk_loop                                 |       -|   2.43|         -|          -|         -|         -|         -|        no|         -|   -|            -|           -|    -|
+    |   + process_tcp_checksum_Pipeline_word_loop       |  Timing|  -0.00|         -|          -|         -|         -|         -|        no|         -|   -|   1610 (~0%)|  4981 (~0%)|    -|
+    |    o word_loop                                    |      II|   2.43|         -|          -|        76|         2|         -|       yes|         -|   -|            -|           -|    -|
+    |   + process_tcp_checksum_Pipeline_vec_word_loop   |  Timing|  -0.00|  67108868|  2.237e+08|         -|  67108868|         -|        no|         -|   -|    756 (~0%)|   990 (~0%)|    -|
+    |    o vec_word_loop                                |       -|   2.43|  67108866|  2.237e+08|         5|         1|  67108863|       yes|         -|   -|            -|           -|    -|
+    |   + process_tcp_checksum_Pipeline_tail_word_loop  |  Timing|  -0.00|         -|          -|         -|         -|         -|        no|         -|   -|   1513 (~0%)|  5011 (~0%)|    -|
+    |    o tail_word_loop                               |      II|   2.43|         -|          -|        76|         2|         -|       yes|         -|   -|            -|           -|    -|
+    +---------------------------------------------------+--------+-------+----------+-----------+----------+----------+----------+----------+----------+----+-------------+------------+-----+
+
+
+================================================================
+== HW Interfaces
+================================================================
+* M_AXI
++-------------+------------+---------------+---------+--------+----------+-----------+--------------+--------------+-------------+-------------+-------------------+
+| Interface   | Data Width | Address Width | Latency | Offset | Register | Max Widen | Max Read     | Max Write    | Num Read    | Num Write   | Resource Estimate |
+|             | (SW->HW)   |               |         |        |          | Bitwidth  | Burst Length | Burst Length | Outstanding | Outstanding |                   |
++-------------+------------+---------------+---------+--------+----------+-----------+--------------+--------------+-------------+-------------+-------------------+
+| m_axi_gmem0 | 512 -> 512 | 64            | 64      | slave  | 0        | 512       | 16           | 16           | 16          | 16          | BRAM=30           |
++-------------+------------+---------------+---------+--------+----------+-----------+--------------+--------------+-------------+-------------+-------------------+
+
+* S_AXILITE Interfaces
++---------------+------------+---------------+--------+----------+
+| Interface     | Data Width | Address Width | Offset | Register |
++---------------+------------+---------------+--------+----------+
+| s_axi_control | 32         | 6             | 16     | 0        |
++---------------+------------+---------------+--------+----------+
+
+* S_AXILITE Registers
++---------------+-----------+--------+-------+--------+----------------------------------+------------------------------------------------------------------------------------+
+| Interface     | Register  | Offset | Width | Access | Description                      | Bit Fields                                                                         |
++---------------+-----------+--------+-------+--------+----------------------------------+------------------------------------------------------------------------------------+
+| s_axi_control | CTRL      | 0x00   | 32    | RW     | Control signals                  | 0=AP_START 1=AP_DONE 2=AP_IDLE 3=AP_READY 4=AP_CONTINUE 7=AUTO_RESTART 9=INTERRUPT |
+| s_axi_control | GIER      | 0x04   | 32    | RW     | Global Interrupt Enable Register | 0=Enable                                                                           |
+| s_axi_control | IP_IER    | 0x08   | 32    | RW     | IP Interrupt Enable Register     | 0=CHAN0_INT_EN 1=CHAN1_INT_EN                                                      |
+| s_axi_control | IP_ISR    | 0x0c   | 32    | RW     | IP Interrupt Status Register     | 0=CHAN0_INT_ST 1=CHAN1_INT_ST                                                      |
+| s_axi_control | data_in_1 | 0x10   | 32    | W      | Data signal of data_in           |                                                                                    |
+| s_axi_control | data_in_2 | 0x14   | 32    | W      | Data signal of data_in           |                                                                                    |
+| s_axi_control | crc_out_1 | 0x1c   | 32    | W      | Data signal of crc_out           |                                                                                    |
+| s_axi_control | crc_out_2 | 0x20   | 32    | W      | Data signal of crc_out           |                                                                                    |
+| s_axi_control | numChunks | 0x28   | 32    | W      | Data signal of numChunks         |                                                                                    |
+| s_axi_control | chunkSize | 0x30   | 32    | W      | Data signal of chunkSize         |                                                                                    |
++---------------+-----------+--------+-------+--------+----------------------------------+------------------------------------------------------------------------------------+
+
+* Other Ports
++-------------+-----------+----------+
+| Port        | Direction | Bitwidth |
++-------------+-----------+----------+
+| event_done  | out       | 1        |
+| event_start | out       | 1        |
++-------------+-----------+----------+
+
+* TOP LEVEL CONTROL
++-----------+---------------+-----------+
+| Interface | Type          | Ports     |
++-----------+---------------+-----------+
+| ap_clk    | clock         | ap_clk    |
+| ap_rst_n  | reset         | ap_rst_n  |
+| interrupt | interrupt     | interrupt |
+| ap_ctrl   | ap_ctrl_chain |           |
++-----------+---------------+-----------+
+
+
+================================================================
+== SW I/O Information
+================================================================
+* Top Function Arguments
++-----------+-----------+----------------------+
+| Argument  | Direction | Datatype             |
++-----------+-----------+----------------------+
+| data_in   | inout     | ap_uint<512> const * |
+| crc_out   | inout     | unsigned int*        |
+| numChunks | in        | unsigned int const   |
+| chunkSize | in        | unsigned int const   |
++-----------+-----------+----------------------+
+
+* SW-to-HW Mapping
++-----------+---------------+-----------+----------+-------------------------------------+
+| Argument  | HW Interface  | HW Type   | HW Usage | HW Info                             |
++-----------+---------------+-----------+----------+-------------------------------------+
+| data_in   | m_axi_gmem0   | interface |          |                                     |
+| data_in   | s_axi_control | register  | offset   | name=data_in_1 offset=0x10 range=32 |
+| data_in   | s_axi_control | register  | offset   | name=data_in_2 offset=0x14 range=32 |
+| crc_out   | m_axi_gmem0   | interface |          |                                     |
+| crc_out   | s_axi_control | register  | offset   | name=crc_out_1 offset=0x1c range=32 |
+| crc_out   | s_axi_control | register  | offset   | name=crc_out_2 offset=0x20 range=32 |
+| numChunks | s_axi_control | register  |          | name=numChunks offset=0x28 range=32 |
+| chunkSize | s_axi_control | register  |          | name=chunkSize offset=0x30 range=32 |
++-----------+---------------+-----------+----------+-------------------------------------+
+
+
+================================================================
+== M_AXI Burst Information
+================================================================
+ Note: All burst requests might be further partitioned into multiple requests during RTL generation based on max_read_burst_length or max_write_burst_length settings.
+
+* Inferred Burst Summary
++--------------+-----------+----------+-------+---------------+---------------------------------------------------------+
+| HW Interface | Direction | Length   | Width | Loop          | Loop Location                                           |
++--------------+-----------+----------+-------+---------------+---------------------------------------------------------+
+| m_axi_gmem0  | read      | variable | 512   | vec_word_loop | /users/arashs/U280_CRC_Accelerator/src/kernel.cpp:492:5 |
++--------------+-----------+----------+-------+---------------+---------------------------------------------------------+
+
+* All M_AXI Variable Accesses
++--------------+----------+----------------------------------------------------------+-----------+--------------+----------+----------------+---------------------------------------------------------+------------+----------------------------------------------------------------------------------------------------------+
+| HW Interface | Variable | Access Location                                          | Direction | Burst Status | Length   | Loop           | Loop Location                                           | Resolution | Problem                                                                                                  |
++--------------+----------+----------------------------------------------------------+-----------+--------------+----------+----------------+---------------------------------------------------------+------------+----------------------------------------------------------------------------------------------------------+
+| m_axi_gmem0  | data_in  | /users/arashs/U280_CRC_Accelerator/src/kernel.cpp:467:39 | read      | Widen Fail   |          |                |                                                         | 214-307    | Could not widen since type i8 size is greater than or equal to alignment 1(bytes)                        |
+| m_axi_gmem0  | data_in  | /users/arashs/U280_CRC_Accelerator/src/kernel.cpp:467:39 | read      | Inferred     | 2        | word_loop      | /users/arashs/U280_CRC_Accelerator/src/kernel.cpp:463:5 |            |                                                                                                          |
+| m_axi_gmem0  | data_in  | /users/arashs/U280_CRC_Accelerator/src/kernel.cpp:468:38 | read      | Widen Fail   |          |                |                                                         | 214-307    | Could not widen since type i8 size is greater than or equal to alignment 1(bytes)                        |
+| m_axi_gmem0  | data_in  | /users/arashs/U280_CRC_Accelerator/src/kernel.cpp:468:38 | read      | Inferred     | 2        | word_loop      | /users/arashs/U280_CRC_Accelerator/src/kernel.cpp:463:5 |            |                                                                                                          |
+| m_axi_gmem0  | data_in  | /users/arashs/U280_CRC_Accelerator/src/kernel.cpp:474:64 | read      | Fail         |          | tcp_chunk_loop | /users/arashs/U280_CRC_Accelerator/src/kernel.cpp:580:5 | 214-232    | Access load is in the conditional branch                                                                 |
+| m_axi_gmem0  | data_in  | /users/arashs/U280_CRC_Accelerator/src/kernel.cpp:495:24 | read      | Widen Fail   |          | vec_word_loop  | /users/arashs/U280_CRC_Accelerator/src/kernel.cpp:492:5 | 214-353    | Could not widen since type i512 size is greater than or equal to the max_widen_bitwidth threshold of 512 |
+| m_axi_gmem0  | data_in  | /users/arashs/U280_CRC_Accelerator/src/kernel.cpp:495:24 | read      | Fail         |          | tcp_chunk_loop | /users/arashs/U280_CRC_Accelerator/src/kernel.cpp:580:5 | 214-229    | Could not analyze pattern                                                                                |
+| m_axi_gmem0  | data_in  | /users/arashs/U280_CRC_Accelerator/src/kernel.cpp:495:24 | read      | Inferred     | variable | vec_word_loop  | /users/arashs/U280_CRC_Accelerator/src/kernel.cpp:492:5 |            |                                                                                                          |
+| m_axi_gmem0  | data_in  | /users/arashs/U280_CRC_Accelerator/src/kernel.cpp:549:39 | read      | Widen Fail   |          |                |                                                         | 214-307    | Could not widen since type i8 size is greater than or equal to alignment 1(bytes)                        |
+| m_axi_gmem0  | data_in  | /users/arashs/U280_CRC_Accelerator/src/kernel.cpp:549:39 | read      | Inferred     | 2        | tail_word_loop | /users/arashs/U280_CRC_Accelerator/src/kernel.cpp:545:5 |            |                                                                                                          |
+| m_axi_gmem0  | data_in  | /users/arashs/U280_CRC_Accelerator/src/kernel.cpp:550:38 | read      | Widen Fail   |          |                |                                                         | 214-307    | Could not widen since type i8 size is greater than or equal to alignment 1(bytes)                        |
+| m_axi_gmem0  | data_in  | /users/arashs/U280_CRC_Accelerator/src/kernel.cpp:550:38 | read      | Inferred     | 2        | tail_word_loop | /users/arashs/U280_CRC_Accelerator/src/kernel.cpp:545:5 |            |                                                                                                          |
+| m_axi_gmem0  | data_in  | /users/arashs/U280_CRC_Accelerator/src/kernel.cpp:557:38 | read      | Fail         |          | tcp_chunk_loop | /users/arashs/U280_CRC_Accelerator/src/kernel.cpp:580:5 | 214-230    | Stride is incompatible                                                                                   |
+| m_axi_gmem0  | crc_out  | /users/arashs/U280_CRC_Accelerator/src/kernel.cpp:596:20 | write     | Widen Fail   |          | tcp_chunk_loop | /users/arashs/U280_CRC_Accelerator/src/kernel.cpp:580:5 | 214-234    | Sequential access length is not divisible by 2                                                           |
+| m_axi_gmem0  | crc_out  | /users/arashs/U280_CRC_Accelerator/src/kernel.cpp:596:20 | write     | Inferred     | variable | tcp_chunk_loop | /users/arashs/U280_CRC_Accelerator/src/kernel.cpp:580:5 |            |                                                                                                          |
++--------------+----------+----------------------------------------------------------+-----------+--------------+----------+----------------+---------------------------------------------------------+------------+----------------------------------------------------------------------------------------------------------+
+
+    * Resolution URL: www.xilinx.com/cgi-bin/docs/rdoc?v=2023.1;t=hls+guidance;d=XXX-YYY.html (replace XXX-YYY with column value)
+
+================================================================
+== Bind Op Report
+================================================================
++--------------------------------------------------+-----+--------+--------------+-----+--------+---------+
+| Name                                             | DSP | Pragma | Variable     | Op  | Impl   | Latency |
++--------------------------------------------------+-----+--------+--------------+-----+--------+---------+
+| + calculate_tcp_checksum                         | 0   |        |              |     |        |         |
+|  + process_tcp_checksum                          | 0   |        |              |     |        |         |
+|    tail_bytes_fu_331_p2                          | -   |        | tail_bytes   | sub | fabric | 0       |
+|    sub136_i_fu_341_p2                            | -   |        | sub136_i     | add | fabric | 0       |
+|    add_ln580_1_fu_407_p2                         | -   |        | add_ln580_1  | add | fabric | 0       |
+|    add_ln580_fu_417_p2                           | -   |        | add_ln580    | add | fabric | 0       |
+|    add_ln583_fu_441_p2                           | -   |        | add_ln583    | add | fabric | 0       |
+|    add_ln474_fu_471_p2                           | -   |        | add_ln474    | add | fabric | 0       |
+|    add_ln474_1_fu_483_p2                         | -   |        | add_ln474_1  | add | fabric | 0       |
+|    add_ln474_2_fu_499_p2                         | -   |        | add_ln474_2  | add | fabric | 0       |
+|    tmp_8_fu_550_p2                               | -   |        | tmp_8        | add | fabric | 0       |
+|    add_ln452_2_fu_556_p2                         | -   |        | add_ln452_2  | add | fabric | 0       |
+|    sum_9_fu_578_p2                               | -   |        | sum_9        | add | fabric | 0       |
+|    folded_fu_600_p2                              | -   |        | folded       | add | fabric | 0       |
+|    add_ln557_fu_628_p2                           | -   |        | add_ln557    | add | fabric | 0       |
+|    add_ln557_1_fu_636_p2                         | -   |        | add_ln557_1  | add | fabric | 0       |
+|    add_ln557_2_fu_651_p2                         | -   |        | add_ln557_2  | add | fabric | 0       |
+|    sum_fu_698_p2                                 | -   |        | sum          | add | fabric | 0       |
+|    folded_2_fu_726_p2                            | -   |        | folded_2     | add | fabric | 0       |
+|    add_ln566_fu_732_p2                           | -   |        | add_ln566    | add | fabric | 0       |
+|    folded_3_fu_758_p2                            | -   |        | folded_3     | add | fabric | 0       |
+|    add_ln566_2_fu_764_p2                         | -   |        | add_ln566_2  | add | fabric | 0       |
+|    folded_4_fu_787_p2                            | -   |        | folded_4     | add | fabric | 0       |
+|    add_ln568_fu_824_p2                           | -   |        | add_ln568    | add | fabric | 0       |
+|    add_ln596_fu_851_p2                           | -   |        | add_ln596    | add | fabric | 0       |
+|    add_ln596_1_fu_856_p2                         | -   |        | add_ln596_1  | add | fabric | 0       |
+|   + process_tcp_checksum_Pipeline_word_loop      | 0   |        |              |     |        |         |
+|     add_ln467_fu_157_p2                          | -   |        | add_ln467    | add | fabric | 0       |
+|     add_ln467_1_fu_171_p2                        | -   |        | add_ln467_1  | add | fabric | 0       |
+|     add_ln467_3_fu_187_p2                        | -   |        | add_ln467_3  | add | fabric | 0       |
+|     add_ln467_2_fu_215_p2                        | -   |        | add_ln467_2  | add | fabric | 0       |
+|     add_ln467_4_fu_270_p2                        | -   |        | add_ln467_4  | add | fabric | 0       |
+|     tmp_fu_313_p2                                | -   |        | tmp          | add | fabric | 0       |
+|     add_ln452_1_fu_319_p2                        | -   |        | add_ln452_1  | add | fabric | 0       |
+|     sum_3_out                                    | -   |        | sum_2        | add | fabric | 0       |
+|     i_3_fu_230_p2                                | -   |        | i_3          | add | fabric | 0       |
+|     add_ln463_fu_193_p2                          | -   |        | add_ln463    | add | fabric | 0       |
+|   + process_tcp_checksum_Pipeline_vec_word_loop  | 0   |        |              |     |        |         |
+|     add_ln492_fu_365_p2                          | -   |        | add_ln492    | add | fabric | 0       |
+|     add_ln514_fu_1036_p2                         | -   |        | add_ln514    | add | fabric | 0       |
+|     add_ln514_1_fu_1062_p2                       | -   |        | add_ln514_1  | add | fabric | 0       |
+|     add_ln514_2_fu_1088_p2                       | -   |        | add_ln514_2  | add | fabric | 0       |
+|     add_ln514_3_fu_1114_p2                       | -   |        | add_ln514_3  | add | fabric | 0       |
+|     add_ln514_4_fu_1140_p2                       | -   |        | add_ln514_4  | add | fabric | 0       |
+|     add_ln514_5_fu_1166_p2                       | -   |        | add_ln514_5  | add | fabric | 0       |
+|     add_ln514_6_fu_1192_p2                       | -   |        | add_ln514_6  | add | fabric | 0       |
+|     add_ln514_7_fu_1218_p2                       | -   |        | add_ln514_7  | add | fabric | 0       |
+|     add_ln514_8_fu_1244_p2                       | -   |        | add_ln514_8  | add | fabric | 0       |
+|     add_ln514_9_fu_1270_p2                       | -   |        | add_ln514_9  | add | fabric | 0       |
+|     add_ln514_10_fu_1296_p2                      | -   |        | add_ln514_10 | add | fabric | 0       |
+|     add_ln514_11_fu_1322_p2                      | -   |        | add_ln514_11 | add | fabric | 0       |
+|     add_ln514_12_fu_1348_p2                      | -   |        | add_ln514_12 | add | fabric | 0       |
+|     add_ln514_13_fu_1374_p2                      | -   |        | add_ln514_13 | add | fabric | 0       |
+|     add_ln514_14_fu_1400_p2                      | -   |        | add_ln514_14 | add | fabric | 0       |
+|     add_ln514_15_fu_1426_p2                      | -   |        | add_ln514_15 | add | fabric | 0       |
+|     add_ln521_fu_1440_p2                         | -   |        | add_ln521    | add | fabric | 0       |
+|     add_ln521_1_fu_1454_p2                       | -   |        | add_ln521_1  | add | fabric | 0       |
+|     add_ln521_2_fu_1468_p2                       | -   |        | add_ln521_2  | add | fabric | 0       |
+|     add_ln521_3_fu_1482_p2                       | -   |        | add_ln521_3  | add | fabric | 0       |
+|     add_ln521_4_fu_1496_p2                       | -   |        | add_ln521_4  | add | fabric | 0       |
+|     add_ln521_5_fu_1510_p2                       | -   |        | add_ln521_5  | add | fabric | 0       |
+|     add_ln521_6_fu_1524_p2                       | -   |        | add_ln521_6  | add | fabric | 0       |
+|     add_ln521_7_fu_1538_p2                       | -   |        | add_ln521_7  | add | fabric | 0       |
+|     add_ln528_fu_1552_p2                         | -   |        | add_ln528    | add | fabric | 0       |
+|     add_ln528_1_fu_1566_p2                       | -   |        | add_ln528_1  | add | fabric | 0       |
+|     add_ln528_2_fu_1580_p2                       | -   |        | add_ln528_2  | add | fabric | 0       |
+|     add_ln528_3_fu_1594_p2                       | -   |        | add_ln528_3  | add | fabric | 0       |
+|     add_ln535_fu_1606_p2                         | -   |        | add_ln535    | add | fabric | 0       |
+|     add_ln535_1_fu_1618_p2                       | -   |        | add_ln535_1  | add | fabric | 0       |
+|     add_ln538_fu_1632_p2                         | -   |        | add_ln538    | add | fabric | 0       |
+|     sum_3_fu_1644_p2                             | -   |        | sum_3        | add | fabric | 0       |
+|   + process_tcp_checksum_Pipeline_tail_word_loop | 0   |        |              |     |        |         |
+|     add_ln549_fu_164_p2                          | -   |        | add_ln549    | add | fabric | 0       |
+|     add_ln549_1_fu_174_p2                        | -   |        | add_ln549_1  | add | fabric | 0       |
+|     add_ln549_2_fu_184_p2                        | -   |        | add_ln549_2  | add | fabric | 0       |
+|     add_ln549_4_fu_200_p2                        | -   |        | add_ln549_4  | add | fabric | 0       |
+|     add_ln549_3_fu_239_p2                        | -   |        | add_ln549_3  | add | fabric | 0       |
+|     add_ln549_5_fu_284_p2                        | -   |        | add_ln549_5  | add | fabric | 0       |
+|     sum_5_fu_331_p2                              | -   |        | sum_5        | add | fabric | 0       |
+|     add_ln545_1_out                              | -   |        | add_ln545_1  | add | fabric | 0       |
+|     i_4_fu_206_p2                                | -   |        | i_4          | add | fabric | 0       |
+|     add_ln545_fu_212_p2                          | -   |        | add_ln545    | add | fabric | 0       |
++--------------------------------------------------+-----+--------+--------------+-----+--------+---------+
+
+
+================================================================
+== Bind Storage Report
+================================================================
+  No bind storage info in design
+
+================================================================
+== Pragma Report
+================================================================
+* Pragmas with Warnings
++----------+---------+--------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| Type     | Options | Location                                   | Messages                                                                                                                                                                           |
++----------+---------+--------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| dataflow |         | ../../../src/kernel.cpp:685 in process_crc | Since the only kind of statements allowed in a canonical dataflow region are variable declarations and function calls, the compiler may not be able to correctly handle the region |
++----------+---------+--------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+* Valid Pragma Syntax
++-----------------+-----------------------------------------------------------------+----------------------------------------------------------+
+| Type            | Options                                                         | Location                                                 |
++-----------------+-----------------------------------------------------------------+----------------------------------------------------------+
+| inline          |                                                                 | ../../../src/kernel.cpp:53 in rotr32                     |
+| inline          |                                                                 | ../../../src/kernel.cpp:59 in sha256_ch                  |
+| inline          |                                                                 | ../../../src/kernel.cpp:65 in sha256_maj                 |
+| inline          |                                                                 | ../../../src/kernel.cpp:71 in sha256_bsig0               |
+| inline          |                                                                 | ../../../src/kernel.cpp:77 in sha256_bsig1               |
+| inline          |                                                                 | ../../../src/kernel.cpp:83 in sha256_ssig0               |
+| inline          |                                                                 | ../../../src/kernel.cpp:89 in sha256_ssig1               |
+| inline          |                                                                 | ../../../src/kernel.cpp:95 in to_be16                    |
+| inline          |                                                                 | ../../../src/kernel.cpp:101 in to_be32                   |
+| inline          |                                                                 | ../../../src/kernel.cpp:110 in pack_block_64             |
+| unroll          |                                                                 | ../../../src/kernel.cpp:115 in pack_block_64             |
+| inline          | off                                                             | ../../../src/kernel.cpp:123 in sha256_compress_block     |
+| pipeline        | II = 1                                                          | ../../../src/kernel.cpp:129 in sha256_compress_block     |
+| pipeline        | II = 1                                                          | ../../../src/kernel.cpp:137 in sha256_compress_block     |
+| pipeline        | II = 1                                                          | ../../../src/kernel.cpp:153 in sha256_compress_block     |
+| inline          | off                                                             | ../../../src/kernel.cpp:181 in sha256_process_chunk      |
+| unroll          |                                                                 | ../../../src/kernel.cpp:187 in sha256_process_chunk      |
+| pipeline        | II = 1                                                          | ../../../src/kernel.cpp:220 in sha256_process_chunk      |
+| pipeline        | II = 1                                                          | ../../../src/kernel.cpp:227 in sha256_process_chunk      |
+| pipeline        | II = 1                                                          | ../../../src/kernel.cpp:239 in sha256_process_chunk      |
+| pipeline        | II = 1                                                          | ../../../src/kernel.cpp:253 in sha256_process_chunk      |
+| pipeline        | II = 1                                                          | ../../../src/kernel.cpp:260 in sha256_process_chunk      |
+| unroll          |                                                                 | ../../../src/kernel.cpp:270 in sha256_process_chunk      |
+| pipeline        | II = 1                                                          | ../../../src/kernel.cpp:289 in read_input                |
+| inline          | off                                                             | ../../../src/kernel.cpp:320 in process_blocks            |
+| array_partition | variable = crcTables complete dim = 1                           | ../../../src/kernel.cpp:321 in process_blocks            |
+| bind_storage    | variable = crcTables type = ram_1p impl = bram                  | ../../../src/kernel.cpp:322 in process_blocks            |
+| pipeline        | II = 1                                                          | ../../../src/kernel.cpp:339 in process_blocks            |
+| pipeline        | II = 1                                                          | ../../../src/kernel.cpp:378 in process_blocks            |
+| pipeline        | II = 1                                                          | ../../../src/kernel.cpp:444 in write_output              |
+| inline          |                                                                 | ../../../src/kernel.cpp:451 in fold_add                  |
+| inline          |                                                                 | ../../../src/kernel.cpp:458 in tcp_checksum_chunk_scalar |
+| pipeline        | II = 1                                                          | ../../../src/kernel.cpp:465 in tcp_checksum_chunk_scalar |
+| inline          |                                                                 | ../../../src/kernel.cpp:487 in tcp_checksum_chunk_vector |
+| pipeline        | II = 1                                                          | ../../../src/kernel.cpp:494 in tcp_checksum_chunk_vector |
+| array_partition | variable = lvl1 complete                                        | ../../../src/kernel.cpp:501 in tcp_checksum_chunk_vector |
+| array_partition | variable = lvl2 complete                                        | ../../../src/kernel.cpp:502 in tcp_checksum_chunk_vector |
+| array_partition | variable = lvl3 complete                                        | ../../../src/kernel.cpp:503 in tcp_checksum_chunk_vector |
+| array_partition | variable = lvl4 complete                                        | ../../../src/kernel.cpp:504 in tcp_checksum_chunk_vector |
+| unroll          |                                                                 | ../../../src/kernel.cpp:509 in tcp_checksum_chunk_vector |
+| unroll          |                                                                 | ../../../src/kernel.cpp:520 in tcp_checksum_chunk_vector |
+| unroll          |                                                                 | ../../../src/kernel.cpp:527 in tcp_checksum_chunk_vector |
+| unroll          |                                                                 | ../../../src/kernel.cpp:534 in tcp_checksum_chunk_vector |
+| pipeline        | II = 1                                                          | ../../../src/kernel.cpp:547 in tcp_checksum_chunk_vector |
+| unroll          |                                                                 | ../../../src/kernel.cpp:565 in tcp_checksum_chunk_vector |
+| pipeline        | II = 1                                                          | ../../../src/kernel.cpp:582 in process_tcp_checksum      |
+| array_partition | variable = digest complete dim = 1                              | ../../../src/kernel.cpp:612 in process_hash              |
+| pipeline        | II = 1                                                          | ../../../src/kernel.cpp:618 in process_hash              |
+| stream          | variable = inByte0 depth = 64                                   | ../../../src/kernel.cpp:651 in process_crc               |
+| stream          | variable = inByte1 depth = 64                                   | ../../../src/kernel.cpp:652 in process_crc               |
+| stream          | variable = inByte2 depth = 64                                   | ../../../src/kernel.cpp:653 in process_crc               |
+| stream          | variable = inByte3 depth = 64                                   | ../../../src/kernel.cpp:654 in process_crc               |
+| stream          | variable = inByte4 depth = 64                                   | ../../../src/kernel.cpp:655 in process_crc               |
+| stream          | variable = inByte5 depth = 64                                   | ../../../src/kernel.cpp:656 in process_crc               |
+| stream          | variable = inByte6 depth = 64                                   | ../../../src/kernel.cpp:657 in process_crc               |
+| stream          | variable = inByte7 depth = 64                                   | ../../../src/kernel.cpp:658 in process_crc               |
+| stream          | variable = inByte8 depth = 64                                   | ../../../src/kernel.cpp:659 in process_crc               |
+| stream          | variable = inByte9 depth = 64                                   | ../../../src/kernel.cpp:660 in process_crc               |
+| stream          | variable = inByte10 depth = 64                                  | ../../../src/kernel.cpp:661 in process_crc               |
+| stream          | variable = inByte11 depth = 64                                  | ../../../src/kernel.cpp:662 in process_crc               |
+| stream          | variable = inByte12 depth = 64                                  | ../../../src/kernel.cpp:663 in process_crc               |
+| stream          | variable = inByte13 depth = 64                                  | ../../../src/kernel.cpp:664 in process_crc               |
+| stream          | variable = inByte14 depth = 64                                  | ../../../src/kernel.cpp:665 in process_crc               |
+| stream          | variable = inByte15 depth = 64                                  | ../../../src/kernel.cpp:666 in process_crc               |
+| stream          | variable = outStream depth = 64                                 | ../../../src/kernel.cpp:669 in process_crc               |
+| array_partition | variable = crcTables complete dim = 1                           | ../../../src/kernel.cpp:672 in process_crc               |
+| bind_storage    | variable = crcTables type = ram_1p impl = bram                  | ../../../src/kernel.cpp:673 in process_crc               |
+| pipeline        | II = 1                                                          | ../../../src/kernel.cpp:680 in process_crc               |
+| interface       | m_axi port = data_in bundle = gmem0 depth = 1024 offset = slave | ../../../src/kernel.cpp:719 in calculate_tcp_checksum    |
+| interface       | m_axi port = crc_out bundle = gmem0 depth = 1024 offset = slave | ../../../src/kernel.cpp:720 in calculate_tcp_checksum    |
++-----------------+-----------------------------------------------------------------+----------------------------------------------------------+
+
+

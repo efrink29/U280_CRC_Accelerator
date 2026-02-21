@@ -1,0 +1,15 @@
+Begin Function 'process_blocks_Pipeline_tail_loop'
+
+RTL state condition: (1'b1 == ap_CS_fsm_pp0_stage0)
+# ST_1
+local icmp_ln376 <icmp_376> <integer> <Comparator> 'icmp' </users/arashs/U280_CRC_Accelerator/src/kernel.cpp:376>
+icmp_ln376 /users/arashs/U280_CRC_Accelerator/src/kernel.cpp:376
+reg: icmp_ln376_reg_409[0:0] lv
+
+local trunc_ln376_1 <trunc_376> <integer> <> 'trunc' </users/arashs/U280_CRC_Accelerator/src/kernel.cpp:376>
+trunc_ln376_1 /users/arashs/U280_CRC_Accelerator/src/kernel.cpp:376
+reg: trunc_ln376_1_reg_413[3:0] lv
+
+
+End Function 'process_blocks_Pipeline_tail_loop'
+

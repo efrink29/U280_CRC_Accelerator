@@ -9,10 +9,21 @@ PLATFORM_DEFAULT="xilinx_u280_gen3x16_xdma_1_202211_1"
 PLATFORM="${PLATFORM:-${PLATFORM_DEFAULT}}"
 XCLBIN_PATH="${REPO_ROOT}/build_dir.sw_emu.${PLATFORM}/kernel.xclbin"
 HOST_BIN="${REPO_ROOT}/host_xrt"
+VITIS_SETTINGS=""
+VITIS_DATA_ROOT=""
 
 setup_swemu_env() {
-    if [[ ! -f /tools/Xilinx/Vitis/2023.1/settings64.sh ]]; then
-        echo "Missing /tools/Xilinx/Vitis/2023.1/settings64.sh"
+    if [[ -f /share/Xilinx/Vitis/2023.1/settings64.sh ]]; then
+        VITIS_SETTINGS="/share/Xilinx/Vitis/2023.1/settings64.sh"
+        VITIS_DATA_ROOT="/share/Xilinx/Vitis/2023.1"
+    elif [[ -f /tools/Xilinx/Vitis/2023.1/settings64.sh ]]; then
+        VITIS_SETTINGS="/tools/Xilinx/Vitis/2023.1/settings64.sh"
+        VITIS_DATA_ROOT="/tools/Xilinx/Vitis/2023.1"
+    else
+        echo "Missing Vitis settings script."
+        echo "Checked:"
+        echo "  /share/Xilinx/Vitis/2023.1/settings64.sh"
+        echo "  /tools/Xilinx/Vitis/2023.1/settings64.sh"
         exit 1
     fi
     if [[ ! -f /opt/xilinx/xrt/setup.sh ]]; then
@@ -21,7 +32,7 @@ setup_swemu_env() {
     fi
 
     # shellcheck disable=SC1091
-    source /tools/Xilinx/Vitis/2023.1/settings64.sh >/dev/null 2>&1
+    source "${VITIS_SETTINGS}" >/dev/null 2>&1
     # shellcheck disable=SC1091
     source /opt/xilinx/xrt/setup.sh >/dev/null 2>&1
 
@@ -29,11 +40,11 @@ setup_swemu_env() {
     local fixroot="${HOME}/.vitis_emu_fix"
     mkdir -p "${fixroot}/data/emulation/unified/cpu_em/generic_pcie/model"
     ln -sf \
-        /tools/Xilinx/Vitis/2023.1/data/emulation/unified/sw_emu/generic_pcie/model/genericpciemodel \
+        "${VITIS_DATA_ROOT}/data/emulation/unified/sw_emu/generic_pcie/model/genericpciemodel" \
         "${fixroot}/data/emulation/unified/cpu_em/generic_pcie/model/genericpciemodel"
 
     export XILINX_VITIS="${fixroot}"
-    export LD_LIBRARY_PATH="/tools/Xilinx/Vitis/2023.1/lib/lnx64.o:/opt/xilinx/xrt/lib:${LD_LIBRARY_PATH:-}"
+    export LD_LIBRARY_PATH="${VITIS_DATA_ROOT}/lib/lnx64.o:/opt/xilinx/xrt/lib:${LD_LIBRARY_PATH:-}"
     export XCL_EMULATION_MODE="sw_emu"
 
     local runtime_ini="${REPO_ROOT}/plans/.xrt_runtime.ini"

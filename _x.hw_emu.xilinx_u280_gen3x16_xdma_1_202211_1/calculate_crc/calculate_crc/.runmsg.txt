@@ -1,0 +1,2 @@
+performing high-level synthesis for kernel: calculate_crc
+Log file: /users/arashs/U280_CRC_Accelerator/_x.hw_emu.xilinx_u280_gen3x16_xdma_1_202211_1/calculate_crc/calculate_crc/vitis_hls.log

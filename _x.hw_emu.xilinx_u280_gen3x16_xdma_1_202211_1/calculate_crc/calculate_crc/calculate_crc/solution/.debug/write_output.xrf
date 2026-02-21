@@ -1,0 +1,20 @@
+Begin Function 'write_output'
+
+RTL state condition: (1'b1 == ap_CS_fsm_state1)
+# ST_1
+local numChunks_1 <> <integer> <FifoRead> 'read' <>
+reg: numChunks_1_reg_73[31:0] lv
+
+local crc_out_1 <> <integer> <FifoRead> 'read' <>
+reg: crc_out_1_reg_78[63:0] lv
+
+local trunc_ln445 <trunc_445> <integer> <> 'trunc' </users/arashs/U280_CRC_Accelerator/src/kernel.cpp:445>
+trunc_ln445 /users/arashs/U280_CRC_Accelerator/src/kernel.cpp:445
+reg: trunc_ln445_reg_83[3:0] lv
+
+
+RTL state condition: (1'b1 == ap_CS_fsm_state3)
+# ST_3
+
+End Function 'write_output'
+

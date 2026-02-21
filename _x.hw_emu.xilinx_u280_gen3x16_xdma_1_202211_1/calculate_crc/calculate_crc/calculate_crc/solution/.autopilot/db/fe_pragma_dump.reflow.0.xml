@@ -1,0 +1,83 @@
+<pragmas>
+<pragma file="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp" line="706" pragmaType="interface" parentfunction="calculate_crc" mode="m_axi" port="data_in" bundle="gmem0" offset="slave" name="" depth="1024" num_read_outstanding="-1" num_write_outstanding="-1" max_burst_read_length="-1" max_burst_write_length="-1" latency="-1" max_widen_bitwidth="-1" channel=""/>
+<pragma file="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp" line="707" pragmaType="interface" parentfunction="calculate_crc" mode="m_axi" port="tables" bundle="gmem1" offset="slave" name="" depth="4096" num_read_outstanding="-1" num_write_outstanding="-1" max_burst_read_length="-1" max_burst_write_length="-1" latency="-1" max_widen_bitwidth="-1" channel=""/>
+<pragma file="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp" line="708" pragmaType="interface" parentfunction="calculate_crc" mode="m_axi" port="crc_out" bundle="gmem0" offset="slave" name="" depth="1024" num_read_outstanding="-1" num_write_outstanding="-1" max_burst_read_length="-1" max_burst_write_length="-1" latency="-1" max_widen_bitwidth="-1" channel=""/>
+<pragma file="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp" line="685" pragmaType="dataflow" parentfunction="process_crc" disable_start_propagation="0"/>
+<pragma file="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp" line="680" pragmaType="pipeline" parentfunction="process_crc" off="0" ii="1" rewind="0" style=""/>
+<pragma file="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp" line="651" pragmaType="stream" parentfunction="process_crc" depth="64" type="fifo" variable="inByte0"/>
+<pragma file="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp" line="652" pragmaType="stream" parentfunction="process_crc" depth="64" type="fifo" variable="inByte1"/>
+<pragma file="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp" line="653" pragmaType="stream" parentfunction="process_crc" depth="64" type="fifo" variable="inByte2"/>
+<pragma file="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp" line="654" pragmaType="stream" parentfunction="process_crc" depth="64" type="fifo" variable="inByte3"/>
+<pragma file="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp" line="655" pragmaType="stream" parentfunction="process_crc" depth="64" type="fifo" variable="inByte4"/>
+<pragma file="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp" line="656" pragmaType="stream" parentfunction="process_crc" depth="64" type="fifo" variable="inByte5"/>
+<pragma file="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp" line="657" pragmaType="stream" parentfunction="process_crc" depth="64" type="fifo" variable="inByte6"/>
+<pragma file="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp" line="658" pragmaType="stream" parentfunction="process_crc" depth="64" type="fifo" variable="inByte7"/>
+<pragma file="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp" line="659" pragmaType="stream" parentfunction="process_crc" depth="64" type="fifo" variable="inByte8"/>
+<pragma file="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp" line="660" pragmaType="stream" parentfunction="process_crc" depth="64" type="fifo" variable="inByte9"/>
+<pragma file="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp" line="661" pragmaType="stream" parentfunction="process_crc" depth="64" type="fifo" variable="inByte10"/>
+<pragma file="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp" line="662" pragmaType="stream" parentfunction="process_crc" depth="64" type="fifo" variable="inByte11"/>
+<pragma file="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp" line="663" pragmaType="stream" parentfunction="process_crc" depth="64" type="fifo" variable="inByte12"/>
+<pragma file="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp" line="664" pragmaType="stream" parentfunction="process_crc" depth="64" type="fifo" variable="inByte13"/>
+<pragma file="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp" line="665" pragmaType="stream" parentfunction="process_crc" depth="64" type="fifo" variable="inByte14"/>
+<pragma file="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp" line="666" pragmaType="stream" parentfunction="process_crc" depth="64" type="fifo" variable="inByte15"/>
+<pragma file="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp" line="669" pragmaType="stream" parentfunction="process_crc" depth="64" type="fifo" variable="outStream"/>
+<pragma file="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp" line="672" pragmaType="array_partition" parentfunction="process_crc" dim="1" factor="0" mode="complete" dynamic="0" variable="crcTables"/>
+<pragma file="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp" line="673" pragmaType="bind_storage" parentfunction="process_crc" op="666" impl="18" latency="-1" variable="crcTables"/>
+<pragma file="" line="0" pragmaType="inline" parentfunction="hls::stream<ap_uint<8>, 0>::stream()" off="0" region="0" recursive="0"/>
+<pragma file="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp" line="289" pragmaType="pipeline" parentfunction="read_input" off="0" ii="1" rewind="0" style=""/>
+<pragma file="" line="0" pragmaType="inline" parentfunction="hls::stream<ap_uint<32>, 0>::stream()" off="0" region="0" recursive="0"/>
+<pragma file="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp" line="320" pragmaType="inline" parentfunction="process_blocks" off="1" region="0" recursive="0"/>
+<pragma file="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp" line="339" pragmaType="pipeline" parentfunction="process_blocks" off="0" ii="1" rewind="0" style=""/>
+<pragma file="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp" line="378" pragmaType="pipeline" parentfunction="process_blocks" off="0" ii="1" rewind="0" style=""/>
+<pragma file="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp" line="321" pragmaType="array_partition" parentfunction="process_blocks" dim="1" factor="0" mode="complete" dynamic="0" variable="crcTables"/>
+<pragma file="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp" line="322" pragmaType="bind_storage" parentfunction="process_blocks" op="666" impl="18" latency="-1" variable="crcTables"/>
+<pragma file="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp" line="444" pragmaType="pipeline" parentfunction="write_output" off="0" ii="1" rewind="0" style=""/>
+<pragma file="" line="0" pragmaType="inline" parentfunction="read" off="0" region="0" recursive="0"/>
+<pragma file="" line="0" pragmaType="inline" parentfunction="ap_int_base<32, false>::operator unsigned long long() const" off="0" region="0" recursive="0"/>
+<pragma file="" line="0" pragmaType="inline" parentfunction="ap_int_base<33, true>::operator long long() const" off="0" region="0" recursive="0"/>
+<pragma file="" line="0" pragmaType="inline" parentfunction="ap_uint<32>::ap_uint()" off="0" region="0" recursive="0"/>
+<pragma file="" line="0" pragmaType="inline" parentfunction="read" off="0" region="0" recursive="0"/>
+<pragma file="" line="0" pragmaType="inline" parentfunction="ap_int_base<32, false>::ap_int_base()" off="0" region="0" recursive="0"/>
+<pragma file="/share/Xilinx/Vitis_HLS/2023.1/common/technology/autopilot/etc/ap_common.h" line="0" pragmaType="inline" parentfunction="ssdm_int<8, false>::ssdm_int()" off="0" region="0" recursive="0"/>
+<pragma file="" line="0" pragmaType="inline" parentfunction="ap_uint<32>::ap_uint(unsigned int)" off="0" region="0" recursive="0"/>
+<pragma file="" line="0" pragmaType="inline" parentfunction="read" off="0" region="0" recursive="0"/>
+<pragma file="" line="0" pragmaType="inline" parentfunction="ap_int_base<32, false>::RType<($_0)32, true>::logic operator&<32, false>(ap_int_base<32, false> const&, int)" off="0" region="0" recursive="0"/>
+<pragma file="" line="0" pragmaType="inline" parentfunction="ap_int_base<33, true>::RType<8, false>::logic operator^<33, true, 8, false>(ap_int_base<33, true> const&, ap_int_base<8, false> const&)" off="0" region="0" recursive="0"/>
+<pragma file="" line="0" pragmaType="inline" parentfunction="ap_int_base<32, false>::RType<32, false>::arg1 operator>><32, false>(ap_int_base<32, false> const&, int)" off="0" region="0" recursive="0"/>
+<pragma file="" line="0" pragmaType="inline" parentfunction="ap_int_base<8, false>::operator unsigned long long() const" off="0" region="0" recursive="0"/>
+<pragma file="" line="0" pragmaType="inline" parentfunction="ap_int_base<32, false>::RType<32, false>::logic operator&<32, false, 32, false>(ap_int_base<32, false> const&, ap_int_base<32, false> const&)" off="0" region="0" recursive="0"/>
+<pragma file="" line="0" pragmaType="inline" parentfunction="ap_uint<8>::ap_uint()" off="0" region="0" recursive="0"/>
+<pragma file="" line="0" pragmaType="inline" parentfunction="ap_int_base<32, false>::RType<8, false>::logic operator^<32, false, 8, false>(ap_int_base<32, false> const&, ap_int_base<8, false> const&)" off="0" region="0" recursive="0"/>
+<pragma file="" line="0" pragmaType="inline" parentfunction="ap_int_base<32, false>::RType<($_0)32, false>::logic operator^<32, false>(ap_int_base<32, false> const&, unsigned int)" off="0" region="0" recursive="0"/>
+<pragma file="" line="0" pragmaType="inline" parentfunction="hls::stream<ap_uint<32>, 0>::operator<<(ap_uint<32> const&)" off="0" region="0" recursive="0"/>
+<pragma file="" line="0" pragmaType="inline" parentfunction="write" off="0" region="0" recursive="0"/>
+<pragma file="" line="0" pragmaType="inline" parentfunction="ap_int_base<32, false>::ap_int_base(unsigned int)" off="0" region="0" recursive="0"/>
+<pragma file="" line="0" pragmaType="inline" parentfunction="ap_int_base<32, false>::RType<32, false>::logic operator^<32, false, 32, false>(ap_int_base<32, false> const&, ap_int_base<32, false> const&)" off="0" region="0" recursive="0"/>
+<pragma file="" line="0" pragmaType="inline" parentfunction="ap_int_base<32, false>::ap_int_base(int)" off="0" region="0" recursive="0"/>
+<pragma file="" line="0" pragmaType="inline" parentfunction="ap_uint<32>::ap_uint<32, false>(ap_int_base<32, false> const&)" off="0" region="0" recursive="0"/>
+<pragma file="/share/Xilinx/Vitis_HLS/2023.1/common/technology/autopilot/etc/ap_common.h" line="523" pragmaType="inline" parentfunction="ssdm_int<32, false>::ssdm_int(unsigned int)" off="0" region="0" recursive="0"/>
+<pragma file="" line="0" pragmaType="inline" parentfunction="ap_int_base<32, false>::ap_int_base<8, false>(ap_int_base<8, false> const&)" off="0" region="0" recursive="0"/>
+<pragma file="" line="0" pragmaType="inline" parentfunction="ap_int_base<8, false>::ap_int_base()" off="0" region="0" recursive="0"/>
+<pragma file="" line="0" pragmaType="inline" parentfunction="checkOverflowBaseC" off="0" region="0" recursive="0"/>
+<pragma file="" line="0" pragmaType="inline" parentfunction="ap_int_base<33, true>::ap_int_base<8, false>(ap_int_base<8, false> const&)" off="0" region="0" recursive="0"/>
+<pragma file="" line="0" pragmaType="inline" parentfunction="ap_int_base<33, true>::ap_int_base(int)" off="0" region="0" recursive="0"/>
+<pragma file="" line="0" pragmaType="inline" parentfunction="ap_int<33>::ap_int<33, true>(ap_int_base<33, true> const&)" off="0" region="0" recursive="0"/>
+<pragma file="/share/Xilinx/Vitis_HLS/2023.1/common/technology/autopilot/etc/ap_common.h" line="515" pragmaType="inline" parentfunction="_ZN8ssdm_intILi33ELb1EEC2EDq33_i" off="0" region="0" recursive="0"/>
+<pragma file="" line="0" pragmaType="inline" parentfunction="ap_int_base<32, true>::ap_int_base(int)" off="0" region="0" recursive="0"/>
+<pragma file="" line="0" pragmaType="inline" parentfunction="ap_int_base<32, false>::RType<32, true>::logic operator&<32, false, 32, true>(ap_int_base<32, false> const&, ap_int_base<32, true> const&)" off="0" region="0" recursive="0"/>
+<pragma file="" line="0" pragmaType="inline" parentfunction="ap_int_base<33, true>::ap_int_base<32, false>(ap_int_base<32, false> const&)" off="0" region="0" recursive="0"/>
+<pragma file="" line="0" pragmaType="inline" parentfunction="ap_int_base<33, true>::ap_int_base<32, true>(ap_int_base<32, true> const&)" off="0" region="0" recursive="0"/>
+<pragma file="/share/Xilinx/Vitis_HLS/2023.1/common/technology/autopilot/etc/ap_common.h" line="515" pragmaType="inline" parentfunction="ssdm_int<32, true>::ssdm_int(int)" off="0" region="0" recursive="0"/>
+<pragma file="" line="0" pragmaType="inline" parentfunction="read" off="0" region="0" recursive="0"/>
+<pragma file="/share/Xilinx/Vitis_HLS/2023.1/common/technology/autopilot/etc/ap_common.h" line="0" pragmaType="inline" parentfunction="ssdm_int<128, false>::ssdm_int()" off="0" region="0" recursive="0"/>
+<pragma file="" line="0" pragmaType="inline" parentfunction="ap_int_base<128, false>::operator()(int, int)" off="0" region="0" recursive="0"/>
+<pragma file="" line="0" pragmaType="inline" parentfunction="ap_uint<8>::ap_uint<128, false>(ap_range_ref<128, false> const&)" off="0" region="0" recursive="0"/>
+<pragma file="" line="0" pragmaType="inline" parentfunction="hls::stream<ap_uint<8>, 0>::operator<<(ap_uint<8> const&)" off="0" region="0" recursive="0"/>
+<pragma file="" line="0" pragmaType="inline" parentfunction="write" off="0" region="0" recursive="0"/>
+<pragma file="" line="0" pragmaType="inline" parentfunction="ap_int_base<8, false>::ap_int_base<128, false>(ap_range_ref<128, false> const&)" off="0" region="0" recursive="0"/>
+<pragma file="" line="0" pragmaType="inline" parentfunction="get" off="0" region="0" recursive="0"/>
+<pragma file="" line="0" pragmaType="inline" parentfunction="ap_int_base<128, false>::ap_int_base()" off="0" region="0" recursive="0"/>
+<pragma file="" line="0" pragmaType="inline" parentfunction="range" off="0" region="0" recursive="0"/>
+<pragma file="" line="0" pragmaType="inline" parentfunction="ap_range_ref<128, false>::ap_range_ref(ap_int_base<128, false>*, int, int)" off="0" region="0" recursive="0"/>
+<pragma file="/share/Xilinx/Vitis_HLS/2023.1/common/technology/autopilot/etc/ap_common.h" line="0" pragmaType="inline" parentfunction="ssdm_int<32, false>::ssdm_int()" off="0" region="0" recursive="0"/>
+</pragmas>

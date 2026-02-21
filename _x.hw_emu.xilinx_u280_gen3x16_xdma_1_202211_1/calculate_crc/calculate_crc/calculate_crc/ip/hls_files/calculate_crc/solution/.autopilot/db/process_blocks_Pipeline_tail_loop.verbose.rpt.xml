@@ -1,0 +1,266 @@
+<profile>
+
+<section name = "Vitis HLS Report for 'process_blocks_Pipeline_tail_loop'" level="0">
+<item name = "Date">Mon Feb 16 01:30:45 2026
+</item>
+<item name = "Version">2023.1 (Build 3854077 on May  4 2023)</item>
+<item name = "Project">calculate_crc</item>
+<item name = "Solution">solution (Vitis Kernel Flow Target)</item>
+<item name = "Product family">virtexuplusHBM</item>
+<item name = "Target device">xcu280-fsvh2892-2L-e</item>
+</section>
+
+<section name = "Performance Estimates" level="0">
+<item name = "Timing">
+<section name = "" level="1">
+<item name = "Summary"><table name="" hasTotal="0">
+<keys size="4">Clock, Target, Estimated, Uncertainty</keys>
+<column name="ap_clk">3.33 ns, 1.793 ns, 0.90 ns</column>
+</table>
+</item>
+</section>
+</item>
+<item name = "Latency">
+<section name = "" level="1">
+<item name = "Summary"><table name="" hasTotal="0">
+<keys size="8">, min, max, min, max, min, max, Type</keys>
+<column name="">?, ?, ?, ?, ?, ?, no</column>
+</table>
+</item>
+<item name = "Detail">
+<section name = "" level="1">
+<item name = "Instance"><table name="" hasTotal="0">
+<keys size="9">Instance, Module, min, max, min, max, min, max, Type</keys>
+</table>
+</item>
+<item name = "Loop"><table name="" hasTotal="0">
+<keys size="8">Loop Name, min, max, Latency, achieved, target, Count, Pipelined</keys>
+<column name="- tail_loop">?, ?, 4, 1, 1, ?, yes</column>
+</table>
+</item>
+</section>
+</item>
+</section>
+</item>
+</section>
+
+<section name = "Utilization Estimates" level="0">
+<item name = "Summary"><table name="" hasTotal="1">
+<keys size="6">Name, BRAM_18K, DSP, FF, LUT, URAM</keys>
+<column name="DSP">-, -, -, -, -</column>
+<column name="Expression">-, -, 0, 197, -</column>
+<column name="FIFO">-, -, -, -, -</column>
+<column name="Instance">-, -, -, -, -</column>
+<column name="Memory">-, -, -, -, -</column>
+<column name="Multiplexer">-, -, -, 279, -</column>
+<column name="Register">-, -, 155, 32, -</column>
+<specialColumn name="Available SLR">1344, 3008, 869120, 434560, 320</specialColumn>
+<specialColumn name="Utilization SLR (%)">0, 0, ~0, ~0, 0</specialColumn>
+<specialColumn name="Available">4032, 9024, 2607360, 1303680, 960</specialColumn>
+<specialColumn name="Utilization (%)">0, 0, ~0, ~0, 0</specialColumn>
+</table>
+</item>
+<item name = "Detail">
+<section name = "" level="1">
+<item name = "Instance"><table name="" hasTotal="1">
+<keys size="7">Instance, Module, BRAM_18K, DSP, FF, LUT, URAM</keys>
+</table>
+</item>
+<item name = "DSP"><table name="" hasTotal="0">
+<keys size="3">Instance, Module, Expression</keys>
+</table>
+</item>
+<item name = "Memory"><table name="" hasTotal="1">
+<keys size="10">Memory, Module, BRAM_18K, FF, LUT, URAM, Words, Bits, Banks, W*Bits*Banks</keys>
+</table>
+</item>
+<item name = "FIFO"><table name="" hasTotal="1">
+<keys size="8">Name, BRAM_18K, FF, LUT, URAM, Depth, Bits, Size:D*B</keys>
+</table>
+</item>
+<item name = "Expression"><table name="" hasTotal="1">
+<keys size="7">Variable Name, Operation, DSP, FF, LUT, Bitwidth P0, Bitwidth P1</keys>
+<column name="t_2_fu_318_p2">+, 0, 0, 38, 31, 1</column>
+<column name="ap_block_pp0_stage0_01001">and, 0, 0, 2, 1, 1</column>
+<column name="ap_condition_410">and, 0, 0, 2, 1, 1</column>
+<column name="ap_ext_blocking_n">and, 0, 0, 2, 2, 2</column>
+<column name="ap_int_blocking_cur_n">and, 0, 0, 2, 1, 1</column>
+<column name="ap_int_blocking_n">and, 0, 0, 2, 1, 2</column>
+<column name="ap_predicate_op40_read_state2">and, 0, 0, 2, 1, 1</column>
+<column name="ap_predicate_op42_read_state2">and, 0, 0, 2, 1, 1</column>
+<column name="ap_predicate_op44_read_state2">and, 0, 0, 2, 1, 1</column>
+<column name="ap_predicate_op46_read_state2">and, 0, 0, 2, 1, 1</column>
+<column name="ap_predicate_op48_read_state2">and, 0, 0, 2, 1, 1</column>
+<column name="ap_predicate_op50_read_state2">and, 0, 0, 2, 1, 1</column>
+<column name="ap_predicate_op52_read_state2">and, 0, 0, 2, 1, 1</column>
+<column name="ap_predicate_op54_read_state2">and, 0, 0, 2, 1, 1</column>
+<column name="ap_predicate_op56_read_state2">and, 0, 0, 2, 1, 1</column>
+<column name="ap_predicate_op58_read_state2">and, 0, 0, 2, 1, 1</column>
+<column name="ap_predicate_op60_read_state2">and, 0, 0, 2, 1, 1</column>
+<column name="ap_predicate_op62_read_state2">and, 0, 0, 2, 1, 1</column>
+<column name="ap_predicate_op64_read_state2">and, 0, 0, 2, 1, 1</column>
+<column name="ap_predicate_op66_read_state2">and, 0, 0, 2, 1, 1</column>
+<column name="ap_predicate_op68_read_state2">and, 0, 0, 2, 1, 1</column>
+<column name="ap_predicate_op70_read_state2">and, 0, 0, 2, 1, 1</column>
+<column name="ap_str_blocking_n">and, 0, 0, 2, 2, 2</column>
+<column name="crc_1_fu_374_p2">and, 0, 0, 32, 32, 32</column>
+<column name="icmp_ln376_fu_312_p2">icmp, 0, 0, 39, 32, 32</column>
+<column name="ap_block_state2_pp0_stage0_iter1">or, 0, 0, 2, 1, 1</column>
+<column name="ap_enable_pp0">xor, 0, 0, 2, 1, 2</column>
+<column name="xor_ln432_1_fu_368_p2">xor, 0, 0, 32, 32, 32</column>
+<column name="xor_ln432_fu_340_p2">xor, 0, 0, 8, 8, 8</column>
+</table>
+</item>
+<item name = "Multiplexer"><table name="" hasTotal="1">
+<keys size="5">Name, LUT, Input Size, Bits, Total Bits</keys>
+<column name="ap_done_int">9, 2, 1, 2</column>
+<column name="ap_enable_reg_pp0_iter1">9, 2, 1, 2</column>
+<column name="ap_phi_reg_pp0_iter2_bt_16_reg_258">81, 17, 8, 136</column>
+<column name="ap_sig_allocacmp_crc_load">9, 2, 32, 64</column>
+<column name="ap_sig_allocacmp_t_1">9, 2, 31, 62</column>
+<column name="crc_fu_116">9, 2, 32, 64</column>
+<column name="inByte0_blk_n">9, 2, 1, 2</column>
+<column name="inByte10_blk_n">9, 2, 1, 2</column>
+<column name="inByte11_blk_n">9, 2, 1, 2</column>
+<column name="inByte12_blk_n">9, 2, 1, 2</column>
+<column name="inByte13_blk_n">9, 2, 1, 2</column>
+<column name="inByte14_blk_n">9, 2, 1, 2</column>
+<column name="inByte15_blk_n">9, 2, 1, 2</column>
+<column name="inByte1_blk_n">9, 2, 1, 2</column>
+<column name="inByte2_blk_n">9, 2, 1, 2</column>
+<column name="inByte3_blk_n">9, 2, 1, 2</column>
+<column name="inByte4_blk_n">9, 2, 1, 2</column>
+<column name="inByte5_blk_n">9, 2, 1, 2</column>
+<column name="inByte6_blk_n">9, 2, 1, 2</column>
+<column name="inByte7_blk_n">9, 2, 1, 2</column>
+<column name="inByte8_blk_n">9, 2, 1, 2</column>
+<column name="inByte9_blk_n">9, 2, 1, 2</column>
+<column name="t_fu_120">9, 2, 31, 62</column>
+</table>
+</item>
+<item name = "Register"><table name="" hasTotal="1">
+<keys size="5">Name, FF, LUT, Bits, Const Bits</keys>
+<column name="ap_CS_fsm">1, 0, 1, 0</column>
+<column name="ap_done_reg">1, 0, 1, 0</column>
+<column name="ap_enable_reg_pp0_iter1">1, 0, 1, 0</column>
+<column name="ap_enable_reg_pp0_iter2">1, 0, 1, 0</column>
+<column name="ap_enable_reg_pp0_iter3">1, 0, 1, 0</column>
+<column name="ap_loop_exit_ready_pp0_iter1_reg">1, 0, 1, 0</column>
+<column name="ap_loop_exit_ready_pp0_iter2_reg">1, 0, 1, 0</column>
+<column name="ap_phi_reg_pp0_iter1_bt_16_reg_258">8, 0, 8, 0</column>
+<column name="ap_phi_reg_pp0_iter2_bt_16_reg_258">8, 0, 8, 0</column>
+<column name="crc_fu_116">32, 0, 32, 0</column>
+<column name="icmp_ln376_reg_409">1, 0, 1, 0</column>
+<column name="t_fu_120">31, 0, 31, 0</column>
+<column name="trunc_ln376_1_reg_413">4, 0, 4, 0</column>
+<column name="icmp_ln376_reg_409">64, 32, 1, 0</column>
+</table>
+</item>
+</section>
+</item>
+</section>
+
+<section name = "Interface" level="0">
+<item name = "Summary"><table name="" hasTotal="0">
+<keys size="6">RTL Ports, Dir, Bits, Protocol, Source Object, C Type</keys>
+<column name="ap_clk">in, 1, ap_ctrl_hs, process_blocks_Pipeline_tail_loop, return value</column>
+<column name="ap_rst">in, 1, ap_ctrl_hs, process_blocks_Pipeline_tail_loop, return value</column>
+<column name="ap_start">in, 1, ap_ctrl_hs, process_blocks_Pipeline_tail_loop, return value</column>
+<column name="ap_done">out, 1, ap_ctrl_hs, process_blocks_Pipeline_tail_loop, return value</column>
+<column name="ap_idle">out, 1, ap_ctrl_hs, process_blocks_Pipeline_tail_loop, return value</column>
+<column name="ap_ready">out, 1, ap_ctrl_hs, process_blocks_Pipeline_tail_loop, return value</column>
+<column name="ap_ext_blocking_n">out, 1, ap_ctrl_hs, process_blocks_Pipeline_tail_loop, return value</column>
+<column name="ap_str_blocking_n">out, 1, ap_ctrl_hs, process_blocks_Pipeline_tail_loop, return value</column>
+<column name="ap_int_blocking_n">out, 1, ap_ctrl_hs, process_blocks_Pipeline_tail_loop, return value</column>
+<column name="inByte14_dout">in, 8, ap_fifo, inByte14, pointer</column>
+<column name="inByte14_num_data_valid">in, 7, ap_fifo, inByte14, pointer</column>
+<column name="inByte14_fifo_cap">in, 7, ap_fifo, inByte14, pointer</column>
+<column name="inByte14_empty_n">in, 1, ap_fifo, inByte14, pointer</column>
+<column name="inByte14_read">out, 1, ap_fifo, inByte14, pointer</column>
+<column name="inByte13_dout">in, 8, ap_fifo, inByte13, pointer</column>
+<column name="inByte13_num_data_valid">in, 7, ap_fifo, inByte13, pointer</column>
+<column name="inByte13_fifo_cap">in, 7, ap_fifo, inByte13, pointer</column>
+<column name="inByte13_empty_n">in, 1, ap_fifo, inByte13, pointer</column>
+<column name="inByte13_read">out, 1, ap_fifo, inByte13, pointer</column>
+<column name="inByte12_dout">in, 8, ap_fifo, inByte12, pointer</column>
+<column name="inByte12_num_data_valid">in, 7, ap_fifo, inByte12, pointer</column>
+<column name="inByte12_fifo_cap">in, 7, ap_fifo, inByte12, pointer</column>
+<column name="inByte12_empty_n">in, 1, ap_fifo, inByte12, pointer</column>
+<column name="inByte12_read">out, 1, ap_fifo, inByte12, pointer</column>
+<column name="inByte11_dout">in, 8, ap_fifo, inByte11, pointer</column>
+<column name="inByte11_num_data_valid">in, 7, ap_fifo, inByte11, pointer</column>
+<column name="inByte11_fifo_cap">in, 7, ap_fifo, inByte11, pointer</column>
+<column name="inByte11_empty_n">in, 1, ap_fifo, inByte11, pointer</column>
+<column name="inByte11_read">out, 1, ap_fifo, inByte11, pointer</column>
+<column name="inByte10_dout">in, 8, ap_fifo, inByte10, pointer</column>
+<column name="inByte10_num_data_valid">in, 7, ap_fifo, inByte10, pointer</column>
+<column name="inByte10_fifo_cap">in, 7, ap_fifo, inByte10, pointer</column>
+<column name="inByte10_empty_n">in, 1, ap_fifo, inByte10, pointer</column>
+<column name="inByte10_read">out, 1, ap_fifo, inByte10, pointer</column>
+<column name="inByte9_dout">in, 8, ap_fifo, inByte9, pointer</column>
+<column name="inByte9_num_data_valid">in, 7, ap_fifo, inByte9, pointer</column>
+<column name="inByte9_fifo_cap">in, 7, ap_fifo, inByte9, pointer</column>
+<column name="inByte9_empty_n">in, 1, ap_fifo, inByte9, pointer</column>
+<column name="inByte9_read">out, 1, ap_fifo, inByte9, pointer</column>
+<column name="inByte8_dout">in, 8, ap_fifo, inByte8, pointer</column>
+<column name="inByte8_num_data_valid">in, 7, ap_fifo, inByte8, pointer</column>
+<column name="inByte8_fifo_cap">in, 7, ap_fifo, inByte8, pointer</column>
+<column name="inByte8_empty_n">in, 1, ap_fifo, inByte8, pointer</column>
+<column name="inByte8_read">out, 1, ap_fifo, inByte8, pointer</column>
+<column name="inByte7_dout">in, 8, ap_fifo, inByte7, pointer</column>
+<column name="inByte7_num_data_valid">in, 7, ap_fifo, inByte7, pointer</column>
+<column name="inByte7_fifo_cap">in, 7, ap_fifo, inByte7, pointer</column>
+<column name="inByte7_empty_n">in, 1, ap_fifo, inByte7, pointer</column>
+<column name="inByte7_read">out, 1, ap_fifo, inByte7, pointer</column>
+<column name="inByte6_dout">in, 8, ap_fifo, inByte6, pointer</column>
+<column name="inByte6_num_data_valid">in, 7, ap_fifo, inByte6, pointer</column>
+<column name="inByte6_fifo_cap">in, 7, ap_fifo, inByte6, pointer</column>
+<column name="inByte6_empty_n">in, 1, ap_fifo, inByte6, pointer</column>
+<column name="inByte6_read">out, 1, ap_fifo, inByte6, pointer</column>
+<column name="inByte5_dout">in, 8, ap_fifo, inByte5, pointer</column>
+<column name="inByte5_num_data_valid">in, 7, ap_fifo, inByte5, pointer</column>
+<column name="inByte5_fifo_cap">in, 7, ap_fifo, inByte5, pointer</column>
+<column name="inByte5_empty_n">in, 1, ap_fifo, inByte5, pointer</column>
+<column name="inByte5_read">out, 1, ap_fifo, inByte5, pointer</column>
+<column name="inByte4_dout">in, 8, ap_fifo, inByte4, pointer</column>
+<column name="inByte4_num_data_valid">in, 7, ap_fifo, inByte4, pointer</column>
+<column name="inByte4_fifo_cap">in, 7, ap_fifo, inByte4, pointer</column>
+<column name="inByte4_empty_n">in, 1, ap_fifo, inByte4, pointer</column>
+<column name="inByte4_read">out, 1, ap_fifo, inByte4, pointer</column>
+<column name="inByte3_dout">in, 8, ap_fifo, inByte3, pointer</column>
+<column name="inByte3_num_data_valid">in, 7, ap_fifo, inByte3, pointer</column>
+<column name="inByte3_fifo_cap">in, 7, ap_fifo, inByte3, pointer</column>
+<column name="inByte3_empty_n">in, 1, ap_fifo, inByte3, pointer</column>
+<column name="inByte3_read">out, 1, ap_fifo, inByte3, pointer</column>
+<column name="inByte2_dout">in, 8, ap_fifo, inByte2, pointer</column>
+<column name="inByte2_num_data_valid">in, 7, ap_fifo, inByte2, pointer</column>
+<column name="inByte2_fifo_cap">in, 7, ap_fifo, inByte2, pointer</column>
+<column name="inByte2_empty_n">in, 1, ap_fifo, inByte2, pointer</column>
+<column name="inByte2_read">out, 1, ap_fifo, inByte2, pointer</column>
+<column name="inByte1_dout">in, 8, ap_fifo, inByte1, pointer</column>
+<column name="inByte1_num_data_valid">in, 7, ap_fifo, inByte1, pointer</column>
+<column name="inByte1_fifo_cap">in, 7, ap_fifo, inByte1, pointer</column>
+<column name="inByte1_empty_n">in, 1, ap_fifo, inByte1, pointer</column>
+<column name="inByte1_read">out, 1, ap_fifo, inByte1, pointer</column>
+<column name="inByte0_dout">in, 8, ap_fifo, inByte0, pointer</column>
+<column name="inByte0_num_data_valid">in, 7, ap_fifo, inByte0, pointer</column>
+<column name="inByte0_fifo_cap">in, 7, ap_fifo, inByte0, pointer</column>
+<column name="inByte0_empty_n">in, 1, ap_fifo, inByte0, pointer</column>
+<column name="inByte0_read">out, 1, ap_fifo, inByte0, pointer</column>
+<column name="inByte15_dout">in, 8, ap_fifo, inByte15, pointer</column>
+<column name="inByte15_num_data_valid">in, 7, ap_fifo, inByte15, pointer</column>
+<column name="inByte15_fifo_cap">in, 7, ap_fifo, inByte15, pointer</column>
+<column name="inByte15_empty_n">in, 1, ap_fifo, inByte15, pointer</column>
+<column name="inByte15_read">out, 1, ap_fifo, inByte15, pointer</column>
+<column name="crc_reload">in, 32, ap_none, crc_reload, scalar</column>
+<column name="sub_ln329">in, 32, ap_none, sub_ln329, scalar</column>
+<column name="crcTables_0_address0">out, 8, ap_memory, crcTables_0, array</column>
+<column name="crcTables_0_ce0">out, 1, ap_memory, crcTables_0, array</column>
+<column name="crcTables_0_q0">in, 32, ap_memory, crcTables_0, array</column>
+<column name="mask_1">in, 32, ap_none, mask_1, scalar</column>
+<column name="crc_2_out">out, 32, ap_vld, crc_2_out, pointer</column>
+<column name="crc_2_out_ap_vld">out, 1, ap_vld, crc_2_out, pointer</column>
+</table>
+</item>
+</section>
+</profile>

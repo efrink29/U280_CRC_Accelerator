@@ -1,0 +1,1287 @@
+--- !Passed
+Pass:            inline
+Name:            AlwaysInline
+DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                   Line: 90, Column: 9 }
+Function:        _ZL12sha256_ssig1j
+Args:            
+  - String:          'Inlining function '''
+  - Callee:          'rotr32(unsigned int, unsigned int)'
+    DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                       Line: 52, Column: 0 }
+  - String:          ''' into '''
+  - Caller:          'sha256_ssig1(unsigned int)'
+    DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                       Line: 88, Column: 0 }
+  - String:          ''''
+...
+--- !Passed
+Pass:            inline
+Name:            AlwaysInline
+DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                   Line: 90, Column: 25 }
+Function:        _ZL12sha256_ssig1j
+Args:            
+  - String:          'Inlining function '''
+  - Callee:          'rotr32(unsigned int, unsigned int)'
+    DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                       Line: 52, Column: 0 }
+  - String:          ''' into '''
+  - Caller:          'sha256_ssig1(unsigned int)'
+    DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                       Line: 88, Column: 0 }
+  - String:          ''''
+...
+--- !Passed
+Pass:            inline
+Name:            AlwaysInline
+DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                   Line: 84, Column: 9 }
+Function:        _ZL12sha256_ssig0j
+Args:            
+  - String:          'Inlining function '''
+  - Callee:          'rotr32(unsigned int, unsigned int)'
+    DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                       Line: 52, Column: 0 }
+  - String:          ''' into '''
+  - Caller:          'sha256_ssig0(unsigned int)'
+    DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                       Line: 82, Column: 0 }
+  - String:          ''''
+...
+--- !Passed
+Pass:            inline
+Name:            AlwaysInline
+DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                   Line: 84, Column: 24 }
+Function:        _ZL12sha256_ssig0j
+Args:            
+  - String:          'Inlining function '''
+  - Callee:          'rotr32(unsigned int, unsigned int)'
+    DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                       Line: 52, Column: 0 }
+  - String:          ''' into '''
+  - Caller:          'sha256_ssig0(unsigned int)'
+    DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                       Line: 82, Column: 0 }
+  - String:          ''''
+...
+--- !Passed
+Pass:            inline
+Name:            AlwaysInline
+DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                   Line: 78, Column: 9 }
+Function:        _ZL12sha256_bsig1j
+Args:            
+  - String:          'Inlining function '''
+  - Callee:          'rotr32(unsigned int, unsigned int)'
+    DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                       Line: 52, Column: 0 }
+  - String:          ''' into '''
+  - Caller:          'sha256_bsig1(unsigned int)'
+    DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                       Line: 76, Column: 0 }
+  - String:          ''''
+...
+--- !Passed
+Pass:            inline
+Name:            AlwaysInline
+DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                   Line: 78, Column: 40 }
+Function:        _ZL12sha256_bsig1j
+Args:            
+  - String:          'Inlining function '''
+  - Callee:          'rotr32(unsigned int, unsigned int)'
+    DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                       Line: 52, Column: 0 }
+  - String:          ''' into '''
+  - Caller:          'sha256_bsig1(unsigned int)'
+    DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                       Line: 76, Column: 0 }
+  - String:          ''''
+...
+--- !Passed
+Pass:            inline
+Name:            AlwaysInline
+DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                   Line: 78, Column: 24 }
+Function:        _ZL12sha256_bsig1j
+Args:            
+  - String:          'Inlining function '''
+  - Callee:          'rotr32(unsigned int, unsigned int)'
+    DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                       Line: 52, Column: 0 }
+  - String:          ''' into '''
+  - Caller:          'sha256_bsig1(unsigned int)'
+    DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                       Line: 76, Column: 0 }
+  - String:          ''''
+...
+--- !Passed
+Pass:            inline
+Name:            AlwaysInline
+DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                   Line: 72, Column: 9 }
+Function:        _ZL12sha256_bsig0j
+Args:            
+  - String:          'Inlining function '''
+  - Callee:          'rotr32(unsigned int, unsigned int)'
+    DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                       Line: 52, Column: 0 }
+  - String:          ''' into '''
+  - Caller:          'sha256_bsig0(unsigned int)'
+    DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                       Line: 70, Column: 0 }
+  - String:          ''''
+...
+--- !Passed
+Pass:            inline
+Name:            AlwaysInline
+DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                   Line: 72, Column: 40 }
+Function:        _ZL12sha256_bsig0j
+Args:            
+  - String:          'Inlining function '''
+  - Callee:          'rotr32(unsigned int, unsigned int)'
+    DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                       Line: 52, Column: 0 }
+  - String:          ''' into '''
+  - Caller:          'sha256_bsig0(unsigned int)'
+    DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                       Line: 70, Column: 0 }
+  - String:          ''''
+...
+--- !Passed
+Pass:            inline
+Name:            AlwaysInline
+DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                   Line: 72, Column: 24 }
+Function:        _ZL12sha256_bsig0j
+Args:            
+  - String:          'Inlining function '''
+  - Callee:          'rotr32(unsigned int, unsigned int)'
+    DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                       Line: 52, Column: 0 }
+  - String:          ''' into '''
+  - Caller:          'sha256_bsig0(unsigned int)'
+    DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                       Line: 70, Column: 0 }
+  - String:          ''''
+...
+--- !Passed
+Pass:            inline
+Name:            AlwaysInline
+DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                   Line: 155, Column: 47 }
+Function:        _ZL21sha256_compress_blockRK7ap_uintILi512EEPj
+Args:            
+  - String:          'Inlining function '''
+  - Callee:          'sha256_maj(unsigned int, unsigned int, unsigned int)'
+    DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                       Line: 64, Column: 0 }
+  - String:          ''' into '''
+  - Caller:          'sha256_compress_block(ap_uint<512> const&, unsigned int*)'
+    DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                       Line: 122, Column: 0 }
+  - String:          ''''
+...
+--- !Passed
+Pass:            inline
+Name:            AlwaysInline
+DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                   Line: 155, Column: 29 }
+Function:        _ZL21sha256_compress_blockRK7ap_uintILi512EEPj
+Args:            
+  - String:          'Inlining function '''
+  - Callee:          'sha256_bsig0(unsigned int)'
+    DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                       Line: 70, Column: 0 }
+  - String:          ''' into '''
+  - Caller:          'sha256_compress_block(ap_uint<512> const&, unsigned int*)'
+    DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                       Line: 122, Column: 0 }
+  - String:          ''''
+...
+--- !Passed
+Pass:            inline
+Name:            AlwaysInline
+DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                   Line: 154, Column: 44 }
+Function:        _ZL21sha256_compress_blockRK7ap_uintILi512EEPj
+Args:            
+  - String:          'Inlining function '''
+  - Callee:          'sha256_ch(unsigned int, unsigned int, unsigned int)'
+    DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                       Line: 58, Column: 0 }
+  - String:          ''' into '''
+  - Caller:          'sha256_compress_block(ap_uint<512> const&, unsigned int*)'
+    DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                       Line: 122, Column: 0 }
+  - String:          ''''
+...
+--- !Passed
+Pass:            inline
+Name:            AlwaysInline
+DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                   Line: 154, Column: 26 }
+Function:        _ZL21sha256_compress_blockRK7ap_uintILi512EEPj
+Args:            
+  - String:          'Inlining function '''
+  - Callee:          'sha256_bsig1(unsigned int)'
+    DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                       Line: 76, Column: 0 }
+  - String:          ''' into '''
+  - Caller:          'sha256_compress_block(ap_uint<512> const&, unsigned int*)'
+    DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                       Line: 122, Column: 0 }
+  - String:          ''''
+...
+--- !Passed
+Pass:            inline
+Name:            AlwaysInline
+DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                   Line: 138, Column: 45 }
+Function:        _ZL21sha256_compress_blockRK7ap_uintILi512EEPj
+Args:            
+  - String:          'Inlining function '''
+  - Callee:          'sha256_ssig0(unsigned int)'
+    DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                       Line: 82, Column: 0 }
+  - String:          ''' into '''
+  - Caller:          'sha256_compress_block(ap_uint<512> const&, unsigned int*)'
+    DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                       Line: 122, Column: 0 }
+  - String:          ''''
+...
+--- !Passed
+Pass:            inline
+Name:            AlwaysInline
+DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                   Line: 138, Column: 9 }
+Function:        _ZL21sha256_compress_blockRK7ap_uintILi512EEPj
+Args:            
+  - String:          'Inlining function '''
+  - Callee:          'sha256_ssig1(unsigned int)'
+    DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                       Line: 88, Column: 0 }
+  - String:          ''' into '''
+  - Caller:          'sha256_compress_block(ap_uint<512> const&, unsigned int*)'
+    DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                       Line: 122, Column: 0 }
+  - String:          ''''
+...
+--- !Passed
+Pass:            inline
+Name:            AlwaysInline
+DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                   Line: 131, Column: 16 }
+Function:        _ZL21sha256_compress_blockRK7ap_uintILi512EEPj
+Args:            
+  - String:          'Inlining function '''
+  - Callee:          'to_be32(ap_uint<32>)'
+    DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                       Line: 100, Column: 0 }
+  - String:          ''' into '''
+  - Caller:          'sha256_compress_block(ap_uint<512> const&, unsigned int*)'
+    DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                       Line: 122, Column: 0 }
+  - String:          ''''
+...
+--- !Passed
+Pass:            inline
+Name:            AlwaysInline
+DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                   Line: 211, Column: 35 }
+Function:        _ZL20sha256_process_chunkPKhjPj
+Args:            
+  - String:          'Inlining function '''
+  - Callee:          'pack_block_64(unsigned char const*)'
+    DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                       Line: 109, Column: 0 }
+  - String:          ''' into '''
+  - Caller:          'sha256_process_chunk(unsigned char const*, unsigned int, unsigned int*)'
+    DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                       Line: 180, Column: 0 }
+  - String:          ''''
+...
+--- !Passed
+Pass:            inline
+Name:            AlwaysInline
+DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                   Line: 242, Column: 35 }
+Function:        _ZL20sha256_process_chunkPKhjPj
+Args:            
+  - String:          'Inlining function '''
+  - Callee:          'pack_block_64(unsigned char const*)'
+    DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                       Line: 109, Column: 0 }
+  - String:          ''' into '''
+  - Caller:          'sha256_process_chunk(unsigned char const*, unsigned int, unsigned int*)'
+    DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                       Line: 180, Column: 0 }
+  - String:          ''''
+...
+--- !Passed
+Pass:            inline
+Name:            AlwaysInline
+DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                   Line: 263, Column: 22 }
+Function:        _ZL20sha256_process_chunkPKhjPj
+Args:            
+  - String:          'Inlining function '''
+  - Callee:          'pack_block_64(unsigned char const*)'
+    DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                       Line: 109, Column: 0 }
+  - String:          ''' into '''
+  - Caller:          'sha256_process_chunk(unsigned char const*, unsigned int, unsigned int*)'
+    DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                       Line: 180, Column: 0 }
+  - String:          ''''
+...
+--- !Passed
+Pass:            inline
+Name:            AlwaysInline
+DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                   Line: 247, Column: 29 }
+Function:        _ZL20sha256_process_chunkPKhjPj
+Args:            
+  - String:          'Inlining function '''
+  - Callee:          'pack_block_64(unsigned char const*)'
+    DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                       Line: 109, Column: 0 }
+  - String:          ''' into '''
+  - Caller:          'sha256_process_chunk(unsigned char const*, unsigned int, unsigned int*)'
+    DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                       Line: 180, Column: 0 }
+  - String:          ''''
+...
+--- !Passed
+Pass:            reflow-pragma-loop-unroll
+Name:            PragmaFullyUnroll
+DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                   Line: 180, Column: 0 }
+Function:        _ZL20sha256_process_chunkPKhjPj
+Args:            
+  - String:          'Unrolling loop '''
+  - LoopName:        write_digest
+  - String:          ''' ('
+  - LoopLoc:         '/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:268:5'
+  - String:          ') '
+  - String:          'in function '''
+  - String:          sha256_process_chunk
+  - String:          ''' completely with a factor of '
+  - Factor:          '8'
+...
+--- !Passed
+Pass:            reflow-pragma-loop-unroll
+Name:            PragmaFullyUnroll
+DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                   Line: 180, Column: 0 }
+Function:        _ZL20sha256_process_chunkPKhjPj
+Args:            
+  - String:          'Unrolling loop '''
+  - LoopName:        pack_block_bytes
+  - String:          ''' ('
+  - LoopLoc:         '/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:113:5'
+  - String:          ') '
+  - String:          'in function '''
+  - String:          sha256_process_chunk
+  - String:          ''' completely with a factor of '
+  - Factor:          '64'
+...
+--- !Passed
+Pass:            reflow-pragma-loop-unroll
+Name:            PragmaFullyUnroll
+DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                   Line: 180, Column: 0 }
+Function:        _ZL20sha256_process_chunkPKhjPj
+Args:            
+  - String:          'Unrolling loop '''
+  - LoopName:        pack_block_bytes
+  - String:          ''' ('
+  - LoopLoc:         '/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:113:5'
+  - String:          ') '
+  - String:          'in function '''
+  - String:          sha256_process_chunk
+  - String:          ''' completely with a factor of '
+  - Factor:          '64'
+...
+--- !Passed
+Pass:            reflow-pragma-loop-unroll
+Name:            PragmaFullyUnroll
+DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                   Line: 180, Column: 0 }
+Function:        _ZL20sha256_process_chunkPKhjPj
+Args:            
+  - String:          'Unrolling loop '''
+  - LoopName:        pack_block_bytes
+  - String:          ''' ('
+  - LoopLoc:         '/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:113:5'
+  - String:          ') '
+  - String:          'in function '''
+  - String:          sha256_process_chunk
+  - String:          ''' completely with a factor of '
+  - Factor:          '64'
+...
+--- !Passed
+Pass:            reflow-pragma-loop-unroll
+Name:            PragmaFullyUnroll
+DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                   Line: 180, Column: 0 }
+Function:        _ZL20sha256_process_chunkPKhjPj
+Args:            
+  - String:          'Unrolling loop '''
+  - LoopName:        pack_block_bytes
+  - String:          ''' ('
+  - LoopLoc:         '/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:113:5'
+  - String:          ') '
+  - String:          'in function '''
+  - String:          sha256_process_chunk
+  - String:          ''' completely with a factor of '
+  - Factor:          '64'
+...
+--- !Passed
+Pass:            reflow-pragma-loop-unroll
+Name:            PragmaFullyUnroll
+DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                   Line: 180, Column: 0 }
+Function:        _ZL20sha256_process_chunkPKhjPj
+Args:            
+  - String:          'Unrolling loop '''
+  - LoopName:        init_state
+  - String:          ''' ('
+  - LoopLoc:         '/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:185:5'
+  - String:          ') '
+  - String:          'in function '''
+  - String:          sha256_process_chunk
+  - String:          ''' completely with a factor of '
+  - Factor:          '8'
+...
+--- !Passed
+Pass:            reflow-inliner
+Name:            AutoInline
+DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                   Line: 730, Column: 0 }
+Function:        calculate_sha256
+Args:            
+  - String:          'Inlining function '''
+  - Callee:          'process_hash(ap_uint<512> const*, unsigned int*, unsigned int, unsigned int)'
+    DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                       Line: 604, Column: 0 }
+  - String:          ''' into '''
+  - Caller:          calculate_sha256
+    DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                       Line: 730, Column: 0 }
+  - String:          ''''
+...
+--- !Passed
+Pass:            reflow-array-partition
+Name:            ArrayXform
+DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                   Line: 611, Column: 18 }
+Function:        calculate_sha256
+Args:            
+  - String:          'Applying '
+  - String:          array_partition
+  - String:          ' to '''
+  - UOName:          digest.i
+  - String:          ''':'
+  - String:          ' '
+  - Mode:            Complete
+  - String:          ' partitioning'
+  - String:          ' on dimension '
+  - Dim:             '1'
+  - String:          .
+...
+--- !Passed
+Pass:            reflow-burst-inference
+Name:            BurstInferred
+DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                   Line: 608, Column: 5 }
+Function:        calculate_sha256
+Args:            
+  - String:          'Sequential '
+  - Direction:       write
+  - String:          ' of '
+  - Length:          variable
+  - String:          ' length'
+  - String:          ' has been inferred'
+  - String:          ' _XLX_SEP_ '
+  - AccessID:        crc_out10seq
+  - ArrayName:       crc_out
+  - String:          ' '
+  - BundleName:      gmem0
+  - String:          ' '
+  - LoopName:        hash_chunk_loop
+  - String:          ' '
+  - LoopLoc:         '/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:608:5'
+  - String:          ' '
+  - Function:        calculate_sha256
+    DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                       Line: 730, Column: 0 }
+  - String:          ' '
+  - String:          ' _XLX_SEP_ '
+  - OrigAccess:      store
+    DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                       Line: 619, Column: 45 }
+  - OrigDirection:   write
+  - OrigID:          for.inc.i.store.16
+...
+--- !Passed
+Pass:            reflow-burst-inference
+Name:            BurstInferred
+DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                   Line: 199, Column: 9 }
+Function:        _ZL20sha256_process_chunkPKhjPj
+Args:            
+  - String:          'Sequential '
+  - Direction:       read
+  - String:          ' of '
+  - Length:          variable
+  - String:          ' length'
+  - String:          ' has been inferred'
+  - String:          ' _XLX_SEP_ '
+  - AccessID:        chunk1seq
+  - ArrayName:       chunk
+  - String:          ' '
+  - BundleName:      gmem0
+  - String:          ' '
+  - LoopName:        full_block_loop_vec
+  - String:          ' '
+  - LoopLoc:         '/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:199:9'
+  - String:          ' '
+  - Function:        'sha256_process_chunk(unsigned char const*, unsigned int, unsigned int*)'
+    DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                       Line: 180, Column: 0 }
+  - String:          ' '
+  - String:          ' _XLX_SEP_ '
+  - OrigAccess:      load
+    DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                       Line: 201, Column: 34 }
+  - OrigDirection:   read
+  - OrigID:          for.inc11.load.6
+...
+--- !Passed
+Pass:            reflow-burst-inference
+Name:            BurstInferred
+DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                   Line: 208, Column: 9 }
+Function:        _ZL20sha256_process_chunkPKhjPj
+Args:            
+  - String:          'Sequential '
+  - Direction:       read
+  - String:          ' of '
+  - Length:          variable
+  - String:          ' length'
+  - String:          ' has been inferred'
+  - String:          ' _XLX_SEP_ '
+  - AccessID:        chunkseq
+  - ArrayName:       chunk
+  - String:          ' '
+  - BundleName:      gmem0
+  - String:          ' '
+  - LoopName:        full_block_loop_scalar
+  - String:          ' '
+  - LoopLoc:         '/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:208:9'
+  - String:          ' '
+  - Function:        'sha256_process_chunk(unsigned char const*, unsigned int, unsigned int*)'
+    DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                       Line: 180, Column: 0 }
+  - String:          ' '
+  - String:          ' _XLX_SEP_ '
+  - OrigAccess:      load
+    DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                       Line: 116, Column: 37 }
+  - OrigDirection:   read
+  - OrigID:          for.body.i.load.138
+  - OrigAccess:      load
+    DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                       Line: 116, Column: 37 }
+  - OrigDirection:   read
+  - OrigID:          for.body.i.load.143
+  - OrigAccess:      load
+    DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                       Line: 116, Column: 37 }
+  - OrigDirection:   read
+  - OrigID:          for.body.i.load.148
+  - OrigAccess:      load
+    DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                       Line: 116, Column: 37 }
+  - OrigDirection:   read
+  - OrigID:          for.body.i.load.153
+  - OrigAccess:      load
+    DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                       Line: 116, Column: 37 }
+  - OrigDirection:   read
+  - OrigID:          for.body.i.load.158
+  - OrigAccess:      load
+    DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                       Line: 116, Column: 37 }
+  - OrigDirection:   read
+  - OrigID:          for.body.i.load.163
+  - OrigAccess:      load
+    DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                       Line: 116, Column: 37 }
+  - OrigDirection:   read
+  - OrigID:          for.body.i.load.168
+  - OrigAccess:      load
+    DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                       Line: 116, Column: 37 }
+  - OrigDirection:   read
+  - OrigID:          for.body.i.load.173
+  - OrigAccess:      load
+    DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                       Line: 116, Column: 37 }
+  - OrigDirection:   read
+  - OrigID:          for.body.i.load.178
+  - OrigAccess:      load
+    DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                       Line: 116, Column: 37 }
+  - OrigDirection:   read
+  - OrigID:          for.body.i.load.183
+  - OrigAccess:      load
+    DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                       Line: 116, Column: 37 }
+  - OrigDirection:   read
+  - OrigID:          for.body.i.load.188
+  - OrigAccess:      load
+    DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                       Line: 116, Column: 37 }
+  - OrigDirection:   read
+  - OrigID:          for.body.i.load.193
+  - OrigAccess:      load
+    DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                       Line: 116, Column: 37 }
+  - OrigDirection:   read
+  - OrigID:          for.body.i.load.198
+  - OrigAccess:      load
+    DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                       Line: 116, Column: 37 }
+  - OrigDirection:   read
+  - OrigID:          for.body.i.load.203
+  - OrigAccess:      load
+    DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                       Line: 116, Column: 37 }
+  - OrigDirection:   read
+  - OrigID:          for.body.i.load.208
+  - OrigAccess:      load
+    DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                       Line: 116, Column: 37 }
+  - OrigDirection:   read
+  - OrigID:          for.body.i.load.213
+  - OrigAccess:      load
+    DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                       Line: 116, Column: 37 }
+  - OrigDirection:   read
+  - OrigID:          for.body.i.load.218
+  - OrigAccess:      load
+    DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                       Line: 116, Column: 37 }
+  - OrigDirection:   read
+  - OrigID:          for.body.i.load.223
+  - OrigAccess:      load
+    DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                       Line: 116, Column: 37 }
+  - OrigDirection:   read
+  - OrigID:          for.body.i.load.228
+  - OrigAccess:      load
+    DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                       Line: 116, Column: 37 }
+  - OrigDirection:   read
+  - OrigID:          for.body.i.load.233
+  - OrigAccess:      load
+    DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                       Line: 116, Column: 37 }
+  - OrigDirection:   read
+  - OrigID:          for.body.i.load.238
+  - OrigAccess:      load
+    DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                       Line: 116, Column: 37 }
+  - OrigDirection:   read
+  - OrigID:          for.body.i.load.243
+  - OrigAccess:      load
+    DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                       Line: 116, Column: 37 }
+  - OrigDirection:   read
+  - OrigID:          for.body.i.load.248
+  - OrigAccess:      load
+    DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                       Line: 116, Column: 37 }
+  - OrigDirection:   read
+  - OrigID:          for.body.i.load.253
+  - OrigAccess:      load
+    DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                       Line: 116, Column: 37 }
+  - OrigDirection:   read
+  - OrigID:          for.body.i.load.258
+  - OrigAccess:      load
+    DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                       Line: 116, Column: 37 }
+  - OrigDirection:   read
+  - OrigID:          for.body.i.load.263
+  - OrigAccess:      load
+    DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                       Line: 116, Column: 37 }
+  - OrigDirection:   read
+  - OrigID:          for.body.i.load.268
+  - OrigAccess:      load
+    DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                       Line: 116, Column: 37 }
+  - OrigDirection:   read
+  - OrigID:          for.body.i.load.273
+  - OrigAccess:      load
+    DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                       Line: 116, Column: 37 }
+  - OrigDirection:   read
+  - OrigID:          for.body.i.load.278
+  - OrigAccess:      load
+    DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                       Line: 116, Column: 37 }
+  - OrigDirection:   read
+  - OrigID:          for.body.i.load.283
+  - OrigAccess:      load
+    DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                       Line: 116, Column: 37 }
+  - OrigDirection:   read
+  - OrigID:          for.body.i.load.288
+  - OrigAccess:      load
+    DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                       Line: 116, Column: 37 }
+  - OrigDirection:   read
+  - OrigID:          for.body.i.load.293
+  - OrigAccess:      load
+    DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                       Line: 116, Column: 37 }
+  - OrigDirection:   read
+  - OrigID:          for.body.i.load.298
+  - OrigAccess:      load
+    DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                       Line: 116, Column: 37 }
+  - OrigDirection:   read
+  - OrigID:          for.body.i.load.303
+  - OrigAccess:      load
+    DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                       Line: 116, Column: 37 }
+  - OrigDirection:   read
+  - OrigID:          for.body.i.load.308
+  - OrigAccess:      load
+    DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                       Line: 116, Column: 37 }
+  - OrigDirection:   read
+  - OrigID:          for.body.i.load.313
+  - OrigAccess:      load
+    DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                       Line: 116, Column: 37 }
+  - OrigDirection:   read
+  - OrigID:          for.body.i.load.318
+  - OrigAccess:      load
+    DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                       Line: 116, Column: 37 }
+  - OrigDirection:   read
+  - OrigID:          for.body.i.load.323
+  - OrigAccess:      load
+    DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                       Line: 116, Column: 37 }
+  - OrigDirection:   read
+  - OrigID:          for.body.i.load.328
+  - OrigAccess:      load
+    DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                       Line: 116, Column: 37 }
+  - OrigDirection:   read
+  - OrigID:          for.body.i.load.333
+  - OrigAccess:      load
+    DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                       Line: 116, Column: 37 }
+  - OrigDirection:   read
+  - OrigID:          for.body.i.load.338
+  - OrigAccess:      load
+    DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                       Line: 116, Column: 37 }
+  - OrigDirection:   read
+  - OrigID:          for.body.i.load.343
+  - OrigAccess:      load
+    DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                       Line: 116, Column: 37 }
+  - OrigDirection:   read
+  - OrigID:          for.body.i.load.348
+  - OrigAccess:      load
+    DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                       Line: 116, Column: 37 }
+  - OrigDirection:   read
+  - OrigID:          for.body.i.load.353
+  - OrigAccess:      load
+    DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                       Line: 116, Column: 37 }
+  - OrigDirection:   read
+  - OrigID:          for.body.i.load.358
+  - OrigAccess:      load
+    DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                       Line: 116, Column: 37 }
+  - OrigDirection:   read
+  - OrigID:          for.body.i.load.363
+  - OrigAccess:      load
+    DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                       Line: 116, Column: 37 }
+  - OrigDirection:   read
+  - OrigID:          for.body.i.load.368
+  - OrigAccess:      load
+    DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                       Line: 116, Column: 37 }
+  - OrigDirection:   read
+  - OrigID:          for.body.i.load.373
+  - OrigAccess:      load
+    DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                       Line: 116, Column: 37 }
+  - OrigDirection:   read
+  - OrigID:          for.body.i.load.378
+  - OrigAccess:      load
+    DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                       Line: 116, Column: 37 }
+  - OrigDirection:   read
+  - OrigID:          for.body.i.load.383
+  - OrigAccess:      load
+    DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                       Line: 116, Column: 37 }
+  - OrigDirection:   read
+  - OrigID:          for.body.i.load.388
+  - OrigAccess:      load
+    DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                       Line: 116, Column: 37 }
+  - OrigDirection:   read
+  - OrigID:          for.body.i.load.393
+  - OrigAccess:      load
+    DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                       Line: 116, Column: 37 }
+  - OrigDirection:   read
+  - OrigID:          for.body.i.load.398
+  - OrigAccess:      load
+    DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                       Line: 116, Column: 37 }
+  - OrigDirection:   read
+  - OrigID:          for.body.i.load.403
+  - OrigAccess:      load
+    DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                       Line: 116, Column: 37 }
+  - OrigDirection:   read
+  - OrigID:          for.body.i.load.408
+  - OrigAccess:      load
+    DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                       Line: 116, Column: 37 }
+  - OrigDirection:   read
+  - OrigID:          for.body.i.load.413
+  - OrigAccess:      load
+    DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                       Line: 116, Column: 37 }
+  - OrigDirection:   read
+  - OrigID:          for.body.i.load.418
+  - OrigAccess:      load
+    DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                       Line: 116, Column: 37 }
+  - OrigDirection:   read
+  - OrigID:          for.body.i.load.423
+  - OrigAccess:      load
+    DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                       Line: 116, Column: 37 }
+  - OrigDirection:   read
+  - OrigID:          for.body.i.load.428
+  - OrigAccess:      load
+    DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                       Line: 116, Column: 37 }
+  - OrigDirection:   read
+  - OrigID:          for.body.i.load.433
+  - OrigAccess:      load
+    DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                       Line: 116, Column: 37 }
+  - OrigDirection:   read
+  - OrigID:          for.body.i.load.438
+  - OrigAccess:      load
+    DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                       Line: 116, Column: 37 }
+  - OrigDirection:   read
+  - OrigID:          for.body.i.load.443
+  - OrigAccess:      load
+    DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                       Line: 116, Column: 37 }
+  - OrigDirection:   read
+  - OrigID:          for.body.i.load.448
+  - OrigAccess:      load
+    DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                       Line: 116, Column: 37 }
+  - OrigDirection:   read
+  - OrigID:          for.body.i.load.453
+...
+--- !Passed
+Pass:            reflow-burst-inference
+Name:            BurstInferred
+DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                   Line: 225, Column: 5 }
+Function:        _ZL20sha256_process_chunkPKhjPj
+Args:            
+  - String:          'Sequential '
+  - Direction:       read
+  - String:          ' of '
+  - Length:          variable
+  - String:          ' length'
+  - String:          ' has been inferred'
+  - String:          ' _XLX_SEP_ '
+  - AccessID:        scevgepseq
+  - ArrayName:       chunk
+  - String:          ' '
+  - BundleName:      gmem0
+  - String:          ' '
+  - LoopName:        copy_remainder
+  - String:          ' '
+  - LoopLoc:         '/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:225:5'
+  - String:          ' '
+  - Function:        'sha256_process_chunk(unsigned char const*, unsigned int, unsigned int*)'
+    DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                       Line: 180, Column: 0 }
+  - String:          ' '
+  - String:          ' _XLX_SEP_ '
+  - OrigAccess:      load
+    DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                       Line: 228, Column: 17 }
+  - OrigDirection:   read
+  - OrigID:          for.inc45.load.5
+...
+--- !Passed
+Pass:            reflow-burst-widen
+Name:            BurstWidened
+DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                   Line: 608, Column: 5 }
+Function:        calculate_sha256
+Args:            
+  - String:          'Sequential '
+  - Direction:       write
+  - String:          ' of '
+  - Length:          variable
+  - String:          ' length has been widened by '
+  - Factor:          '8'
+  - String:          ' _XLX_SEP_ '
+  - OrigAccess:      call
+    DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                       Line: 608, Column: 5 }
+  - OrigDirection:   write
+  - OrigID:          crc_out10seq
+  - String:          ' _XLX_SEP_ '
+  - AccessID:        wseq
+  - ArrayName:       crc_out
+  - String:          ' '
+  - BundleName:      gmem0
+  - String:          ' '
+  - LoopName:        hash_write_digest
+  - String:          ' '
+  - LoopLoc:         '/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:616:9'
+  - String:          ' '
+  - Function:        calculate_sha256
+    DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                       Line: 730, Column: 0 }
+  - String:          ' '
+...
+--- !Missed
+Pass:            reflow-burst-widen
+Name:            BadAccessLen
+DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                   Line: 608, Column: 5 }
+Function:        calculate_sha256
+Args:            
+  - String:          Sequential access length is not divisible by 2
+  - String:          ' _XLX_SEP_ '
+  - OrigAccess:      call
+    DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                       Line: 608, Column: 5 }
+  - OrigDirection:   write
+  - OrigID:          wseq
+  - ArrayName:       crc_out
+  - String:          ' '
+  - BundleName:      gmem0
+  - String:          ' '
+  - LoopName:        hash_chunk_loop
+  - String:          ' '
+  - LoopLoc:         '/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:608:5'
+  - String:          ' '
+  - Function:        calculate_sha256
+    DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                       Line: 730, Column: 0 }
+  - String:          ' '
+...
+--- !Missed
+Pass:            reflow-burst-widen
+Name:            GreaterOrEqualAlignment
+DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                   Line: 225, Column: 5 }
+Function:        _ZL20sha256_process_chunkPKhjPj
+Args:            
+  - String:          'Could not widen since type '
+  - Type:            i8
+  - String:          ' size is greater than or equal to alignment '
+  - Alignment:       '1'
+  - String:          '(bytes)'
+  - String:          ' _XLX_SEP_ '
+  - OrigAccess:      call
+    DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                       Line: 225, Column: 5 }
+  - OrigDirection:   read
+  - OrigID:          scevgepseq
+  - ArrayName:       chunk
+  - String:          ' '
+  - BundleName:      gmem0
+  - String:          ' '
+  - LoopName:        copy_remainder
+  - String:          ' '
+  - LoopLoc:         '/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:225:5'
+  - String:          ' '
+  - Function:        'sha256_process_chunk(unsigned char const*, unsigned int, unsigned int*)'
+    DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                       Line: 180, Column: 0 }
+  - String:          ' '
+...
+--- !Missed
+Pass:            reflow-burst-widen
+Name:            GreaterOrEqualThreshold
+DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                   Line: 199, Column: 9 }
+Function:        _ZL20sha256_process_chunkPKhjPj
+Args:            
+  - String:          'Could not widen since type '
+  - Type:            i512
+  - String:          ' size is greater than or equal to the max_widen_bitwidth threshold of '
+  - Threshold:       '512'
+  - String:          ' _XLX_SEP_ '
+  - OrigAccess:      call
+    DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                       Line: 199, Column: 9 }
+  - OrigDirection:   read
+  - OrigID:          chunk1seq
+  - ArrayName:       chunk
+  - String:          ' '
+  - BundleName:      gmem0
+  - String:          ' '
+  - LoopName:        full_block_loop_vec
+  - String:          ' '
+  - LoopLoc:         '/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:199:9'
+  - String:          ' '
+  - Function:        'sha256_process_chunk(unsigned char const*, unsigned int, unsigned int*)'
+    DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                       Line: 180, Column: 0 }
+  - String:          ' '
+...
+--- !Missed
+Pass:            reflow-burst-widen
+Name:            GreaterOrEqualAlignment
+DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                   Line: 208, Column: 9 }
+Function:        _ZL20sha256_process_chunkPKhjPj
+Args:            
+  - String:          'Could not widen since type '
+  - Type:            i8
+  - String:          ' size is greater than or equal to alignment '
+  - Alignment:       '1'
+  - String:          '(bytes)'
+  - String:          ' _XLX_SEP_ '
+  - OrigAccess:      call
+    DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                       Line: 208, Column: 9 }
+  - OrigDirection:   read
+  - OrigID:          chunkseq
+  - ArrayName:       chunk
+  - String:          ' '
+  - BundleName:      gmem0
+  - String:          ' '
+  - LoopName:        full_block_loop_scalar
+  - String:          ' '
+  - LoopLoc:         '/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:208:9'
+  - String:          ' '
+  - Function:        'sha256_process_chunk(unsigned char const*, unsigned int, unsigned int*)'
+    DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                       Line: 180, Column: 0 }
+  - String:          ' '
+...
+--- !Passed
+Pass:            reflow-auto-array-partition
+Name:            AutoParallelPerformanceDrivenVerbosePassed
+DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                   Line: 0, Column: 1 }
+Function:        _ZL21sha256_compress_blockRK7ap_uintILi512EEPj
+Args:            
+  - PragmaType:      array_partition
+  - String:          ' '
+  - PragmaOptions:   'dim=1 type=cyclic factor=3 variable=w'
+  - String:          ' '
+  - PragmaIsAuto:    '1'
+  - String:          ' '
+  - PragmaFunction:  sha256_compress_block
+  - String:          ' '
+  - varLoc:          '/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:124:11'
+  - String:          ' '
+  - PragmaSrcLoc:    '/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:137:9'
+    DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                       Line: 137, Column: 9 }
+  - VarName:         w
+  - String:          ' '
+...
+--- !Passed
+Pass:            reflow-auto-array-partition
+Name:            AutoArrayXform
+DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                   Line: 137, Column: 9 }
+Function:        _ZL21sha256_compress_blockRK7ap_uintILi512EEPj
+Args:            
+  - String:          'Inferring pragma '''
+  - PragmaType:      array_partition
+  - String:          ' type='
+  - Mode:            cyclic
+  - String:          ' factor='
+  - Factor:          '3'
+  - String:          ' dim='
+  - Dim:             '1'
+  - String:          ''' for array '''
+  - Name:            w
+  - String:          ''''
+  - String:          ' due to '
+  - String:          pipeline
+  - String:          ' pragma'
+...
+--- !Passed
+Pass:            reflow-array-partition
+Name:            ArrayXform
+DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                   Line: 124, Column: 11 }
+Function:        _ZL21sha256_compress_blockRK7ap_uintILi512EEPj
+Args:            
+  - String:          'Applying '
+  - String:          array_partition
+  - String:          ' to '''
+  - UOName:          w
+  - String:          ''':'
+  - String:          ' '
+  - Mode:            Cyclic
+  - String:          ' partitioning'
+  - String:          ' with factor '
+  - Factor:          '3'
+  - String:          ' on dimension '
+  - Dim:             '1'
+  - String:          .
+...
+--- !Missed
+Pass:            reflow-supported-subset
+Name:            MismatchPortAndBurstAccessWidth
+DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                   Line: 608, Column: 5 }
+Function:        calculate_sha256
+Args:            
+  - String:          Inferred burst reverted due to burst accesses data width is different from m_axi port width
+  - String:          ' _XLX_SEP_ '
+  - OrigAccess:      call
+    DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                       Line: 608, Column: 5 }
+  - OrigDirection:   write
+  - OrigID:          wseq
+  - ArrayName:       ''
+  - String:          ' '
+  - BundleName:      crc_out
+  - String:          ' '
+  - Function:        calculate_sha256
+    DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                       Line: 730, Column: 0 }
+  - String:          ' '
+...
+--- !Missed
+Pass:            reflow-supported-subset
+Name:            MismatchPortAndBurstAccessWidth
+DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                   Line: 208, Column: 9 }
+Function:        _ZL20sha256_process_chunkPKhjPj
+Args:            
+  - String:          Inferred burst reverted due to burst accesses data width is different from m_axi port width
+  - String:          ' _XLX_SEP_ '
+  - OrigAccess:      call
+    DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                       Line: 208, Column: 9 }
+  - OrigDirection:   read
+  - OrigID:          chunkseq
+  - ArrayName:       ''
+  - String:          ' '
+  - BundleName:      chunk
+  - String:          ' '
+  - Function:        'sha256_process_chunk(unsigned char const*, unsigned int, unsigned int*)'
+    DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                       Line: 180, Column: 0 }
+  - String:          ' '
+...
+--- !Missed
+Pass:            reflow-supported-subset
+Name:            MismatchPortAndBurstAccessWidth
+DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                   Line: 225, Column: 5 }
+Function:        _ZL20sha256_process_chunkPKhjPj
+Args:            
+  - String:          Inferred burst reverted due to burst accesses data width is different from m_axi port width
+  - String:          ' _XLX_SEP_ '
+  - OrigAccess:      call
+    DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                       Line: 225, Column: 5 }
+  - OrigDirection:   read
+  - OrigID:          scevgepseq
+  - ArrayName:       ''
+  - String:          ' '
+  - BundleName:      chunk
+  - String:          ' '
+  - Function:        'sha256_process_chunk(unsigned char const*, unsigned int, unsigned int*)'
+    DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                       Line: 180, Column: 0 }
+  - String:          ' '
+...
+--- !Passed
+Pass:            reflow-burst-summary
+Name:            BurstInferredVerboseSummary
+DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                   Line: 199, Column: 9 }
+Function:        _ZL20sha256_process_chunkPKhjPj.1
+Args:            
+  - String:          'Multiple burst '
+  - Direction:       reads
+  - String:          ' of '
+  - Length:          variable
+  - String:          ' length and bit width '
+  - Width:           '512'
+  - String:          ' has been inferred.'
+  - String:          ' These burst requests might be further partitioned into multiple requests during RTL generation, based on max_read_burst_length or max_write_burst_length settings.'
+  - String:          ' _XLX_SEP_ '
+  - AccessID:        seq
+  - ArrayName:       ''
+  - String:          ' '
+  - BundleName:      gmem0
+  - String:          ' '
+  - LoopName:        full_block_loop_vec
+  - String:          ' '
+  - LoopLoc:         '/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:199:9'
+  - String:          ' '
+  - Function:        'sha256_process_chunk(unsigned char const*, unsigned int, unsigned int*) (.1)'
+    DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                       Line: 180, Column: 0 }
+  - String:          ' '
+...
+--- !Passed
+Pass:            reflow-burst-summary
+Name:            BurstInferredSummary
+DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                   Line: 199, Column: 9 }
+Function:        _ZL20sha256_process_chunkPKhjPj.1
+Args:            
+  - String:          'Multiple burst '
+  - Direction:       reads
+  - String:          ' of '
+  - Length:          variable
+  - String:          ' length and bit width '
+  - Width:           '512'
+  - String:          ' in loop '''
+  - LoopName:        full_block_loop_vec
+  - String:          '''('
+  - LoopLoc:         '/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:199:9'
+  - String:          ')'
+  - String:          ' has been inferred on bundle '''
+  - BundleName:      gmem0
+  - String:          '''.'
+  - String:          ' These burst requests might be further partitioned into multiple requests during RTL generation, based on max_read_burst_length or max_write_burst_length settings.'
+...

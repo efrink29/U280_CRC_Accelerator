@@ -1,0 +1,14 @@
+#-----------------------------------------------------------
+# Vivado v2023.1 (64-bit)
+# SW Build 3865809 on Sun May  7 15:04:56 MDT 2023
+# IP Build 3864474 on Sun May  7 20:36:21 MDT 2023
+# SharedData Build 3865790 on Sun May 07 13:33:03 MDT 2023
+# Start of session at: Fri Feb 20 12:33:38 2026
+# Process ID: 154049
+# Current directory: /users/arashs/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/calculate_tcp_checksum/calculate_tcp_checksum/calculate_tcp_checksum/solution/impl/ip
+# Command line: vivado -notrace -mode batch -source run_ippack.tcl
+# Log file: /users/arashs/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/calculate_tcp_checksum/calculate_tcp_checksum/calculate_tcp_checksum/solution/impl/ip/vivado.log
+# Journal file: /users/arashs/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/calculate_tcp_checksum/calculate_tcp_checksum/calculate_tcp_checksum/solution/impl/ip/vivado.jou
+# Running On: pc175.arashs-290457.octfpga-pg0.cloudlab.umass.edu, OS: Linux, CPU Frequency: 2600.000 MHz, CPU Physical cores: 32, Host memory: 608338 MB
+#-----------------------------------------------------------
+source run_ippack.tcl -notrace

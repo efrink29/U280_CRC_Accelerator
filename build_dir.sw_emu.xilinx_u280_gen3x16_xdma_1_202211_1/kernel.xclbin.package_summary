@@ -1,6 +1,6 @@
 <ENTRY>
 {
- "thisFile": "/home/asarabi3/U280_CRC_Accelerator/build_dir.sw_emu.xilinx_u280_gen3x16_xdma_1_202211_1/kernel.xclbin.package_summary",
+ "thisFile": "/users/arashs/U280_CRC_Accelerator/build_dir.sw_emu.xilinx_u280_gen3x16_xdma_1_202211_1/kernel.xclbin.package_summary",
  "connectId": "",
  "serverToken": "",
  "timestamp": "0"
@@ -9,13 +9,13 @@
 <ENTRY>
 {
  "type": "ET_CmdStep",
- "dateTimestamp": "Tue Feb 10 07:34:00 2026",
- "timestampMillis": "1770708840297",
+ "dateTimestamp": "Mon Feb 16 01:50:30 2026",
+ "timestampMillis": "1771231830246",
  "buildStep": {
-  "cmdId": "0a65a829-c373-4ff2-9c3b-e4d462574c69",
+  "cmdId": "08ceb0da-d10c-4ce6-a63d-bafaf0685b7e",
   "name": "v++",
-  "logFile": "/home/asarabi3/U280_CRC_Accelerator/_x/package/package.steps.log",
-  "commandLine": "/tools/Xilinx/Vitis/2023.1/bin/unwrapped/lnx64.o/v++  --vivado.prop \"run.__KERNEL__.{STEPS.SYNTH_DESIGN.ARGS.MORE OPTIONS}={-directive sdx_optimization_effort_high}\" --advanced.misc \"report=type report_timing_summary name impl_report_timing_summary_route_design_summary steps {route_design} runs {impl_1} options {-max_paths 10}\" --advanced.misc \"report=type report_timing_summary name impl_report_timing_summary_post_route_phys_opt_design_summary steps {post_route_phys_opt_design} runs {impl_1} options {-max_paths 10}\" -p ./build_dir.sw_emu.xilinx_u280_gen3x16_xdma_1_202211_1/kernel.link.xclbin -g --save-temps -t sw_emu --platform xilinx_u280_gen3x16_xdma_1_202211_1 --package.out_dir ./package.sw_emu -o ./build_dir.sw_emu.xilinx_u280_gen3x16_xdma_1_202211_1/kernel.xclbin ",
+  "logFile": "/users/arashs/U280_CRC_Accelerator/_x/package/package.steps.log",
+  "commandLine": "/share/Xilinx/Vitis/2023.1/bin/unwrapped/lnx64.o/v++  --vivado.prop \"run.__KERNEL__.{STEPS.SYNTH_DESIGN.ARGS.MORE OPTIONS}={-directive sdx_optimization_effort_high}\" --advanced.misc \"report=type report_timing_summary name impl_report_timing_summary_route_design_summary steps {route_design} runs {impl_1} options {-max_paths 10}\" --advanced.misc \"report=type report_timing_summary name impl_report_timing_summary_post_route_phys_opt_design_summary steps {post_route_phys_opt_design} runs {impl_1} options {-max_paths 10}\" -p ./build_dir.sw_emu.xilinx_u280_gen3x16_xdma_1_202211_1/kernel.link.xclbin -g --save-temps -t sw_emu --platform xilinx_u280_gen3x16_xdma_1_202211_1 --package.out_dir ./package.sw_emu -o ./build_dir.sw_emu.xilinx_u280_gen3x16_xdma_1_202211_1/kernel.xclbin ",
   "args": [
    "-p",
    "./build_dir.sw_emu.xilinx_u280_gen3x16_xdma_1_202211_1/kernel.link.xclbin",
@@ -31,17 +31,17 @@
    "./build_dir.sw_emu.xilinx_u280_gen3x16_xdma_1_202211_1/kernel.xclbin"
   ],
   "iniFiles": [],
-  "cwd": "/home/asarabi3/U280_CRC_Accelerator"
+  "cwd": "/users/arashs/U280_CRC_Accelerator"
  }
 }
 </ENTRY>
 <ENTRY>
 {
  "type": "ET_Status",
- "dateTimestamp": "Tue Feb 10 07:34:00 2026",
- "timestampMillis": "1770708840297",
+ "dateTimestamp": "Mon Feb 16 01:50:30 2026",
+ "timestampMillis": "1771231830247",
  "status": {
-  "cmdId": "0a65a829-c373-4ff2-9c3b-e4d462574c69",
+  "cmdId": "08ceb0da-d10c-4ce6-a63d-bafaf0685b7e",
   "state": "CS_RUNNING"
  }
 }
@@ -49,8 +49,8 @@
 <ENTRY>
 {
  "type": "ET_FlowMetaData",
- "dateTimestamp": "Tue Feb 10 07:34:04 2026",
- "timestampMillis": "1770708844682",
+ "dateTimestamp": "Mon Feb 16 01:50:34 2026",
+ "timestampMillis": "1771231834782",
  "buildSummary": {
   "hardwarePlatform": "xilinx_u280_gen3x16_xdma_1_202211_1.xpfm",
   "hardwareDsa": "",
@@ -63,7 +63,7 @@
    "base": {
     "type": "BT_UKNOWN",
     "name": "kernel",
-    "file": "/home/asarabi3/U280_CRC_Accelerator/build_dir.sw_emu.xilinx_u280_gen3x16_xdma_1_202211_1/kernel.xclbin",
+    "file": "/users/arashs/U280_CRC_Accelerator/build_dir.sw_emu.xilinx_u280_gen3x16_xdma_1_202211_1/kernel.xclbin",
     "reports": [],
     "uuid": ""
    },
@@ -75,9 +75,9 @@
    "base": {
     "type": "BT_UKNOWN",
     "name": "kernel.link",
-    "file": "/home/asarabi3/U280_CRC_Accelerator/build_dir.sw_emu.xilinx_u280_gen3x16_xdma_1_202211_1/kernel.link.xclbin",
+    "file": "/users/arashs/U280_CRC_Accelerator/build_dir.sw_emu.xilinx_u280_gen3x16_xdma_1_202211_1/kernel.link.xclbin",
     "reports": [],
-    "uuid": "b653d244-fdb8-4b65-a685-cbc2645d6159"
+    "uuid": "e45cfa31-476e-4c4b-83e5-b3dc54083055"
    },
    "kernels": []
   }
@@ -87,10 +87,10 @@
 <ENTRY>
 {
  "type": "ET_Status",
- "dateTimestamp": "Tue Feb 10 07:34:04 2026",
- "timestampMillis": "1770708844897",
+ "dateTimestamp": "Mon Feb 16 01:50:34 2026",
+ "timestampMillis": "1771231834953",
  "status": {
-  "cmdId": "0a65a829-c373-4ff2-9c3b-e4d462574c69",
+  "cmdId": "08ceb0da-d10c-4ce6-a63d-bafaf0685b7e",
   "state": "CS_PASSED"
  }
 }
@@ -98,10 +98,10 @@
 <ENTRY>
 {
  "type": "ET_Report",
- "dateTimestamp": "Tue Feb 10 07:34:04 2026",
- "timestampMillis": "1770708844984",
+ "dateTimestamp": "Mon Feb 16 01:50:35 2026",
+ "timestampMillis": "1771231835042",
  "report": {
-  "path": "/home/asarabi3/U280_CRC_Accelerator/_x/reports/package/v++_package_kernel_guidance.html",
+  "path": "/users/arashs/U280_CRC_Accelerator/_x/reports/package/v++_package_kernel_guidance.html",
   "name": "",
   "fileType": "HTML",
   "reportType": "GLOBAL_RULECHECK_GUIDANCE",
@@ -112,10 +112,10 @@
 <ENTRY>
 {
  "type": "ET_Report",
- "dateTimestamp": "Tue Feb 10 07:34:04 2026",
- "timestampMillis": "1770708844985",
+ "dateTimestamp": "Mon Feb 16 01:50:35 2026",
+ "timestampMillis": "1771231835043",
  "report": {
-  "path": "/home/asarabi3/U280_CRC_Accelerator/_x/v++_package_kernel_guidance.pb3",
+  "path": "/users/arashs/U280_CRC_Accelerator/_x/v++_package_kernel_guidance.pb3",
   "name": "",
   "fileType": "BINARY_PROTOBUF",
   "reportType": "GLOBAL_RULECHECK_GUIDANCE",

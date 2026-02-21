@@ -1,0 +1,26 @@
+Begin Function 'sha256_process_chunk_Pipeline_copy_remainder'
+
+RTL state condition: (1'b1 == 1'b1)
+# ST_73
+local gmem0_addr_read <read_228> <integer> <> 'read' </users/arashs/U280_CRC_Accelerator/src/kernel.cpp:228>
+gmem0_addr_read /users/arashs/U280_CRC_Accelerator/src/kernel.cpp:228
+reg: gmem0_addr_read_reg_249[511:0] lv
+
+
+RTL state condition: (1'b1 == ap_CS_fsm_pp0_stage0)
+# ST_1
+local zext_ln225_1 <zext_225> <integer> <> 'zext' </users/arashs/U280_CRC_Accelerator/src/kernel.cpp:225>
+zext_ln225_1 /users/arashs/U280_CRC_Accelerator/src/kernel.cpp:225
+reg: zext_ln225_1_reg_228[63:0] lv
+
+local trunc_ln4 <partselect_228> <integer> <> 'partselect' </users/arashs/U280_CRC_Accelerator/src/kernel.cpp:228>
+trunc_ln4 /users/arashs/U280_CRC_Accelerator/src/kernel.cpp:228
+reg: trunc_ln4_reg_233[57:0] lv
+
+local add_ln228_1 <add_228> <integer> <Arithmetic> 'add' </users/arashs/U280_CRC_Accelerator/src/kernel.cpp:228>
+add_ln228_1 /users/arashs/U280_CRC_Accelerator/src/kernel.cpp:228
+reg: add_ln228_1_reg_238[5:0] lv
+
+
+End Function 'sha256_process_chunk_Pipeline_copy_remainder'
+

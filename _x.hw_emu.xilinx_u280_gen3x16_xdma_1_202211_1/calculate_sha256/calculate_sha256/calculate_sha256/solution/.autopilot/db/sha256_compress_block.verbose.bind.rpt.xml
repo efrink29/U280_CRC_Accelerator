@@ -1,0 +1,48 @@
+<profile>
+
+<section name = "Vitis HLS Report for 'sha256_compress_block'" level="0">
+<item name = "Date">Mon Feb 16 01:33:27 2026
+</item>
+<item name = "Version">2023.1 (Build 3854077 on May  4 2023)</item>
+<item name = "Project">calculate_sha256</item>
+<item name = "Solution">solution (Vitis Kernel Flow Target)</item>
+<item name = "Product family">virtexuplusHBM</item>
+<item name = "Target device">xcu280-fsvh2892-2L-e</item>
+</section>
+
+<section name = "Performance Estimates" level="0">
+<item name = "Timing">
+<section name = "" level="1">
+<item name = "Summary"><table name="" hasTotal="0">
+<keys size="4">Clock, Target, Estimated, Uncertainty</keys>
+<column name="ap_clk">3.33 ns, 3.429 ns, 0.90 ns</column>
+</table>
+</item>
+</section>
+</item>
+<item name = "Latency">
+<section name = "" level="1">
+<item name = "Summary"><table name="" hasTotal="0">
+<keys size="8">, min, max, min, max, min, max, Type</keys>
+<column name="">200, 200, 0.686 us, 0.686 us, 200, 200, no</column>
+</table>
+</item>
+<item name = "Detail">
+<section name = "" level="1">
+<item name = "Instance"><table name="" hasTotal="0">
+<keys size="9">Instance, Module, min, max, min, max, min, max, Type</keys>
+<column name="grp_sha256_compress_block_Pipeline_init_words_fu_132">sha256_compress_block_Pipeline_init_words, 18, 18, 59.994 ns, 59.994 ns, 18, 18, no</column>
+<column name="grp_sha256_compress_block_Pipeline_expand_words_fu_144">sha256_compress_block_Pipeline_expand_words, 108, 108, 0.370 us, 0.370 us, 108, 108, no</column>
+<column name="grp_sha256_compress_block_Pipeline_round_loop_fu_151">sha256_compress_block_Pipeline_round_loop, 68, 68, 0.227 us, 0.227 us, 68, 68, no</column>
+</table>
+</item>
+<item name = "Loop"><table name="" hasTotal="0">
+<keys size="8">Loop Name, min, max, Latency, achieved, target, Count, Pipelined</keys>
+</table>
+</item>
+</section>
+</item>
+</section>
+</item>
+</section>
+</profile>

@@ -1,0 +1,83 @@
+Begin Function 'calculate_sha256'
+
+RTL state condition: (1'b1 == ap_CS_fsm_state1)
+# ST_1
+local crc_out_read <read_726> <integer> <> 'read' </users/arashs/U280_CRC_Accelerator/src/kernel.cpp:726>
+crc_out_read /users/arashs/U280_CRC_Accelerator/src/kernel.cpp:726
+reg: crc_out_read_reg_244[63:0] lv
+
+local data_in_read <read_726> <integer> <> 'read' </users/arashs/U280_CRC_Accelerator/src/kernel.cpp:726>
+data_in_read /users/arashs/U280_CRC_Accelerator/src/kernel.cpp:726
+reg: data_in_read_reg_249[63:0] lv
+
+local conv1_i <zext_726> <integer> <> 'zext' </users/arashs/U280_CRC_Accelerator/src/kernel.cpp:726>
+conv1_i /users/arashs/U280_CRC_Accelerator/src/kernel.cpp:726
+reg: conv1_i_reg_254[63:0] lv
+
+local trunc_ln621 <trunc_733> <integer> <> 'trunc' </users/arashs/U280_CRC_Accelerator/src/kernel.cpp:621->/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:733>
+trunc_ln621 /users/arashs/U280_CRC_Accelerator/src/kernel.cpp:621
+trunc_ln621 /users/arashs/U280_CRC_Accelerator/src/kernel.cpp:733
+reg: trunc_ln621_reg_259[5:0] lv
+
+
+RTL state condition: (1'b1 == ap_CS_fsm_state2)
+# ST_2
+local c_4 <load_733> <integer> <> 'load' </users/arashs/U280_CRC_Accelerator/src/kernel.cpp:608->/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:733>
+c /users/arashs/U280_CRC_Accelerator/src/kernel.cpp:608
+c_4 /users/arashs/U280_CRC_Accelerator/src/kernel.cpp:733
+reg: c_4_reg_264[31:0] lv
+
+local chunk <add_733> <integer> <Arithmetic> 'add' </users/arashs/U280_CRC_Accelerator/src/kernel.cpp:610->/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:733>
+chunk /users/arashs/U280_CRC_Accelerator/src/kernel.cpp:610
+chunk /users/arashs/U280_CRC_Accelerator/src/kernel.cpp:733
+reg: chunk_reg_272[63:0] lv
+
+
+RTL state condition: (1'b1 == ap_CS_fsm_state4)
+# ST_4
+local digest <extractvalue_733> <integer> <> 'extractvalue' </users/arashs/U280_CRC_Accelerator/src/kernel.cpp:613->/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:733>
+digest /users/arashs/U280_CRC_Accelerator/src/kernel.cpp:613
+digest /users/arashs/U280_CRC_Accelerator/src/kernel.cpp:733
+reg: digest_reg_277[31:0] lv
+
+local digest_1 <extractvalue_733> <integer> <> 'extractvalue' </users/arashs/U280_CRC_Accelerator/src/kernel.cpp:613->/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:733>
+digest /users/arashs/U280_CRC_Accelerator/src/kernel.cpp:613
+digest_1 /users/arashs/U280_CRC_Accelerator/src/kernel.cpp:733
+reg: digest_1_reg_282[31:0] lv
+
+local digest_2 <extractvalue_733> <integer> <> 'extractvalue' </users/arashs/U280_CRC_Accelerator/src/kernel.cpp:613->/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:733>
+digest /users/arashs/U280_CRC_Accelerator/src/kernel.cpp:613
+digest_2 /users/arashs/U280_CRC_Accelerator/src/kernel.cpp:733
+reg: digest_2_reg_287[31:0] lv
+
+local digest_3 <extractvalue_733> <integer> <> 'extractvalue' </users/arashs/U280_CRC_Accelerator/src/kernel.cpp:613->/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:733>
+digest /users/arashs/U280_CRC_Accelerator/src/kernel.cpp:613
+digest_3 /users/arashs/U280_CRC_Accelerator/src/kernel.cpp:733
+reg: digest_3_reg_292[31:0] lv
+
+local digest_4 <extractvalue_733> <integer> <> 'extractvalue' </users/arashs/U280_CRC_Accelerator/src/kernel.cpp:613->/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:733>
+digest /users/arashs/U280_CRC_Accelerator/src/kernel.cpp:613
+digest_4 /users/arashs/U280_CRC_Accelerator/src/kernel.cpp:733
+reg: digest_4_reg_297[31:0] lv
+
+local digest_5 <extractvalue_733> <integer> <> 'extractvalue' </users/arashs/U280_CRC_Accelerator/src/kernel.cpp:613->/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:733>
+digest /users/arashs/U280_CRC_Accelerator/src/kernel.cpp:613
+digest_5 /users/arashs/U280_CRC_Accelerator/src/kernel.cpp:733
+reg: digest_5_reg_302[31:0] lv
+
+local digest_6 <extractvalue_733> <integer> <> 'extractvalue' </users/arashs/U280_CRC_Accelerator/src/kernel.cpp:613->/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:733>
+digest /users/arashs/U280_CRC_Accelerator/src/kernel.cpp:613
+digest_6 /users/arashs/U280_CRC_Accelerator/src/kernel.cpp:733
+reg: digest_6_reg_307[31:0] lv
+
+local digest_7 <extractvalue_733> <integer> <> 'extractvalue' </users/arashs/U280_CRC_Accelerator/src/kernel.cpp:613->/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:733>
+digest /users/arashs/U280_CRC_Accelerator/src/kernel.cpp:613
+digest_7 /users/arashs/U280_CRC_Accelerator/src/kernel.cpp:733
+reg: digest_7_reg_312[31:0] lv
+
+
+RTL state condition: (1'b1 == ap_CS_fsm_state6)
+# ST_6
+
+End Function 'calculate_sha256'
+

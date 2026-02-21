@@ -1,0 +1,74 @@
+{
+  "0": {
+    "basicblocks": 1,
+    "calls": "4",
+    "file": "kernel.cpp",
+    "fileloc": 714,
+    "instructions": 4,
+    "name": "calculate_tcp_checksum",
+    "total_instructions": 3992
+  },
+  "1": {
+    "basicblocks": 57,
+    "calls": "5 5",
+    "file": "kernel.cpp",
+    "fileloc": 483,
+    "instructions": 455,
+    "loads": {
+      "L": 9
+    },
+    "name": "tcp_checksum_chunk_vector",
+    "stores": {
+      "L": 6
+    },
+    "total_instructions": 2297
+  },
+  "2": {
+    "basicblocks": 8,
+    "calls": "3 3",
+    "file": "kernel.cpp",
+    "fileloc": 456,
+    "instructions": 157,
+    "loads": {
+      "L": 10
+    },
+    "name": "tcp_checksum_chunk_scalar",
+    "stores": {
+      "L": 7
+    },
+    "total_instructions": 1619
+  },
+  "3": {
+    "basicblocks": 1,
+    "calls": "",
+    "file": "kernel.cpp",
+    "fileloc": 449,
+    "instructions": 38,
+    "name": "fold_add",
+    "total_instructions": 382
+  },
+  "4": {
+    "basicblocks": 10,
+    "calls": "1 2",
+    "file": "kernel.cpp",
+    "fileloc": 571,
+    "instructions": 50,
+    "loads": {
+      "L": 2
+    },
+    "name": "process_tcp_checksum",
+    "stores": {
+      "L": 3
+    },
+    "total_instructions": 3988
+  },
+  "5": {
+    "basicblocks": 1,
+    "calls": "",
+    "file": "kernel.cpp",
+    "fileloc": 93,
+    "instructions": 18,
+    "name": "to_be16",
+    "total_instructions": 154
+  }
+}

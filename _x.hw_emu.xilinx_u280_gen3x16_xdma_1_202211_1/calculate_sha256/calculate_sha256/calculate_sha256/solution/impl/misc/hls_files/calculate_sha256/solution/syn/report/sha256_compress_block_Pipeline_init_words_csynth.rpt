@@ -1,0 +1,166 @@
+
+
+================================================================
+== Vitis HLS Report for 'sha256_compress_block_Pipeline_init_words'
+================================================================
+* Date:           Mon Feb 16 01:33:38 2026
+
+* Version:        2023.1 (Build 3854077 on May  4 2023)
+* Project:        calculate_sha256
+* Solution:       solution (Vitis Kernel Flow Target)
+* Product family: virtexuplusHBM
+* Target device:  xcu280-fsvh2892-2L-e
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing: 
+    * Summary: 
+    +--------+---------+----------+------------+
+    |  Clock |  Target | Estimated| Uncertainty|
+    +--------+---------+----------+------------+
+    |ap_clk  |  3.33 ns|  2.142 ns|     0.90 ns|
+    +--------+---------+----------+------------+
+
++ Latency: 
+    * Summary: 
+    +---------+---------+-----------+-----------+-----+-----+---------+
+    |  Latency (cycles) |   Latency (absolute)  |  Interval | Pipeline|
+    |   min   |   max   |    min    |    max    | min | max |   Type  |
+    +---------+---------+-----------+-----------+-----+-----+---------+
+    |       18|       18|  59.994 ns|  59.994 ns|   18|   18|       no|
+    +---------+---------+-----------+-----------+-----+-----+---------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        +--------------+---------+---------+----------+-----------+-----------+------+----------+
+        |              |  Latency (cycles) | Iteration|  Initiation Interval  | Trip |          |
+        |   Loop Name  |   min   |   max   |  Latency |  achieved |   target  | Count| Pipelined|
+        +--------------+---------+---------+----------+-----------+-----------+------+----------+
+        |- init_words  |       16|       16|         1|          1|          1|    16|       yes|
+        +--------------+---------+---------+----------+-----------+-----------+------+----------+
+
+
+
+================================================================
+== Utilization Estimates
+================================================================
+* Summary: 
++---------------------+---------+------+---------+---------+-----+
+|         Name        | BRAM_18K|  DSP |    FF   |   LUT   | URAM|
++---------------------+---------+------+---------+---------+-----+
+|DSP                  |        -|     -|        -|        -|    -|
+|Expression           |        -|     -|        0|     2248|    -|
+|FIFO                 |        -|     -|        -|        -|    -|
+|Instance             |        -|     -|        -|        -|    -|
+|Memory               |        -|     -|        -|        -|    -|
+|Multiplexer          |        -|     -|        -|       63|    -|
+|Register             |        -|     -|       22|        -|    -|
++---------------------+---------+------+---------+---------+-----+
+|Total                |        0|     0|       22|     2311|    0|
++---------------------+---------+------+---------+---------+-----+
+|Available SLR        |     1344|  3008|   869120|   434560|  320|
++---------------------+---------+------+---------+---------+-----+
+|Utilization SLR (%)  |        0|     0|       ~0|       ~0|    0|
++---------------------+---------+------+---------+---------+-----+
+|Available            |     4032|  9024|  2607360|  1303680|  960|
++---------------------+---------+------+---------+---------+-----+
+|Utilization (%)      |        0|     0|       ~0|       ~0|    0|
++---------------------+---------+------+---------+---------+-----+
+
++ Detail: 
+    * Instance: 
+    N/A
+
+    * DSP: 
+    N/A
+
+    * Memory: 
+    N/A
+
+    * FIFO: 
+    N/A
+
+    * Expression: 
+    +------------------------+----------+----+---+------+------------+------------+
+    |      Variable Name     | Operation| DSP| FF|  LUT | Bitwidth P0| Bitwidth P1|
+    +------------------------+----------+----+---+------+------------+------------+
+    |add_ln127_1_fu_161_p2   |         +|   0|  0|    17|          10|           6|
+    |add_ln127_2_fu_259_p2   |         +|   0|  0|    12|           5|           1|
+    |add_ln127_fu_152_p2     |         +|   0|  0|    12|           5|           1|
+    |ap_ext_blocking_n       |       and|   0|  0|     2|           2|           2|
+    |ap_int_blocking_n       |       and|   0|  0|     2|           2|           2|
+    |ap_str_blocking_n       |       and|   0|  0|     2|           2|           2|
+    |icmp_ln127_1_fu_265_p2  |      icmp|   0|  0|    12|           5|           2|
+    |icmp_ln127_fu_146_p2    |      icmp|   0|  0|    13|           5|           6|
+    |lshr_ln130_fu_204_p2    |      lshr|   0|  0|  2171|         512|         512|
+    |select_ln127_fu_271_p3  |    select|   0|  0|     5|           1|           5|
+    +------------------------+----------+----+---+------+------------+------------+
+    |Total                   |          |   0|  0|  2248|         549|         539|
+    +------------------------+----------+----+---+------+------------+------------+
+
+    * Multiplexer: 
+    +--------------------------------+----+-----------+-----+-----------+
+    |              Name              | LUT| Input Size| Bits| Total Bits|
+    +--------------------------------+----+-----------+-----+-----------+
+    |ap_done_int                     |   9|          2|    1|          2|
+    |ap_sig_allocacmp_i_6            |   9|          2|    5|         10|
+    |ap_sig_allocacmp_phi_mul_load   |   9|          2|   10|         20|
+    |ap_sig_allocacmp_phi_urem_load  |   9|          2|    5|         10|
+    |i_fu_76                         |   9|          2|    5|         10|
+    |phi_mul_fu_72                   |   9|          2|   10|         20|
+    |phi_urem_fu_68                  |   9|          2|    5|         10|
+    +--------------------------------+----+-----------+-----+-----------+
+    |Total                           |  63|         14|   41|         82|
+    +--------------------------------+----+-----------+-----+-----------+
+
+    * Register: 
+    +----------------+----+----+-----+-----------+
+    |      Name      | FF | LUT| Bits| Const Bits|
+    +----------------+----+----+-----+-----------+
+    |ap_CS_fsm       |   1|   0|    1|          0|
+    |ap_done_reg     |   1|   0|    1|          0|
+    |i_fu_76         |   5|   0|    5|          0|
+    |phi_mul_fu_72   |  10|   0|   10|          0|
+    |phi_urem_fu_68  |   5|   0|    5|          0|
+    +----------------+----+----+-----+-----------+
+    |Total           |  22|   0|   22|          0|
+    +----------------+----+----+-----+-----------+
+
+
+
+================================================================
+== Interface
+================================================================
+* Summary: 
++-------------------+-----+-----+------------+-------------------------------------------+--------------+
+|     RTL Ports     | Dir | Bits|  Protocol  |               Source Object               |    C Type    |
++-------------------+-----+-----+------------+-------------------------------------------+--------------+
+|ap_clk             |   in|    1|  ap_ctrl_hs|  sha256_compress_block_Pipeline_init_words|  return value|
+|ap_rst             |   in|    1|  ap_ctrl_hs|  sha256_compress_block_Pipeline_init_words|  return value|
+|ap_start           |   in|    1|  ap_ctrl_hs|  sha256_compress_block_Pipeline_init_words|  return value|
+|ap_done            |  out|    1|  ap_ctrl_hs|  sha256_compress_block_Pipeline_init_words|  return value|
+|ap_idle            |  out|    1|  ap_ctrl_hs|  sha256_compress_block_Pipeline_init_words|  return value|
+|ap_ready           |  out|    1|  ap_ctrl_hs|  sha256_compress_block_Pipeline_init_words|  return value|
+|ap_ext_blocking_n  |  out|    1|  ap_ctrl_hs|  sha256_compress_block_Pipeline_init_words|  return value|
+|ap_str_blocking_n  |  out|    1|  ap_ctrl_hs|  sha256_compress_block_Pipeline_init_words|  return value|
+|ap_int_blocking_n  |  out|    1|  ap_ctrl_hs|  sha256_compress_block_Pipeline_init_words|  return value|
+|w_2_address0       |  out|    5|   ap_memory|                                        w_2|         array|
+|w_2_ce0            |  out|    1|   ap_memory|                                        w_2|         array|
+|w_2_we0            |  out|    1|   ap_memory|                                        w_2|         array|
+|w_2_d0             |  out|   32|   ap_memory|                                        w_2|         array|
+|w_1_address0       |  out|    5|   ap_memory|                                        w_1|         array|
+|w_1_ce0            |  out|    1|   ap_memory|                                        w_1|         array|
+|w_1_we0            |  out|    1|   ap_memory|                                        w_1|         array|
+|w_1_d0             |  out|   32|   ap_memory|                                        w_1|         array|
+|w_address0         |  out|    5|   ap_memory|                                          w|         array|
+|w_ce0              |  out|    1|   ap_memory|                                          w|         array|
+|w_we0              |  out|    1|   ap_memory|                                          w|         array|
+|w_d0               |  out|   32|   ap_memory|                                          w|         array|
+|block_val          |   in|  512|     ap_none|                                  block_val|        scalar|
++-------------------+-----+-----+------------+-------------------------------------------+--------------+
+

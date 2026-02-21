@@ -1,0 +1,198 @@
+Begin Function 'process_tcp_checksum'
+
+RTL state condition: (1'b1 == ap_CS_fsm_state1)
+# ST_1
+local vector_blocks <icmp_577> <integer> <Comparator> 'icmp' </users/arashs/U280_CRC_Accelerator/src/kernel.cpp:577>
+vector_blocks /users/arashs/U280_CRC_Accelerator/src/kernel.cpp:577
+reg: vector_blocks_reg_988[0:0] lv
+
+local conv2 <> <integer> <> 'zext' <>
+reg: conv2_reg_992[63:0] lv
+
+local vec_words <> <integer> <> 'partselect' <>
+reg: vec_words_reg_997[25:0] lv
+
+local vec_words_1 <> <integer> <> 'zext' <>
+reg: vec_words_1_reg_1002[31:0] lv
+
+local tail_offset <> <integer> <> 'bitconcatenate' <>
+reg: tail_offset_reg_1007[31:0] lv
+
+local tail_bytes <> <integer> <Arithmetic> 'sub' <>
+reg: tail_bytes_reg_1012[31:0] lv
+
+local empty_27 <> <integer> <> 'trunc' <>
+reg: empty_27_reg_1017[0:0] lv
+
+local idxprom137_i <> <integer> <> 'zext' <>
+reg: idxprom137_i_reg_1021[63:0] lv
+
+local icmp <> <integer> <Comparator> 'icmp' <>
+reg: icmp_reg_1026[0:0] lv
+
+local icmp38 <> <integer> <Comparator> 'icmp' <>
+reg: icmp38_reg_1030[0:0] lv
+
+local trunc_ln596 <trunc_596> <integer> <> 'trunc' </users/arashs/U280_CRC_Accelerator/src/kernel.cpp:596>
+trunc_ln596 /users/arashs/U280_CRC_Accelerator/src/kernel.cpp:596
+reg: trunc_ln596_reg_1034[5:0] lv
+
+local trunc_ln557 <trunc_590> <integer> <> 'trunc' </users/arashs/U280_CRC_Accelerator/src/kernel.cpp:557->/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:590>
+trunc_ln557 /users/arashs/U280_CRC_Accelerator/src/kernel.cpp:557
+trunc_ln557 /users/arashs/U280_CRC_Accelerator/src/kernel.cpp:590
+reg: trunc_ln557_reg_1039[5:0] lv
+
+
+RTL state condition: (1'b1 == ap_CS_fsm_state154)
+# ST_154
+
+RTL state condition: (1'b1 == ap_CS_fsm_state156)
+# ST_156
+
+RTL state condition: (1'b1 == ap_CS_fsm_state157)
+# ST_157
+local sum_i13_1_lcssa <phi_590> <integer> <Phi> 'phi' </users/arashs/U280_CRC_Accelerator/src/kernel.cpp:492->/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:590>
+sum_i13_1_lcssa /users/arashs/U280_CRC_Accelerator/src/kernel.cpp:492
+sum_i13_1_lcssa /users/arashs/U280_CRC_Accelerator/src/kernel.cpp:590
+reg: sum_i13_1_lcssa_reg_234[31:0] lv
+
+local trunc_ln557_2 <partselect_590> <integer> <> 'partselect' </users/arashs/U280_CRC_Accelerator/src/kernel.cpp:557->/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:590>
+trunc_ln557_2 /users/arashs/U280_CRC_Accelerator/src/kernel.cpp:557
+trunc_ln557_2 /users/arashs/U280_CRC_Accelerator/src/kernel.cpp:590
+reg: trunc_ln557_2_reg_1127[57:0] lv
+
+local add_ln557_2 <add_590> <integer> <Arithmetic> 'add' </users/arashs/U280_CRC_Accelerator/src/kernel.cpp:557->/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:590>
+add_ln557_2 /users/arashs/U280_CRC_Accelerator/src/kernel.cpp:557
+add_ln557_2 /users/arashs/U280_CRC_Accelerator/src/kernel.cpp:590
+reg: add_ln557_2_reg_1132[5:0] lv
+
+
+RTL state condition: (1'b1 == ap_CS_fsm_state2)
+# ST_2
+local add_ln580_1 <add_580> <integer> <Arithmetic> 'add' </users/arashs/U280_CRC_Accelerator/src/kernel.cpp:580>
+add_ln580_1 /users/arashs/U280_CRC_Accelerator/src/kernel.cpp:580
+reg: add_ln580_1_reg_1050[63:0] lv
+
+local add_ln580 <add_580> <integer> <Arithmetic> 'add' </users/arashs/U280_CRC_Accelerator/src/kernel.cpp:580>
+add_ln580 /users/arashs/U280_CRC_Accelerator/src/kernel.cpp:580
+reg: add_ln580_reg_1058[31:0] lv
+
+local trunc_ln1 <partselect_590> <integer> <> 'partselect' </users/arashs/U280_CRC_Accelerator/src/kernel.cpp:492->/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:590>
+trunc_ln1 /users/arashs/U280_CRC_Accelerator/src/kernel.cpp:492
+trunc_ln1 /users/arashs/U280_CRC_Accelerator/src/kernel.cpp:590
+reg: trunc_ln1_reg_1063[57:0] lv
+
+
+RTL state condition: (1'b1 == ap_CS_fsm_state229)
+# ST_229
+local gmem0_addr_3_read <read_590> <integer> <> 'read' </users/arashs/U280_CRC_Accelerator/src/kernel.cpp:557->/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:590>
+gmem0_addr_3_read /users/arashs/U280_CRC_Accelerator/src/kernel.cpp:557
+gmem0_addr_3_read /users/arashs/U280_CRC_Accelerator/src/kernel.cpp:590
+reg: gmem0_addr_3_read_reg_1143[511:0] lv
+
+
+RTL state condition: (1'b1 == ap_CS_fsm_state230)
+# ST_230
+local sum <add_590> <integer> <Arithmetic> 'add' </users/arashs/U280_CRC_Accelerator/src/kernel.cpp:558->/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:590>
+sum /users/arashs/U280_CRC_Accelerator/src/kernel.cpp:558
+sum /users/arashs/U280_CRC_Accelerator/src/kernel.cpp:590
+reg: sum_reg_1148[31:0] lv
+
+
+RTL state condition: (1'b1 == ap_CS_fsm_state231)
+# ST_231
+local sum_10 <> <integer> <Phi> 'phi' <>
+reg: sum_10_reg_244[31:0] lv
+
+local add_ln566 <add_590> <integer> <Arithmetic> 'add' </users/arashs/U280_CRC_Accelerator/src/kernel.cpp:566->/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:590>
+add_ln566 /users/arashs/U280_CRC_Accelerator/src/kernel.cpp:566
+add_ln566 /users/arashs/U280_CRC_Accelerator/src/kernel.cpp:590
+reg: add_ln566_reg_1153[15:0] lv
+
+local tmp_4 <bitselect_590> <integer> <> 'bitselect' </users/arashs/U280_CRC_Accelerator/src/kernel.cpp:566->/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:590>
+tmp_4 /users/arashs/U280_CRC_Accelerator/src/kernel.cpp:566
+tmp_4 /users/arashs/U280_CRC_Accelerator/src/kernel.cpp:590
+reg: tmp_4_reg_1158[0:0] lv
+
+local add_ln566_2 <add_590> <integer> <Arithmetic> 'add' </users/arashs/U280_CRC_Accelerator/src/kernel.cpp:566->/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:590>
+add_ln566_2 /users/arashs/U280_CRC_Accelerator/src/kernel.cpp:566
+add_ln566_2 /users/arashs/U280_CRC_Accelerator/src/kernel.cpp:590
+reg: add_ln566_2_reg_1163[15:0] lv
+
+local tmp_6 <bitselect_590> <integer> <> 'bitselect' </users/arashs/U280_CRC_Accelerator/src/kernel.cpp:566->/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:590>
+tmp_6 /users/arashs/U280_CRC_Accelerator/src/kernel.cpp:566
+tmp_6 /users/arashs/U280_CRC_Accelerator/src/kernel.cpp:590
+reg: tmp_6_reg_1168[0:0] lv
+
+
+RTL state condition: (1'b1 == ap_CS_fsm_state232)
+# ST_232
+local add_ln596_1 <add_596> <integer> <Arithmetic> 'add' </users/arashs/U280_CRC_Accelerator/src/kernel.cpp:596>
+add_ln596_1 /users/arashs/U280_CRC_Accelerator/src/kernel.cpp:596
+reg: add_ln596_1_reg_1179[5:0] lv
+
+local trunc_ln9 <partselect_596> <integer> <> 'partselect' </users/arashs/U280_CRC_Accelerator/src/kernel.cpp:596>
+trunc_ln9 /users/arashs/U280_CRC_Accelerator/src/kernel.cpp:596
+reg: trunc_ln9_reg_1185[57:0] lv
+
+
+RTL state condition: (1'b1 == ap_CS_fsm_state233)
+# ST_233
+local checksum_0_in <> <integer> <Phi> 'phi' <>
+reg: checksum_0_in_reg_254[15:0] lv
+
+local shl_ln596 <shl_596> <integer> <Shift> 'shl' </users/arashs/U280_CRC_Accelerator/src/kernel.cpp:596>
+shl_ln596 /users/arashs/U280_CRC_Accelerator/src/kernel.cpp:596
+reg: shl_ln596_reg_1190[63:0] lv
+
+local shl_ln596_1 <shl_596> <integer> <Shift> 'shl' </users/arashs/U280_CRC_Accelerator/src/kernel.cpp:596>
+shl_ln596_1 /users/arashs/U280_CRC_Accelerator/src/kernel.cpp:596
+reg: shl_ln596_1_reg_1195[511:0] lv
+
+
+RTL state condition: (1'b1 == ap_CS_fsm_state4)
+# ST_4
+
+RTL state condition: (1'b1 == ap_CS_fsm_state6)
+# ST_6
+local sum_i_0_lcssa <> <integer> <Phi> 'phi' <>
+reg: sum_i_0_lcssa_reg_201[16:0] lv
+
+local i_0_i_lcssa <> <integer> <Phi> 'phi' <>
+reg: i_0_i_lcssa_reg_213[31:0] lv
+
+local trunc_ln474_3 <partselect_594> <integer> <> 'partselect' </users/arashs/U280_CRC_Accelerator/src/kernel.cpp:474->/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:594>
+trunc_ln474_3 /users/arashs/U280_CRC_Accelerator/src/kernel.cpp:474
+trunc_ln474_3 /users/arashs/U280_CRC_Accelerator/src/kernel.cpp:594
+reg: trunc_ln474_3_reg_1078[57:0] lv
+
+local add_ln474_2 <add_594> <integer> <Arithmetic> 'add' </users/arashs/U280_CRC_Accelerator/src/kernel.cpp:474->/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:594>
+add_ln474_2 /users/arashs/U280_CRC_Accelerator/src/kernel.cpp:474
+add_ln474_2 /users/arashs/U280_CRC_Accelerator/src/kernel.cpp:594
+reg: add_ln474_2_reg_1083[5:0] lv
+
+
+RTL state condition: (1'b1 == ap_CS_fsm_state78)
+# ST_78
+local gmem0_addr_4_read <read_594> <integer> <> 'read' </users/arashs/U280_CRC_Accelerator/src/kernel.cpp:474->/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:594>
+gmem0_addr_4_read /users/arashs/U280_CRC_Accelerator/src/kernel.cpp:474
+gmem0_addr_4_read /users/arashs/U280_CRC_Accelerator/src/kernel.cpp:594
+reg: gmem0_addr_4_read_reg_1094[511:0] lv
+
+
+RTL state condition: (1'b1 == ap_CS_fsm_state79)
+# ST_79
+local trunc_ln474_2 <trunc_594> <integer> <> 'trunc' </users/arashs/U280_CRC_Accelerator/src/kernel.cpp:474->/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:594>
+trunc_ln474_2 /users/arashs/U280_CRC_Accelerator/src/kernel.cpp:474
+trunc_ln474_2 /users/arashs/U280_CRC_Accelerator/src/kernel.cpp:594
+reg: trunc_ln474_2_reg_1099[7:0] lv
+
+
+RTL state condition: (1'b1 == ap_CS_fsm_state81)
+# ST_81
+local sum_7 <> <integer> <Phi> 'phi' <>
+reg: sum_7_reg_224[16:0] lv
+
+
+End Function 'process_tcp_checksum'
+

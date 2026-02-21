@@ -1,0 +1,355 @@
+<xilinx:hls_fe_msgs>
+    <msg msg_groups="PRAGMA_DATAFLOW" msg_id="214-114" msg_severity="WARNING" msg_loc="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:685:9" msg_body="Since the only kind of statements allowed in a canonical dataflow region are variable declarations and function calls, the compiler may not be able to correctly handle the region"/>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/share/Xilinx/Vitis_HLS/2023.1/common/technology/autopilot/hls_vector.h:101:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="pragma" ARG_PragmaIsValid="1" ARG_PragmaOptions="variable=this" ARG_PragmaType="aggregate" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/share/Xilinx/Vitis_HLS/2023.1/common/technology/autopilot/hls_vector.h:125:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="vector&lt;T, N&gt;" ARG_PragmaIsValid="1" ARG_PragmaType="unroll" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/share/Xilinx/Vitis_HLS/2023.1/common/technology/autopilot/hls_vector.h:141:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="vector&lt;T, N&gt;" ARG_PragmaIsValid="1" ARG_PragmaType="unroll" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/share/Xilinx/Vitis_HLS/2023.1/common/technology/autopilot/hls_vector.h:166:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="operator++" ARG_PragmaIsValid="1" ARG_PragmaType="unroll" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/share/Xilinx/Vitis_HLS/2023.1/common/technology/autopilot/hls_vector.h:167:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="operator--" ARG_PragmaIsValid="1" ARG_PragmaType="unroll" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/share/Xilinx/Vitis_HLS/2023.1/common/technology/autopilot/hls_vector.h:195:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="operator+=" ARG_PragmaIsValid="1" ARG_PragmaType="unroll" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/share/Xilinx/Vitis_HLS/2023.1/common/technology/autopilot/hls_vector.h:196:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="operator-=" ARG_PragmaIsValid="1" ARG_PragmaType="unroll" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/share/Xilinx/Vitis_HLS/2023.1/common/technology/autopilot/hls_vector.h:197:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="operator*=" ARG_PragmaIsValid="1" ARG_PragmaType="unroll" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/share/Xilinx/Vitis_HLS/2023.1/common/technology/autopilot/hls_vector.h:198:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="operator/=" ARG_PragmaIsValid="1" ARG_PragmaType="unroll" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/share/Xilinx/Vitis_HLS/2023.1/common/technology/autopilot/hls_vector.h:199:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="operator%=" ARG_PragmaIsValid="1" ARG_PragmaType="unroll" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/share/Xilinx/Vitis_HLS/2023.1/common/technology/autopilot/hls_vector.h:200:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="operator&amp;=" ARG_PragmaIsValid="1" ARG_PragmaType="unroll" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/share/Xilinx/Vitis_HLS/2023.1/common/technology/autopilot/hls_vector.h:201:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="operator|=" ARG_PragmaIsValid="1" ARG_PragmaType="unroll" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/share/Xilinx/Vitis_HLS/2023.1/common/technology/autopilot/hls_vector.h:202:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="operator^=" ARG_PragmaIsValid="1" ARG_PragmaType="unroll" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/share/Xilinx/Vitis_HLS/2023.1/common/technology/autopilot/hls_vector.h:203:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="operator&lt;&lt;=" ARG_PragmaIsValid="1" ARG_PragmaType="unroll" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/share/Xilinx/Vitis_HLS/2023.1/common/technology/autopilot/hls_vector.h:204:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="operator&gt;&gt;=" ARG_PragmaIsValid="1" ARG_PragmaType="unroll" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/share/Xilinx/Vitis_HLS/2023.1/common/technology/autopilot/hls_vector.h:219:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="reduce_add" ARG_PragmaIsValid="1" ARG_PragmaType="unroll" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/share/Xilinx/Vitis_HLS/2023.1/common/technology/autopilot/hls_vector.h:220:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="reduce_mult" ARG_PragmaIsValid="1" ARG_PragmaType="unroll" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/share/Xilinx/Vitis_HLS/2023.1/common/technology/autopilot/hls_vector.h:221:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="reduce_and" ARG_PragmaIsValid="1" ARG_PragmaType="unroll" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/share/Xilinx/Vitis_HLS/2023.1/common/technology/autopilot/hls_vector.h:222:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="reduce_or" ARG_PragmaIsValid="1" ARG_PragmaType="unroll" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/share/Xilinx/Vitis_HLS/2023.1/common/technology/autopilot/hls_vector.h:223:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="reduce_xor" ARG_PragmaIsValid="1" ARG_PragmaType="unroll" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/share/Xilinx/Vitis_HLS/2023.1/common/technology/autopilot/hls_vector.h:253:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="operator&lt;" ARG_PragmaIsValid="1" ARG_PragmaType="unroll" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/share/Xilinx/Vitis_HLS/2023.1/common/technology/autopilot/hls_vector.h:254:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="operator&lt;=" ARG_PragmaIsValid="1" ARG_PragmaType="unroll" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/share/Xilinx/Vitis_HLS/2023.1/common/technology/autopilot/hls_vector.h:255:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="operator==" ARG_PragmaIsValid="1" ARG_PragmaType="unroll" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/share/Xilinx/Vitis_HLS/2023.1/common/technology/autopilot/hls_vector.h:256:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="operator!=" ARG_PragmaIsValid="1" ARG_PragmaType="unroll" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/share/Xilinx/Vitis_HLS/2023.1/common/technology/autopilot/hls_vector.h:257:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="operator&gt;=" ARG_PragmaIsValid="1" ARG_PragmaType="unroll" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/share/Xilinx/Vitis_HLS/2023.1/common/technology/autopilot/hls_vector.h:258:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="operator&gt;" ARG_PragmaIsValid="1" ARG_PragmaType="unroll" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:53:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="rotr32" ARG_PragmaIsValid="1" ARG_PragmaType="inline" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:59:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="sha256_ch" ARG_PragmaIsValid="1" ARG_PragmaType="inline" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:65:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="sha256_maj" ARG_PragmaIsValid="1" ARG_PragmaType="inline" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:71:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="sha256_bsig0" ARG_PragmaIsValid="1" ARG_PragmaType="inline" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:77:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="sha256_bsig1" ARG_PragmaIsValid="1" ARG_PragmaType="inline" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:83:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="sha256_ssig0" ARG_PragmaIsValid="1" ARG_PragmaType="inline" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:89:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="sha256_ssig1" ARG_PragmaIsValid="1" ARG_PragmaType="inline" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:95:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="to_be16" ARG_PragmaIsValid="1" ARG_PragmaType="inline" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:101:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="to_be32" ARG_PragmaIsValid="1" ARG_PragmaType="inline" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:110:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="pack_block_64" ARG_PragmaIsValid="1" ARG_PragmaType="inline" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:115:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="pack_block_64" ARG_PragmaIsValid="1" ARG_PragmaType="unroll" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:123:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="sha256_compress_block" ARG_PragmaIsValid="1" ARG_PragmaOptions="off" ARG_PragmaType="inline" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:129:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="sha256_compress_block" ARG_PragmaIsValid="1" ARG_PragmaOptions="II = 1" ARG_PragmaType="pipeline" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:137:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="sha256_compress_block" ARG_PragmaIsValid="1" ARG_PragmaOptions="II = 1" ARG_PragmaType="pipeline" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:153:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="sha256_compress_block" ARG_PragmaIsValid="1" ARG_PragmaOptions="II = 1" ARG_PragmaType="pipeline" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:181:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="sha256_process_chunk" ARG_PragmaIsValid="1" ARG_PragmaOptions="off" ARG_PragmaType="inline" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:187:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="sha256_process_chunk" ARG_PragmaIsValid="1" ARG_PragmaType="unroll" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:220:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="sha256_process_chunk" ARG_PragmaIsValid="1" ARG_PragmaOptions="II = 1" ARG_PragmaType="pipeline" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:227:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="sha256_process_chunk" ARG_PragmaIsValid="1" ARG_PragmaOptions="II = 1" ARG_PragmaType="pipeline" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:239:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="sha256_process_chunk" ARG_PragmaIsValid="1" ARG_PragmaOptions="II = 1" ARG_PragmaType="pipeline" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:253:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="sha256_process_chunk" ARG_PragmaIsValid="1" ARG_PragmaOptions="II = 1" ARG_PragmaType="pipeline" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:260:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="sha256_process_chunk" ARG_PragmaIsValid="1" ARG_PragmaOptions="II = 1" ARG_PragmaType="pipeline" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:270:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="sha256_process_chunk" ARG_PragmaIsValid="1" ARG_PragmaType="unroll" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:289:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="read_input" ARG_PragmaIsValid="1" ARG_PragmaOptions="II = 1" ARG_PragmaType="pipeline" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:320:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="process_blocks" ARG_PragmaIsValid="1" ARG_PragmaOptions="off" ARG_PragmaType="inline" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:321:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="process_blocks" ARG_PragmaIsValid="1" ARG_PragmaOptions="variable = crcTables complete dim = 1" ARG_PragmaType="array_partition" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:322:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="process_blocks" ARG_PragmaIsValid="1" ARG_PragmaOptions="variable = crcTables type = ram_1p impl = bram" ARG_PragmaType="bind_storage" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:339:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="process_blocks" ARG_PragmaIsValid="1" ARG_PragmaOptions="II = 1" ARG_PragmaType="pipeline" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:378:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="process_blocks" ARG_PragmaIsValid="1" ARG_PragmaOptions="II = 1" ARG_PragmaType="pipeline" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:444:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="write_output" ARG_PragmaIsValid="1" ARG_PragmaOptions="II = 1" ARG_PragmaType="pipeline" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:451:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="fold_add" ARG_PragmaIsValid="1" ARG_PragmaType="inline" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:458:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="tcp_checksum_chunk_scalar" ARG_PragmaIsValid="1" ARG_PragmaType="inline" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:465:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="tcp_checksum_chunk_scalar" ARG_PragmaIsValid="1" ARG_PragmaOptions="II = 1" ARG_PragmaType="pipeline" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:487:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="tcp_checksum_chunk_vector" ARG_PragmaIsValid="1" ARG_PragmaType="inline" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:494:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="tcp_checksum_chunk_vector" ARG_PragmaIsValid="1" ARG_PragmaOptions="II = 1" ARG_PragmaType="pipeline" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:501:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="tcp_checksum_chunk_vector" ARG_PragmaIsValid="1" ARG_PragmaOptions="variable = lvl1 complete" ARG_PragmaType="array_partition" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:502:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="tcp_checksum_chunk_vector" ARG_PragmaIsValid="1" ARG_PragmaOptions="variable = lvl2 complete" ARG_PragmaType="array_partition" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:503:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="tcp_checksum_chunk_vector" ARG_PragmaIsValid="1" ARG_PragmaOptions="variable = lvl3 complete" ARG_PragmaType="array_partition" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:504:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="tcp_checksum_chunk_vector" ARG_PragmaIsValid="1" ARG_PragmaOptions="variable = lvl4 complete" ARG_PragmaType="array_partition" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:509:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="tcp_checksum_chunk_vector" ARG_PragmaIsValid="1" ARG_PragmaType="unroll" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:520:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="tcp_checksum_chunk_vector" ARG_PragmaIsValid="1" ARG_PragmaType="unroll" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:527:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="tcp_checksum_chunk_vector" ARG_PragmaIsValid="1" ARG_PragmaType="unroll" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:534:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="tcp_checksum_chunk_vector" ARG_PragmaIsValid="1" ARG_PragmaType="unroll" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:547:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="tcp_checksum_chunk_vector" ARG_PragmaIsValid="1" ARG_PragmaOptions="II = 1" ARG_PragmaType="pipeline" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:565:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="tcp_checksum_chunk_vector" ARG_PragmaIsValid="1" ARG_PragmaType="unroll" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:582:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="process_tcp_checksum" ARG_PragmaIsValid="1" ARG_PragmaOptions="II = 1" ARG_PragmaType="pipeline" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:612:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="process_hash" ARG_PragmaIsValid="1" ARG_PragmaOptions="variable = digest complete dim = 1" ARG_PragmaType="array_partition" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:618:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="process_hash" ARG_PragmaIsValid="1" ARG_PragmaOptions="II = 1" ARG_PragmaType="pipeline" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:651:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="process_crc" ARG_PragmaIsValid="1" ARG_PragmaOptions="variable = inByte0 depth = 64" ARG_PragmaType="stream" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:652:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="process_crc" ARG_PragmaIsValid="1" ARG_PragmaOptions="variable = inByte1 depth = 64" ARG_PragmaType="stream" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:653:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="process_crc" ARG_PragmaIsValid="1" ARG_PragmaOptions="variable = inByte2 depth = 64" ARG_PragmaType="stream" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:654:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="process_crc" ARG_PragmaIsValid="1" ARG_PragmaOptions="variable = inByte3 depth = 64" ARG_PragmaType="stream" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:655:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="process_crc" ARG_PragmaIsValid="1" ARG_PragmaOptions="variable = inByte4 depth = 64" ARG_PragmaType="stream" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:656:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="process_crc" ARG_PragmaIsValid="1" ARG_PragmaOptions="variable = inByte5 depth = 64" ARG_PragmaType="stream" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:657:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="process_crc" ARG_PragmaIsValid="1" ARG_PragmaOptions="variable = inByte6 depth = 64" ARG_PragmaType="stream" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:658:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="process_crc" ARG_PragmaIsValid="1" ARG_PragmaOptions="variable = inByte7 depth = 64" ARG_PragmaType="stream" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:659:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="process_crc" ARG_PragmaIsValid="1" ARG_PragmaOptions="variable = inByte8 depth = 64" ARG_PragmaType="stream" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:660:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="process_crc" ARG_PragmaIsValid="1" ARG_PragmaOptions="variable = inByte9 depth = 64" ARG_PragmaType="stream" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:661:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="process_crc" ARG_PragmaIsValid="1" ARG_PragmaOptions="variable = inByte10 depth = 64" ARG_PragmaType="stream" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:662:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="process_crc" ARG_PragmaIsValid="1" ARG_PragmaOptions="variable = inByte11 depth = 64" ARG_PragmaType="stream" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:663:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="process_crc" ARG_PragmaIsValid="1" ARG_PragmaOptions="variable = inByte12 depth = 64" ARG_PragmaType="stream" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:664:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="process_crc" ARG_PragmaIsValid="1" ARG_PragmaOptions="variable = inByte13 depth = 64" ARG_PragmaType="stream" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:665:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="process_crc" ARG_PragmaIsValid="1" ARG_PragmaOptions="variable = inByte14 depth = 64" ARG_PragmaType="stream" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:666:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="process_crc" ARG_PragmaIsValid="1" ARG_PragmaOptions="variable = inByte15 depth = 64" ARG_PragmaType="stream" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:669:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="process_crc" ARG_PragmaIsValid="1" ARG_PragmaOptions="variable = outStream depth = 64" ARG_PragmaType="stream" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:672:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="process_crc" ARG_PragmaIsValid="1" ARG_PragmaOptions="variable = crcTables complete dim = 1" ARG_PragmaType="array_partition" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:673:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="process_crc" ARG_PragmaIsValid="1" ARG_PragmaOptions="variable = crcTables type = ram_1p impl = bram" ARG_PragmaType="bind_storage" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:680:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="process_crc" ARG_PragmaIsValid="1" ARG_PragmaOptions="II = 1" ARG_PragmaType="pipeline" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:685:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="process_crc" ARG_PragmaIsValid="1" ARG_PragmaType="dataflow" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/users/arashs/U280_CRC_Accelerator/_x.hw_emu.xilinx_u280_gen3x16_xdma_1_202211_1/calculate_tcp_checksum/calculate_tcp_checksum/calculate_tcp_checksum.tcl:27:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaContext="directive" ARG_PragmaFunction="calculate_tcp_checksum" ARG_PragmaIsValid="1" ARG_PragmaOptions="name=calculate_tcp_checksum" ARG_PragmaType="top" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:719:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="calculate_tcp_checksum" ARG_PragmaIsValid="1" ARG_PragmaOptions="m_axi port = data_in bundle = gmem0 depth = 1024 offset = slave" ARG_PragmaType="interface" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:720:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="calculate_tcp_checksum" ARG_PragmaIsValid="1" ARG_PragmaOptions="m_axi port = crc_out bundle = gmem0 depth = 1024 offset = slave" ARG_PragmaType="interface" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="CODE_UNSUPPORTED" msg_id="214-131" msg_severity="INFO" msg_loc="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:513:39" msg_body="Inlining function 'to_be16(ap_uint&lt;16&gt;)' into 'tcp_checksum_chunk_vector(ap_uint&lt;512&gt; const*, unsigned char const*, unsigned int)'">
+        <args Callee="to_be16(ap_uint&lt;16&gt;)" Callee-DebugLoc="File /users/arashs/U280_CRC_Accelerator/src/kernel.cpp Line 94 Column 0" Caller="tcp_checksum_chunk_vector(ap_uint&lt;512&gt; const*, unsigned char const*, unsigned int)" Caller-DebugLoc="File /users/arashs/U280_CRC_Accelerator/src/kernel.cpp Line 486 Column 0"/>
+    </msg>
+    <msg msg_groups="CODE_UNSUPPORTED" msg_id="214-131" msg_severity="INFO" msg_loc="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:512:39" msg_body="Inlining function 'to_be16(ap_uint&lt;16&gt;)' into 'tcp_checksum_chunk_vector(ap_uint&lt;512&gt; const*, unsigned char const*, unsigned int)'">
+        <args Callee="to_be16(ap_uint&lt;16&gt;)" Callee-DebugLoc="File /users/arashs/U280_CRC_Accelerator/src/kernel.cpp Line 94 Column 0" Caller="tcp_checksum_chunk_vector(ap_uint&lt;512&gt; const*, unsigned char const*, unsigned int)" Caller-DebugLoc="File /users/arashs/U280_CRC_Accelerator/src/kernel.cpp Line 486 Column 0"/>
+    </msg>
+    <msg msg_groups="CODE_UNSUPPORTED" msg_id="214-131" msg_severity="INFO" msg_loc="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:475:15" msg_body="Inlining function 'fold_add(ap_uint&lt;17&gt;, ap_uint&lt;16&gt;)' into 'tcp_checksum_chunk_scalar(unsigned char const*, unsigned int)'">
+        <args Callee="fold_add(ap_uint&lt;17&gt;, ap_uint&lt;16&gt;)" Callee-DebugLoc="File /users/arashs/U280_CRC_Accelerator/src/kernel.cpp Line 450 Column 0" Caller="tcp_checksum_chunk_scalar(unsigned char const*, unsigned int)" Caller-DebugLoc="File /users/arashs/U280_CRC_Accelerator/src/kernel.cpp Line 457 Column 0"/>
+    </msg>
+    <msg msg_groups="CODE_UNSUPPORTED" msg_id="214-131" msg_severity="INFO" msg_loc="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:469:15" msg_body="Inlining function 'fold_add(ap_uint&lt;17&gt;, ap_uint&lt;16&gt;)' into 'tcp_checksum_chunk_scalar(unsigned char const*, unsigned int)'">
+        <args Callee="fold_add(ap_uint&lt;17&gt;, ap_uint&lt;16&gt;)" Callee-DebugLoc="File /users/arashs/U280_CRC_Accelerator/src/kernel.cpp Line 450 Column 0" Caller="tcp_checksum_chunk_scalar(unsigned char const*, unsigned int)" Caller-DebugLoc="File /users/arashs/U280_CRC_Accelerator/src/kernel.cpp Line 457 Column 0"/>
+    </msg>
+    <msg msg_groups="CODE_UNSUPPORTED" msg_id="214-131" msg_severity="INFO" msg_loc="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:594:24" msg_body="Inlining function 'tcp_checksum_chunk_scalar(unsigned char const*, unsigned int)' into 'process_tcp_checksum(ap_uint&lt;512&gt; const*, unsigned int*, unsigned int, unsigned int)'">
+        <args Callee="tcp_checksum_chunk_scalar(unsigned char const*, unsigned int)" Callee-DebugLoc="File /users/arashs/U280_CRC_Accelerator/src/kernel.cpp Line 457 Column 0" Caller="process_tcp_checksum(ap_uint&lt;512&gt; const*, unsigned int*, unsigned int, unsigned int)" Caller-DebugLoc="File /users/arashs/U280_CRC_Accelerator/src/kernel.cpp Line 575 Column 0"/>
+    </msg>
+    <msg msg_groups="CODE_UNSUPPORTED" msg_id="214-131" msg_severity="INFO" msg_loc="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:590:24" msg_body="Inlining function 'tcp_checksum_chunk_vector(ap_uint&lt;512&gt; const*, unsigned char const*, unsigned int)' into 'process_tcp_checksum(ap_uint&lt;512&gt; const*, unsigned int*, unsigned int, unsigned int)'">
+        <args Callee="tcp_checksum_chunk_vector(ap_uint&lt;512&gt; const*, unsigned char const*, unsigned int)" Callee-DebugLoc="File /users/arashs/U280_CRC_Accelerator/src/kernel.cpp Line 486 Column 0" Caller="process_tcp_checksum(ap_uint&lt;512&gt; const*, unsigned int*, unsigned int, unsigned int)" Caller-DebugLoc="File /users/arashs/U280_CRC_Accelerator/src/kernel.cpp Line 575 Column 0"/>
+    </msg>
+    <msg msg_groups="PRAGMA_UNROLL" msg_id="214-291" msg_severity="INFO" msg_loc="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:463:5" msg_body="Loop 'word_loop' is marked as complete unroll implied by the pipeline pragma">
+        <args LoopName="word_loop"/>
+    </msg>
+    <msg msg_groups="PRAGMA_UNROLL" msg_id="214-291" msg_severity="INFO" msg_loc="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:492:5" msg_body="Loop 'vec_word_loop' is marked as complete unroll implied by the pipeline pragma">
+        <args LoopName="vec_word_loop"/>
+    </msg>
+    <msg msg_groups="PRAGMA_UNROLL" msg_id="214-291" msg_severity="INFO" msg_loc="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:507:9" msg_body="Loop 'reduce_lvl1' is marked as complete unroll implied by the pipeline pragma">
+        <args LoopName="reduce_lvl1"/>
+    </msg>
+    <msg msg_groups="PRAGMA_UNROLL" msg_id="214-291" msg_severity="INFO" msg_loc="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:518:9" msg_body="Loop 'reduce_lvl2' is marked as complete unroll implied by the pipeline pragma">
+        <args LoopName="reduce_lvl2"/>
+    </msg>
+    <msg msg_groups="PRAGMA_UNROLL" msg_id="214-291" msg_severity="INFO" msg_loc="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:525:9" msg_body="Loop 'reduce_lvl3' is marked as complete unroll implied by the pipeline pragma">
+        <args LoopName="reduce_lvl3"/>
+    </msg>
+    <msg msg_groups="PRAGMA_UNROLL" msg_id="214-291" msg_severity="INFO" msg_loc="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:532:9" msg_body="Loop 'reduce_lvl4' is marked as complete unroll implied by the pipeline pragma">
+        <args LoopName="reduce_lvl4"/>
+    </msg>
+    <msg msg_groups="PRAGMA_UNROLL" msg_id="214-291" msg_severity="INFO" msg_loc="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:545:5" msg_body="Loop 'tail_word_loop' is marked as complete unroll implied by the pipeline pragma">
+        <args LoopName="tail_word_loop"/>
+    </msg>
+    <msg msg_groups="PRAGMA_UNROLL" msg_id="214-291" msg_severity="INFO" msg_loc="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:563:5" msg_body="Loop 'fold_carry' is marked as complete unroll implied by the pipeline pragma">
+        <args LoopName="fold_carry"/>
+    </msg>
+    <msg msg_groups="PRAGMA_UNROLL" msg_id="214-186" msg_severity="INFO" msg_loc="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:575:0" msg_body="Unrolling loop 'reduce_lvl1' (/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:507:9) in function 'process_tcp_checksum' completely with a factor of 16">
+        <args Factor="16" LoopLoc="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:507:9" LoopName="reduce_lvl1"/>
+    </msg>
+    <msg msg_groups="PRAGMA_UNROLL" msg_id="214-186" msg_severity="INFO" msg_loc="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:575:0" msg_body="Unrolling loop 'reduce_lvl2' (/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:518:9) in function 'process_tcp_checksum' completely with a factor of 8">
+        <args Factor="8" LoopLoc="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:518:9" LoopName="reduce_lvl2"/>
+    </msg>
+    <msg msg_groups="PRAGMA_UNROLL" msg_id="214-186" msg_severity="INFO" msg_loc="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:575:0" msg_body="Unrolling loop 'reduce_lvl3' (/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:525:9) in function 'process_tcp_checksum' completely with a factor of 4">
+        <args Factor="4" LoopLoc="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:525:9" LoopName="reduce_lvl3"/>
+    </msg>
+    <msg msg_groups="PRAGMA_UNROLL" msg_id="214-186" msg_severity="INFO" msg_loc="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:575:0" msg_body="Unrolling loop 'reduce_lvl4' (/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:532:9) in function 'process_tcp_checksum' completely with a factor of 2">
+        <args Factor="2" LoopLoc="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:532:9" LoopName="reduce_lvl4"/>
+    </msg>
+    <msg msg_groups="PRAGMA_UNROLL" msg_id="214-186" msg_severity="INFO" msg_loc="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:575:0" msg_body="Unrolling loop 'fold_carry' (/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:563:5) in function 'process_tcp_checksum' completely with a factor of 4">
+        <args Factor="4" LoopLoc="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:563:5" LoopName="fold_carry"/>
+    </msg>
+</xilinx:hls_fe_msgs>
+

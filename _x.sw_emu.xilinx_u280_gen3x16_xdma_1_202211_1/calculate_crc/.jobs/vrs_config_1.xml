@@ -1,0 +1,5 @@
+<?xml version="1.0"?>
+<Runs Version="1" Minor="0">
+	<Run Id="calculate_crc" LaunchDir="/users/arashs/U280_CRC_Accelerator/_x.sw_emu.xilinx_u280_gen3x16_xdma_1_202211_1/calculate_crc/calculate_crc" FlowId="Build_IP" FromStepId="vitis_hls" ToStepId="vitis_hls"/>
+</Runs>
+

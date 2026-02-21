@@ -1,0 +1,854 @@
+--- !Passed
+Pass:            inline
+Name:            AlwaysInline
+DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                   Line: 513, Column: 39 }
+Function:        _ZL25tcp_checksum_chunk_vectorPK7ap_uintILi512EEPKhj
+Args:            
+  - String:          'Inlining function '''
+  - Callee:          'to_be16(ap_uint<16>)'
+    DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                       Line: 94, Column: 0 }
+  - String:          ''' into '''
+  - Caller:          'tcp_checksum_chunk_vector(ap_uint<512> const*, unsigned char const*, unsigned int)'
+    DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                       Line: 486, Column: 0 }
+  - String:          ''''
+...
+--- !Passed
+Pass:            inline
+Name:            AlwaysInline
+DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                   Line: 512, Column: 39 }
+Function:        _ZL25tcp_checksum_chunk_vectorPK7ap_uintILi512EEPKhj
+Args:            
+  - String:          'Inlining function '''
+  - Callee:          'to_be16(ap_uint<16>)'
+    DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                       Line: 94, Column: 0 }
+  - String:          ''' into '''
+  - Caller:          'tcp_checksum_chunk_vector(ap_uint<512> const*, unsigned char const*, unsigned int)'
+    DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                       Line: 486, Column: 0 }
+  - String:          ''''
+...
+--- !Passed
+Pass:            inline
+Name:            AlwaysInline
+DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                   Line: 475, Column: 15 }
+Function:        _ZL25tcp_checksum_chunk_scalarPKhj
+Args:            
+  - String:          'Inlining function '''
+  - Callee:          'fold_add(ap_uint<17>, ap_uint<16>)'
+    DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                       Line: 450, Column: 0 }
+  - String:          ''' into '''
+  - Caller:          'tcp_checksum_chunk_scalar(unsigned char const*, unsigned int)'
+    DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                       Line: 457, Column: 0 }
+  - String:          ''''
+...
+--- !Passed
+Pass:            inline
+Name:            AlwaysInline
+DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                   Line: 469, Column: 15 }
+Function:        _ZL25tcp_checksum_chunk_scalarPKhj
+Args:            
+  - String:          'Inlining function '''
+  - Callee:          'fold_add(ap_uint<17>, ap_uint<16>)'
+    DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                       Line: 450, Column: 0 }
+  - String:          ''' into '''
+  - Caller:          'tcp_checksum_chunk_scalar(unsigned char const*, unsigned int)'
+    DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                       Line: 457, Column: 0 }
+  - String:          ''''
+...
+--- !Passed
+Pass:            inline
+Name:            AlwaysInline
+DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                   Line: 594, Column: 24 }
+Function:        _ZL20process_tcp_checksumPK7ap_uintILi512EEPjjj
+Args:            
+  - String:          'Inlining function '''
+  - Callee:          'tcp_checksum_chunk_scalar(unsigned char const*, unsigned int)'
+    DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                       Line: 457, Column: 0 }
+  - String:          ''' into '''
+  - Caller:          'process_tcp_checksum(ap_uint<512> const*, unsigned int*, unsigned int, unsigned int)'
+    DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                       Line: 575, Column: 0 }
+  - String:          ''''
+...
+--- !Passed
+Pass:            inline
+Name:            AlwaysInline
+DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                   Line: 590, Column: 24 }
+Function:        _ZL20process_tcp_checksumPK7ap_uintILi512EEPjjj
+Args:            
+  - String:          'Inlining function '''
+  - Callee:          'tcp_checksum_chunk_vector(ap_uint<512> const*, unsigned char const*, unsigned int)'
+    DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                       Line: 486, Column: 0 }
+  - String:          ''' into '''
+  - Caller:          'process_tcp_checksum(ap_uint<512> const*, unsigned int*, unsigned int, unsigned int)'
+    DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                       Line: 575, Column: 0 }
+  - String:          ''''
+...
+--- !Passed
+Pass:            reflow-infer-unroll
+Name:            ImplicitUnroll
+DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                   Line: 463, Column: 5 }
+Function:        _ZL20process_tcp_checksumPK7ap_uintILi512EEPjjj
+Args:            
+  - String:          'Loop '''
+  - LoopName:        word_loop
+  - String:          ''' is marked as complete unroll implied by the pipeline pragma'
+...
+--- !Passed
+Pass:            reflow-infer-unroll
+Name:            ImplicitUnroll
+DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                   Line: 492, Column: 5 }
+Function:        _ZL20process_tcp_checksumPK7ap_uintILi512EEPjjj
+Args:            
+  - String:          'Loop '''
+  - LoopName:        vec_word_loop
+  - String:          ''' is marked as complete unroll implied by the pipeline pragma'
+...
+--- !Passed
+Pass:            reflow-infer-unroll
+Name:            ImplicitUnroll
+DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                   Line: 507, Column: 9 }
+Function:        _ZL20process_tcp_checksumPK7ap_uintILi512EEPjjj
+Args:            
+  - String:          'Loop '''
+  - LoopName:        reduce_lvl1
+  - String:          ''' is marked as complete unroll implied by the pipeline pragma'
+...
+--- !Passed
+Pass:            reflow-infer-unroll
+Name:            ImplicitUnroll
+DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                   Line: 518, Column: 9 }
+Function:        _ZL20process_tcp_checksumPK7ap_uintILi512EEPjjj
+Args:            
+  - String:          'Loop '''
+  - LoopName:        reduce_lvl2
+  - String:          ''' is marked as complete unroll implied by the pipeline pragma'
+...
+--- !Passed
+Pass:            reflow-infer-unroll
+Name:            ImplicitUnroll
+DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                   Line: 525, Column: 9 }
+Function:        _ZL20process_tcp_checksumPK7ap_uintILi512EEPjjj
+Args:            
+  - String:          'Loop '''
+  - LoopName:        reduce_lvl3
+  - String:          ''' is marked as complete unroll implied by the pipeline pragma'
+...
+--- !Passed
+Pass:            reflow-infer-unroll
+Name:            ImplicitUnroll
+DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                   Line: 532, Column: 9 }
+Function:        _ZL20process_tcp_checksumPK7ap_uintILi512EEPjjj
+Args:            
+  - String:          'Loop '''
+  - LoopName:        reduce_lvl4
+  - String:          ''' is marked as complete unroll implied by the pipeline pragma'
+...
+--- !Passed
+Pass:            reflow-infer-unroll
+Name:            ImplicitUnroll
+DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                   Line: 545, Column: 5 }
+Function:        _ZL20process_tcp_checksumPK7ap_uintILi512EEPjjj
+Args:            
+  - String:          'Loop '''
+  - LoopName:        tail_word_loop
+  - String:          ''' is marked as complete unroll implied by the pipeline pragma'
+...
+--- !Passed
+Pass:            reflow-infer-unroll
+Name:            ImplicitUnroll
+DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                   Line: 563, Column: 5 }
+Function:        _ZL20process_tcp_checksumPK7ap_uintILi512EEPjjj
+Args:            
+  - String:          'Loop '''
+  - LoopName:        fold_carry
+  - String:          ''' is marked as complete unroll implied by the pipeline pragma'
+...
+--- !Passed
+Pass:            reflow-pragma-loop-unroll
+Name:            PragmaFullyUnroll
+DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                   Line: 575, Column: 0 }
+Function:        _ZL20process_tcp_checksumPK7ap_uintILi512EEPjjj
+Args:            
+  - String:          'Unrolling loop '''
+  - LoopName:        reduce_lvl1
+  - String:          ''' ('
+  - LoopLoc:         '/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:507:9'
+  - String:          ') '
+  - String:          'in function '''
+  - String:          process_tcp_checksum
+  - String:          ''' completely with a factor of '
+  - Factor:          '16'
+...
+--- !Passed
+Pass:            reflow-pragma-loop-unroll
+Name:            PragmaFullyUnroll
+DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                   Line: 575, Column: 0 }
+Function:        _ZL20process_tcp_checksumPK7ap_uintILi512EEPjjj
+Args:            
+  - String:          'Unrolling loop '''
+  - LoopName:        reduce_lvl2
+  - String:          ''' ('
+  - LoopLoc:         '/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:518:9'
+  - String:          ') '
+  - String:          'in function '''
+  - String:          process_tcp_checksum
+  - String:          ''' completely with a factor of '
+  - Factor:          '8'
+...
+--- !Passed
+Pass:            reflow-pragma-loop-unroll
+Name:            PragmaFullyUnroll
+DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                   Line: 575, Column: 0 }
+Function:        _ZL20process_tcp_checksumPK7ap_uintILi512EEPjjj
+Args:            
+  - String:          'Unrolling loop '''
+  - LoopName:        reduce_lvl3
+  - String:          ''' ('
+  - LoopLoc:         '/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:525:9'
+  - String:          ') '
+  - String:          'in function '''
+  - String:          process_tcp_checksum
+  - String:          ''' completely with a factor of '
+  - Factor:          '4'
+...
+--- !Passed
+Pass:            reflow-pragma-loop-unroll
+Name:            PragmaFullyUnroll
+DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                   Line: 575, Column: 0 }
+Function:        _ZL20process_tcp_checksumPK7ap_uintILi512EEPjjj
+Args:            
+  - String:          'Unrolling loop '''
+  - LoopName:        reduce_lvl4
+  - String:          ''' ('
+  - LoopLoc:         '/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:532:9'
+  - String:          ') '
+  - String:          'in function '''
+  - String:          process_tcp_checksum
+  - String:          ''' completely with a factor of '
+  - Factor:          '2'
+...
+--- !Passed
+Pass:            reflow-pragma-loop-unroll
+Name:            PragmaFullyUnroll
+DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                   Line: 575, Column: 0 }
+Function:        _ZL20process_tcp_checksumPK7ap_uintILi512EEPjjj
+Args:            
+  - String:          'Unrolling loop '''
+  - LoopName:        fold_carry
+  - String:          ''' ('
+  - LoopLoc:         '/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:563:5'
+  - String:          ') '
+  - String:          'in function '''
+  - String:          process_tcp_checksum
+  - String:          ''' completely with a factor of '
+  - Factor:          '4'
+...
+--- !Passed
+Pass:            reflow-aggr
+Name:            AggrSucc
+Function:        apatb_calculate_tcp_checksum_ir
+Args:            
+  - String:          'Aggregating '
+  - HwTyName:        maxi
+  - String:          ' variable '''
+  - Name:            data_in
+  - String:          ''' with '
+  - AggregateTypeName: 'compact=none'
+  - String:          ' mode in '
+  - Bitwidth:        '512'
+  - String:          '-bits'
+...
+--- !Passed
+Pass:            reflow-burst-inference
+Name:            BurstInferred
+DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                   Line: 492, Column: 5 }
+Function:        _ZL20process_tcp_checksumPK7ap_uintILi512EEPjjj
+Args:            
+  - String:          'Sequential '
+  - Direction:       read
+  - String:          ' of '
+  - Length:          variable
+  - String:          ' length'
+  - String:          ' has been inferred'
+  - String:          ' _XLX_SEP_ '
+  - AccessID:        scevgepseq
+  - ArrayName:       data_in
+  - String:          ' '
+  - BundleName:      gmem0
+  - String:          ' '
+  - LoopName:        vec_word_loop
+  - String:          ' '
+  - LoopLoc:         '/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:492:5'
+  - String:          ' '
+  - Function:        'process_tcp_checksum(ap_uint<512> const*, unsigned int*, unsigned int, unsigned int)'
+    DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                       Line: 575, Column: 0 }
+  - String:          ' '
+  - String:          ' _XLX_SEP_ '
+  - OrigAccess:      load
+    DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                       Line: 495, Column: 24 }
+  - OrigDirection:   read
+  - OrigID:          for.body87.i.load.7
+...
+--- !Passed
+Pass:            reflow-burst-inference
+Name:            BurstInferred
+DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                   Line: 549, Column: 39 }
+Function:        _ZL20process_tcp_checksumPK7ap_uintILi512EEPjjj
+Args:            
+  - String:          'Sequential '
+  - Direction:       read
+  - String:          ' of length '
+  - Length:          '2'
+  - String:          ' has been inferred'
+  - String:          ' _XLX_SEP_ '
+  - AccessID:        scevgep1seq
+  - ArrayName:       data_in
+  - String:          ' '
+  - BundleName:      gmem0
+  - String:          ' '
+  - LoopName:        tail_word_loop
+  - String:          ' '
+  - LoopLoc:         '/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:545:5'
+  - String:          ' '
+  - Function:        'process_tcp_checksum(ap_uint<512> const*, unsigned int*, unsigned int, unsigned int)'
+    DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                       Line: 575, Column: 0 }
+  - String:          ' '
+  - String:          ' _XLX_SEP_ '
+  - OrigAccess:      load
+    DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                       Line: 549, Column: 39 }
+  - OrigDirection:   read
+  - OrigID:          for.body118.i.load.15
+  - OrigAccess:      load
+    DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                       Line: 550, Column: 38 }
+  - OrigDirection:   read
+  - OrigID:          for.body118.i.load.24
+...
+--- !Passed
+Pass:            reflow-burst-inference
+Name:            BurstInferred
+DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                   Line: 467, Column: 39 }
+Function:        _ZL20process_tcp_checksumPK7ap_uintILi512EEPjjj
+Args:            
+  - String:          'Sequential '
+  - Direction:       read
+  - String:          ' of length '
+  - Length:          '2'
+  - String:          ' has been inferred'
+  - String:          ' _XLX_SEP_ '
+  - AccessID:        scevgep3seq
+  - ArrayName:       data_in
+  - String:          ' '
+  - BundleName:      gmem0
+  - String:          ' '
+  - LoopName:        word_loop
+  - String:          ' '
+  - LoopLoc:         '/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:463:5'
+  - String:          ' '
+  - Function:        'process_tcp_checksum(ap_uint<512> const*, unsigned int*, unsigned int, unsigned int)'
+    DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                       Line: 575, Column: 0 }
+  - String:          ' '
+  - String:          ' _XLX_SEP_ '
+  - OrigAccess:      load
+    DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                       Line: 467, Column: 39 }
+  - OrigDirection:   read
+  - OrigID:          for.body.i.load.13
+  - OrigAccess:      load
+    DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                       Line: 468, Column: 38 }
+  - OrigDirection:   read
+  - OrigID:          for.body.i.load.22
+...
+--- !Passed
+Pass:            reflow-burst-inference
+Name:            BurstInferred
+DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                   Line: 580, Column: 5 }
+Function:        _ZL20process_tcp_checksumPK7ap_uintILi512EEPjjj
+Args:            
+  - String:          'Sequential '
+  - Direction:       write
+  - String:          ' of '
+  - Length:          variable
+  - String:          ' length'
+  - String:          ' has been inferred'
+  - String:          ' _XLX_SEP_ '
+  - AccessID:        crc_out4seq
+  - ArrayName:       crc_out
+  - String:          ' '
+  - BundleName:      gmem0
+  - String:          ' '
+  - LoopName:        tcp_chunk_loop
+  - String:          ' '
+  - LoopLoc:         '/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:580:5'
+  - String:          ' '
+  - Function:        'process_tcp_checksum(ap_uint<512> const*, unsigned int*, unsigned int, unsigned int)'
+    DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                       Line: 575, Column: 0 }
+  - String:          ' '
+  - String:          ' _XLX_SEP_ '
+  - OrigAccess:      store
+    DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                       Line: 596, Column: 20 }
+  - OrigDirection:   write
+  - OrigID:          for.inc.store.6
+...
+--- !Missed
+Pass:            reflow-burst-inference
+Name:            CouldNotAnalyzeBoundsPattern
+DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                   Line: 545, Column: 5 }
+Function:        _ZL20process_tcp_checksumPK7ap_uintILi512EEPjjj
+Args:            
+  - String:          Could not analyze the loop bounds
+  - String:          ' _XLX_SEP_ '
+  - LoopName:        tail_word_loop
+  - String:          ' '
+  - LoopLoc:         '/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:545:5'
+  - String:          ' '
+  - Function:        'process_tcp_checksum(ap_uint<512> const*, unsigned int*, unsigned int, unsigned int)'
+    DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                       Line: 575, Column: 0 }
+  - String:          ' '
+...
+--- !Missed
+Pass:            reflow-burst-inference
+Name:            CouldNotAnalyzeBoundsPattern
+DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                   Line: 463, Column: 5 }
+Function:        _ZL20process_tcp_checksumPK7ap_uintILi512EEPjjj
+Args:            
+  - String:          Could not analyze the loop bounds
+  - String:          ' _XLX_SEP_ '
+  - LoopName:        word_loop
+  - String:          ' '
+  - LoopLoc:         '/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:463:5'
+  - String:          ' '
+  - Function:        'process_tcp_checksum(ap_uint<512> const*, unsigned int*, unsigned int, unsigned int)'
+    DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                       Line: 575, Column: 0 }
+  - String:          ' '
+...
+--- !Missed
+Pass:            reflow-burst-inference
+Name:            AccessInCondBranch
+DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                   Line: 474, Column: 64 }
+Function:        _ZL20process_tcp_checksumPK7ap_uintILi512EEPjjj
+Args:            
+  - String:          'Access '
+  - Access:          load
+    DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                       Line: 474, Column: 64 }
+  - String:          ' is in the conditional branch'
+  - String:          ' _XLX_SEP_ '
+  - OrigAccess:      load
+    DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                       Line: 474, Column: 64 }
+  - OrigDirection:   read
+  - OrigID:          if.then.i.load.3
+  - ArrayName:       data_in
+  - String:          ' '
+  - BundleName:      gmem0
+  - String:          ' '
+  - LoopName:        tcp_chunk_loop
+  - String:          ' '
+  - LoopLoc:         '/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:580:5'
+  - String:          ' '
+  - Function:        'process_tcp_checksum(ap_uint<512> const*, unsigned int*, unsigned int, unsigned int)'
+    DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                       Line: 575, Column: 0 }
+  - String:          ' '
+...
+--- !Missed
+Pass:            reflow-burst-inference
+Name:            IncompatibleStride
+DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                   Line: 557, Column: 38 }
+Function:        _ZL20process_tcp_checksumPK7ap_uintILi512EEPjjj
+Args:            
+  - String:          Stride is incompatible
+  - String:          ' _XLX_SEP_ '
+  - OrigAccess:      load
+    DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                       Line: 557, Column: 38 }
+  - OrigDirection:   read
+  - OrigID:          if.then.i46.load.2
+  - ArrayName:       data_in
+  - String:          ' '
+  - BundleName:      gmem0
+  - String:          ' '
+  - LoopName:        tcp_chunk_loop
+  - String:          ' '
+  - LoopLoc:         '/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:580:5'
+  - String:          ' '
+  - Function:        'process_tcp_checksum(ap_uint<512> const*, unsigned int*, unsigned int, unsigned int)'
+    DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                       Line: 575, Column: 0 }
+  - String:          ' '
+...
+--- !Missed
+Pass:            reflow-burst-inference
+Name:            CouldNotAnalyzePattern
+DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                   Line: 492, Column: 5 }
+Function:        _ZL20process_tcp_checksumPK7ap_uintILi512EEPjjj
+Args:            
+  - String:          Could not analyze pattern
+  - String:          ' _XLX_SEP_ '
+  - OrigAccess:      call
+    DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                       Line: 492, Column: 5 }
+  - OrigDirection:   read
+  - OrigID:          scevgepseq
+  - ArrayName:       data_in
+  - String:          ' '
+  - BundleName:      gmem0
+  - String:          ' '
+  - LoopName:        tcp_chunk_loop
+  - String:          ' '
+  - LoopLoc:         '/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:580:5'
+  - String:          ' '
+  - Function:        'process_tcp_checksum(ap_uint<512> const*, unsigned int*, unsigned int, unsigned int)'
+    DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                       Line: 575, Column: 0 }
+  - String:          ' '
+...
+--- !Missed
+Pass:            reflow-burst-widen
+Name:            BadAccessLen
+DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                   Line: 580, Column: 5 }
+Function:        _ZL20process_tcp_checksumPK7ap_uintILi512EEPjjj
+Args:            
+  - String:          Sequential access length is not divisible by 2
+  - String:          ' _XLX_SEP_ '
+  - OrigAccess:      call
+    DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                       Line: 580, Column: 5 }
+  - OrigDirection:   write
+  - OrigID:          crc_out4seq
+  - ArrayName:       crc_out
+  - String:          ' '
+  - BundleName:      gmem0
+  - String:          ' '
+  - LoopName:        tcp_chunk_loop
+  - String:          ' '
+  - LoopLoc:         '/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:580:5'
+  - String:          ' '
+  - Function:        'process_tcp_checksum(ap_uint<512> const*, unsigned int*, unsigned int, unsigned int)'
+    DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                       Line: 575, Column: 0 }
+  - String:          ' '
+...
+--- !Missed
+Pass:            reflow-burst-widen
+Name:            GreaterOrEqualAlignment
+DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                   Line: 549, Column: 39 }
+Function:        _ZL20process_tcp_checksumPK7ap_uintILi512EEPjjj
+Args:            
+  - String:          'Could not widen since type '
+  - Type:            i8
+  - String:          ' size is greater than or equal to alignment '
+  - Alignment:       '1'
+  - String:          '(bytes)'
+  - String:          ' _XLX_SEP_ '
+  - OrigAccess:      call
+    DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                       Line: 549, Column: 39 }
+  - OrigDirection:   read
+  - OrigID:          scevgep1seq
+  - ArrayName:       data_in
+  - String:          ' '
+  - BundleName:      gmem0
+  - String:          ' '
+  - Function:        'process_tcp_checksum(ap_uint<512> const*, unsigned int*, unsigned int, unsigned int)'
+    DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                       Line: 575, Column: 0 }
+  - String:          ' '
+...
+--- !Missed
+Pass:            reflow-burst-widen
+Name:            GreaterOrEqualThreshold
+DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                   Line: 492, Column: 5 }
+Function:        _ZL20process_tcp_checksumPK7ap_uintILi512EEPjjj
+Args:            
+  - String:          'Could not widen since type '
+  - Type:            i512
+  - String:          ' size is greater than or equal to the max_widen_bitwidth threshold of '
+  - Threshold:       '512'
+  - String:          ' _XLX_SEP_ '
+  - OrigAccess:      call
+    DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                       Line: 492, Column: 5 }
+  - OrigDirection:   read
+  - OrigID:          scevgepseq
+  - ArrayName:       data_in
+  - String:          ' '
+  - BundleName:      gmem0
+  - String:          ' '
+  - LoopName:        vec_word_loop
+  - String:          ' '
+  - LoopLoc:         '/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:492:5'
+  - String:          ' '
+  - Function:        'process_tcp_checksum(ap_uint<512> const*, unsigned int*, unsigned int, unsigned int)'
+    DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                       Line: 575, Column: 0 }
+  - String:          ' '
+...
+--- !Missed
+Pass:            reflow-burst-widen
+Name:            GreaterOrEqualAlignment
+DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                   Line: 467, Column: 39 }
+Function:        _ZL20process_tcp_checksumPK7ap_uintILi512EEPjjj
+Args:            
+  - String:          'Could not widen since type '
+  - Type:            i8
+  - String:          ' size is greater than or equal to alignment '
+  - Alignment:       '1'
+  - String:          '(bytes)'
+  - String:          ' _XLX_SEP_ '
+  - OrigAccess:      call
+    DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                       Line: 467, Column: 39 }
+  - OrigDirection:   read
+  - OrigID:          scevgep3seq
+  - ArrayName:       data_in
+  - String:          ' '
+  - BundleName:      gmem0
+  - String:          ' '
+  - Function:        'process_tcp_checksum(ap_uint<512> const*, unsigned int*, unsigned int, unsigned int)'
+    DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                       Line: 575, Column: 0 }
+  - String:          ' '
+...
+--- !Passed
+Pass:            reflow-infer-unroll
+Name:            ImplicitUnroll
+DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                   Line: 463, Column: 5 }
+Function:        _ZL20process_tcp_checksumPK7ap_uintILi512EEPjjj
+Args:            
+  - String:          'Loop '''
+  - LoopName:        word_loop
+  - String:          ''' is marked as complete unroll implied by the pipeline pragma'
+...
+--- !Passed
+Pass:            reflow-infer-unroll
+Name:            ImplicitUnroll
+DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                   Line: 492, Column: 5 }
+Function:        _ZL20process_tcp_checksumPK7ap_uintILi512EEPjjj
+Args:            
+  - String:          'Loop '''
+  - LoopName:        vec_word_loop
+  - String:          ''' is marked as complete unroll implied by the pipeline pragma'
+...
+--- !Passed
+Pass:            reflow-infer-unroll
+Name:            ImplicitUnroll
+DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                   Line: 545, Column: 5 }
+Function:        _ZL20process_tcp_checksumPK7ap_uintILi512EEPjjj
+Args:            
+  - String:          'Loop '''
+  - LoopName:        tail_word_loop
+  - String:          ''' is marked as complete unroll implied by the pipeline pragma'
+...
+--- !Missed
+Pass:            reflow-supported-subset
+Name:            MismatchPortAndBurstAccessWidth
+DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                   Line: 580, Column: 5 }
+Function:        _ZL20process_tcp_checksumPK7ap_uintILi512EEPjjj
+Args:            
+  - String:          Inferred burst reverted due to burst accesses data width is different from m_axi port width
+  - String:          ' _XLX_SEP_ '
+  - OrigAccess:      call
+    DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                       Line: 580, Column: 5 }
+  - OrigDirection:   write
+  - OrigID:          crc_out4seq
+  - ArrayName:       ''
+  - String:          ' '
+  - BundleName:      crc_out
+  - String:          ' '
+  - Function:        'process_tcp_checksum(ap_uint<512> const*, unsigned int*, unsigned int, unsigned int)'
+    DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                       Line: 575, Column: 0 }
+  - String:          ' '
+...
+--- !Missed
+Pass:            reflow-supported-subset
+Name:            MismatchPortAndBurstAccessWidth
+DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                   Line: 467, Column: 39 }
+Function:        _ZL20process_tcp_checksumPK7ap_uintILi512EEPjjj
+Args:            
+  - String:          Inferred burst reverted due to burst accesses data width is different from m_axi port width
+  - String:          ' _XLX_SEP_ '
+  - OrigAccess:      call
+    DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                       Line: 467, Column: 39 }
+  - OrigDirection:   read
+  - OrigID:          scevgep3seq
+  - ArrayName:       ''
+  - String:          ' '
+  - BundleName:      data_in
+  - String:          ' '
+  - Function:        'process_tcp_checksum(ap_uint<512> const*, unsigned int*, unsigned int, unsigned int)'
+    DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                       Line: 575, Column: 0 }
+  - String:          ' '
+...
+--- !Missed
+Pass:            reflow-supported-subset
+Name:            MismatchPortAndBurstAccessWidth
+DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                   Line: 549, Column: 39 }
+Function:        _ZL20process_tcp_checksumPK7ap_uintILi512EEPjjj
+Args:            
+  - String:          Inferred burst reverted due to burst accesses data width is different from m_axi port width
+  - String:          ' _XLX_SEP_ '
+  - OrigAccess:      call
+    DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                       Line: 549, Column: 39 }
+  - OrigDirection:   read
+  - OrigID:          scevgep1seq
+  - ArrayName:       ''
+  - String:          ' '
+  - BundleName:      data_in
+  - String:          ' '
+  - Function:        'process_tcp_checksum(ap_uint<512> const*, unsigned int*, unsigned int, unsigned int)'
+    DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                       Line: 575, Column: 0 }
+  - String:          ' '
+...
+--- !Passed
+Pass:            reflow-burst-summary
+Name:            BurstInferredVerboseSummary
+DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                   Line: 492, Column: 5 }
+Function:        _ZL20process_tcp_checksumPK7ap_uintILi512EEPjjj.1
+Args:            
+  - String:          'Multiple burst '
+  - Direction:       reads
+  - String:          ' of '
+  - Length:          variable
+  - String:          ' length and bit width '
+  - Width:           '512'
+  - String:          ' has been inferred.'
+  - String:          ' These burst requests might be further partitioned into multiple requests during RTL generation, based on max_read_burst_length or max_write_burst_length settings.'
+  - String:          ' _XLX_SEP_ '
+  - AccessID:        seq
+  - ArrayName:       ''
+  - String:          ' '
+  - BundleName:      gmem0
+  - String:          ' '
+  - LoopName:        vec_word_loop
+  - String:          ' '
+  - LoopLoc:         '/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:492:5'
+  - String:          ' '
+  - Function:        'process_tcp_checksum(ap_uint<512> const*, unsigned int*, unsigned int, unsigned int) (.1)'
+    DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                       Line: 575, Column: 0 }
+  - String:          ' '
+...
+--- !Passed
+Pass:            reflow-burst-summary
+Name:            BurstInferredSummary
+DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                   Line: 492, Column: 5 }
+Function:        _ZL20process_tcp_checksumPK7ap_uintILi512EEPjjj.1
+Args:            
+  - String:          'Multiple burst '
+  - Direction:       reads
+  - String:          ' of '
+  - Length:          variable
+  - String:          ' length and bit width '
+  - Width:           '512'
+  - String:          ' in loop '''
+  - LoopName:        vec_word_loop
+  - String:          '''('
+  - LoopLoc:         '/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:492:5'
+  - String:          ')'
+  - String:          ' has been inferred on bundle '''
+  - BundleName:      gmem0
+  - String:          '''.'
+  - String:          ' These burst requests might be further partitioned into multiple requests during RTL generation, based on max_read_burst_length or max_write_burst_length settings.'
+...
+--- !Passed
+Pass:            reflow-infer-unroll
+Name:            ImplicitUnroll
+DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                   Line: 463, Column: 5 }
+Function:        _ZL20process_tcp_checksumPK7ap_uintILi512EEPjjj.1
+Args:            
+  - String:          'Loop '''
+  - LoopName:        word_loop
+  - String:          ''' is marked as complete unroll implied by the pipeline pragma'
+...
+--- !Passed
+Pass:            reflow-infer-unroll
+Name:            ImplicitUnroll
+DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                   Line: 492, Column: 5 }
+Function:        _ZL20process_tcp_checksumPK7ap_uintILi512EEPjjj.1
+Args:            
+  - String:          'Loop '''
+  - LoopName:        vec_word_loop
+  - String:          ''' is marked as complete unroll implied by the pipeline pragma'
+...
+--- !Passed
+Pass:            reflow-infer-unroll
+Name:            ImplicitUnroll
+DebugLoc:        { File: /users/arashs/U280_CRC_Accelerator/src/kernel.cpp, 
+                   Line: 545, Column: 5 }
+Function:        _ZL20process_tcp_checksumPK7ap_uintILi512EEPjjj.1
+Args:            
+  - String:          'Loop '''
+  - LoopName:        tail_word_loop
+  - String:          ''' is marked as complete unroll implied by the pipeline pragma'
+...

@@ -1,0 +1,48 @@
+Begin Function 'read_input'
+
+RTL state condition: (1'b1 == ap_CS_fsm_state2)
+# ST_2
+local total_bytes <mul_282> <integer> <Arithmetic><MultiCycle> 'mul' </users/arashs/U280_CRC_Accelerator/src/kernel.cpp:282>
+total_bytes /users/arashs/U280_CRC_Accelerator/src/kernel.cpp:282
+reg: total_bytes_reg_293[31:0] lv
+
+local tmp <bitselect_283> <integer> <> 'bitselect' </users/arashs/U280_CRC_Accelerator/src/kernel.cpp:283>
+tmp /users/arashs/U280_CRC_Accelerator/src/kernel.cpp:283
+reg: tmp_reg_298[0:0] lv
+
+local trunc_ln283_2 <partselect_283> <integer> <> 'partselect' </users/arashs/U280_CRC_Accelerator/src/kernel.cpp:283>
+trunc_ln283_2 /users/arashs/U280_CRC_Accelerator/src/kernel.cpp:283
+reg: trunc_ln283_2_reg_303[27:0] lv
+
+
+RTL state condition: (1'b1 == ap_CS_fsm_state3)
+# ST_3
+local trunc_ln283_1 <partselect_283> <integer> <> 'partselect' </users/arashs/U280_CRC_Accelerator/src/kernel.cpp:283>
+trunc_ln283_1 /users/arashs/U280_CRC_Accelerator/src/kernel.cpp:283
+reg: trunc_ln283_1_reg_308[27:0] lv
+
+
+RTL state condition: (1'b1 == ap_CS_fsm_state4)
+# ST_4
+local loop_count <select_283> <integer> <> 'select' </users/arashs/U280_CRC_Accelerator/src/kernel.cpp:283>
+loop_count /users/arashs/U280_CRC_Accelerator/src/kernel.cpp:283
+reg: loop_count_reg_313[28:0] lv
+
+local empty <select_287> <integer> <> 'select' </users/arashs/U280_CRC_Accelerator/src/kernel.cpp:287>
+empty /users/arashs/U280_CRC_Accelerator/src/kernel.cpp:287
+empty /users/arashs/U280_CRC_Accelerator/src/kernel.cpp:283
+reg: empty_reg_318[27:0] lv
+
+
+RTL state condition: (1'b1 == ap_CS_fsm_state5)
+# ST_5
+local trunc_ln1 <partselect_287> <integer> <> 'partselect' </users/arashs/U280_CRC_Accelerator/src/kernel.cpp:287>
+trunc_ln1 /users/arashs/U280_CRC_Accelerator/src/kernel.cpp:287
+reg: trunc_ln1_reg_323[59:0] lv
+
+
+RTL state condition: (1'b1 == ap_CS_fsm_state77)
+# ST_77
+
+End Function 'read_input'
+

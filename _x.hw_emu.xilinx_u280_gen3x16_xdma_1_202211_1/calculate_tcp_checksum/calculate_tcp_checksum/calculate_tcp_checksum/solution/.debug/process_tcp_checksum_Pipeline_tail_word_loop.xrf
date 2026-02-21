@@ -1,0 +1,58 @@
+Begin Function 'process_tcp_checksum_Pipeline_tail_word_loop'
+
+RTL state condition: (1'b1 == ap_CS_fsm_pp0_stage0)
+# ST_1
+local add_ln549_2 <add_590> <integer> <Arithmetic> 'add' </users/arashs/U280_CRC_Accelerator/src/kernel.cpp:549->/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:590>
+add_ln549_2 /users/arashs/U280_CRC_Accelerator/src/kernel.cpp:549
+add_ln549_2 /users/arashs/U280_CRC_Accelerator/src/kernel.cpp:590
+reg: add_ln549_2_reg_363[63:0] lv
+
+local trunc_ln549_5 <partselect_590> <integer> <> 'partselect' </users/arashs/U280_CRC_Accelerator/src/kernel.cpp:549->/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:590>
+trunc_ln549_5 /users/arashs/U280_CRC_Accelerator/src/kernel.cpp:549
+trunc_ln549_5 /users/arashs/U280_CRC_Accelerator/src/kernel.cpp:590
+reg: trunc_ln549_5_reg_368[57:0] lv
+
+local add_ln549_4 <add_590> <integer> <Arithmetic> 'add' </users/arashs/U280_CRC_Accelerator/src/kernel.cpp:549->/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:590>
+add_ln549_4 /users/arashs/U280_CRC_Accelerator/src/kernel.cpp:549
+add_ln549_4 /users/arashs/U280_CRC_Accelerator/src/kernel.cpp:590
+reg: add_ln549_4_reg_373[5:0] lv
+
+local icmp_ln545 <icmp_590> <integer> <Comparator> 'icmp' </users/arashs/U280_CRC_Accelerator/src/kernel.cpp:545->/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:590>
+icmp_ln545 /users/arashs/U280_CRC_Accelerator/src/kernel.cpp:545
+icmp_ln545 /users/arashs/U280_CRC_Accelerator/src/kernel.cpp:590
+reg: icmp_ln545_reg_379[0:0] lv
+
+# ST_73
+local gmem0_addr_read <read_590> <integer> <> 'read' </users/arashs/U280_CRC_Accelerator/src/kernel.cpp:549->/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:590>
+gmem0_addr_read /users/arashs/U280_CRC_Accelerator/src/kernel.cpp:549
+gmem0_addr_read /users/arashs/U280_CRC_Accelerator/src/kernel.cpp:590
+reg: gmem0_addr_read_reg_400[511:0] lv
+
+# ST_75
+local trunc_ln549_3 <trunc_590> <integer> <> 'trunc' </users/arashs/U280_CRC_Accelerator/src/kernel.cpp:549->/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:590>
+trunc_ln549_3 /users/arashs/U280_CRC_Accelerator/src/kernel.cpp:549
+trunc_ln549_3 /users/arashs/U280_CRC_Accelerator/src/kernel.cpp:590
+reg: trunc_ln549_3_reg_415[7:0] lv
+
+
+RTL state condition: (1'b1 == ap_CS_fsm_pp0_stage1)
+# ST_2
+local trunc_ln4 <partselect_590> <integer> <> 'partselect' </users/arashs/U280_CRC_Accelerator/src/kernel.cpp:549->/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:590>
+trunc_ln4 /users/arashs/U280_CRC_Accelerator/src/kernel.cpp:549
+trunc_ln4 /users/arashs/U280_CRC_Accelerator/src/kernel.cpp:590
+reg: trunc_ln4_reg_389[57:0] lv
+
+# ST_74
+local trunc_ln549_2 <trunc_590> <integer> <> 'trunc' </users/arashs/U280_CRC_Accelerator/src/kernel.cpp:549->/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:590>
+trunc_ln549_2 /users/arashs/U280_CRC_Accelerator/src/kernel.cpp:549
+trunc_ln549_2 /users/arashs/U280_CRC_Accelerator/src/kernel.cpp:590
+reg: trunc_ln549_2_reg_405[7:0] lv
+
+local gmem0_addr_2_read <read_590> <integer> <> 'read' </users/arashs/U280_CRC_Accelerator/src/kernel.cpp:549->/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:590>
+gmem0_addr_2_read /users/arashs/U280_CRC_Accelerator/src/kernel.cpp:549
+gmem0_addr_2_read /users/arashs/U280_CRC_Accelerator/src/kernel.cpp:590
+reg: gmem0_addr_2_read_reg_410[511:0] lv
+
+
+End Function 'process_tcp_checksum_Pipeline_tail_word_loop'
+

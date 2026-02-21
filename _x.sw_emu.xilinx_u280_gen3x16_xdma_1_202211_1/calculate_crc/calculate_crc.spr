@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="calculate_crc" dir="">
+  <FileSets>
+    <FileSet Name="kernel_calculate_crc" Type="DesignSrcs">
+      <File Path="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp"/>
+      <Config/>
+    </FileSet>
+  </FileSets>
+  <Runs/>
+</project>
