@@ -28,6 +28,23 @@ fi
 source /opt/xilinx/xrt/setup.sh
 ```
 
+## SOL Setup
+
+```bash
+module load xilinx/vitis-2022.1
+
+source /packages/apps/fpga/Vitis/2023.2/settings64.sh
+
+export XILINX_VIVADO=/packages/apps/fpga/Vivado/2022.1
+export PATH=$XILINX_VIVADO/bin:$PATH
+
+export XILINX_VITIS=/packages/apps/fpga/Vitis/2022.1
+export PATH=$XILINX_VITIS/bin:$PATH
+
+export XILINX_VITIS_HLS=/packages/apps/fpga/Vitis_HLS/2022.1
+export PATH=$XILINX_VITIS_HLS/bin:$PATH
+```
+
 Platform used in this repo:
 
 - `xilinx_u280_gen3x16_xdma_1_202211_1`
