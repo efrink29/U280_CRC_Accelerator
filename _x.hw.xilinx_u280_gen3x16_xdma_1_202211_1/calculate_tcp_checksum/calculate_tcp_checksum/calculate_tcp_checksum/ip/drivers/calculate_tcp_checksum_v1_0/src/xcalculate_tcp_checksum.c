@@ -1,9 +1,7 @@
 // ==============================================================
-// Vitis HLS - High-Level Synthesis from C, C++ and OpenCL v2023.1 (64-bit)
-// Tool Version Limit: 2023.05
+// Vitis HLS - High-Level Synthesis from C, C++ and OpenCL v2022.1 (64-bit)
+// Tool Version Limit: 2022.04
 // Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
-// Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
-// 
 // ==============================================================
 /***************************** Include Files *********************************/
 #include "xcalculate_tcp_checksum.h"
@@ -196,7 +194,7 @@ void XCalculate_tcp_checksum_InterruptClear(XCalculate_tcp_checksum *InstancePtr
     Xil_AssertVoid(InstancePtr != NULL);
     Xil_AssertVoid(InstancePtr->IsReady == XIL_COMPONENT_IS_READY);
 
-    XCalculate_tcp_checksum_WriteReg(InstancePtr->Control_BaseAddress, XCALCULATE_TCP_CHECKSUM_CONTROL_ADDR_ISR, Mask);
+    //XCalculate_tcp_checksum_WriteReg(InstancePtr->Control_BaseAddress, XCALCULATE_TCP_CHECKSUM_CONTROL_ADDR_ISR, Mask);
 }
 
 u32 XCalculate_tcp_checksum_InterruptGetEnabled(XCalculate_tcp_checksum *InstancePtr) {
@@ -210,6 +208,7 @@ u32 XCalculate_tcp_checksum_InterruptGetStatus(XCalculate_tcp_checksum *Instance
     Xil_AssertNonvoid(InstancePtr != NULL);
     Xil_AssertNonvoid(InstancePtr->IsReady == XIL_COMPONENT_IS_READY);
 
+    // Current Interrupt Clear Behavior is Clear on Read(COR).
     return XCalculate_tcp_checksum_ReadReg(InstancePtr->Control_BaseAddress, XCALCULATE_TCP_CHECKSUM_CONTROL_ADDR_ISR);
 }
 

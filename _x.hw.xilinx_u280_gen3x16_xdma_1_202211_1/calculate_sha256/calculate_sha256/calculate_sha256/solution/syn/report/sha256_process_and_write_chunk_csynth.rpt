@@ -1,0 +1,206 @@
+
+
+================================================================
+== Vitis HLS Report for 'sha256_process_and_write_chunk'
+================================================================
+* Date:           Thu Apr  2 18:19:38 2026
+
+* Version:        2022.1 (Build 3526262 on Mon Apr 18 15:47:01 MDT 2022)
+* Project:        calculate_sha256
+* Solution:       solution (Vitis Kernel Flow Target)
+* Product family: virtexuplus
+* Target device:  xcu280-fsvh2892-2L-e
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing: 
+    * Summary: 
+    +--------+---------+----------+------------+
+    |  Clock |  Target | Estimated| Uncertainty|
+    +--------+---------+----------+------------+
+    |ap_clk  |  3.33 ns|  2.939 ns|     0.90 ns|
+    +--------+---------+----------+------------+
+
++ Latency: 
+    * Summary: 
+    +---------+---------+----------+----------+-----+-----+---------+
+    |  Latency (cycles) |  Latency (absolute) |  Interval | Pipeline|
+    |   min   |   max   |    min   |    max   | min | max |   Type  |
+    +---------+---------+----------+----------+-----+-----+---------+
+    |      273|        ?|  0.910 us|         ?|  273|    ?|       no|
+    +---------+---------+----------+----------+-----+-----+---------+
+
+    + Detail: 
+        * Instance: 
+        +-----------------------------------------------------------------+------------------------------------------------------+---------+---------+-----------+-----------+-----+-----+---------+
+        |                                                                 |                                                      |  Latency (cycles) |   Latency (absolute)  |  Interval | Pipeline|
+        |                             Instance                            |                        Module                        |   min   |   max   |    min    |    max    | min | max |   Type  |
+        +-----------------------------------------------------------------+------------------------------------------------------+---------+---------+-----------+-----------+-----+-----+---------+
+        |grp_sha256_process_chunk_fu_97                                   |sha256_process_chunk                                  |      191|        ?|   0.637 us|          ?|  191|    ?|       no|
+        |grp_sha256_process_and_write_chunk_Pipeline_write_digest_fu_109  |sha256_process_and_write_chunk_Pipeline_write_digest  |       10|       10|  33.330 ns|  33.330 ns|   10|   10|       no|
+        +-----------------------------------------------------------------+------------------------------------------------------+---------+---------+-----------+-----------+-----+-----+---------+
+
+        * Loop: 
+        N/A
+
+
+
+================================================================
+== Utilization Estimates
+================================================================
+* Summary: 
++---------------------+---------+------+---------+---------+-----+
+|         Name        | BRAM_18K|  DSP |    FF   |   LUT   | URAM|
++---------------------+---------+------+---------+---------+-----+
+|DSP                  |        -|     -|        -|        -|    -|
+|Expression           |        -|     -|        0|     2353|    -|
+|FIFO                 |        -|     -|        -|        -|    -|
+|Instance             |        0|     -|    45091|   155453|    0|
+|Memory               |        -|     -|        -|        -|    -|
+|Multiplexer          |        -|     -|        -|      383|    -|
+|Register             |        -|     -|      907|        -|    -|
++---------------------+---------+------+---------+---------+-----+
+|Total                |        0|     0|    45998|   158189|    0|
++---------------------+---------+------+---------+---------+-----+
+|Available SLR        |     1344|  3008|   869120|   434560|  320|
++---------------------+---------+------+---------+---------+-----+
+|Utilization SLR (%)  |        0|     0|        5|       36|    0|
++---------------------+---------+------+---------+---------+-----+
+|Available            |     4032|  9024|  2607360|  1303680|  960|
++---------------------+---------+------+---------+---------+-----+
+|Utilization (%)      |        0|     0|        1|       12|    0|
++---------------------+---------+------+---------+---------+-----+
+
++ Detail: 
+    * Instance: 
+    +-----------------------------------------------------------------+------------------------------------------------------+---------+----+-------+--------+-----+
+    |                             Instance                            |                        Module                        | BRAM_18K| DSP|   FF  |   LUT  | URAM|
+    +-----------------------------------------------------------------+------------------------------------------------------+---------+----+-------+--------+-----+
+    |grp_sha256_process_and_write_chunk_Pipeline_write_digest_fu_109  |sha256_process_and_write_chunk_Pipeline_write_digest  |        0|   0|    263|     102|    0|
+    |grp_sha256_process_chunk_fu_97                                   |sha256_process_chunk                                  |        0|   0|  44828|  155351|    0|
+    +-----------------------------------------------------------------+------------------------------------------------------+---------+----+-------+--------+-----+
+    |Total                                                            |                                                      |        0|   0|  45091|  155453|    0|
+    +-----------------------------------------------------------------+------------------------------------------------------+---------+----+-------+--------+-----+
+
+    * DSP: 
+    N/A
+
+    * Memory: 
+    N/A
+
+    * FIFO: 
+    N/A
+
+    * Expression: 
+    +-----------------------+----------+----+---+------+------------+------------+
+    |     Variable Name     | Operation| DSP| FF|  LUT | Bitwidth P0| Bitwidth P1|
+    +-----------------------+----------+----+---+------+------------+------------+
+    |shl_ln209_2_fu_195_p2  |       shl|   0|  0|  2171|         512|         512|
+    |shl_ln209_fu_177_p2    |       shl|   0|  0|   182|          32|          64|
+    +-----------------------+----------+----+---+------+------------+------------+
+    |Total                  |          |   0|  0|  2353|         544|         576|
+    +-----------------------+----------+----+---+------+------------+------------+
+
+    * Multiplexer: 
+    +---------------------+-----+-----------+-----+-----------+
+    |         Name        | LUT | Input Size| Bits| Total Bits|
+    +---------------------+-----+-----------+-----+-----------+
+    |ap_NS_fsm            |  338|         74|    1|         74|
+    |gmem0_blk_n_AW       |    9|          2|    1|          2|
+    |gmem0_blk_n_B        |    9|          2|    1|          2|
+    |gmem0_blk_n_W        |    9|          2|    1|          2|
+    |m_axi_gmem0_ARVALID  |    9|          2|    1|          2|
+    |m_axi_gmem0_RREADY   |    9|          2|    1|          2|
+    +---------------------+-----+-----------+-----+-----------+
+    |Total                |  383|         84|    6|         84|
+    +---------------------+-----+-----------+-----+-----------+
+
+    * Register: 
+    +------------------------------------------------------------------------------+-----+----+-----+-----------+
+    |                                     Name                                     |  FF | LUT| Bits| Const Bits|
+    +------------------------------------------------------------------------------+-----+----+-----+-----------+
+    |ap_CS_fsm                                                                     |   73|   0|   73|          0|
+    |digest_1_reg_243                                                              |   32|   0|   32|          0|
+    |digest_2_reg_248                                                              |   32|   0|   32|          0|
+    |digest_3_reg_253                                                              |   32|   0|   32|          0|
+    |digest_4_reg_258                                                              |   32|   0|   32|          0|
+    |digest_5_reg_263                                                              |   32|   0|   32|          0|
+    |digest_6_reg_268                                                              |   32|   0|   32|          0|
+    |digest_7_reg_273                                                              |   32|   0|   32|          0|
+    |digest_reg_238                                                                |   32|   0|   32|          0|
+    |grp_sha256_process_and_write_chunk_Pipeline_write_digest_fu_109_ap_start_reg  |    1|   0|    1|          0|
+    |grp_sha256_process_chunk_fu_97_ap_start_reg                                   |    1|   0|    1|          0|
+    |shl_ln209_2_reg_283                                                           |  512|   0|  512|          0|
+    |shl_ln209_reg_278                                                             |   64|   0|   64|          0|
+    +------------------------------------------------------------------------------+-----+----+-----+-----------+
+    |Total                                                                         |  907|   0|  907|          0|
+    +------------------------------------------------------------------------------+-----+----+-----+-----------+
+
+
+
+================================================================
+== Interface
+================================================================
+* Summary: 
++----------------------+-----+-----+------------+--------------------------------+--------------+
+|       RTL Ports      | Dir | Bits|  Protocol  |          Source Object         |    C Type    |
++----------------------+-----+-----+------------+--------------------------------+--------------+
+|ap_clk                |   in|    1|  ap_ctrl_hs|  sha256_process_and_write_chunk|  return value|
+|ap_rst                |   in|    1|  ap_ctrl_hs|  sha256_process_and_write_chunk|  return value|
+|ap_start              |   in|    1|  ap_ctrl_hs|  sha256_process_and_write_chunk|  return value|
+|ap_done               |  out|    1|  ap_ctrl_hs|  sha256_process_and_write_chunk|  return value|
+|ap_idle               |  out|    1|  ap_ctrl_hs|  sha256_process_and_write_chunk|  return value|
+|ap_ready              |  out|    1|  ap_ctrl_hs|  sha256_process_and_write_chunk|  return value|
+|m_axi_gmem0_AWVALID   |  out|    1|       m_axi|                           gmem0|       pointer|
+|m_axi_gmem0_AWREADY   |   in|    1|       m_axi|                           gmem0|       pointer|
+|m_axi_gmem0_AWADDR    |  out|   64|       m_axi|                           gmem0|       pointer|
+|m_axi_gmem0_AWID      |  out|    1|       m_axi|                           gmem0|       pointer|
+|m_axi_gmem0_AWLEN     |  out|   32|       m_axi|                           gmem0|       pointer|
+|m_axi_gmem0_AWSIZE    |  out|    3|       m_axi|                           gmem0|       pointer|
+|m_axi_gmem0_AWBURST   |  out|    2|       m_axi|                           gmem0|       pointer|
+|m_axi_gmem0_AWLOCK    |  out|    2|       m_axi|                           gmem0|       pointer|
+|m_axi_gmem0_AWCACHE   |  out|    4|       m_axi|                           gmem0|       pointer|
+|m_axi_gmem0_AWPROT    |  out|    3|       m_axi|                           gmem0|       pointer|
+|m_axi_gmem0_AWQOS     |  out|    4|       m_axi|                           gmem0|       pointer|
+|m_axi_gmem0_AWREGION  |  out|    4|       m_axi|                           gmem0|       pointer|
+|m_axi_gmem0_AWUSER    |  out|    1|       m_axi|                           gmem0|       pointer|
+|m_axi_gmem0_WVALID    |  out|    1|       m_axi|                           gmem0|       pointer|
+|m_axi_gmem0_WREADY    |   in|    1|       m_axi|                           gmem0|       pointer|
+|m_axi_gmem0_WDATA     |  out|  512|       m_axi|                           gmem0|       pointer|
+|m_axi_gmem0_WSTRB     |  out|   64|       m_axi|                           gmem0|       pointer|
+|m_axi_gmem0_WLAST     |  out|    1|       m_axi|                           gmem0|       pointer|
+|m_axi_gmem0_WID       |  out|    1|       m_axi|                           gmem0|       pointer|
+|m_axi_gmem0_WUSER     |  out|    1|       m_axi|                           gmem0|       pointer|
+|m_axi_gmem0_ARVALID   |  out|    1|       m_axi|                           gmem0|       pointer|
+|m_axi_gmem0_ARREADY   |   in|    1|       m_axi|                           gmem0|       pointer|
+|m_axi_gmem0_ARADDR    |  out|   64|       m_axi|                           gmem0|       pointer|
+|m_axi_gmem0_ARID      |  out|    1|       m_axi|                           gmem0|       pointer|
+|m_axi_gmem0_ARLEN     |  out|   32|       m_axi|                           gmem0|       pointer|
+|m_axi_gmem0_ARSIZE    |  out|    3|       m_axi|                           gmem0|       pointer|
+|m_axi_gmem0_ARBURST   |  out|    2|       m_axi|                           gmem0|       pointer|
+|m_axi_gmem0_ARLOCK    |  out|    2|       m_axi|                           gmem0|       pointer|
+|m_axi_gmem0_ARCACHE   |  out|    4|       m_axi|                           gmem0|       pointer|
+|m_axi_gmem0_ARPROT    |  out|    3|       m_axi|                           gmem0|       pointer|
+|m_axi_gmem0_ARQOS     |  out|    4|       m_axi|                           gmem0|       pointer|
+|m_axi_gmem0_ARREGION  |  out|    4|       m_axi|                           gmem0|       pointer|
+|m_axi_gmem0_ARUSER    |  out|    1|       m_axi|                           gmem0|       pointer|
+|m_axi_gmem0_RVALID    |   in|    1|       m_axi|                           gmem0|       pointer|
+|m_axi_gmem0_RREADY    |  out|    1|       m_axi|                           gmem0|       pointer|
+|m_axi_gmem0_RDATA     |   in|  512|       m_axi|                           gmem0|       pointer|
+|m_axi_gmem0_RLAST     |   in|    1|       m_axi|                           gmem0|       pointer|
+|m_axi_gmem0_RID       |   in|    1|       m_axi|                           gmem0|       pointer|
+|m_axi_gmem0_RFIFONUM  |   in|    9|       m_axi|                           gmem0|       pointer|
+|m_axi_gmem0_RUSER     |   in|    1|       m_axi|                           gmem0|       pointer|
+|m_axi_gmem0_RRESP     |   in|    2|       m_axi|                           gmem0|       pointer|
+|m_axi_gmem0_BVALID    |   in|    1|       m_axi|                           gmem0|       pointer|
+|m_axi_gmem0_BREADY    |  out|    1|       m_axi|                           gmem0|       pointer|
+|m_axi_gmem0_BRESP     |   in|    2|       m_axi|                           gmem0|       pointer|
+|m_axi_gmem0_BID       |   in|    1|       m_axi|                           gmem0|       pointer|
+|m_axi_gmem0_BUSER     |   in|    1|       m_axi|                           gmem0|       pointer|
+|chunk                 |   in|   64|     ap_none|                           chunk|        scalar|
+|chunk_size            |   in|   32|     ap_none|                      chunk_size|        scalar|
+|out_words             |   in|   64|     ap_none|                       out_words|        scalar|
++----------------------+-----+-----+------------+--------------------------------+--------------+
+

@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
 <ProcessHandle Version="1" Minor="0">
-    <Process Command="vitis_hls" Owner="arashs" Host="pc175.arashs-290457.octfpga-pg0.cloudlab.umass.edu" Pid="154304" HostCore="64" HostMemory="594080252">
+    <Process Command="vitis_hls" Owner="efrink" Host="sfpga01a" Pid="1299153" HostCore="48" HostMemory="263585832">
     </Process>
 </ProcessHandle>

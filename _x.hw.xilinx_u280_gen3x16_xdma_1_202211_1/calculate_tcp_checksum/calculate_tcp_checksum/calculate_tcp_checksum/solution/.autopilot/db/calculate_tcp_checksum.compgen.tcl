@@ -1,7 +1,8 @@
 # This script segment is generated automatically by AutoPilot
 
+set name calculate_tcp_checksum_gmem0_m_axi
 if {${::AESL::PGuard_rtl_comp_handler}} {
-	::AP::rtl_comp_handler calculate_tcp_checksum_gmem0_m_axi BINDTYPE {interface} TYPE {adapter} IMPL {m_axi}
+	::AP::rtl_comp_handler $name BINDTYPE {interface} TYPE {adapter} IMPL {m_axi}
 }
 
 
@@ -61,12 +62,12 @@ dict set axilite_register_dict control $port_control
 if {${::AESL::PGuard_simmodel_gen}} {
 	if {[info proc ::AESL_LIB_XILADAPTER::s_axilite_gen] == "::AESL_LIB_XILADAPTER::s_axilite_gen"} {
 		eval "::AESL_LIB_XILADAPTER::s_axilite_gen { \
-			id 23 \
+			id 24 \
 			corename calculate_tcp_checksum_control_axilite \
 			name calculate_tcp_checksum_control_s_axi \
 			ports {$port_control} \
 			op interface \
-			interrupt_clear_mode TOW \
+			interrupt_clear_mode COR \
 			interrupt_trigger_type default \
 			is_flushable 0 \
 			is_datawidth64 0 \

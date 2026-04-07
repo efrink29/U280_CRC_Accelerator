@@ -2,7 +2,7 @@
 <project name="calculate_sha256" dir="">
   <FileSets>
     <FileSet Name="kernel_calculate_sha256" Type="DesignSrcs">
-      <File Path="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp"/>
+      <File Path="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp"/>
       <Config/>
     </FileSet>
   </FileSets>

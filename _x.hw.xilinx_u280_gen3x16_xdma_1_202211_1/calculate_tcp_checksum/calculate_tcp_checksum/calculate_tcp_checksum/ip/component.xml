@@ -929,7 +929,6 @@
             <spirit:bitOffset>0</spirit:bitOffset>
             <spirit:bitWidth spirit:format="long">1</spirit:bitWidth>
             <spirit:access>read-only</spirit:access>
-            <spirit:modifiedWriteValue>oneToToggle</spirit:modifiedWriteValue>
             <spirit:writeValueConstraint>
               <spirit:minimum>0</spirit:minimum>
               <spirit:maximum>0</spirit:maximum>
@@ -943,7 +942,6 @@
             <spirit:bitOffset>1</spirit:bitOffset>
             <spirit:bitWidth spirit:format="long">1</spirit:bitWidth>
             <spirit:access>read-only</spirit:access>
-            <spirit:modifiedWriteValue>oneToToggle</spirit:modifiedWriteValue>
             <spirit:writeValueConstraint>
               <spirit:minimum>0</spirit:minimum>
               <spirit:maximum>0</spirit:maximum>
@@ -1120,7 +1118,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>viewChecksum</spirit:name>
-            <spirit:value>eb80fc8c</spirit:value>
+            <spirit:value>4a430448</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -1136,7 +1134,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>viewChecksum</spirit:name>
-            <spirit:value>45fac647</spirit:value>
+            <spirit:value>565f7a8b</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -1152,7 +1150,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>viewChecksum</spirit:name>
-            <spirit:value>015f4de5</spirit:value>
+            <spirit:value>0773e3aa</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -1168,7 +1166,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>viewChecksum</spirit:name>
-            <spirit:value>e28f0e4b</spirit:value>
+            <spirit:value>27819160</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -1182,7 +1180,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>viewChecksum</spirit:name>
-            <spirit:value>1be7c5ae</spirit:value>
+            <spirit:value>70fc4375</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -1545,7 +1543,7 @@
         <spirit:vendorExtensions>
           <xilinx:portInfo>
             <xilinx:enablement>
-              <xilinx:isEnabled xilinx:resolve="dependent" xilinx:id="PORT_ENABLEMENT.m_axi_gmem0_AWID" xilinx:dependency="(spirit:decode(id(&apos;PARAM_VALUE.C_M_AXI_GMEM0_ENABLE_ID_PORTS&apos;)) = 1)">true</xilinx:isEnabled>
+              <xilinx:isEnabled xilinx:resolve="dependent" xilinx:id="PORT_ENABLEMENT.m_axi_gmem0_AWID" xilinx:dependency="(spirit:decode(id(&apos;PARAM_VALUE.C_M_AXI_GMEM0_ENABLE_ID_PORTS&apos;)) = 1)">false</xilinx:isEnabled>
             </xilinx:enablement>
           </xilinx:portInfo>
         </spirit:vendorExtensions>
@@ -1772,7 +1770,7 @@
         <spirit:vendorExtensions>
           <xilinx:portInfo>
             <xilinx:enablement>
-              <xilinx:isEnabled xilinx:resolve="dependent" xilinx:id="PORT_ENABLEMENT.m_axi_gmem0_WID" xilinx:dependency="(spirit:decode(id(&apos;PARAM_VALUE.C_M_AXI_GMEM0_ENABLE_ID_PORTS&apos;)) = 1)">true</xilinx:isEnabled>
+              <xilinx:isEnabled xilinx:resolve="dependent" xilinx:id="PORT_ENABLEMENT.m_axi_gmem0_WID" xilinx:dependency="(spirit:decode(id(&apos;PARAM_VALUE.C_M_AXI_GMEM0_ENABLE_ID_PORTS&apos;)) = 1)">false</xilinx:isEnabled>
             </xilinx:enablement>
           </xilinx:portInfo>
         </spirit:vendorExtensions>
@@ -1893,7 +1891,7 @@
         <spirit:vendorExtensions>
           <xilinx:portInfo>
             <xilinx:enablement>
-              <xilinx:isEnabled xilinx:resolve="dependent" xilinx:id="PORT_ENABLEMENT.m_axi_gmem0_BID" xilinx:dependency="(spirit:decode(id(&apos;PARAM_VALUE.C_M_AXI_GMEM0_ENABLE_ID_PORTS&apos;)) = 1)">true</xilinx:isEnabled>
+              <xilinx:isEnabled xilinx:resolve="dependent" xilinx:id="PORT_ENABLEMENT.m_axi_gmem0_BID" xilinx:dependency="(spirit:decode(id(&apos;PARAM_VALUE.C_M_AXI_GMEM0_ENABLE_ID_PORTS&apos;)) = 1)">false</xilinx:isEnabled>
             </xilinx:enablement>
           </xilinx:portInfo>
         </spirit:vendorExtensions>
@@ -1987,7 +1985,7 @@
         <spirit:vendorExtensions>
           <xilinx:portInfo>
             <xilinx:enablement>
-              <xilinx:isEnabled xilinx:resolve="dependent" xilinx:id="PORT_ENABLEMENT.m_axi_gmem0_ARID" xilinx:dependency="(spirit:decode(id(&apos;PARAM_VALUE.C_M_AXI_GMEM0_ENABLE_ID_PORTS&apos;)) = 1)">true</xilinx:isEnabled>
+              <xilinx:isEnabled xilinx:resolve="dependent" xilinx:id="PORT_ENABLEMENT.m_axi_gmem0_ARID" xilinx:dependency="(spirit:decode(id(&apos;PARAM_VALUE.C_M_AXI_GMEM0_ENABLE_ID_PORTS&apos;)) = 1)">false</xilinx:isEnabled>
             </xilinx:enablement>
           </xilinx:portInfo>
         </spirit:vendorExtensions>
@@ -2214,7 +2212,7 @@
         <spirit:vendorExtensions>
           <xilinx:portInfo>
             <xilinx:enablement>
-              <xilinx:isEnabled xilinx:resolve="dependent" xilinx:id="PORT_ENABLEMENT.m_axi_gmem0_RID" xilinx:dependency="(spirit:decode(id(&apos;PARAM_VALUE.C_M_AXI_GMEM0_ENABLE_ID_PORTS&apos;)) = 1)">true</xilinx:isEnabled>
+              <xilinx:isEnabled xilinx:resolve="dependent" xilinx:id="PORT_ENABLEMENT.m_axi_gmem0_RID" xilinx:dependency="(spirit:decode(id(&apos;PARAM_VALUE.C_M_AXI_GMEM0_ENABLE_ID_PORTS&apos;)) = 1)">false</xilinx:isEnabled>
             </xilinx:enablement>
           </xilinx:portInfo>
         </spirit:vendorExtensions>
@@ -2335,7 +2333,7 @@
         <spirit:vendorExtensions>
           <xilinx:parameterInfo>
             <xilinx:enablement>
-              <xilinx:isEnabled xilinx:resolve="dependent" xilinx:id="MODELPARAM_ENABLEMENT.C_M_AXI_GMEM0_ID_WIDTH">true</xilinx:isEnabled>
+              <xilinx:isEnabled xilinx:resolve="dependent" xilinx:id="MODELPARAM_ENABLEMENT.C_M_AXI_GMEM0_ID_WIDTH">false</xilinx:isEnabled>
             </xilinx:enablement>
           </xilinx:parameterInfo>
         </spirit:vendorExtensions>
@@ -2557,7 +2555,7 @@
       <spirit:file>
         <spirit:name>hdl/vhdl/calculate_tcp_checksum.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
-        <spirit:userFileType>CHECKSUM_461037bf</spirit:userFileType>
+        <spirit:userFileType>CHECKSUM_869567f9</spirit:userFileType>
       </spirit:file>
     </spirit:fileSet>
     <spirit:fileSet>
@@ -2675,7 +2673,7 @@
     <spirit:parameter>
       <spirit:name>C_M_AXI_GMEM0_ENABLE_ID_PORTS</spirit:name>
       <spirit:displayName>Enable ID ports</spirit:displayName>
-      <spirit:value spirit:format="bool" spirit:resolve="user" spirit:id="PARAM_VALUE.C_M_AXI_GMEM0_ENABLE_ID_PORTS" spirit:order="2" spirit:configGroups="1 m axi gmem0 (AXI4 Master Interface)">true</spirit:value>
+      <spirit:value spirit:format="bool" spirit:resolve="user" spirit:id="PARAM_VALUE.C_M_AXI_GMEM0_ENABLE_ID_PORTS" spirit:order="2" spirit:configGroups="1 m axi gmem0 (AXI4 Master Interface)">false</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>C_M_AXI_GMEM0_ID_WIDTH</spirit:name>
@@ -2684,7 +2682,7 @@
       <spirit:vendorExtensions>
         <xilinx:parameterInfo>
           <xilinx:enablement>
-            <xilinx:isEnabled xilinx:resolve="dependent" xilinx:id="PARAM_ENABLEMENT.C_M_AXI_GMEM0_ID_WIDTH" xilinx:dependency="(spirit:decode(id(&apos;PARAM_VALUE.C_M_AXI_GMEM0_ENABLE_ID_PORTS&apos;)) = 1)">true</xilinx:isEnabled>
+            <xilinx:isEnabled xilinx:resolve="dependent" xilinx:id="PARAM_ENABLEMENT.C_M_AXI_GMEM0_ID_WIDTH" xilinx:dependency="(spirit:decode(id(&apos;PARAM_VALUE.C_M_AXI_GMEM0_ENABLE_ID_PORTS&apos;)) = 1)">false</xilinx:isEnabled>
           </xilinx:enablement>
         </xilinx:parameterInfo>
       </spirit:vendorExtensions>
@@ -2816,22 +2814,22 @@
       </xilinx:taxonomies>
       <xilinx:displayName>Calculate_tcp_checksum</xilinx:displayName>
       <xilinx:definitionSource>HLS</xilinx:definitionSource>
-      <xilinx:coreRevision>2114488953</xilinx:coreRevision>
-      <xilinx:coreCreationDateTime>2026-02-20T19:33:56Z</xilinx:coreCreationDateTime>
+      <xilinx:coreRevision>2114548338</xilinx:coreRevision>
+      <xilinx:coreCreationDateTime>2026-04-03T01:18:38Z</xilinx:coreCreationDateTime>
       <xilinx:sdxKernelAttributes>
         <xilinx:sdx_kernel>true</xilinx:sdx_kernel>
         <xilinx:sdx_kernel_type>hls</xilinx:sdx_kernel_type>
       </xilinx:sdxKernelAttributes>
     </xilinx:coreExtensions>
     <xilinx:packagingInfo>
-      <xilinx:xilinxVersion>2023.1</xilinx:xilinxVersion>
+      <xilinx:xilinxVersion>2022.1</xilinx:xilinxVersion>
       <xilinx:checksum xilinx:scope="busInterfaces" xilinx:value="223f88db"/>
       <xilinx:checksum xilinx:scope="addressSpaces" xilinx:value="02c0c7c5"/>
-      <xilinx:checksum xilinx:scope="memoryMaps" xilinx:value="1632b371"/>
-      <xilinx:checksum xilinx:scope="fileGroups" xilinx:value="ca6c4c9b"/>
+      <xilinx:checksum xilinx:scope="memoryMaps" xilinx:value="334e8383"/>
+      <xilinx:checksum xilinx:scope="fileGroups" xilinx:value="ab306d1f"/>
       <xilinx:checksum xilinx:scope="ports" xilinx:value="23af34e9"/>
       <xilinx:checksum xilinx:scope="hdlParameters" xilinx:value="28001f90"/>
-      <xilinx:checksum xilinx:scope="parameters" xilinx:value="3ccdd9b0"/>
+      <xilinx:checksum xilinx:scope="parameters" xilinx:value="5a2511a4"/>
     </xilinx:packagingInfo>
   </spirit:vendorExtensions>
 </spirit:component>

@@ -1,12 +1,12 @@
 <profile>
 
 <section name = "Vitis HLS Report for 'calculate_sha256'" level="0">
-<item name = "Date">Fri Feb 20 12:35:01 2026
+<item name = "Date">Thu Apr  2 18:19:39 2026
 </item>
-<item name = "Version">2023.1 (Build 3854077 on May  4 2023)</item>
+<item name = "Version">2022.1 (Build 3526262 on Mon Apr 18 15:47:01 MDT 2022)</item>
 <item name = "Project">calculate_sha256</item>
 <item name = "Solution">solution (Vitis Kernel Flow Target)</item>
-<item name = "Product family">virtexuplusHBM</item>
+<item name = "Product family">virtexuplus</item>
 <item name = "Target device">xcu280-fsvh2892-2L-e</item>
 </section>
 
@@ -15,7 +15,7 @@
 <section name = "" level="1">
 <item name = "Summary"><table name="" hasTotal="0">
 <keys size="4">Clock, Target, Estimated, Uncertainty</keys>
-<column name="ap_clk">3.33 ns, 3.429 ns, 0.90 ns</column>
+<column name="ap_clk">3.33 ns, 2.939 ns, 0.90 ns</column>
 </table>
 </item>
 </section>
@@ -31,13 +31,12 @@
 <section name = "" level="1">
 <item name = "Instance"><table name="" hasTotal="0">
 <keys size="9">Instance, Module, min, max, min, max, min, max, Type</keys>
-<column name="grp_sha256_process_chunk_fu_106">sha256_process_chunk, 323, 22749905249, 1.108 us, 78.006 sec, 323, 22749905249, no</column>
-<column name="grp_calculate_sha256_Pipeline_hash_write_digest_fu_116">calculate_sha256_Pipeline_hash_write_digest, 79, 79, 0.263 us, 0.263 us, 79, 79, no</column>
+<column name="grp_sha256_process_and_write_chunk_fu_108">sha256_process_and_write_chunk, 273, ?, 0.910 us, ?, 273, ?, no</column>
 </table>
 </item>
 <item name = "Loop"><table name="" hasTotal="0">
 <keys size="8">Loop Name, min, max, Latency, achieved, target, Count, Pipelined</keys>
-<column name="- hash_chunk_loop">?, ?, 407 ~ 22749905333, -, -, ?, no</column>
+<column name="- hash_chunk_loop">?, ?, 276 ~ ?, -, -, ?, no</column>
 </table>
 </item>
 </section>
@@ -50,26 +49,25 @@
 <item name = "Summary"><table name="" hasTotal="1">
 <keys size="6">Name, BRAM_18K, DSP, FF, LUT, URAM</keys>
 <column name="DSP">-, -, -, -, -</column>
-<column name="Expression">-, -, 0, 222, -</column>
+<column name="Expression">-, -, 0, 274, -</column>
 <column name="FIFO">-, -, -, -, -</column>
-<column name="Instance">30, 0, 49329, 163790, 0</column>
+<column name="Instance">0, -, 50817, 166614, 0</column>
 <column name="Memory">-, -, -, -, -</column>
-<column name="Multiplexer">-, -, -, 109, -</column>
-<column name="Register">-, -, 626, -, -</column>
+<column name="Multiplexer">-, -, -, 98, -</column>
+<column name="Register">-, -, 393, -, -</column>
 <specialColumn name="Available SLR">1344, 3008, 869120, 434560, 320</specialColumn>
-<specialColumn name="Utilization SLR (%)">2, 0, 5, 37, 0</specialColumn>
+<specialColumn name="Utilization SLR (%)">0, 0, 5, 38, 0</specialColumn>
 <specialColumn name="Available">4032, 9024, 2607360, 1303680, 960</specialColumn>
-<specialColumn name="Utilization (%)">~0, 0, 1, 12, 0</specialColumn>
+<specialColumn name="Utilization (%)">0, 0, 1, 12, 0</specialColumn>
 </table>
 </item>
 <item name = "Detail">
 <section name = "" level="1">
 <item name = "Instance"><table name="" hasTotal="1">
 <keys size="7">Instance, Module, BRAM_18K, DSP, FF, LUT, URAM</keys>
-<column name="grp_calculate_sha256_Pipeline_hash_write_digest_fu_116">calculate_sha256_Pipeline_hash_write_digest, 0, 0, 1071, 2632, 0</column>
 <column name="control_s_axi_U">control_s_axi, 0, 0, 252, 424, 0</column>
-<column name="gmem0_m_axi_U">gmem0_m_axi, 30, 0, 3521, 2695, 0</column>
-<column name="grp_sha256_process_chunk_fu_106">sha256_process_chunk, 0, 0, 44485, 158039, 0</column>
+<column name="gmem0_m_axi_U">gmem0_m_axi, 0, 0, 4567, 8001, 0</column>
+<column name="grp_sha256_process_and_write_chunk_fu_108">sha256_process_and_write_chunk, 0, 0, 45998, 158189, 0</column>
 </table>
 </item>
 <item name = "DSP"><table name="" hasTotal="0">
@@ -86,51 +84,42 @@
 </item>
 <item name = "Expression"><table name="" hasTotal="1">
 <keys size="7">Variable Name, Operation, DSP, FF, LUT, Bitwidth P0, Bitwidth P1</keys>
-<column name="add_ln608_1_fu_157_p2">+, 0, 0, 71, 64, 64</column>
-<column name="add_ln608_fu_167_p2">+, 0, 0, 39, 32, 1</column>
-<column name="chunk_fu_173_p2">+, 0, 0, 71, 64, 64</column>
-<column name="icmp_ln608_fu_162_p2">icmp, 0, 0, 39, 32, 32</column>
+<column name="add_ln786_fu_141_p2">+, 0, 0, 39, 32, 1</column>
+<column name="add_ln788_fu_150_p2">+, 0, 0, 71, 64, 64</column>
+<column name="chunk_fu_155_p2">+, 0, 0, 71, 64, 64</column>
+<column name="digest_out_fu_172_p2">+, 0, 0, 71, 64, 64</column>
+<column name="icmp_ln786_fu_136_p2">icmp, 0, 0, 20, 32, 32</column>
 <column name="ap_block_state1">or, 0, 0, 2, 1, 1</column>
 </table>
 </item>
 <item name = "Multiplexer"><table name="" hasTotal="1">
 <keys size="5">Name, LUT, Input Size, Bits, Total Bits</keys>
-<column name="ap_NS_fsm">37, 7, 1, 7</column>
+<column name="ap_NS_fsm">26, 5, 1, 5</column>
 <column name="ap_done">9, 2, 1, 2</column>
-<column name="c_fu_78">9, 2, 32, 64</column>
+<column name="c_fu_80">9, 2, 32, 64</column>
 <column name="gmem0_ARVALID">9, 2, 1, 2</column>
 <column name="gmem0_AWVALID">9, 2, 1, 2</column>
 <column name="gmem0_BREADY">9, 2, 1, 2</column>
 <column name="gmem0_RREADY">9, 2, 1, 2</column>
 <column name="gmem0_WVALID">9, 2, 1, 2</column>
-<column name="phi_mul_fu_74">9, 2, 64, 128</column>
+<column name="phi_mul_fu_76">9, 2, 64, 128</column>
 </table>
 </item>
 <item name = "Register"><table name="" hasTotal="1">
 <keys size="5">Name, FF, LUT, Bits, Const Bits</keys>
-<column name="ap_CS_fsm">6, 0, 6, 0</column>
+<column name="ap_CS_fsm">4, 0, 4, 0</column>
 <column name="ap_done_reg">1, 0, 1, 0</column>
 <column name="ap_rst_n_inv">1, 0, 1, 0</column>
 <column name="ap_rst_reg_1">1, 0, 1, 0</column>
 <column name="ap_rst_reg_2">1, 0, 1, 0</column>
-<column name="c_4_reg_264">32, 0, 32, 0</column>
-<column name="c_fu_78">32, 0, 32, 0</column>
-<column name="chunk_reg_272">64, 0, 64, 0</column>
-<column name="conv1_i_reg_254">32, 0, 64, 32</column>
-<column name="crc_out_read_reg_244">64, 0, 64, 0</column>
-<column name="data_in_read_reg_249">64, 0, 64, 0</column>
-<column name="digest_1_reg_282">32, 0, 32, 0</column>
-<column name="digest_2_reg_287">32, 0, 32, 0</column>
-<column name="digest_3_reg_292">32, 0, 32, 0</column>
-<column name="digest_4_reg_297">32, 0, 32, 0</column>
-<column name="digest_5_reg_302">32, 0, 32, 0</column>
-<column name="digest_6_reg_307">32, 0, 32, 0</column>
-<column name="digest_7_reg_312">32, 0, 32, 0</column>
-<column name="digest_reg_277">32, 0, 32, 0</column>
-<column name="grp_calculate_sha256_Pipeline_hash_write_digest_fu_116_ap_start_reg">1, 0, 1, 0</column>
-<column name="grp_sha256_process_chunk_fu_106_ap_start_reg">1, 0, 1, 0</column>
-<column name="phi_mul_fu_74">64, 0, 64, 0</column>
-<column name="trunc_ln621_reg_259">6, 0, 6, 0</column>
+<column name="c_fu_80">32, 0, 32, 0</column>
+<column name="chunk_reg_229">64, 0, 64, 0</column>
+<column name="conv1_i_reg_221">32, 0, 64, 32</column>
+<column name="crc_out_read_reg_211">64, 0, 64, 0</column>
+<column name="data_in_read_reg_216">64, 0, 64, 0</column>
+<column name="digest_out_reg_234">64, 0, 64, 0</column>
+<column name="grp_sha256_process_and_write_chunk_fu_108_ap_start_reg">1, 0, 1, 0</column>
+<column name="phi_mul_fu_76">64, 0, 64, 0</column>
 </table>
 </item>
 </section>

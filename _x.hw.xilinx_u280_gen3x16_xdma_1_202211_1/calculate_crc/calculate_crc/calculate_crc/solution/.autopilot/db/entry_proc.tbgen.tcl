@@ -10,28 +10,17 @@ set ProfileFlag 0
 set StallSigGenFlag 0
 set isEnableWaveformDebug 1
 set hasInterrupt 0
-set DLRegFirstOffset 0
-set DLRegItemOffset 0
 set C_modelName {entry_proc}
 set C_modelType { void 0 }
 set C_modelArgList {
 	{ crc_out int 64 regular  }
 	{ crc_out_c int 64 regular {fifo 1}  }
-	{ crc_size int 32 regular  }
-	{ crc_size_c int 32 regular {fifo 1}  }
-	{ init_value int 32 regular  }
-	{ init_value_c int 32 regular {fifo 1}  }
 }
-set hasAXIMCache 0
 set C_modelArgMapList {[ 
 	{ "Name" : "crc_out", "interface" : "wire", "bitwidth" : 64, "direction" : "READONLY"} , 
- 	{ "Name" : "crc_out_c", "interface" : "fifo", "bitwidth" : 64, "direction" : "WRITEONLY"} , 
- 	{ "Name" : "crc_size", "interface" : "wire", "bitwidth" : 32, "direction" : "READONLY"} , 
- 	{ "Name" : "crc_size_c", "interface" : "fifo", "bitwidth" : 32, "direction" : "WRITEONLY"} , 
- 	{ "Name" : "init_value", "interface" : "wire", "bitwidth" : 32, "direction" : "READONLY"} , 
- 	{ "Name" : "init_value_c", "interface" : "fifo", "bitwidth" : 32, "direction" : "WRITEONLY"} ]}
+ 	{ "Name" : "crc_out_c", "interface" : "fifo", "bitwidth" : 64, "direction" : "WRITEONLY"} ]}
 # RTL Port declarations: 
-set portNum 28
+set portNum 16
 set portList { 
 	{ ap_clk sc_in sc_logic 1 clock -1 } 
 	{ ap_rst sc_in sc_logic 1 reset -1 active_high_sync } 
@@ -49,18 +38,6 @@ set portList {
 	{ crc_out_c_fifo_cap sc_in sc_lv 3 signal 1 } 
 	{ crc_out_c_full_n sc_in sc_logic 1 signal 1 } 
 	{ crc_out_c_write sc_out sc_logic 1 signal 1 } 
-	{ crc_size sc_in sc_lv 32 signal 2 } 
-	{ crc_size_c_din sc_out sc_lv 32 signal 3 } 
-	{ crc_size_c_num_data_valid sc_in sc_lv 3 signal 3 } 
-	{ crc_size_c_fifo_cap sc_in sc_lv 3 signal 3 } 
-	{ crc_size_c_full_n sc_in sc_logic 1 signal 3 } 
-	{ crc_size_c_write sc_out sc_logic 1 signal 3 } 
-	{ init_value sc_in sc_lv 32 signal 4 } 
-	{ init_value_c_din sc_out sc_lv 32 signal 5 } 
-	{ init_value_c_num_data_valid sc_in sc_lv 3 signal 5 } 
-	{ init_value_c_fifo_cap sc_in sc_lv 3 signal 5 } 
-	{ init_value_c_full_n sc_in sc_logic 1 signal 5 } 
-	{ init_value_c_write sc_out sc_logic 1 signal 5 } 
 }
 set NewPortList {[ 
 	{ "name": "ap_clk", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "clock", "bundle":{"name": "ap_clk", "role": "default" }} , 
@@ -78,19 +55,7 @@ set NewPortList {[
  	{ "name": "crc_out_c_num_data_valid", "direction": "in", "datatype": "sc_lv", "bitwidth":3, "type": "signal", "bundle":{"name": "crc_out_c", "role": "num_data_valid" }} , 
  	{ "name": "crc_out_c_fifo_cap", "direction": "in", "datatype": "sc_lv", "bitwidth":3, "type": "signal", "bundle":{"name": "crc_out_c", "role": "fifo_cap" }} , 
  	{ "name": "crc_out_c_full_n", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "crc_out_c", "role": "full_n" }} , 
- 	{ "name": "crc_out_c_write", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "crc_out_c", "role": "write" }} , 
- 	{ "name": "crc_size", "direction": "in", "datatype": "sc_lv", "bitwidth":32, "type": "signal", "bundle":{"name": "crc_size", "role": "default" }} , 
- 	{ "name": "crc_size_c_din", "direction": "out", "datatype": "sc_lv", "bitwidth":32, "type": "signal", "bundle":{"name": "crc_size_c", "role": "din" }} , 
- 	{ "name": "crc_size_c_num_data_valid", "direction": "in", "datatype": "sc_lv", "bitwidth":3, "type": "signal", "bundle":{"name": "crc_size_c", "role": "num_data_valid" }} , 
- 	{ "name": "crc_size_c_fifo_cap", "direction": "in", "datatype": "sc_lv", "bitwidth":3, "type": "signal", "bundle":{"name": "crc_size_c", "role": "fifo_cap" }} , 
- 	{ "name": "crc_size_c_full_n", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "crc_size_c", "role": "full_n" }} , 
- 	{ "name": "crc_size_c_write", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "crc_size_c", "role": "write" }} , 
- 	{ "name": "init_value", "direction": "in", "datatype": "sc_lv", "bitwidth":32, "type": "signal", "bundle":{"name": "init_value", "role": "default" }} , 
- 	{ "name": "init_value_c_din", "direction": "out", "datatype": "sc_lv", "bitwidth":32, "type": "signal", "bundle":{"name": "init_value_c", "role": "din" }} , 
- 	{ "name": "init_value_c_num_data_valid", "direction": "in", "datatype": "sc_lv", "bitwidth":3, "type": "signal", "bundle":{"name": "init_value_c", "role": "num_data_valid" }} , 
- 	{ "name": "init_value_c_fifo_cap", "direction": "in", "datatype": "sc_lv", "bitwidth":3, "type": "signal", "bundle":{"name": "init_value_c", "role": "fifo_cap" }} , 
- 	{ "name": "init_value_c_full_n", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "init_value_c", "role": "full_n" }} , 
- 	{ "name": "init_value_c_write", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "init_value_c", "role": "write" }}  ]}
+ 	{ "name": "crc_out_c_write", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "crc_out_c", "role": "write" }}  ]}
 
 set RtlHierarchyInfo {[
 	{"ID" : "0", "Level" : "0", "Path" : "`AUTOTB_DUT_INST", "Parent" : "",
@@ -111,25 +76,13 @@ set RtlHierarchyInfo {[
 			{"Name" : "crc_out", "Type" : "None", "Direction" : "I"},
 			{"Name" : "crc_out_c", "Type" : "Fifo", "Direction" : "O", "DependentProc" : ["0"], "DependentChan" : "0", "DependentChanDepth" : "4", "DependentChanType" : "2",
 				"BlockSignal" : [
-					{"Name" : "crc_out_c_blk_n", "Type" : "RtlSignal"}]},
-			{"Name" : "crc_size", "Type" : "None", "Direction" : "I"},
-			{"Name" : "crc_size_c", "Type" : "Fifo", "Direction" : "O", "DependentProc" : ["0"], "DependentChan" : "0", "DependentChanDepth" : "3", "DependentChanType" : "2",
-				"BlockSignal" : [
-					{"Name" : "crc_size_c_blk_n", "Type" : "RtlSignal"}]},
-			{"Name" : "init_value", "Type" : "None", "Direction" : "I"},
-			{"Name" : "init_value_c", "Type" : "Fifo", "Direction" : "O", "DependentProc" : ["0"], "DependentChan" : "0", "DependentChanDepth" : "3", "DependentChanType" : "2",
-				"BlockSignal" : [
-					{"Name" : "init_value_c_blk_n", "Type" : "RtlSignal"}]}]}]}
+					{"Name" : "crc_out_c_blk_n", "Type" : "RtlSignal"}]}]}]}
 
 
 set ArgLastReadFirstWriteLatency {
 	entry_proc {
 		crc_out {Type I LastRead 0 FirstWrite -1}
-		crc_out_c {Type O LastRead -1 FirstWrite 0}
-		crc_size {Type I LastRead 0 FirstWrite -1}
-		crc_size_c {Type O LastRead -1 FirstWrite 0}
-		init_value {Type I LastRead 0 FirstWrite -1}
-		init_value_c {Type O LastRead -1 FirstWrite 0}}}
+		crc_out_c {Type O LastRead -1 FirstWrite 0}}}
 
 set hasDtUnsupportedChannel 0
 
@@ -144,8 +97,4 @@ set PipelineEnableSignalInfo {[
 set Spec2ImplPortList { 
 	crc_out { ap_none {  { crc_out in_data 0 64 } } }
 	crc_out_c { ap_fifo {  { crc_out_c_din fifo_port_we 1 64 }  { crc_out_c_num_data_valid fifo_status_num_data_valid 0 3 }  { crc_out_c_fifo_cap fifo_update 0 3 }  { crc_out_c_full_n fifo_status 0 1 }  { crc_out_c_write fifo_data 1 1 } } }
-	crc_size { ap_none {  { crc_size in_data 0 32 } } }
-	crc_size_c { ap_fifo {  { crc_size_c_din fifo_port_we 1 32 }  { crc_size_c_num_data_valid fifo_status_num_data_valid 0 3 }  { crc_size_c_fifo_cap fifo_update 0 3 }  { crc_size_c_full_n fifo_status 0 1 }  { crc_size_c_write fifo_data 1 1 } } }
-	init_value { ap_none {  { init_value in_data 0 32 } } }
-	init_value_c { ap_fifo {  { init_value_c_din fifo_port_we 1 32 }  { init_value_c_num_data_valid fifo_status_num_data_valid 0 3 }  { init_value_c_fifo_cap fifo_update 0 3 }  { init_value_c_full_n fifo_status 0 1 }  { init_value_c_write fifo_data 1 1 } } }
 }

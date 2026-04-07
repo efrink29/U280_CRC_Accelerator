@@ -1,6 +1,6 @@
 <ENTRY>
 {
- "thisFile": "/users/arashs/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/calculate_sha256.xo.compile_summary",
+ "thisFile": "/home/efrink/mled/split_cu/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/calculate_sha256.xo.compile_summary",
  "connectId": "",
  "serverToken": "",
  "timestamp": "0"
@@ -9,13 +9,13 @@
 <ENTRY>
 {
  "type": "ET_CmdStep",
- "dateTimestamp": "Fri Feb 20 12:34:19 2026",
- "timestampMillis": "1771616059194",
+ "dateTimestamp": "Thu Apr  2 18:19:04 2026",
+ "timestampMillis": "1775179144607",
  "buildStep": {
-  "cmdId": "e09c9159-f9ef-4254-af0a-816f09c8eae3",
+  "cmdId": "536bb950-3fb6-4ed1-bcf5-436b1eba6724",
   "name": "v++",
-  "logFile": "/users/arashs/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/calculate_sha256/calculate_sha256.steps.log",
-  "commandLine": "/share/Xilinx/Vitis/2023.1/bin/unwrapped/lnx64.o/v++  --vivado.prop \"run.__KERNEL__.{STEPS.SYNTH_DESIGN.ARGS.MORE OPTIONS}={-directive sdx_optimization_effort_high}\" --advanced.misc \"report=type report_timing_summary name impl_report_timing_summary_route_design_summary steps {route_design} runs {impl_1} options {-max_paths 10}\" --advanced.misc \"report=type report_timing_summary name impl_report_timing_summary_post_route_phys_opt_design_summary steps {post_route_phys_opt_design} runs {impl_1} options {-max_paths 10}\" -c --save-temps -t hw --platform xilinx_u280_gen3x16_xdma_1_202211_1 -k calculate_sha256 --temp_dir ./_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1 -D KERNEL_VARIANT=KERNEL_VARIANT_SHA -Isrc -o_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/calculate_sha256.xo src/kernel.cpp ",
+  "logFile": "/home/efrink/mled/split_cu/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/calculate_sha256/calculate_sha256.steps.log",
+  "commandLine": "/packages/apps/fpga/Vitis/2022.1/bin/unwrapped/lnx64.o/v++  --vivado.prop \"run.__KERNEL__.{STEPS.SYNTH_DESIGN.ARGS.MORE OPTIONS}={-directive sdx_optimization_effort_high}\" --advanced.misc \"report=type report_timing_summary name impl_report_timing_summary_route_design_summary steps {route_design} runs {impl_1} options {-max_paths 10}\" --advanced.misc \"report=type report_timing_summary name impl_report_timing_summary_post_route_phys_opt_design_summary steps {post_route_phys_opt_design} runs {impl_1} options {-max_paths 10}\" -c --save-temps -t hw --platform xilinx_u280_gen3x16_xdma_1_202211_1 -k calculate_sha256 --temp_dir ./_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1 -D KERNEL_VARIANT=KERNEL_VARIANT_SHA -Isrc -o_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/calculate_sha256.xo src/kernel.cpp ",
   "args": [
    "-c",
    "--save-temps",
@@ -34,17 +34,17 @@
    "src/kernel.cpp"
   ],
   "iniFiles": [],
-  "cwd": "/users/arashs/U280_CRC_Accelerator"
+  "cwd": "/home/efrink/mled/split_cu/U280_CRC_Accelerator"
  }
 }
 </ENTRY>
 <ENTRY>
 {
  "type": "ET_Status",
- "dateTimestamp": "Fri Feb 20 12:34:19 2026",
- "timestampMillis": "1771616059194",
+ "dateTimestamp": "Thu Apr  2 18:19:04 2026",
+ "timestampMillis": "1775179144607",
  "status": {
-  "cmdId": "e09c9159-f9ef-4254-af0a-816f09c8eae3",
+  "cmdId": "536bb950-3fb6-4ed1-bcf5-436b1eba6724",
   "state": "CS_RUNNING"
  }
 }
@@ -52,8 +52,8 @@
 <ENTRY>
 {
  "type": "ET_FlowMetaData",
- "dateTimestamp": "Fri Feb 20 12:34:23 2026",
- "timestampMillis": "1771616063572",
+ "dateTimestamp": "Thu Apr  2 18:19:09 2026",
+ "timestampMillis": "1775179149165",
  "buildSummary": {
   "hardwarePlatform": "xilinx_u280_gen3x16_xdma_1_202211_1.xpfm",
   "hardwareDsa": "",
@@ -67,12 +67,12 @@
     "base": {
      "type": "KERNEL",
      "name": "calculate_sha256",
-     "file": "/users/arashs/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/calculate_sha256.xo",
+     "file": "/home/efrink/mled/split_cu/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/calculate_sha256.xo",
      "reports": [],
      "uuid": ""
     },
     "sources": [
-     "/users/arashs/U280_CRC_Accelerator/src/kernel.cpp"
+     "/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp"
     ],
     "psSources": [],
     "cuNames": [],
@@ -81,39 +81,39 @@
     "freqUnits": ""
    }
   ],
-  "toolVersion": "Vitis V++ Compiler Release 2023.1. SW Build 3860322 on 2023-05-04-06:32:48"
+  "toolVersion": "Vitis V++ Compiler Release 2022.1. SW Build 3524075 on 2022-04-13-17:42:45"
  }
 }
 </ENTRY>
 <ENTRY>
 {
  "type": "ET_SubCmdStep",
- "dateTimestamp": "Fri Feb 20 12:34:23 2026",
- "timestampMillis": "1771616063575",
+ "dateTimestamp": "Thu Apr  2 18:19:09 2026",
+ "timestampMillis": "1775179149178",
  "buildStep": {
-  "cmdId": "13fff087-81be-4bf1-a72e-a9f23446d244",
+  "cmdId": "90c1684c-06e9-49d1-b8ec-fba8da724860",
   "name": "vitis_hls",
-  "logFile": "/users/arashs/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/calculate_sha256/calculate_sha256/vitis_hls.log",
-  "commandLine": "vitis_hls -f /users/arashs/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/calculate_sha256/calculate_sha256/calculate_sha256.tcl -messageDb vitis_hls.pb",
+  "logFile": "/home/efrink/mled/split_cu/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/calculate_sha256/calculate_sha256/vitis_hls.log",
+  "commandLine": "vitis_hls -f /home/efrink/mled/split_cu/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/calculate_sha256/calculate_sha256/calculate_sha256.tcl -messageDb vitis_hls.pb",
   "args": [
    "vitis_hls",
    "-f",
-   "/users/arashs/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/calculate_sha256/calculate_sha256/calculate_sha256.tcl",
+   "/home/efrink/mled/split_cu/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/calculate_sha256/calculate_sha256/calculate_sha256.tcl",
    "-messageDb",
    "vitis_hls.pb"
   ],
   "iniFiles": [],
-  "cwd": "/users/arashs/U280_CRC_Accelerator"
+  "cwd": "/home/efrink/mled/split_cu/U280_CRC_Accelerator"
  }
 }
 </ENTRY>
 <ENTRY>
 {
  "type": "ET_Status",
- "dateTimestamp": "Fri Feb 20 12:34:23 2026",
- "timestampMillis": "1771616063575",
+ "dateTimestamp": "Thu Apr  2 18:19:09 2026",
+ "timestampMillis": "1775179149178",
  "status": {
-  "cmdId": "13fff087-81be-4bf1-a72e-a9f23446d244",
+  "cmdId": "90c1684c-06e9-49d1-b8ec-fba8da724860",
   "state": "CS_RUNNING"
  }
 }
@@ -121,10 +121,10 @@
 <ENTRY>
 {
  "type": "ET_Status",
- "dateTimestamp": "Fri Feb 20 12:35:36 2026",
- "timestampMillis": "1771616136076",
+ "dateTimestamp": "Thu Apr  2 18:20:06 2026",
+ "timestampMillis": "1775179206737",
  "status": {
-  "cmdId": "13fff087-81be-4bf1-a72e-a9f23446d244",
+  "cmdId": "90c1684c-06e9-49d1-b8ec-fba8da724860",
   "state": "CS_PASSED"
  }
 }
@@ -132,10 +132,10 @@
 <ENTRY>
 {
  "type": "ET_Report",
- "dateTimestamp": "Fri Feb 20 12:35:36 2026",
- "timestampMillis": "1771616136105",
+ "dateTimestamp": "Thu Apr  2 18:20:07 2026",
+ "timestampMillis": "1775179207406",
  "report": {
-  "path": "/users/arashs/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/calculate_sha256/calculate_sha256/calculate_sha256/solution/.autopilot/db/calculate_sha256.design.xml",
+  "path": "/home/efrink/mled/split_cu/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/calculate_sha256/calculate_sha256/calculate_sha256/solution/.autopilot/db/calculate_sha256.design.xml",
   "name": "calculate_sha256",
   "fileType": "XML",
   "reportType": "KERNEL_HLS_REPORT",
@@ -146,10 +146,10 @@
 <ENTRY>
 {
  "type": "ET_Report",
- "dateTimestamp": "Fri Feb 20 12:35:36 2026",
- "timestampMillis": "1771616136105",
+ "dateTimestamp": "Thu Apr  2 18:20:07 2026",
+ "timestampMillis": "1775179207407",
  "report": {
-  "path": "/users/arashs/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/calculate_sha256/calculate_sha256/calculate_sha256/solution/.autopilot/db/.message_syn.xml",
+  "path": "/home/efrink/mled/split_cu/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/calculate_sha256/calculate_sha256/calculate_sha256/solution/.autopilot/db/.message_syn.xml",
   "name": "calculate_sha256",
   "fileType": "XML",
   "reportType": "KERNEL_HLS_DRC_SYNTHESIS",
@@ -160,10 +160,10 @@
 <ENTRY>
 {
  "type": "ET_Report",
- "dateTimestamp": "Fri Feb 20 12:35:36 2026",
- "timestampMillis": "1771616136106",
+ "dateTimestamp": "Thu Apr  2 18:20:07 2026",
+ "timestampMillis": "1775179207418",
  "report": {
-  "path": "/users/arashs/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/reports/calculate_sha256/hls_reports/calculate_sha256_csynth.rpt",
+  "path": "/home/efrink/mled/split_cu/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/reports/calculate_sha256/hls_reports/calculate_sha256_csynth.rpt",
   "name": "calculate_sha256",
   "fileType": "TEXT",
   "reportType": "KERNEL_HLS_CSYNTH",
@@ -174,10 +174,10 @@
 <ENTRY>
 {
  "type": "ET_Report",
- "dateTimestamp": "Fri Feb 20 12:35:36 2026",
- "timestampMillis": "1771616136107",
+ "dateTimestamp": "Thu Apr  2 18:20:07 2026",
+ "timestampMillis": "1775179207419",
  "report": {
-  "path": "/users/arashs/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/calculate_sha256/calculate_sha256/calculate_sha256/solution/syn/report/calculate_sha256_csynth.xml",
+  "path": "/home/efrink/mled/split_cu/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/calculate_sha256/calculate_sha256/calculate_sha256/solution/syn/report/calculate_sha256_csynth.xml",
   "name": "calculate_sha256",
   "fileType": "XML",
   "reportType": "KERNEL_HLS_CSYNTH",
@@ -188,10 +188,10 @@
 <ENTRY>
 {
  "type": "ET_Report",
- "dateTimestamp": "Fri Feb 20 12:35:36 2026",
- "timestampMillis": "1771616136112",
+ "dateTimestamp": "Thu Apr  2 18:20:07 2026",
+ "timestampMillis": "1775179207427",
  "report": {
-  "path": "/users/arashs/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/reports/calculate_sha256/system_estimate_calculate_sha256.xtxt",
+  "path": "/home/efrink/mled/split_cu/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/reports/calculate_sha256/system_estimate_calculate_sha256.xtxt",
   "name": "",
   "fileType": "TEXT",
   "reportType": "GLOBAL_SYSTEM_ESTIMATE",
@@ -201,22 +201,11 @@
 </ENTRY>
 <ENTRY>
 {
- "type": "ET_Status",
- "dateTimestamp": "Fri Feb 20 12:35:36 2026",
- "timestampMillis": "1771616136257",
- "status": {
-  "cmdId": "e09c9159-f9ef-4254-af0a-816f09c8eae3",
-  "state": "CS_PASSED"
- }
-}
-</ENTRY>
-<ENTRY>
-{
  "type": "ET_Report",
- "dateTimestamp": "Fri Feb 20 12:35:36 2026",
- "timestampMillis": "1771616136344",
+ "dateTimestamp": "Thu Apr  2 18:20:07 2026",
+ "timestampMillis": "1775179207895",
  "report": {
-  "path": "/users/arashs/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/reports/calculate_sha256/v++_compile_calculate_sha256_guidance.html",
+  "path": "/home/efrink/mled/split_cu/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/reports/calculate_sha256/v++_compile_calculate_sha256_guidance.html",
   "name": "",
   "fileType": "HTML",
   "reportType": "GLOBAL_RULECHECK_GUIDANCE",
@@ -227,14 +216,25 @@
 <ENTRY>
 {
  "type": "ET_Report",
- "dateTimestamp": "Fri Feb 20 12:35:36 2026",
- "timestampMillis": "1771616136344",
+ "dateTimestamp": "Thu Apr  2 18:20:07 2026",
+ "timestampMillis": "1775179207895",
  "report": {
-  "path": "/users/arashs/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/v++_compile_calculate_sha256_guidance.pb3",
+  "path": "/home/efrink/mled/split_cu/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/v++_compile_calculate_sha256_guidance.pb",
   "name": "",
   "fileType": "BINARY_PROTOBUF",
   "reportType": "GLOBAL_RULECHECK_GUIDANCE",
   "cmdId": ""
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Status",
+ "dateTimestamp": "Thu Apr  2 18:20:07 2026",
+ "timestampMillis": "1775179207901",
+ "status": {
+  "cmdId": "536bb950-3fb6-4ed1-bcf5-436b1eba6724",
+  "state": "CS_PASSED"
  }
 }
 </ENTRY>

@@ -16,7 +16,7 @@
 					<Obj class_id="5" tracking_level="0" version="0">
 						<type>1</type>
 						<id>1</id>
-						<name>outStream</name>
+						<name>outStream33</name>
 						<fileName></fileName>
 						<fileDirectory></fileDirectory>
 						<lineNumber>0</lineNumber>
@@ -26,7 +26,7 @@
 							<count>0</count>
 							<item_version>0</item_version>
 						</inlineStackInfo>
-						<originalName>outStream</originalName>
+						<originalName></originalName>
 						<rtlName></rtlName>
 						<control></control>
 						<opType></opType>
@@ -34,7 +34,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>3506747840</coreId>
+						<coreId>228034928</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>32</bitwidth>
@@ -70,7 +70,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>0</coreId>
+						<coreId>1953394531</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>32</bitwidth>
@@ -106,7 +106,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>0</coreId>
+						<coreId>1852793701</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>128</bitwidth>
@@ -142,7 +142,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>1734439968</coreId>
+						<coreId>0</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>64</bitwidth>
@@ -164,7 +164,7 @@
 					<Obj>
 						<type>0</type>
 						<id>6</id>
-						<name>numChunks_1</name>
+						<name>numChunks_read</name>
 						<fileName></fileName>
 						<fileDirectory></fileDirectory>
 						<lineNumber>0</lineNumber>
@@ -174,7 +174,7 @@
 							<count>0</count>
 							<item_version>0</item_version>
 						</inlineStackInfo>
-						<originalName>numChunks</originalName>
+						<originalName></originalName>
 						<rtlName></rtlName>
 						<control></control>
 						<opType></opType>
@@ -182,7 +182,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>605586505</coreId>
+						<coreId>0</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>32</bitwidth>
@@ -207,7 +207,7 @@
 					<Obj>
 						<type>0</type>
 						<id>8</id>
-						<name>crc_out_1</name>
+						<name>crc_out_read</name>
 						<fileName></fileName>
 						<fileDirectory></fileDirectory>
 						<lineNumber>0</lineNumber>
@@ -217,7 +217,7 @@
 							<count>0</count>
 							<item_version>0</item_version>
 						</inlineStackInfo>
-						<originalName>crc_out</originalName>
+						<originalName></originalName>
 						<rtlName></rtlName>
 						<control></control>
 						<opType></opType>
@@ -225,7 +225,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>1769104758</coreId>
+						<coreId>228197408</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>64</bitwidth>
@@ -250,26 +250,26 @@
 					<Obj>
 						<type>0</type>
 						<id>11</id>
-						<name>trunc_ln445</name>
-						<fileName>/users/arashs/U280_CRC_Accelerator/src/kernel.cpp</fileName>
-						<fileDirectory>/users/arashs/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/calculate_crc/calculate_crc</fileDirectory>
-						<lineNumber>445</lineNumber>
+						<name>trunc_ln353</name>
+						<fileName>/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp</fileName>
+						<fileDirectory>/home/efrink/mled/split_cu/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/calculate_crc/calculate_crc</fileDirectory>
+						<lineNumber>353</lineNumber>
 						<contextFuncName>write_output</contextFuncName>
 						<contextNormFuncName>write_output</contextNormFuncName>
 						<inlineStackInfo>
 							<count>1</count>
 							<item_version>0</item_version>
 							<item class_id="11" tracking_level="0" version="0">
-								<first>/users/arashs/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/calculate_crc/calculate_crc</first>
+								<first>/home/efrink/mled/split_cu/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/calculate_crc/calculate_crc</first>
 								<second class_id="12" tracking_level="0" version="0">
 									<count>1</count>
 									<item_version>0</item_version>
 									<item class_id="13" tracking_level="0" version="0">
 										<first class_id="14" tracking_level="0" version="0">
-											<first>/users/arashs/U280_CRC_Accelerator/src/kernel.cpp</first>
+											<first>/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp</first>
 											<second>write_output</second>
 										</first>
-										<second>445</second>
+										<second>353</second>
 									</item>
 								</second>
 							</item>
@@ -282,7 +282,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>0</coreId>
+						<coreId>228328192</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>4</bitwidth>
@@ -324,7 +324,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>3506760496</coreId>
+						<coreId>1814459502</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>32</bitwidth>
@@ -350,26 +350,26 @@
 					<Obj>
 						<type>0</type>
 						<id>13</id>
-						<name>_ln445</name>
-						<fileName>/users/arashs/U280_CRC_Accelerator/src/kernel.cpp</fileName>
-						<fileDirectory>/users/arashs/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/calculate_crc/calculate_crc</fileDirectory>
-						<lineNumber>445</lineNumber>
+						<name>_ln353</name>
+						<fileName>/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp</fileName>
+						<fileDirectory>/home/efrink/mled/split_cu/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/calculate_crc/calculate_crc</fileDirectory>
+						<lineNumber>353</lineNumber>
 						<contextFuncName>write_output</contextFuncName>
 						<contextNormFuncName>write_output</contextNormFuncName>
 						<inlineStackInfo>
 							<count>1</count>
 							<item_version>0</item_version>
 							<item>
-								<first>/users/arashs/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/calculate_crc/calculate_crc</first>
+								<first>/home/efrink/mled/split_cu/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/calculate_crc/calculate_crc</first>
 								<second>
 									<count>1</count>
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>/users/arashs/U280_CRC_Accelerator/src/kernel.cpp</first>
+											<first>/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp</first>
 											<second>write_output</second>
 										</first>
-										<second>445</second>
+										<second>353</second>
 									</item>
 								</second>
 							</item>
@@ -382,7 +382,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>1869833586</coreId>
+						<coreId>1667592992</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>0</bitwidth>
@@ -403,7 +403,7 @@
 				<m_isOnCriticalPath>0</m_isOnCriticalPath>
 				<m_isLCDNode>0</m_isLCDNode>
 				<m_isStartOfPath>0</m_isStartOfPath>
-				<m_delay>1.26</m_delay>
+				<m_delay>1.24</m_delay>
 				<m_topoIndex>5</m_topoIndex>
 				<m_clusterGroupNumber>-1</m_clusterGroupNumber>
 			</item>
@@ -412,26 +412,26 @@
 					<Obj>
 						<type>0</type>
 						<id>14</id>
-						<name>_ln447</name>
-						<fileName>/users/arashs/U280_CRC_Accelerator/src/kernel.cpp</fileName>
-						<fileDirectory>/users/arashs/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/calculate_crc/calculate_crc</fileDirectory>
-						<lineNumber>447</lineNumber>
+						<name>_ln355</name>
+						<fileName>/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp</fileName>
+						<fileDirectory>/home/efrink/mled/split_cu/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/calculate_crc/calculate_crc</fileDirectory>
+						<lineNumber>355</lineNumber>
 						<contextFuncName>write_output</contextFuncName>
 						<contextNormFuncName>write_output</contextNormFuncName>
 						<inlineStackInfo>
 							<count>1</count>
 							<item_version>0</item_version>
 							<item>
-								<first>/users/arashs/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/calculate_crc/calculate_crc</first>
+								<first>/home/efrink/mled/split_cu/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/calculate_crc/calculate_crc</first>
 								<second>
 									<count>1</count>
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>/users/arashs/U280_CRC_Accelerator/src/kernel.cpp</first>
+											<first>/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp</first>
 											<second>write_output</second>
 										</first>
-										<second>447</second>
+										<second>355</second>
 									</item>
 								</second>
 							</item>
@@ -444,7 +444,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>3506806752</coreId>
+						<coreId>979725673</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>0</bitwidth>
@@ -471,7 +471,7 @@
 					<Obj>
 						<type>2</type>
 						<id>25</id>
-						<name>write_output_Pipeline_VITIS_LOOP_442_1</name>
+						<name>write_output_Pipeline_VITIS_LOOP_350_1</name>
 						<fileName></fileName>
 						<fileDirectory></fileDirectory>
 						<lineNumber>0</lineNumber>
@@ -489,13 +489,13 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>0</coreId>
+						<coreId>1126182515</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>0</bitwidth>
 				</Value>
 				<const_type>6</const_type>
-				<content>&lt;constant:write_output_Pipeline_VITIS_LOOP_442_1&gt;</content>
+				<content>&lt;constant:write_output_Pipeline_VITIS_LOOP_350_1&gt;</content>
 			</item>
 		</consts>
 		<blocks class_id="17" tracking_level="0" version="0">
@@ -523,7 +523,7 @@
 					<coreName></coreName>
 					<isStorage>0</isStorage>
 					<storageDepth>0</storageDepth>
-					<coreId>0</coreId>
+					<coreId>6759712</coreId>
 					<rtlModuleName></rtlModuleName>
 				</Obj>
 				<node_objs>

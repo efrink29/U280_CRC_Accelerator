@@ -1,10 +1,10 @@
 <profile>
     <ReportVersion>
-        <Version>2023.1</Version>
+        <Version>2022.1</Version>
     </ReportVersion>
     <UserAssignments>
         <unit>ns</unit>
-        <ProductFamily>virtexuplusHBM</ProductFamily>
+        <ProductFamily>virtexuplus</ProductFamily>
         <Part>xcu280-fsvh2892-2L-e</Part>
         <TopModelName>calculate_sha256</TopModelName>
         <TargetClockPeriod>3.33</TargetClockPeriod>
@@ -15,7 +15,7 @@
         <PipelineType>no</PipelineType>
         <SummaryOfTimingAnalysis>
             <unit>ns</unit>
-            <EstimatedClockPeriod>3.429</EstimatedClockPeriod>
+            <EstimatedClockPeriod>2.939</EstimatedClockPeriod>
         </SummaryOfTimingAnalysis>
         <SummaryOfOverallLatency>
             <unit>clock cycles</unit>
@@ -30,14 +30,13 @@
         </SummaryOfOverallLatency>
         <SummaryOfLoopLatency>
             <hash_chunk_loop>
-                <Slack>2.43</Slack>
                 <TripCount>undef</TripCount>
                 <Latency>undef</Latency>
                 <AbsoluteTimeLatency>undef</AbsoluteTimeLatency>
                 <IterationLatency>
                     <range>
-                        <min>407</min>
-                        <max>22749905333</max>
+                        <min>276</min>
+                        <max>-1</max>
                     </range>
                 </IterationLatency>
                 <InstanceList/>
@@ -46,11 +45,11 @@
     </PerformanceEstimates>
     <AreaEstimates>
         <Resources>
-            <BRAM_18K>30</BRAM_18K>
-            <DSP>0</DSP>
-            <FF>49955</FF>
-            <LUT>164121</LUT>
+            <BRAM_18K>0</BRAM_18K>
+            <FF>51210</FF>
+            <LUT>166986</LUT>
             <URAM>0</URAM>
+            <DSP>0</DSP>
         </Resources>
         <AvailableResources>
             <BRAM_18K>4032</BRAM_18K>
@@ -823,223 +822,89 @@
         </RtlPorts>
     </InterfaceSummary>
     <RTLDesignHierarchy>
-        <TopModule MAX_DEPTH="5">
+        <TopModule MAX_DEPTH="6">
             <ModuleName>calculate_sha256</ModuleName>
             <InstancesList>
                 <Instance>
-                    <InstName>grp_sha256_process_chunk_fu_106</InstName>
-                    <ModuleName>sha256_process_chunk</ModuleName>
+                    <InstName>grp_sha256_process_and_write_chunk_fu_108</InstName>
+                    <ModuleName>sha256_process_and_write_chunk</ModuleName>
                     <IsCompInst>true</IsCompInst>
-                    <ID>106</ID>
+                    <ID>108</ID>
                     <InstancesList>
                         <Instance>
-                            <InstName>grp_sha256_compress_block_fu_2497</InstName>
-                            <ModuleName>sha256_compress_block</ModuleName>
+                            <InstName>grp_sha256_process_chunk_fu_97</InstName>
+                            <ModuleName>sha256_process_chunk</ModuleName>
                             <IsCompInst>true</IsCompInst>
-                            <ID>2497</ID>
+                            <ID>97</ID>
                             <InstancesList>
                                 <Instance>
-                                    <InstName>grp_sha256_compress_block_Pipeline_init_words_fu_132</InstName>
-                                    <ModuleName>sha256_compress_block_Pipeline_init_words</ModuleName>
+                                    <InstName>grp_sha256_compress_block_fu_2572</InstName>
+                                    <ModuleName>sha256_compress_block</ModuleName>
                                     <IsCompInst>true</IsCompInst>
-                                    <ID>132</ID>
-                                    <BindInstances>add_ln127_fu_152_p2 add_ln127_1_fu_161_p2 add_ln127_2_fu_259_p2</BindInstances>
+                                    <ID>2572</ID>
+                                    <InstancesList>
+                                        <Instance>
+                                            <InstName>grp_sha256_compress_block_Pipeline_round_loop_fu_372</InstName>
+                                            <ModuleName>sha256_compress_block_Pipeline_round_loop</ModuleName>
+                                            <IsCompInst>true</IsCompInst>
+                                            <ID>372</ID>
+                                            <BindInstances>add_ln147_fu_692_p2 add_ln159_fu_723_p2 add_ln160_fu_729_p2 tmp_s_fu_1007_p17 add_ln161_2_fu_1088_p2 e_fu_1474_p2 SHA256_K_U</BindInstances>
+                                        </Instance>
+                                    </InstancesList>
+                                    <BindInstances>add_ln178_fu_1284_p2 add_ln179_fu_1289_p2 add_ln180_fu_1294_p2 add_ln181_fu_1299_p2 add_ln182_fu_1304_p2 add_ln183_fu_1309_p2 add_ln184_fu_1314_p2 add_ln185_fu_1319_p2</BindInstances>
                                 </Instance>
                                 <Instance>
-                                    <InstName>grp_sha256_compress_block_Pipeline_expand_words_fu_144</InstName>
-                                    <ModuleName>sha256_compress_block_Pipeline_expand_words</ModuleName>
+                                    <InstName>grp_sha256_process_chunk_Pipeline_clear_pad_block_fu_2595</InstName>
+                                    <ModuleName>sha256_process_chunk_Pipeline_clear_pad_block</ModuleName>
                                     <IsCompInst>true</IsCompInst>
-                                    <ID>144</ID>
-                                    <BindInstances>mul_7ns_9ns_14_1_1_U9 add_ln138_fu_285_p2 mul_6ns_8ns_13_1_1_U6 add_ln138_1_fu_311_p2 mul_6ns_8ns_13_1_1_U7 add_ln138_2_fu_337_p2 mul_6ns_8ns_13_1_1_U8 add_ln138_3_fu_363_p2 mul_6ns_8ns_13_1_1_U10 add_ln138_4_fu_628_p2 add_ln135_fu_267_p2</BindInstances>
+                                    <ID>2595</ID>
+                                    <BindInstances>add_ln252_fu_60_p2</BindInstances>
                                 </Instance>
                                 <Instance>
-                                    <InstName>grp_sha256_compress_block_Pipeline_round_loop_fu_151</InstName>
-                                    <ModuleName>sha256_compress_block_Pipeline_round_loop</ModuleName>
+                                    <InstName>grp_sha256_process_chunk_Pipeline_copy_remainder_fu_2600</InstName>
+                                    <ModuleName>sha256_process_chunk_Pipeline_copy_remainder</ModuleName>
                                     <IsCompInst>true</IsCompInst>
-                                    <ID>151</ID>
-                                    <BindInstances>add_ln151_fu_384_p2 add_ln151_1_fu_434_p2 add_ln75_fu_398_p2 e_1_fu_671_p2 SHA256_K_U</BindInstances>
+                                    <ID>2600</ID>
+                                    <BindInstances>add_ln259_fu_141_p2 add_ln262_1_fu_173_p2</BindInstances>
+                                </Instance>
+                                <Instance>
+                                    <InstName>grp_sha256_process_chunk_Pipeline_clear_second_block_fu_2611</InstName>
+                                    <ModuleName>sha256_process_chunk_Pipeline_clear_second_block</ModuleName>
+                                    <IsCompInst>true</IsCompInst>
+                                    <ID>2611</ID>
+                                    <BindInstances>add_ln285_fu_60_p2</BindInstances>
+                                </Instance>
+                                <Instance>
+                                    <InstName>grp_sha256_process_chunk_Pipeline_len_store_double_fu_2616</InstName>
+                                    <ModuleName>sha256_process_chunk_Pipeline_len_store_double</ModuleName>
+                                    <IsCompInst>true</IsCompInst>
+                                    <ID>2616</ID>
+                                    <BindInstances>add_ln292_fu_77_p2</BindInstances>
+                                </Instance>
+                                <Instance>
+                                    <InstName>grp_sha256_process_chunk_Pipeline_len_store_single_fu_2622</InstName>
+                                    <ModuleName>sha256_process_chunk_Pipeline_len_store_single</ModuleName>
+                                    <IsCompInst>true</IsCompInst>
+                                    <ID>2622</ID>
+                                    <BindInstances>add_ln271_fu_77_p2</BindInstances>
                                 </Instance>
                             </InstancesList>
-                            <BindInstances>w_U w_1_U w_2_U add_ln167_fu_208_p2 add_ln168_fu_213_p2 add_ln169_fu_218_p2 add_ln170_fu_223_p2 add_ln171_fu_228_p2 add_ln172_fu_233_p2 add_ln173_fu_238_p2 add_ln174_fu_243_p2</BindInstances>
+                            <BindInstances>pad_block_U add_ln242_fu_2952_p2 add_ln242_1_fu_2958_p2 add_ln242_2_fu_2964_p2 add_ln242_3_fu_2970_p2 add_ln242_4_fu_2976_p2 add_ln242_5_fu_2982_p2 add_ln242_6_fu_2988_p2 add_ln242_7_fu_2994_p2 add_ln242_8_fu_3000_p2 add_ln242_9_fu_3006_p2 add_ln242_10_fu_3012_p2 add_ln242_11_fu_3018_p2 add_ln242_12_fu_3024_p2 add_ln242_13_fu_3030_p2 add_ln242_14_fu_3036_p2 add_ln242_15_fu_3042_p2 add_ln242_16_fu_3048_p2 add_ln242_17_fu_3054_p2 add_ln242_18_fu_3060_p2 add_ln242_19_fu_3066_p2 add_ln242_20_fu_3072_p2 add_ln242_21_fu_3078_p2 add_ln242_22_fu_3084_p2 add_ln242_23_fu_3090_p2 add_ln242_24_fu_3096_p2 add_ln242_25_fu_3102_p2 add_ln242_26_fu_3108_p2 add_ln242_27_fu_3114_p2 add_ln242_28_fu_3120_p2 add_ln242_29_fu_3126_p2 add_ln242_30_fu_3132_p2 add_ln242_31_fu_3144_p2 add_ln242_32_fu_3150_p2 add_ln242_33_fu_3156_p2 add_ln242_34_fu_3162_p2 add_ln242_35_fu_3168_p2 add_ln242_36_fu_3174_p2 add_ln242_37_fu_3180_p2 add_ln242_38_fu_3186_p2 add_ln242_39_fu_3192_p2 add_ln242_40_fu_3198_p2 add_ln242_41_fu_3204_p2 add_ln242_42_fu_3210_p2 add_ln242_43_fu_3216_p2 add_ln242_44_fu_3222_p2 add_ln242_45_fu_3228_p2 add_ln242_46_fu_3234_p2 add_ln242_47_fu_3240_p2 add_ln242_48_fu_3246_p2 add_ln242_49_fu_3252_p2 add_ln242_50_fu_3258_p2 add_ln242_51_fu_3264_p2 add_ln242_52_fu_3270_p2 add_ln242_53_fu_3276_p2 add_ln242_54_fu_3282_p2 add_ln242_55_fu_3288_p2 add_ln242_56_fu_3294_p2 add_ln242_57_fu_3300_p2 add_ln242_58_fu_3306_p2 add_ln242_59_fu_3312_p2 add_ln242_60_fu_3318_p2 add_ln242_61_fu_3324_p2 add_ln242_62_fu_4241_p2 add_ln117_fu_4259_p2 add_ln117_1_fu_4298_p2 add_ln117_2_fu_4332_p2 add_ln117_3_fu_4366_p2 add_ln117_4_fu_4400_p2 add_ln117_5_fu_4434_p2 add_ln117_6_fu_4468_p2 add_ln117_7_fu_4502_p2 add_ln117_8_fu_4536_p2 add_ln117_9_fu_4570_p2 add_ln117_10_fu_4604_p2 add_ln117_11_fu_4638_p2 add_ln117_12_fu_4672_p2 add_ln117_13_fu_4706_p2 add_ln117_14_fu_4740_p2 add_ln117_15_fu_4774_p2 add_ln117_16_fu_4808_p2 add_ln117_17_fu_4842_p2 add_ln117_18_fu_4876_p2 add_ln117_19_fu_4910_p2 add_ln117_20_fu_4944_p2 add_ln117_21_fu_4978_p2 add_ln117_22_fu_5012_p2 add_ln117_23_fu_5046_p2 add_ln117_24_fu_5080_p2 add_ln117_25_fu_5114_p2 add_ln117_26_fu_5148_p2 add_ln117_27_fu_5182_p2 add_ln117_28_fu_5216_p2 add_ln117_29_fu_5250_p2 add_ln117_30_fu_5284_p2 add_ln117_31_fu_5318_p2 add_ln117_32_fu_5352_p2 add_ln117_33_fu_5386_p2 add_ln117_34_fu_5420_p2 add_ln117_35_fu_5454_p2 add_ln117_36_fu_5488_p2 add_ln117_37_fu_5522_p2 add_ln117_38_fu_5556_p2 add_ln117_39_fu_5590_p2 add_ln117_40_fu_5624_p2 add_ln117_41_fu_5658_p2 add_ln117_42_fu_5692_p2 add_ln117_43_fu_5726_p2 add_ln117_44_fu_5760_p2 add_ln117_45_fu_5794_p2 add_ln117_46_fu_5828_p2 add_ln117_47_fu_5862_p2 add_ln117_48_fu_5896_p2 add_ln117_49_fu_5930_p2 add_ln117_50_fu_5964_p2 add_ln117_51_fu_5998_p2 add_ln117_52_fu_6032_p2 add_ln117_53_fu_6066_p2 add_ln117_54_fu_6100_p2 add_ln117_55_fu_6134_p2 add_ln117_56_fu_6168_p2 add_ln117_57_fu_6202_p2 add_ln117_58_fu_6236_p2 add_ln117_59_fu_6270_p2 add_ln117_60_fu_6304_p2 add_ln117_61_fu_6338_p2 add_ln117_62_fu_6372_p2 add_ln117_63_fu_6406_p2 add_ln233_fu_7085_p2</BindInstances>
                         </Instance>
                         <Instance>
-                            <InstName>grp_sha256_process_chunk_Pipeline_clear_pad_block_fu_2520</InstName>
-                            <ModuleName>sha256_process_chunk_Pipeline_clear_pad_block</ModuleName>
+                            <InstName>grp_sha256_process_and_write_chunk_Pipeline_write_digest_fu_109</InstName>
+                            <ModuleName>sha256_process_and_write_chunk_Pipeline_write_digest</ModuleName>
                             <IsCompInst>true</IsCompInst>
-                            <ID>2520</ID>
-                            <BindInstances>add_ln218_fu_60_p2</BindInstances>
-                        </Instance>
-                        <Instance>
-                            <InstName>grp_sha256_process_chunk_Pipeline_copy_remainder_fu_2525</InstName>
-                            <ModuleName>sha256_process_chunk_Pipeline_copy_remainder</ModuleName>
-                            <IsCompInst>true</IsCompInst>
-                            <ID>2525</ID>
-                            <BindInstances>add_ln225_fu_143_p2 add_ln228_1_fu_175_p2</BindInstances>
-                        </Instance>
-                        <Instance>
-                            <InstName>grp_sha256_process_chunk_Pipeline_clear_second_block_fu_2536</InstName>
-                            <ModuleName>sha256_process_chunk_Pipeline_clear_second_block</ModuleName>
-                            <IsCompInst>true</IsCompInst>
-                            <ID>2536</ID>
-                            <BindInstances>add_ln251_fu_60_p2</BindInstances>
-                        </Instance>
-                        <Instance>
-                            <InstName>grp_sha256_process_chunk_Pipeline_len_store_double_fu_2541</InstName>
-                            <ModuleName>sha256_process_chunk_Pipeline_len_store_double</ModuleName>
-                            <IsCompInst>true</IsCompInst>
-                            <ID>2541</ID>
-                            <BindInstances>add_ln258_fu_77_p2</BindInstances>
-                        </Instance>
-                        <Instance>
-                            <InstName>grp_sha256_process_chunk_Pipeline_len_store_single_fu_2547</InstName>
-                            <ModuleName>sha256_process_chunk_Pipeline_len_store_single</ModuleName>
-                            <IsCompInst>true</IsCompInst>
-                            <ID>2547</ID>
-                            <BindInstances>add_ln237_fu_77_p2</BindInstances>
+                            <ID>109</ID>
+                            <BindInstances>add_ln204_fu_138_p2</BindInstances>
                         </Instance>
                     </InstancesList>
-                    <BindInstances>pad_block_U add_ln208_fu_2917_p2 add_ln208_1_fu_2923_p2 add_ln208_2_fu_2929_p2 add_ln208_3_fu_2935_p2 add_ln208_4_fu_2941_p2 add_ln208_5_fu_2947_p2 add_ln208_6_fu_2953_p2 add_ln208_7_fu_2959_p2 add_ln208_8_fu_2965_p2 add_ln208_9_fu_2971_p2 add_ln208_10_fu_2977_p2 add_ln208_11_fu_2983_p2 add_ln208_12_fu_2989_p2 add_ln208_13_fu_2995_p2 add_ln208_14_fu_3001_p2 add_ln208_15_fu_3007_p2 add_ln208_16_fu_3013_p2 add_ln208_17_fu_3019_p2 add_ln208_18_fu_3025_p2 add_ln208_19_fu_3031_p2 add_ln208_20_fu_3037_p2 add_ln208_21_fu_3043_p2 add_ln208_22_fu_3049_p2 add_ln208_23_fu_3055_p2 add_ln208_24_fu_3061_p2 add_ln208_25_fu_3067_p2 add_ln208_26_fu_3073_p2 add_ln208_27_fu_3079_p2 add_ln208_28_fu_3085_p2 add_ln208_29_fu_3091_p2 add_ln208_30_fu_3097_p2 add_ln208_31_fu_3109_p2 add_ln208_32_fu_3115_p2 add_ln208_33_fu_3121_p2 add_ln208_34_fu_3127_p2 add_ln208_35_fu_3133_p2 add_ln208_36_fu_3139_p2 add_ln208_37_fu_3145_p2 add_ln208_38_fu_3151_p2 add_ln208_39_fu_3157_p2 add_ln208_40_fu_3163_p2 add_ln208_41_fu_3169_p2 add_ln208_42_fu_3175_p2 add_ln208_43_fu_3181_p2 add_ln208_44_fu_3187_p2 add_ln208_45_fu_3193_p2 add_ln208_46_fu_3199_p2 add_ln208_47_fu_3205_p2 add_ln208_48_fu_3211_p2 add_ln208_49_fu_3217_p2 add_ln208_50_fu_3223_p2 add_ln208_51_fu_3229_p2 add_ln208_52_fu_3235_p2 add_ln208_53_fu_3241_p2 add_ln208_54_fu_3247_p2 add_ln208_55_fu_3253_p2 add_ln208_56_fu_3259_p2 add_ln208_57_fu_3265_p2 add_ln208_58_fu_3271_p2 add_ln208_59_fu_3277_p2 add_ln208_60_fu_3283_p2 add_ln208_61_fu_3289_p2 grp_fu_2585_p2 add_ln116_fu_4186_p2 add_ln116_1_fu_4225_p2 add_ln116_2_fu_4259_p2 add_ln116_3_fu_4293_p2 add_ln116_4_fu_4327_p2 add_ln116_5_fu_4361_p2 add_ln116_6_fu_4395_p2 add_ln116_7_fu_4429_p2 add_ln116_8_fu_4463_p2 add_ln116_9_fu_4497_p2 add_ln116_10_fu_4531_p2 add_ln116_11_fu_4565_p2 add_ln116_12_fu_4599_p2 add_ln116_13_fu_4633_p2 add_ln116_14_fu_4667_p2 add_ln116_15_fu_4701_p2 add_ln116_16_fu_4735_p2 add_ln116_17_fu_4769_p2 add_ln116_18_fu_4803_p2 add_ln116_19_fu_4837_p2 add_ln116_20_fu_4871_p2 add_ln116_21_fu_4905_p2 add_ln116_22_fu_4939_p2 add_ln116_23_fu_4973_p2 add_ln116_24_fu_5007_p2 add_ln116_25_fu_5041_p2 add_ln116_26_fu_5075_p2 add_ln116_27_fu_5109_p2 add_ln116_28_fu_5143_p2 add_ln116_29_fu_5177_p2 add_ln116_30_fu_5211_p2 add_ln116_31_fu_5245_p2 add_ln116_32_fu_5279_p2 add_ln116_33_fu_5313_p2 add_ln116_34_fu_5347_p2 add_ln116_35_fu_5381_p2 add_ln116_36_fu_5415_p2 add_ln116_37_fu_5449_p2 add_ln116_38_fu_5483_p2 add_ln116_39_fu_5517_p2 add_ln116_40_fu_5551_p2 add_ln116_41_fu_5585_p2 add_ln116_42_fu_5619_p2 add_ln116_43_fu_5653_p2 add_ln116_44_fu_5687_p2 add_ln116_45_fu_5721_p2 add_ln116_46_fu_5755_p2 add_ln116_47_fu_5789_p2 add_ln116_48_fu_5823_p2 add_ln116_49_fu_5857_p2 add_ln116_50_fu_5891_p2 add_ln116_51_fu_5925_p2 add_ln116_52_fu_5959_p2 add_ln116_53_fu_5993_p2 add_ln116_54_fu_6027_p2 add_ln116_55_fu_6061_p2 add_ln116_56_fu_6095_p2 add_ln116_57_fu_6129_p2 add_ln116_58_fu_6163_p2 add_ln116_59_fu_6197_p2 add_ln116_60_fu_6231_p2 add_ln116_61_fu_6265_p2 add_ln116_62_fu_6299_p2 add_ln116_63_fu_6333_p2 grp_fu_2585_p2</BindInstances>
-                </Instance>
-                <Instance>
-                    <InstName>grp_calculate_sha256_Pipeline_hash_write_digest_fu_116</InstName>
-                    <ModuleName>calculate_sha256_Pipeline_hash_write_digest</ModuleName>
-                    <IsCompInst>true</IsCompInst>
-                    <ID>116</ID>
-                    <BindInstances>add_ln616_fu_216_p2 add_ln621_fu_244_p2 add_ln621_1_fu_304_p2</BindInstances>
                 </Instance>
             </InstancesList>
-            <BindInstances>add_ln608_1_fu_157_p2 add_ln608_fu_167_p2 chunk_fu_173_p2</BindInstances>
+            <BindInstances>add_ln786_fu_141_p2 add_ln788_fu_150_p2 chunk_fu_155_p2 digest_out_fu_172_p2</BindInstances>
         </TopModule>
     </RTLDesignHierarchy>
     <ModuleInformation>
-        <Module>
-            <Name>sha256_compress_block_Pipeline_init_words</Name>
-            <Loops>
-                <init_words/>
-            </Loops>
-            <PerformanceEstimates>
-                <SummaryOfTimingAnalysis>
-                    <TargetClockPeriod>3.33</TargetClockPeriod>
-                    <ClockUncertainty>0.90</ClockUncertainty>
-                    <EstimatedClockPeriod>2.142</EstimatedClockPeriod>
-                </SummaryOfTimingAnalysis>
-                <SummaryOfOverallLatency>
-                    <Best-caseLatency>18</Best-caseLatency>
-                    <Average-caseLatency>18</Average-caseLatency>
-                    <Worst-caseLatency>18</Worst-caseLatency>
-                    <Best-caseRealTimeLatency>59.994 ns</Best-caseRealTimeLatency>
-                    <Average-caseRealTimeLatency>59.994 ns</Average-caseRealTimeLatency>
-                    <Worst-caseRealTimeLatency>59.994 ns</Worst-caseRealTimeLatency>
-                    <PipelineInitiationInterval>18</PipelineInitiationInterval>
-                    <PipelineType>no</PipelineType>
-                </SummaryOfOverallLatency>
-                <SummaryOfLoopLatency>
-                    <init_words>
-                        <Name>init_words</Name>
-                        <Slack>2.43</Slack>
-                        <TripCount>16</TripCount>
-                        <Latency>16</Latency>
-                        <AbsoluteTimeLatency>53.328 ns</AbsoluteTimeLatency>
-                        <PipelineII>1</PipelineII>
-                        <PipelineDepth>1</PipelineDepth>
-                        <PipelineType>yes</PipelineType>
-                        <InstanceList/>
-                    </init_words>
-                </SummaryOfLoopLatency>
-            </PerformanceEstimates>
-            <AreaEstimates>
-                <Resources>
-                    <FF>22</FF>
-                    <AVAIL_FF>2607360</AVAIL_FF>
-                    <UTIL_FF>~0</UTIL_FF>
-                    <LUT>2305</LUT>
-                    <AVAIL_LUT>1303680</AVAIL_LUT>
-                    <UTIL_LUT>~0</UTIL_LUT>
-                    <BRAM_18K>0</BRAM_18K>
-                    <AVAIL_BRAM>4032</AVAIL_BRAM>
-                    <UTIL_BRAM>0</UTIL_BRAM>
-                    <DSP>0</DSP>
-                    <AVAIL_DSP>9024</AVAIL_DSP>
-                    <UTIL_DSP>0</UTIL_DSP>
-                    <URAM>0</URAM>
-                    <AVAIL_URAM>960</AVAIL_URAM>
-                    <UTIL_URAM>0</UTIL_URAM>
-                </Resources>
-            </AreaEstimates>
-            <BindNodes>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="init_words" OPTYPE="add" PRAGMA="" RTLNAME="add_ln127_fu_152_p2" SOURCE="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:127" URAM="0" VARIABLE="add_ln127"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="init_words" OPTYPE="add" PRAGMA="" RTLNAME="add_ln127_1_fu_161_p2" SOURCE="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:127" URAM="0" VARIABLE="add_ln127_1"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="init_words" OPTYPE="add" PRAGMA="" RTLNAME="add_ln127_2_fu_259_p2" SOURCE="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:127" URAM="0" VARIABLE="add_ln127_2"/>
-            </BindNodes>
-        </Module>
-        <Module>
-            <Name>sha256_compress_block_Pipeline_expand_words</Name>
-            <Loops>
-                <expand_words/>
-            </Loops>
-            <PerformanceEstimates>
-                <SummaryOfTimingAnalysis>
-                    <TargetClockPeriod>3.33</TargetClockPeriod>
-                    <ClockUncertainty>0.90</ClockUncertainty>
-                    <EstimatedClockPeriod>3.429</EstimatedClockPeriod>
-                </SummaryOfTimingAnalysis>
-                <SummaryOfOverallLatency>
-                    <Best-caseLatency>108</Best-caseLatency>
-                    <Average-caseLatency>108</Average-caseLatency>
-                    <Worst-caseLatency>108</Worst-caseLatency>
-                    <Best-caseRealTimeLatency>0.370 us</Best-caseRealTimeLatency>
-                    <Average-caseRealTimeLatency>0.370 us</Average-caseRealTimeLatency>
-                    <Worst-caseRealTimeLatency>0.370 us</Worst-caseRealTimeLatency>
-                    <PipelineInitiationInterval>108</PipelineInitiationInterval>
-                    <PipelineType>no</PipelineType>
-                </SummaryOfOverallLatency>
-                <SummaryOfLoopLatency>
-                    <expand_words>
-                        <Name>expand_words</Name>
-                        <Slack>2.43</Slack>
-                        <TripCount>48</TripCount>
-                        <Latency>106</Latency>
-                        <AbsoluteTimeLatency>0.363 us</AbsoluteTimeLatency>
-                        <PipelineII>2</PipelineII>
-                        <PipelineDepth>13</PipelineDepth>
-                        <PipelineType>yes</PipelineType>
-                        <InstanceList/>
-                    </expand_words>
-                </SummaryOfLoopLatency>
-            </PerformanceEstimates>
-            <AreaEstimates>
-                <Resources>
-                    <DSP>0</DSP>
-                    <AVAIL_DSP>9024</AVAIL_DSP>
-                    <UTIL_DSP>0</UTIL_DSP>
-                    <FF>344</FF>
-                    <AVAIL_FF>2607360</AVAIL_FF>
-                    <UTIL_FF>~0</UTIL_FF>
-                    <LUT>921</LUT>
-                    <AVAIL_LUT>1303680</AVAIL_LUT>
-                    <UTIL_LUT>~0</UTIL_LUT>
-                    <BRAM_18K>0</BRAM_18K>
-                    <AVAIL_BRAM>4032</AVAIL_BRAM>
-                    <UTIL_BRAM>0</UTIL_BRAM>
-                    <URAM>0</URAM>
-                    <AVAIL_URAM>960</AVAIL_URAM>
-                    <UTIL_URAM>0</UTIL_URAM>
-                </Resources>
-            </AreaEstimates>
-            <BindNodes>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op mul" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="expand_words" OPTYPE="mul" PRAGMA="" RTLNAME="mul_7ns_9ns_14_1_1_U9" SOURCE="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:135" URAM="0" VARIABLE="mul_ln135"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="expand_words" OPTYPE="add" PRAGMA="" RTLNAME="add_ln138_fu_285_p2" SOURCE="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:138" URAM="0" VARIABLE="add_ln138"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op mul" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="expand_words" OPTYPE="mul" PRAGMA="" RTLNAME="mul_6ns_8ns_13_1_1_U6" SOURCE="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:138" URAM="0" VARIABLE="mul_ln138"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="expand_words" OPTYPE="add" PRAGMA="" RTLNAME="add_ln138_1_fu_311_p2" SOURCE="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:138" URAM="0" VARIABLE="add_ln138_1"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op mul" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="expand_words" OPTYPE="mul" PRAGMA="" RTLNAME="mul_6ns_8ns_13_1_1_U7" SOURCE="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:138" URAM="0" VARIABLE="mul_ln138_1"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="expand_words" OPTYPE="add" PRAGMA="" RTLNAME="add_ln138_2_fu_337_p2" SOURCE="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:138" URAM="0" VARIABLE="add_ln138_2"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op mul" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="expand_words" OPTYPE="mul" PRAGMA="" RTLNAME="mul_6ns_8ns_13_1_1_U8" SOURCE="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:138" URAM="0" VARIABLE="mul_ln138_2"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="expand_words" OPTYPE="add" PRAGMA="" RTLNAME="add_ln138_3_fu_363_p2" SOURCE="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:138" URAM="0" VARIABLE="add_ln138_3"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op mul" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="expand_words" OPTYPE="mul" PRAGMA="" RTLNAME="mul_6ns_8ns_13_1_1_U10" SOURCE="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:138" URAM="0" VARIABLE="mul_ln138_3"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="expand_words" OPTYPE="add" PRAGMA="" RTLNAME="add_ln138_4_fu_628_p2" SOURCE="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:138" URAM="0" VARIABLE="add_ln138_4"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="expand_words" OPTYPE="add" PRAGMA="" RTLNAME="add_ln135_fu_267_p2" SOURCE="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:135" URAM="0" VARIABLE="add_ln135"/>
-            </BindNodes>
-        </Module>
         <Module>
             <Name>sha256_compress_block_Pipeline_round_loop</Name>
             <Loops>
@@ -1064,7 +929,6 @@
                 <SummaryOfLoopLatency>
                     <round_loop>
                         <Name>round_loop</Name>
-                        <Slack>2.43</Slack>
                         <TripCount>64</TripCount>
                         <Latency>66</Latency>
                         <AbsoluteTimeLatency>0.220 us</AbsoluteTimeLatency>
@@ -1080,10 +944,10 @@
                     <BRAM_18K>0</BRAM_18K>
                     <AVAIL_BRAM>4032</AVAIL_BRAM>
                     <UTIL_BRAM>0</UTIL_BRAM>
-                    <FF>388</FF>
+                    <FF>931</FF>
                     <AVAIL_FF>2607360</AVAIL_FF>
                     <UTIL_FF>~0</UTIL_FF>
-                    <LUT>884</LUT>
+                    <LUT>1573</LUT>
                     <AVAIL_LUT>1303680</AVAIL_LUT>
                     <UTIL_LUT>~0</UTIL_LUT>
                     <DSP>0</DSP>
@@ -1095,10 +959,12 @@
                 </Resources>
             </AreaEstimates>
             <BindNodes>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="round_loop" OPTYPE="add" PRAGMA="" RTLNAME="add_ln151_fu_384_p2" SOURCE="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:151" URAM="0" VARIABLE="add_ln151"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="round_loop" OPTYPE="add" PRAGMA="" RTLNAME="add_ln151_1_fu_434_p2" SOURCE="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:151" URAM="0" VARIABLE="add_ln151_1"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="round_loop" OPTYPE="add" PRAGMA="" RTLNAME="add_ln75_fu_398_p2" SOURCE="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:75" URAM="0" VARIABLE="add_ln75"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="round_loop" OPTYPE="add" PRAGMA="" RTLNAME="e_1_fu_671_p2" SOURCE="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:160" URAM="0" VARIABLE="e_1"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="round_loop" OPTYPE="add" PRAGMA="" RTLNAME="add_ln147_fu_692_p2" SOURCE="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:147" URAM="0" VARIABLE="add_ln147"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="round_loop" OPTYPE="add" PRAGMA="" RTLNAME="add_ln159_fu_723_p2" SOURCE="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:159" URAM="0" VARIABLE="add_ln159"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="round_loop" OPTYPE="add" PRAGMA="" RTLNAME="add_ln160_fu_729_p2" SOURCE="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:160" URAM="0" VARIABLE="add_ln160"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="round_loop" OPTYPE="add" PRAGMA="" RTLNAME="tmp_s_fu_1007_p17" SOURCE="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:161" URAM="0" VARIABLE="add_ln161"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="round_loop" OPTYPE="add" PRAGMA="" RTLNAME="add_ln161_2_fu_1088_p2" SOURCE="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:161" URAM="0" VARIABLE="add_ln161_2"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="round_loop" OPTYPE="add" PRAGMA="" RTLNAME="e_fu_1474_p2" SOURCE="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:171" URAM="0" VARIABLE="e"/>
                 <BindNode BINDTYPE="storage" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_storage rom_1p" DSP="0" ID="" IMPL="auto" LATENCY="1" LOOP="" OPTYPE="rom_1p" PRAGMA="" RTLNAME="SHA256_K_U" SOURCE="" URAM="0" VARIABLE="SHA256_K"/>
             </BindNodes>
         </Module>
@@ -1108,16 +974,16 @@
                 <SummaryOfTimingAnalysis>
                     <TargetClockPeriod>3.33</TargetClockPeriod>
                     <ClockUncertainty>0.90</ClockUncertainty>
-                    <EstimatedClockPeriod>3.429</EstimatedClockPeriod>
+                    <EstimatedClockPeriod>2.939</EstimatedClockPeriod>
                 </SummaryOfTimingAnalysis>
                 <SummaryOfOverallLatency>
-                    <Best-caseLatency>200</Best-caseLatency>
-                    <Average-caseLatency>200</Average-caseLatency>
-                    <Worst-caseLatency>200</Worst-caseLatency>
-                    <Best-caseRealTimeLatency>0.686 us</Best-caseRealTimeLatency>
-                    <Average-caseRealTimeLatency>0.686 us</Average-caseRealTimeLatency>
-                    <Worst-caseRealTimeLatency>0.686 us</Worst-caseRealTimeLatency>
-                    <PipelineInitiationInterval>200</PipelineInitiationInterval>
+                    <Best-caseLatency>70</Best-caseLatency>
+                    <Average-caseLatency>70</Average-caseLatency>
+                    <Worst-caseLatency>70</Worst-caseLatency>
+                    <Best-caseRealTimeLatency>0.233 us</Best-caseRealTimeLatency>
+                    <Average-caseRealTimeLatency>0.233 us</Average-caseRealTimeLatency>
+                    <Worst-caseRealTimeLatency>0.233 us</Worst-caseRealTimeLatency>
+                    <PipelineInitiationInterval>70</PipelineInitiationInterval>
                     <PipelineType>no</PipelineType>
                 </SummaryOfOverallLatency>
             </PerformanceEstimates>
@@ -1126,32 +992,29 @@
                     <BRAM_18K>0</BRAM_18K>
                     <AVAIL_BRAM>4032</AVAIL_BRAM>
                     <UTIL_BRAM>0</UTIL_BRAM>
+                    <FF>1447</FF>
+                    <AVAIL_FF>2607360</AVAIL_FF>
+                    <UTIL_FF>~0</UTIL_FF>
+                    <LUT>1905</LUT>
+                    <AVAIL_LUT>1303680</AVAIL_LUT>
+                    <UTIL_LUT>~0</UTIL_LUT>
                     <DSP>0</DSP>
                     <AVAIL_DSP>9024</AVAIL_DSP>
                     <UTIL_DSP>0</UTIL_DSP>
-                    <FF>860</FF>
-                    <AVAIL_FF>2607360</AVAIL_FF>
-                    <UTIL_FF>~0</UTIL_FF>
-                    <LUT>4795</LUT>
-                    <AVAIL_LUT>1303680</AVAIL_LUT>
-                    <UTIL_LUT>~0</UTIL_LUT>
                     <URAM>0</URAM>
                     <AVAIL_URAM>960</AVAIL_URAM>
                     <UTIL_URAM>0</UTIL_URAM>
                 </Resources>
             </AreaEstimates>
             <BindNodes>
-                <BindNode BINDTYPE="storage" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_storage rom_np" DSP="0" ID="" IMPL="auto" LATENCY="1" LOOP="" OPTYPE="rom_np" PRAGMA="" RTLNAME="w_U" SOURCE="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:124" URAM="0" VARIABLE="w"/>
-                <BindNode BINDTYPE="storage" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_storage rom_np" DSP="0" ID="" IMPL="auto" LATENCY="1" LOOP="" OPTYPE="rom_np" PRAGMA="" RTLNAME="w_1_U" SOURCE="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:124" URAM="0" VARIABLE="w_1"/>
-                <BindNode BINDTYPE="storage" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_storage rom_np" DSP="0" ID="" IMPL="auto" LATENCY="1" LOOP="" OPTYPE="rom_np" PRAGMA="" RTLNAME="w_2_U" SOURCE="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:124" URAM="0" VARIABLE="w_2"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="add_ln167_fu_208_p2" SOURCE="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:167" URAM="0" VARIABLE="add_ln167"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="add_ln168_fu_213_p2" SOURCE="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:168" URAM="0" VARIABLE="add_ln168"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="add_ln169_fu_218_p2" SOURCE="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:169" URAM="0" VARIABLE="add_ln169"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="add_ln170_fu_223_p2" SOURCE="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:170" URAM="0" VARIABLE="add_ln170"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="add_ln171_fu_228_p2" SOURCE="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:171" URAM="0" VARIABLE="add_ln171"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="add_ln172_fu_233_p2" SOURCE="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:172" URAM="0" VARIABLE="add_ln172"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="add_ln173_fu_238_p2" SOURCE="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:173" URAM="0" VARIABLE="add_ln173"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="add_ln174_fu_243_p2" SOURCE="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:174" URAM="0" VARIABLE="add_ln174"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="add_ln178_fu_1284_p2" SOURCE="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:178" URAM="0" VARIABLE="add_ln178"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="add_ln179_fu_1289_p2" SOURCE="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:179" URAM="0" VARIABLE="add_ln179"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="add_ln180_fu_1294_p2" SOURCE="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:180" URAM="0" VARIABLE="add_ln180"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="add_ln181_fu_1299_p2" SOURCE="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:181" URAM="0" VARIABLE="add_ln181"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="add_ln182_fu_1304_p2" SOURCE="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:182" URAM="0" VARIABLE="add_ln182"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="add_ln183_fu_1309_p2" SOURCE="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:183" URAM="0" VARIABLE="add_ln183"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="add_ln184_fu_1314_p2" SOURCE="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:184" URAM="0" VARIABLE="add_ln184"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="add_ln185_fu_1319_p2" SOURCE="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:185" URAM="0" VARIABLE="add_ln185"/>
             </BindNodes>
         </Module>
         <Module>
@@ -1163,7 +1026,7 @@
                 <SummaryOfTimingAnalysis>
                     <TargetClockPeriod>3.33</TargetClockPeriod>
                     <ClockUncertainty>0.90</ClockUncertainty>
-                    <EstimatedClockPeriod>1.373</EstimatedClockPeriod>
+                    <EstimatedClockPeriod>1.267</EstimatedClockPeriod>
                 </SummaryOfTimingAnalysis>
                 <SummaryOfOverallLatency>
                     <Best-caseLatency>66</Best-caseLatency>
@@ -1178,7 +1041,6 @@
                 <SummaryOfLoopLatency>
                     <clear_pad_block>
                         <Name>clear_pad_block</Name>
-                        <Slack>2.43</Slack>
                         <TripCount>64</TripCount>
                         <Latency>64</Latency>
                         <AbsoluteTimeLatency>0.213 us</AbsoluteTimeLatency>
@@ -1194,7 +1056,7 @@
                     <FF>9</FF>
                     <AVAIL_FF>2607360</AVAIL_FF>
                     <UTIL_FF>~0</UTIL_FF>
-                    <LUT>56</LUT>
+                    <LUT>52</LUT>
                     <AVAIL_LUT>1303680</AVAIL_LUT>
                     <UTIL_LUT>~0</UTIL_LUT>
                     <BRAM_18K>0</BRAM_18K>
@@ -1209,7 +1071,7 @@
                 </Resources>
             </AreaEstimates>
             <BindNodes>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="clear_pad_block" OPTYPE="add" PRAGMA="" RTLNAME="add_ln218_fu_60_p2" SOURCE="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:218" URAM="0" VARIABLE="add_ln218"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="clear_pad_block" OPTYPE="add" PRAGMA="" RTLNAME="add_ln252_fu_60_p2" SOURCE="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:252" URAM="0" VARIABLE="add_ln252"/>
             </BindNodes>
         </Module>
         <Module>
@@ -1225,28 +1087,27 @@
                 </SummaryOfTimingAnalysis>
                 <SummaryOfOverallLatency>
                     <Best-caseLatency>2</Best-caseLatency>
-                    <Average-caseLatency>105</Average-caseLatency>
-                    <Worst-caseLatency>137</Worst-caseLatency>
+                    <Average-caseLatency>undef</Average-caseLatency>
+                    <Worst-caseLatency>136</Worst-caseLatency>
                     <Best-caseRealTimeLatency>6.666 ns</Best-caseRealTimeLatency>
-                    <Average-caseRealTimeLatency>0.350 us</Average-caseRealTimeLatency>
-                    <Worst-caseRealTimeLatency>0.457 us</Worst-caseRealTimeLatency>
-                    <PipelineInitiationInterval>2 ~ 137</PipelineInitiationInterval>
+                    <Average-caseRealTimeLatency>undef</Average-caseRealTimeLatency>
+                    <Worst-caseRealTimeLatency>0.453 us</Worst-caseRealTimeLatency>
+                    <PipelineInitiationInterval>2 ~ 136</PipelineInitiationInterval>
                     <PipelineType>no</PipelineType>
                 </SummaryOfOverallLatency>
                 <SummaryOfLoopLatency>
                     <copy_remainder>
                         <Name>copy_remainder</Name>
-                        <Slack>2.43</Slack>
                         <TripCount>
                             <range>
                                 <min>0</min>
                                 <max>63</max>
                             </range>
                         </TripCount>
-                        <Latency>0 ~ 135</Latency>
-                        <AbsoluteTimeLatency>0 ns ~ 0.450 us</AbsoluteTimeLatency>
+                        <Latency>0 ~ 134</Latency>
+                        <AbsoluteTimeLatency>0 ns ~ 0.447 us</AbsoluteTimeLatency>
                         <PipelineII>1</PipelineII>
-                        <PipelineDepth>74</PipelineDepth>
+                        <PipelineDepth>73</PipelineDepth>
                         <PipelineType>yes</PipelineType>
                         <InstanceList/>
                     </copy_remainder>
@@ -1254,10 +1115,10 @@
             </PerformanceEstimates>
             <AreaEstimates>
                 <Resources>
-                    <FF>863</FF>
+                    <FF>861</FF>
                     <AVAIL_FF>2607360</AVAIL_FF>
                     <UTIL_FF>~0</UTIL_FF>
-                    <LUT>2460</LUT>
+                    <LUT>2457</LUT>
                     <AVAIL_LUT>1303680</AVAIL_LUT>
                     <UTIL_LUT>~0</UTIL_LUT>
                     <BRAM_18K>0</BRAM_18K>
@@ -1272,8 +1133,8 @@
                 </Resources>
             </AreaEstimates>
             <BindNodes>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="copy_remainder" OPTYPE="add" PRAGMA="" RTLNAME="add_ln225_fu_143_p2" SOURCE="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:225" URAM="0" VARIABLE="add_ln225"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="copy_remainder" OPTYPE="add" PRAGMA="" RTLNAME="add_ln228_1_fu_175_p2" SOURCE="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:228" URAM="0" VARIABLE="add_ln228_1"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="copy_remainder" OPTYPE="add" PRAGMA="" RTLNAME="add_ln259_fu_141_p2" SOURCE="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:259" URAM="0" VARIABLE="add_ln259"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="copy_remainder" OPTYPE="add" PRAGMA="" RTLNAME="add_ln262_1_fu_173_p2" SOURCE="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:262" URAM="0" VARIABLE="add_ln262_1"/>
             </BindNodes>
         </Module>
         <Module>
@@ -1285,7 +1146,7 @@
                 <SummaryOfTimingAnalysis>
                     <TargetClockPeriod>3.33</TargetClockPeriod>
                     <ClockUncertainty>0.90</ClockUncertainty>
-                    <EstimatedClockPeriod>1.373</EstimatedClockPeriod>
+                    <EstimatedClockPeriod>1.267</EstimatedClockPeriod>
                 </SummaryOfTimingAnalysis>
                 <SummaryOfOverallLatency>
                     <Best-caseLatency>66</Best-caseLatency>
@@ -1300,7 +1161,6 @@
                 <SummaryOfLoopLatency>
                     <clear_second_block>
                         <Name>clear_second_block</Name>
-                        <Slack>2.43</Slack>
                         <TripCount>64</TripCount>
                         <Latency>64</Latency>
                         <AbsoluteTimeLatency>0.213 us</AbsoluteTimeLatency>
@@ -1316,7 +1176,7 @@
                     <FF>9</FF>
                     <AVAIL_FF>2607360</AVAIL_FF>
                     <UTIL_FF>~0</UTIL_FF>
-                    <LUT>56</LUT>
+                    <LUT>52</LUT>
                     <AVAIL_LUT>1303680</AVAIL_LUT>
                     <UTIL_LUT>~0</UTIL_LUT>
                     <BRAM_18K>0</BRAM_18K>
@@ -1331,7 +1191,7 @@
                 </Resources>
             </AreaEstimates>
             <BindNodes>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="clear_second_block" OPTYPE="add" PRAGMA="" RTLNAME="add_ln251_fu_60_p2" SOURCE="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:251" URAM="0" VARIABLE="add_ln251"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="clear_second_block" OPTYPE="add" PRAGMA="" RTLNAME="add_ln285_fu_60_p2" SOURCE="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:285" URAM="0" VARIABLE="add_ln285"/>
             </BindNodes>
         </Module>
         <Module>
@@ -1358,7 +1218,6 @@
                 <SummaryOfLoopLatency>
                     <len_store_double>
                         <Name>len_store_double</Name>
-                        <Slack>2.43</Slack>
                         <TripCount>8</TripCount>
                         <Latency>8</Latency>
                         <AbsoluteTimeLatency>26.664 ns</AbsoluteTimeLatency>
@@ -1374,7 +1233,7 @@
                     <FF>6</FF>
                     <AVAIL_FF>2607360</AVAIL_FF>
                     <UTIL_FF>~0</UTIL_FF>
-                    <LUT>241</LUT>
+                    <LUT>238</LUT>
                     <AVAIL_LUT>1303680</AVAIL_LUT>
                     <UTIL_LUT>~0</UTIL_LUT>
                     <BRAM_18K>0</BRAM_18K>
@@ -1389,7 +1248,7 @@
                 </Resources>
             </AreaEstimates>
             <BindNodes>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="len_store_double" OPTYPE="add" PRAGMA="" RTLNAME="add_ln258_fu_77_p2" SOURCE="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:258" URAM="0" VARIABLE="add_ln258"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="len_store_double" OPTYPE="add" PRAGMA="" RTLNAME="add_ln292_fu_77_p2" SOURCE="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:292" URAM="0" VARIABLE="add_ln292"/>
             </BindNodes>
         </Module>
         <Module>
@@ -1416,7 +1275,6 @@
                 <SummaryOfLoopLatency>
                     <len_store_single>
                         <Name>len_store_single</Name>
-                        <Slack>2.43</Slack>
                         <TripCount>8</TripCount>
                         <Latency>8</Latency>
                         <AbsoluteTimeLatency>26.664 ns</AbsoluteTimeLatency>
@@ -1432,7 +1290,7 @@
                     <FF>6</FF>
                     <AVAIL_FF>2607360</AVAIL_FF>
                     <UTIL_FF>~0</UTIL_FF>
-                    <LUT>241</LUT>
+                    <LUT>238</LUT>
                     <AVAIL_LUT>1303680</AVAIL_LUT>
                     <UTIL_LUT>~0</UTIL_LUT>
                     <BRAM_18K>0</BRAM_18K>
@@ -1447,7 +1305,7 @@
                 </Resources>
             </AreaEstimates>
             <BindNodes>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="len_store_single" OPTYPE="add" PRAGMA="" RTLNAME="add_ln237_fu_77_p2" SOURCE="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:237" URAM="0" VARIABLE="add_ln237"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="len_store_single" OPTYPE="add" PRAGMA="" RTLNAME="add_ln271_fu_77_p2" SOURCE="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:271" URAM="0" VARIABLE="add_ln271"/>
             </BindNodes>
         </Module>
         <Module>
@@ -1460,51 +1318,39 @@
                 <SummaryOfTimingAnalysis>
                     <TargetClockPeriod>3.33</TargetClockPeriod>
                     <ClockUncertainty>0.90</ClockUncertainty>
-                    <EstimatedClockPeriod>3.429</EstimatedClockPeriod>
+                    <EstimatedClockPeriod>2.939</EstimatedClockPeriod>
                 </SummaryOfTimingAnalysis>
                 <SummaryOfOverallLatency>
-                    <Best-caseLatency>323</Best-caseLatency>
-                    <Average-caseLatency>9110028594</Average-caseLatency>
-                    <Worst-caseLatency>22749905249</Worst-caseLatency>
-                    <Best-caseRealTimeLatency>1.108 us</Best-caseRealTimeLatency>
-                    <Average-caseRealTimeLatency>31.237 sec</Average-caseRealTimeLatency>
-                    <Worst-caseRealTimeLatency>78.006 sec</Worst-caseRealTimeLatency>
-                    <PipelineInitiationInterval>323 ~ 22749905249</PipelineInitiationInterval>
+                    <Best-caseLatency>191</Best-caseLatency>
+                    <Average-caseLatency>undef</Average-caseLatency>
+                    <Worst-caseLatency>undef</Worst-caseLatency>
+                    <Best-caseRealTimeLatency>0.637 us</Best-caseRealTimeLatency>
+                    <Average-caseRealTimeLatency>undef</Average-caseRealTimeLatency>
+                    <Worst-caseRealTimeLatency>undef</Worst-caseRealTimeLatency>
+                    <PipelineInitiationInterval>191 ~ -1</PipelineInitiationInterval>
                     <PipelineType>no</PipelineType>
                 </SummaryOfOverallLatency>
                 <SummaryOfLoopLatency>
                     <full_block_loop_vec>
                         <Name>full_block_loop_vec</Name>
-                        <Slack>2.43</Slack>
-                        <TripCount>
-                            <range>
-                                <min>0</min>
-                                <max>67108863</max>
-                            </range>
-                        </TripCount>
-                        <Latency>0 ~ 13690208052</Latency>
-                        <AbsoluteTimeLatency>0 ns ~ 46.942 sec</AbsoluteTimeLatency>
-                        <IterationLatency>204</IterationLatency>
-                        <PipelineDepth>204</PipelineDepth>
+                        <TripCount>undef</TripCount>
+                        <Latency>74 ~ ?</Latency>
+                        <AbsoluteTimeLatency>0.247 us ~ ?</AbsoluteTimeLatency>
+                        <IterationLatency>74</IterationLatency>
+                        <PipelineDepth>74</PipelineDepth>
                         <PipelineType>no</PipelineType>
                         <InstanceList/>
                     </full_block_loop_vec>
                     <full_block_loop_scalar>
                         <Name>full_block_loop_scalar</Name>
-                        <Slack>2.43</Slack>
-                        <TripCount>
-                            <range>
-                                <min>0</min>
-                                <max>67108863</max>
-                            </range>
-                        </TripCount>
-                        <Latency>0 ~ 22749904557</Latency>
-                        <AbsoluteTimeLatency>0 ns ~ 78.006 sec</AbsoluteTimeLatency>
-                        <IterationLatency>339</IterationLatency>
-                        <PipelineDepth>339</PipelineDepth>
+                        <TripCount>undef</TripCount>
+                        <Latency>207 ~ ?</Latency>
+                        <AbsoluteTimeLatency>0.690 us ~ ?</AbsoluteTimeLatency>
+                        <IterationLatency>207</IterationLatency>
+                        <PipelineDepth>207</PipelineDepth>
                         <PipelineType>no</PipelineType>
                         <InstanceList>
-                            <Instance>grp_sha256_compress_block_fu_2497</Instance>
+                            <Instance>grp_sha256_compress_block_fu_2572</Instance>
                         </InstanceList>
                     </full_block_loop_scalar>
                 </SummaryOfLoopLatency>
@@ -1514,193 +1360,192 @@
                     <BRAM_18K>0</BRAM_18K>
                     <AVAIL_BRAM>4032</AVAIL_BRAM>
                     <UTIL_BRAM>0</UTIL_BRAM>
-                    <DSP>0</DSP>
-                    <AVAIL_DSP>9024</AVAIL_DSP>
-                    <UTIL_DSP>0</UTIL_DSP>
-                    <FF>44485</FF>
+                    <FF>44828</FF>
                     <AVAIL_FF>2607360</AVAIL_FF>
                     <UTIL_FF>1</UTIL_FF>
-                    <LUT>158039</LUT>
+                    <LUT>155351</LUT>
                     <AVAIL_LUT>1303680</AVAIL_LUT>
-                    <UTIL_LUT>12</UTIL_LUT>
+                    <UTIL_LUT>11</UTIL_LUT>
                     <URAM>0</URAM>
                     <AVAIL_URAM>960</AVAIL_URAM>
                     <UTIL_URAM>0</UTIL_URAM>
+                    <DSP>0</DSP>
+                    <AVAIL_DSP>9024</AVAIL_DSP>
+                    <UTIL_DSP>0</UTIL_DSP>
                 </Resources>
             </AreaEstimates>
             <BindNodes>
-                <BindNode BINDTYPE="storage" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_storage ram_s2p" DSP="0" ID="" IMPL="auto" LATENCY="1" LOOP="" OPTYPE="ram_s2p" PRAGMA="" RTLNAME="pad_block_U" SOURCE="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:216" URAM="0" VARIABLE="pad_block"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="add_ln208_fu_2917_p2" SOURCE="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:208" URAM="0" VARIABLE="add_ln208"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="add_ln208_1_fu_2923_p2" SOURCE="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:208" URAM="0" VARIABLE="add_ln208_1"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="add_ln208_2_fu_2929_p2" SOURCE="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:208" URAM="0" VARIABLE="add_ln208_2"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="add_ln208_3_fu_2935_p2" SOURCE="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:208" URAM="0" VARIABLE="add_ln208_3"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="add_ln208_4_fu_2941_p2" SOURCE="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:208" URAM="0" VARIABLE="add_ln208_4"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="add_ln208_5_fu_2947_p2" SOURCE="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:208" URAM="0" VARIABLE="add_ln208_5"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="add_ln208_6_fu_2953_p2" SOURCE="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:208" URAM="0" VARIABLE="add_ln208_6"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="add_ln208_7_fu_2959_p2" SOURCE="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:208" URAM="0" VARIABLE="add_ln208_7"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="add_ln208_8_fu_2965_p2" SOURCE="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:208" URAM="0" VARIABLE="add_ln208_8"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="add_ln208_9_fu_2971_p2" SOURCE="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:208" URAM="0" VARIABLE="add_ln208_9"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="add_ln208_10_fu_2977_p2" SOURCE="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:208" URAM="0" VARIABLE="add_ln208_10"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="add_ln208_11_fu_2983_p2" SOURCE="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:208" URAM="0" VARIABLE="add_ln208_11"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="add_ln208_12_fu_2989_p2" SOURCE="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:208" URAM="0" VARIABLE="add_ln208_12"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="add_ln208_13_fu_2995_p2" SOURCE="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:208" URAM="0" VARIABLE="add_ln208_13"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="add_ln208_14_fu_3001_p2" SOURCE="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:208" URAM="0" VARIABLE="add_ln208_14"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="add_ln208_15_fu_3007_p2" SOURCE="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:208" URAM="0" VARIABLE="add_ln208_15"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="add_ln208_16_fu_3013_p2" SOURCE="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:208" URAM="0" VARIABLE="add_ln208_16"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="add_ln208_17_fu_3019_p2" SOURCE="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:208" URAM="0" VARIABLE="add_ln208_17"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="add_ln208_18_fu_3025_p2" SOURCE="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:208" URAM="0" VARIABLE="add_ln208_18"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="add_ln208_19_fu_3031_p2" SOURCE="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:208" URAM="0" VARIABLE="add_ln208_19"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="add_ln208_20_fu_3037_p2" SOURCE="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:208" URAM="0" VARIABLE="add_ln208_20"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="add_ln208_21_fu_3043_p2" SOURCE="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:208" URAM="0" VARIABLE="add_ln208_21"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="add_ln208_22_fu_3049_p2" SOURCE="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:208" URAM="0" VARIABLE="add_ln208_22"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="add_ln208_23_fu_3055_p2" SOURCE="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:208" URAM="0" VARIABLE="add_ln208_23"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="add_ln208_24_fu_3061_p2" SOURCE="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:208" URAM="0" VARIABLE="add_ln208_24"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="add_ln208_25_fu_3067_p2" SOURCE="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:208" URAM="0" VARIABLE="add_ln208_25"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="add_ln208_26_fu_3073_p2" SOURCE="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:208" URAM="0" VARIABLE="add_ln208_26"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="add_ln208_27_fu_3079_p2" SOURCE="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:208" URAM="0" VARIABLE="add_ln208_27"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="add_ln208_28_fu_3085_p2" SOURCE="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:208" URAM="0" VARIABLE="add_ln208_28"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="add_ln208_29_fu_3091_p2" SOURCE="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:208" URAM="0" VARIABLE="add_ln208_29"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="add_ln208_30_fu_3097_p2" SOURCE="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:208" URAM="0" VARIABLE="add_ln208_30"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="add_ln208_31_fu_3109_p2" SOURCE="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:208" URAM="0" VARIABLE="add_ln208_31"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="add_ln208_32_fu_3115_p2" SOURCE="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:208" URAM="0" VARIABLE="add_ln208_32"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="add_ln208_33_fu_3121_p2" SOURCE="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:208" URAM="0" VARIABLE="add_ln208_33"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="add_ln208_34_fu_3127_p2" SOURCE="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:208" URAM="0" VARIABLE="add_ln208_34"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="add_ln208_35_fu_3133_p2" SOURCE="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:208" URAM="0" VARIABLE="add_ln208_35"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="add_ln208_36_fu_3139_p2" SOURCE="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:208" URAM="0" VARIABLE="add_ln208_36"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="add_ln208_37_fu_3145_p2" SOURCE="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:208" URAM="0" VARIABLE="add_ln208_37"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="add_ln208_38_fu_3151_p2" SOURCE="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:208" URAM="0" VARIABLE="add_ln208_38"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="add_ln208_39_fu_3157_p2" SOURCE="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:208" URAM="0" VARIABLE="add_ln208_39"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="add_ln208_40_fu_3163_p2" SOURCE="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:208" URAM="0" VARIABLE="add_ln208_40"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="add_ln208_41_fu_3169_p2" SOURCE="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:208" URAM="0" VARIABLE="add_ln208_41"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="add_ln208_42_fu_3175_p2" SOURCE="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:208" URAM="0" VARIABLE="add_ln208_42"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="add_ln208_43_fu_3181_p2" SOURCE="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:208" URAM="0" VARIABLE="add_ln208_43"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="add_ln208_44_fu_3187_p2" SOURCE="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:208" URAM="0" VARIABLE="add_ln208_44"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="add_ln208_45_fu_3193_p2" SOURCE="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:208" URAM="0" VARIABLE="add_ln208_45"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="add_ln208_46_fu_3199_p2" SOURCE="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:208" URAM="0" VARIABLE="add_ln208_46"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="add_ln208_47_fu_3205_p2" SOURCE="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:208" URAM="0" VARIABLE="add_ln208_47"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="add_ln208_48_fu_3211_p2" SOURCE="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:208" URAM="0" VARIABLE="add_ln208_48"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="add_ln208_49_fu_3217_p2" SOURCE="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:208" URAM="0" VARIABLE="add_ln208_49"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="add_ln208_50_fu_3223_p2" SOURCE="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:208" URAM="0" VARIABLE="add_ln208_50"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="add_ln208_51_fu_3229_p2" SOURCE="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:208" URAM="0" VARIABLE="add_ln208_51"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="add_ln208_52_fu_3235_p2" SOURCE="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:208" URAM="0" VARIABLE="add_ln208_52"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="add_ln208_53_fu_3241_p2" SOURCE="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:208" URAM="0" VARIABLE="add_ln208_53"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="add_ln208_54_fu_3247_p2" SOURCE="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:208" URAM="0" VARIABLE="add_ln208_54"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="add_ln208_55_fu_3253_p2" SOURCE="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:208" URAM="0" VARIABLE="add_ln208_55"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="add_ln208_56_fu_3259_p2" SOURCE="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:208" URAM="0" VARIABLE="add_ln208_56"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="add_ln208_57_fu_3265_p2" SOURCE="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:208" URAM="0" VARIABLE="add_ln208_57"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="add_ln208_58_fu_3271_p2" SOURCE="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:208" URAM="0" VARIABLE="add_ln208_58"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="add_ln208_59_fu_3277_p2" SOURCE="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:208" URAM="0" VARIABLE="add_ln208_59"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="add_ln208_60_fu_3283_p2" SOURCE="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:208" URAM="0" VARIABLE="add_ln208_60"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="add_ln208_61_fu_3289_p2" SOURCE="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:208" URAM="0" VARIABLE="add_ln208_61"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="full_block_loop_scalar" OPTYPE="add" PRAGMA="" RTLNAME="grp_fu_2585_p2" SOURCE="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:208" URAM="0" VARIABLE="add_ln208_62"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="full_block_loop_scalar" OPTYPE="add" PRAGMA="" RTLNAME="add_ln116_fu_4186_p2" SOURCE="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:116" URAM="0" VARIABLE="add_ln116"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="full_block_loop_scalar" OPTYPE="add" PRAGMA="" RTLNAME="add_ln116_1_fu_4225_p2" SOURCE="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:116" URAM="0" VARIABLE="add_ln116_1"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="full_block_loop_scalar" OPTYPE="add" PRAGMA="" RTLNAME="add_ln116_2_fu_4259_p2" SOURCE="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:116" URAM="0" VARIABLE="add_ln116_2"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="full_block_loop_scalar" OPTYPE="add" PRAGMA="" RTLNAME="add_ln116_3_fu_4293_p2" SOURCE="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:116" URAM="0" VARIABLE="add_ln116_3"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="full_block_loop_scalar" OPTYPE="add" PRAGMA="" RTLNAME="add_ln116_4_fu_4327_p2" SOURCE="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:116" URAM="0" VARIABLE="add_ln116_4"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="full_block_loop_scalar" OPTYPE="add" PRAGMA="" RTLNAME="add_ln116_5_fu_4361_p2" SOURCE="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:116" URAM="0" VARIABLE="add_ln116_5"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="full_block_loop_scalar" OPTYPE="add" PRAGMA="" RTLNAME="add_ln116_6_fu_4395_p2" SOURCE="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:116" URAM="0" VARIABLE="add_ln116_6"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="full_block_loop_scalar" OPTYPE="add" PRAGMA="" RTLNAME="add_ln116_7_fu_4429_p2" SOURCE="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:116" URAM="0" VARIABLE="add_ln116_7"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="full_block_loop_scalar" OPTYPE="add" PRAGMA="" RTLNAME="add_ln116_8_fu_4463_p2" SOURCE="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:116" URAM="0" VARIABLE="add_ln116_8"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="full_block_loop_scalar" OPTYPE="add" PRAGMA="" RTLNAME="add_ln116_9_fu_4497_p2" SOURCE="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:116" URAM="0" VARIABLE="add_ln116_9"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="full_block_loop_scalar" OPTYPE="add" PRAGMA="" RTLNAME="add_ln116_10_fu_4531_p2" SOURCE="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:116" URAM="0" VARIABLE="add_ln116_10"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="full_block_loop_scalar" OPTYPE="add" PRAGMA="" RTLNAME="add_ln116_11_fu_4565_p2" SOURCE="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:116" URAM="0" VARIABLE="add_ln116_11"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="full_block_loop_scalar" OPTYPE="add" PRAGMA="" RTLNAME="add_ln116_12_fu_4599_p2" SOURCE="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:116" URAM="0" VARIABLE="add_ln116_12"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="full_block_loop_scalar" OPTYPE="add" PRAGMA="" RTLNAME="add_ln116_13_fu_4633_p2" SOURCE="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:116" URAM="0" VARIABLE="add_ln116_13"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="full_block_loop_scalar" OPTYPE="add" PRAGMA="" RTLNAME="add_ln116_14_fu_4667_p2" SOURCE="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:116" URAM="0" VARIABLE="add_ln116_14"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="full_block_loop_scalar" OPTYPE="add" PRAGMA="" RTLNAME="add_ln116_15_fu_4701_p2" SOURCE="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:116" URAM="0" VARIABLE="add_ln116_15"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="full_block_loop_scalar" OPTYPE="add" PRAGMA="" RTLNAME="add_ln116_16_fu_4735_p2" SOURCE="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:116" URAM="0" VARIABLE="add_ln116_16"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="full_block_loop_scalar" OPTYPE="add" PRAGMA="" RTLNAME="add_ln116_17_fu_4769_p2" SOURCE="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:116" URAM="0" VARIABLE="add_ln116_17"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="full_block_loop_scalar" OPTYPE="add" PRAGMA="" RTLNAME="add_ln116_18_fu_4803_p2" SOURCE="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:116" URAM="0" VARIABLE="add_ln116_18"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="full_block_loop_scalar" OPTYPE="add" PRAGMA="" RTLNAME="add_ln116_19_fu_4837_p2" SOURCE="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:116" URAM="0" VARIABLE="add_ln116_19"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="full_block_loop_scalar" OPTYPE="add" PRAGMA="" RTLNAME="add_ln116_20_fu_4871_p2" SOURCE="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:116" URAM="0" VARIABLE="add_ln116_20"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="full_block_loop_scalar" OPTYPE="add" PRAGMA="" RTLNAME="add_ln116_21_fu_4905_p2" SOURCE="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:116" URAM="0" VARIABLE="add_ln116_21"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="full_block_loop_scalar" OPTYPE="add" PRAGMA="" RTLNAME="add_ln116_22_fu_4939_p2" SOURCE="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:116" URAM="0" VARIABLE="add_ln116_22"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="full_block_loop_scalar" OPTYPE="add" PRAGMA="" RTLNAME="add_ln116_23_fu_4973_p2" SOURCE="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:116" URAM="0" VARIABLE="add_ln116_23"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="full_block_loop_scalar" OPTYPE="add" PRAGMA="" RTLNAME="add_ln116_24_fu_5007_p2" SOURCE="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:116" URAM="0" VARIABLE="add_ln116_24"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="full_block_loop_scalar" OPTYPE="add" PRAGMA="" RTLNAME="add_ln116_25_fu_5041_p2" SOURCE="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:116" URAM="0" VARIABLE="add_ln116_25"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="full_block_loop_scalar" OPTYPE="add" PRAGMA="" RTLNAME="add_ln116_26_fu_5075_p2" SOURCE="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:116" URAM="0" VARIABLE="add_ln116_26"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="full_block_loop_scalar" OPTYPE="add" PRAGMA="" RTLNAME="add_ln116_27_fu_5109_p2" SOURCE="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:116" URAM="0" VARIABLE="add_ln116_27"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="full_block_loop_scalar" OPTYPE="add" PRAGMA="" RTLNAME="add_ln116_28_fu_5143_p2" SOURCE="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:116" URAM="0" VARIABLE="add_ln116_28"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="full_block_loop_scalar" OPTYPE="add" PRAGMA="" RTLNAME="add_ln116_29_fu_5177_p2" SOURCE="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:116" URAM="0" VARIABLE="add_ln116_29"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="full_block_loop_scalar" OPTYPE="add" PRAGMA="" RTLNAME="add_ln116_30_fu_5211_p2" SOURCE="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:116" URAM="0" VARIABLE="add_ln116_30"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="full_block_loop_scalar" OPTYPE="add" PRAGMA="" RTLNAME="add_ln116_31_fu_5245_p2" SOURCE="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:116" URAM="0" VARIABLE="add_ln116_31"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="full_block_loop_scalar" OPTYPE="add" PRAGMA="" RTLNAME="add_ln116_32_fu_5279_p2" SOURCE="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:116" URAM="0" VARIABLE="add_ln116_32"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="full_block_loop_scalar" OPTYPE="add" PRAGMA="" RTLNAME="add_ln116_33_fu_5313_p2" SOURCE="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:116" URAM="0" VARIABLE="add_ln116_33"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="full_block_loop_scalar" OPTYPE="add" PRAGMA="" RTLNAME="add_ln116_34_fu_5347_p2" SOURCE="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:116" URAM="0" VARIABLE="add_ln116_34"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="full_block_loop_scalar" OPTYPE="add" PRAGMA="" RTLNAME="add_ln116_35_fu_5381_p2" SOURCE="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:116" URAM="0" VARIABLE="add_ln116_35"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="full_block_loop_scalar" OPTYPE="add" PRAGMA="" RTLNAME="add_ln116_36_fu_5415_p2" SOURCE="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:116" URAM="0" VARIABLE="add_ln116_36"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="full_block_loop_scalar" OPTYPE="add" PRAGMA="" RTLNAME="add_ln116_37_fu_5449_p2" SOURCE="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:116" URAM="0" VARIABLE="add_ln116_37"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="full_block_loop_scalar" OPTYPE="add" PRAGMA="" RTLNAME="add_ln116_38_fu_5483_p2" SOURCE="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:116" URAM="0" VARIABLE="add_ln116_38"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="full_block_loop_scalar" OPTYPE="add" PRAGMA="" RTLNAME="add_ln116_39_fu_5517_p2" SOURCE="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:116" URAM="0" VARIABLE="add_ln116_39"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="full_block_loop_scalar" OPTYPE="add" PRAGMA="" RTLNAME="add_ln116_40_fu_5551_p2" SOURCE="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:116" URAM="0" VARIABLE="add_ln116_40"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="full_block_loop_scalar" OPTYPE="add" PRAGMA="" RTLNAME="add_ln116_41_fu_5585_p2" SOURCE="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:116" URAM="0" VARIABLE="add_ln116_41"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="full_block_loop_scalar" OPTYPE="add" PRAGMA="" RTLNAME="add_ln116_42_fu_5619_p2" SOURCE="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:116" URAM="0" VARIABLE="add_ln116_42"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="full_block_loop_scalar" OPTYPE="add" PRAGMA="" RTLNAME="add_ln116_43_fu_5653_p2" SOURCE="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:116" URAM="0" VARIABLE="add_ln116_43"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="full_block_loop_scalar" OPTYPE="add" PRAGMA="" RTLNAME="add_ln116_44_fu_5687_p2" SOURCE="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:116" URAM="0" VARIABLE="add_ln116_44"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="full_block_loop_scalar" OPTYPE="add" PRAGMA="" RTLNAME="add_ln116_45_fu_5721_p2" SOURCE="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:116" URAM="0" VARIABLE="add_ln116_45"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="full_block_loop_scalar" OPTYPE="add" PRAGMA="" RTLNAME="add_ln116_46_fu_5755_p2" SOURCE="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:116" URAM="0" VARIABLE="add_ln116_46"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="full_block_loop_scalar" OPTYPE="add" PRAGMA="" RTLNAME="add_ln116_47_fu_5789_p2" SOURCE="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:116" URAM="0" VARIABLE="add_ln116_47"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="full_block_loop_scalar" OPTYPE="add" PRAGMA="" RTLNAME="add_ln116_48_fu_5823_p2" SOURCE="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:116" URAM="0" VARIABLE="add_ln116_48"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="full_block_loop_scalar" OPTYPE="add" PRAGMA="" RTLNAME="add_ln116_49_fu_5857_p2" SOURCE="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:116" URAM="0" VARIABLE="add_ln116_49"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="full_block_loop_scalar" OPTYPE="add" PRAGMA="" RTLNAME="add_ln116_50_fu_5891_p2" SOURCE="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:116" URAM="0" VARIABLE="add_ln116_50"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="full_block_loop_scalar" OPTYPE="add" PRAGMA="" RTLNAME="add_ln116_51_fu_5925_p2" SOURCE="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:116" URAM="0" VARIABLE="add_ln116_51"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="full_block_loop_scalar" OPTYPE="add" PRAGMA="" RTLNAME="add_ln116_52_fu_5959_p2" SOURCE="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:116" URAM="0" VARIABLE="add_ln116_52"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="full_block_loop_scalar" OPTYPE="add" PRAGMA="" RTLNAME="add_ln116_53_fu_5993_p2" SOURCE="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:116" URAM="0" VARIABLE="add_ln116_53"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="full_block_loop_scalar" OPTYPE="add" PRAGMA="" RTLNAME="add_ln116_54_fu_6027_p2" SOURCE="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:116" URAM="0" VARIABLE="add_ln116_54"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="full_block_loop_scalar" OPTYPE="add" PRAGMA="" RTLNAME="add_ln116_55_fu_6061_p2" SOURCE="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:116" URAM="0" VARIABLE="add_ln116_55"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="full_block_loop_scalar" OPTYPE="add" PRAGMA="" RTLNAME="add_ln116_56_fu_6095_p2" SOURCE="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:116" URAM="0" VARIABLE="add_ln116_56"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="full_block_loop_scalar" OPTYPE="add" PRAGMA="" RTLNAME="add_ln116_57_fu_6129_p2" SOURCE="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:116" URAM="0" VARIABLE="add_ln116_57"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="full_block_loop_scalar" OPTYPE="add" PRAGMA="" RTLNAME="add_ln116_58_fu_6163_p2" SOURCE="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:116" URAM="0" VARIABLE="add_ln116_58"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="full_block_loop_scalar" OPTYPE="add" PRAGMA="" RTLNAME="add_ln116_59_fu_6197_p2" SOURCE="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:116" URAM="0" VARIABLE="add_ln116_59"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="full_block_loop_scalar" OPTYPE="add" PRAGMA="" RTLNAME="add_ln116_60_fu_6231_p2" SOURCE="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:116" URAM="0" VARIABLE="add_ln116_60"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="full_block_loop_scalar" OPTYPE="add" PRAGMA="" RTLNAME="add_ln116_61_fu_6265_p2" SOURCE="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:116" URAM="0" VARIABLE="add_ln116_61"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="full_block_loop_scalar" OPTYPE="add" PRAGMA="" RTLNAME="add_ln116_62_fu_6299_p2" SOURCE="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:116" URAM="0" VARIABLE="add_ln116_62"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="full_block_loop_scalar" OPTYPE="add" PRAGMA="" RTLNAME="add_ln116_63_fu_6333_p2" SOURCE="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:116" URAM="0" VARIABLE="add_ln116_63"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="full_block_loop_vec" OPTYPE="add" PRAGMA="" RTLNAME="grp_fu_2585_p2" SOURCE="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:199" URAM="0" VARIABLE="add_ln199"/>
+                <BindNode BINDTYPE="storage" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_storage ram_s2p" DSP="0" ID="" IMPL="auto" LATENCY="1" LOOP="" OPTYPE="ram_s2p" PRAGMA="" RTLNAME="pad_block_U" SOURCE="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:250" URAM="0" VARIABLE="pad_block"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="add_ln242_fu_2952_p2" SOURCE="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:242" URAM="0" VARIABLE="add_ln242"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="add_ln242_1_fu_2958_p2" SOURCE="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:242" URAM="0" VARIABLE="add_ln242_1"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="add_ln242_2_fu_2964_p2" SOURCE="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:242" URAM="0" VARIABLE="add_ln242_2"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="add_ln242_3_fu_2970_p2" SOURCE="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:242" URAM="0" VARIABLE="add_ln242_3"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="add_ln242_4_fu_2976_p2" SOURCE="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:242" URAM="0" VARIABLE="add_ln242_4"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="add_ln242_5_fu_2982_p2" SOURCE="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:242" URAM="0" VARIABLE="add_ln242_5"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="add_ln242_6_fu_2988_p2" SOURCE="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:242" URAM="0" VARIABLE="add_ln242_6"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="add_ln242_7_fu_2994_p2" SOURCE="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:242" URAM="0" VARIABLE="add_ln242_7"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="add_ln242_8_fu_3000_p2" SOURCE="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:242" URAM="0" VARIABLE="add_ln242_8"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="add_ln242_9_fu_3006_p2" SOURCE="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:242" URAM="0" VARIABLE="add_ln242_9"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="add_ln242_10_fu_3012_p2" SOURCE="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:242" URAM="0" VARIABLE="add_ln242_10"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="add_ln242_11_fu_3018_p2" SOURCE="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:242" URAM="0" VARIABLE="add_ln242_11"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="add_ln242_12_fu_3024_p2" SOURCE="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:242" URAM="0" VARIABLE="add_ln242_12"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="add_ln242_13_fu_3030_p2" SOURCE="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:242" URAM="0" VARIABLE="add_ln242_13"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="add_ln242_14_fu_3036_p2" SOURCE="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:242" URAM="0" VARIABLE="add_ln242_14"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="add_ln242_15_fu_3042_p2" SOURCE="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:242" URAM="0" VARIABLE="add_ln242_15"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="add_ln242_16_fu_3048_p2" SOURCE="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:242" URAM="0" VARIABLE="add_ln242_16"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="add_ln242_17_fu_3054_p2" SOURCE="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:242" URAM="0" VARIABLE="add_ln242_17"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="add_ln242_18_fu_3060_p2" SOURCE="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:242" URAM="0" VARIABLE="add_ln242_18"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="add_ln242_19_fu_3066_p2" SOURCE="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:242" URAM="0" VARIABLE="add_ln242_19"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="add_ln242_20_fu_3072_p2" SOURCE="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:242" URAM="0" VARIABLE="add_ln242_20"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="add_ln242_21_fu_3078_p2" SOURCE="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:242" URAM="0" VARIABLE="add_ln242_21"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="add_ln242_22_fu_3084_p2" SOURCE="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:242" URAM="0" VARIABLE="add_ln242_22"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="add_ln242_23_fu_3090_p2" SOURCE="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:242" URAM="0" VARIABLE="add_ln242_23"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="add_ln242_24_fu_3096_p2" SOURCE="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:242" URAM="0" VARIABLE="add_ln242_24"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="add_ln242_25_fu_3102_p2" SOURCE="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:242" URAM="0" VARIABLE="add_ln242_25"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="add_ln242_26_fu_3108_p2" SOURCE="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:242" URAM="0" VARIABLE="add_ln242_26"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="add_ln242_27_fu_3114_p2" SOURCE="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:242" URAM="0" VARIABLE="add_ln242_27"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="add_ln242_28_fu_3120_p2" SOURCE="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:242" URAM="0" VARIABLE="add_ln242_28"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="add_ln242_29_fu_3126_p2" SOURCE="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:242" URAM="0" VARIABLE="add_ln242_29"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="add_ln242_30_fu_3132_p2" SOURCE="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:242" URAM="0" VARIABLE="add_ln242_30"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="add_ln242_31_fu_3144_p2" SOURCE="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:242" URAM="0" VARIABLE="add_ln242_31"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="add_ln242_32_fu_3150_p2" SOURCE="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:242" URAM="0" VARIABLE="add_ln242_32"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="add_ln242_33_fu_3156_p2" SOURCE="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:242" URAM="0" VARIABLE="add_ln242_33"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="add_ln242_34_fu_3162_p2" SOURCE="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:242" URAM="0" VARIABLE="add_ln242_34"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="add_ln242_35_fu_3168_p2" SOURCE="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:242" URAM="0" VARIABLE="add_ln242_35"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="add_ln242_36_fu_3174_p2" SOURCE="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:242" URAM="0" VARIABLE="add_ln242_36"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="add_ln242_37_fu_3180_p2" SOURCE="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:242" URAM="0" VARIABLE="add_ln242_37"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="add_ln242_38_fu_3186_p2" SOURCE="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:242" URAM="0" VARIABLE="add_ln242_38"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="add_ln242_39_fu_3192_p2" SOURCE="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:242" URAM="0" VARIABLE="add_ln242_39"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="add_ln242_40_fu_3198_p2" SOURCE="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:242" URAM="0" VARIABLE="add_ln242_40"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="add_ln242_41_fu_3204_p2" SOURCE="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:242" URAM="0" VARIABLE="add_ln242_41"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="add_ln242_42_fu_3210_p2" SOURCE="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:242" URAM="0" VARIABLE="add_ln242_42"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="add_ln242_43_fu_3216_p2" SOURCE="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:242" URAM="0" VARIABLE="add_ln242_43"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="add_ln242_44_fu_3222_p2" SOURCE="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:242" URAM="0" VARIABLE="add_ln242_44"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="add_ln242_45_fu_3228_p2" SOURCE="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:242" URAM="0" VARIABLE="add_ln242_45"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="add_ln242_46_fu_3234_p2" SOURCE="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:242" URAM="0" VARIABLE="add_ln242_46"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="add_ln242_47_fu_3240_p2" SOURCE="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:242" URAM="0" VARIABLE="add_ln242_47"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="add_ln242_48_fu_3246_p2" SOURCE="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:242" URAM="0" VARIABLE="add_ln242_48"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="add_ln242_49_fu_3252_p2" SOURCE="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:242" URAM="0" VARIABLE="add_ln242_49"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="add_ln242_50_fu_3258_p2" SOURCE="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:242" URAM="0" VARIABLE="add_ln242_50"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="add_ln242_51_fu_3264_p2" SOURCE="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:242" URAM="0" VARIABLE="add_ln242_51"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="add_ln242_52_fu_3270_p2" SOURCE="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:242" URAM="0" VARIABLE="add_ln242_52"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="add_ln242_53_fu_3276_p2" SOURCE="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:242" URAM="0" VARIABLE="add_ln242_53"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="add_ln242_54_fu_3282_p2" SOURCE="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:242" URAM="0" VARIABLE="add_ln242_54"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="add_ln242_55_fu_3288_p2" SOURCE="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:242" URAM="0" VARIABLE="add_ln242_55"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="add_ln242_56_fu_3294_p2" SOURCE="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:242" URAM="0" VARIABLE="add_ln242_56"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="add_ln242_57_fu_3300_p2" SOURCE="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:242" URAM="0" VARIABLE="add_ln242_57"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="add_ln242_58_fu_3306_p2" SOURCE="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:242" URAM="0" VARIABLE="add_ln242_58"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="add_ln242_59_fu_3312_p2" SOURCE="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:242" URAM="0" VARIABLE="add_ln242_59"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="add_ln242_60_fu_3318_p2" SOURCE="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:242" URAM="0" VARIABLE="add_ln242_60"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="add_ln242_61_fu_3324_p2" SOURCE="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:242" URAM="0" VARIABLE="add_ln242_61"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="full_block_loop_scalar" OPTYPE="add" PRAGMA="" RTLNAME="add_ln242_62_fu_4241_p2" SOURCE="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:242" URAM="0" VARIABLE="add_ln242_62"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="full_block_loop_scalar" OPTYPE="add" PRAGMA="" RTLNAME="add_ln117_fu_4259_p2" SOURCE="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:117" URAM="0" VARIABLE="add_ln117"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="full_block_loop_scalar" OPTYPE="add" PRAGMA="" RTLNAME="add_ln117_1_fu_4298_p2" SOURCE="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:117" URAM="0" VARIABLE="add_ln117_1"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="full_block_loop_scalar" OPTYPE="add" PRAGMA="" RTLNAME="add_ln117_2_fu_4332_p2" SOURCE="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:117" URAM="0" VARIABLE="add_ln117_2"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="full_block_loop_scalar" OPTYPE="add" PRAGMA="" RTLNAME="add_ln117_3_fu_4366_p2" SOURCE="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:117" URAM="0" VARIABLE="add_ln117_3"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="full_block_loop_scalar" OPTYPE="add" PRAGMA="" RTLNAME="add_ln117_4_fu_4400_p2" SOURCE="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:117" URAM="0" VARIABLE="add_ln117_4"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="full_block_loop_scalar" OPTYPE="add" PRAGMA="" RTLNAME="add_ln117_5_fu_4434_p2" SOURCE="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:117" URAM="0" VARIABLE="add_ln117_5"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="full_block_loop_scalar" OPTYPE="add" PRAGMA="" RTLNAME="add_ln117_6_fu_4468_p2" SOURCE="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:117" URAM="0" VARIABLE="add_ln117_6"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="full_block_loop_scalar" OPTYPE="add" PRAGMA="" RTLNAME="add_ln117_7_fu_4502_p2" SOURCE="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:117" URAM="0" VARIABLE="add_ln117_7"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="full_block_loop_scalar" OPTYPE="add" PRAGMA="" RTLNAME="add_ln117_8_fu_4536_p2" SOURCE="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:117" URAM="0" VARIABLE="add_ln117_8"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="full_block_loop_scalar" OPTYPE="add" PRAGMA="" RTLNAME="add_ln117_9_fu_4570_p2" SOURCE="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:117" URAM="0" VARIABLE="add_ln117_9"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="full_block_loop_scalar" OPTYPE="add" PRAGMA="" RTLNAME="add_ln117_10_fu_4604_p2" SOURCE="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:117" URAM="0" VARIABLE="add_ln117_10"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="full_block_loop_scalar" OPTYPE="add" PRAGMA="" RTLNAME="add_ln117_11_fu_4638_p2" SOURCE="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:117" URAM="0" VARIABLE="add_ln117_11"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="full_block_loop_scalar" OPTYPE="add" PRAGMA="" RTLNAME="add_ln117_12_fu_4672_p2" SOURCE="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:117" URAM="0" VARIABLE="add_ln117_12"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="full_block_loop_scalar" OPTYPE="add" PRAGMA="" RTLNAME="add_ln117_13_fu_4706_p2" SOURCE="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:117" URAM="0" VARIABLE="add_ln117_13"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="full_block_loop_scalar" OPTYPE="add" PRAGMA="" RTLNAME="add_ln117_14_fu_4740_p2" SOURCE="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:117" URAM="0" VARIABLE="add_ln117_14"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="full_block_loop_scalar" OPTYPE="add" PRAGMA="" RTLNAME="add_ln117_15_fu_4774_p2" SOURCE="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:117" URAM="0" VARIABLE="add_ln117_15"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="full_block_loop_scalar" OPTYPE="add" PRAGMA="" RTLNAME="add_ln117_16_fu_4808_p2" SOURCE="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:117" URAM="0" VARIABLE="add_ln117_16"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="full_block_loop_scalar" OPTYPE="add" PRAGMA="" RTLNAME="add_ln117_17_fu_4842_p2" SOURCE="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:117" URAM="0" VARIABLE="add_ln117_17"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="full_block_loop_scalar" OPTYPE="add" PRAGMA="" RTLNAME="add_ln117_18_fu_4876_p2" SOURCE="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:117" URAM="0" VARIABLE="add_ln117_18"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="full_block_loop_scalar" OPTYPE="add" PRAGMA="" RTLNAME="add_ln117_19_fu_4910_p2" SOURCE="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:117" URAM="0" VARIABLE="add_ln117_19"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="full_block_loop_scalar" OPTYPE="add" PRAGMA="" RTLNAME="add_ln117_20_fu_4944_p2" SOURCE="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:117" URAM="0" VARIABLE="add_ln117_20"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="full_block_loop_scalar" OPTYPE="add" PRAGMA="" RTLNAME="add_ln117_21_fu_4978_p2" SOURCE="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:117" URAM="0" VARIABLE="add_ln117_21"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="full_block_loop_scalar" OPTYPE="add" PRAGMA="" RTLNAME="add_ln117_22_fu_5012_p2" SOURCE="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:117" URAM="0" VARIABLE="add_ln117_22"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="full_block_loop_scalar" OPTYPE="add" PRAGMA="" RTLNAME="add_ln117_23_fu_5046_p2" SOURCE="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:117" URAM="0" VARIABLE="add_ln117_23"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="full_block_loop_scalar" OPTYPE="add" PRAGMA="" RTLNAME="add_ln117_24_fu_5080_p2" SOURCE="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:117" URAM="0" VARIABLE="add_ln117_24"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="full_block_loop_scalar" OPTYPE="add" PRAGMA="" RTLNAME="add_ln117_25_fu_5114_p2" SOURCE="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:117" URAM="0" VARIABLE="add_ln117_25"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="full_block_loop_scalar" OPTYPE="add" PRAGMA="" RTLNAME="add_ln117_26_fu_5148_p2" SOURCE="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:117" URAM="0" VARIABLE="add_ln117_26"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="full_block_loop_scalar" OPTYPE="add" PRAGMA="" RTLNAME="add_ln117_27_fu_5182_p2" SOURCE="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:117" URAM="0" VARIABLE="add_ln117_27"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="full_block_loop_scalar" OPTYPE="add" PRAGMA="" RTLNAME="add_ln117_28_fu_5216_p2" SOURCE="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:117" URAM="0" VARIABLE="add_ln117_28"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="full_block_loop_scalar" OPTYPE="add" PRAGMA="" RTLNAME="add_ln117_29_fu_5250_p2" SOURCE="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:117" URAM="0" VARIABLE="add_ln117_29"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="full_block_loop_scalar" OPTYPE="add" PRAGMA="" RTLNAME="add_ln117_30_fu_5284_p2" SOURCE="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:117" URAM="0" VARIABLE="add_ln117_30"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="full_block_loop_scalar" OPTYPE="add" PRAGMA="" RTLNAME="add_ln117_31_fu_5318_p2" SOURCE="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:117" URAM="0" VARIABLE="add_ln117_31"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="full_block_loop_scalar" OPTYPE="add" PRAGMA="" RTLNAME="add_ln117_32_fu_5352_p2" SOURCE="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:117" URAM="0" VARIABLE="add_ln117_32"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="full_block_loop_scalar" OPTYPE="add" PRAGMA="" RTLNAME="add_ln117_33_fu_5386_p2" SOURCE="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:117" URAM="0" VARIABLE="add_ln117_33"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="full_block_loop_scalar" OPTYPE="add" PRAGMA="" RTLNAME="add_ln117_34_fu_5420_p2" SOURCE="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:117" URAM="0" VARIABLE="add_ln117_34"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="full_block_loop_scalar" OPTYPE="add" PRAGMA="" RTLNAME="add_ln117_35_fu_5454_p2" SOURCE="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:117" URAM="0" VARIABLE="add_ln117_35"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="full_block_loop_scalar" OPTYPE="add" PRAGMA="" RTLNAME="add_ln117_36_fu_5488_p2" SOURCE="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:117" URAM="0" VARIABLE="add_ln117_36"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="full_block_loop_scalar" OPTYPE="add" PRAGMA="" RTLNAME="add_ln117_37_fu_5522_p2" SOURCE="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:117" URAM="0" VARIABLE="add_ln117_37"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="full_block_loop_scalar" OPTYPE="add" PRAGMA="" RTLNAME="add_ln117_38_fu_5556_p2" SOURCE="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:117" URAM="0" VARIABLE="add_ln117_38"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="full_block_loop_scalar" OPTYPE="add" PRAGMA="" RTLNAME="add_ln117_39_fu_5590_p2" SOURCE="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:117" URAM="0" VARIABLE="add_ln117_39"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="full_block_loop_scalar" OPTYPE="add" PRAGMA="" RTLNAME="add_ln117_40_fu_5624_p2" SOURCE="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:117" URAM="0" VARIABLE="add_ln117_40"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="full_block_loop_scalar" OPTYPE="add" PRAGMA="" RTLNAME="add_ln117_41_fu_5658_p2" SOURCE="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:117" URAM="0" VARIABLE="add_ln117_41"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="full_block_loop_scalar" OPTYPE="add" PRAGMA="" RTLNAME="add_ln117_42_fu_5692_p2" SOURCE="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:117" URAM="0" VARIABLE="add_ln117_42"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="full_block_loop_scalar" OPTYPE="add" PRAGMA="" RTLNAME="add_ln117_43_fu_5726_p2" SOURCE="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:117" URAM="0" VARIABLE="add_ln117_43"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="full_block_loop_scalar" OPTYPE="add" PRAGMA="" RTLNAME="add_ln117_44_fu_5760_p2" SOURCE="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:117" URAM="0" VARIABLE="add_ln117_44"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="full_block_loop_scalar" OPTYPE="add" PRAGMA="" RTLNAME="add_ln117_45_fu_5794_p2" SOURCE="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:117" URAM="0" VARIABLE="add_ln117_45"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="full_block_loop_scalar" OPTYPE="add" PRAGMA="" RTLNAME="add_ln117_46_fu_5828_p2" SOURCE="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:117" URAM="0" VARIABLE="add_ln117_46"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="full_block_loop_scalar" OPTYPE="add" PRAGMA="" RTLNAME="add_ln117_47_fu_5862_p2" SOURCE="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:117" URAM="0" VARIABLE="add_ln117_47"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="full_block_loop_scalar" OPTYPE="add" PRAGMA="" RTLNAME="add_ln117_48_fu_5896_p2" SOURCE="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:117" URAM="0" VARIABLE="add_ln117_48"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="full_block_loop_scalar" OPTYPE="add" PRAGMA="" RTLNAME="add_ln117_49_fu_5930_p2" SOURCE="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:117" URAM="0" VARIABLE="add_ln117_49"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="full_block_loop_scalar" OPTYPE="add" PRAGMA="" RTLNAME="add_ln117_50_fu_5964_p2" SOURCE="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:117" URAM="0" VARIABLE="add_ln117_50"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="full_block_loop_scalar" OPTYPE="add" PRAGMA="" RTLNAME="add_ln117_51_fu_5998_p2" SOURCE="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:117" URAM="0" VARIABLE="add_ln117_51"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="full_block_loop_scalar" OPTYPE="add" PRAGMA="" RTLNAME="add_ln117_52_fu_6032_p2" SOURCE="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:117" URAM="0" VARIABLE="add_ln117_52"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="full_block_loop_scalar" OPTYPE="add" PRAGMA="" RTLNAME="add_ln117_53_fu_6066_p2" SOURCE="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:117" URAM="0" VARIABLE="add_ln117_53"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="full_block_loop_scalar" OPTYPE="add" PRAGMA="" RTLNAME="add_ln117_54_fu_6100_p2" SOURCE="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:117" URAM="0" VARIABLE="add_ln117_54"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="full_block_loop_scalar" OPTYPE="add" PRAGMA="" RTLNAME="add_ln117_55_fu_6134_p2" SOURCE="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:117" URAM="0" VARIABLE="add_ln117_55"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="full_block_loop_scalar" OPTYPE="add" PRAGMA="" RTLNAME="add_ln117_56_fu_6168_p2" SOURCE="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:117" URAM="0" VARIABLE="add_ln117_56"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="full_block_loop_scalar" OPTYPE="add" PRAGMA="" RTLNAME="add_ln117_57_fu_6202_p2" SOURCE="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:117" URAM="0" VARIABLE="add_ln117_57"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="full_block_loop_scalar" OPTYPE="add" PRAGMA="" RTLNAME="add_ln117_58_fu_6236_p2" SOURCE="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:117" URAM="0" VARIABLE="add_ln117_58"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="full_block_loop_scalar" OPTYPE="add" PRAGMA="" RTLNAME="add_ln117_59_fu_6270_p2" SOURCE="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:117" URAM="0" VARIABLE="add_ln117_59"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="full_block_loop_scalar" OPTYPE="add" PRAGMA="" RTLNAME="add_ln117_60_fu_6304_p2" SOURCE="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:117" URAM="0" VARIABLE="add_ln117_60"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="full_block_loop_scalar" OPTYPE="add" PRAGMA="" RTLNAME="add_ln117_61_fu_6338_p2" SOURCE="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:117" URAM="0" VARIABLE="add_ln117_61"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="full_block_loop_scalar" OPTYPE="add" PRAGMA="" RTLNAME="add_ln117_62_fu_6372_p2" SOURCE="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:117" URAM="0" VARIABLE="add_ln117_62"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="full_block_loop_scalar" OPTYPE="add" PRAGMA="" RTLNAME="add_ln117_63_fu_6406_p2" SOURCE="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:117" URAM="0" VARIABLE="add_ln117_63"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="full_block_loop_vec" OPTYPE="add" PRAGMA="" RTLNAME="add_ln233_fu_7085_p2" SOURCE="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:233" URAM="0" VARIABLE="add_ln233"/>
             </BindNodes>
         </Module>
         <Module>
-            <Name>calculate_sha256_Pipeline_hash_write_digest</Name>
+            <Name>sha256_process_and_write_chunk_Pipeline_write_digest</Name>
             <Loops>
-                <hash_write_digest/>
+                <write_digest/>
             </Loops>
             <PerformanceEstimates>
                 <SummaryOfTimingAnalysis>
                     <TargetClockPeriod>3.33</TargetClockPeriod>
                     <ClockUncertainty>0.90</ClockUncertainty>
-                    <EstimatedClockPeriod>2.433</EstimatedClockPeriod>
+                    <EstimatedClockPeriod>1.095</EstimatedClockPeriod>
                 </SummaryOfTimingAnalysis>
                 <SummaryOfOverallLatency>
-                    <Best-caseLatency>79</Best-caseLatency>
-                    <Average-caseLatency>79</Average-caseLatency>
-                    <Worst-caseLatency>79</Worst-caseLatency>
-                    <Best-caseRealTimeLatency>0.263 us</Best-caseRealTimeLatency>
-                    <Average-caseRealTimeLatency>0.263 us</Average-caseRealTimeLatency>
-                    <Worst-caseRealTimeLatency>0.263 us</Worst-caseRealTimeLatency>
-                    <PipelineInitiationInterval>79</PipelineInitiationInterval>
+                    <Best-caseLatency>10</Best-caseLatency>
+                    <Average-caseLatency>10</Average-caseLatency>
+                    <Worst-caseLatency>10</Worst-caseLatency>
+                    <Best-caseRealTimeLatency>33.330 ns</Best-caseRealTimeLatency>
+                    <Average-caseRealTimeLatency>33.330 ns</Average-caseRealTimeLatency>
+                    <Worst-caseRealTimeLatency>33.330 ns</Worst-caseRealTimeLatency>
+                    <PipelineInitiationInterval>10</PipelineInitiationInterval>
                     <PipelineType>no</PipelineType>
                 </SummaryOfOverallLatency>
                 <SummaryOfLoopLatency>
-                    <hash_write_digest>
-                        <Name>hash_write_digest</Name>
-                        <Slack>2.43</Slack>
+                    <write_digest>
+                        <Name>write_digest</Name>
                         <TripCount>8</TripCount>
-                        <Latency>77</Latency>
-                        <AbsoluteTimeLatency>0.257 us</AbsoluteTimeLatency>
+                        <Latency>8</Latency>
+                        <AbsoluteTimeLatency>26.664 ns</AbsoluteTimeLatency>
                         <PipelineII>1</PipelineII>
-                        <PipelineDepth>71</PipelineDepth>
+                        <PipelineDepth>1</PipelineDepth>
                         <PipelineType>yes</PipelineType>
                         <InstanceList/>
-                    </hash_write_digest>
+                    </write_digest>
                 </SummaryOfLoopLatency>
             </PerformanceEstimates>
             <AreaEstimates>
                 <Resources>
-                    <FF>1071</FF>
+                    <FF>263</FF>
                     <AVAIL_FF>2607360</AVAIL_FF>
                     <UTIL_FF>~0</UTIL_FF>
-                    <LUT>2632</LUT>
+                    <LUT>102</LUT>
                     <AVAIL_LUT>1303680</AVAIL_LUT>
                     <UTIL_LUT>~0</UTIL_LUT>
                     <BRAM_18K>0</BRAM_18K>
@@ -1715,10 +1560,47 @@
                 </Resources>
             </AreaEstimates>
             <BindNodes>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="hash_write_digest" OPTYPE="add" PRAGMA="" RTLNAME="add_ln616_fu_216_p2" SOURCE="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:616" URAM="0" VARIABLE="add_ln616"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="hash_write_digest" OPTYPE="add" PRAGMA="" RTLNAME="add_ln621_fu_244_p2" SOURCE="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:621" URAM="0" VARIABLE="add_ln621"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="hash_write_digest" OPTYPE="add" PRAGMA="" RTLNAME="add_ln621_1_fu_304_p2" SOURCE="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:621" URAM="0" VARIABLE="add_ln621_1"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="write_digest" OPTYPE="add" PRAGMA="" RTLNAME="add_ln204_fu_138_p2" SOURCE="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:204" URAM="0" VARIABLE="add_ln204"/>
             </BindNodes>
+        </Module>
+        <Module>
+            <Name>sha256_process_and_write_chunk</Name>
+            <PerformanceEstimates>
+                <SummaryOfTimingAnalysis>
+                    <TargetClockPeriod>3.33</TargetClockPeriod>
+                    <ClockUncertainty>0.90</ClockUncertainty>
+                    <EstimatedClockPeriod>2.939</EstimatedClockPeriod>
+                </SummaryOfTimingAnalysis>
+                <SummaryOfOverallLatency>
+                    <Best-caseLatency>273</Best-caseLatency>
+                    <Average-caseLatency>undef</Average-caseLatency>
+                    <Worst-caseLatency>undef</Worst-caseLatency>
+                    <Best-caseRealTimeLatency>0.910 us</Best-caseRealTimeLatency>
+                    <Average-caseRealTimeLatency>undef</Average-caseRealTimeLatency>
+                    <Worst-caseRealTimeLatency>undef</Worst-caseRealTimeLatency>
+                    <PipelineInitiationInterval>273 ~ -1</PipelineInitiationInterval>
+                    <PipelineType>no</PipelineType>
+                </SummaryOfOverallLatency>
+            </PerformanceEstimates>
+            <AreaEstimates>
+                <Resources>
+                    <BRAM_18K>0</BRAM_18K>
+                    <AVAIL_BRAM>4032</AVAIL_BRAM>
+                    <UTIL_BRAM>0</UTIL_BRAM>
+                    <FF>45998</FF>
+                    <AVAIL_FF>2607360</AVAIL_FF>
+                    <UTIL_FF>1</UTIL_FF>
+                    <LUT>158189</LUT>
+                    <AVAIL_LUT>1303680</AVAIL_LUT>
+                    <UTIL_LUT>12</UTIL_LUT>
+                    <URAM>0</URAM>
+                    <AVAIL_URAM>960</AVAIL_URAM>
+                    <UTIL_URAM>0</UTIL_URAM>
+                    <DSP>0</DSP>
+                    <AVAIL_DSP>9024</AVAIL_DSP>
+                    <UTIL_DSP>0</UTIL_DSP>
+                </Resources>
+            </AreaEstimates>
         </Module>
         <Module>
             <Name>calculate_sha256</Name>
@@ -1729,7 +1611,7 @@
                 <SummaryOfTimingAnalysis>
                     <TargetClockPeriod>3.33</TargetClockPeriod>
                     <ClockUncertainty>0.90</ClockUncertainty>
-                    <EstimatedClockPeriod>3.429</EstimatedClockPeriod>
+                    <EstimatedClockPeriod>2.939</EstimatedClockPeriod>
                 </SummaryOfTimingAnalysis>
                 <SummaryOfOverallLatency>
                     <Best-caseLatency>undef</Best-caseLatency>
@@ -1744,53 +1626,86 @@
                 <SummaryOfLoopLatency>
                     <hash_chunk_loop>
                         <Name>hash_chunk_loop</Name>
-                        <Slack>2.43</Slack>
                         <TripCount>undef</TripCount>
                         <Latency>undef</Latency>
                         <AbsoluteTimeLatency>undef</AbsoluteTimeLatency>
                         <IterationLatency>
                             <range>
-                                <min>407</min>
-                                <max>22749905333</max>
+                                <min>276</min>
+                                <max>-1</max>
                             </range>
                         </IterationLatency>
-                        <PipelineDepth>407 ~ 22749905333</PipelineDepth>
+                        <PipelineDepth>276 ~ ?</PipelineDepth>
                         <PipelineType>no</PipelineType>
                         <InstanceList>
-                            <Instance>grp_sha256_process_chunk_fu_106</Instance>
-                            <Instance>grp_calculate_sha256_Pipeline_hash_write_digest_fu_116</Instance>
+                            <Instance>grp_sha256_process_and_write_chunk_fu_108</Instance>
                         </InstanceList>
                     </hash_chunk_loop>
                 </SummaryOfLoopLatency>
             </PerformanceEstimates>
             <AreaEstimates>
                 <Resources>
-                    <BRAM_18K>30</BRAM_18K>
+                    <BRAM_18K>0</BRAM_18K>
                     <AVAIL_BRAM>4032</AVAIL_BRAM>
-                    <UTIL_BRAM>~0</UTIL_BRAM>
-                    <DSP>0</DSP>
-                    <AVAIL_DSP>9024</AVAIL_DSP>
-                    <UTIL_DSP>0</UTIL_DSP>
-                    <FF>49955</FF>
+                    <UTIL_BRAM>0</UTIL_BRAM>
+                    <FF>51210</FF>
                     <AVAIL_FF>2607360</AVAIL_FF>
                     <UTIL_FF>1</UTIL_FF>
-                    <LUT>164121</LUT>
+                    <LUT>166986</LUT>
                     <AVAIL_LUT>1303680</AVAIL_LUT>
                     <UTIL_LUT>12</UTIL_LUT>
                     <URAM>0</URAM>
                     <AVAIL_URAM>960</AVAIL_URAM>
                     <UTIL_URAM>0</UTIL_URAM>
+                    <DSP>0</DSP>
+                    <AVAIL_DSP>9024</AVAIL_DSP>
+                    <UTIL_DSP>0</UTIL_DSP>
                 </Resources>
             </AreaEstimates>
             <BindNodes>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="hash_chunk_loop" OPTYPE="add" PRAGMA="" RTLNAME="add_ln608_1_fu_157_p2" SOURCE="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:608" URAM="0" VARIABLE="add_ln608_1"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="hash_chunk_loop" OPTYPE="add" PRAGMA="" RTLNAME="add_ln608_fu_167_p2" SOURCE="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:608" URAM="0" VARIABLE="add_ln608"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="hash_chunk_loop" OPTYPE="add" PRAGMA="" RTLNAME="chunk_fu_173_p2" SOURCE="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:610" URAM="0" VARIABLE="chunk"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="hash_chunk_loop" OPTYPE="add" PRAGMA="" RTLNAME="add_ln786_fu_141_p2" SOURCE="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:786" URAM="0" VARIABLE="add_ln786"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="hash_chunk_loop" OPTYPE="add" PRAGMA="" RTLNAME="add_ln788_fu_150_p2" SOURCE="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:788" URAM="0" VARIABLE="add_ln788"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="hash_chunk_loop" OPTYPE="add" PRAGMA="" RTLNAME="chunk_fu_155_p2" SOURCE="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:788" URAM="0" VARIABLE="chunk"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="hash_chunk_loop" OPTYPE="add" PRAGMA="" RTLNAME="digest_out_fu_172_p2" SOURCE="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:789" URAM="0" VARIABLE="digest_out"/>
             </BindNodes>
         </Module>
     </ModuleInformation>
     <FIFOInformation/>
     <UserConfigCommands>
+        <config_op>
+            <ENTRY impl="all mul" latency="-1 mul" op="mul" precision="mul standard"/>
+            <ENTRY impl="all add" latency="-1 add" op="add" precision="add standard"/>
+            <ENTRY impl="all sub" latency="-1 sub" op="sub" precision="sub standard"/>
+            <ENTRY impl="all fadd" latency="-1 fadd" op="fadd" precision="fadd standard"/>
+            <ENTRY impl="all fsub" latency="-1 fsub" op="fsub" precision="fsub standard"/>
+            <ENTRY impl="all fdiv" latency="-1 fdiv" op="fdiv" precision="fdiv standard"/>
+            <ENTRY impl="all fexp" latency="-1 fexp" op="fexp" precision="fexp standard"/>
+            <ENTRY impl="all flog" latency="-1 flog" op="flog" precision="flog standard"/>
+            <ENTRY impl="all fmul" latency="-1 fmul" op="fmul" precision="fmul standard"/>
+            <ENTRY impl="all frsqrt" latency="-1 frsqrt" op="frsqrt" precision="frsqrt standard"/>
+            <ENTRY impl="all frecip" latency="-1 frecip" op="frecip" precision="frecip standard"/>
+            <ENTRY impl="all fsqrt" latency="-1 fsqrt" op="fsqrt" precision="fsqrt standard"/>
+            <ENTRY impl="all dadd" latency="-1 dadd" op="dadd" precision="dadd standard"/>
+            <ENTRY impl="all dsub" latency="-1 dsub" op="dsub" precision="dsub standard"/>
+            <ENTRY impl="all ddiv" latency="-1 ddiv" op="ddiv" precision="ddiv standard"/>
+            <ENTRY impl="all dexp" latency="-1 dexp" op="dexp" precision="dexp standard"/>
+            <ENTRY impl="all dlog" latency="-1 dlog" op="dlog" precision="dlog standard"/>
+            <ENTRY impl="all dmul" latency="-1 dmul" op="dmul" precision="dmul standard"/>
+            <ENTRY impl="all drsqrt" latency="-1 drsqrt" op="drsqrt" precision="drsqrt standard"/>
+            <ENTRY impl="all drecip" latency="-1 drecip" op="drecip" precision="drecip standard"/>
+            <ENTRY impl="all dsqrt" latency="-1 dsqrt" op="dsqrt" precision="dsqrt standard"/>
+            <ENTRY impl="all hadd" latency="-1 hadd" op="hadd" precision="hadd standard"/>
+            <ENTRY impl="all hsub" latency="-1 hsub" op="hsub" precision="hsub standard"/>
+            <ENTRY impl="all hdiv" latency="-1 hdiv" op="hdiv" precision="hdiv standard"/>
+            <ENTRY impl="all hmul" latency="-1 hmul" op="hmul" precision="hmul standard"/>
+            <ENTRY impl="all hsqrt" latency="-1 hsqrt" op="hsqrt" precision="hsqrt standard"/>
+            <ENTRY impl="all facc" latency="-1 facc" op="facc" precision="facc standard"/>
+            <ENTRY impl="all fmacc" latency="-1 fmacc" op="fmacc" precision="fmacc standard"/>
+            <ENTRY impl="all fmadd" latency="-1 fmadd" op="fmadd" precision="fmadd standard"/>
+        </config_op>
+        <config_storage>
+            <ENTRY auto_srl_max_bits="1024 fifo" auto_srl_max_depth="2 fifo" impl="autosrl fifo" type="fifo"/>
+        </config_storage>
         <config_export format="xo" ipname="calculate_sha256"/>
     </UserConfigCommands>
     <Args>
@@ -1870,8 +1785,8 @@
                 </register>
                 <register offset="0x0c" name="IP_ISR" access="RW" description="IP Interrupt Status Register" range="32">
                     <fields>
-                        <field offset="0" width="1" name="CHAN0_INT_ST" access="RTOW" description="Channel 0 (ap_done) Interrupt Status. 0 = No Channel 0 interrupt, 1 = Channel 0 interrupt."/>
-                        <field offset="1" width="1" name="CHAN1_INT_ST" access="RTOW" description="Channel 1 (ap_ready) Interrupt Status. 0 = No Channel 1 interrupt, 1 = Channel 1 interrupt."/>
+                        <field offset="0" width="1" name="CHAN0_INT_ST" access="R" description="Channel 0 (ap_done) Interrupt Status. 0 = No Channel 0 interrupt, 1 = Channel 0 interrupt."/>
+                        <field offset="1" width="1" name="CHAN1_INT_ST" access="R" description="Channel 1 (ap_ready) Interrupt Status. 0 = No Channel 1 interrupt, 1 = Channel 1 interrupt."/>
                         <field offset="2" width="30" name="RESERVED_0" access="R" description="Reserved.  0s on read."/>
                     </fields>
                 </register>
@@ -2017,19 +1932,19 @@
     <ReportHWInterface>
         <section name="HW Interfaces" level="0">
             <item name="M_AXI">
-                <table>
-                    <keys size="12">Interface, Data Width (SW-&gt;HW), Address Width, Latency, Offset, Register, Max Widen Bitwidth, Max Read Burst Length, Max Write Burst Length, Num Read Outstanding, Num Write Outstanding, Resource Estimate</keys>
-                    <column name="m_axi_gmem0">512 -&gt; 512, 64, 64, slave, 0, 512, 16, 16, 16, 16, BRAM=30</column>
+                <table isCollapsed="0">
+                    <keys size="11">Interface, Data Width (SW-&gt;HW), Address Width, Latency, Offset, Register, Max Widen Bitwidth, Max Read Burst Length, Max Write Burst Length, Num Read Outstanding, Num Write Outstanding</keys>
+                    <column name="m_axi_gmem0">512 -&gt; 512, 64, 64, slave, 0, 512, 16, 16, 16, 16, , , , </column>
                 </table>
             </item>
             <item name="S_AXILITE Interfaces">
-                <table>
+                <table isCollapsed="0">
                     <keys size="5">Interface, Data Width, Address Width, Offset, Register</keys>
-                    <column name="s_axi_control">32, 6, 16, 0</column>
+                    <column name="s_axi_control">32, 6, 16, 0, , , , , </column>
                 </table>
             </item>
             <item name="S_AXILITE Registers">
-                <table>
+                <table isCollapsed="0">
                     <keys size="7">Interface, Register, Offset, Width, Access, Description, Bit Fields</keys>
                     <column name="s_axi_control">CTRL, 0x00, 32, RW, Control signals, 0=AP_START 1=AP_DONE 2=AP_IDLE 3=AP_READY 4=AP_CONTINUE 7=AUTO_RESTART 9=INTERRUPT</column>
                     <column name="s_axi_control">GIER, 0x04, 32, RW, Global Interrupt Enable Register, 0=Enable</column>
@@ -2044,12 +1959,12 @@
                 </table>
             </item>
             <item name="TOP LEVEL CONTROL">
-                <table>
+                <table isCollapsed="0">
                     <keys size="3">Interface, Type, Ports</keys>
-                    <column name="ap_clk">clock, ap_clk</column>
-                    <column name="ap_rst_n">reset, ap_rst_n</column>
-                    <column name="interrupt">interrupt, interrupt</column>
-                    <column name="ap_ctrl">ap_ctrl_chain, </column>
+                    <column name="ap_clk">clock, ap_clk, </column>
+                    <column name="ap_rst_n">reset, ap_rst_n, </column>
+                    <column name="interrupt">interrupt, interrupt, </column>
+                    <column name="ap_ctrl">ap_ctrl_chain, , </column>
                 </table>
             </item>
         </section>
@@ -2057,7 +1972,7 @@
     <ReportSWInterface>
         <section name="SW I/O Information" level="0">
             <item name="Top Function Arguments">
-                <table>
+                <table isCollapsed="1">
                     <keys size="3">Argument, Direction, Datatype</keys>
                     <column name="data_in">inout, ap_uint&lt;512&gt; const *</column>
                     <column name="crc_out">inout, unsigned int*</column>
@@ -2066,7 +1981,7 @@
                 </table>
             </item>
             <item name="SW-to-HW Mapping">
-                <table>
+                <table isCollapsed="1">
                     <keys size="5">Argument, HW Interface, HW Type, HW Usage, HW Info</keys>
                     <column name="data_in">m_axi_gmem0, interface, , </column>
                     <column name="data_in">s_axi_control, register, offset, name=data_in_1 offset=0x10 range=32</column>
@@ -2080,108 +1995,107 @@
             </item>
         </section>
     </ReportSWInterface>
-    <ResolutionUrl key="ZZZ">www.xilinx.com/cgi-bin/docs/rdoc?v=2023.1;t=hls+guidance;d=ZZZ.html</ResolutionUrl>
     <ReportBurst>
         <section name="M_AXI Burst Information" level="0" HEADER_NOTE="Note: All burst requests might be further partitioned into multiple requests during RTL generation based on max_read_burst_length or max_write_burst_length settings.">
             <item name="Inferred Burst Summary">
                 <table>
-                    <keys size="6">HW Interface, Direction, Length, Width, Loop, Loop Location</keys>
-                    <column name="m_axi_gmem0">read, variable, 512, full_block_loop_vec, /users/arashs/U280_CRC_Accelerator/src/kernel.cpp:199:9</column>
+                    <keys size="6">HW Interface, Loop, Direction, Length, Width, Location</keys>
+                    <column name="m_axi_gmem0">full_block_loop_vec, read, variable, 512, /home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:233:9</column>
                 </table>
             </item>
-            <item name="All M_AXI Variable Accesses">
+            <item name="Inferred Bursts and Widening Missed">
                 <table>
-                    <keys size="10">HW Interface, Variable, Access Location, Direction, Burst Status, Length, Loop, Loop Location, Resolution, Problem</keys>
-                    <column name="m_axi_gmem0">chunk, /users/arashs/U280_CRC_Accelerator/src/kernel.cpp:116:37, read, Widen Fail, , full_block_loop_scalar, /users/arashs/U280_CRC_Accelerator/src/kernel.cpp:208:9, 214-307, Could not widen since type i8 size is greater than or equal to alignment 1(bytes)</column>
-                    <column name="m_axi_gmem0">chunk, /users/arashs/U280_CRC_Accelerator/src/kernel.cpp:116:37, read, Inferred, variable, full_block_loop_scalar, /users/arashs/U280_CRC_Accelerator/src/kernel.cpp:208:9, , </column>
-                    <column name="m_axi_gmem0">chunk, /users/arashs/U280_CRC_Accelerator/src/kernel.cpp:201:34, read, Widen Fail, , full_block_loop_vec, /users/arashs/U280_CRC_Accelerator/src/kernel.cpp:199:9, 214-353, Could not widen since type i512 size is greater than or equal to the max_widen_bitwidth threshold of 512</column>
-                    <column name="m_axi_gmem0">chunk, /users/arashs/U280_CRC_Accelerator/src/kernel.cpp:201:34, read, Inferred, variable, full_block_loop_vec, /users/arashs/U280_CRC_Accelerator/src/kernel.cpp:199:9, , </column>
-                    <column name="m_axi_gmem0">chunk, /users/arashs/U280_CRC_Accelerator/src/kernel.cpp:228:17, read, Widen Fail, , copy_remainder, /users/arashs/U280_CRC_Accelerator/src/kernel.cpp:225:5, 214-307, Could not widen since type i8 size is greater than or equal to alignment 1(bytes)</column>
-                    <column name="m_axi_gmem0">chunk, /users/arashs/U280_CRC_Accelerator/src/kernel.cpp:228:17, read, Inferred, variable, copy_remainder, /users/arashs/U280_CRC_Accelerator/src/kernel.cpp:225:5, , </column>
-                    <column name="m_axi_gmem0">crc_out, /users/arashs/U280_CRC_Accelerator/src/kernel.cpp:608:5, write, Widen Fail, , hash_chunk_loop, /users/arashs/U280_CRC_Accelerator/src/kernel.cpp:608:5, 214-234, Sequential access length is not divisible by 2</column>
-                    <column name="m_axi_gmem0">crc_out, /users/arashs/U280_CRC_Accelerator/src/kernel.cpp:619:45, write, Widened, variable, hash_write_digest, /users/arashs/U280_CRC_Accelerator/src/kernel.cpp:616:9, , </column>
-                    <column name="m_axi_gmem0">crc_out, /users/arashs/U280_CRC_Accelerator/src/kernel.cpp:619:45, write, Inferred, variable, hash_chunk_loop, /users/arashs/U280_CRC_Accelerator/src/kernel.cpp:608:5, , </column>
+                    <keys size="6">HW Interface, Variable, Loop, Problem, Resolution, Location</keys>
+                    <column name="m_axi_gmem0">chunk, copy_remainder, Could not widen since type i8 size is greater than or equal to alignment 1(bytes), 214-307, /home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:259:5</column>
+                    <column name="m_axi_gmem0">chunk, full_block_loop_vec, Could not widen since type i512 size is greater than or equal to the max_widen_bitwidth threshold of 512, 214-353, /home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:233:9</column>
+                    <column name="m_axi_gmem0">chunk, full_block_loop_scalar, Could not widen since type i8 size is greater than or equal to alignment 1(bytes), 214-307, /home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:242:9</column>
                 </table>
             </item>
         </section>
     </ReportBurst>
     <PragmaReport>
-        <Pragma type="inline" location="../../../src/kernel.cpp:53" status="valid" parentFunction="rotr32" variable="" isDirective="0" options=""/>
-        <Pragma type="inline" location="../../../src/kernel.cpp:59" status="valid" parentFunction="sha256_ch" variable="" isDirective="0" options=""/>
-        <Pragma type="inline" location="../../../src/kernel.cpp:65" status="valid" parentFunction="sha256_maj" variable="" isDirective="0" options=""/>
-        <Pragma type="inline" location="../../../src/kernel.cpp:71" status="valid" parentFunction="sha256_bsig0" variable="" isDirective="0" options=""/>
-        <Pragma type="inline" location="../../../src/kernel.cpp:77" status="valid" parentFunction="sha256_bsig1" variable="" isDirective="0" options=""/>
-        <Pragma type="inline" location="../../../src/kernel.cpp:83" status="valid" parentFunction="sha256_ssig0" variable="" isDirective="0" options=""/>
-        <Pragma type="inline" location="../../../src/kernel.cpp:89" status="valid" parentFunction="sha256_ssig1" variable="" isDirective="0" options=""/>
-        <Pragma type="inline" location="../../../src/kernel.cpp:95" status="valid" parentFunction="to_be16" variable="" isDirective="0" options=""/>
-        <Pragma type="inline" location="../../../src/kernel.cpp:101" status="valid" parentFunction="to_be32" variable="" isDirective="0" options=""/>
-        <Pragma type="inline" location="../../../src/kernel.cpp:110" status="valid" parentFunction="pack_block_64" variable="" isDirective="0" options=""/>
-        <Pragma type="unroll" location="../../../src/kernel.cpp:115" status="valid" parentFunction="pack_block_64" variable="" isDirective="0" options=""/>
-        <Pragma type="inline" location="../../../src/kernel.cpp:123" status="valid" parentFunction="sha256_compress_block" variable="" isDirective="0" options="off"/>
-        <Pragma type="pipeline" location="../../../src/kernel.cpp:129" status="valid" parentFunction="sha256_compress_block" variable="" isDirective="0" options="II = 1"/>
-        <Pragma type="pipeline" location="../../../src/kernel.cpp:137" status="valid" parentFunction="sha256_compress_block" variable="" isDirective="0" options="II = 1"/>
-        <Pragma type="pipeline" location="../../../src/kernel.cpp:153" status="valid" parentFunction="sha256_compress_block" variable="" isDirective="0" options="II = 1"/>
-        <Pragma type="inline" location="../../../src/kernel.cpp:181" status="valid" parentFunction="sha256_process_chunk" variable="" isDirective="0" options="off"/>
-        <Pragma type="unroll" location="../../../src/kernel.cpp:187" status="valid" parentFunction="sha256_process_chunk" variable="" isDirective="0" options=""/>
-        <Pragma type="pipeline" location="../../../src/kernel.cpp:220" status="valid" parentFunction="sha256_process_chunk" variable="" isDirective="0" options="II = 1"/>
-        <Pragma type="pipeline" location="../../../src/kernel.cpp:227" status="valid" parentFunction="sha256_process_chunk" variable="" isDirective="0" options="II = 1"/>
-        <Pragma type="pipeline" location="../../../src/kernel.cpp:239" status="valid" parentFunction="sha256_process_chunk" variable="" isDirective="0" options="II = 1"/>
-        <Pragma type="pipeline" location="../../../src/kernel.cpp:253" status="valid" parentFunction="sha256_process_chunk" variable="" isDirective="0" options="II = 1"/>
-        <Pragma type="pipeline" location="../../../src/kernel.cpp:260" status="valid" parentFunction="sha256_process_chunk" variable="" isDirective="0" options="II = 1"/>
-        <Pragma type="unroll" location="../../../src/kernel.cpp:270" status="valid" parentFunction="sha256_process_chunk" variable="" isDirective="0" options=""/>
-        <Pragma type="pipeline" location="../../../src/kernel.cpp:289" status="valid" parentFunction="read_input" variable="" isDirective="0" options="II = 1"/>
-        <Pragma type="inline" location="../../../src/kernel.cpp:320" status="valid" parentFunction="process_blocks" variable="" isDirective="0" options="off"/>
-        <Pragma type="array_partition" location="../../../src/kernel.cpp:321" status="valid" parentFunction="process_blocks" variable="" isDirective="0" options="variable = crcTables complete dim = 1"/>
-        <Pragma type="bind_storage" location="../../../src/kernel.cpp:322" status="valid" parentFunction="process_blocks" variable="" isDirective="0" options="variable = crcTables type = ram_1p impl = bram"/>
-        <Pragma type="pipeline" location="../../../src/kernel.cpp:339" status="valid" parentFunction="process_blocks" variable="" isDirective="0" options="II = 1"/>
-        <Pragma type="pipeline" location="../../../src/kernel.cpp:378" status="valid" parentFunction="process_blocks" variable="" isDirective="0" options="II = 1"/>
-        <Pragma type="pipeline" location="../../../src/kernel.cpp:444" status="valid" parentFunction="write_output" variable="" isDirective="0" options="II = 1"/>
-        <Pragma type="inline" location="../../../src/kernel.cpp:451" status="valid" parentFunction="fold_add" variable="" isDirective="0" options=""/>
-        <Pragma type="inline" location="../../../src/kernel.cpp:458" status="valid" parentFunction="tcp_checksum_chunk_scalar" variable="" isDirective="0" options=""/>
-        <Pragma type="pipeline" location="../../../src/kernel.cpp:465" status="valid" parentFunction="tcp_checksum_chunk_scalar" variable="" isDirective="0" options="II = 1"/>
-        <Pragma type="inline" location="../../../src/kernel.cpp:487" status="valid" parentFunction="tcp_checksum_chunk_vector" variable="" isDirective="0" options=""/>
-        <Pragma type="pipeline" location="../../../src/kernel.cpp:494" status="valid" parentFunction="tcp_checksum_chunk_vector" variable="" isDirective="0" options="II = 1"/>
-        <Pragma type="array_partition" location="../../../src/kernel.cpp:501" status="valid" parentFunction="tcp_checksum_chunk_vector" variable="" isDirective="0" options="variable = lvl1 complete"/>
-        <Pragma type="array_partition" location="../../../src/kernel.cpp:502" status="valid" parentFunction="tcp_checksum_chunk_vector" variable="" isDirective="0" options="variable = lvl2 complete"/>
-        <Pragma type="array_partition" location="../../../src/kernel.cpp:503" status="valid" parentFunction="tcp_checksum_chunk_vector" variable="" isDirective="0" options="variable = lvl3 complete"/>
-        <Pragma type="array_partition" location="../../../src/kernel.cpp:504" status="valid" parentFunction="tcp_checksum_chunk_vector" variable="" isDirective="0" options="variable = lvl4 complete"/>
-        <Pragma type="unroll" location="../../../src/kernel.cpp:509" status="valid" parentFunction="tcp_checksum_chunk_vector" variable="" isDirective="0" options=""/>
-        <Pragma type="unroll" location="../../../src/kernel.cpp:520" status="valid" parentFunction="tcp_checksum_chunk_vector" variable="" isDirective="0" options=""/>
-        <Pragma type="unroll" location="../../../src/kernel.cpp:527" status="valid" parentFunction="tcp_checksum_chunk_vector" variable="" isDirective="0" options=""/>
-        <Pragma type="unroll" location="../../../src/kernel.cpp:534" status="valid" parentFunction="tcp_checksum_chunk_vector" variable="" isDirective="0" options=""/>
-        <Pragma type="pipeline" location="../../../src/kernel.cpp:547" status="valid" parentFunction="tcp_checksum_chunk_vector" variable="" isDirective="0" options="II = 1"/>
-        <Pragma type="unroll" location="../../../src/kernel.cpp:565" status="valid" parentFunction="tcp_checksum_chunk_vector" variable="" isDirective="0" options=""/>
-        <Pragma type="pipeline" location="../../../src/kernel.cpp:582" status="valid" parentFunction="process_tcp_checksum" variable="" isDirective="0" options="II = 1"/>
-        <Pragma type="array_partition" location="../../../src/kernel.cpp:612" status="valid" parentFunction="process_hash" variable="" isDirective="0" options="variable = digest complete dim = 1"/>
-        <Pragma type="pipeline" location="../../../src/kernel.cpp:618" status="valid" parentFunction="process_hash" variable="" isDirective="0" options="II = 1"/>
-        <Pragma type="stream" location="../../../src/kernel.cpp:651" status="valid" parentFunction="process_crc" variable="" isDirective="0" options="variable = inByte0 depth = 64"/>
-        <Pragma type="stream" location="../../../src/kernel.cpp:652" status="valid" parentFunction="process_crc" variable="" isDirective="0" options="variable = inByte1 depth = 64"/>
-        <Pragma type="stream" location="../../../src/kernel.cpp:653" status="valid" parentFunction="process_crc" variable="" isDirective="0" options="variable = inByte2 depth = 64"/>
-        <Pragma type="stream" location="../../../src/kernel.cpp:654" status="valid" parentFunction="process_crc" variable="" isDirective="0" options="variable = inByte3 depth = 64"/>
-        <Pragma type="stream" location="../../../src/kernel.cpp:655" status="valid" parentFunction="process_crc" variable="" isDirective="0" options="variable = inByte4 depth = 64"/>
-        <Pragma type="stream" location="../../../src/kernel.cpp:656" status="valid" parentFunction="process_crc" variable="" isDirective="0" options="variable = inByte5 depth = 64"/>
-        <Pragma type="stream" location="../../../src/kernel.cpp:657" status="valid" parentFunction="process_crc" variable="" isDirective="0" options="variable = inByte6 depth = 64"/>
-        <Pragma type="stream" location="../../../src/kernel.cpp:658" status="valid" parentFunction="process_crc" variable="" isDirective="0" options="variable = inByte7 depth = 64"/>
-        <Pragma type="stream" location="../../../src/kernel.cpp:659" status="valid" parentFunction="process_crc" variable="" isDirective="0" options="variable = inByte8 depth = 64"/>
-        <Pragma type="stream" location="../../../src/kernel.cpp:660" status="valid" parentFunction="process_crc" variable="" isDirective="0" options="variable = inByte9 depth = 64"/>
-        <Pragma type="stream" location="../../../src/kernel.cpp:661" status="valid" parentFunction="process_crc" variable="" isDirective="0" options="variable = inByte10 depth = 64"/>
-        <Pragma type="stream" location="../../../src/kernel.cpp:662" status="valid" parentFunction="process_crc" variable="" isDirective="0" options="variable = inByte11 depth = 64"/>
-        <Pragma type="stream" location="../../../src/kernel.cpp:663" status="valid" parentFunction="process_crc" variable="" isDirective="0" options="variable = inByte12 depth = 64"/>
-        <Pragma type="stream" location="../../../src/kernel.cpp:664" status="valid" parentFunction="process_crc" variable="" isDirective="0" options="variable = inByte13 depth = 64"/>
-        <Pragma type="stream" location="../../../src/kernel.cpp:665" status="valid" parentFunction="process_crc" variable="" isDirective="0" options="variable = inByte14 depth = 64"/>
-        <Pragma type="stream" location="../../../src/kernel.cpp:666" status="valid" parentFunction="process_crc" variable="" isDirective="0" options="variable = inByte15 depth = 64"/>
-        <Pragma type="stream" location="../../../src/kernel.cpp:669" status="valid" parentFunction="process_crc" variable="" isDirective="0" options="variable = outStream depth = 64"/>
-        <Pragma type="array_partition" location="../../../src/kernel.cpp:672" status="valid" parentFunction="process_crc" variable="" isDirective="0" options="variable = crcTables complete dim = 1"/>
-        <Pragma type="bind_storage" location="../../../src/kernel.cpp:673" status="valid" parentFunction="process_crc" variable="" isDirective="0" options="variable = crcTables type = ram_1p impl = bram"/>
-        <Pragma type="pipeline" location="../../../src/kernel.cpp:680" status="valid" parentFunction="process_crc" variable="" isDirective="0" options="II = 1"/>
-        <Pragma type="dataflow" location="../../../src/kernel.cpp:685" status="warning" parentFunction="process_crc" variable="" isDirective="0" options="">
-            <Msg msg_id="214-114" msg_severity="WARNING" msg_body="Since the only kind of statements allowed in a canonical dataflow region are variable declarations and function calls, the compiler may not be able to correctly handle the region"/>
-        </Pragma>
-        <Pragma type="interface" location="../../../src/kernel.cpp:731" status="valid" parentFunction="calculate_sha256" variable="" isDirective="0" options="m_axi port = data_in bundle = gmem0 depth = 1024 offset = slave"/>
-        <Pragma type="interface" location="../../../src/kernel.cpp:732" status="valid" parentFunction="calculate_sha256" variable="" isDirective="0" options="m_axi port = crc_out bundle = gmem0 depth = 1024 offset = slave"/>
+        <Pragma type="inline" location="../../../src/kernel.cpp:54" status="valid" parentFunction="rotr32" variable="" isDirective="0" options=""/>
+        <Pragma type="inline" location="../../../src/kernel.cpp:60" status="valid" parentFunction="sha256_ch" variable="" isDirective="0" options=""/>
+        <Pragma type="inline" location="../../../src/kernel.cpp:66" status="valid" parentFunction="sha256_maj" variable="" isDirective="0" options=""/>
+        <Pragma type="inline" location="../../../src/kernel.cpp:72" status="valid" parentFunction="sha256_bsig0" variable="" isDirective="0" options=""/>
+        <Pragma type="inline" location="../../../src/kernel.cpp:78" status="valid" parentFunction="sha256_bsig1" variable="" isDirective="0" options=""/>
+        <Pragma type="inline" location="../../../src/kernel.cpp:84" status="valid" parentFunction="sha256_ssig0" variable="" isDirective="0" options=""/>
+        <Pragma type="inline" location="../../../src/kernel.cpp:90" status="valid" parentFunction="sha256_ssig1" variable="" isDirective="0" options=""/>
+        <Pragma type="inline" location="../../../src/kernel.cpp:96" status="valid" parentFunction="to_be16" variable="" isDirective="0" options=""/>
+        <Pragma type="inline" location="../../../src/kernel.cpp:102" status="valid" parentFunction="to_be32" variable="" isDirective="0" options=""/>
+        <Pragma type="inline" location="../../../src/kernel.cpp:111" status="valid" parentFunction="pack_block_64" variable="" isDirective="0" options=""/>
+        <Pragma type="unroll" location="../../../src/kernel.cpp:116" status="valid" parentFunction="pack_block_64" variable="" isDirective="0" options=""/>
+        <Pragma type="inline" location="../../../src/kernel.cpp:124" status="valid" parentFunction="sha256_compress_block" variable="" isDirective="0" options="off"/>
+        <Pragma type="array_partition" location="../../../src/kernel.cpp:127" status="valid" parentFunction="sha256_compress_block" variable="" isDirective="0" options="variable = wbuf complete dim = 1"/>
+        <Pragma type="unroll" location="../../../src/kernel.cpp:132" status="valid" parentFunction="sha256_compress_block" variable="" isDirective="0" options=""/>
+        <Pragma type="pipeline" location="../../../src/kernel.cpp:149" status="valid" parentFunction="sha256_compress_block" variable="" isDirective="0" options="II = 1"/>
+        <Pragma type="inline" location="../../../src/kernel.cpp:196" status="valid" parentFunction="sha256_process_and_write_chunk" variable="" isDirective="0" options="off"/>
+        <Pragma type="array_partition" location="../../../src/kernel.cpp:199" status="valid" parentFunction="sha256_process_and_write_chunk" variable="" isDirective="0" options="variable = digest complete dim = 1"/>
+        <Pragma type="pipeline" location="../../../src/kernel.cpp:206" status="valid" parentFunction="sha256_process_and_write_chunk" variable="" isDirective="0" options="II = 1"/>
+        <Pragma type="inline" location="../../../src/kernel.cpp:215" status="valid" parentFunction="sha256_process_chunk" variable="" isDirective="0" options="off"/>
+        <Pragma type="unroll" location="../../../src/kernel.cpp:221" status="valid" parentFunction="sha256_process_chunk" variable="" isDirective="0" options=""/>
+        <Pragma type="pipeline" location="../../../src/kernel.cpp:254" status="valid" parentFunction="sha256_process_chunk" variable="" isDirective="0" options="II = 1"/>
+        <Pragma type="pipeline" location="../../../src/kernel.cpp:261" status="valid" parentFunction="sha256_process_chunk" variable="" isDirective="0" options="II = 1"/>
+        <Pragma type="pipeline" location="../../../src/kernel.cpp:273" status="valid" parentFunction="sha256_process_chunk" variable="" isDirective="0" options="II = 1"/>
+        <Pragma type="pipeline" location="../../../src/kernel.cpp:287" status="valid" parentFunction="sha256_process_chunk" variable="" isDirective="0" options="II = 1"/>
+        <Pragma type="pipeline" location="../../../src/kernel.cpp:294" status="valid" parentFunction="sha256_process_chunk" variable="" isDirective="0" options="II = 1"/>
+        <Pragma type="unroll" location="../../../src/kernel.cpp:304" status="valid" parentFunction="sha256_process_chunk" variable="" isDirective="0" options=""/>
+        <Pragma type="pipeline" location="../../../src/kernel.cpp:325" status="valid" parentFunction="read_input" variable="" isDirective="0" options="II = 1"/>
+        <Pragma type="pipeline" location="../../../src/kernel.cpp:352" status="valid" parentFunction="write_output" variable="" isDirective="0" options="II = 1"/>
+        <Pragma type="inline" location="../../../src/kernel.cpp:360" status="valid" parentFunction="load_crc_tables" variable="" isDirective="0" options="off"/>
+        <Pragma type="array_partition" location="../../../src/kernel.cpp:361" status="valid" parentFunction="load_crc_tables" variable="" isDirective="0" options="variable = crcTables complete dim = 1"/>
+        <Pragma type="bind_storage" location="../../../src/kernel.cpp:362" status="valid" parentFunction="load_crc_tables" variable="" isDirective="0" options="variable = crcTables type = ram_1p impl = bram"/>
+        <Pragma type="pipeline" location="../../../src/kernel.cpp:370" status="valid" parentFunction="load_crc_tables" variable="" isDirective="0" options="II = 1"/>
+        <Pragma type="inline" location="../../../src/kernel.cpp:386" status="valid" parentFunction="crc_process_full_blocks" variable="" isDirective="0" options="off"/>
+        <Pragma type="array_partition" location="../../../src/kernel.cpp:387" status="valid" parentFunction="crc_process_full_blocks" variable="" isDirective="0" options="variable = crcTables complete dim = 1"/>
+        <Pragma type="bind_storage" location="../../../src/kernel.cpp:388" status="valid" parentFunction="crc_process_full_blocks" variable="" isDirective="0" options="variable = crcTables type = ram_1p impl = bram"/>
+        <Pragma type="pipeline" location="../../../src/kernel.cpp:393" status="valid" parentFunction="crc_process_full_blocks" variable="" isDirective="0" options="II = 1"/>
+        <Pragma type="inline" location="../../../src/kernel.cpp:439" status="valid" parentFunction="crc_process_tail_bytes" variable="" isDirective="0" options="off"/>
+        <Pragma type="array_partition" location="../../../src/kernel.cpp:440" status="valid" parentFunction="crc_process_tail_bytes" variable="" isDirective="0" options="variable = crcTables complete dim = 1"/>
+        <Pragma type="bind_storage" location="../../../src/kernel.cpp:441" status="valid" parentFunction="crc_process_tail_bytes" variable="" isDirective="0" options="variable = crcTables type = ram_1p impl = bram"/>
+        <Pragma type="pipeline" location="../../../src/kernel.cpp:446" status="valid" parentFunction="crc_process_tail_bytes" variable="" isDirective="0" options="II = 1"/>
+        <Pragma type="inline" location="../../../src/kernel.cpp:519" status="valid" parentFunction="process_crc_chunks" variable="" isDirective="0" options="off"/>
+        <Pragma type="array_partition" location="../../../src/kernel.cpp:520" status="valid" parentFunction="process_crc_chunks" variable="" isDirective="0" options="variable = crcTables complete dim = 1"/>
+        <Pragma type="bind_storage" location="../../../src/kernel.cpp:521" status="valid" parentFunction="process_crc_chunks" variable="" isDirective="0" options="variable = crcTables type = ram_1p impl = bram"/>
+        <Pragma type="inline" location="../../../src/kernel.cpp:566" status="valid" parentFunction="crc_dataflow_region" variable="" isDirective="0" options="off"/>
+        <Pragma type="stream" location="../../../src/kernel.cpp:585" status="valid" parentFunction="crc_dataflow_region" variable="" isDirective="0" options="variable = inByte0 depth = 64"/>
+        <Pragma type="stream" location="../../../src/kernel.cpp:586" status="valid" parentFunction="crc_dataflow_region" variable="" isDirective="0" options="variable = inByte1 depth = 64"/>
+        <Pragma type="stream" location="../../../src/kernel.cpp:587" status="valid" parentFunction="crc_dataflow_region" variable="" isDirective="0" options="variable = inByte2 depth = 64"/>
+        <Pragma type="stream" location="../../../src/kernel.cpp:588" status="valid" parentFunction="crc_dataflow_region" variable="" isDirective="0" options="variable = inByte3 depth = 64"/>
+        <Pragma type="stream" location="../../../src/kernel.cpp:589" status="valid" parentFunction="crc_dataflow_region" variable="" isDirective="0" options="variable = inByte4 depth = 64"/>
+        <Pragma type="stream" location="../../../src/kernel.cpp:590" status="valid" parentFunction="crc_dataflow_region" variable="" isDirective="0" options="variable = inByte5 depth = 64"/>
+        <Pragma type="stream" location="../../../src/kernel.cpp:591" status="valid" parentFunction="crc_dataflow_region" variable="" isDirective="0" options="variable = inByte6 depth = 64"/>
+        <Pragma type="stream" location="../../../src/kernel.cpp:592" status="valid" parentFunction="crc_dataflow_region" variable="" isDirective="0" options="variable = inByte7 depth = 64"/>
+        <Pragma type="stream" location="../../../src/kernel.cpp:593" status="valid" parentFunction="crc_dataflow_region" variable="" isDirective="0" options="variable = inByte8 depth = 64"/>
+        <Pragma type="stream" location="../../../src/kernel.cpp:594" status="valid" parentFunction="crc_dataflow_region" variable="" isDirective="0" options="variable = inByte9 depth = 64"/>
+        <Pragma type="stream" location="../../../src/kernel.cpp:595" status="valid" parentFunction="crc_dataflow_region" variable="" isDirective="0" options="variable = inByte10 depth = 64"/>
+        <Pragma type="stream" location="../../../src/kernel.cpp:596" status="valid" parentFunction="crc_dataflow_region" variable="" isDirective="0" options="variable = inByte11 depth = 64"/>
+        <Pragma type="stream" location="../../../src/kernel.cpp:597" status="valid" parentFunction="crc_dataflow_region" variable="" isDirective="0" options="variable = inByte12 depth = 64"/>
+        <Pragma type="stream" location="../../../src/kernel.cpp:598" status="valid" parentFunction="crc_dataflow_region" variable="" isDirective="0" options="variable = inByte13 depth = 64"/>
+        <Pragma type="stream" location="../../../src/kernel.cpp:599" status="valid" parentFunction="crc_dataflow_region" variable="" isDirective="0" options="variable = inByte14 depth = 64"/>
+        <Pragma type="stream" location="../../../src/kernel.cpp:600" status="valid" parentFunction="crc_dataflow_region" variable="" isDirective="0" options="variable = inByte15 depth = 64"/>
+        <Pragma type="stream" location="../../../src/kernel.cpp:603" status="valid" parentFunction="crc_dataflow_region" variable="" isDirective="0" options="variable = outStream depth = 64"/>
+        <Pragma type="dataflow" location="../../../src/kernel.cpp:605" status="valid" parentFunction="crc_dataflow_region" variable="" isDirective="0" options=""/>
+        <Pragma type="inline" location="../../../src/kernel.cpp:629" status="valid" parentFunction="fold_add" variable="" isDirective="0" options=""/>
+        <Pragma type="inline" location="../../../src/kernel.cpp:636" status="valid" parentFunction="tcp_checksum_chunk_scalar" variable="" isDirective="0" options=""/>
+        <Pragma type="pipeline" location="../../../src/kernel.cpp:643" status="valid" parentFunction="tcp_checksum_chunk_scalar" variable="" isDirective="0" options="II = 1"/>
+        <Pragma type="inline" location="../../../src/kernel.cpp:665" status="valid" parentFunction="tcp_checksum_chunk_vector" variable="" isDirective="0" options=""/>
+        <Pragma type="pipeline" location="../../../src/kernel.cpp:672" status="valid" parentFunction="tcp_checksum_chunk_vector" variable="" isDirective="0" options="II = 1"/>
+        <Pragma type="array_partition" location="../../../src/kernel.cpp:679" status="valid" parentFunction="tcp_checksum_chunk_vector" variable="" isDirective="0" options="variable = lvl1 complete"/>
+        <Pragma type="array_partition" location="../../../src/kernel.cpp:680" status="valid" parentFunction="tcp_checksum_chunk_vector" variable="" isDirective="0" options="variable = lvl2 complete"/>
+        <Pragma type="array_partition" location="../../../src/kernel.cpp:681" status="valid" parentFunction="tcp_checksum_chunk_vector" variable="" isDirective="0" options="variable = lvl3 complete"/>
+        <Pragma type="array_partition" location="../../../src/kernel.cpp:682" status="valid" parentFunction="tcp_checksum_chunk_vector" variable="" isDirective="0" options="variable = lvl4 complete"/>
+        <Pragma type="unroll" location="../../../src/kernel.cpp:687" status="valid" parentFunction="tcp_checksum_chunk_vector" variable="" isDirective="0" options=""/>
+        <Pragma type="unroll" location="../../../src/kernel.cpp:698" status="valid" parentFunction="tcp_checksum_chunk_vector" variable="" isDirective="0" options=""/>
+        <Pragma type="unroll" location="../../../src/kernel.cpp:705" status="valid" parentFunction="tcp_checksum_chunk_vector" variable="" isDirective="0" options=""/>
+        <Pragma type="unroll" location="../../../src/kernel.cpp:712" status="valid" parentFunction="tcp_checksum_chunk_vector" variable="" isDirective="0" options=""/>
+        <Pragma type="pipeline" location="../../../src/kernel.cpp:725" status="valid" parentFunction="tcp_checksum_chunk_vector" variable="" isDirective="0" options="II = 1"/>
+        <Pragma type="unroll" location="../../../src/kernel.cpp:743" status="valid" parentFunction="tcp_checksum_chunk_vector" variable="" isDirective="0" options=""/>
+        <Pragma type="pipeline" location="../../../src/kernel.cpp:760" status="valid" parentFunction="process_tcp_checksum" variable="" isDirective="0" options="II = 1"/>
+        <Pragma type="array_partition" location="../../../src/kernel.cpp:803" status="valid" parentFunction="process_crc" variable="" isDirective="0" options="variable = crcTables complete dim = 1"/>
+        <Pragma type="bind_storage" location="../../../src/kernel.cpp:804" status="valid" parentFunction="process_crc" variable="" isDirective="0" options="variable = crcTables type = ram_1p impl = bram"/>
+        <Pragma type="interface" location="../../../src/kernel.cpp:848" status="valid" parentFunction="calculate_sha256" variable="" isDirective="0" options="m_axi port = data_in bundle = gmem0 depth = 1024 offset = slave"/>
+        <Pragma type="interface" location="../../../src/kernel.cpp:849" status="valid" parentFunction="calculate_sha256" variable="" isDirective="0" options="m_axi port = crc_out bundle = gmem0 depth = 1024 offset = slave"/>
     </PragmaReport>
-    <AutoPragmaReport>
-        <AutoPragma type="array_partition" parentFunction="sha256_compress_block" options="dim=1 type=cyclic factor=3 variable=w" pragmaLocId="../../../src/kernel.cpp:0:1" srcPragmaType="pipeline" srcPragmaLoc="../../../src/kernel.cpp:137" srcPragmaSource="pragma" srcIsDirective="0" variable="w" varLoc=""/>
-    </AutoPragmaReport>
 </profile>
 

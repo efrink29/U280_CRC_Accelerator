@@ -1,12 +1,12 @@
 <profile>
 
 <ReportVersion>
-<Version>2023.1</Version>
+<Version>2022.1</Version>
 </ReportVersion>
 
 <UserAssignments>
 <unit>ns</unit>
-<ProductFamily>virtexuplusHBM</ProductFamily>
+<ProductFamily>virtexuplus</ProductFamily>
 <Part>xcu280-fsvh2892-2L-e</Part>
 <TopModelName>process_tcp_checksum_Pipeline_vec_word_loop</TopModelName>
 <TargetClockPeriod>3.33</TargetClockPeriod>
@@ -23,34 +23,28 @@
 </SummaryOfTimingAnalysis>
 <SummaryOfOverallLatency>
 <unit>clock cycles</unit>
-<Best-caseLatency>3</Best-caseLatency>
-<Average-caseLatency>33554436</Average-caseLatency>
-<Worst-caseLatency>67108868</Worst-caseLatency>
-<Best-caseRealTimeLatency>9.999 ns</Best-caseRealTimeLatency>
-<Average-caseRealTimeLatency>0.112 sec</Average-caseRealTimeLatency>
-<Worst-caseRealTimeLatency>0.224 sec</Worst-caseRealTimeLatency>
-<Interval-min>3</Interval-min>
-<Interval-max>67108868</Interval-max>
+<Best-caseLatency>6</Best-caseLatency>
+<Average-caseLatency>undef</Average-caseLatency>
+<Worst-caseLatency>undef</Worst-caseLatency>
+<Best-caseRealTimeLatency>19.998 ns</Best-caseRealTimeLatency>
+<Average-caseRealTimeLatency>undef</Average-caseRealTimeLatency>
+<Worst-caseRealTimeLatency>undef</Worst-caseRealTimeLatency>
+<Interval-min>6</Interval-min>
+<Interval-max>undef</Interval-max>
 </SummaryOfOverallLatency>
 <SummaryOfLoopLatency>
 <vec_word_loop>
-<Slack>2.43</Slack>
-<TripCount>
-<range>
-<min>0</min>
-<max>67108863</max>
-</range>
-</TripCount>
+<TripCount>undef</TripCount>
 <Latency>
 <range>
-<min>1</min>
-<max>67108866</max>
+<min>4</min>
+<max>-1</max>
 </range>
 </Latency>
 <AbsoluteTimeLatency>
 <range>
-<min>3</min>
-<max>223673846</max>
+<min>13</min>
+<max>-3</max>
 </range>
 </AbsoluteTimeLatency>
 <PipelineII>1</PipelineII>
@@ -64,7 +58,7 @@
 <AreaEstimates>
 <Resources>
 <FF>756</FF>
-<LUT>982</LUT>
+<LUT>966</LUT>
 <BRAM_18K>0</BRAM_18K>
 <DSP>0</DSP>
 <URAM>0</URAM>
@@ -652,8 +646,8 @@
 <Attribute>unknown</Attribute>
 </RtlPorts>
 <RtlPorts>
-<name>sext_ln492</name>
-<Object>sext_ln492</Object>
+<name>sext_ln670</name>
+<Object>sext_ln670</Object>
 <Type>scalar</Type>
 <Scope></Scope>
 <IOProtocol>ap_none</IOProtocol>
@@ -674,8 +668,8 @@
 <Attribute>data</Attribute>
 </RtlPorts>
 <RtlPorts>
-<name>sum_out</name>
-<Object>sum_out</Object>
+<name>sum_V_2_out</name>
+<Object>sum_V_2_out</Object>
 <Type>pointer</Type>
 <Scope></Scope>
 <IOProtocol>ap_vld</IOProtocol>
@@ -685,8 +679,8 @@
 <Attribute>data</Attribute>
 </RtlPorts>
 <RtlPorts>
-<name>sum_out_ap_vld</name>
-<Object>sum_out</Object>
+<name>sum_V_2_out_ap_vld</name>
+<Object>sum_V_2_out</Object>
 <Type>pointer</Type>
 <Scope></Scope>
 <IOProtocol>ap_vld</IOProtocol>

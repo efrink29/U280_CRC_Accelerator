@@ -1,12 +1,12 @@
 <profile>
 
 <ReportVersion>
-<Version>2023.1</Version>
+<Version>2022.1</Version>
 </ReportVersion>
 
 <UserAssignments>
 <unit>ns</unit>
-<ProductFamily>virtexuplusHBM</ProductFamily>
+<ProductFamily>virtexuplus</ProductFamily>
 <Part>xcu280-fsvh2892-2L-e</Part>
 <TopModelName>write_output</TopModelName>
 <TargetClockPeriod>3.33</TargetClockPeriod>
@@ -35,8 +35,8 @@
 
 <AreaEstimates>
 <Resources>
-<FF>483</FF>
-<LUT>781</LUT>
+<FF>484</FF>
+<LUT>763</LUT>
 <BRAM_18K>0</BRAM_18K>
 <DSP>0</DSP>
 <URAM>0</URAM>
@@ -129,8 +129,8 @@
 <Attribute>control</Attribute>
 </RtlPorts>
 <RtlPorts>
-<name>outStream_dout</name>
-<Object>outStream</Object>
+<name>outStream33_dout</name>
+<Object>outStream33</Object>
 <Type>pointer</Type>
 <Scope></Scope>
 <IOProtocol>ap_fifo</IOProtocol>
@@ -140,8 +140,8 @@
 <Attribute>control</Attribute>
 </RtlPorts>
 <RtlPorts>
-<name>outStream_num_data_valid</name>
-<Object>outStream</Object>
+<name>outStream33_num_data_valid</name>
+<Object>outStream33</Object>
 <Type>pointer</Type>
 <Scope></Scope>
 <IOProtocol>ap_fifo</IOProtocol>
@@ -151,8 +151,8 @@
 <Attribute>control</Attribute>
 </RtlPorts>
 <RtlPorts>
-<name>outStream_fifo_cap</name>
-<Object>outStream</Object>
+<name>outStream33_fifo_cap</name>
+<Object>outStream33</Object>
 <Type>pointer</Type>
 <Scope></Scope>
 <IOProtocol>ap_fifo</IOProtocol>
@@ -162,8 +162,8 @@
 <Attribute>unknown</Attribute>
 </RtlPorts>
 <RtlPorts>
-<name>outStream_empty_n</name>
-<Object>outStream</Object>
+<name>outStream33_empty_n</name>
+<Object>outStream33</Object>
 <Type>pointer</Type>
 <Scope></Scope>
 <IOProtocol>ap_fifo</IOProtocol>
@@ -173,8 +173,8 @@
 <Attribute>control</Attribute>
 </RtlPorts>
 <RtlPorts>
-<name>outStream_read</name>
-<Object>outStream</Object>
+<name>outStream33_read</name>
+<Object>outStream33</Object>
 <Type>pointer</Type>
 <Scope></Scope>
 <IOProtocol>ap_fifo</IOProtocol>

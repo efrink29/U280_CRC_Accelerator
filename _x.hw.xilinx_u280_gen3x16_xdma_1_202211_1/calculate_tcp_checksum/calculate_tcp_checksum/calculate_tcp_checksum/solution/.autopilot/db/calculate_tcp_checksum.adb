@@ -34,7 +34,7 @@
               <coreName/>
               <isStorage>0</isStorage>
               <storageDepth>0</storageDepth>
-              <coreId>1852793632</coreId>
+              <coreId>3149251424</coreId>
               <rtlModuleName/>
             </Obj>
             <bitwidth>512</bitwidth>
@@ -70,7 +70,7 @@
               <coreName/>
               <isStorage>0</isStorage>
               <storageDepth>0</storageDepth>
-              <coreId>539896113</coreId>
+              <coreId>6775156</coreId>
               <rtlModuleName/>
             </Obj>
             <bitwidth>64</bitwidth>
@@ -106,7 +106,7 @@
               <coreName/>
               <isStorage>0</isStorage>
               <storageDepth>0</storageDepth>
-              <coreId>539896113</coreId>
+              <coreId>0</coreId>
               <rtlModuleName/>
             </Obj>
             <bitwidth>64</bitwidth>
@@ -142,7 +142,7 @@
               <coreName/>
               <isStorage>0</isStorage>
               <storageDepth>0</storageDepth>
-              <coreId>448</coreId>
+              <coreId>0</coreId>
               <rtlModuleName/>
             </Obj>
             <bitwidth>32</bitwidth>
@@ -201,25 +201,25 @@
               <type>0</type>
               <id>21</id>
               <name>chunkSize_read</name>
-              <fileName>/users/arashs/U280_CRC_Accelerator/src/kernel.cpp</fileName>
-              <fileDirectory>../.</fileDirectory>
-              <lineNumber>715</lineNumber>
+              <fileName>/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp</fileName>
+              <fileDirectory>..</fileDirectory>
+              <lineNumber>832</lineNumber>
               <contextFuncName>calculate_tcp_checksum</contextFuncName>
               <contextNormFuncName>calculate_tcp_checksum</contextNormFuncName>
               <inlineStackInfo>
                 <count>1</count>
                 <item_version>0</item_version>
                 <item class_id="10" tracking_level="0" version="0">
-                  <first>/users/arashs/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/calculate_tcp_checksum/calculate_tcp_checksum</first>
+                  <first>/home/efrink/mled/split_cu/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/calculate_tcp_checksum/calculate_tcp_checksum</first>
                   <second class_id="11" tracking_level="0" version="0">
                     <count>1</count>
                     <item_version>0</item_version>
                     <item class_id="12" tracking_level="0" version="0">
                       <first class_id="13" tracking_level="0" version="0">
-                        <first>/users/arashs/U280_CRC_Accelerator/src/kernel.cpp</first>
+                        <first>/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp</first>
                         <second>calculate_tcp_checksum</second>
                       </first>
-                      <second>715</second>
+                      <second>832</second>
                     </item>
                   </second>
                 </item>
@@ -258,25 +258,25 @@
               <type>0</type>
               <id>22</id>
               <name>numChunks_read</name>
-              <fileName>/users/arashs/U280_CRC_Accelerator/src/kernel.cpp</fileName>
-              <fileDirectory>../.</fileDirectory>
-              <lineNumber>715</lineNumber>
+              <fileName>/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp</fileName>
+              <fileDirectory>..</fileDirectory>
+              <lineNumber>832</lineNumber>
               <contextFuncName>calculate_tcp_checksum</contextFuncName>
               <contextNormFuncName>calculate_tcp_checksum</contextNormFuncName>
               <inlineStackInfo>
                 <count>1</count>
                 <item_version>0</item_version>
                 <item>
-                  <first>/users/arashs/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/calculate_tcp_checksum/calculate_tcp_checksum</first>
+                  <first>/home/efrink/mled/split_cu/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/calculate_tcp_checksum/calculate_tcp_checksum</first>
                   <second>
                     <count>1</count>
                     <item_version>0</item_version>
                     <item>
                       <first>
-                        <first>/users/arashs/U280_CRC_Accelerator/src/kernel.cpp</first>
+                        <first>/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp</first>
                         <second>calculate_tcp_checksum</second>
                       </first>
-                      <second>715</second>
+                      <second>832</second>
                     </item>
                   </second>
                 </item>
@@ -315,25 +315,25 @@
               <type>0</type>
               <id>23</id>
               <name>crc_out_read</name>
-              <fileName>/users/arashs/U280_CRC_Accelerator/src/kernel.cpp</fileName>
-              <fileDirectory>../.</fileDirectory>
-              <lineNumber>715</lineNumber>
+              <fileName>/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp</fileName>
+              <fileDirectory>..</fileDirectory>
+              <lineNumber>832</lineNumber>
               <contextFuncName>calculate_tcp_checksum</contextFuncName>
               <contextNormFuncName>calculate_tcp_checksum</contextNormFuncName>
               <inlineStackInfo>
                 <count>1</count>
                 <item_version>0</item_version>
                 <item>
-                  <first>/users/arashs/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/calculate_tcp_checksum/calculate_tcp_checksum</first>
+                  <first>/home/efrink/mled/split_cu/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/calculate_tcp_checksum/calculate_tcp_checksum</first>
                   <second>
                     <count>1</count>
                     <item_version>0</item_version>
                     <item>
                       <first>
-                        <first>/users/arashs/U280_CRC_Accelerator/src/kernel.cpp</first>
+                        <first>/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp</first>
                         <second>calculate_tcp_checksum</second>
                       </first>
-                      <second>715</second>
+                      <second>832</second>
                     </item>
                   </second>
                 </item>
@@ -372,25 +372,25 @@
               <type>0</type>
               <id>24</id>
               <name>data_in_read</name>
-              <fileName>/users/arashs/U280_CRC_Accelerator/src/kernel.cpp</fileName>
-              <fileDirectory>../.</fileDirectory>
-              <lineNumber>715</lineNumber>
+              <fileName>/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp</fileName>
+              <fileDirectory>..</fileDirectory>
+              <lineNumber>832</lineNumber>
               <contextFuncName>calculate_tcp_checksum</contextFuncName>
               <contextNormFuncName>calculate_tcp_checksum</contextNormFuncName>
               <inlineStackInfo>
                 <count>1</count>
                 <item_version>0</item_version>
                 <item>
-                  <first>/users/arashs/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/calculate_tcp_checksum/calculate_tcp_checksum</first>
+                  <first>/home/efrink/mled/split_cu/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/calculate_tcp_checksum/calculate_tcp_checksum</first>
                   <second>
                     <count>1</count>
                     <item_version>0</item_version>
                     <item>
                       <first>
-                        <first>/users/arashs/U280_CRC_Accelerator/src/kernel.cpp</first>
+                        <first>/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp</first>
                         <second>calculate_tcp_checksum</second>
                       </first>
-                      <second>715</second>
+                      <second>832</second>
                     </item>
                   </second>
                 </item>
@@ -428,26 +428,26 @@
             <Obj>
               <type>0</type>
               <id>25</id>
-              <name>_ln721</name>
-              <fileName>/users/arashs/U280_CRC_Accelerator/src/kernel.cpp</fileName>
-              <fileDirectory>../.</fileDirectory>
-              <lineNumber>721</lineNumber>
+              <name>_ln838</name>
+              <fileName>/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp</fileName>
+              <fileDirectory>..</fileDirectory>
+              <lineNumber>838</lineNumber>
               <contextFuncName>calculate_tcp_checksum</contextFuncName>
               <contextNormFuncName>calculate_tcp_checksum</contextNormFuncName>
               <inlineStackInfo>
                 <count>1</count>
                 <item_version>0</item_version>
                 <item>
-                  <first>/users/arashs/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/calculate_tcp_checksum/calculate_tcp_checksum</first>
+                  <first>/home/efrink/mled/split_cu/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/calculate_tcp_checksum/calculate_tcp_checksum</first>
                   <second>
                     <count>1</count>
                     <item_version>0</item_version>
                     <item>
                       <first>
-                        <first>/users/arashs/U280_CRC_Accelerator/src/kernel.cpp</first>
+                        <first>/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp</first>
                         <second>calculate_tcp_checksum</second>
                       </first>
-                      <second>721</second>
+                      <second>838</second>
                     </item>
                   </second>
                 </item>
@@ -460,7 +460,7 @@
               <coreName/>
               <isStorage>0</isStorage>
               <storageDepth>0</storageDepth>
-              <coreId>1944008624</coreId>
+              <coreId>3149408104</coreId>
               <rtlModuleName/>
             </Obj>
             <bitwidth>0</bitwidth>
@@ -480,7 +480,7 @@
           <m_isOnCriticalPath>0</m_isOnCriticalPath>
           <m_isLCDNode>0</m_isLCDNode>
           <m_isStartOfPath>0</m_isStartOfPath>
-          <m_delay>1.75</m_delay>
+          <m_delay>1.72</m_delay>
           <m_topoIndex>5</m_topoIndex>
           <m_clusterGroupNumber>-1</m_clusterGroupNumber>
         </item>
@@ -489,26 +489,26 @@
             <Obj>
               <type>0</type>
               <id>26</id>
-              <name>_ln722</name>
-              <fileName>/users/arashs/U280_CRC_Accelerator/src/kernel.cpp</fileName>
-              <fileDirectory>../.</fileDirectory>
-              <lineNumber>722</lineNumber>
+              <name>_ln839</name>
+              <fileName>/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp</fileName>
+              <fileDirectory>..</fileDirectory>
+              <lineNumber>839</lineNumber>
               <contextFuncName>calculate_tcp_checksum</contextFuncName>
               <contextNormFuncName>calculate_tcp_checksum</contextNormFuncName>
               <inlineStackInfo>
                 <count>1</count>
                 <item_version>0</item_version>
                 <item>
-                  <first>/users/arashs/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/calculate_tcp_checksum/calculate_tcp_checksum</first>
+                  <first>/home/efrink/mled/split_cu/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/calculate_tcp_checksum/calculate_tcp_checksum</first>
                   <second>
                     <count>1</count>
                     <item_version>0</item_version>
                     <item>
                       <first>
-                        <first>/users/arashs/U280_CRC_Accelerator/src/kernel.cpp</first>
+                        <first>/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp</first>
                         <second>calculate_tcp_checksum</second>
                       </first>
-                      <second>722</second>
+                      <second>839</second>
                     </item>
                   </second>
                 </item>
@@ -521,7 +521,7 @@
               <coreName/>
               <isStorage>0</isStorage>
               <storageDepth>0</storageDepth>
-              <coreId>1944009872</coreId>
+              <coreId>3149270272</coreId>
               <rtlModuleName/>
             </Obj>
             <bitwidth>0</bitwidth>
@@ -566,7 +566,7 @@
               <coreName/>
               <isStorage>0</isStorage>
               <storageDepth>0</storageDepth>
-              <coreId>1943427040</coreId>
+              <coreId>176</coreId>
               <rtlModuleName/>
             </Obj>
             <bitwidth>0</bitwidth>
@@ -600,7 +600,7 @@
             <coreName/>
             <isStorage>0</isStorage>
             <storageDepth>0</storageDepth>
-            <coreId>0</coreId>
+            <coreId>543519343</coreId>
             <rtlModuleName/>
           </Obj>
           <node_objs>
@@ -918,23 +918,19 @@
         <item>
           <first>gmem0_m_axi_U (gmem0_m_axi)</first>
           <second>
-            <count>4</count>
+            <count>3</count>
             <item_version>0</item_version>
             <item>
               <first>BRAM</first>
-              <second>30</second>
+              <second>0</second>
             </item>
             <item>
               <first>FF</first>
-              <second>3521</second>
+              <second>4567</second>
             </item>
             <item>
               <first>LUT</first>
-              <second>2695</second>
-            </item>
-            <item>
-              <first>URAM</first>
-              <second>0</second>
+              <second>8001</second>
             </item>
           </second>
         </item>
@@ -945,11 +941,11 @@
             <item_version>0</item_version>
             <item>
               <first>FF</first>
-              <second>6685</second>
+              <second>6757</second>
             </item>
             <item>
               <first>LUT</first>
-              <second>20808</second>
+              <second>20881</second>
             </item>
           </second>
         </item>

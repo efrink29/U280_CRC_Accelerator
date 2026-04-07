@@ -3,12 +3,12 @@
 ================================================================
 == Vitis HLS Report for 'sha256_process_chunk_Pipeline_len_store_single'
 ================================================================
-* Date:           Fri Feb 20 12:34:48 2026
+* Date:           Thu Apr  2 18:19:25 2026
 
-* Version:        2023.1 (Build 3854077 on May  4 2023)
+* Version:        2022.1 (Build 3526262 on Mon Apr 18 15:47:01 MDT 2022)
 * Project:        calculate_sha256
 * Solution:       solution (Vitis Kernel Flow Target)
-* Product family: virtexuplusHBM
+* Product family: virtexuplus
 * Target device:  xcu280-fsvh2892-2L-e
 
 
@@ -85,45 +85,45 @@ IsGatedGlobalClock: 0
 
 State 1 <SV = 0> <Delay = 1.83>
 ST_1 : Operation 4 [1/1] (0.00ns)   --->   "%i = alloca i32 1"   --->   Operation 4 'alloca' 'i' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 5 [1/1] (0.00ns)   --->   "%zext_ln232_read = read i35 @_ssdm_op_Read.ap_auto.i35, i35 %zext_ln232"   --->   Operation 5 'read' 'zext_ln232_read' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 6 [1/1] (0.00ns)   --->   "%zext_ln232_cast = zext i35 %zext_ln232_read"   --->   Operation 6 'zext' 'zext_ln232_cast' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 5 [1/1] (0.00ns)   --->   "%zext_ln266_read = read i35 @_ssdm_op_Read.ap_auto.i35, i35 %zext_ln266"   --->   Operation 5 'read' 'zext_ln266_read' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 6 [1/1] (0.00ns)   --->   "%zext_ln266_cast = zext i35 %zext_ln266_read"   --->   Operation 6 'zext' 'zext_ln266_cast' <Predicate = true> <Delay = 0.00>
 ST_1 : Operation 7 [1/1] (0.38ns)   --->   "%store_ln0 = store i4 0, i4 %i"   --->   Operation 7 'store' 'store_ln0' <Predicate = true> <Delay = 0.38>
 ST_1 : Operation 8 [1/1] (0.00ns)   --->   "%br_ln0 = br void %for.inc64"   --->   Operation 8 'br' 'br_ln0' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 9 [1/1] (0.00ns)   --->   "%i_1 = load i4 %i" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:240]   --->   Operation 9 'load' 'i_1' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 10 [1/1] (0.70ns)   --->   "%icmp_ln237 = icmp_eq  i4 %i_1, i4 8" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:237]   --->   Operation 10 'icmp' 'icmp_ln237' <Predicate = true> <Delay = 0.70> <CoreInst = "Cmp">   --->   Core 9 'Cmp' <Latency = 0> <II = 1> <Delay = 0.70> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
-ST_1 : Operation 11 [1/1] (0.70ns)   --->   "%add_ln237 = add i4 %i_1, i4 1" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:237]   --->   Operation 11 'add' 'add_ln237' <Predicate = true> <Delay = 0.70> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 0.70> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
-ST_1 : Operation 12 [1/1] (0.00ns)   --->   "%br_ln237 = br i1 %icmp_ln237, void %for.inc64.split, void %for.end66.exitStub" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:237]   --->   Operation 12 'br' 'br_ln237' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 13 [1/1] (0.00ns)   --->   "%specpipeline_ln239 = specpipeline void @_ssdm_op_SpecPipeline, i32 1, i32 0, i32 0, i32 0, void @empty" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:239]   --->   Operation 13 'specpipeline' 'specpipeline_ln239' <Predicate = (!icmp_ln237)> <Delay = 0.00>
-ST_1 : Operation 14 [1/1] (0.00ns)   --->   "%speclooptripcount_ln237 = speclooptripcount void @_ssdm_op_SpecLoopTripCount, i64 8, i64 8, i64 8" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:237]   --->   Operation 14 'speclooptripcount' 'speclooptripcount_ln237' <Predicate = (!icmp_ln237)> <Delay = 0.00>
-ST_1 : Operation 15 [1/1] (0.00ns)   --->   "%specloopname_ln237 = specloopname void @_ssdm_op_SpecLoopName, void @empty_20" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:237]   --->   Operation 15 'specloopname' 'specloopname_ln237' <Predicate = (!icmp_ln237)> <Delay = 0.00>
-ST_1 : Operation 16 [1/1] (0.00ns) (grouped into LUT with out node lshr_ln240)   --->   "%trunc_ln240 = trunc i4 %i_1" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:240]   --->   Operation 16 'trunc' 'trunc_ln240' <Predicate = (!icmp_ln237)> <Delay = 0.00>
-ST_1 : Operation 17 [1/1] (0.00ns) (grouped into LUT with out node lshr_ln240)   --->   "%xor_ln240 = xor i3 %trunc_ln240, i3 7" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:240]   --->   Operation 17 'xor' 'xor_ln240' <Predicate = (!icmp_ln237)> <Delay = 0.00> <CoreInst = "LogicGate">   --->   Core 74 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.12> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
-ST_1 : Operation 18 [1/1] (0.00ns) (grouped into LUT with out node lshr_ln240)   --->   "%shl_ln3 = bitconcatenate i6 @_ssdm_op_BitConcatenate.i6.i3.i3, i3 %xor_ln240, i3 0" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:240]   --->   Operation 18 'bitconcatenate' 'shl_ln3' <Predicate = (!icmp_ln237)> <Delay = 0.00>
-ST_1 : Operation 19 [1/1] (0.00ns) (grouped into LUT with out node lshr_ln240)   --->   "%zext_ln240 = zext i6 %shl_ln3" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:240]   --->   Operation 19 'zext' 'zext_ln240' <Predicate = (!icmp_ln237)> <Delay = 0.00>
-ST_1 : Operation 20 [1/1] (1.16ns) (out node of the LUT)   --->   "%lshr_ln240 = lshr i64 %zext_ln232_cast, i64 %zext_ln240" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:240]   --->   Operation 20 'lshr' 'lshr_ln240' <Predicate = (!icmp_ln237)> <Delay = 1.16> <CoreInst = "Shifter">   --->   Core 75 'Shifter' <Latency = 0> <II = 1> <Delay = 1.16> <FuncUnit> <Opcode : 'shl' 'lshr' 'ashr'> <InPorts = 2> <OutPorts = 1>
-ST_1 : Operation 21 [1/1] (0.00ns)   --->   "%trunc_ln240_1 = trunc i64 %lshr_ln240" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:240]   --->   Operation 21 'trunc' 'trunc_ln240_1' <Predicate = (!icmp_ln237)> <Delay = 0.00>
-ST_1 : Operation 22 [1/1] (0.22ns)   --->   "%xor_ln240_1 = xor i4 %i_1, i4 8" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:240]   --->   Operation 22 'xor' 'xor_ln240_1' <Predicate = (!icmp_ln237)> <Delay = 0.22> <CoreInst = "LogicGate">   --->   Core 74 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.22> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
-ST_1 : Operation 23 [1/1] (0.00ns)   --->   "%sext_ln240 = sext i4 %xor_ln240_1" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:240]   --->   Operation 23 'sext' 'sext_ln240' <Predicate = (!icmp_ln237)> <Delay = 0.00>
-ST_1 : Operation 24 [1/1] (0.00ns)   --->   "%zext_ln240_1 = zext i6 %sext_ln240" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:240]   --->   Operation 24 'zext' 'zext_ln240_1' <Predicate = (!icmp_ln237)> <Delay = 0.00>
-ST_1 : Operation 25 [1/1] (0.00ns)   --->   "%pad_block_addr = getelementptr i8 %pad_block, i64 0, i64 %zext_ln240_1" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:240]   --->   Operation 25 'getelementptr' 'pad_block_addr' <Predicate = (!icmp_ln237)> <Delay = 0.00>
-ST_1 : Operation 26 [1/1] (0.66ns)   --->   "%store_ln240 = store i8 %trunc_ln240_1, i6 %pad_block_addr" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:240]   --->   Operation 26 'store' 'store_ln240' <Predicate = (!icmp_ln237)> <Delay = 0.66> <CoreInst = "RAM">   --->   Core 83 'RAM' <Latency = 1> <II = 1> <Delay = 0.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 64> <RAM>
-ST_1 : Operation 27 [1/1] (0.38ns)   --->   "%store_ln237 = store i4 %add_ln237, i4 %i" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:237]   --->   Operation 27 'store' 'store_ln237' <Predicate = (!icmp_ln237)> <Delay = 0.38>
-ST_1 : Operation 28 [1/1] (0.00ns)   --->   "%br_ln237 = br void %for.inc64" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:237]   --->   Operation 28 'br' 'br_ln237' <Predicate = (!icmp_ln237)> <Delay = 0.00>
-ST_1 : Operation 29 [1/1] (0.00ns)   --->   "%ret_ln0 = ret"   --->   Operation 29 'ret' 'ret_ln0' <Predicate = (icmp_ln237)> <Delay = 0.00>
+ST_1 : Operation 9 [1/1] (0.00ns)   --->   "%i_1 = load i4 %i" [/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:274]   --->   Operation 9 'load' 'i_1' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 10 [1/1] (0.65ns)   --->   "%icmp_ln271 = icmp_eq  i4 %i_1, i4 8" [/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:271]   --->   Operation 10 'icmp' 'icmp_ln271' <Predicate = true> <Delay = 0.65> <CoreInst = "Cmp">   --->   Core 9 'Cmp' <Latency = 0> <II = 1> <Delay = 0.65> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 11 [1/1] (0.00ns)   --->   "%empty = speclooptripcount i32 @_ssdm_op_SpecLoopTripCount, i64 8, i64 8, i64 8"   --->   Operation 11 'speclooptripcount' 'empty' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 12 [1/1] (0.70ns)   --->   "%add_ln271 = add i4 %i_1, i4 1" [/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:271]   --->   Operation 12 'add' 'add_ln271' <Predicate = true> <Delay = 0.70> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 0.70> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 13 [1/1] (0.00ns)   --->   "%br_ln271 = br i1 %icmp_ln271, void %for.inc64.split, void %for.end66.exitStub" [/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:271]   --->   Operation 13 'br' 'br_ln271' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 14 [1/1] (0.00ns)   --->   "%specpipeline_ln273 = specpipeline void @_ssdm_op_SpecPipeline, i32 1, i32 0, i32 0, i32 0, void @empty" [/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:273]   --->   Operation 14 'specpipeline' 'specpipeline_ln273' <Predicate = (!icmp_ln271)> <Delay = 0.00>
+ST_1 : Operation 15 [1/1] (0.00ns)   --->   "%specloopname_ln271 = specloopname void @_ssdm_op_SpecLoopName, void @empty_17" [/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:271]   --->   Operation 15 'specloopname' 'specloopname_ln271' <Predicate = (!icmp_ln271)> <Delay = 0.00>
+ST_1 : Operation 16 [1/1] (0.00ns) (grouped into LUT with out node lshr_ln274)   --->   "%trunc_ln274 = trunc i4 %i_1" [/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:274]   --->   Operation 16 'trunc' 'trunc_ln274' <Predicate = (!icmp_ln271)> <Delay = 0.00>
+ST_1 : Operation 17 [1/1] (0.00ns) (grouped into LUT with out node lshr_ln274)   --->   "%xor_ln274 = xor i3 %trunc_ln274, i3 7" [/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:274]   --->   Operation 17 'xor' 'xor_ln274' <Predicate = (!icmp_ln271)> <Delay = 0.00> <CoreInst = "LogicGate">   --->   Core 74 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.12> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 18 [1/1] (0.00ns) (grouped into LUT with out node lshr_ln274)   --->   "%shl_ln3 = bitconcatenate i6 @_ssdm_op_BitConcatenate.i6.i3.i3, i3 %xor_ln274, i3 0" [/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:274]   --->   Operation 18 'bitconcatenate' 'shl_ln3' <Predicate = (!icmp_ln271)> <Delay = 0.00>
+ST_1 : Operation 19 [1/1] (0.00ns) (grouped into LUT with out node lshr_ln274)   --->   "%zext_ln274 = zext i6 %shl_ln3" [/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:274]   --->   Operation 19 'zext' 'zext_ln274' <Predicate = (!icmp_ln271)> <Delay = 0.00>
+ST_1 : Operation 20 [1/1] (1.16ns) (out node of the LUT)   --->   "%lshr_ln274 = lshr i64 %zext_ln266_cast, i64 %zext_ln274" [/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:274]   --->   Operation 20 'lshr' 'lshr_ln274' <Predicate = (!icmp_ln271)> <Delay = 1.16> <CoreInst = "Shifter">   --->   Core 75 'Shifter' <Latency = 0> <II = 1> <Delay = 1.16> <FuncUnit> <Opcode : 'shl' 'lshr' 'ashr'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 21 [1/1] (0.00ns)   --->   "%trunc_ln274_1 = trunc i64 %lshr_ln274" [/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:274]   --->   Operation 21 'trunc' 'trunc_ln274_1' <Predicate = (!icmp_ln271)> <Delay = 0.00>
+ST_1 : Operation 22 [1/1] (0.22ns)   --->   "%xor_ln274_1 = xor i4 %i_1, i4 8" [/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:274]   --->   Operation 22 'xor' 'xor_ln274_1' <Predicate = (!icmp_ln271)> <Delay = 0.22> <CoreInst = "LogicGate">   --->   Core 74 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.22> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 23 [1/1] (0.00ns)   --->   "%sext_ln274 = sext i4 %xor_ln274_1" [/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:274]   --->   Operation 23 'sext' 'sext_ln274' <Predicate = (!icmp_ln271)> <Delay = 0.00>
+ST_1 : Operation 24 [1/1] (0.00ns)   --->   "%zext_ln274_1 = zext i6 %sext_ln274" [/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:274]   --->   Operation 24 'zext' 'zext_ln274_1' <Predicate = (!icmp_ln271)> <Delay = 0.00>
+ST_1 : Operation 25 [1/1] (0.00ns)   --->   "%pad_block_addr = getelementptr i8 %pad_block, i64 0, i64 %zext_ln274_1" [/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:274]   --->   Operation 25 'getelementptr' 'pad_block_addr' <Predicate = (!icmp_ln271)> <Delay = 0.00>
+ST_1 : Operation 26 [1/1] (0.66ns)   --->   "%store_ln274 = store i8 %trunc_ln274_1, i6 %pad_block_addr" [/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:274]   --->   Operation 26 'store' 'store_ln274' <Predicate = (!icmp_ln271)> <Delay = 0.66> <CoreInst = "RAM">   --->   Core 83 'RAM' <Latency = 1> <II = 1> <Delay = 0.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 64> <RAM>
+ST_1 : Operation 27 [1/1] (0.38ns)   --->   "%store_ln271 = store i4 %add_ln271, i4 %i" [/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:271]   --->   Operation 27 'store' 'store_ln271' <Predicate = (!icmp_ln271)> <Delay = 0.38>
+ST_1 : Operation 28 [1/1] (0.00ns)   --->   "%br_ln271 = br void %for.inc64" [/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:271]   --->   Operation 28 'br' 'br_ln271' <Predicate = (!icmp_ln271)> <Delay = 0.00>
+ST_1 : Operation 29 [1/1] (0.00ns)   --->   "%ret_ln0 = ret"   --->   Operation 29 'ret' 'ret_ln0' <Predicate = (icmp_ln271)> <Delay = 0.00>
 
 
 ============================================================
 + Verbose Summary: Timing violations
 ============================================================
-Target clock period: 3.333ns, clock uncertainty: 0.900ns.
+Target clock period: 3.33ns, clock uncertainty: 0.9ns.
 
- <State 1>: 1.835ns
+ <State 1>: 1.83ns
 The critical path consists of the following:
-	'alloca' operation ('i') [3]  (0.000 ns)
-	'load' operation ('i', /users/arashs/U280_CRC_Accelerator/src/kernel.cpp:240) on local variable 'i' [9]  (0.000 ns)
-	'xor' operation ('xor_ln240', /users/arashs/U280_CRC_Accelerator/src/kernel.cpp:240) [18]  (0.000 ns)
-	'lshr' operation ('lshr_ln240', /users/arashs/U280_CRC_Accelerator/src/kernel.cpp:240) [21]  (1.168 ns)
-	'store' operation ('store_ln240', /users/arashs/U280_CRC_Accelerator/src/kernel.cpp:240) of variable 'trunc_ln240_1', /users/arashs/U280_CRC_Accelerator/src/kernel.cpp:240 on array 'pad_block' [27]  (0.667 ns)
+	'alloca' operation ('i') [3]  (0 ns)
+	'load' operation ('i', /home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:274) on local variable 'i' [9]  (0 ns)
+	'xor' operation ('xor_ln274', /home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:274) [18]  (0 ns)
+	'lshr' operation ('lshr_ln274', /home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:274) [21]  (1.17 ns)
+	'store' operation ('store_ln274', /home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:274) of variable 'trunc_ln274_1', /home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:274 on array 'pad_block' [27]  (0.667 ns)
 
 
 ============================================================

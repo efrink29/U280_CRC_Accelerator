@@ -4,7 +4,6 @@ commands.txt
 *.edu
 nohup.out
 xrt.run_summary
-common/
 package.*/
 .Xil/
 _x/

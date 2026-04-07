@@ -10,8 +10,6 @@ set ProfileFlag 0
 set StallSigGenFlag 0
 set isEnableWaveformDebug 1
 set hasInterrupt 0
-set DLRegFirstOffset 0
-set DLRegItemOffset 0
 set C_modelName {calculate_tcp_checksum}
 set C_modelType { void 0 }
 set C_modelArgList {
@@ -21,7 +19,6 @@ set C_modelArgList {
 	{ numChunks int 32 regular {axi_slave 0}  }
 	{ chunkSize int 32 regular {axi_slave 0}  }
 }
-set hasAXIMCache 0
 set C_modelArgMapList {[ 
 	{ "Name" : "gmem0", "interface" : "axi_master", "bitwidth" : 512, "direction" : "READWRITE", "bitSlice":[ {"cElement": [{"cName": "data_in","offset": { "type": "dynamic","port_name": "data_in","bundle": "control"},"direction": "READONLY"},{"cName": "crc_out","offset": { "type": "dynamic","port_name": "crc_out","bundle": "control"},"direction": "WRITEONLY"}]}]} , 
  	{ "Name" : "data_in", "interface" : "axi_slave", "bundle":"control","type":"ap_none","bitwidth" : 64, "direction" : "READONLY", "offset" : {"in":16}, "offset_end" : {"in":27}} , 
@@ -210,17 +207,17 @@ set RtlHierarchyInfo {[
 					{"Name" : "gmem0_blk_n_W", "Type" : "RtlSignal"},
 					{"Name" : "gmem0_blk_n_B", "Type" : "RtlSignal"}],
 				"SubConnect" : [
-					{"ID" : "4", "SubInstance" : "grp_process_tcp_checksum_Pipeline_vec_word_loop_fu_274", "Port" : "gmem0", "Inst_start_state" : "153", "Inst_end_state" : "154"},
-					{"ID" : "2", "SubInstance" : "grp_process_tcp_checksum_Pipeline_word_loop_fu_263", "Port" : "gmem0", "Inst_start_state" : "3", "Inst_end_state" : "4"},
-					{"ID" : "6", "SubInstance" : "grp_process_tcp_checksum_Pipeline_tail_word_loop_fu_283", "Port" : "gmem0", "Inst_start_state" : "155", "Inst_end_state" : "156"}]},
+					{"ID" : "6", "SubInstance" : "grp_process_tcp_checksum_Pipeline_tail_word_loop_fu_303", "Port" : "gmem0", "Inst_start_state" : "154", "Inst_end_state" : "155"},
+					{"ID" : "2", "SubInstance" : "grp_process_tcp_checksum_Pipeline_word_loop_fu_283", "Port" : "gmem0", "Inst_start_state" : "3", "Inst_end_state" : "4"},
+					{"ID" : "4", "SubInstance" : "grp_process_tcp_checksum_Pipeline_vec_word_loop_fu_294", "Port" : "gmem0", "Inst_start_state" : "151", "Inst_end_state" : "152"}]},
 			{"Name" : "data_in", "Type" : "None", "Direction" : "I"},
 			{"Name" : "crc_out", "Type" : "None", "Direction" : "I"},
 			{"Name" : "numChunks", "Type" : "None", "Direction" : "I"},
 			{"Name" : "chunkSize", "Type" : "None", "Direction" : "I"}],
 		"Loop" : [
 			{"Name" : "tcp_chunk_loop", "PipelineType" : "no",
-				"LoopDec" : {"FSMBitwidth" : "302", "FirstState" : "ap_ST_fsm_state2", "LastState" : ["ap_ST_fsm_state302"], "QuitState" : ["ap_ST_fsm_state2"], "PreState" : ["ap_ST_fsm_state1"], "PostState" : ["ap_ST_fsm_state1"], "OneDepthLoop" : "0", "OneStateBlock": ""}}]},
-	{"ID" : "2", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_process_tcp_checksum_fu_86.grp_process_tcp_checksum_Pipeline_word_loop_fu_263", "Parent" : "1", "Child" : ["3"],
+				"LoopDec" : {"FSMBitwidth" : "300", "FirstState" : "ap_ST_fsm_state2", "LastState" : ["ap_ST_fsm_state300"], "QuitState" : ["ap_ST_fsm_state2"], "PreState" : ["ap_ST_fsm_state1"], "PostState" : ["ap_ST_fsm_state1"], "OneDepthLoop" : "0", "OneStateBlock": ""}}]},
+	{"ID" : "2", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_process_tcp_checksum_fu_86.grp_process_tcp_checksum_Pipeline_word_loop_fu_283", "Parent" : "1", "Child" : ["3"],
 		"CDFG" : "process_tcp_checksum_Pipeline_word_loop",
 		"Protocol" : "ap_ctrl_hs",
 		"ControlExist" : "1", "ap_start" : "1", "ap_ready" : "1", "ap_done" : "1", "ap_continue" : "0", "ap_idle" : "1", "real_start" : "0",
@@ -235,26 +232,26 @@ set RtlHierarchyInfo {[
 		"HasNonBlockingOperation" : "0",
 		"IsBlackBox" : "0",
 		"Port" : [
-			{"Name" : "phi_mul", "Type" : "None", "Direction" : "I"},
-			{"Name" : "data_in", "Type" : "None", "Direction" : "I"},
+			{"Name" : "add_ln645", "Type" : "None", "Direction" : "I"},
 			{"Name" : "gmem0", "Type" : "MAXI", "Direction" : "I",
 				"BlockSignal" : [
 					{"Name" : "gmem0_blk_n_AR", "Type" : "RtlSignal"},
 					{"Name" : "gmem0_blk_n_R", "Type" : "RtlSignal"}]},
+			{"Name" : "trunc_ln1", "Type" : "None", "Direction" : "I"},
 			{"Name" : "chunkSize", "Type" : "None", "Direction" : "I"},
-			{"Name" : "sum_3_out", "Type" : "Vld", "Direction" : "O"},
+			{"Name" : "sum_V_1_out", "Type" : "Vld", "Direction" : "O"},
 			{"Name" : "i_1_out", "Type" : "Vld", "Direction" : "O"}],
 		"Loop" : [
 			{"Name" : "word_loop", "PipelineType" : "UPC",
-				"LoopDec" : {"FSMBitwidth" : "2", "FirstState" : "ap_ST_fsm_pp0_stage0", "FirstStateIter" : "ap_enable_reg_pp0_iter0", "FirstStateBlock" : "ap_block_pp0_stage0_subdone", "LastState" : "ap_ST_fsm_pp0_stage1", "LastStateIter" : "ap_enable_reg_pp0_iter37", "LastStateBlock" : "ap_block_pp0_stage1_subdone", "QuitState" : "ap_ST_fsm_pp0_stage1", "QuitStateIter" : "ap_enable_reg_pp0_iter37", "QuitStateBlock" : "ap_block_pp0_stage1_subdone", "OneDepthLoop" : "0", "has_ap_ctrl" : "1", "has_continue" : "0"}}]},
-	{"ID" : "3", "Level" : "3", "Path" : "`AUTOTB_DUT_INST.grp_process_tcp_checksum_fu_86.grp_process_tcp_checksum_Pipeline_word_loop_fu_263.flow_control_loop_pipe_sequential_init_U", "Parent" : "2"},
-	{"ID" : "4", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_process_tcp_checksum_fu_86.grp_process_tcp_checksum_Pipeline_vec_word_loop_fu_274", "Parent" : "1", "Child" : ["5"],
+				"LoopDec" : {"FSMBitwidth" : "2", "FirstState" : "ap_ST_fsm_pp0_stage0", "FirstStateIter" : "ap_enable_reg_pp0_iter0", "FirstStateBlock" : "ap_block_pp0_stage0_subdone", "LastState" : "ap_ST_fsm_pp0_stage0", "LastStateIter" : "ap_enable_reg_pp0_iter37", "LastStateBlock" : "ap_block_pp0_stage0_subdone", "QuitState" : "ap_ST_fsm_pp0_stage0", "QuitStateIter" : "ap_enable_reg_pp0_iter37", "QuitStateBlock" : "ap_block_pp0_stage0_subdone", "OneDepthLoop" : "0", "has_ap_ctrl" : "1", "has_continue" : "0"}}]},
+	{"ID" : "3", "Level" : "3", "Path" : "`AUTOTB_DUT_INST.grp_process_tcp_checksum_fu_86.grp_process_tcp_checksum_Pipeline_word_loop_fu_283.flow_control_loop_pipe_sequential_init_U", "Parent" : "2"},
+	{"ID" : "4", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_process_tcp_checksum_fu_86.grp_process_tcp_checksum_Pipeline_vec_word_loop_fu_294", "Parent" : "1", "Child" : ["5"],
 		"CDFG" : "process_tcp_checksum_Pipeline_vec_word_loop",
 		"Protocol" : "ap_ctrl_hs",
 		"ControlExist" : "1", "ap_start" : "1", "ap_ready" : "1", "ap_done" : "1", "ap_continue" : "0", "ap_idle" : "1", "real_start" : "0",
 		"Pipeline" : "None", "UnalignedPipeline" : "0", "RewindPipeline" : "0", "ProcessNetwork" : "0",
 		"II" : "0",
-		"VariableLatency" : "1", "ExactLatency" : "-1", "EstimateLatencyMin" : "3", "EstimateLatencyMax" : "67108868",
+		"VariableLatency" : "1", "ExactLatency" : "-1", "EstimateLatencyMin" : "6", "EstimateLatencyMax" : "-1",
 		"Combinational" : "0",
 		"Datapath" : "0",
 		"ClockEnable" : "0",
@@ -266,14 +263,14 @@ set RtlHierarchyInfo {[
 			{"Name" : "gmem0", "Type" : "MAXI", "Direction" : "I",
 				"BlockSignal" : [
 					{"Name" : "gmem0_blk_n_R", "Type" : "RtlSignal"}]},
-			{"Name" : "sext_ln492", "Type" : "None", "Direction" : "I"},
+			{"Name" : "sext_ln670", "Type" : "None", "Direction" : "I"},
 			{"Name" : "vec_words", "Type" : "None", "Direction" : "I"},
-			{"Name" : "sum_out", "Type" : "Vld", "Direction" : "O"}],
+			{"Name" : "sum_V_2_out", "Type" : "Vld", "Direction" : "O"}],
 		"Loop" : [
 			{"Name" : "vec_word_loop", "PipelineType" : "UPC",
 				"LoopDec" : {"FSMBitwidth" : "1", "FirstState" : "ap_ST_fsm_pp0_stage0", "FirstStateIter" : "ap_enable_reg_pp0_iter0", "FirstStateBlock" : "ap_block_pp0_stage0_subdone", "LastState" : "ap_ST_fsm_pp0_stage0", "LastStateIter" : "ap_enable_reg_pp0_iter4", "LastStateBlock" : "ap_block_pp0_stage0_subdone", "QuitState" : "ap_ST_fsm_pp0_stage0", "QuitStateIter" : "ap_enable_reg_pp0_iter4", "QuitStateBlock" : "ap_block_pp0_stage0_subdone", "OneDepthLoop" : "0", "has_ap_ctrl" : "1", "has_continue" : "0"}}]},
-	{"ID" : "5", "Level" : "3", "Path" : "`AUTOTB_DUT_INST.grp_process_tcp_checksum_fu_86.grp_process_tcp_checksum_Pipeline_vec_word_loop_fu_274.flow_control_loop_pipe_sequential_init_U", "Parent" : "4"},
-	{"ID" : "6", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_process_tcp_checksum_fu_86.grp_process_tcp_checksum_Pipeline_tail_word_loop_fu_283", "Parent" : "1", "Child" : ["7"],
+	{"ID" : "5", "Level" : "3", "Path" : "`AUTOTB_DUT_INST.grp_process_tcp_checksum_fu_86.grp_process_tcp_checksum_Pipeline_vec_word_loop_fu_294.flow_control_loop_pipe_sequential_init_U", "Parent" : "4"},
+	{"ID" : "6", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_process_tcp_checksum_fu_86.grp_process_tcp_checksum_Pipeline_tail_word_loop_fu_303", "Parent" : "1", "Child" : ["7"],
 		"CDFG" : "process_tcp_checksum_Pipeline_tail_word_loop",
 		"Protocol" : "ap_ctrl_hs",
 		"ControlExist" : "1", "ap_start" : "1", "ap_ready" : "1", "ap_done" : "1", "ap_continue" : "0", "ap_idle" : "1", "real_start" : "0",
@@ -288,57 +285,59 @@ set RtlHierarchyInfo {[
 		"HasNonBlockingOperation" : "0",
 		"IsBlackBox" : "0",
 		"Port" : [
-			{"Name" : "zext_ln492", "Type" : "None", "Direction" : "I"},
+			{"Name" : "zext_ln719", "Type" : "None", "Direction" : "I"},
 			{"Name" : "tail_offset", "Type" : "None", "Direction" : "I"},
-			{"Name" : "phi_mul", "Type" : "None", "Direction" : "I"},
-			{"Name" : "data_in", "Type" : "None", "Direction" : "I"},
+			{"Name" : "add_ln727_1", "Type" : "None", "Direction" : "I"},
 			{"Name" : "gmem0", "Type" : "MAXI", "Direction" : "I",
 				"BlockSignal" : [
 					{"Name" : "gmem0_blk_n_AR", "Type" : "RtlSignal"},
 					{"Name" : "gmem0_blk_n_R", "Type" : "RtlSignal"}]},
+			{"Name" : "trunc_ln3", "Type" : "None", "Direction" : "I"},
 			{"Name" : "tail_bytes", "Type" : "None", "Direction" : "I"},
-			{"Name" : "add_ln545_1_out", "Type" : "Vld", "Direction" : "O"}],
+			{"Name" : "sum_V_7_out", "Type" : "Vld", "Direction" : "O"},
+			{"Name" : "ret_V_33_out", "Type" : "Vld", "Direction" : "O"}],
 		"Loop" : [
 			{"Name" : "tail_word_loop", "PipelineType" : "UPC",
-				"LoopDec" : {"FSMBitwidth" : "2", "FirstState" : "ap_ST_fsm_pp0_stage0", "FirstStateIter" : "ap_enable_reg_pp0_iter0", "FirstStateBlock" : "ap_block_pp0_stage0_subdone", "LastState" : "ap_ST_fsm_pp0_stage1", "LastStateIter" : "ap_enable_reg_pp0_iter37", "LastStateBlock" : "ap_block_pp0_stage1_subdone", "QuitState" : "ap_ST_fsm_pp0_stage1", "QuitStateIter" : "ap_enable_reg_pp0_iter37", "QuitStateBlock" : "ap_block_pp0_stage1_subdone", "OneDepthLoop" : "0", "has_ap_ctrl" : "1", "has_continue" : "0"}}]},
-	{"ID" : "7", "Level" : "3", "Path" : "`AUTOTB_DUT_INST.grp_process_tcp_checksum_fu_86.grp_process_tcp_checksum_Pipeline_tail_word_loop_fu_283.flow_control_loop_pipe_sequential_init_U", "Parent" : "6"},
+				"LoopDec" : {"FSMBitwidth" : "2", "FirstState" : "ap_ST_fsm_pp0_stage0", "FirstStateIter" : "ap_enable_reg_pp0_iter0", "FirstStateBlock" : "ap_block_pp0_stage0_subdone", "LastState" : "ap_ST_fsm_pp0_stage0", "LastStateIter" : "ap_enable_reg_pp0_iter37", "LastStateBlock" : "ap_block_pp0_stage0_subdone", "QuitState" : "ap_ST_fsm_pp0_stage1", "QuitStateIter" : "ap_enable_reg_pp0_iter36", "QuitStateBlock" : "ap_block_pp0_stage1_subdone", "OneDepthLoop" : "0", "has_ap_ctrl" : "1", "has_continue" : "0"}}]},
+	{"ID" : "7", "Level" : "3", "Path" : "`AUTOTB_DUT_INST.grp_process_tcp_checksum_fu_86.grp_process_tcp_checksum_Pipeline_tail_word_loop_fu_303.flow_control_loop_pipe_sequential_init_U", "Parent" : "6"},
 	{"ID" : "8", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.control_s_axi_U", "Parent" : "0"},
 	{"ID" : "9", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.gmem0_m_axi_U", "Parent" : "0"}]}
 
 
 set ArgLastReadFirstWriteLatency {
 	calculate_tcp_checksum {
-		gmem0 {Type IO LastRead 155 FirstWrite -1}
+		gmem0 {Type IO LastRead 154 FirstWrite -1}
 		data_in {Type I LastRead 0 FirstWrite -1}
 		crc_out {Type I LastRead 0 FirstWrite -1}
 		numChunks {Type I LastRead 0 FirstWrite -1}
 		chunkSize {Type I LastRead 0 FirstWrite -1}}
 	process_tcp_checksum {
-		gmem0 {Type IO LastRead 155 FirstWrite -1}
+		gmem0 {Type IO LastRead 154 FirstWrite -1}
 		data_in {Type I LastRead 0 FirstWrite -1}
 		crc_out {Type I LastRead 0 FirstWrite -1}
 		numChunks {Type I LastRead 0 FirstWrite -1}
 		chunkSize {Type I LastRead 0 FirstWrite -1}}
 	process_tcp_checksum_Pipeline_word_loop {
-		phi_mul {Type I LastRead 0 FirstWrite -1}
-		data_in {Type I LastRead 0 FirstWrite -1}
-		gmem0 {Type I LastRead 73 FirstWrite -1}
+		add_ln645 {Type I LastRead 0 FirstWrite -1}
+		gmem0 {Type I LastRead 72 FirstWrite -1}
+		trunc_ln1 {Type I LastRead 0 FirstWrite -1}
 		chunkSize {Type I LastRead 0 FirstWrite -1}
-		sum_3_out {Type O LastRead -1 FirstWrite 75}
-		i_1_out {Type O LastRead -1 FirstWrite 75}}
+		sum_V_1_out {Type O LastRead -1 FirstWrite 74}
+		i_1_out {Type O LastRead -1 FirstWrite 74}}
 	process_tcp_checksum_Pipeline_vec_word_loop {
 		gmem0 {Type I LastRead 1 FirstWrite -1}
-		sext_ln492 {Type I LastRead 0 FirstWrite -1}
+		sext_ln670 {Type I LastRead 0 FirstWrite -1}
 		vec_words {Type I LastRead 0 FirstWrite -1}
-		sum_out {Type O LastRead -1 FirstWrite 3}}
+		sum_V_2_out {Type O LastRead -1 FirstWrite 3}}
 	process_tcp_checksum_Pipeline_tail_word_loop {
-		zext_ln492 {Type I LastRead 0 FirstWrite -1}
+		zext_ln719 {Type I LastRead 0 FirstWrite -1}
 		tail_offset {Type I LastRead 0 FirstWrite -1}
-		phi_mul {Type I LastRead 0 FirstWrite -1}
-		data_in {Type I LastRead 0 FirstWrite -1}
-		gmem0 {Type I LastRead 73 FirstWrite -1}
+		add_ln727_1 {Type I LastRead 0 FirstWrite -1}
+		gmem0 {Type I LastRead 72 FirstWrite -1}
+		trunc_ln3 {Type I LastRead 0 FirstWrite -1}
 		tail_bytes {Type I LastRead 0 FirstWrite -1}
-		add_ln545_1_out {Type O LastRead -1 FirstWrite 75}}}
+		sum_V_7_out {Type O LastRead -1 FirstWrite 73}
+		ret_V_33_out {Type O LastRead -1 FirstWrite 73}}}
 
 set hasDtUnsupportedChannel 0
 

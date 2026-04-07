@@ -16,7 +16,7 @@
             <Obj class_id="5" tracking_level="0" version="0">
               <type>1</type>
               <id>1</id>
-              <name>outStream</name>
+              <name>outStream33</name>
               <fileName/>
               <fileDirectory/>
               <lineNumber>0</lineNumber>
@@ -26,7 +26,7 @@
                 <count>0</count>
                 <item_version>0</item_version>
               </inlineStackInfo>
-              <originalName>outStream</originalName>
+              <originalName/>
               <rtlName/>
               <control/>
               <opType/>
@@ -34,7 +34,7 @@
               <coreName/>
               <isStorage>0</isStorage>
               <storageDepth>0</storageDepth>
-              <coreId>3506747840</coreId>
+              <coreId>228034928</coreId>
               <rtlModuleName/>
             </Obj>
             <bitwidth>32</bitwidth>
@@ -70,7 +70,7 @@
               <coreName>FIFO_SRL</coreName>
               <isStorage>0</isStorage>
               <storageDepth>0</storageDepth>
-              <coreId>0</coreId>
+              <coreId>1953394531</coreId>
               <rtlModuleName/>
             </Obj>
             <bitwidth>32</bitwidth>
@@ -106,7 +106,7 @@
               <coreName/>
               <isStorage>0</isStorage>
               <storageDepth>0</storageDepth>
-              <coreId>0</coreId>
+              <coreId>1852793701</coreId>
               <rtlModuleName/>
             </Obj>
             <bitwidth>128</bitwidth>
@@ -142,7 +142,7 @@
               <coreName>FIFO_SRL</coreName>
               <isStorage>0</isStorage>
               <storageDepth>0</storageDepth>
-              <coreId>1734439968</coreId>
+              <coreId>0</coreId>
               <rtlModuleName/>
             </Obj>
             <bitwidth>64</bitwidth>
@@ -164,7 +164,7 @@
             <Obj>
               <type>0</type>
               <id>6</id>
-              <name>numChunks_1</name>
+              <name>numChunks_read</name>
               <fileName/>
               <fileDirectory/>
               <lineNumber>0</lineNumber>
@@ -174,7 +174,7 @@
                 <count>0</count>
                 <item_version>0</item_version>
               </inlineStackInfo>
-              <originalName>numChunks</originalName>
+              <originalName/>
               <rtlName/>
               <control>auto</control>
               <opType>fifo</opType>
@@ -207,7 +207,7 @@
             <Obj>
               <type>0</type>
               <id>8</id>
-              <name>crc_out_1</name>
+              <name>crc_out_read</name>
               <fileName/>
               <fileDirectory/>
               <lineNumber>0</lineNumber>
@@ -217,7 +217,7 @@
                 <count>0</count>
                 <item_version>0</item_version>
               </inlineStackInfo>
-              <originalName>crc_out</originalName>
+              <originalName/>
               <rtlName/>
               <control>auto</control>
               <opType>fifo</opType>
@@ -250,39 +250,39 @@
             <Obj>
               <type>0</type>
               <id>11</id>
-              <name>trunc_ln445</name>
-              <fileName>/users/arashs/U280_CRC_Accelerator/src/kernel.cpp</fileName>
-              <fileDirectory>../.</fileDirectory>
-              <lineNumber>445</lineNumber>
+              <name>trunc_ln353</name>
+              <fileName>/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp</fileName>
+              <fileDirectory>..</fileDirectory>
+              <lineNumber>353</lineNumber>
               <contextFuncName>write_output</contextFuncName>
               <contextNormFuncName>write_output</contextNormFuncName>
               <inlineStackInfo>
                 <count>1</count>
                 <item_version>0</item_version>
                 <item class_id="11" tracking_level="0" version="0">
-                  <first>/users/arashs/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/calculate_crc/calculate_crc</first>
+                  <first>/home/efrink/mled/split_cu/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/calculate_crc/calculate_crc</first>
                   <second class_id="12" tracking_level="0" version="0">
                     <count>1</count>
                     <item_version>0</item_version>
                     <item class_id="13" tracking_level="0" version="0">
                       <first class_id="14" tracking_level="0" version="0">
-                        <first>/users/arashs/U280_CRC_Accelerator/src/kernel.cpp</first>
+                        <first>/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp</first>
                         <second>write_output</second>
                       </first>
-                      <second>445</second>
+                      <second>353</second>
                     </item>
                   </second>
                 </item>
               </inlineStackInfo>
               <originalName/>
-              <rtlName>trunc_ln445_fu_69_p1</rtlName>
+              <rtlName>trunc_ln353_fu_69_p1</rtlName>
               <control/>
               <opType/>
               <implIndex/>
               <coreName/>
               <isStorage>0</isStorage>
               <storageDepth>0</storageDepth>
-              <coreId>0</coreId>
+              <coreId>228328192</coreId>
               <rtlModuleName/>
             </Obj>
             <bitwidth>4</bitwidth>
@@ -324,7 +324,7 @@
               <coreName/>
               <isStorage>0</isStorage>
               <storageDepth>0</storageDepth>
-              <coreId>3506760496</coreId>
+              <coreId>1814459502</coreId>
               <rtlModuleName/>
             </Obj>
             <bitwidth>32</bitwidth>
@@ -350,39 +350,39 @@
             <Obj>
               <type>0</type>
               <id>13</id>
-              <name>_ln445</name>
-              <fileName>/users/arashs/U280_CRC_Accelerator/src/kernel.cpp</fileName>
-              <fileDirectory>../.</fileDirectory>
-              <lineNumber>445</lineNumber>
+              <name>_ln353</name>
+              <fileName>/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp</fileName>
+              <fileDirectory>..</fileDirectory>
+              <lineNumber>353</lineNumber>
               <contextFuncName>write_output</contextFuncName>
               <contextNormFuncName>write_output</contextNormFuncName>
               <inlineStackInfo>
                 <count>1</count>
                 <item_version>0</item_version>
                 <item>
-                  <first>/users/arashs/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/calculate_crc/calculate_crc</first>
+                  <first>/home/efrink/mled/split_cu/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/calculate_crc/calculate_crc</first>
                   <second>
                     <count>1</count>
                     <item_version>0</item_version>
                     <item>
                       <first>
-                        <first>/users/arashs/U280_CRC_Accelerator/src/kernel.cpp</first>
+                        <first>/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp</first>
                         <second>write_output</second>
                       </first>
-                      <second>445</second>
+                      <second>353</second>
                     </item>
                   </second>
                 </item>
               </inlineStackInfo>
               <originalName/>
-              <rtlName>grp_write_output_Pipeline_VITIS_LOOP_442_1_fu_58</rtlName>
+              <rtlName>grp_write_output_Pipeline_VITIS_LOOP_350_1_fu_58</rtlName>
               <control/>
               <opType/>
               <implIndex/>
               <coreName/>
               <isStorage>0</isStorage>
               <storageDepth>0</storageDepth>
-              <coreId>1869833586</coreId>
+              <coreId>1667592992</coreId>
               <rtlModuleName/>
             </Obj>
             <bitwidth>0</bitwidth>
@@ -403,7 +403,7 @@
           <m_isOnCriticalPath>0</m_isOnCriticalPath>
           <m_isLCDNode>0</m_isLCDNode>
           <m_isStartOfPath>0</m_isStartOfPath>
-          <m_delay>1.26</m_delay>
+          <m_delay>1.24</m_delay>
           <m_topoIndex>5</m_topoIndex>
           <m_clusterGroupNumber>-1</m_clusterGroupNumber>
         </item>
@@ -412,26 +412,26 @@
             <Obj>
               <type>0</type>
               <id>14</id>
-              <name>_ln447</name>
-              <fileName>/users/arashs/U280_CRC_Accelerator/src/kernel.cpp</fileName>
-              <fileDirectory>../.</fileDirectory>
-              <lineNumber>447</lineNumber>
+              <name>_ln355</name>
+              <fileName>/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp</fileName>
+              <fileDirectory>..</fileDirectory>
+              <lineNumber>355</lineNumber>
               <contextFuncName>write_output</contextFuncName>
               <contextNormFuncName>write_output</contextNormFuncName>
               <inlineStackInfo>
                 <count>1</count>
                 <item_version>0</item_version>
                 <item>
-                  <first>/users/arashs/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/calculate_crc/calculate_crc</first>
+                  <first>/home/efrink/mled/split_cu/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/calculate_crc/calculate_crc</first>
                   <second>
                     <count>1</count>
                     <item_version>0</item_version>
                     <item>
                       <first>
-                        <first>/users/arashs/U280_CRC_Accelerator/src/kernel.cpp</first>
+                        <first>/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp</first>
                         <second>write_output</second>
                       </first>
-                      <second>447</second>
+                      <second>355</second>
                     </item>
                   </second>
                 </item>
@@ -444,7 +444,7 @@
               <coreName/>
               <isStorage>0</isStorage>
               <storageDepth>0</storageDepth>
-              <coreId>3506806752</coreId>
+              <coreId>979725673</coreId>
               <rtlModuleName/>
             </Obj>
             <bitwidth>0</bitwidth>
@@ -471,7 +471,7 @@
             <Obj>
               <type>2</type>
               <id>25</id>
-              <name>write_output_Pipeline_VITIS_LOOP_442_1</name>
+              <name>write_output_Pipeline_VITIS_LOOP_350_1</name>
               <fileName/>
               <fileDirectory/>
               <lineNumber>0</lineNumber>
@@ -489,13 +489,13 @@
               <coreName/>
               <isStorage>0</isStorage>
               <storageDepth>0</storageDepth>
-              <coreId>0</coreId>
+              <coreId>1126182515</coreId>
               <rtlModuleName/>
             </Obj>
             <bitwidth>0</bitwidth>
           </Value>
           <const_type>6</const_type>
-          <content>&lt;constant:write_output_Pipeline_VITIS_LOOP_442_1&gt;</content>
+          <content>&lt;constant:write_output_Pipeline_VITIS_LOOP_350_1&gt;</content>
         </item>
       </consts>
       <blocks class_id="17" tracking_level="0" version="0">
@@ -523,7 +523,7 @@
             <coreName/>
             <isStorage>0</isStorage>
             <storageDepth>0</storageDepth>
-            <coreId>0</coreId>
+            <coreId>6759712</coreId>
             <rtlModuleName/>
           </Obj>
           <node_objs>
@@ -775,17 +775,17 @@
         <count>1</count>
         <item_version>0</item_version>
         <item class_id="36" tracking_level="0" version="0">
-          <first>grp_write_output_Pipeline_VITIS_LOOP_442_1_fu_58 (write_output_Pipeline_VITIS_LOOP_442_1)</first>
+          <first>grp_write_output_Pipeline_VITIS_LOOP_350_1_fu_58 (write_output_Pipeline_VITIS_LOOP_350_1)</first>
           <second class_id="37" tracking_level="0" version="0">
             <count>2</count>
             <item_version>0</item_version>
             <item class_id="38" tracking_level="0" version="0">
               <first>FF</first>
-              <second>378</second>
+              <second>379</second>
             </item>
             <item>
               <first>LUT</first>
-              <second>696</second>
+              <second>678</second>
             </item>
           </second>
         </item>
@@ -990,7 +990,7 @@
           </second>
         </item>
         <item>
-          <first>outStream_read</first>
+          <first>outStream33_read</first>
           <second>
             <count>4</count>
             <item_version>0</item_version>
@@ -1055,7 +1055,7 @@
           </second>
         </item>
         <item>
-          <first>crc_out_1_reg_78</first>
+          <first>crc_out_read_reg_78</first>
           <second>
             <count>3</count>
             <item_version>0</item_version>
@@ -1074,7 +1074,7 @@
           </second>
         </item>
         <item>
-          <first>grp_write_output_Pipeline_VITIS_LOOP_442_1_fu_58_ap_start_reg</first>
+          <first>grp_write_output_Pipeline_VITIS_LOOP_350_1_fu_58_ap_start_reg</first>
           <second>
             <count>3</count>
             <item_version>0</item_version>
@@ -1093,7 +1093,7 @@
           </second>
         </item>
         <item>
-          <first>numChunks_1_reg_73</first>
+          <first>numChunks_read_reg_73</first>
           <second>
             <count>3</count>
             <item_version>0</item_version>
@@ -1112,7 +1112,7 @@
           </second>
         </item>
         <item>
-          <first>trunc_ln445_reg_83</first>
+          <first>trunc_ln353_reg_83</first>
           <second>
             <count>3</count>
             <item_version>0</item_version>
@@ -1135,7 +1135,7 @@
         <count>1</count>
         <item_version>0</item_version>
         <item>
-          <first>grp_write_output_Pipeline_VITIS_LOOP_442_1_fu_58</first>
+          <first>grp_write_output_Pipeline_VITIS_LOOP_350_1_fu_58</first>
           <second>
             <count>0</count>
             <item_version>0</item_version>
@@ -1146,7 +1146,7 @@
         <count>1</count>
         <item_version>0</item_version>
         <item class_id="40" tracking_level="0" version="0">
-          <first>grp_write_output_Pipeline_VITIS_LOOP_442_1_fu_58 (write_output_Pipeline_VITIS_LOOP_442_1)</first>
+          <first>grp_write_output_Pipeline_VITIS_LOOP_350_1_fu_58 (write_output_Pipeline_VITIS_LOOP_350_1)</first>
           <second>
             <count>1</count>
             <item_version>0</item_version>
@@ -1269,7 +1269,7 @@
       <count>1</count>
       <item_version>0</item_version>
       <item class_id="52" tracking_level="0" version="0">
-        <first>trunc_ln445_fu_69</first>
+        <first>trunc_ln353_fu_69</first>
         <second>
           <count>1</count>
           <item_version>0</item_version>
@@ -1281,7 +1281,7 @@
       <count>1</count>
       <item_version>0</item_version>
       <item>
-        <first>grp_write_output_Pipeline_VITIS_LOOP_442_1_fu_58</first>
+        <first>grp_write_output_Pipeline_VITIS_LOOP_350_1_fu_58</first>
         <second>
           <count>2</count>
           <item_version>0</item_version>
@@ -1294,7 +1294,7 @@
       <count>2</count>
       <item_version>0</item_version>
       <item>
-        <first>crc_out_1_read_fu_52</first>
+        <first>crc_out_read_read_fu_52</first>
         <second>
           <count>1</count>
           <item_version>0</item_version>
@@ -1302,7 +1302,7 @@
         </second>
       </item>
       <item>
-        <first>numChunks_1_read_fu_46</first>
+        <first>numChunks_read_read_fu_46</first>
         <second>
           <count>1</count>
           <item_version>0</item_version>
@@ -1350,7 +1350,7 @@
       <count>3</count>
       <item_version>0</item_version>
       <item>
-        <first>crc_out_1_reg_78</first>
+        <first>crc_out_read_reg_78</first>
         <second>
           <count>1</count>
           <item_version>0</item_version>
@@ -1358,7 +1358,7 @@
         </second>
       </item>
       <item>
-        <first>numChunks_1_reg_73</first>
+        <first>numChunks_read_reg_73</first>
         <second>
           <count>1</count>
           <item_version>0</item_version>
@@ -1366,7 +1366,7 @@
         </second>
       </item>
       <item>
-        <first>trunc_ln445_reg_83</first>
+        <first>trunc_ln353_reg_83</first>
         <second>
           <count>1</count>
           <item_version>0</item_version>
@@ -1431,7 +1431,7 @@
         </second>
       </item>
       <item>
-        <first>outStream</first>
+        <first>outStream33</first>
         <second>
           <count>1</count>
           <item_version>0</item_version>

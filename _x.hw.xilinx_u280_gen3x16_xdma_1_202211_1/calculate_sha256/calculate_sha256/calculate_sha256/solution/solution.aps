@@ -21,5 +21,8 @@
     <clockList>
         <clock name="default" period="300.000000MHz" default="false"/>
     </clockList>
+    <ExportDesign askAgain="true" evaluate="false" rtl="verilog" formatName="xo">
+        <Format formatName="xo"/>
+    </ExportDesign>
 </AutoPilot:solution>
 

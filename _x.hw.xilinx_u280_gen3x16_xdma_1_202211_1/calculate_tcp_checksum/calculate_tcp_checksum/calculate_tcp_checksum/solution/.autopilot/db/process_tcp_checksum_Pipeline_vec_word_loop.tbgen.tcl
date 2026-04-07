@@ -10,22 +10,19 @@ set ProfileFlag 0
 set StallSigGenFlag 0
 set isEnableWaveformDebug 1
 set hasInterrupt 0
-set DLRegFirstOffset 0
-set DLRegItemOffset 0
 set C_modelName {process_tcp_checksum_Pipeline_vec_word_loop}
 set C_modelType { void 0 }
 set C_modelArgList {
 	{ gmem0 int 512 regular {axi_master 0}  }
-	{ sext_ln492 int 58 regular  }
+	{ sext_ln670 int 58 regular  }
 	{ vec_words int 26 regular  }
-	{ sum_out int 47 regular {pointer 1}  }
+	{ sum_V_2_out int 47 regular {pointer 1}  }
 }
-set hasAXIMCache 0
 set C_modelArgMapList {[ 
 	{ "Name" : "gmem0", "interface" : "axi_master", "bitwidth" : 512, "direction" : "READONLY", "bitSlice":[ {"cElement": [{"cName": "data_in","offset": { "type": "dynamic","port_name": "data_in","bundle": "control"},"direction": "READONLY"},{"cName": "crc_out","offset": { "type": "dynamic","port_name": "crc_out","bundle": "control"},"direction": "WRITEONLY"}]}]} , 
- 	{ "Name" : "sext_ln492", "interface" : "wire", "bitwidth" : 58, "direction" : "READONLY"} , 
+ 	{ "Name" : "sext_ln670", "interface" : "wire", "bitwidth" : 58, "direction" : "READONLY"} , 
  	{ "Name" : "vec_words", "interface" : "wire", "bitwidth" : 26, "direction" : "READONLY"} , 
- 	{ "Name" : "sum_out", "interface" : "wire", "bitwidth" : 47, "direction" : "WRITEONLY"} ]}
+ 	{ "Name" : "sum_V_2_out", "interface" : "wire", "bitwidth" : 47, "direction" : "WRITEONLY"} ]}
 # RTL Port declarations: 
 set portNum 56
 set portList { 
@@ -81,10 +78,10 @@ set portList {
 	{ m_axi_gmem0_BRESP sc_in sc_lv 2 signal 0 } 
 	{ m_axi_gmem0_BID sc_in sc_lv 1 signal 0 } 
 	{ m_axi_gmem0_BUSER sc_in sc_lv 1 signal 0 } 
-	{ sext_ln492 sc_in sc_lv 58 signal 1 } 
+	{ sext_ln670 sc_in sc_lv 58 signal 1 } 
 	{ vec_words sc_in sc_lv 26 signal 2 } 
-	{ sum_out sc_out sc_lv 47 signal 3 } 
-	{ sum_out_ap_vld sc_out sc_logic 1 outvld 3 } 
+	{ sum_V_2_out sc_out sc_lv 47 signal 3 } 
+	{ sum_V_2_out_ap_vld sc_out sc_logic 1 outvld 3 } 
 }
 set NewPortList {[ 
 	{ "name": "ap_clk", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "clock", "bundle":{"name": "ap_clk", "role": "default" }} , 
@@ -139,10 +136,10 @@ set NewPortList {[
  	{ "name": "m_axi_gmem0_BRESP", "direction": "in", "datatype": "sc_lv", "bitwidth":2, "type": "signal", "bundle":{"name": "gmem0", "role": "BRESP" }} , 
  	{ "name": "m_axi_gmem0_BID", "direction": "in", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem0", "role": "BID" }} , 
  	{ "name": "m_axi_gmem0_BUSER", "direction": "in", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem0", "role": "BUSER" }} , 
- 	{ "name": "sext_ln492", "direction": "in", "datatype": "sc_lv", "bitwidth":58, "type": "signal", "bundle":{"name": "sext_ln492", "role": "default" }} , 
+ 	{ "name": "sext_ln670", "direction": "in", "datatype": "sc_lv", "bitwidth":58, "type": "signal", "bundle":{"name": "sext_ln670", "role": "default" }} , 
  	{ "name": "vec_words", "direction": "in", "datatype": "sc_lv", "bitwidth":26, "type": "signal", "bundle":{"name": "vec_words", "role": "default" }} , 
- 	{ "name": "sum_out", "direction": "out", "datatype": "sc_lv", "bitwidth":47, "type": "signal", "bundle":{"name": "sum_out", "role": "default" }} , 
- 	{ "name": "sum_out_ap_vld", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "outvld", "bundle":{"name": "sum_out", "role": "ap_vld" }}  ]}
+ 	{ "name": "sum_V_2_out", "direction": "out", "datatype": "sc_lv", "bitwidth":47, "type": "signal", "bundle":{"name": "sum_V_2_out", "role": "default" }} , 
+ 	{ "name": "sum_V_2_out_ap_vld", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "outvld", "bundle":{"name": "sum_V_2_out", "role": "ap_vld" }}  ]}
 
 set RtlHierarchyInfo {[
 	{"ID" : "0", "Level" : "0", "Path" : "`AUTOTB_DUT_INST", "Parent" : "", "Child" : ["1"],
@@ -151,7 +148,7 @@ set RtlHierarchyInfo {[
 		"ControlExist" : "1", "ap_start" : "1", "ap_ready" : "1", "ap_done" : "1", "ap_continue" : "0", "ap_idle" : "1", "real_start" : "0",
 		"Pipeline" : "None", "UnalignedPipeline" : "0", "RewindPipeline" : "0", "ProcessNetwork" : "0",
 		"II" : "0",
-		"VariableLatency" : "1", "ExactLatency" : "-1", "EstimateLatencyMin" : "3", "EstimateLatencyMax" : "67108868",
+		"VariableLatency" : "1", "ExactLatency" : "-1", "EstimateLatencyMin" : "6", "EstimateLatencyMax" : "-1",
 		"Combinational" : "0",
 		"Datapath" : "0",
 		"ClockEnable" : "0",
@@ -163,9 +160,9 @@ set RtlHierarchyInfo {[
 			{"Name" : "gmem0", "Type" : "MAXI", "Direction" : "I",
 				"BlockSignal" : [
 					{"Name" : "gmem0_blk_n_R", "Type" : "RtlSignal"}]},
-			{"Name" : "sext_ln492", "Type" : "None", "Direction" : "I"},
+			{"Name" : "sext_ln670", "Type" : "None", "Direction" : "I"},
 			{"Name" : "vec_words", "Type" : "None", "Direction" : "I"},
-			{"Name" : "sum_out", "Type" : "Vld", "Direction" : "O"}],
+			{"Name" : "sum_V_2_out", "Type" : "Vld", "Direction" : "O"}],
 		"Loop" : [
 			{"Name" : "vec_word_loop", "PipelineType" : "UPC",
 				"LoopDec" : {"FSMBitwidth" : "1", "FirstState" : "ap_ST_fsm_pp0_stage0", "FirstStateIter" : "ap_enable_reg_pp0_iter0", "FirstStateBlock" : "ap_block_pp0_stage0_subdone", "LastState" : "ap_ST_fsm_pp0_stage0", "LastStateIter" : "ap_enable_reg_pp0_iter4", "LastStateBlock" : "ap_block_pp0_stage0_subdone", "QuitState" : "ap_ST_fsm_pp0_stage0", "QuitStateIter" : "ap_enable_reg_pp0_iter4", "QuitStateBlock" : "ap_block_pp0_stage0_subdone", "OneDepthLoop" : "0", "has_ap_ctrl" : "1", "has_continue" : "0"}}]},
@@ -175,15 +172,15 @@ set RtlHierarchyInfo {[
 set ArgLastReadFirstWriteLatency {
 	process_tcp_checksum_Pipeline_vec_word_loop {
 		gmem0 {Type I LastRead 1 FirstWrite -1}
-		sext_ln492 {Type I LastRead 0 FirstWrite -1}
+		sext_ln670 {Type I LastRead 0 FirstWrite -1}
 		vec_words {Type I LastRead 0 FirstWrite -1}
-		sum_out {Type O LastRead -1 FirstWrite 3}}}
+		sum_V_2_out {Type O LastRead -1 FirstWrite 3}}}
 
 set hasDtUnsupportedChannel 0
 
 set PerformanceInfo {[
-	{"Name" : "Latency", "Min" : "3", "Max" : "67108868"}
-	, {"Name" : "Interval", "Min" : "3", "Max" : "67108868"}
+	{"Name" : "Latency", "Min" : "6", "Max" : "-1"}
+	, {"Name" : "Interval", "Min" : "6", "Max" : "-1"}
 ]}
 
 set PipelineEnableSignalInfo {[
@@ -192,7 +189,7 @@ set PipelineEnableSignalInfo {[
 
 set Spec2ImplPortList { 
 	 { m_axi {  { m_axi_gmem0_AWVALID VALID 1 1 }  { m_axi_gmem0_AWREADY READY 0 1 }  { m_axi_gmem0_AWADDR ADDR 1 64 }  { m_axi_gmem0_AWID ID 1 1 }  { m_axi_gmem0_AWLEN SIZE 1 32 }  { m_axi_gmem0_AWSIZE BURST 1 3 }  { m_axi_gmem0_AWBURST LOCK 1 2 }  { m_axi_gmem0_AWLOCK CACHE 1 2 }  { m_axi_gmem0_AWCACHE PROT 1 4 }  { m_axi_gmem0_AWPROT QOS 1 3 }  { m_axi_gmem0_AWQOS REGION 1 4 }  { m_axi_gmem0_AWREGION USER 1 4 }  { m_axi_gmem0_AWUSER DATA 1 1 }  { m_axi_gmem0_WVALID VALID 1 1 }  { m_axi_gmem0_WREADY READY 0 1 }  { m_axi_gmem0_WDATA FIFONUM 1 512 }  { m_axi_gmem0_WSTRB STRB 1 64 }  { m_axi_gmem0_WLAST LAST 1 1 }  { m_axi_gmem0_WID ID 1 1 }  { m_axi_gmem0_WUSER DATA 1 1 }  { m_axi_gmem0_ARVALID VALID 1 1 }  { m_axi_gmem0_ARREADY READY 0 1 }  { m_axi_gmem0_ARADDR ADDR 1 64 }  { m_axi_gmem0_ARID ID 1 1 }  { m_axi_gmem0_ARLEN SIZE 1 32 }  { m_axi_gmem0_ARSIZE BURST 1 3 }  { m_axi_gmem0_ARBURST LOCK 1 2 }  { m_axi_gmem0_ARLOCK CACHE 1 2 }  { m_axi_gmem0_ARCACHE PROT 1 4 }  { m_axi_gmem0_ARPROT QOS 1 3 }  { m_axi_gmem0_ARQOS REGION 1 4 }  { m_axi_gmem0_ARREGION USER 1 4 }  { m_axi_gmem0_ARUSER DATA 1 1 }  { m_axi_gmem0_RVALID VALID 0 1 }  { m_axi_gmem0_RREADY READY 1 1 }  { m_axi_gmem0_RDATA FIFONUM 0 512 }  { m_axi_gmem0_RLAST LAST 0 1 }  { m_axi_gmem0_RID ID 0 1 }  { m_axi_gmem0_RFIFONUM LEN 0 9 }  { m_axi_gmem0_RUSER DATA 0 1 }  { m_axi_gmem0_RRESP RESP 0 2 }  { m_axi_gmem0_BVALID VALID 0 1 }  { m_axi_gmem0_BREADY READY 1 1 }  { m_axi_gmem0_BRESP RESP 0 2 }  { m_axi_gmem0_BID ID 0 1 }  { m_axi_gmem0_BUSER DATA 0 1 } } }
-	sext_ln492 { ap_none {  { sext_ln492 in_data 0 58 } } }
+	sext_ln670 { ap_none {  { sext_ln670 in_data 0 58 } } }
 	vec_words { ap_none {  { vec_words in_data 0 26 } } }
-	sum_out { ap_vld {  { sum_out out_data 1 47 }  { sum_out_ap_vld out_vld 1 1 } } }
+	sum_V_2_out { ap_vld {  { sum_V_2_out out_data 1 47 }  { sum_V_2_out_ap_vld out_vld 1 1 } } }
 }

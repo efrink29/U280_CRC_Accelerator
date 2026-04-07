@@ -10,14 +10,11 @@ set ProfileFlag 0
 set StallSigGenFlag 0
 set isEnableWaveformDebug 1
 set hasInterrupt 0
-set DLRegFirstOffset 0
-set DLRegItemOffset 0
 set C_modelName {sha256_process_chunk_Pipeline_clear_pad_block}
 set C_modelType { void 0 }
 set C_modelArgList {
 	{ pad_block int 8 regular {array 64 { 0 3 } 0 1 }  }
 }
-set hasAXIMCache 0
 set C_modelArgMapList {[ 
 	{ "Name" : "pad_block", "interface" : "memory", "bitwidth" : 8, "direction" : "WRITEONLY"} ]}
 # RTL Port declarations: 
@@ -64,8 +61,7 @@ set RtlHierarchyInfo {[
 		"Port" : [
 			{"Name" : "pad_block", "Type" : "Memory", "Direction" : "O"}],
 		"Loop" : [
-			{"Name" : "clear_pad_block", "PipelineType" : "UPC",
-				"LoopDec" : {"FSMBitwidth" : "1", "FirstState" : "ap_ST_fsm_state1", "FirstStateIter" : "", "FirstStateBlock" : "ap_ST_fsm_state1_blk", "LastState" : "ap_ST_fsm_state1", "LastStateIter" : "", "LastStateBlock" : "ap_ST_fsm_state1_blk", "QuitState" : "ap_ST_fsm_state1", "QuitStateIter" : "", "QuitStateBlock" : "ap_ST_fsm_state1_blk", "OneDepthLoop" : "1", "has_ap_ctrl" : "1", "has_continue" : "0"}}]},
+			{"Name" : "clear_pad_block", "PipelineType" : "NotSupport"}]},
 	{"ID" : "1", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.flow_control_loop_pipe_sequential_init_U", "Parent" : "0"}]}
 
 

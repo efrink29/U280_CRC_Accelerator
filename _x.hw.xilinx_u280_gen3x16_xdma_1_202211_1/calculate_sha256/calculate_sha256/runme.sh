@@ -4,13 +4,12 @@
 # v++(TM)
 # runme.sh: a v++-generated Runs Script for UNIX
 # Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
-# Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
 # 
 
 if [ -z "$PATH" ]; then
-  PATH=/share/Xilinx/Vitis_HLS/2023.1/bin:/share/Xilinx/Vitis/2023.1/bin:/share/Xilinx/Vitis/2023.1/bin
+  PATH=/scratch/ishaeffe/software/Vitis_HLS/2023.2/bin:/packages/apps/fpga/Vitis/2022.1/bin:/packages/apps/fpga/Vitis/2022.1/bin
 else
-  PATH=/share/Xilinx/Vitis_HLS/2023.1/bin:/share/Xilinx/Vitis/2023.1/bin:/share/Xilinx/Vitis/2023.1/bin:$PATH
+  PATH=/scratch/ishaeffe/software/Vitis_HLS/2023.2/bin:/packages/apps/fpga/Vitis/2022.1/bin:/packages/apps/fpga/Vitis/2022.1/bin:$PATH
 fi
 export PATH
 
@@ -21,7 +20,7 @@ else
 fi
 export LD_LIBRARY_PATH
 
-HD_PWD='/users/arashs/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/calculate_sha256/calculate_sha256'
+HD_PWD='/home/efrink/mled/split_cu/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/calculate_sha256/calculate_sha256'
 cd "$HD_PWD"
 
 HD_LOG=runme.log

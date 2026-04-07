@@ -612,6 +612,7 @@ int main(int argc, char **argv)
     // crc32.refInput = true;
     std::vector<KernelConfig> cfgs = {crc32};
     std::vector<unsigned char> data2(static_cast<size_t>(crc32.chunkSize), 0);
+    std::cout << "Buffer Size: " << buf_size_bytes << std::endl;
     FpgaManager mgr(xclbinFile, buf_size_bytes, max_compute_units, num_workers, cfgs);
     auto res1a = mgr.calculate_crc(data2, crc32);
 

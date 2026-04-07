@@ -26,14 +26,14 @@ eval "cg_default_interface_gen_dc { \
 if {${::AESL::PGuard_autoexp_gen}} {
 eval "cg_default_interface_gen_dc { \
     id 8 \
-    name sext_ln492 \
+    name sext_ln670 \
     type other \
     dir I \
     reset_level 1 \
     sync_rst true \
-    corename dc_sext_ln492 \
+    corename dc_sext_ln670 \
     op interface \
-    ports { sext_ln492 { I 58 vector } } \
+    ports { sext_ln670 { I 58 vector } } \
 } "
 }
 
@@ -56,14 +56,14 @@ eval "cg_default_interface_gen_dc { \
 if {${::AESL::PGuard_autoexp_gen}} {
 eval "cg_default_interface_gen_dc { \
     id 10 \
-    name sum_out \
+    name sum_V_2_out \
     type other \
     dir O \
     reset_level 1 \
     sync_rst true \
-    corename dc_sum_out \
+    corename dc_sum_V_2_out \
     op interface \
-    ports { sum_out { O 47 vector } sum_out_ap_vld { O 1 bit } } \
+    ports { sum_V_2_out { O 47 vector } sum_V_2_out_ap_vld { O 1 bit } } \
 } "
 }
 

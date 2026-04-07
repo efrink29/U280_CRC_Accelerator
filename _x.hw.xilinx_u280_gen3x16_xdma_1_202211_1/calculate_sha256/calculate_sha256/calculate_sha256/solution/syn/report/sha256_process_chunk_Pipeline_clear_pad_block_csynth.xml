@@ -1,12 +1,12 @@
 <profile>
 
 <ReportVersion>
-<Version>2023.1</Version>
+<Version>2022.1</Version>
 </ReportVersion>
 
 <UserAssignments>
 <unit>ns</unit>
-<ProductFamily>virtexuplusHBM</ProductFamily>
+<ProductFamily>virtexuplus</ProductFamily>
 <Part>xcu280-fsvh2892-2L-e</Part>
 <TopModelName>sha256_process_chunk_Pipeline_clear_pad_block</TopModelName>
 <TargetClockPeriod>3.33</TargetClockPeriod>
@@ -18,7 +18,7 @@
 <PipelineType>no</PipelineType>
 <SummaryOfTimingAnalysis>
 <unit>ns</unit>
-<EstimatedClockPeriod>1.373</EstimatedClockPeriod>
+<EstimatedClockPeriod>1.267</EstimatedClockPeriod>
 </SummaryOfTimingAnalysis>
 <SummaryOfOverallLatency>
 <unit>clock cycles</unit>
@@ -33,7 +33,6 @@
 </SummaryOfOverallLatency>
 <SummaryOfLoopLatency>
 <clear_pad_block>
-<Slack>2.43</Slack>
 <TripCount>64</TripCount>
 <Latency>64</Latency>
 <AbsoluteTimeLatency>213</AbsoluteTimeLatency>
@@ -48,7 +47,7 @@
 <AreaEstimates>
 <Resources>
 <FF>9</FF>
-<LUT>56</LUT>
+<LUT>52</LUT>
 <BRAM_18K>0</BRAM_18K>
 <DSP>0</DSP>
 <URAM>0</URAM>

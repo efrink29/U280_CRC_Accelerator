@@ -1,304 +1,357 @@
 <xilinx:hls_fe_msgs>
-    <msg msg_groups="PRAGMA_DATAFLOW" msg_id="214-114" msg_severity="WARNING" msg_loc="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:685:9" msg_body="Since the only kind of statements allowed in a canonical dataflow region are variable declarations and function calls, the compiler may not be able to correctly handle the region"/>
-    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/share/Xilinx/Vitis_HLS/2023.1/common/technology/autopilot/hls_vector.h:101:9" msg_body="HLS pragma dump">
+    <msg msg_groups="PRAGMA_DATAFLOW" msg_id="214-113" msg_severity="WARNING" msg_loc="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:619:24" msg_body="Either use an argument of the function or declare the variable inside the dataflow loop body"/>
+    <msg msg_groups="PRAGMA_DATAFLOW" msg_id="214-113" msg_severity="WARNING" msg_loc="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:620:24" msg_body="Either use an argument of the function or declare the variable inside the dataflow loop body"/>
+    <msg msg_groups="PRAGMA_DATAFLOW" msg_id="214-113" msg_severity="WARNING" msg_loc="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:622:29" msg_body="Either use an argument of the function or declare the variable inside the dataflow loop body"/>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/packages/apps/fpga/Vitis_HLS/2022.1/common/technology/autopilot/ap_int_ref.h:724:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="and_reduce" ARG_PragmaIsValid="1" ARG_PragmaType="unroll" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/packages/apps/fpga/Vitis_HLS/2022.1/common/technology/autopilot/ap_int_ref.h:738:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="or_reduce" ARG_PragmaIsValid="1" ARG_PragmaType="unroll" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/packages/apps/fpga/Vitis_HLS/2022.1/common/technology/autopilot/ap_int_ref.h:752:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="xor_reduce" ARG_PragmaIsValid="1" ARG_PragmaType="unroll" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/packages/apps/fpga/Vitis_HLS/2022.1/common/technology/autopilot/hls_vector.h:95:9" msg_body="HLS pragma dump">
         <args ARG_PragmaFunction="pragma" ARG_PragmaIsValid="1" ARG_PragmaOptions="variable=this" ARG_PragmaType="aggregate" ClangWarningOption="dump-hls-pragmas"/>
     </msg>
-    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/share/Xilinx/Vitis_HLS/2023.1/common/technology/autopilot/hls_vector.h:125:9" msg_body="HLS pragma dump">
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/packages/apps/fpga/Vitis_HLS/2022.1/common/technology/autopilot/hls_vector.h:119:9" msg_body="HLS pragma dump">
         <args ARG_PragmaFunction="vector&lt;T, N&gt;" ARG_PragmaIsValid="1" ARG_PragmaType="unroll" ClangWarningOption="dump-hls-pragmas"/>
     </msg>
-    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/share/Xilinx/Vitis_HLS/2023.1/common/technology/autopilot/hls_vector.h:141:9" msg_body="HLS pragma dump">
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/packages/apps/fpga/Vitis_HLS/2022.1/common/technology/autopilot/hls_vector.h:135:9" msg_body="HLS pragma dump">
         <args ARG_PragmaFunction="vector&lt;T, N&gt;" ARG_PragmaIsValid="1" ARG_PragmaType="unroll" ClangWarningOption="dump-hls-pragmas"/>
     </msg>
-    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/share/Xilinx/Vitis_HLS/2023.1/common/technology/autopilot/hls_vector.h:166:9" msg_body="HLS pragma dump">
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/packages/apps/fpga/Vitis_HLS/2022.1/common/technology/autopilot/hls_vector.h:160:9" msg_body="HLS pragma dump">
         <args ARG_PragmaFunction="operator++" ARG_PragmaIsValid="1" ARG_PragmaType="unroll" ClangWarningOption="dump-hls-pragmas"/>
     </msg>
-    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/share/Xilinx/Vitis_HLS/2023.1/common/technology/autopilot/hls_vector.h:167:9" msg_body="HLS pragma dump">
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/packages/apps/fpga/Vitis_HLS/2022.1/common/technology/autopilot/hls_vector.h:161:9" msg_body="HLS pragma dump">
         <args ARG_PragmaFunction="operator--" ARG_PragmaIsValid="1" ARG_PragmaType="unroll" ClangWarningOption="dump-hls-pragmas"/>
     </msg>
-    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/share/Xilinx/Vitis_HLS/2023.1/common/technology/autopilot/hls_vector.h:195:9" msg_body="HLS pragma dump">
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/packages/apps/fpga/Vitis_HLS/2022.1/common/technology/autopilot/hls_vector.h:189:9" msg_body="HLS pragma dump">
         <args ARG_PragmaFunction="operator+=" ARG_PragmaIsValid="1" ARG_PragmaType="unroll" ClangWarningOption="dump-hls-pragmas"/>
     </msg>
-    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/share/Xilinx/Vitis_HLS/2023.1/common/technology/autopilot/hls_vector.h:196:9" msg_body="HLS pragma dump">
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/packages/apps/fpga/Vitis_HLS/2022.1/common/technology/autopilot/hls_vector.h:190:9" msg_body="HLS pragma dump">
         <args ARG_PragmaFunction="operator-=" ARG_PragmaIsValid="1" ARG_PragmaType="unroll" ClangWarningOption="dump-hls-pragmas"/>
     </msg>
-    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/share/Xilinx/Vitis_HLS/2023.1/common/technology/autopilot/hls_vector.h:197:9" msg_body="HLS pragma dump">
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/packages/apps/fpga/Vitis_HLS/2022.1/common/technology/autopilot/hls_vector.h:191:9" msg_body="HLS pragma dump">
         <args ARG_PragmaFunction="operator*=" ARG_PragmaIsValid="1" ARG_PragmaType="unroll" ClangWarningOption="dump-hls-pragmas"/>
     </msg>
-    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/share/Xilinx/Vitis_HLS/2023.1/common/technology/autopilot/hls_vector.h:198:9" msg_body="HLS pragma dump">
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/packages/apps/fpga/Vitis_HLS/2022.1/common/technology/autopilot/hls_vector.h:192:9" msg_body="HLS pragma dump">
         <args ARG_PragmaFunction="operator/=" ARG_PragmaIsValid="1" ARG_PragmaType="unroll" ClangWarningOption="dump-hls-pragmas"/>
     </msg>
-    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/share/Xilinx/Vitis_HLS/2023.1/common/technology/autopilot/hls_vector.h:199:9" msg_body="HLS pragma dump">
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/packages/apps/fpga/Vitis_HLS/2022.1/common/technology/autopilot/hls_vector.h:193:9" msg_body="HLS pragma dump">
         <args ARG_PragmaFunction="operator%=" ARG_PragmaIsValid="1" ARG_PragmaType="unroll" ClangWarningOption="dump-hls-pragmas"/>
     </msg>
-    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/share/Xilinx/Vitis_HLS/2023.1/common/technology/autopilot/hls_vector.h:200:9" msg_body="HLS pragma dump">
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/packages/apps/fpga/Vitis_HLS/2022.1/common/technology/autopilot/hls_vector.h:194:9" msg_body="HLS pragma dump">
         <args ARG_PragmaFunction="operator&amp;=" ARG_PragmaIsValid="1" ARG_PragmaType="unroll" ClangWarningOption="dump-hls-pragmas"/>
     </msg>
-    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/share/Xilinx/Vitis_HLS/2023.1/common/technology/autopilot/hls_vector.h:201:9" msg_body="HLS pragma dump">
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/packages/apps/fpga/Vitis_HLS/2022.1/common/technology/autopilot/hls_vector.h:195:9" msg_body="HLS pragma dump">
         <args ARG_PragmaFunction="operator|=" ARG_PragmaIsValid="1" ARG_PragmaType="unroll" ClangWarningOption="dump-hls-pragmas"/>
     </msg>
-    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/share/Xilinx/Vitis_HLS/2023.1/common/technology/autopilot/hls_vector.h:202:9" msg_body="HLS pragma dump">
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/packages/apps/fpga/Vitis_HLS/2022.1/common/technology/autopilot/hls_vector.h:196:9" msg_body="HLS pragma dump">
         <args ARG_PragmaFunction="operator^=" ARG_PragmaIsValid="1" ARG_PragmaType="unroll" ClangWarningOption="dump-hls-pragmas"/>
     </msg>
-    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/share/Xilinx/Vitis_HLS/2023.1/common/technology/autopilot/hls_vector.h:203:9" msg_body="HLS pragma dump">
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/packages/apps/fpga/Vitis_HLS/2022.1/common/technology/autopilot/hls_vector.h:197:9" msg_body="HLS pragma dump">
         <args ARG_PragmaFunction="operator&lt;&lt;=" ARG_PragmaIsValid="1" ARG_PragmaType="unroll" ClangWarningOption="dump-hls-pragmas"/>
     </msg>
-    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/share/Xilinx/Vitis_HLS/2023.1/common/technology/autopilot/hls_vector.h:204:9" msg_body="HLS pragma dump">
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/packages/apps/fpga/Vitis_HLS/2022.1/common/technology/autopilot/hls_vector.h:198:9" msg_body="HLS pragma dump">
         <args ARG_PragmaFunction="operator&gt;&gt;=" ARG_PragmaIsValid="1" ARG_PragmaType="unroll" ClangWarningOption="dump-hls-pragmas"/>
     </msg>
-    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/share/Xilinx/Vitis_HLS/2023.1/common/technology/autopilot/hls_vector.h:219:9" msg_body="HLS pragma dump">
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/packages/apps/fpga/Vitis_HLS/2022.1/common/technology/autopilot/hls_vector.h:213:9" msg_body="HLS pragma dump">
         <args ARG_PragmaFunction="reduce_add" ARG_PragmaIsValid="1" ARG_PragmaType="unroll" ClangWarningOption="dump-hls-pragmas"/>
     </msg>
-    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/share/Xilinx/Vitis_HLS/2023.1/common/technology/autopilot/hls_vector.h:220:9" msg_body="HLS pragma dump">
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/packages/apps/fpga/Vitis_HLS/2022.1/common/technology/autopilot/hls_vector.h:214:9" msg_body="HLS pragma dump">
         <args ARG_PragmaFunction="reduce_mult" ARG_PragmaIsValid="1" ARG_PragmaType="unroll" ClangWarningOption="dump-hls-pragmas"/>
     </msg>
-    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/share/Xilinx/Vitis_HLS/2023.1/common/technology/autopilot/hls_vector.h:221:9" msg_body="HLS pragma dump">
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/packages/apps/fpga/Vitis_HLS/2022.1/common/technology/autopilot/hls_vector.h:215:9" msg_body="HLS pragma dump">
         <args ARG_PragmaFunction="reduce_and" ARG_PragmaIsValid="1" ARG_PragmaType="unroll" ClangWarningOption="dump-hls-pragmas"/>
     </msg>
-    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/share/Xilinx/Vitis_HLS/2023.1/common/technology/autopilot/hls_vector.h:222:9" msg_body="HLS pragma dump">
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/packages/apps/fpga/Vitis_HLS/2022.1/common/technology/autopilot/hls_vector.h:216:9" msg_body="HLS pragma dump">
         <args ARG_PragmaFunction="reduce_or" ARG_PragmaIsValid="1" ARG_PragmaType="unroll" ClangWarningOption="dump-hls-pragmas"/>
     </msg>
-    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/share/Xilinx/Vitis_HLS/2023.1/common/technology/autopilot/hls_vector.h:223:9" msg_body="HLS pragma dump">
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/packages/apps/fpga/Vitis_HLS/2022.1/common/technology/autopilot/hls_vector.h:217:9" msg_body="HLS pragma dump">
         <args ARG_PragmaFunction="reduce_xor" ARG_PragmaIsValid="1" ARG_PragmaType="unroll" ClangWarningOption="dump-hls-pragmas"/>
     </msg>
-    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/share/Xilinx/Vitis_HLS/2023.1/common/technology/autopilot/hls_vector.h:253:9" msg_body="HLS pragma dump">
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/packages/apps/fpga/Vitis_HLS/2022.1/common/technology/autopilot/hls_vector.h:247:9" msg_body="HLS pragma dump">
         <args ARG_PragmaFunction="operator&lt;" ARG_PragmaIsValid="1" ARG_PragmaType="unroll" ClangWarningOption="dump-hls-pragmas"/>
     </msg>
-    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/share/Xilinx/Vitis_HLS/2023.1/common/technology/autopilot/hls_vector.h:254:9" msg_body="HLS pragma dump">
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/packages/apps/fpga/Vitis_HLS/2022.1/common/technology/autopilot/hls_vector.h:248:9" msg_body="HLS pragma dump">
         <args ARG_PragmaFunction="operator&lt;=" ARG_PragmaIsValid="1" ARG_PragmaType="unroll" ClangWarningOption="dump-hls-pragmas"/>
     </msg>
-    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/share/Xilinx/Vitis_HLS/2023.1/common/technology/autopilot/hls_vector.h:255:9" msg_body="HLS pragma dump">
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/packages/apps/fpga/Vitis_HLS/2022.1/common/technology/autopilot/hls_vector.h:249:9" msg_body="HLS pragma dump">
         <args ARG_PragmaFunction="operator==" ARG_PragmaIsValid="1" ARG_PragmaType="unroll" ClangWarningOption="dump-hls-pragmas"/>
     </msg>
-    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/share/Xilinx/Vitis_HLS/2023.1/common/technology/autopilot/hls_vector.h:256:9" msg_body="HLS pragma dump">
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/packages/apps/fpga/Vitis_HLS/2022.1/common/technology/autopilot/hls_vector.h:250:9" msg_body="HLS pragma dump">
         <args ARG_PragmaFunction="operator!=" ARG_PragmaIsValid="1" ARG_PragmaType="unroll" ClangWarningOption="dump-hls-pragmas"/>
     </msg>
-    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/share/Xilinx/Vitis_HLS/2023.1/common/technology/autopilot/hls_vector.h:257:9" msg_body="HLS pragma dump">
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/packages/apps/fpga/Vitis_HLS/2022.1/common/technology/autopilot/hls_vector.h:251:9" msg_body="HLS pragma dump">
         <args ARG_PragmaFunction="operator&gt;=" ARG_PragmaIsValid="1" ARG_PragmaType="unroll" ClangWarningOption="dump-hls-pragmas"/>
     </msg>
-    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/share/Xilinx/Vitis_HLS/2023.1/common/technology/autopilot/hls_vector.h:258:9" msg_body="HLS pragma dump">
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/packages/apps/fpga/Vitis_HLS/2022.1/common/technology/autopilot/hls_vector.h:252:9" msg_body="HLS pragma dump">
         <args ARG_PragmaFunction="operator&gt;" ARG_PragmaIsValid="1" ARG_PragmaType="unroll" ClangWarningOption="dump-hls-pragmas"/>
     </msg>
-    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:53:9" msg_body="HLS pragma dump">
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:54:9" msg_body="HLS pragma dump">
         <args ARG_PragmaFunction="rotr32" ARG_PragmaIsValid="1" ARG_PragmaType="inline" ClangWarningOption="dump-hls-pragmas"/>
     </msg>
-    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:59:9" msg_body="HLS pragma dump">
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:60:9" msg_body="HLS pragma dump">
         <args ARG_PragmaFunction="sha256_ch" ARG_PragmaIsValid="1" ARG_PragmaType="inline" ClangWarningOption="dump-hls-pragmas"/>
     </msg>
-    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:65:9" msg_body="HLS pragma dump">
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:66:9" msg_body="HLS pragma dump">
         <args ARG_PragmaFunction="sha256_maj" ARG_PragmaIsValid="1" ARG_PragmaType="inline" ClangWarningOption="dump-hls-pragmas"/>
     </msg>
-    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:71:9" msg_body="HLS pragma dump">
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:72:9" msg_body="HLS pragma dump">
         <args ARG_PragmaFunction="sha256_bsig0" ARG_PragmaIsValid="1" ARG_PragmaType="inline" ClangWarningOption="dump-hls-pragmas"/>
     </msg>
-    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:77:9" msg_body="HLS pragma dump">
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:78:9" msg_body="HLS pragma dump">
         <args ARG_PragmaFunction="sha256_bsig1" ARG_PragmaIsValid="1" ARG_PragmaType="inline" ClangWarningOption="dump-hls-pragmas"/>
     </msg>
-    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:83:9" msg_body="HLS pragma dump">
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:84:9" msg_body="HLS pragma dump">
         <args ARG_PragmaFunction="sha256_ssig0" ARG_PragmaIsValid="1" ARG_PragmaType="inline" ClangWarningOption="dump-hls-pragmas"/>
     </msg>
-    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:89:9" msg_body="HLS pragma dump">
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:90:9" msg_body="HLS pragma dump">
         <args ARG_PragmaFunction="sha256_ssig1" ARG_PragmaIsValid="1" ARG_PragmaType="inline" ClangWarningOption="dump-hls-pragmas"/>
     </msg>
-    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:95:9" msg_body="HLS pragma dump">
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:96:9" msg_body="HLS pragma dump">
         <args ARG_PragmaFunction="to_be16" ARG_PragmaIsValid="1" ARG_PragmaType="inline" ClangWarningOption="dump-hls-pragmas"/>
     </msg>
-    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:101:9" msg_body="HLS pragma dump">
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:102:9" msg_body="HLS pragma dump">
         <args ARG_PragmaFunction="to_be32" ARG_PragmaIsValid="1" ARG_PragmaType="inline" ClangWarningOption="dump-hls-pragmas"/>
     </msg>
-    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:110:9" msg_body="HLS pragma dump">
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:111:9" msg_body="HLS pragma dump">
         <args ARG_PragmaFunction="pack_block_64" ARG_PragmaIsValid="1" ARG_PragmaType="inline" ClangWarningOption="dump-hls-pragmas"/>
     </msg>
-    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:115:9" msg_body="HLS pragma dump">
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:116:9" msg_body="HLS pragma dump">
         <args ARG_PragmaFunction="pack_block_64" ARG_PragmaIsValid="1" ARG_PragmaType="unroll" ClangWarningOption="dump-hls-pragmas"/>
     </msg>
-    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:123:9" msg_body="HLS pragma dump">
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:124:9" msg_body="HLS pragma dump">
         <args ARG_PragmaFunction="sha256_compress_block" ARG_PragmaIsValid="1" ARG_PragmaOptions="off" ARG_PragmaType="inline" ClangWarningOption="dump-hls-pragmas"/>
     </msg>
-    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:129:9" msg_body="HLS pragma dump">
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:127:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="sha256_compress_block" ARG_PragmaIsValid="1" ARG_PragmaOptions="variable = wbuf complete dim = 1" ARG_PragmaType="array_partition" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:132:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="sha256_compress_block" ARG_PragmaIsValid="1" ARG_PragmaType="unroll" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:149:9" msg_body="HLS pragma dump">
         <args ARG_PragmaFunction="sha256_compress_block" ARG_PragmaIsValid="1" ARG_PragmaOptions="II = 1" ARG_PragmaType="pipeline" ClangWarningOption="dump-hls-pragmas"/>
     </msg>
-    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:137:9" msg_body="HLS pragma dump">
-        <args ARG_PragmaFunction="sha256_compress_block" ARG_PragmaIsValid="1" ARG_PragmaOptions="II = 1" ARG_PragmaType="pipeline" ClangWarningOption="dump-hls-pragmas"/>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:196:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="sha256_process_and_write_chunk" ARG_PragmaIsValid="1" ARG_PragmaOptions="off" ARG_PragmaType="inline" ClangWarningOption="dump-hls-pragmas"/>
     </msg>
-    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:153:9" msg_body="HLS pragma dump">
-        <args ARG_PragmaFunction="sha256_compress_block" ARG_PragmaIsValid="1" ARG_PragmaOptions="II = 1" ARG_PragmaType="pipeline" ClangWarningOption="dump-hls-pragmas"/>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:199:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="sha256_process_and_write_chunk" ARG_PragmaIsValid="1" ARG_PragmaOptions="variable = digest complete dim = 1" ARG_PragmaType="array_partition" ClangWarningOption="dump-hls-pragmas"/>
     </msg>
-    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:181:9" msg_body="HLS pragma dump">
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:206:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="sha256_process_and_write_chunk" ARG_PragmaIsValid="1" ARG_PragmaOptions="II = 1" ARG_PragmaType="pipeline" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:215:9" msg_body="HLS pragma dump">
         <args ARG_PragmaFunction="sha256_process_chunk" ARG_PragmaIsValid="1" ARG_PragmaOptions="off" ARG_PragmaType="inline" ClangWarningOption="dump-hls-pragmas"/>
     </msg>
-    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:187:9" msg_body="HLS pragma dump">
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:221:9" msg_body="HLS pragma dump">
         <args ARG_PragmaFunction="sha256_process_chunk" ARG_PragmaIsValid="1" ARG_PragmaType="unroll" ClangWarningOption="dump-hls-pragmas"/>
     </msg>
-    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:220:9" msg_body="HLS pragma dump">
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:254:9" msg_body="HLS pragma dump">
         <args ARG_PragmaFunction="sha256_process_chunk" ARG_PragmaIsValid="1" ARG_PragmaOptions="II = 1" ARG_PragmaType="pipeline" ClangWarningOption="dump-hls-pragmas"/>
     </msg>
-    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:227:9" msg_body="HLS pragma dump">
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:261:9" msg_body="HLS pragma dump">
         <args ARG_PragmaFunction="sha256_process_chunk" ARG_PragmaIsValid="1" ARG_PragmaOptions="II = 1" ARG_PragmaType="pipeline" ClangWarningOption="dump-hls-pragmas"/>
     </msg>
-    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:239:9" msg_body="HLS pragma dump">
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:273:9" msg_body="HLS pragma dump">
         <args ARG_PragmaFunction="sha256_process_chunk" ARG_PragmaIsValid="1" ARG_PragmaOptions="II = 1" ARG_PragmaType="pipeline" ClangWarningOption="dump-hls-pragmas"/>
     </msg>
-    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:253:9" msg_body="HLS pragma dump">
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:287:9" msg_body="HLS pragma dump">
         <args ARG_PragmaFunction="sha256_process_chunk" ARG_PragmaIsValid="1" ARG_PragmaOptions="II = 1" ARG_PragmaType="pipeline" ClangWarningOption="dump-hls-pragmas"/>
     </msg>
-    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:260:9" msg_body="HLS pragma dump">
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:294:9" msg_body="HLS pragma dump">
         <args ARG_PragmaFunction="sha256_process_chunk" ARG_PragmaIsValid="1" ARG_PragmaOptions="II = 1" ARG_PragmaType="pipeline" ClangWarningOption="dump-hls-pragmas"/>
     </msg>
-    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:270:9" msg_body="HLS pragma dump">
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:304:9" msg_body="HLS pragma dump">
         <args ARG_PragmaFunction="sha256_process_chunk" ARG_PragmaIsValid="1" ARG_PragmaType="unroll" ClangWarningOption="dump-hls-pragmas"/>
     </msg>
-    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:289:9" msg_body="HLS pragma dump">
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:325:9" msg_body="HLS pragma dump">
         <args ARG_PragmaFunction="read_input" ARG_PragmaIsValid="1" ARG_PragmaOptions="II = 1" ARG_PragmaType="pipeline" ClangWarningOption="dump-hls-pragmas"/>
     </msg>
-    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:320:9" msg_body="HLS pragma dump">
-        <args ARG_PragmaFunction="process_blocks" ARG_PragmaIsValid="1" ARG_PragmaOptions="off" ARG_PragmaType="inline" ClangWarningOption="dump-hls-pragmas"/>
-    </msg>
-    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:321:9" msg_body="HLS pragma dump">
-        <args ARG_PragmaFunction="process_blocks" ARG_PragmaIsValid="1" ARG_PragmaOptions="variable = crcTables complete dim = 1" ARG_PragmaType="array_partition" ClangWarningOption="dump-hls-pragmas"/>
-    </msg>
-    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:322:9" msg_body="HLS pragma dump">
-        <args ARG_PragmaFunction="process_blocks" ARG_PragmaIsValid="1" ARG_PragmaOptions="variable = crcTables type = ram_1p impl = bram" ARG_PragmaType="bind_storage" ClangWarningOption="dump-hls-pragmas"/>
-    </msg>
-    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:339:9" msg_body="HLS pragma dump">
-        <args ARG_PragmaFunction="process_blocks" ARG_PragmaIsValid="1" ARG_PragmaOptions="II = 1" ARG_PragmaType="pipeline" ClangWarningOption="dump-hls-pragmas"/>
-    </msg>
-    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:378:9" msg_body="HLS pragma dump">
-        <args ARG_PragmaFunction="process_blocks" ARG_PragmaIsValid="1" ARG_PragmaOptions="II = 1" ARG_PragmaType="pipeline" ClangWarningOption="dump-hls-pragmas"/>
-    </msg>
-    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:444:9" msg_body="HLS pragma dump">
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:352:9" msg_body="HLS pragma dump">
         <args ARG_PragmaFunction="write_output" ARG_PragmaIsValid="1" ARG_PragmaOptions="II = 1" ARG_PragmaType="pipeline" ClangWarningOption="dump-hls-pragmas"/>
     </msg>
-    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:451:9" msg_body="HLS pragma dump">
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:360:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="load_crc_tables" ARG_PragmaIsValid="1" ARG_PragmaOptions="off" ARG_PragmaType="inline" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:361:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="load_crc_tables" ARG_PragmaIsValid="1" ARG_PragmaOptions="variable = crcTables complete dim = 1" ARG_PragmaType="array_partition" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:362:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="load_crc_tables" ARG_PragmaIsValid="1" ARG_PragmaOptions="variable = crcTables type = ram_1p impl = bram" ARG_PragmaType="bind_storage" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:370:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="load_crc_tables" ARG_PragmaIsValid="1" ARG_PragmaOptions="II = 1" ARG_PragmaType="pipeline" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:386:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="crc_process_full_blocks" ARG_PragmaIsValid="1" ARG_PragmaOptions="off" ARG_PragmaType="inline" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:387:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="crc_process_full_blocks" ARG_PragmaIsValid="1" ARG_PragmaOptions="variable = crcTables complete dim = 1" ARG_PragmaType="array_partition" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:388:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="crc_process_full_blocks" ARG_PragmaIsValid="1" ARG_PragmaOptions="variable = crcTables type = ram_1p impl = bram" ARG_PragmaType="bind_storage" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:393:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="crc_process_full_blocks" ARG_PragmaIsValid="1" ARG_PragmaOptions="II = 1" ARG_PragmaType="pipeline" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:439:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="crc_process_tail_bytes" ARG_PragmaIsValid="1" ARG_PragmaOptions="off" ARG_PragmaType="inline" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:440:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="crc_process_tail_bytes" ARG_PragmaIsValid="1" ARG_PragmaOptions="variable = crcTables complete dim = 1" ARG_PragmaType="array_partition" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:441:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="crc_process_tail_bytes" ARG_PragmaIsValid="1" ARG_PragmaOptions="variable = crcTables type = ram_1p impl = bram" ARG_PragmaType="bind_storage" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:446:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="crc_process_tail_bytes" ARG_PragmaIsValid="1" ARG_PragmaOptions="II = 1" ARG_PragmaType="pipeline" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:519:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="process_crc_chunks" ARG_PragmaIsValid="1" ARG_PragmaOptions="off" ARG_PragmaType="inline" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:520:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="process_crc_chunks" ARG_PragmaIsValid="1" ARG_PragmaOptions="variable = crcTables complete dim = 1" ARG_PragmaType="array_partition" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:521:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="process_crc_chunks" ARG_PragmaIsValid="1" ARG_PragmaOptions="variable = crcTables type = ram_1p impl = bram" ARG_PragmaType="bind_storage" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:566:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="crc_dataflow_region" ARG_PragmaIsValid="1" ARG_PragmaOptions="off" ARG_PragmaType="inline" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:585:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="crc_dataflow_region" ARG_PragmaIsValid="1" ARG_PragmaOptions="variable = inByte0 depth = 64" ARG_PragmaType="stream" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:586:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="crc_dataflow_region" ARG_PragmaIsValid="1" ARG_PragmaOptions="variable = inByte1 depth = 64" ARG_PragmaType="stream" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:587:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="crc_dataflow_region" ARG_PragmaIsValid="1" ARG_PragmaOptions="variable = inByte2 depth = 64" ARG_PragmaType="stream" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:588:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="crc_dataflow_region" ARG_PragmaIsValid="1" ARG_PragmaOptions="variable = inByte3 depth = 64" ARG_PragmaType="stream" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:589:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="crc_dataflow_region" ARG_PragmaIsValid="1" ARG_PragmaOptions="variable = inByte4 depth = 64" ARG_PragmaType="stream" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:590:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="crc_dataflow_region" ARG_PragmaIsValid="1" ARG_PragmaOptions="variable = inByte5 depth = 64" ARG_PragmaType="stream" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:591:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="crc_dataflow_region" ARG_PragmaIsValid="1" ARG_PragmaOptions="variable = inByte6 depth = 64" ARG_PragmaType="stream" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:592:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="crc_dataflow_region" ARG_PragmaIsValid="1" ARG_PragmaOptions="variable = inByte7 depth = 64" ARG_PragmaType="stream" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:593:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="crc_dataflow_region" ARG_PragmaIsValid="1" ARG_PragmaOptions="variable = inByte8 depth = 64" ARG_PragmaType="stream" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:594:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="crc_dataflow_region" ARG_PragmaIsValid="1" ARG_PragmaOptions="variable = inByte9 depth = 64" ARG_PragmaType="stream" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:595:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="crc_dataflow_region" ARG_PragmaIsValid="1" ARG_PragmaOptions="variable = inByte10 depth = 64" ARG_PragmaType="stream" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:596:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="crc_dataflow_region" ARG_PragmaIsValid="1" ARG_PragmaOptions="variable = inByte11 depth = 64" ARG_PragmaType="stream" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:597:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="crc_dataflow_region" ARG_PragmaIsValid="1" ARG_PragmaOptions="variable = inByte12 depth = 64" ARG_PragmaType="stream" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:598:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="crc_dataflow_region" ARG_PragmaIsValid="1" ARG_PragmaOptions="variable = inByte13 depth = 64" ARG_PragmaType="stream" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:599:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="crc_dataflow_region" ARG_PragmaIsValid="1" ARG_PragmaOptions="variable = inByte14 depth = 64" ARG_PragmaType="stream" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:600:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="crc_dataflow_region" ARG_PragmaIsValid="1" ARG_PragmaOptions="variable = inByte15 depth = 64" ARG_PragmaType="stream" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:603:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="crc_dataflow_region" ARG_PragmaIsValid="1" ARG_PragmaOptions="variable = outStream depth = 64" ARG_PragmaType="stream" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:605:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="crc_dataflow_region" ARG_PragmaIsValid="1" ARG_PragmaType="dataflow" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:629:9" msg_body="HLS pragma dump">
         <args ARG_PragmaFunction="fold_add" ARG_PragmaIsValid="1" ARG_PragmaType="inline" ClangWarningOption="dump-hls-pragmas"/>
     </msg>
-    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:458:9" msg_body="HLS pragma dump">
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:636:9" msg_body="HLS pragma dump">
         <args ARG_PragmaFunction="tcp_checksum_chunk_scalar" ARG_PragmaIsValid="1" ARG_PragmaType="inline" ClangWarningOption="dump-hls-pragmas"/>
     </msg>
-    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:465:9" msg_body="HLS pragma dump">
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:643:9" msg_body="HLS pragma dump">
         <args ARG_PragmaFunction="tcp_checksum_chunk_scalar" ARG_PragmaIsValid="1" ARG_PragmaOptions="II = 1" ARG_PragmaType="pipeline" ClangWarningOption="dump-hls-pragmas"/>
     </msg>
-    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:487:9" msg_body="HLS pragma dump">
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:665:9" msg_body="HLS pragma dump">
         <args ARG_PragmaFunction="tcp_checksum_chunk_vector" ARG_PragmaIsValid="1" ARG_PragmaType="inline" ClangWarningOption="dump-hls-pragmas"/>
     </msg>
-    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:494:9" msg_body="HLS pragma dump">
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:672:9" msg_body="HLS pragma dump">
         <args ARG_PragmaFunction="tcp_checksum_chunk_vector" ARG_PragmaIsValid="1" ARG_PragmaOptions="II = 1" ARG_PragmaType="pipeline" ClangWarningOption="dump-hls-pragmas"/>
     </msg>
-    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:501:9" msg_body="HLS pragma dump">
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:679:9" msg_body="HLS pragma dump">
         <args ARG_PragmaFunction="tcp_checksum_chunk_vector" ARG_PragmaIsValid="1" ARG_PragmaOptions="variable = lvl1 complete" ARG_PragmaType="array_partition" ClangWarningOption="dump-hls-pragmas"/>
     </msg>
-    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:502:9" msg_body="HLS pragma dump">
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:680:9" msg_body="HLS pragma dump">
         <args ARG_PragmaFunction="tcp_checksum_chunk_vector" ARG_PragmaIsValid="1" ARG_PragmaOptions="variable = lvl2 complete" ARG_PragmaType="array_partition" ClangWarningOption="dump-hls-pragmas"/>
     </msg>
-    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:503:9" msg_body="HLS pragma dump">
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:681:9" msg_body="HLS pragma dump">
         <args ARG_PragmaFunction="tcp_checksum_chunk_vector" ARG_PragmaIsValid="1" ARG_PragmaOptions="variable = lvl3 complete" ARG_PragmaType="array_partition" ClangWarningOption="dump-hls-pragmas"/>
     </msg>
-    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:504:9" msg_body="HLS pragma dump">
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:682:9" msg_body="HLS pragma dump">
         <args ARG_PragmaFunction="tcp_checksum_chunk_vector" ARG_PragmaIsValid="1" ARG_PragmaOptions="variable = lvl4 complete" ARG_PragmaType="array_partition" ClangWarningOption="dump-hls-pragmas"/>
     </msg>
-    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:509:9" msg_body="HLS pragma dump">
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:687:9" msg_body="HLS pragma dump">
         <args ARG_PragmaFunction="tcp_checksum_chunk_vector" ARG_PragmaIsValid="1" ARG_PragmaType="unroll" ClangWarningOption="dump-hls-pragmas"/>
     </msg>
-    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:520:9" msg_body="HLS pragma dump">
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:698:9" msg_body="HLS pragma dump">
         <args ARG_PragmaFunction="tcp_checksum_chunk_vector" ARG_PragmaIsValid="1" ARG_PragmaType="unroll" ClangWarningOption="dump-hls-pragmas"/>
     </msg>
-    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:527:9" msg_body="HLS pragma dump">
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:705:9" msg_body="HLS pragma dump">
         <args ARG_PragmaFunction="tcp_checksum_chunk_vector" ARG_PragmaIsValid="1" ARG_PragmaType="unroll" ClangWarningOption="dump-hls-pragmas"/>
     </msg>
-    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:534:9" msg_body="HLS pragma dump">
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:712:9" msg_body="HLS pragma dump">
         <args ARG_PragmaFunction="tcp_checksum_chunk_vector" ARG_PragmaIsValid="1" ARG_PragmaType="unroll" ClangWarningOption="dump-hls-pragmas"/>
     </msg>
-    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:547:9" msg_body="HLS pragma dump">
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:725:9" msg_body="HLS pragma dump">
         <args ARG_PragmaFunction="tcp_checksum_chunk_vector" ARG_PragmaIsValid="1" ARG_PragmaOptions="II = 1" ARG_PragmaType="pipeline" ClangWarningOption="dump-hls-pragmas"/>
     </msg>
-    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:565:9" msg_body="HLS pragma dump">
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:743:9" msg_body="HLS pragma dump">
         <args ARG_PragmaFunction="tcp_checksum_chunk_vector" ARG_PragmaIsValid="1" ARG_PragmaType="unroll" ClangWarningOption="dump-hls-pragmas"/>
     </msg>
-    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:582:9" msg_body="HLS pragma dump">
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:760:9" msg_body="HLS pragma dump">
         <args ARG_PragmaFunction="process_tcp_checksum" ARG_PragmaIsValid="1" ARG_PragmaOptions="II = 1" ARG_PragmaType="pipeline" ClangWarningOption="dump-hls-pragmas"/>
     </msg>
-    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:612:9" msg_body="HLS pragma dump">
-        <args ARG_PragmaFunction="process_hash" ARG_PragmaIsValid="1" ARG_PragmaOptions="variable = digest complete dim = 1" ARG_PragmaType="array_partition" ClangWarningOption="dump-hls-pragmas"/>
-    </msg>
-    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:618:9" msg_body="HLS pragma dump">
-        <args ARG_PragmaFunction="process_hash" ARG_PragmaIsValid="1" ARG_PragmaOptions="II = 1" ARG_PragmaType="pipeline" ClangWarningOption="dump-hls-pragmas"/>
-    </msg>
-    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:651:9" msg_body="HLS pragma dump">
-        <args ARG_PragmaFunction="process_crc" ARG_PragmaIsValid="1" ARG_PragmaOptions="variable = inByte0 depth = 64" ARG_PragmaType="stream" ClangWarningOption="dump-hls-pragmas"/>
-    </msg>
-    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:652:9" msg_body="HLS pragma dump">
-        <args ARG_PragmaFunction="process_crc" ARG_PragmaIsValid="1" ARG_PragmaOptions="variable = inByte1 depth = 64" ARG_PragmaType="stream" ClangWarningOption="dump-hls-pragmas"/>
-    </msg>
-    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:653:9" msg_body="HLS pragma dump">
-        <args ARG_PragmaFunction="process_crc" ARG_PragmaIsValid="1" ARG_PragmaOptions="variable = inByte2 depth = 64" ARG_PragmaType="stream" ClangWarningOption="dump-hls-pragmas"/>
-    </msg>
-    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:654:9" msg_body="HLS pragma dump">
-        <args ARG_PragmaFunction="process_crc" ARG_PragmaIsValid="1" ARG_PragmaOptions="variable = inByte3 depth = 64" ARG_PragmaType="stream" ClangWarningOption="dump-hls-pragmas"/>
-    </msg>
-    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:655:9" msg_body="HLS pragma dump">
-        <args ARG_PragmaFunction="process_crc" ARG_PragmaIsValid="1" ARG_PragmaOptions="variable = inByte4 depth = 64" ARG_PragmaType="stream" ClangWarningOption="dump-hls-pragmas"/>
-    </msg>
-    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:656:9" msg_body="HLS pragma dump">
-        <args ARG_PragmaFunction="process_crc" ARG_PragmaIsValid="1" ARG_PragmaOptions="variable = inByte5 depth = 64" ARG_PragmaType="stream" ClangWarningOption="dump-hls-pragmas"/>
-    </msg>
-    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:657:9" msg_body="HLS pragma dump">
-        <args ARG_PragmaFunction="process_crc" ARG_PragmaIsValid="1" ARG_PragmaOptions="variable = inByte6 depth = 64" ARG_PragmaType="stream" ClangWarningOption="dump-hls-pragmas"/>
-    </msg>
-    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:658:9" msg_body="HLS pragma dump">
-        <args ARG_PragmaFunction="process_crc" ARG_PragmaIsValid="1" ARG_PragmaOptions="variable = inByte7 depth = 64" ARG_PragmaType="stream" ClangWarningOption="dump-hls-pragmas"/>
-    </msg>
-    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:659:9" msg_body="HLS pragma dump">
-        <args ARG_PragmaFunction="process_crc" ARG_PragmaIsValid="1" ARG_PragmaOptions="variable = inByte8 depth = 64" ARG_PragmaType="stream" ClangWarningOption="dump-hls-pragmas"/>
-    </msg>
-    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:660:9" msg_body="HLS pragma dump">
-        <args ARG_PragmaFunction="process_crc" ARG_PragmaIsValid="1" ARG_PragmaOptions="variable = inByte9 depth = 64" ARG_PragmaType="stream" ClangWarningOption="dump-hls-pragmas"/>
-    </msg>
-    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:661:9" msg_body="HLS pragma dump">
-        <args ARG_PragmaFunction="process_crc" ARG_PragmaIsValid="1" ARG_PragmaOptions="variable = inByte10 depth = 64" ARG_PragmaType="stream" ClangWarningOption="dump-hls-pragmas"/>
-    </msg>
-    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:662:9" msg_body="HLS pragma dump">
-        <args ARG_PragmaFunction="process_crc" ARG_PragmaIsValid="1" ARG_PragmaOptions="variable = inByte11 depth = 64" ARG_PragmaType="stream" ClangWarningOption="dump-hls-pragmas"/>
-    </msg>
-    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:663:9" msg_body="HLS pragma dump">
-        <args ARG_PragmaFunction="process_crc" ARG_PragmaIsValid="1" ARG_PragmaOptions="variable = inByte12 depth = 64" ARG_PragmaType="stream" ClangWarningOption="dump-hls-pragmas"/>
-    </msg>
-    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:664:9" msg_body="HLS pragma dump">
-        <args ARG_PragmaFunction="process_crc" ARG_PragmaIsValid="1" ARG_PragmaOptions="variable = inByte13 depth = 64" ARG_PragmaType="stream" ClangWarningOption="dump-hls-pragmas"/>
-    </msg>
-    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:665:9" msg_body="HLS pragma dump">
-        <args ARG_PragmaFunction="process_crc" ARG_PragmaIsValid="1" ARG_PragmaOptions="variable = inByte14 depth = 64" ARG_PragmaType="stream" ClangWarningOption="dump-hls-pragmas"/>
-    </msg>
-    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:666:9" msg_body="HLS pragma dump">
-        <args ARG_PragmaFunction="process_crc" ARG_PragmaIsValid="1" ARG_PragmaOptions="variable = inByte15 depth = 64" ARG_PragmaType="stream" ClangWarningOption="dump-hls-pragmas"/>
-    </msg>
-    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:669:9" msg_body="HLS pragma dump">
-        <args ARG_PragmaFunction="process_crc" ARG_PragmaIsValid="1" ARG_PragmaOptions="variable = outStream depth = 64" ARG_PragmaType="stream" ClangWarningOption="dump-hls-pragmas"/>
-    </msg>
-    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:672:9" msg_body="HLS pragma dump">
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:803:9" msg_body="HLS pragma dump">
         <args ARG_PragmaFunction="process_crc" ARG_PragmaIsValid="1" ARG_PragmaOptions="variable = crcTables complete dim = 1" ARG_PragmaType="array_partition" ClangWarningOption="dump-hls-pragmas"/>
     </msg>
-    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:673:9" msg_body="HLS pragma dump">
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:804:9" msg_body="HLS pragma dump">
         <args ARG_PragmaFunction="process_crc" ARG_PragmaIsValid="1" ARG_PragmaOptions="variable = crcTables type = ram_1p impl = bram" ARG_PragmaType="bind_storage" ClangWarningOption="dump-hls-pragmas"/>
     </msg>
-    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:680:9" msg_body="HLS pragma dump">
-        <args ARG_PragmaFunction="process_crc" ARG_PragmaIsValid="1" ARG_PragmaOptions="II = 1" ARG_PragmaType="pipeline" ClangWarningOption="dump-hls-pragmas"/>
-    </msg>
-    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:685:9" msg_body="HLS pragma dump">
-        <args ARG_PragmaFunction="process_crc" ARG_PragmaIsValid="1" ARG_PragmaType="dataflow" ClangWarningOption="dump-hls-pragmas"/>
-    </msg>
-    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/users/arashs/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/calculate_crc/calculate_crc/calculate_crc.tcl:23:9" msg_body="HLS pragma dump">
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/home/efrink/mled/split_cu/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/calculate_crc/calculate_crc/calculate_crc.tcl:23:9" msg_body="HLS pragma dump">
         <args ARG_PragmaContext="directive" ARG_PragmaFunction="calculate_crc" ARG_PragmaIsValid="1" ARG_PragmaOptions="name=calculate_crc" ARG_PragmaType="top" ClangWarningOption="dump-hls-pragmas"/>
     </msg>
-    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:706:9" msg_body="HLS pragma dump">
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:823:9" msg_body="HLS pragma dump">
         <args ARG_PragmaFunction="calculate_crc" ARG_PragmaIsValid="1" ARG_PragmaOptions="m_axi port = data_in bundle = gmem0 depth = 1024 offset = slave" ARG_PragmaType="interface" ClangWarningOption="dump-hls-pragmas"/>
     </msg>
-    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:707:9" msg_body="HLS pragma dump">
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:824:9" msg_body="HLS pragma dump">
         <args ARG_PragmaFunction="calculate_crc" ARG_PragmaIsValid="1" ARG_PragmaOptions="m_axi port = tables bundle = gmem1 depth = 4096 offset = slave" ARG_PragmaType="interface" ClangWarningOption="dump-hls-pragmas"/>
     </msg>
-    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:708:9" msg_body="HLS pragma dump">
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:825:9" msg_body="HLS pragma dump">
         <args ARG_PragmaFunction="calculate_crc" ARG_PragmaIsValid="1" ARG_PragmaOptions="m_axi port = crc_out bundle = gmem0 depth = 1024 offset = slave" ARG_PragmaType="interface" ClangWarningOption="dump-hls-pragmas"/>
     </msg>
-    <msg msg_groups="PRAGMA_MISC" msg_id="214-248" msg_severity="INFO" msg_loc="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:671:11" msg_body="Applying array_partition to 'crcTables': Complete partitioning on dimension 1.">
-        <args Dim="1" Mode="Complete" UOName="crcTables"/>
+    <msg msg_groups="PRAGMA_INLINE" msg_id="214-178" msg_severity="INFO" msg_loc="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:822:0" msg_body="Inlining function 'process_crc(unsigned char const*, unsigned int*, unsigned int const*, unsigned int, unsigned int, unsigned int, unsigned int)' into 'calculate_crc'">
+        <args Callee="process_crc(unsigned char const*, unsigned int*, unsigned int const*, unsigned int, unsigned int, unsigned int, unsigned int)" Caller="calculate_crc"/>
+    </msg>
+    <msg msg_groups="PRAGMA_MISC" msg_id="214-248" msg_severity="INFO" msg_loc="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:802:14" msg_body="Applying array_partition to 'crcTables.i': Complete partitioning on dimension 1.">
+        <args Dim="1" Mode="Complete" UOName="crcTables.i"/>
+    </msg>
+    <msg msg_groups="CODE_UNSUPPORTED" msg_id="214-131" msg_severity="INFO" msg_loc="/packages/apps/fpga/Vitis_HLS/2022.1/common/technology/autopilot/hls_stream_39.h:174:9" msg_body="Inlining function '_llvm.fpga.pack.none.i8.s_struct.ap_uint&lt;8&gt;s' into 'read_input(unsigned char const*, hls::stream&lt;ap_uint&lt;8&gt;, 0&gt;&amp;, hls::stream&lt;ap_uint&lt;8&gt;, 0&gt;&amp;, hls::stream&lt;ap_uint&lt;8&gt;, 0&gt;&amp;, hls::stream&lt;ap_uint&lt;8&gt;, 0&gt;&amp;, hls::stream&lt;ap_uint&lt;8&gt;, 0&gt;&amp;, hls::stream&lt;ap_uint&lt;8&gt;, 0&gt;&amp;, hls::stream&lt;ap_uint&lt;8&gt;, 0&gt;&amp;, hls::stream&lt;ap_uint&lt;8&gt;, 0&gt;&amp;, hls::stream&lt;ap_uint&lt;8&gt;, 0&gt;&amp;, hls::stream&lt;ap_uint&lt;8&gt;, 0&gt;&amp;, hls::stream&lt;ap_uint&lt;8&gt;, 0&gt;&amp;, hls::stream&lt;ap_uint&lt;8&gt;, 0&gt;&amp;, hls::stream&lt;ap_uint&lt;8&gt;, 0&gt;&amp;, hls::stream&lt;ap_uint&lt;8&gt;, 0&gt;&amp;, hls::stream&lt;ap_uint&lt;8&gt;, 0&gt;&amp;, hls::stream&lt;ap_uint&lt;8&gt;, 0&gt;&amp;, unsigned int, unsigned int) (.1)'">
+        <args Callee="_llvm.fpga.pack.none.i8.s_struct.ap_uint&lt;8&gt;s" Caller="read_input(unsigned char const*, hls::stream&lt;ap_uint&lt;8&gt;, 0&gt;&amp;, hls::stream&lt;ap_uint&lt;8&gt;, 0&gt;&amp;, hls::stream&lt;ap_uint&lt;8&gt;, 0&gt;&amp;, hls::stream&lt;ap_uint&lt;8&gt;, 0&gt;&amp;, hls::stream&lt;ap_uint&lt;8&gt;, 0&gt;&amp;, hls::stream&lt;ap_uint&lt;8&gt;, 0&gt;&amp;, hls::stream&lt;ap_uint&lt;8&gt;, 0&gt;&amp;, hls::stream&lt;ap_uint&lt;8&gt;, 0&gt;&amp;, hls::stream&lt;ap_uint&lt;8&gt;, 0&gt;&amp;, hls::stream&lt;ap_uint&lt;8&gt;, 0&gt;&amp;, hls::stream&lt;ap_uint&lt;8&gt;, 0&gt;&amp;, hls::stream&lt;ap_uint&lt;8&gt;, 0&gt;&amp;, hls::stream&lt;ap_uint&lt;8&gt;, 0&gt;&amp;, hls::stream&lt;ap_uint&lt;8&gt;, 0&gt;&amp;, hls::stream&lt;ap_uint&lt;8&gt;, 0&gt;&amp;, hls::stream&lt;ap_uint&lt;8&gt;, 0&gt;&amp;, unsigned int, unsigned int) (.1)"/>
+    </msg>
+    <msg msg_groups="CODE_UNSUPPORTED" msg_id="214-131" msg_severity="INFO" msg_loc="/packages/apps/fpga/Vitis_HLS/2022.1/common/technology/autopilot/hls_stream_39.h:174:9" msg_body="Inlining function '_llvm.fpga.pack.none.i32.s_struct.ap_uint&lt;32&gt;s' into 'process_crc_chunks(unsigned int (*) [256], hls::stream&lt;ap_uint&lt;8&gt;, 0&gt;&amp;, hls::stream&lt;ap_uint&lt;8&gt;, 0&gt;&amp;, hls::stream&lt;ap_uint&lt;8&gt;, 0&gt;&amp;, hls::stream&lt;ap_uint&lt;8&gt;, 0&gt;&amp;, hls::stream&lt;ap_uint&lt;8&gt;, 0&gt;&amp;, hls::stream&lt;ap_uint&lt;8&gt;, 0&gt;&amp;, hls::stream&lt;ap_uint&lt;8&gt;, 0&gt;&amp;, hls::stream&lt;ap_uint&lt;8&gt;, 0&gt;&amp;, hls::stream&lt;ap_uint&lt;8&gt;, 0&gt;&amp;, hls::stream&lt;ap_uint&lt;8&gt;, 0&gt;&amp;, hls::stream&lt;ap_uint&lt;8&gt;, 0&gt;&amp;, hls::stream&lt;ap_uint&lt;8&gt;, 0&gt;&amp;, hls::stream&lt;ap_uint&lt;8&gt;, 0&gt;&amp;, hls::stream&lt;ap_uint&lt;8&gt;, 0&gt;&amp;, hls::stream&lt;ap_uint&lt;8&gt;, 0&gt;&amp;, hls::stream&lt;ap_uint&lt;8&gt;, 0&gt;&amp;, unsigned int, unsigned int, hls::stream&lt;ap_uint&lt;32&gt;, 0&gt;&amp;, int, int) (.1)'">
+        <args Callee="_llvm.fpga.pack.none.i32.s_struct.ap_uint&lt;32&gt;s" Caller="process_crc_chunks(unsigned int (*) [256], hls::stream&lt;ap_uint&lt;8&gt;, 0&gt;&amp;, hls::stream&lt;ap_uint&lt;8&gt;, 0&gt;&amp;, hls::stream&lt;ap_uint&lt;8&gt;, 0&gt;&amp;, hls::stream&lt;ap_uint&lt;8&gt;, 0&gt;&amp;, hls::stream&lt;ap_uint&lt;8&gt;, 0&gt;&amp;, hls::stream&lt;ap_uint&lt;8&gt;, 0&gt;&amp;, hls::stream&lt;ap_uint&lt;8&gt;, 0&gt;&amp;, hls::stream&lt;ap_uint&lt;8&gt;, 0&gt;&amp;, hls::stream&lt;ap_uint&lt;8&gt;, 0&gt;&amp;, hls::stream&lt;ap_uint&lt;8&gt;, 0&gt;&amp;, hls::stream&lt;ap_uint&lt;8&gt;, 0&gt;&amp;, hls::stream&lt;ap_uint&lt;8&gt;, 0&gt;&amp;, hls::stream&lt;ap_uint&lt;8&gt;, 0&gt;&amp;, hls::stream&lt;ap_uint&lt;8&gt;, 0&gt;&amp;, hls::stream&lt;ap_uint&lt;8&gt;, 0&gt;&amp;, hls::stream&lt;ap_uint&lt;8&gt;, 0&gt;&amp;, unsigned int, unsigned int, hls::stream&lt;ap_uint&lt;32&gt;, 0&gt;&amp;, int, int) (.1)"/>
     </msg>
 </xilinx:hls_fe_msgs>
 

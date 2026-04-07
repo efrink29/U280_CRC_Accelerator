@@ -14,7 +14,7 @@
 						"AP_START": { "actual": "ap_start"}
 					}
 				},
-				"grp_calculate_sha256_Pipeline_hash_write_digest_fu_116/grp_calculate_sha256_Pipeline_hash_write_digest_fu_116_activity": {
+				"grp_sha256_process_and_write_chunk_fu_108/grp_sha256_process_and_write_chunk_Pipeline_write_digest_fu_109/grp_sha256_process_and_write_chunk_Pipeline_write_digest_fu_109_activity": {
 					"interface": "xilinx.com:interface:internal_hls_dataflow:1.0",
 					"ports": {
 						"AP_CLK": { "actual": "ap_clk"},
@@ -24,7 +24,7 @@
 						"AP_START": { "actual": "ap_start"}
 					}
 				},
-				"grp_sha256_process_chunk_fu_106/grp_sha256_compress_block_fu_2497/grp_sha256_compress_block_Pipeline_expand_words_fu_144/grp_sha256_compress_block_Pipeline_expand_words_fu_144_activity": {
+				"grp_sha256_process_and_write_chunk_fu_108/grp_sha256_process_and_write_chunk_fu_108_activity": {
 					"interface": "xilinx.com:interface:internal_hls_dataflow:1.0",
 					"ports": {
 						"AP_CLK": { "actual": "ap_clk"},
@@ -34,7 +34,7 @@
 						"AP_START": { "actual": "ap_start"}
 					}
 				},
-				"grp_sha256_process_chunk_fu_106/grp_sha256_compress_block_fu_2497/grp_sha256_compress_block_Pipeline_init_words_fu_132/grp_sha256_compress_block_Pipeline_init_words_fu_132_activity": {
+				"grp_sha256_process_and_write_chunk_fu_108/grp_sha256_process_chunk_fu_97/grp_sha256_compress_block_fu_2572/grp_sha256_compress_block_Pipeline_round_loop_fu_372/grp_sha256_compress_block_Pipeline_round_loop_fu_372_activity": {
 					"interface": "xilinx.com:interface:internal_hls_dataflow:1.0",
 					"ports": {
 						"AP_CLK": { "actual": "ap_clk"},
@@ -44,7 +44,7 @@
 						"AP_START": { "actual": "ap_start"}
 					}
 				},
-				"grp_sha256_process_chunk_fu_106/grp_sha256_compress_block_fu_2497/grp_sha256_compress_block_Pipeline_round_loop_fu_151/grp_sha256_compress_block_Pipeline_round_loop_fu_151_activity": {
+				"grp_sha256_process_and_write_chunk_fu_108/grp_sha256_process_chunk_fu_97/grp_sha256_compress_block_fu_2572/grp_sha256_compress_block_fu_2572_activity": {
 					"interface": "xilinx.com:interface:internal_hls_dataflow:1.0",
 					"ports": {
 						"AP_CLK": { "actual": "ap_clk"},
@@ -54,7 +54,7 @@
 						"AP_START": { "actual": "ap_start"}
 					}
 				},
-				"grp_sha256_process_chunk_fu_106/grp_sha256_compress_block_fu_2497/grp_sha256_compress_block_fu_2497_activity": {
+				"grp_sha256_process_and_write_chunk_fu_108/grp_sha256_process_chunk_fu_97/grp_sha256_process_chunk_Pipeline_clear_pad_block_fu_2595/grp_sha256_process_chunk_Pipeline_clear_pad_block_fu_2595_activity": {
 					"interface": "xilinx.com:interface:internal_hls_dataflow:1.0",
 					"ports": {
 						"AP_CLK": { "actual": "ap_clk"},
@@ -64,7 +64,7 @@
 						"AP_START": { "actual": "ap_start"}
 					}
 				},
-				"grp_sha256_process_chunk_fu_106/grp_sha256_process_chunk_Pipeline_clear_pad_block_fu_2520/grp_sha256_process_chunk_Pipeline_clear_pad_block_fu_2520_activity": {
+				"grp_sha256_process_and_write_chunk_fu_108/grp_sha256_process_chunk_fu_97/grp_sha256_process_chunk_Pipeline_clear_second_block_fu_2611/grp_sha256_process_chunk_Pipeline_clear_second_block_fu_2611_activity": {
 					"interface": "xilinx.com:interface:internal_hls_dataflow:1.0",
 					"ports": {
 						"AP_CLK": { "actual": "ap_clk"},
@@ -74,7 +74,7 @@
 						"AP_START": { "actual": "ap_start"}
 					}
 				},
-				"grp_sha256_process_chunk_fu_106/grp_sha256_process_chunk_Pipeline_clear_second_block_fu_2536/grp_sha256_process_chunk_Pipeline_clear_second_block_fu_2536_activity": {
+				"grp_sha256_process_and_write_chunk_fu_108/grp_sha256_process_chunk_fu_97/grp_sha256_process_chunk_Pipeline_copy_remainder_fu_2600/grp_sha256_process_chunk_Pipeline_copy_remainder_fu_2600_activity": {
 					"interface": "xilinx.com:interface:internal_hls_dataflow:1.0",
 					"ports": {
 						"AP_CLK": { "actual": "ap_clk"},
@@ -84,7 +84,7 @@
 						"AP_START": { "actual": "ap_start"}
 					}
 				},
-				"grp_sha256_process_chunk_fu_106/grp_sha256_process_chunk_Pipeline_copy_remainder_fu_2525/grp_sha256_process_chunk_Pipeline_copy_remainder_fu_2525_activity": {
+				"grp_sha256_process_and_write_chunk_fu_108/grp_sha256_process_chunk_fu_97/grp_sha256_process_chunk_Pipeline_len_store_double_fu_2616/grp_sha256_process_chunk_Pipeline_len_store_double_fu_2616_activity": {
 					"interface": "xilinx.com:interface:internal_hls_dataflow:1.0",
 					"ports": {
 						"AP_CLK": { "actual": "ap_clk"},
@@ -94,7 +94,7 @@
 						"AP_START": { "actual": "ap_start"}
 					}
 				},
-				"grp_sha256_process_chunk_fu_106/grp_sha256_process_chunk_Pipeline_len_store_double_fu_2541/grp_sha256_process_chunk_Pipeline_len_store_double_fu_2541_activity": {
+				"grp_sha256_process_and_write_chunk_fu_108/grp_sha256_process_chunk_fu_97/grp_sha256_process_chunk_Pipeline_len_store_single_fu_2622/grp_sha256_process_chunk_Pipeline_len_store_single_fu_2622_activity": {
 					"interface": "xilinx.com:interface:internal_hls_dataflow:1.0",
 					"ports": {
 						"AP_CLK": { "actual": "ap_clk"},
@@ -104,17 +104,7 @@
 						"AP_START": { "actual": "ap_start"}
 					}
 				},
-				"grp_sha256_process_chunk_fu_106/grp_sha256_process_chunk_Pipeline_len_store_single_fu_2547/grp_sha256_process_chunk_Pipeline_len_store_single_fu_2547_activity": {
-					"interface": "xilinx.com:interface:internal_hls_dataflow:1.0",
-					"ports": {
-						"AP_CLK": { "actual": "ap_clk"},
-						"AP_DONE": { "actual": "ap_done"},
-						"AP_READY": { "actual": "ap_ready"},
-						"AP_RESET": { "actual": "ap_rst"},
-						"AP_START": { "actual": "ap_start"}
-					}
-				},
-				"grp_sha256_process_chunk_fu_106/grp_sha256_process_chunk_fu_106_activity": {
+				"grp_sha256_process_and_write_chunk_fu_108/grp_sha256_process_chunk_fu_97/grp_sha256_process_chunk_fu_97_activity": {
 					"interface": "xilinx.com:interface:internal_hls_dataflow:1.0",
 					"ports": {
 						"AP_CLK": { "actual": "ap_clk"},

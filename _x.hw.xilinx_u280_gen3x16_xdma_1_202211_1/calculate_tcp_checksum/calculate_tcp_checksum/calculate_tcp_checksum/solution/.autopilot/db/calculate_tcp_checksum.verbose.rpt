@@ -3,12 +3,12 @@
 ================================================================
 == Vitis HLS Report for 'calculate_tcp_checksum'
 ================================================================
-* Date:           Fri Feb 20 12:33:35 2026
+* Date:           Thu Apr  2 18:18:23 2026
 
-* Version:        2023.1 (Build 3854077 on May  4 2023)
+* Version:        2022.1 (Build 3526262 on Mon Apr 18 15:47:01 MDT 2022)
 * Project:        calculate_tcp_checksum
 * Solution:       solution (Vitis Kernel Flow Target)
-* Product family: virtexuplusHBM
+* Product family: virtexuplus
 * Target device:  xcu280-fsvh2892-2L-e
 
 
@@ -56,20 +56,20 @@
 |DSP                  |        -|     -|        -|        -|    -|
 |Expression           |        -|     -|        0|        2|    -|
 |FIFO                 |        -|     -|        -|        -|    -|
-|Instance             |       30|     -|    10458|    23927|    0|
+|Instance             |        0|     -|    11576|    29306|    0|
 |Memory               |        -|     -|        -|        -|    -|
 |Multiplexer          |        -|     -|        -|       74|    -|
 |Register             |        -|     -|      136|        -|    -|
 +---------------------+---------+------+---------+---------+-----+
-|Total                |       30|     0|    10594|    24003|    0|
+|Total                |        0|     0|    11712|    29382|    0|
 +---------------------+---------+------+---------+---------+-----+
 |Available SLR        |     1344|  3008|   869120|   434560|  320|
 +---------------------+---------+------+---------+---------+-----+
-|Utilization SLR (%)  |        2|     0|        1|        5|    0|
+|Utilization SLR (%)  |        0|     0|        1|        6|    0|
 +---------------------+---------+------+---------+---------+-----+
 |Available            |     4032|  9024|  2607360|  1303680|  960|
 +---------------------+---------+------+---------+---------+-----+
-|Utilization (%)      |       ~0|     0|       ~0|        1|    0|
+|Utilization (%)      |        0|     0|       ~0|        2|    0|
 +---------------------+---------+------+---------+---------+-----+
 
 + Detail: 
@@ -78,10 +78,10 @@
     |            Instance            |        Module        | BRAM_18K| DSP|  FF  |  LUT  | URAM|
     +--------------------------------+----------------------+---------+----+------+-------+-----+
     |control_s_axi_U                 |control_s_axi         |        0|   0|   252|    424|    0|
-    |gmem0_m_axi_U                   |gmem0_m_axi           |       30|   0|  3521|   2695|    0|
-    |grp_process_tcp_checksum_fu_86  |process_tcp_checksum  |        0|   0|  6685|  20808|    0|
+    |gmem0_m_axi_U                   |gmem0_m_axi           |        0|   0|  4567|   8001|    0|
+    |grp_process_tcp_checksum_fu_86  |process_tcp_checksum  |        0|   0|  6757|  20881|    0|
     +--------------------------------+----------------------+---------+----+------+-------+-----+
-    |Total                           |                      |       30|   0| 10458|  23927|    0|
+    |Total                           |                      |        0|   0| 11576|  29306|    0|
     +--------------------------------+----------------------+---------+----+------+-------+-----+
 
     * DSP: 
@@ -247,17 +247,17 @@ IsGatedGlobalClock: 0
 * FSM state operations: 
 
 State 1 <SV = 0> <Delay = 1.00>
-ST_1 : Operation 4 [1/1] (1.00ns)   --->   "%chunkSize_read = read i32 @_ssdm_op_Read.ap_none.i32, i32 %chunkSize" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:715]   --->   Operation 4 'read' 'chunkSize_read' <Predicate = true> <Delay = 1.00> <CoreInst = "s_axilite">   --->   Core 122 's_axilite' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write'>
-ST_1 : Operation 5 [1/1] (1.00ns)   --->   "%numChunks_read = read i32 @_ssdm_op_Read.ap_none.i32, i32 %numChunks" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:715]   --->   Operation 5 'read' 'numChunks_read' <Predicate = true> <Delay = 1.00> <CoreInst = "s_axilite">   --->   Core 122 's_axilite' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write'>
-ST_1 : Operation 6 [1/1] (1.00ns)   --->   "%crc_out_read = read i64 @_ssdm_op_Read.s_axilite.i64, i64 %crc_out" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:715]   --->   Operation 6 'read' 'crc_out_read' <Predicate = true> <Delay = 1.00> <CoreInst = "s_axilite">   --->   Core 122 's_axilite' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write'>
-ST_1 : Operation 7 [1/1] (1.00ns)   --->   "%data_in_read = read i64 @_ssdm_op_Read.s_axilite.i64, i64 %data_in" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:715]   --->   Operation 7 'read' 'data_in_read' <Predicate = true> <Delay = 1.00> <CoreInst = "s_axilite">   --->   Core 122 's_axilite' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write'>
+ST_1 : Operation 4 [1/1] (1.00ns)   --->   "%chunkSize_read = read i32 @_ssdm_op_Read.ap_none.i32, i32 %chunkSize" [/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:832]   --->   Operation 4 'read' 'chunkSize_read' <Predicate = true> <Delay = 1.00> <CoreInst = "s_axilite">   --->   Core 122 's_axilite' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write'>
+ST_1 : Operation 5 [1/1] (1.00ns)   --->   "%numChunks_read = read i32 @_ssdm_op_Read.ap_none.i32, i32 %numChunks" [/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:832]   --->   Operation 5 'read' 'numChunks_read' <Predicate = true> <Delay = 1.00> <CoreInst = "s_axilite">   --->   Core 122 's_axilite' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write'>
+ST_1 : Operation 6 [1/1] (1.00ns)   --->   "%crc_out_read = read i64 @_ssdm_op_Read.s_axilite.i64, i64 %crc_out" [/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:832]   --->   Operation 6 'read' 'crc_out_read' <Predicate = true> <Delay = 1.00> <CoreInst = "s_axilite">   --->   Core 122 's_axilite' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write'>
+ST_1 : Operation 7 [1/1] (1.00ns)   --->   "%data_in_read = read i64 @_ssdm_op_Read.s_axilite.i64, i64 %data_in" [/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:832]   --->   Operation 7 'read' 'data_in_read' <Predicate = true> <Delay = 1.00> <CoreInst = "s_axilite">   --->   Core 122 's_axilite' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write'>
 
-State 2 <SV = 1> <Delay = 1.75>
-ST_2 : Operation 8 [2/2] (1.75ns)   --->   "%call_ln721 = call void @process_tcp_checksum, i512 %gmem0, i64 %data_in_read, i64 %crc_out_read, i32 %numChunks_read, i32 %chunkSize_read" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:721]   --->   Operation 8 'call' 'call_ln721' <Predicate = true> <Delay = 1.75> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+State 2 <SV = 1> <Delay = 1.72>
+ST_2 : Operation 8 [2/2] (1.72ns)   --->   "%call_ln838 = call void @process_tcp_checksum, i512 %gmem0, i64 %data_in_read, i64 %crc_out_read, i32 %numChunks_read, i32 %chunkSize_read" [/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:838]   --->   Operation 8 'call' 'call_ln838' <Predicate = true> <Delay = 1.72> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
 
 State 3 <SV = 2> <Delay = 0.00>
-ST_3 : Operation 9 [1/1] (0.00ns)   --->   "%spectopmodule_ln714 = spectopmodule void @_ssdm_op_SpecTopModule, void @empty_8" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:714]   --->   Operation 9 'spectopmodule' 'spectopmodule_ln714' <Predicate = true> <Delay = 0.00>
-ST_3 : Operation 10 [1/1] (0.00ns)   --->   "%specinterface_ln714 = specinterface void @_ssdm_op_SpecInterface, i32 0, void @empty_9, i32 0, i32 0, void @empty_5, i32 0, i32 0, void @empty_5, void @empty_5, void @empty_5, i32 0, i32 0, i32 0, i32 0, void @empty_5, void @empty_5, i32 4294967295, i32 0" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:714]   --->   Operation 10 'specinterface' 'specinterface_ln714' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 9 [1/1] (0.00ns)   --->   "%spectopmodule_ln831 = spectopmodule void @_ssdm_op_SpecTopModule, void @empty_8" [/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:831]   --->   Operation 9 'spectopmodule' 'spectopmodule_ln831' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 10 [1/1] (0.00ns)   --->   "%specinterface_ln831 = specinterface void @_ssdm_op_SpecInterface, i32 0, void @empty_9, i32 0, i32 0, void @empty_5, i32 0, i32 0, void @empty_5, void @empty_5, void @empty_5, i32 0, i32 0, i32 0, i32 0, void @empty_5, void @empty_5, i32 4294967295, i32 0" [/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:831]   --->   Operation 10 'specinterface' 'specinterface_ln831' <Predicate = true> <Delay = 0.00>
 ST_3 : Operation 11 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i512 %gmem0, void @empty_4, i32 0, i32 0, void @empty_5, i32 64, i32 1024, void @empty_6, void @empty_7, void @empty_5, i32 16, i32 16, i32 16, i32 16, void @empty_5, void @empty_5, i32 4294967295, i32 0"   --->   Operation 11 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
 ST_3 : Operation 12 [1/1] (0.00ns)   --->   "%specbitsmap_ln0 = specbitsmap void @_ssdm_op_SpecBitsMap, i512 %gmem0"   --->   Operation 12 'specbitsmap' 'specbitsmap_ln0' <Predicate = true> <Delay = 0.00>
 ST_3 : Operation 13 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i64 %data_in, void @empty, i32 0, i32 0, void @empty_5, i32 0, i32 0, void @empty_0, void @empty_2, void @empty_5, i32 0, i32 0, i32 0, i32 0, void @empty_5, void @empty_10, i32 4294967295, i32 0"   --->   Operation 13 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
@@ -271,8 +271,8 @@ ST_3 : Operation 20 [1/1] (0.00ns)   --->   "%specbitsmap_ln0 = specbitsmap void
 ST_3 : Operation 21 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i32 %chunkSize, void @empty, i32 0, i32 0, void @empty_5, i32 0, i32 0, void @empty_0, void @empty_17, void @empty_5, i32 0, i32 0, i32 0, i32 0, void @empty_5, void @empty_5, i32 4294967295, i32 0"   --->   Operation 21 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
 ST_3 : Operation 22 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i32 %chunkSize, void @empty_16, i32 0, i32 0, void @empty_5, i32 0, i32 0, void @empty_5, void @empty_5, void @empty_5, i32 0, i32 0, i32 0, i32 0, void @empty_5, void @empty_5, i32 4294967295, i32 0"   --->   Operation 22 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
 ST_3 : Operation 23 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i32 0, void @empty, i32 0, i32 0, void @empty_5, i32 0, i32 0, void @empty_0, void @empty_5, void @empty_5, i32 0, i32 0, i32 0, i32 0, void @empty_5, void @empty_5, i32 4294967295, i32 0"   --->   Operation 23 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
-ST_3 : Operation 24 [1/2] (0.00ns)   --->   "%call_ln721 = call void @process_tcp_checksum, i512 %gmem0, i64 %data_in_read, i64 %crc_out_read, i32 %numChunks_read, i32 %chunkSize_read" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:721]   --->   Operation 24 'call' 'call_ln721' <Predicate = true> <Delay = 0.00> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
-ST_3 : Operation 25 [1/1] (0.00ns)   --->   "%ret_ln722 = ret" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:722]   --->   Operation 25 'ret' 'ret_ln722' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 24 [1/2] (0.00ns)   --->   "%call_ln838 = call void @process_tcp_checksum, i512 %gmem0, i64 %data_in_read, i64 %crc_out_read, i32 %numChunks_read, i32 %chunkSize_read" [/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:838]   --->   Operation 24 'call' 'call_ln838' <Predicate = true> <Delay = 0.00> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_3 : Operation 25 [1/1] (0.00ns)   --->   "%ret_ln839 = ret" [/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:839]   --->   Operation 25 'ret' 'ret_ln839' <Predicate = true> <Delay = 0.00>
 
 
 ============================================================
@@ -301,8 +301,8 @@ chunkSize_read      (read         ) [ 0011]
 numChunks_read      (read         ) [ 0011]
 crc_out_read        (read         ) [ 0011]
 data_in_read        (read         ) [ 0011]
-spectopmodule_ln714 (spectopmodule) [ 0000]
-specinterface_ln714 (specinterface) [ 0000]
+spectopmodule_ln831 (spectopmodule) [ 0000]
+specinterface_ln831 (specinterface) [ 0000]
 specinterface_ln0   (specinterface) [ 0000]
 specbitsmap_ln0     (specbitsmap  ) [ 0000]
 specinterface_ln0   (specinterface) [ 0000]
@@ -316,8 +316,8 @@ specbitsmap_ln0     (specbitsmap  ) [ 0000]
 specinterface_ln0   (specinterface) [ 0000]
 specinterface_ln0   (specinterface) [ 0000]
 specinterface_ln0   (specinterface) [ 0000]
-call_ln721          (call         ) [ 0000]
-ret_ln722           (ret          ) [ 0000]
+call_ln838          (call         ) [ 0000]
+ret_ln839           (ret          ) [ 0000]
 </LifeTime>
 
 <model>
@@ -662,7 +662,7 @@ ret_ln722           (ret          ) [ 0000]
 </pin_list>
 <bind>
 <opcode="call(48) " fcode="call"/>
-<opset="call_ln721/2 "/>
+<opset="call_ln838/2 "/>
 </bind>
 </comp>
 
@@ -773,14 +773,14 @@ ret_ln722           (ret          ) [ 0000]
 |----------|--------------------------------|---------|---------|---------|
 | Operation|         Functional Unit        |  Delay  |    FF   |   LUT   |
 |----------|--------------------------------|---------|---------|---------|
-|   call   | grp_process_tcp_checksum_fu_86 |   3.87  |  10419  |  16039  |
+|   call   | grp_process_tcp_checksum_fu_86 |  4.257  |  10526  |  15790  |
 |----------|--------------------------------|---------|---------|---------|
 |          |    chunkSize_read_read_fu_62   |    0    |    0    |    0    |
 |   read   |    numChunks_read_read_fu_68   |    0    |    0    |    0    |
 |          |     crc_out_read_read_fu_74    |    0    |    0    |    0    |
 |          |     data_in_read_read_fu_80    |    0    |    0    |    0    |
 |----------|--------------------------------|---------|---------|---------|
-|   Total  |                                |   3.87  |  10419  |  16039  |
+|   Total  |                                |  4.257  |  10526  |  15790  |
 |----------|--------------------------------|---------|---------|---------|
 
 Memories:
@@ -811,10 +811,10 @@ N/A
 +-----------+--------+--------+--------+
 |           |  Delay |   FF   |   LUT  |
 +-----------+--------+--------+--------+
-|  Function |    3   |  10419 |  16039 |
+|  Function |    4   |  10526 |  15790 |
 |   Memory  |    -   |    -   |    -   |
 |Multiplexer|    -   |    -   |    -   |
 |  Register |    -   |   192  |    -   |
 +-----------+--------+--------+--------+
-|   Total   |    3   |  10611 |  16039 |
+|   Total   |    4   |  10718 |  15790 |
 +-----------+--------+--------+--------+

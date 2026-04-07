@@ -1,9 +1,7 @@
 // ==============================================================
-// Vitis HLS - High-Level Synthesis from C, C++ and OpenCL v2023.1 (64-bit)
-// Tool Version Limit: 2023.05
+// Vitis HLS - High-Level Synthesis from C, C++ and OpenCL v2022.1 (64-bit)
+// Tool Version Limit: 2022.04
 // Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
-// Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
-// 
 // ==============================================================
 `timescale 1ns/1ps
 module calculate_sha256_control_s_axi
@@ -59,9 +57,9 @@ module calculate_sha256_control_s_axi
 //        bit 0 - enable ap_done interrupt (Read/Write)
 //        bit 1 - enable ap_ready interrupt (Read/Write)
 //        others - reserved
-// 0x0c : IP Interrupt Status Register (Read/TOW)
-//        bit 0 - ap_done (Read/TOW)
-//        bit 1 - ap_ready (Read/TOW)
+// 0x0c : IP Interrupt Status Register (Read/COR)
+//        bit 0 - ap_done (Read/COR)
+//        bit 1 - ap_ready (Read/COR)
 //        others - reserved
 // 0x10 : Data signal of data_in
 //        bit 31~0 - data_in[31:0] (Read/Write)
@@ -418,8 +416,8 @@ always @(posedge ACLK) begin
     else if (ACLK_EN) begin
         if (int_ier[0] & ap_done)
             int_isr[0] <= 1'b1;
-        else if (w_hs && waddr == ADDR_ISR && WSTRB[0])
-            int_isr[0] <= int_isr[0] ^ WDATA[0]; // toggle on write
+        else if (ar_hs && raddr == ADDR_ISR)
+            int_isr[0] <= 1'b0; // clear on read
     end
 end
 
@@ -430,8 +428,8 @@ always @(posedge ACLK) begin
     else if (ACLK_EN) begin
         if (int_ier[1] & ap_ready)
             int_isr[1] <= 1'b1;
-        else if (w_hs && waddr == ADDR_ISR && WSTRB[0])
-            int_isr[1] <= int_isr[1] ^ WDATA[1]; // toggle on write
+        else if (ar_hs && raddr == ADDR_ISR)
+            int_isr[1] <= 1'b0; // clear on read
     end
 end
 

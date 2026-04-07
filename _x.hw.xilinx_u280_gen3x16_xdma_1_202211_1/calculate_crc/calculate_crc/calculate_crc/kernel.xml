@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <root versionMajor="1" versionMinor="5">
-  <kernel name="calculate_crc" language="c" vlnv="xilinx.com:hls:calculate_crc:1.0" attributes="" hash="" preferredWorkGroupSizeMultiple="0" workGroupSize="1" debug="false" compileOptions=" -D KERNEL_VARIANT=KERNEL_VARIANT_CRC -I /users/arashs/U280_CRC_Accelerator/src" profileType="" interrupt="true" hwControlProtocol="ap_ctrl_chain" countedAutoRestart="0" deadlockDetection="local" mailbox="none" swReset="false">
+  <kernel name="calculate_crc" language="c" vlnv="xilinx.com:hls:calculate_crc:1.0" attributes="" hash="" preferredWorkGroupSizeMultiple="0" workGroupSize="1" debug="false" compileOptions=" -D KERNEL_VARIANT=KERNEL_VARIANT_CRC -I /home/efrink/mled/split_cu/U280_CRC_Accelerator/src" profileType="" interrupt="true" hwControlProtocol="ap_ctrl_chain" countedAutoRestart="0" deadlockDetection="local" mailbox="none" swReset="false">
     <ports>
       <port name="M_AXI_GMEM0" mode="master" range="0xFFFFFFFF" dataWidth="128" portType="addressable" base="0x0"/>
       <port name="M_AXI_GMEM1" mode="master" range="0xFFFFFFFF" dataWidth="512" portType="addressable" base="0x0"/>
-      <port name="S_AXI_CONTROL" mode="slave" range="0x1054" dataWidth="32" portType="addressable" base="0x0"/>
+      <port name="S_AXI_CONTROL" mode="slave" range="0x54" dataWidth="32" portType="addressable" base="0x0"/>
     </ports>
     <args>
       <arg name="data_in" addressQualifier="1" id="0" port="M_AXI_GMEM0" size="0x8" offset="0x10" hostOffset="0x0" hostSize="0x8" type="void*"/>

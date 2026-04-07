@@ -10,22 +10,22 @@ if {${::AESL::PGuard_autoexp_gen}} {
 # Direct connection:
 if {${::AESL::PGuard_autoexp_gen}} {
 eval "cg_default_interface_gen_dc { \
-    id 186 \
-    name outStream \
+    id 214 \
+    name outStream33 \
     type fifo \
     dir I \
     reset_level 1 \
     sync_rst true \
-    corename dc_outStream \
+    corename dc_outStream33 \
     op interface \
-    ports { outStream_dout { I 32 vector } outStream_num_data_valid { I 7 vector } outStream_fifo_cap { I 7 vector } outStream_empty_n { I 1 bit } outStream_read { O 1 bit } } \
+    ports { outStream33_dout { I 32 vector } outStream33_num_data_valid { I 7 vector } outStream33_fifo_cap { I 7 vector } outStream33_empty_n { I 1 bit } outStream33_read { O 1 bit } } \
 } "
 }
 
 # Direct connection:
 if {${::AESL::PGuard_autoexp_gen}} {
 eval "cg_default_interface_gen_dc { \
-    id 187 \
+    id 215 \
     name numChunks \
     type fifo \
     dir I \
@@ -40,7 +40,7 @@ eval "cg_default_interface_gen_dc { \
 # Direct connection:
 if {${::AESL::PGuard_autoexp_gen}} {
 eval "cg_default_interface_gen_dc { \
-    id 188 \
+    id 216 \
     name gmem0 \
     type other \
     dir O \
@@ -55,7 +55,7 @@ eval "cg_default_interface_gen_dc { \
 # Direct connection:
 if {${::AESL::PGuard_autoexp_gen}} {
 eval "cg_default_interface_gen_dc { \
-    id 189 \
+    id 217 \
     name crc_out \
     type fifo \
     dir I \

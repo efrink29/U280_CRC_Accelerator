@@ -10,7 +10,7 @@ if {${::AESL::PGuard_autoexp_gen}} {
 # Direct connection:
 if {${::AESL::PGuard_autoexp_gen}} {
 eval "cg_default_interface_gen_dc { \
-    id 1 \
+    id 37 \
     name crc_out \
     type other \
     dir I \
@@ -25,7 +25,7 @@ eval "cg_default_interface_gen_dc { \
 # Direct connection:
 if {${::AESL::PGuard_autoexp_gen}} {
 eval "cg_default_interface_gen_dc { \
-    id 2 \
+    id 38 \
     name crc_out_c \
     type fifo \
     dir O \
@@ -34,66 +34,6 @@ eval "cg_default_interface_gen_dc { \
     corename dc_crc_out_c \
     op interface \
     ports { crc_out_c_din { O 64 vector } crc_out_c_num_data_valid { I 3 vector } crc_out_c_fifo_cap { I 3 vector } crc_out_c_full_n { I 1 bit } crc_out_c_write { O 1 bit } } \
-} "
-}
-
-# Direct connection:
-if {${::AESL::PGuard_autoexp_gen}} {
-eval "cg_default_interface_gen_dc { \
-    id 3 \
-    name crc_size \
-    type other \
-    dir I \
-    reset_level 1 \
-    sync_rst true \
-    corename dc_crc_size \
-    op interface \
-    ports { crc_size { I 32 vector } } \
-} "
-}
-
-# Direct connection:
-if {${::AESL::PGuard_autoexp_gen}} {
-eval "cg_default_interface_gen_dc { \
-    id 4 \
-    name crc_size_c \
-    type fifo \
-    dir O \
-    reset_level 1 \
-    sync_rst true \
-    corename dc_crc_size_c \
-    op interface \
-    ports { crc_size_c_din { O 32 vector } crc_size_c_num_data_valid { I 3 vector } crc_size_c_fifo_cap { I 3 vector } crc_size_c_full_n { I 1 bit } crc_size_c_write { O 1 bit } } \
-} "
-}
-
-# Direct connection:
-if {${::AESL::PGuard_autoexp_gen}} {
-eval "cg_default_interface_gen_dc { \
-    id 5 \
-    name init_value \
-    type other \
-    dir I \
-    reset_level 1 \
-    sync_rst true \
-    corename dc_init_value \
-    op interface \
-    ports { init_value { I 32 vector } } \
-} "
-}
-
-# Direct connection:
-if {${::AESL::PGuard_autoexp_gen}} {
-eval "cg_default_interface_gen_dc { \
-    id 6 \
-    name init_value_c \
-    type fifo \
-    dir O \
-    reset_level 1 \
-    sync_rst true \
-    corename dc_init_value_c \
-    op interface \
-    ports { init_value_c_din { O 32 vector } init_value_c_num_data_valid { I 3 vector } init_value_c_fifo_cap { I 3 vector } init_value_c_full_n { I 1 bit } init_value_c_write { O 1 bit } } \
 } "
 }
 

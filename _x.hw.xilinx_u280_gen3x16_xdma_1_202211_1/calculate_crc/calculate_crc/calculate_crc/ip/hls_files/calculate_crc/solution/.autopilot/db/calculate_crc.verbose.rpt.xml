@@ -1,12 +1,12 @@
 <profile>
 
 <section name = "Vitis HLS Report for 'calculate_crc'" level="0">
-<item name = "Date">Fri Feb 20 12:32:12 2026
+<item name = "Date">Thu Apr  2 18:17:08 2026
 </item>
-<item name = "Version">2023.1 (Build 3854077 on May  4 2023)</item>
+<item name = "Version">2022.1 (Build 3526262 on Mon Apr 18 15:47:01 MDT 2022)</item>
 <item name = "Project">calculate_crc</item>
 <item name = "Solution">solution (Vitis Kernel Flow Target)</item>
-<item name = "Product family">virtexuplusHBM</item>
+<item name = "Product family">virtexuplus</item>
 <item name = "Target device">xcu280-fsvh2892-2L-e</item>
 </section>
 
@@ -15,7 +15,7 @@
 <section name = "" level="1">
 <item name = "Summary"><table name="" hasTotal="0">
 <keys size="4">Clock, Target, Estimated, Uncertainty</keys>
-<column name="ap_clk">3.33 ns, 3.629 ns, 0.90 ns</column>
+<column name="ap_clk">3.33 ns, 2.433 ns, 0.90 ns</column>
 </table>
 </item>
 </section>
@@ -31,7 +31,8 @@
 <section name = "" level="1">
 <item name = "Instance"><table name="" hasTotal="0">
 <keys size="9">Instance, Module, min, max, min, max, min, max, Type</keys>
-<column name="grp_process_crc_fu_122">process_crc, ?, ?, ?, ?, ?, ?, dataflow</column>
+<column name="grp_load_crc_tables_fu_198">load_crc_tables, 4170, 4170, 13.899 us, 13.899 us, 4170, 4170, no</column>
+<column name="grp_crc_dataflow_region_fu_221">crc_dataflow_region, ?, ?, ?, ?, ?, ?, dataflow</column>
 </table>
 </item>
 <item name = "Loop"><table name="" hasTotal="0">
@@ -50,14 +51,14 @@
 <column name="DSP">-, -, -, -, -</column>
 <column name="Expression">-, -, 0, 6, -</column>
 <column name="FIFO">-, -, -, -, -</column>
-<column name="Instance">54, 3, 8425, 10836, 0</column>
-<column name="Memory">-, -, -, -, -</column>
-<column name="Multiplexer">-, -, -, 92, -</column>
-<column name="Register">-, -, 202, -, -</column>
+<column name="Instance">0, 3, 9825, 17273, 0</column>
+<column name="Memory">16, -, 0, 0, -</column>
+<column name="Multiplexer">-, -, -, 695, -</column>
+<column name="Register">-, -, 205, -, -</column>
 <specialColumn name="Available SLR">1344, 3008, 869120, 434560, 320</specialColumn>
-<specialColumn name="Utilization SLR (%)">4, ~0, ~0, 2, 0</specialColumn>
+<specialColumn name="Utilization SLR (%)">1, ~0, 1, 4, 0</specialColumn>
 <specialColumn name="Available">4032, 9024, 2607360, 1303680, 960</specialColumn>
-<specialColumn name="Utilization (%)">1, ~0, ~0, ~0, 0</specialColumn>
+<specialColumn name="Utilization (%)">~0, ~0, ~0, 1, 0</specialColumn>
 </table>
 </item>
 <item name = "Detail">
@@ -65,9 +66,10 @@
 <item name = "Instance"><table name="" hasTotal="1">
 <keys size="7">Instance, Module, BRAM_18K, DSP, FF, LUT, URAM</keys>
 <column name="control_s_axi_U">control_s_axi, 0, 0, 398, 680, 0</column>
-<column name="gmem0_m_axi_U">gmem0_m_axi, 8, 0, 1181, 1117, 0</column>
-<column name="gmem1_m_axi_U">gmem1_m_axi, 30, 0, 3521, 2695, 0</column>
-<column name="grp_process_crc_fu_122">process_crc, 16, 3, 3325, 6344, 0</column>
+<column name="grp_crc_dataflow_region_fu_221">crc_dataflow_region, 0, 3, 2236, 4900, 0</column>
+<column name="gmem0_m_axi_U">gmem0_m_axi, 0, 0, 1445, 2615, 0</column>
+<column name="gmem1_m_axi_U">gmem1_m_axi, 0, 0, 4567, 8001, 0</column>
+<column name="grp_load_crc_tables_fu_198">load_crc_tables, 0, 0, 1179, 1077, 0</column>
 </table>
 </item>
 <item name = "DSP"><table name="" hasTotal="0">
@@ -76,6 +78,22 @@
 </item>
 <item name = "Memory"><table name="" hasTotal="1">
 <keys size="10">Memory, Module, BRAM_18K, FF, LUT, URAM, Words, Bits, Banks, W*Bits*Banks</keys>
+<column name="crcTables_U">crcTables_RAM_1P_BRAM_1R1W, 1, 0, 0, 0, 256, 32, 1, 8192</column>
+<column name="crcTables_1_U">crcTables_RAM_1P_BRAM_1R1W, 1, 0, 0, 0, 256, 32, 1, 8192</column>
+<column name="crcTables_2_U">crcTables_RAM_1P_BRAM_1R1W, 1, 0, 0, 0, 256, 32, 1, 8192</column>
+<column name="crcTables_3_U">crcTables_RAM_1P_BRAM_1R1W, 1, 0, 0, 0, 256, 32, 1, 8192</column>
+<column name="crcTables_4_U">crcTables_RAM_1P_BRAM_1R1W, 1, 0, 0, 0, 256, 32, 1, 8192</column>
+<column name="crcTables_5_U">crcTables_RAM_1P_BRAM_1R1W, 1, 0, 0, 0, 256, 32, 1, 8192</column>
+<column name="crcTables_6_U">crcTables_RAM_1P_BRAM_1R1W, 1, 0, 0, 0, 256, 32, 1, 8192</column>
+<column name="crcTables_7_U">crcTables_RAM_1P_BRAM_1R1W, 1, 0, 0, 0, 256, 32, 1, 8192</column>
+<column name="crcTables_8_U">crcTables_RAM_1P_BRAM_1R1W, 1, 0, 0, 0, 256, 32, 1, 8192</column>
+<column name="crcTables_9_U">crcTables_RAM_1P_BRAM_1R1W, 1, 0, 0, 0, 256, 32, 1, 8192</column>
+<column name="crcTables_10_U">crcTables_RAM_1P_BRAM_1R1W, 1, 0, 0, 0, 256, 32, 1, 8192</column>
+<column name="crcTables_11_U">crcTables_RAM_1P_BRAM_1R1W, 1, 0, 0, 0, 256, 32, 1, 8192</column>
+<column name="crcTables_12_U">crcTables_RAM_1P_BRAM_1R1W, 1, 0, 0, 0, 256, 32, 1, 8192</column>
+<column name="crcTables_13_U">crcTables_RAM_1P_BRAM_1R1W, 1, 0, 0, 0, 256, 32, 1, 8192</column>
+<column name="crcTables_14_U">crcTables_RAM_1P_BRAM_1R1W, 1, 0, 0, 0, 256, 32, 1, 8192</column>
+<column name="crcTables_15_U">crcTables_RAM_1P_BRAM_1R1W, 1, 0, 0, 0, 256, 32, 1, 8192</column>
 </table>
 </item>
 <item name = "FIFO"><table name="" hasTotal="1">
@@ -85,14 +103,62 @@
 <item name = "Expression"><table name="" hasTotal="1">
 <keys size="7">Variable Name, Operation, DSP, FF, LUT, Bitwidth P0, Bitwidth P1</keys>
 <column name="ap_block_state1">or, 0, 0, 2, 1, 1</column>
-<column name="ap_sync_grp_process_crc_fu_122_ap_done">or, 0, 0, 2, 1, 1</column>
-<column name="ap_sync_grp_process_crc_fu_122_ap_ready">or, 0, 0, 2, 1, 1</column>
+<column name="ap_sync_grp_crc_dataflow_region_fu_221_ap_done">or, 0, 0, 2, 1, 1</column>
+<column name="ap_sync_grp_crc_dataflow_region_fu_221_ap_ready">or, 0, 0, 2, 1, 1</column>
 </table>
 </item>
 <item name = "Multiplexer"><table name="" hasTotal="1">
 <keys size="5">Name, LUT, Input Size, Bits, Total Bits</keys>
-<column name="ap_NS_fsm">20, 4, 1, 4</column>
+<column name="ap_NS_fsm">31, 6, 1, 6</column>
 <column name="ap_done">9, 2, 1, 2</column>
+<column name="crcTables_10_address0">14, 3, 8, 24</column>
+<column name="crcTables_10_ce0">14, 3, 1, 3</column>
+<column name="crcTables_10_we0">9, 2, 1, 2</column>
+<column name="crcTables_11_address0">14, 3, 8, 24</column>
+<column name="crcTables_11_ce0">14, 3, 1, 3</column>
+<column name="crcTables_11_we0">9, 2, 1, 2</column>
+<column name="crcTables_12_address0">14, 3, 8, 24</column>
+<column name="crcTables_12_ce0">14, 3, 1, 3</column>
+<column name="crcTables_12_we0">9, 2, 1, 2</column>
+<column name="crcTables_13_address0">14, 3, 8, 24</column>
+<column name="crcTables_13_ce0">14, 3, 1, 3</column>
+<column name="crcTables_13_we0">9, 2, 1, 2</column>
+<column name="crcTables_14_address0">14, 3, 8, 24</column>
+<column name="crcTables_14_ce0">14, 3, 1, 3</column>
+<column name="crcTables_14_we0">9, 2, 1, 2</column>
+<column name="crcTables_15_address0">14, 3, 8, 24</column>
+<column name="crcTables_15_ce0">14, 3, 1, 3</column>
+<column name="crcTables_15_we0">9, 2, 1, 2</column>
+<column name="crcTables_1_address0">14, 3, 8, 24</column>
+<column name="crcTables_1_ce0">14, 3, 1, 3</column>
+<column name="crcTables_1_we0">9, 2, 1, 2</column>
+<column name="crcTables_2_address0">14, 3, 8, 24</column>
+<column name="crcTables_2_ce0">14, 3, 1, 3</column>
+<column name="crcTables_2_we0">9, 2, 1, 2</column>
+<column name="crcTables_3_address0">14, 3, 8, 24</column>
+<column name="crcTables_3_ce0">14, 3, 1, 3</column>
+<column name="crcTables_3_we0">9, 2, 1, 2</column>
+<column name="crcTables_4_address0">14, 3, 8, 24</column>
+<column name="crcTables_4_ce0">14, 3, 1, 3</column>
+<column name="crcTables_4_we0">9, 2, 1, 2</column>
+<column name="crcTables_5_address0">14, 3, 8, 24</column>
+<column name="crcTables_5_ce0">14, 3, 1, 3</column>
+<column name="crcTables_5_we0">9, 2, 1, 2</column>
+<column name="crcTables_6_address0">14, 3, 8, 24</column>
+<column name="crcTables_6_ce0">14, 3, 1, 3</column>
+<column name="crcTables_6_we0">9, 2, 1, 2</column>
+<column name="crcTables_7_address0">14, 3, 8, 24</column>
+<column name="crcTables_7_ce0">14, 3, 1, 3</column>
+<column name="crcTables_7_we0">9, 2, 1, 2</column>
+<column name="crcTables_8_address0">14, 3, 8, 24</column>
+<column name="crcTables_8_ce0">14, 3, 1, 3</column>
+<column name="crcTables_8_we0">9, 2, 1, 2</column>
+<column name="crcTables_9_address0">14, 3, 8, 24</column>
+<column name="crcTables_9_ce0">14, 3, 1, 3</column>
+<column name="crcTables_9_we0">9, 2, 1, 2</column>
+<column name="crcTables_address0">14, 3, 8, 24</column>
+<column name="crcTables_ce0">14, 3, 1, 3</column>
+<column name="crcTables_we0">9, 2, 1, 2</column>
 <column name="gmem0_ARVALID">9, 2, 1, 2</column>
 <column name="gmem0_AWVALID">9, 2, 1, 2</column>
 <column name="gmem0_BREADY">9, 2, 1, 2</column>
@@ -104,17 +170,18 @@
 </item>
 <item name = "Register"><table name="" hasTotal="1">
 <keys size="5">Name, FF, LUT, Bits, Const Bits</keys>
-<column name="ap_CS_fsm">3, 0, 3, 0</column>
+<column name="ap_CS_fsm">5, 0, 5, 0</column>
 <column name="ap_done_reg">1, 0, 1, 0</column>
 <column name="ap_rst_n_inv">1, 0, 1, 0</column>
 <column name="ap_rst_reg_1">1, 0, 1, 0</column>
 <column name="ap_rst_reg_2">1, 0, 1, 0</column>
-<column name="ap_sync_reg_grp_process_crc_fu_122_ap_done">1, 0, 1, 0</column>
-<column name="ap_sync_reg_grp_process_crc_fu_122_ap_ready">1, 0, 1, 0</column>
-<column name="crc_out_read_reg_162">64, 0, 64, 0</column>
-<column name="data_in_read_reg_167">64, 0, 64, 0</column>
-<column name="grp_process_crc_fu_122_ap_start_reg">1, 0, 1, 0</column>
-<column name="tables_read_reg_157">64, 0, 64, 0</column>
+<column name="ap_sync_reg_grp_crc_dataflow_region_fu_221_ap_done">1, 0, 1, 0</column>
+<column name="ap_sync_reg_grp_crc_dataflow_region_fu_221_ap_ready">1, 0, 1, 0</column>
+<column name="crc_out_read_reg_254">64, 0, 64, 0</column>
+<column name="data_in_read_reg_259">64, 0, 64, 0</column>
+<column name="grp_crc_dataflow_region_fu_221_ap_start_reg">1, 0, 1, 0</column>
+<column name="grp_load_crc_tables_fu_198_ap_start_reg">1, 0, 1, 0</column>
+<column name="tables_read_reg_249">64, 0, 64, 0</column>
 </table>
 </item>
 </section>

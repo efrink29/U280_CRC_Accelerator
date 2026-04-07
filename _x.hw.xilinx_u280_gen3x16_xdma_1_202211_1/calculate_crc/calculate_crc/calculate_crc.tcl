@@ -6,14 +6,14 @@ catch {::common::set_param -quiet hls.xocc.mode csynth};
 open_project calculate_crc
 set_top calculate_crc
 # v++ -g, -D, -I, --advanced.prop kernel.calculate_crc.kernel_flags
-add_files "/users/arashs/U280_CRC_Accelerator/src/kernel.cpp" -cflags " -D KERNEL_VARIANT=KERNEL_VARIANT_CRC -I /users/arashs/U280_CRC_Accelerator/src"
+add_files "/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp" -cflags " -D KERNEL_VARIANT=KERNEL_VARIANT_CRC -I /home/efrink/mled/split_cu/U280_CRC_Accelerator/src"
 open_solution -flow_target vitis solution
 set_part xcu280-fsvh2892-2L-e
 create_clock -period 300.000000MHz -name default
 # v++ --advanced.param compiler.hlsDataflowStrictMode
 config_dataflow -strict_mode warning
 # v++ --advanced.param compiler.deadlockDetection
-config_rtl -deadlock_detection sim
+config_export -deadlock_detection sim
 # v++ --advanced.param compiler.axiDeadLockFree
 config_interface -m_axi_conservative_mode=1
 config_interface -m_axi_addr64

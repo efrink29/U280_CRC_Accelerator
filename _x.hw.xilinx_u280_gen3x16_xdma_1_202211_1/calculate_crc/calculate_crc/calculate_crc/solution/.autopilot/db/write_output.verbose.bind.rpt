@@ -3,12 +3,12 @@
 ================================================================
 == Vitis HLS Report for 'write_output'
 ================================================================
-* Date:           Fri Feb 20 12:32:07 2026
+* Date:           Thu Apr  2 18:17:04 2026
 
-* Version:        2023.1 (Build 3854077 on May  4 2023)
+* Version:        2022.1 (Build 3526262 on Mon Apr 18 15:47:01 MDT 2022)
 * Project:        calculate_crc
 * Solution:       solution (Vitis Kernel Flow Target)
-* Product family: virtexuplusHBM
+* Product family: virtexuplus
 * Target device:  xcu280-fsvh2892-2L-e
 
 
@@ -38,7 +38,7 @@
         |                                                  |                                        |  Latency (cycles) |  Latency (absolute) |  Interval | Pipeline|
         |                     Instance                     |                 Module                 |   min   |   max   |    min   |    max   | min | max |   Type  |
         +--------------------------------------------------+----------------------------------------+---------+---------+----------+----------+-----+-----+---------+
-        |grp_write_output_Pipeline_VITIS_LOOP_442_1_fu_58  |write_output_Pipeline_VITIS_LOOP_442_1  |        ?|        ?|         ?|         ?|    ?|    ?|       no|
+        |grp_write_output_Pipeline_VITIS_LOOP_350_1_fu_58  |write_output_Pipeline_VITIS_LOOP_350_1  |        ?|        ?|         ?|         ?|    ?|    ?|       no|
         +--------------------------------------------------+----------------------------------------+---------+---------+----------+----------+-----+-----+---------+
 
         * Loop: 
@@ -82,21 +82,21 @@ IsGatedGlobalClock: 0
 * FSM state operations: 
 
 State 1 <SV = 0> <Delay = 1.21>
-ST_1 : Operation 4 [1/1] (1.21ns)   --->   "%numChunks_1 = read i32 @_ssdm_op_Read.ap_fifo.i32P0A, i32 %numChunks"   --->   Operation 4 'read' 'numChunks_1' <Predicate = true> <Delay = 1.21> <CoreInst = "FIFO_SRL">   --->   Core 81 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.39> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 32> <Depth = 2> <FIFO>
-ST_1 : Operation 5 [1/1] (1.21ns)   --->   "%crc_out_1 = read i64 @_ssdm_op_Read.ap_fifo.i64P0A, i64 %crc_out"   --->   Operation 5 'read' 'crc_out_1' <Predicate = true> <Delay = 1.21> <CoreInst = "FIFO_SRL">   --->   Core 81 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.41> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 64> <Depth = 4> <FIFO>
-ST_1 : Operation 6 [1/1] (0.00ns)   --->   "%trunc_ln445 = trunc i64 %crc_out_1" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:445]   --->   Operation 6 'trunc' 'trunc_ln445' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 4 [1/1] (1.21ns)   --->   "%numChunks_read = read i32 @_ssdm_op_Read.ap_fifo.i32P0A, i32 %numChunks"   --->   Operation 4 'read' 'numChunks_read' <Predicate = true> <Delay = 1.21> <CoreInst = "FIFO_SRL">   --->   Core 81 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.39> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 32> <Depth = 2> <FIFO>
+ST_1 : Operation 5 [1/1] (1.21ns)   --->   "%crc_out_read = read i64 @_ssdm_op_Read.ap_fifo.i64P0A, i64 %crc_out"   --->   Operation 5 'read' 'crc_out_read' <Predicate = true> <Delay = 1.21> <CoreInst = "FIFO_SRL">   --->   Core 81 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.41> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 64> <Depth = 4> <FIFO>
+ST_1 : Operation 6 [1/1] (0.00ns)   --->   "%trunc_ln353 = trunc i64 %crc_out_read" [/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:353]   --->   Operation 6 'trunc' 'trunc_ln353' <Predicate = true> <Delay = 0.00>
 
-State 2 <SV = 1> <Delay = 1.26>
+State 2 <SV = 1> <Delay = 1.24>
 ST_2 : Operation 7 [1/1] (0.00ns)   --->   "%empty = wait i32 @_ssdm_op_Wait"   --->   Operation 7 'wait' 'empty' <Predicate = true> <Delay = 0.00>
-ST_2 : Operation 8 [2/2] (1.26ns)   --->   "%call_ln445 = call void @write_output_Pipeline_VITIS_LOOP_442_1, i32 %numChunks_1, i32 %outStream, i64 %crc_out_1, i4 %trunc_ln445, i128 %gmem0" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:445]   --->   Operation 8 'call' 'call_ln445' <Predicate = true> <Delay = 1.26> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_2 : Operation 8 [2/2] (1.24ns)   --->   "%call_ln353 = call void @write_output_Pipeline_VITIS_LOOP_350_1, i32 %numChunks_read, i32 %outStream33, i64 %crc_out_read, i4 %trunc_ln353, i128 %gmem0" [/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:353]   --->   Operation 8 'call' 'call_ln353' <Predicate = true> <Delay = 1.24> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
 
 State 3 <SV = 2> <Delay = 0.00>
 ST_3 : Operation 9 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i32 %numChunks, void @ap_fifo_str, i32 0, i32 0, void @p_str, i32 0, i32 0, void @p_str, void @p_str, void @p_str, i32 2, i32 2, i32 16, i32 16, void @p_str, void @ScalarProp_str, i32 4294967295, i32 0"   --->   Operation 9 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
 ST_3 : Operation 10 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i64 %crc_out, void @ap_fifo_str, i32 0, i32 0, void @p_str, i32 0, i32 0, void @p_str, void @p_str, void @p_str, i32 2, i32 2, i32 16, i32 16, void @p_str, void @ScalarProp_str, i32 4294967295, i32 0"   --->   Operation 10 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
-ST_3 : Operation 11 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i32 %outStream, void @empty_5, i32 0, i32 0, void @empty_18, i32 0, i32 0, void @empty_18, void @empty_18, void @empty_18, i32 0, i32 0, i32 0, i32 0, void @empty_18, void @empty_18, i32 4294967295, i32 0"   --->   Operation 11 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
-ST_3 : Operation 12 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i128 %gmem0, void @empty_17, i32 0, i32 0, void @empty_18, i32 64, i32 1024, void @empty_19, void @empty_4, void @empty_18, i32 16, i32 16, i32 16, i32 16, void @empty_18, void @empty_18, i32 4294967295, i32 0"   --->   Operation 12 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
-ST_3 : Operation 13 [1/2] (0.00ns)   --->   "%call_ln445 = call void @write_output_Pipeline_VITIS_LOOP_442_1, i32 %numChunks_1, i32 %outStream, i64 %crc_out_1, i4 %trunc_ln445, i128 %gmem0" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:445]   --->   Operation 13 'call' 'call_ln445' <Predicate = true> <Delay = 0.00> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
-ST_3 : Operation 14 [1/1] (0.00ns)   --->   "%ret_ln447 = ret" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:447]   --->   Operation 14 'ret' 'ret_ln447' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 11 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i32 %outStream33, void @empty_3, i32 0, i32 0, void @empty_23, i32 0, i32 0, void @empty_23, void @empty_23, void @empty_23, i32 0, i32 0, i32 0, i32 0, void @empty_23, void @empty_23, i32 4294967295, i32 0"   --->   Operation 11 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 12 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i128 %gmem0, void @empty_22, i32 0, i32 0, void @empty_23, i32 64, i32 1024, void @empty, void @empty_2, void @empty_23, i32 16, i32 16, i32 16, i32 16, void @empty_23, void @empty_23, i32 4294967295, i32 0"   --->   Operation 12 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 13 [1/2] (0.00ns)   --->   "%call_ln353 = call void @write_output_Pipeline_VITIS_LOOP_350_1, i32 %numChunks_read, i32 %outStream33, i64 %crc_out_read, i4 %trunc_ln353, i128 %gmem0" [/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:353]   --->   Operation 13 'call' 'call_ln353' <Predicate = true> <Delay = 0.00> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_3 : Operation 14 [1/1] (0.00ns)   --->   "%ret_ln355 = ret" [/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:355]   --->   Operation 14 'ret' 'ret_ln355' <Predicate = true> <Delay = 0.00>
 
 
 ============================================================
@@ -110,7 +110,7 @@ STG Binding:
 - Is pipelined: 0
 - Is top level: 0
 Port [ Return ] is wired: 1; IO mode=ap_ctrl_hs:ce=0
-Port [ outStream]:  wired=1; compound=1; hidden=0; nouse=0; global=0; static=0; extern=0; dir=0; type=3; pingpong=0; private_global=0; IO mode=ap_fifo:ce=0
+Port [ outStream33]:  wired=1; compound=1; hidden=0; nouse=0; global=0; static=0; extern=0; dir=0; type=3; pingpong=0; private_global=0; IO mode=ap_fifo:ce=0
 Port [ numChunks]:  wired=1; compound=1; hidden=0; nouse=0; global=0; static=0; extern=0; dir=0; type=3; pingpong=0; private_global=0; IO mode=ap_fifo:ce=0
 Port [ gmem0]:  wired=1; compound=1; hidden=0; nouse=0; global=0; static=0; extern=0; dir=1; type=4; pingpong=0; private_global=0; IO mode=m_axi:ce=0
 Port [ crc_out]:  wired=1; compound=1; hidden=0; nouse=0; global=0; static=0; extern=0; dir=0; type=3; pingpong=0; private_global=0; IO mode=ap_fifo:ce=0
@@ -120,27 +120,27 @@ Port [ crc_out]:  wired=1; compound=1; hidden=0; nouse=0; global=0; static=0; ex
 
 <LifeTime>
 <method=bitvector/>
-numChunks_1       (read         ) [ 0011]
-crc_out_1         (read         ) [ 0011]
-trunc_ln445       (trunc        ) [ 0011]
+numChunks_read    (read         ) [ 0011]
+crc_out_read      (read         ) [ 0011]
+trunc_ln353       (trunc        ) [ 0011]
 empty             (wait         ) [ 0000]
 specinterface_ln0 (specinterface) [ 0000]
 specinterface_ln0 (specinterface) [ 0000]
 specinterface_ln0 (specinterface) [ 0000]
 specinterface_ln0 (specinterface) [ 0000]
-call_ln445        (call         ) [ 0000]
-ret_ln447         (ret          ) [ 0000]
+call_ln353        (call         ) [ 0000]
+ret_ln355         (ret          ) [ 0000]
 </LifeTime>
 
 <model>
 
 <comp_list>
-<comp id="0" class="1000" name="outStream">
+<comp id="0" class="1000" name="outStream33">
 <pin_list>
 <pin id="1" dir="1" index="0" bw="1" slack="0"/>
 </pin_list>
 <bind>
-<StgValue><ssdm name="outStream"/></StgValue>
+<StgValue><ssdm name="outStream33"/></StgValue>
 </bind>
 </comp>
 
@@ -203,7 +203,7 @@ ret_ln447         (ret          ) [ 0000]
 <pin id="15" dir="1" index="0" bw="1" slack="0"/>
 </pin_list>
 <bind>
-<StgValue><ssdm name="write_output_Pipeline_VITIS_LOOP_442_1"/></StgValue>
+<StgValue><ssdm name="write_output_Pipeline_VITIS_LOOP_350_1"/></StgValue>
 </bind>
 </comp>
 
@@ -284,7 +284,7 @@ ret_ln447         (ret          ) [ 0000]
 <pin id="33" dir="1" index="0" bw="1" slack="2147483647"/>
 </pin_list>
 <bind>
-<StgValue><ssdm name="empty_5"/></StgValue>
+<StgValue><ssdm name="empty_3"/></StgValue>
 </bind>
 </comp>
 
@@ -293,7 +293,7 @@ ret_ln447         (ret          ) [ 0000]
 <pin id="35" dir="1" index="0" bw="1" slack="2147483647"/>
 </pin_list>
 <bind>
-<StgValue><ssdm name="empty_18"/></StgValue>
+<StgValue><ssdm name="empty_23"/></StgValue>
 </bind>
 </comp>
 
@@ -302,7 +302,7 @@ ret_ln447         (ret          ) [ 0000]
 <pin id="37" dir="1" index="0" bw="1" slack="2147483647"/>
 </pin_list>
 <bind>
-<StgValue><ssdm name="empty_17"/></StgValue>
+<StgValue><ssdm name="empty_22"/></StgValue>
 </bind>
 </comp>
 
@@ -329,7 +329,7 @@ ret_ln447         (ret          ) [ 0000]
 <pin id="43" dir="1" index="0" bw="1" slack="2147483647"/>
 </pin_list>
 <bind>
-<StgValue><ssdm name="empty_19"/></StgValue>
+<StgValue><ssdm name="empty"/></StgValue>
 </bind>
 </comp>
 
@@ -338,11 +338,11 @@ ret_ln447         (ret          ) [ 0000]
 <pin id="45" dir="1" index="0" bw="1" slack="2147483647"/>
 </pin_list>
 <bind>
-<StgValue><ssdm name="empty_4"/></StgValue>
+<StgValue><ssdm name="empty_2"/></StgValue>
 </bind>
 </comp>
 
-<comp id="46" class="1004" name="numChunks_1_read_fu_46">
+<comp id="46" class="1004" name="numChunks_read_read_fu_46">
 <pin_list>
 <pin id="47" dir="0" index="0" bw="32" slack="0"/>
 <pin id="48" dir="0" index="1" bw="32" slack="0"/>
@@ -350,11 +350,11 @@ ret_ln447         (ret          ) [ 0000]
 </pin_list>
 <bind>
 <opcode="read(1150) " fcode="read"/>
-<opset="numChunks_1/1 "/>
+<opset="numChunks_read/1 "/>
 </bind>
 </comp>
 
-<comp id="52" class="1004" name="crc_out_1_read_fu_52">
+<comp id="52" class="1004" name="crc_out_read_read_fu_52">
 <pin_list>
 <pin id="53" dir="0" index="0" bw="64" slack="0"/>
 <pin id="54" dir="0" index="1" bw="64" slack="0"/>
@@ -362,11 +362,11 @@ ret_ln447         (ret          ) [ 0000]
 </pin_list>
 <bind>
 <opcode="read(1150) " fcode="read"/>
-<opset="crc_out_1/1 "/>
+<opset="crc_out_read/1 "/>
 </bind>
 </comp>
 
-<comp id="58" class="1004" name="grp_write_output_Pipeline_VITIS_LOOP_442_1_fu_58">
+<comp id="58" class="1004" name="grp_write_output_Pipeline_VITIS_LOOP_350_1_fu_58">
 <pin_list>
 <pin id="59" dir="0" index="0" bw="0" slack="0"/>
 <pin id="60" dir="0" index="1" bw="32" slack="1"/>
@@ -378,48 +378,48 @@ ret_ln447         (ret          ) [ 0000]
 </pin_list>
 <bind>
 <opcode="call(48) " fcode="call"/>
-<opset="call_ln445/2 "/>
+<opset="call_ln353/2 "/>
 </bind>
 </comp>
 
-<comp id="69" class="1004" name="trunc_ln445_fu_69">
+<comp id="69" class="1004" name="trunc_ln353_fu_69">
 <pin_list>
 <pin id="70" dir="0" index="0" bw="64" slack="0"/>
 <pin id="71" dir="1" index="1" bw="4" slack="1"/>
 </pin_list>
 <bind>
 <opcode="trunc(33) " fcode="trunc"/>
-<opset="trunc_ln445/1 "/>
+<opset="trunc_ln353/1 "/>
 </bind>
 </comp>
 
-<comp id="73" class="1005" name="numChunks_1_reg_73">
+<comp id="73" class="1005" name="numChunks_read_reg_73">
 <pin_list>
 <pin id="74" dir="0" index="0" bw="32" slack="1"/>
 <pin id="75" dir="1" index="1" bw="32" slack="1"/>
 </pin_list>
 <bind>
-<opset="numChunks_1 "/>
+<opset="numChunks_read "/>
 </bind>
 </comp>
 
-<comp id="78" class="1005" name="crc_out_1_reg_78">
+<comp id="78" class="1005" name="crc_out_read_reg_78">
 <pin_list>
 <pin id="79" dir="0" index="0" bw="64" slack="1"/>
 <pin id="80" dir="1" index="1" bw="64" slack="1"/>
 </pin_list>
 <bind>
-<opset="crc_out_1 "/>
+<opset="crc_out_read "/>
 </bind>
 </comp>
 
-<comp id="83" class="1005" name="trunc_ln445_reg_83">
+<comp id="83" class="1005" name="trunc_ln353_reg_83">
 <pin_list>
 <pin id="84" dir="0" index="0" bw="4" slack="1"/>
 <pin id="85" dir="1" index="1" bw="4" slack="1"/>
 </pin_list>
 <bind>
-<opset="trunc_ln445 "/>
+<opset="trunc_ln353 "/>
 </bind>
 </comp>
 
@@ -463,7 +463,7 @@ ret_ln447         (ret          ) [ 0000]
   - Output states:
 	Port: gmem0 | {2 3 }
  - Input state : 
-	Port: write_output : outStream | {2 3 }
+	Port: write_output : outStream33 | {2 3 }
 	Port: write_output : numChunks | {1 }
 	Port: write_output : crc_out | {1 }
   - Chain level:
@@ -480,29 +480,29 @@ ret_ln447         (ret          ) [ 0000]
 |----------|--------------------------------------------------|---------|---------|---------|
 | Operation|                  Functional Unit                 |  Delay  |    FF   |   LUT   |
 |----------|--------------------------------------------------|---------|---------|---------|
-|   call   | grp_write_output_Pipeline_VITIS_LOOP_442_1_fu_58 |  0.774  |   370   |   272   |
+|   call   | grp_write_output_Pipeline_VITIS_LOOP_350_1_fu_58 |  0.774  |   371   |   254   |
 |----------|--------------------------------------------------|---------|---------|---------|
-|   read   |              numChunks_1_read_fu_46              |    0    |    0    |    0    |
-|          |               crc_out_1_read_fu_52               |    0    |    0    |    0    |
+|   read   |             numChunks_read_read_fu_46            |    0    |    0    |    0    |
+|          |              crc_out_read_read_fu_52             |    0    |    0    |    0    |
 |----------|--------------------------------------------------|---------|---------|---------|
-|   trunc  |                 trunc_ln445_fu_69                |    0    |    0    |    0    |
+|   trunc  |                 trunc_ln353_fu_69                |    0    |    0    |    0    |
 |----------|--------------------------------------------------|---------|---------|---------|
-|   Total  |                                                  |  0.774  |   370   |   272   |
+|   Total  |                                                  |  0.774  |   371   |   254   |
 |----------|--------------------------------------------------|---------|---------|---------|
 
 Memories:
 N/A
 
 * Register list:
-+------------------+--------+
-|                  |   FF   |
-+------------------+--------+
-| crc_out_1_reg_78 |   64   |
-|numChunks_1_reg_73|   32   |
-|trunc_ln445_reg_83|    4   |
-+------------------+--------+
-|       Total      |   100  |
-+------------------+--------+
++---------------------+--------+
+|                     |   FF   |
++---------------------+--------+
+| crc_out_read_reg_78 |   64   |
+|numChunks_read_reg_73|   32   |
+|  trunc_ln353_reg_83 |    4   |
++---------------------+--------+
+|        Total        |   100  |
++---------------------+--------+
 
 * Multiplexer (MUX) list: 
 |--------|------|------|------|--------|
@@ -517,10 +517,10 @@ N/A
 +-----------+--------+--------+--------+
 |           |  Delay |   FF   |   LUT  |
 +-----------+--------+--------+--------+
-|  Function |    0   |   370  |   272  |
+|  Function |    0   |   371  |   254  |
 |   Memory  |    -   |    -   |    -   |
 |Multiplexer|    -   |    -   |    -   |
 |  Register |    -   |   100  |    -   |
 +-----------+--------+--------+--------+
-|   Total   |    0   |   470  |   272  |
+|   Total   |    0   |   471  |   254  |
 +-----------+--------+--------+--------+

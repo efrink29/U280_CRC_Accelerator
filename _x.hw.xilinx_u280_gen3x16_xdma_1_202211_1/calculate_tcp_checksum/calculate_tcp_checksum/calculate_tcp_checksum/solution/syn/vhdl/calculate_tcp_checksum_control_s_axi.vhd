@@ -1,9 +1,7 @@
 -- ==============================================================
--- Vitis HLS - High-Level Synthesis from C, C++ and OpenCL v2023.1 (64-bit)
--- Tool Version Limit: 2023.05
+-- Vitis HLS - High-Level Synthesis from C, C++ and OpenCL v2022.1 (64-bit)
+-- Tool Version Limit: 2022.04
 -- Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
--- Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
--- 
 -- ==============================================================
 library IEEE;
 use IEEE.STD_LOGIC_1164.all;
@@ -64,9 +62,9 @@ end entity calculate_tcp_checksum_control_s_axi;
 --        bit 0 - enable ap_done interrupt (Read/Write)
 --        bit 1 - enable ap_ready interrupt (Read/Write)
 --        others - reserved
--- 0x0c : IP Interrupt Status Register (Read/TOW)
---        bit 0 - ap_done (Read/TOW)
---        bit 1 - ap_ready (Read/TOW)
+-- 0x0c : IP Interrupt Status Register (Read/COR)
+--        bit 0 - ap_done (Read/COR)
+--        bit 1 - ap_ready (Read/COR)
 --        others - reserved
 -- 0x10 : Data signal of data_in
 --        bit 31~0 - data_in[31:0] (Read/Write)
@@ -476,8 +474,8 @@ begin
             elsif (ACLK_EN = '1') then
                 if (int_ier(0) = '1' and ap_done = '1') then
                     int_isr(0) <= '1';
-                elsif (w_hs = '1' and waddr = ADDR_ISR and WSTRB(0) = '1') then
-                    int_isr(0) <= int_isr(0) xor WDATA(0); -- toggle on write
+                elsif (ar_hs = '1' and raddr = ADDR_ISR) then
+                    int_isr(0) <= '0'; -- clear on read
                 end if;
             end if;
         end if;
@@ -491,8 +489,8 @@ begin
             elsif (ACLK_EN = '1') then
                 if (int_ier(1) = '1' and ap_ready = '1') then
                     int_isr(1) <= '1';
-                elsif (w_hs = '1' and waddr = ADDR_ISR and WSTRB(0) = '1') then
-                    int_isr(1) <= int_isr(1) xor WDATA(1); -- toggle on write
+                elsif (ar_hs = '1' and raddr = ADDR_ISR) then
+                    int_isr(1) <= '0'; -- clear on read
                 end if;
             end if;
         end if;

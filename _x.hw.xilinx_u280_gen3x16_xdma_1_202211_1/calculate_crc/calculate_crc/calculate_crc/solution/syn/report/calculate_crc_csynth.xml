@@ -1,12 +1,12 @@
 <profile>
 
 <ReportVersion>
-<Version>2023.1</Version>
+<Version>2022.1</Version>
 </ReportVersion>
 
 <UserAssignments>
 <unit>ns</unit>
-<ProductFamily>virtexuplusHBM</ProductFamily>
+<ProductFamily>virtexuplus</ProductFamily>
 <Part>xcu280-fsvh2892-2L-e</Part>
 <TopModelName>calculate_crc</TopModelName>
 <TargetClockPeriod>3.33</TargetClockPeriod>
@@ -18,7 +18,7 @@
 <PipelineType>no</PipelineType>
 <SummaryOfTimingAnalysis>
 <unit>ns</unit>
-<EstimatedClockPeriod>3.629</EstimatedClockPeriod>
+<EstimatedClockPeriod>2.433</EstimatedClockPeriod>
 </SummaryOfTimingAnalysis>
 <SummaryOfOverallLatency>
 <unit>clock cycles</unit>
@@ -35,10 +35,10 @@
 
 <AreaEstimates>
 <Resources>
-<BRAM_18K>54</BRAM_18K>
+<BRAM_18K>16</BRAM_18K>
 <DSP>3</DSP>
-<FF>8627</FF>
-<LUT>10934</LUT>
+<FF>10030</FF>
+<LUT>17974</LUT>
 <URAM>0</URAM>
 </Resources>
 <AvailableResources>

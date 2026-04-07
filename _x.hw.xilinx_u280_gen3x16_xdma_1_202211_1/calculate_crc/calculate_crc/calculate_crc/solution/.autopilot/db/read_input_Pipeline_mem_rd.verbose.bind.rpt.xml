@@ -1,12 +1,12 @@
 <profile>
 
 <section name = "Vitis HLS Report for 'read_input_Pipeline_mem_rd'" level="0">
-<item name = "Date">Fri Feb 20 12:32:04 2026
+<item name = "Date">Thu Apr  2 18:17:02 2026
 </item>
-<item name = "Version">2023.1 (Build 3854077 on May  4 2023)</item>
+<item name = "Version">2022.1 (Build 3526262 on Mon Apr 18 15:47:01 MDT 2022)</item>
 <item name = "Project">calculate_crc</item>
 <item name = "Solution">solution (Vitis Kernel Flow Target)</item>
-<item name = "Product family">virtexuplusHBM</item>
+<item name = "Product family">virtexuplus</item>
 <item name = "Target device">xcu280-fsvh2892-2L-e</item>
 </section>
 
@@ -24,7 +24,7 @@
 <section name = "" level="1">
 <item name = "Summary"><table name="" hasTotal="0">
 <keys size="8">, min, max, min, max, min, max, Type</keys>
-<column name="">3, 134217730, 9.999 ns, 0.447 sec, 3, 134217730, no</column>
+<column name="">?, ?, ?, ?, ?, ?, no</column>
 </table>
 </item>
 <item name = "Detail">
@@ -35,7 +35,7 @@
 </item>
 <item name = "Loop"><table name="" hasTotal="0">
 <keys size="8">Loop Name, min, max, Latency, achieved, target, Count, Pipelined</keys>
-<column name="- mem_rd">1, 134217728, 3, 1, 1, 0 ~ 134217727, yes</column>
+<column name="- mem_rd">?, ?, 3, 1, 1, ?, yes</column>
 </table>
 </item>
 </section>

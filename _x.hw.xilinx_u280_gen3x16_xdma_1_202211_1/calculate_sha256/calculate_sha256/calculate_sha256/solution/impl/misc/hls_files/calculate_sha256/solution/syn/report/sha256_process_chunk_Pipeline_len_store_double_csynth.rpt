@@ -3,12 +3,12 @@
 ================================================================
 == Vitis HLS Report for 'sha256_process_chunk_Pipeline_len_store_double'
 ================================================================
-* Date:           Fri Feb 20 12:34:58 2026
+* Date:           Thu Apr  2 18:19:34 2026
 
-* Version:        2023.1 (Build 3854077 on May  4 2023)
+* Version:        2022.1 (Build 3526262 on Mon Apr 18 15:47:01 MDT 2022)
 * Project:        calculate_sha256
 * Solution:       solution (Vitis Kernel Flow Target)
-* Product family: virtexuplusHBM
+* Product family: virtexuplus
 * Target device:  xcu280-fsvh2892-2L-e
 
 
@@ -54,14 +54,14 @@
 |         Name        | BRAM_18K|  DSP |    FF   |   LUT   | URAM|
 +---------------------+---------+------+---------+---------+-----+
 |DSP                  |        -|     -|        -|        -|    -|
-|Expression           |        -|     -|        0|      214|    -|
+|Expression           |        -|     -|        0|      211|    -|
 |FIFO                 |        -|     -|        -|        -|    -|
 |Instance             |        -|     -|        -|        -|    -|
 |Memory               |        -|     -|        -|        -|    -|
 |Multiplexer          |        -|     -|        -|       27|    -|
 |Register             |        -|     -|        6|        -|    -|
 +---------------------+---------+------+---------+---------+-----+
-|Total                |        0|     0|        6|      241|    0|
+|Total                |        0|     0|        6|      238|    0|
 +---------------------+---------+------+---------+---------+-----+
 |Available SLR        |     1344|  3008|   869120|   434560|  320|
 +---------------------+---------+------+---------+---------+-----+
@@ -89,13 +89,13 @@
     +-----------------------+----------+----+---+-----+------------+------------+
     |     Variable Name     | Operation| DSP| FF| LUT | Bitwidth P0| Bitwidth P1|
     +-----------------------+----------+----+---+-----+------------+------------+
-    |add_ln258_fu_77_p2     |         +|   0|  0|   12|           4|           1|
-    |icmp_ln258_fu_71_p2    |      icmp|   0|  0|   12|           4|           5|
-    |lshr_ln261_fu_105_p2   |      lshr|   0|  0|  182|          64|          64|
-    |xor_ln261_1_fu_116_p2  |       xor|   0|  0|    5|           4|           5|
-    |xor_ln261_fu_87_p2     |       xor|   0|  0|    3|           3|           2|
+    |add_ln292_fu_77_p2     |         +|   0|  0|   12|           4|           1|
+    |icmp_ln292_fu_71_p2    |      icmp|   0|  0|    9|           4|           5|
+    |lshr_ln295_fu_105_p2   |      lshr|   0|  0|  182|          64|          64|
+    |xor_ln295_1_fu_116_p2  |       xor|   0|  0|    5|           4|           5|
+    |xor_ln295_fu_87_p2     |       xor|   0|  0|    3|           3|           2|
     +-----------------------+----------+----+---+-----+------------+------------+
-    |Total                  |          |   0|  0|  214|          79|          77|
+    |Total                  |          |   0|  0|  211|          79|          77|
     +-----------------------+----------+----+---+-----+------------+------------+
 
     * Multiplexer: 
@@ -135,7 +135,7 @@
 |ap_done             |  out|    1|  ap_ctrl_hs|  sha256_process_chunk_Pipeline_len_store_double|  return value|
 |ap_idle             |  out|    1|  ap_ctrl_hs|  sha256_process_chunk_Pipeline_len_store_double|  return value|
 |ap_ready            |  out|    1|  ap_ctrl_hs|  sha256_process_chunk_Pipeline_len_store_double|  return value|
-|zext_ln232          |   in|   35|     ap_none|                                      zext_ln232|        scalar|
+|zext_ln266          |   in|   35|     ap_none|                                      zext_ln266|        scalar|
 |pad_block_address0  |  out|    6|   ap_memory|                                       pad_block|         array|
 |pad_block_ce0       |  out|    1|   ap_memory|                                       pad_block|         array|
 |pad_block_we0       |  out|    1|   ap_memory|                                       pad_block|         array|

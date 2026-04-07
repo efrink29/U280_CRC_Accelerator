@@ -94,10 +94,10 @@ entry:18 %data_in_read = read i64 @_ssdm_op_Read.s_axilite.i64, i64 %data_in
 
 <Node id="25" bw="0" op_0_bw="0" op_1_bw="512" op_2_bw="64" op_3_bw="64" op_4_bw="32" op_5_bw="32">
 <![CDATA[
-entry:19 %call_ln721 = call void @process_tcp_checksum, i512 %gmem0, i64 %data_in_read, i64 %crc_out_read, i32 %numChunks_read, i32 %chunkSize_read
+entry:19 %call_ln838 = call void @process_tcp_checksum, i512 %gmem0, i64 %data_in_read, i64 %crc_out_read, i32 %numChunks_read, i32 %chunkSize_read
 
 ]]></Node>
-<StgValue><ssdm name="call_ln721"/></StgValue>
+<StgValue><ssdm name="call_ln838"/></StgValue>
 </operation>
 </state>
 
@@ -112,10 +112,10 @@ entry:19 %call_ln721 = call void @process_tcp_checksum, i512 %gmem0, i64 %data_i
 
 <Node id="6" bw="0" op_0_bw="0" op_1_bw="0">
 <![CDATA[
-entry:0 %spectopmodule_ln714 = spectopmodule void @_ssdm_op_SpecTopModule, void @empty_8
+entry:0 %spectopmodule_ln831 = spectopmodule void @_ssdm_op_SpecTopModule, void @empty_8
 
 ]]></Node>
-<StgValue><ssdm name="spectopmodule_ln714"/></StgValue>
+<StgValue><ssdm name="spectopmodule_ln831"/></StgValue>
 </operation>
 
 <operation id="10" st_id="3" stage="1" lat="1">
@@ -127,10 +127,10 @@ entry:0 %spectopmodule_ln714 = spectopmodule void @_ssdm_op_SpecTopModule, void 
 
 <Node id="7" bw="0" op_0_bw="0" op_1_bw="32" op_2_bw="0" op_3_bw="32" op_4_bw="32" op_5_bw="0" op_6_bw="32" op_7_bw="32" op_8_bw="0" op_9_bw="0" op_10_bw="0" op_11_bw="32" op_12_bw="32" op_13_bw="32" op_14_bw="32" op_15_bw="0" op_16_bw="0" op_17_bw="32" op_18_bw="32">
 <![CDATA[
-entry:1 %specinterface_ln714 = specinterface void @_ssdm_op_SpecInterface, i32 0, void @empty_9, i32 0, i32 0, void @empty_5, i32 0, i32 0, void @empty_5, void @empty_5, void @empty_5, i32 0, i32 0, i32 0, i32 0, void @empty_5, void @empty_5, i32 4294967295, i32 0
+entry:1 %specinterface_ln831 = specinterface void @_ssdm_op_SpecInterface, i32 0, void @empty_9, i32 0, i32 0, void @empty_5, i32 0, i32 0, void @empty_5, void @empty_5, void @empty_5, i32 0, i32 0, i32 0, i32 0, void @empty_5, void @empty_5, i32 4294967295, i32 0
 
 ]]></Node>
-<StgValue><ssdm name="specinterface_ln714"/></StgValue>
+<StgValue><ssdm name="specinterface_ln831"/></StgValue>
 </operation>
 
 <operation id="11" st_id="3" stage="1" lat="1">
@@ -337,10 +337,10 @@ entry:14 %specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i32 0,
 
 <Node id="25" bw="0" op_0_bw="0" op_1_bw="512" op_2_bw="64" op_3_bw="64" op_4_bw="32" op_5_bw="32">
 <![CDATA[
-entry:19 %call_ln721 = call void @process_tcp_checksum, i512 %gmem0, i64 %data_in_read, i64 %crc_out_read, i32 %numChunks_read, i32 %chunkSize_read
+entry:19 %call_ln838 = call void @process_tcp_checksum, i512 %gmem0, i64 %data_in_read, i64 %crc_out_read, i32 %numChunks_read, i32 %chunkSize_read
 
 ]]></Node>
-<StgValue><ssdm name="call_ln721"/></StgValue>
+<StgValue><ssdm name="call_ln838"/></StgValue>
 </operation>
 
 <operation id="25" st_id="3" stage="1" lat="1">
@@ -352,10 +352,10 @@ entry:19 %call_ln721 = call void @process_tcp_checksum, i512 %gmem0, i64 %data_i
 
 <Node id="26" bw="0">
 <![CDATA[
-entry:20 %ret_ln722 = ret
+entry:20 %ret_ln839 = ret
 
 ]]></Node>
-<StgValue><ssdm name="ret_ln722"/></StgValue>
+<StgValue><ssdm name="ret_ln839"/></StgValue>
 </operation>
 </state>
 </state_list>

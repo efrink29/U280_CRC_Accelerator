@@ -3,12 +3,12 @@
 ================================================================
 == Vitis HLS Report for 'sha256_process_chunk_Pipeline_len_store_single'
 ================================================================
-* Date:           Fri Feb 20 12:34:58 2026
+* Date:           Thu Apr  2 18:19:34 2026
 
-* Version:        2023.1 (Build 3854077 on May  4 2023)
+* Version:        2022.1 (Build 3526262 on Mon Apr 18 15:47:01 MDT 2022)
 * Project:        calculate_sha256
 * Solution:       solution (Vitis Kernel Flow Target)
-* Product family: virtexuplusHBM
+* Product family: virtexuplus
 * Target device:  xcu280-fsvh2892-2L-e
 
 
@@ -54,14 +54,14 @@
 |         Name        | BRAM_18K|  DSP |    FF   |   LUT   | URAM|
 +---------------------+---------+------+---------+---------+-----+
 |DSP                  |        -|     -|        -|        -|    -|
-|Expression           |        -|     -|        0|      214|    -|
+|Expression           |        -|     -|        0|      211|    -|
 |FIFO                 |        -|     -|        -|        -|    -|
 |Instance             |        -|     -|        -|        -|    -|
 |Memory               |        -|     -|        -|        -|    -|
 |Multiplexer          |        -|     -|        -|       27|    -|
 |Register             |        -|     -|        6|        -|    -|
 +---------------------+---------+------+---------+---------+-----+
-|Total                |        0|     0|        6|      241|    0|
+|Total                |        0|     0|        6|      238|    0|
 +---------------------+---------+------+---------+---------+-----+
 |Available SLR        |     1344|  3008|   869120|   434560|  320|
 +---------------------+---------+------+---------+---------+-----+
@@ -89,13 +89,13 @@
     +-----------------------+----------+----+---+-----+------------+------------+
     |     Variable Name     | Operation| DSP| FF| LUT | Bitwidth P0| Bitwidth P1|
     +-----------------------+----------+----+---+-----+------------+------------+
-    |add_ln237_fu_77_p2     |         +|   0|  0|   12|           4|           1|
-    |icmp_ln237_fu_71_p2    |      icmp|   0|  0|   12|           4|           5|
-    |lshr_ln240_fu_105_p2   |      lshr|   0|  0|  182|          64|          64|
-    |xor_ln240_1_fu_116_p2  |       xor|   0|  0|    5|           4|           5|
-    |xor_ln240_fu_87_p2     |       xor|   0|  0|    3|           3|           2|
+    |add_ln271_fu_77_p2     |         +|   0|  0|   12|           4|           1|
+    |icmp_ln271_fu_71_p2    |      icmp|   0|  0|    9|           4|           5|
+    |lshr_ln274_fu_105_p2   |      lshr|   0|  0|  182|          64|          64|
+    |xor_ln274_1_fu_116_p2  |       xor|   0|  0|    5|           4|           5|
+    |xor_ln274_fu_87_p2     |       xor|   0|  0|    3|           3|           2|
     +-----------------------+----------+----+---+-----+------------+------------+
-    |Total                  |          |   0|  0|  214|          79|          77|
+    |Total                  |          |   0|  0|  211|          79|          77|
     +-----------------------+----------+----+---+-----+------------+------------+
 
     * Multiplexer: 
@@ -135,7 +135,7 @@
 |ap_done             |  out|    1|  ap_ctrl_hs|  sha256_process_chunk_Pipeline_len_store_single|  return value|
 |ap_idle             |  out|    1|  ap_ctrl_hs|  sha256_process_chunk_Pipeline_len_store_single|  return value|
 |ap_ready            |  out|    1|  ap_ctrl_hs|  sha256_process_chunk_Pipeline_len_store_single|  return value|
-|zext_ln232          |   in|   35|     ap_none|                                      zext_ln232|        scalar|
+|zext_ln266          |   in|   35|     ap_none|                                      zext_ln266|        scalar|
 |pad_block_address0  |  out|    6|   ap_memory|                                       pad_block|         array|
 |pad_block_ce0       |  out|    1|   ap_memory|                                       pad_block|         array|
 |pad_block_we0       |  out|    1|   ap_memory|                                       pad_block|         array|
@@ -183,31 +183,31 @@ IsGatedGlobalClock: 0
 
 State 1 <SV = 0> <Delay = 1.83>
 ST_1 : Operation 4 [1/1] (0.00ns)   --->   "%i = alloca i32 1"   --->   Operation 4 'alloca' 'i' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 5 [1/1] (0.00ns)   --->   "%zext_ln232_read = read i35 @_ssdm_op_Read.ap_auto.i35, i35 %zext_ln232"   --->   Operation 5 'read' 'zext_ln232_read' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 6 [1/1] (0.00ns)   --->   "%zext_ln232_cast = zext i35 %zext_ln232_read"   --->   Operation 6 'zext' 'zext_ln232_cast' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 5 [1/1] (0.00ns)   --->   "%zext_ln266_read = read i35 @_ssdm_op_Read.ap_auto.i35, i35 %zext_ln266"   --->   Operation 5 'read' 'zext_ln266_read' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 6 [1/1] (0.00ns)   --->   "%zext_ln266_cast = zext i35 %zext_ln266_read"   --->   Operation 6 'zext' 'zext_ln266_cast' <Predicate = true> <Delay = 0.00>
 ST_1 : Operation 7 [1/1] (0.38ns)   --->   "%store_ln0 = store i4 0, i4 %i"   --->   Operation 7 'store' 'store_ln0' <Predicate = true> <Delay = 0.38>
 ST_1 : Operation 8 [1/1] (0.00ns)   --->   "%br_ln0 = br void %for.inc64"   --->   Operation 8 'br' 'br_ln0' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 9 [1/1] (0.00ns)   --->   "%i_1 = load i4 %i" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:240]   --->   Operation 9 'load' 'i_1' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 10 [1/1] (0.70ns)   --->   "%icmp_ln237 = icmp_eq  i4 %i_1, i4 8" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:237]   --->   Operation 10 'icmp' 'icmp_ln237' <Predicate = true> <Delay = 0.70> <CoreInst = "Cmp">   --->   Core 9 'Cmp' <Latency = 0> <II = 1> <Delay = 0.70> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
-ST_1 : Operation 11 [1/1] (0.70ns)   --->   "%add_ln237 = add i4 %i_1, i4 1" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:237]   --->   Operation 11 'add' 'add_ln237' <Predicate = true> <Delay = 0.70> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 0.70> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
-ST_1 : Operation 12 [1/1] (0.00ns)   --->   "%br_ln237 = br i1 %icmp_ln237, void %for.inc64.split, void %for.end66.exitStub" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:237]   --->   Operation 12 'br' 'br_ln237' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 13 [1/1] (0.00ns)   --->   "%specpipeline_ln239 = specpipeline void @_ssdm_op_SpecPipeline, i32 1, i32 0, i32 0, i32 0, void @empty" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:239]   --->   Operation 13 'specpipeline' 'specpipeline_ln239' <Predicate = (!icmp_ln237)> <Delay = 0.00>
-ST_1 : Operation 14 [1/1] (0.00ns)   --->   "%speclooptripcount_ln237 = speclooptripcount void @_ssdm_op_SpecLoopTripCount, i64 8, i64 8, i64 8" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:237]   --->   Operation 14 'speclooptripcount' 'speclooptripcount_ln237' <Predicate = (!icmp_ln237)> <Delay = 0.00>
-ST_1 : Operation 15 [1/1] (0.00ns)   --->   "%specloopname_ln237 = specloopname void @_ssdm_op_SpecLoopName, void @empty_20" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:237]   --->   Operation 15 'specloopname' 'specloopname_ln237' <Predicate = (!icmp_ln237)> <Delay = 0.00>
-ST_1 : Operation 16 [1/1] (0.00ns) (grouped into LUT with out node lshr_ln240)   --->   "%trunc_ln240 = trunc i4 %i_1" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:240]   --->   Operation 16 'trunc' 'trunc_ln240' <Predicate = (!icmp_ln237)> <Delay = 0.00>
-ST_1 : Operation 17 [1/1] (0.00ns) (grouped into LUT with out node lshr_ln240)   --->   "%xor_ln240 = xor i3 %trunc_ln240, i3 7" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:240]   --->   Operation 17 'xor' 'xor_ln240' <Predicate = (!icmp_ln237)> <Delay = 0.00> <CoreInst = "LogicGate">   --->   Core 74 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.12> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
-ST_1 : Operation 18 [1/1] (0.00ns) (grouped into LUT with out node lshr_ln240)   --->   "%shl_ln3 = bitconcatenate i6 @_ssdm_op_BitConcatenate.i6.i3.i3, i3 %xor_ln240, i3 0" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:240]   --->   Operation 18 'bitconcatenate' 'shl_ln3' <Predicate = (!icmp_ln237)> <Delay = 0.00>
-ST_1 : Operation 19 [1/1] (0.00ns) (grouped into LUT with out node lshr_ln240)   --->   "%zext_ln240 = zext i6 %shl_ln3" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:240]   --->   Operation 19 'zext' 'zext_ln240' <Predicate = (!icmp_ln237)> <Delay = 0.00>
-ST_1 : Operation 20 [1/1] (1.16ns) (out node of the LUT)   --->   "%lshr_ln240 = lshr i64 %zext_ln232_cast, i64 %zext_ln240" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:240]   --->   Operation 20 'lshr' 'lshr_ln240' <Predicate = (!icmp_ln237)> <Delay = 1.16> <CoreInst = "Shifter">   --->   Core 75 'Shifter' <Latency = 0> <II = 1> <Delay = 1.09> <FuncUnit> <Opcode : 'shl' 'lshr' 'ashr'> <InPorts = 2> <OutPorts = 1>
-ST_1 : Operation 21 [1/1] (0.00ns)   --->   "%trunc_ln240_1 = trunc i64 %lshr_ln240" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:240]   --->   Operation 21 'trunc' 'trunc_ln240_1' <Predicate = (!icmp_ln237)> <Delay = 0.00>
-ST_1 : Operation 22 [1/1] (0.22ns)   --->   "%xor_ln240_1 = xor i4 %i_1, i4 8" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:240]   --->   Operation 22 'xor' 'xor_ln240_1' <Predicate = (!icmp_ln237)> <Delay = 0.22> <CoreInst = "LogicGate">   --->   Core 74 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.10> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
-ST_1 : Operation 23 [1/1] (0.00ns)   --->   "%sext_ln240 = sext i4 %xor_ln240_1" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:240]   --->   Operation 23 'sext' 'sext_ln240' <Predicate = (!icmp_ln237)> <Delay = 0.00>
-ST_1 : Operation 24 [1/1] (0.00ns)   --->   "%zext_ln240_1 = zext i6 %sext_ln240" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:240]   --->   Operation 24 'zext' 'zext_ln240_1' <Predicate = (!icmp_ln237)> <Delay = 0.00>
-ST_1 : Operation 25 [1/1] (0.00ns)   --->   "%pad_block_addr = getelementptr i8 %pad_block, i64 0, i64 %zext_ln240_1" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:240]   --->   Operation 25 'getelementptr' 'pad_block_addr' <Predicate = (!icmp_ln237)> <Delay = 0.00>
-ST_1 : Operation 26 [1/1] (0.66ns)   --->   "%store_ln240 = store i8 %trunc_ln240_1, i6 %pad_block_addr" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:240]   --->   Operation 26 'store' 'store_ln240' <Predicate = (!icmp_ln237)> <Delay = 0.66> <CoreInst = "RAM">   --->   Core 83 'RAM' <Latency = 1> <II = 1> <Delay = 0.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 64> <RAM>
-ST_1 : Operation 27 [1/1] (0.38ns)   --->   "%store_ln237 = store i4 %add_ln237, i4 %i" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:237]   --->   Operation 27 'store' 'store_ln237' <Predicate = (!icmp_ln237)> <Delay = 0.38>
-ST_1 : Operation 28 [1/1] (0.00ns)   --->   "%br_ln237 = br void %for.inc64" [/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:237]   --->   Operation 28 'br' 'br_ln237' <Predicate = (!icmp_ln237)> <Delay = 0.00>
-ST_1 : Operation 29 [1/1] (0.00ns)   --->   "%ret_ln0 = ret"   --->   Operation 29 'ret' 'ret_ln0' <Predicate = (icmp_ln237)> <Delay = 0.00>
+ST_1 : Operation 9 [1/1] (0.00ns)   --->   "%i_1 = load i4 %i" [/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:274]   --->   Operation 9 'load' 'i_1' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 10 [1/1] (0.65ns)   --->   "%icmp_ln271 = icmp_eq  i4 %i_1, i4 8" [/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:271]   --->   Operation 10 'icmp' 'icmp_ln271' <Predicate = true> <Delay = 0.65> <CoreInst = "Cmp">   --->   Core 9 'Cmp' <Latency = 0> <II = 1> <Delay = 0.63> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 11 [1/1] (0.00ns)   --->   "%empty = speclooptripcount i32 @_ssdm_op_SpecLoopTripCount, i64 8, i64 8, i64 8"   --->   Operation 11 'speclooptripcount' 'empty' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 12 [1/1] (0.70ns)   --->   "%add_ln271 = add i4 %i_1, i4 1" [/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:271]   --->   Operation 12 'add' 'add_ln271' <Predicate = true> <Delay = 0.70> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 0.70> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 13 [1/1] (0.00ns)   --->   "%br_ln271 = br i1 %icmp_ln271, void %for.inc64.split, void %for.end66.exitStub" [/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:271]   --->   Operation 13 'br' 'br_ln271' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 14 [1/1] (0.00ns)   --->   "%specpipeline_ln273 = specpipeline void @_ssdm_op_SpecPipeline, i32 1, i32 0, i32 0, i32 0, void @empty" [/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:273]   --->   Operation 14 'specpipeline' 'specpipeline_ln273' <Predicate = (!icmp_ln271)> <Delay = 0.00>
+ST_1 : Operation 15 [1/1] (0.00ns)   --->   "%specloopname_ln271 = specloopname void @_ssdm_op_SpecLoopName, void @empty_17" [/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:271]   --->   Operation 15 'specloopname' 'specloopname_ln271' <Predicate = (!icmp_ln271)> <Delay = 0.00>
+ST_1 : Operation 16 [1/1] (0.00ns) (grouped into LUT with out node lshr_ln274)   --->   "%trunc_ln274 = trunc i4 %i_1" [/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:274]   --->   Operation 16 'trunc' 'trunc_ln274' <Predicate = (!icmp_ln271)> <Delay = 0.00>
+ST_1 : Operation 17 [1/1] (0.00ns) (grouped into LUT with out node lshr_ln274)   --->   "%xor_ln274 = xor i3 %trunc_ln274, i3 7" [/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:274]   --->   Operation 17 'xor' 'xor_ln274' <Predicate = (!icmp_ln271)> <Delay = 0.00> <CoreInst = "LogicGate">   --->   Core 74 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.12> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 18 [1/1] (0.00ns) (grouped into LUT with out node lshr_ln274)   --->   "%shl_ln3 = bitconcatenate i6 @_ssdm_op_BitConcatenate.i6.i3.i3, i3 %xor_ln274, i3 0" [/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:274]   --->   Operation 18 'bitconcatenate' 'shl_ln3' <Predicate = (!icmp_ln271)> <Delay = 0.00>
+ST_1 : Operation 19 [1/1] (0.00ns) (grouped into LUT with out node lshr_ln274)   --->   "%zext_ln274 = zext i6 %shl_ln3" [/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:274]   --->   Operation 19 'zext' 'zext_ln274' <Predicate = (!icmp_ln271)> <Delay = 0.00>
+ST_1 : Operation 20 [1/1] (1.16ns) (out node of the LUT)   --->   "%lshr_ln274 = lshr i64 %zext_ln266_cast, i64 %zext_ln274" [/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:274]   --->   Operation 20 'lshr' 'lshr_ln274' <Predicate = (!icmp_ln271)> <Delay = 1.16> <CoreInst = "Shifter">   --->   Core 75 'Shifter' <Latency = 0> <II = 1> <Delay = 1.09> <FuncUnit> <Opcode : 'shl' 'lshr' 'ashr'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 21 [1/1] (0.00ns)   --->   "%trunc_ln274_1 = trunc i64 %lshr_ln274" [/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:274]   --->   Operation 21 'trunc' 'trunc_ln274_1' <Predicate = (!icmp_ln271)> <Delay = 0.00>
+ST_1 : Operation 22 [1/1] (0.22ns)   --->   "%xor_ln274_1 = xor i4 %i_1, i4 8" [/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:274]   --->   Operation 22 'xor' 'xor_ln274_1' <Predicate = (!icmp_ln271)> <Delay = 0.22> <CoreInst = "LogicGate">   --->   Core 74 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.10> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 23 [1/1] (0.00ns)   --->   "%sext_ln274 = sext i4 %xor_ln274_1" [/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:274]   --->   Operation 23 'sext' 'sext_ln274' <Predicate = (!icmp_ln271)> <Delay = 0.00>
+ST_1 : Operation 24 [1/1] (0.00ns)   --->   "%zext_ln274_1 = zext i6 %sext_ln274" [/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:274]   --->   Operation 24 'zext' 'zext_ln274_1' <Predicate = (!icmp_ln271)> <Delay = 0.00>
+ST_1 : Operation 25 [1/1] (0.00ns)   --->   "%pad_block_addr = getelementptr i8 %pad_block, i64 0, i64 %zext_ln274_1" [/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:274]   --->   Operation 25 'getelementptr' 'pad_block_addr' <Predicate = (!icmp_ln271)> <Delay = 0.00>
+ST_1 : Operation 26 [1/1] (0.66ns)   --->   "%store_ln274 = store i8 %trunc_ln274_1, i6 %pad_block_addr" [/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:274]   --->   Operation 26 'store' 'store_ln274' <Predicate = (!icmp_ln271)> <Delay = 0.66> <CoreInst = "RAM">   --->   Core 83 'RAM' <Latency = 1> <II = 1> <Delay = 0.66> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 64> <RAM>
+ST_1 : Operation 27 [1/1] (0.38ns)   --->   "%store_ln271 = store i4 %add_ln271, i4 %i" [/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:271]   --->   Operation 27 'store' 'store_ln271' <Predicate = (!icmp_ln271)> <Delay = 0.38>
+ST_1 : Operation 28 [1/1] (0.00ns)   --->   "%br_ln271 = br void %for.inc64" [/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:271]   --->   Operation 28 'br' 'br_ln271' <Predicate = (!icmp_ln271)> <Delay = 0.00>
+ST_1 : Operation 29 [1/1] (0.00ns)   --->   "%ret_ln0 = ret"   --->   Operation 29 'ret' 'ret_ln0' <Predicate = (icmp_ln271)> <Delay = 0.00>
 
 
 ============================================================
@@ -221,7 +221,7 @@ STG Binding:
 - Is pipelined: 0
 - Is top level: 0
 Port [ Return ] is wired: 1; IO mode=ap_ctrl_hs:ce=0
-Port [ zext_ln232]:  wired=1; compound=0; hidden=0; nouse=0; global=0; static=0; extern=0; dir=0; type=0; pingpong=0; private_global=0; IO mode=ap_none:ce=0
+Port [ zext_ln266]:  wired=1; compound=0; hidden=0; nouse=0; global=0; static=0; extern=0; dir=0; type=0; pingpong=0; private_global=0; IO mode=ap_none:ce=0
 Port [ pad_block]:  wired=1; compound=1; hidden=0; nouse=0; global=0; static=0; extern=0; dir=1; type=1; pingpong=0; private_global=0; MemPort=[03]; IO mode=ap_memory:ce=0
 ---------------- STG Properties END ------------------
 
@@ -229,43 +229,43 @@ Port [ pad_block]:  wired=1; compound=1; hidden=0; nouse=0; global=0; static=0; 
 
 <LifeTime>
 <method=bitvector/>
-i                       (alloca           ) [ 01]
-zext_ln232_read         (read             ) [ 00]
-zext_ln232_cast         (zext             ) [ 00]
-store_ln0               (store            ) [ 00]
-br_ln0                  (br               ) [ 00]
-i_1                     (load             ) [ 00]
-icmp_ln237              (icmp             ) [ 01]
-add_ln237               (add              ) [ 00]
-br_ln237                (br               ) [ 00]
-specpipeline_ln239      (specpipeline     ) [ 00]
-speclooptripcount_ln237 (speclooptripcount) [ 00]
-specloopname_ln237      (specloopname     ) [ 00]
-trunc_ln240             (trunc            ) [ 00]
-xor_ln240               (xor              ) [ 00]
-shl_ln3                 (bitconcatenate   ) [ 00]
-zext_ln240              (zext             ) [ 00]
-lshr_ln240              (lshr             ) [ 00]
-trunc_ln240_1           (trunc            ) [ 00]
-xor_ln240_1             (xor              ) [ 00]
-sext_ln240              (sext             ) [ 00]
-zext_ln240_1            (zext             ) [ 00]
-pad_block_addr          (getelementptr    ) [ 00]
-store_ln240             (store            ) [ 00]
-store_ln237             (store            ) [ 00]
-br_ln237                (br               ) [ 00]
-ret_ln0                 (ret              ) [ 00]
+i                  (alloca           ) [ 01]
+zext_ln266_read    (read             ) [ 00]
+zext_ln266_cast    (zext             ) [ 00]
+store_ln0          (store            ) [ 00]
+br_ln0             (br               ) [ 00]
+i_1                (load             ) [ 00]
+icmp_ln271         (icmp             ) [ 01]
+empty              (speclooptripcount) [ 00]
+add_ln271          (add              ) [ 00]
+br_ln271           (br               ) [ 00]
+specpipeline_ln273 (specpipeline     ) [ 00]
+specloopname_ln271 (specloopname     ) [ 00]
+trunc_ln274        (trunc            ) [ 00]
+xor_ln274          (xor              ) [ 00]
+shl_ln3            (bitconcatenate   ) [ 00]
+zext_ln274         (zext             ) [ 00]
+lshr_ln274         (lshr             ) [ 00]
+trunc_ln274_1      (trunc            ) [ 00]
+xor_ln274_1        (xor              ) [ 00]
+sext_ln274         (sext             ) [ 00]
+zext_ln274_1       (zext             ) [ 00]
+pad_block_addr     (getelementptr    ) [ 00]
+store_ln274        (store            ) [ 00]
+store_ln271        (store            ) [ 00]
+br_ln271           (br               ) [ 00]
+ret_ln0            (ret              ) [ 00]
 </LifeTime>
 
 <model>
 
 <comp_list>
-<comp id="0" class="1000" name="zext_ln232">
+<comp id="0" class="1000" name="zext_ln266">
 <pin_list>
 <pin id="1" dir="1" index="0" bw="1" slack="0"/>
 </pin_list>
 <bind>
-<StgValue><ssdm name="zext_ln232"/></StgValue>
+<StgValue><ssdm name="zext_ln266"/></StgValue>
 </bind>
 </comp>
 
@@ -317,10 +317,10 @@ ret_ln0                 (ret              ) [ 00]
 
 <comp id="12" class="1001" name="const_12">
 <pin_list>
-<pin id="13" dir="1" index="0" bw="1" slack="0"/>
+<pin id="13" dir="1" index="0" bw="1" slack="2147483647"/>
 </pin_list>
 <bind>
-<StgValue><ssdm name=""/></StgValue>
+<StgValue><ssdm name="_ssdm_op_SpecLoopTripCount"/></StgValue>
 </bind>
 </comp>
 
@@ -329,13 +329,13 @@ ret_ln0                 (ret              ) [ 00]
 <pin id="15" dir="1" index="0" bw="1" slack="2147483647"/>
 </pin_list>
 <bind>
-<StgValue><ssdm name="_ssdm_op_SpecPipeline"/></StgValue>
+<StgValue><ssdm name=""/></StgValue>
 </bind>
 </comp>
 
 <comp id="16" class="1001" name="const_16">
 <pin_list>
-<pin id="17" dir="1" index="0" bw="1" slack="2147483647"/>
+<pin id="17" dir="1" index="0" bw="1" slack="0"/>
 </pin_list>
 <bind>
 <StgValue><ssdm name=""/></StgValue>
@@ -347,7 +347,7 @@ ret_ln0                 (ret              ) [ 00]
 <pin id="19" dir="1" index="0" bw="1" slack="2147483647"/>
 </pin_list>
 <bind>
-<StgValue><ssdm name="empty"/></StgValue>
+<StgValue><ssdm name="_ssdm_op_SpecPipeline"/></StgValue>
 </bind>
 </comp>
 
@@ -356,7 +356,7 @@ ret_ln0                 (ret              ) [ 00]
 <pin id="21" dir="1" index="0" bw="1" slack="2147483647"/>
 </pin_list>
 <bind>
-<StgValue><ssdm name="_ssdm_op_SpecLoopTripCount"/></StgValue>
+<StgValue><ssdm name=""/></StgValue>
 </bind>
 </comp>
 
@@ -365,7 +365,7 @@ ret_ln0                 (ret              ) [ 00]
 <pin id="23" dir="1" index="0" bw="1" slack="2147483647"/>
 </pin_list>
 <bind>
-<StgValue><ssdm name=""/></StgValue>
+<StgValue><ssdm name="empty"/></StgValue>
 </bind>
 </comp>
 
@@ -383,7 +383,7 @@ ret_ln0                 (ret              ) [ 00]
 <pin id="27" dir="1" index="0" bw="1" slack="2147483647"/>
 </pin_list>
 <bind>
-<StgValue><ssdm name="empty_20"/></StgValue>
+<StgValue><ssdm name="empty_17"/></StgValue>
 </bind>
 </comp>
 
@@ -434,7 +434,7 @@ ret_ln0                 (ret              ) [ 00]
 </bind>
 </comp>
 
-<comp id="40" class="1004" name="zext_ln232_read_read_fu_40">
+<comp id="40" class="1004" name="zext_ln266_read_read_fu_40">
 <pin_list>
 <pin id="41" dir="0" index="0" bw="35" slack="0"/>
 <pin id="42" dir="0" index="1" bw="35" slack="0"/>
@@ -442,7 +442,7 @@ ret_ln0                 (ret              ) [ 00]
 </pin_list>
 <bind>
 <opcode="read(1150) " fcode="read"/>
-<opset="zext_ln232_read/1 "/>
+<opset="zext_ln266_read/1 "/>
 </bind>
 </comp>
 
@@ -459,7 +459,7 @@ ret_ln0                 (ret              ) [ 00]
 </bind>
 </comp>
 
-<comp id="53" class="1004" name="store_ln240_access_fu_53">
+<comp id="53" class="1004" name="store_ln274_access_fu_53">
 <pin_list>
 <pin id="54" dir="0" index="0" bw="6" slack="0"/>
 <pin id="55" dir="0" index="1" bw="8" slack="0"/>
@@ -468,18 +468,18 @@ ret_ln0                 (ret              ) [ 00]
 </pin_list>
 <bind>
 <opcode="store(28) " fcode="store"/>
-<opset="store_ln240/1 "/>
+<opset="store_ln274/1 "/>
 </bind>
 </comp>
 
-<comp id="59" class="1004" name="zext_ln232_cast_fu_59">
+<comp id="59" class="1004" name="zext_ln266_cast_fu_59">
 <pin_list>
 <pin id="60" dir="0" index="0" bw="35" slack="0"/>
 <pin id="61" dir="1" index="1" bw="64" slack="0"/>
 </pin_list>
 <bind>
 <opcode="zext(34) " fcode="zext"/>
-<opset="zext_ln232_cast/1 "/>
+<opset="zext_ln266_cast/1 "/>
 </bind>
 </comp>
 
@@ -506,7 +506,7 @@ ret_ln0                 (ret              ) [ 00]
 </bind>
 </comp>
 
-<comp id="71" class="1004" name="icmp_ln237_fu_71">
+<comp id="71" class="1004" name="icmp_ln271_fu_71">
 <pin_list>
 <pin id="72" dir="0" index="0" bw="4" slack="0"/>
 <pin id="73" dir="0" index="1" bw="4" slack="0"/>
@@ -514,11 +514,11 @@ ret_ln0                 (ret              ) [ 00]
 </pin_list>
 <bind>
 <opcode="icmp(45) " fcode="icmp"/>
-<opset="icmp_ln237/1 "/>
+<opset="icmp_ln271/1 "/>
 </bind>
 </comp>
 
-<comp id="77" class="1004" name="add_ln237_fu_77">
+<comp id="77" class="1004" name="add_ln271_fu_77">
 <pin_list>
 <pin id="78" dir="0" index="0" bw="4" slack="0"/>
 <pin id="79" dir="0" index="1" bw="1" slack="0"/>
@@ -526,22 +526,22 @@ ret_ln0                 (ret              ) [ 00]
 </pin_list>
 <bind>
 <opcode="add(8) " fcode="add"/>
-<opset="add_ln237/1 "/>
+<opset="add_ln271/1 "/>
 </bind>
 </comp>
 
-<comp id="83" class="1004" name="trunc_ln240_fu_83">
+<comp id="83" class="1004" name="trunc_ln274_fu_83">
 <pin_list>
 <pin id="84" dir="0" index="0" bw="4" slack="0"/>
 <pin id="85" dir="1" index="1" bw="3" slack="0"/>
 </pin_list>
 <bind>
 <opcode="trunc(33) " fcode="trunc"/>
-<opset="trunc_ln240/1 "/>
+<opset="trunc_ln274/1 "/>
 </bind>
 </comp>
 
-<comp id="87" class="1004" name="xor_ln240_fu_87">
+<comp id="87" class="1004" name="xor_ln274_fu_87">
 <pin_list>
 <pin id="88" dir="0" index="0" bw="3" slack="0"/>
 <pin id="89" dir="0" index="1" bw="3" slack="0"/>
@@ -549,7 +549,7 @@ ret_ln0                 (ret              ) [ 00]
 </pin_list>
 <bind>
 <opcode="xor(25) " fcode="xor"/>
-<opset="xor_ln240/1 "/>
+<opset="xor_ln274/1 "/>
 </bind>
 </comp>
 
@@ -566,18 +566,18 @@ ret_ln0                 (ret              ) [ 00]
 </bind>
 </comp>
 
-<comp id="101" class="1004" name="zext_ln240_fu_101">
+<comp id="101" class="1004" name="zext_ln274_fu_101">
 <pin_list>
 <pin id="102" dir="0" index="0" bw="6" slack="0"/>
 <pin id="103" dir="1" index="1" bw="64" slack="0"/>
 </pin_list>
 <bind>
 <opcode="zext(34) " fcode="zext"/>
-<opset="zext_ln240/1 "/>
+<opset="zext_ln274/1 "/>
 </bind>
 </comp>
 
-<comp id="105" class="1004" name="lshr_ln240_fu_105">
+<comp id="105" class="1004" name="lshr_ln274_fu_105">
 <pin_list>
 <pin id="106" dir="0" index="0" bw="35" slack="0"/>
 <pin id="107" dir="0" index="1" bw="6" slack="0"/>
@@ -585,22 +585,22 @@ ret_ln0                 (ret              ) [ 00]
 </pin_list>
 <bind>
 <opcode="lshr(21) " fcode="lshr"/>
-<opset="lshr_ln240/1 "/>
+<opset="lshr_ln274/1 "/>
 </bind>
 </comp>
 
-<comp id="111" class="1004" name="trunc_ln240_1_fu_111">
+<comp id="111" class="1004" name="trunc_ln274_1_fu_111">
 <pin_list>
 <pin id="112" dir="0" index="0" bw="64" slack="0"/>
 <pin id="113" dir="1" index="1" bw="8" slack="0"/>
 </pin_list>
 <bind>
 <opcode="trunc(33) " fcode="trunc"/>
-<opset="trunc_ln240_1/1 "/>
+<opset="trunc_ln274_1/1 "/>
 </bind>
 </comp>
 
-<comp id="116" class="1004" name="xor_ln240_1_fu_116">
+<comp id="116" class="1004" name="xor_ln274_1_fu_116">
 <pin_list>
 <pin id="117" dir="0" index="0" bw="4" slack="0"/>
 <pin id="118" dir="0" index="1" bw="4" slack="0"/>
@@ -608,33 +608,33 @@ ret_ln0                 (ret              ) [ 00]
 </pin_list>
 <bind>
 <opcode="xor(25) " fcode="xor"/>
-<opset="xor_ln240_1/1 "/>
+<opset="xor_ln274_1/1 "/>
 </bind>
 </comp>
 
-<comp id="122" class="1004" name="sext_ln240_fu_122">
+<comp id="122" class="1004" name="sext_ln274_fu_122">
 <pin_list>
 <pin id="123" dir="0" index="0" bw="4" slack="0"/>
 <pin id="124" dir="1" index="1" bw="6" slack="0"/>
 </pin_list>
 <bind>
 <opcode="sext(35) " fcode="sext"/>
-<opset="sext_ln240/1 "/>
+<opset="sext_ln274/1 "/>
 </bind>
 </comp>
 
-<comp id="126" class="1004" name="zext_ln240_1_fu_126">
+<comp id="126" class="1004" name="zext_ln274_1_fu_126">
 <pin_list>
 <pin id="127" dir="0" index="0" bw="4" slack="0"/>
 <pin id="128" dir="1" index="1" bw="64" slack="0"/>
 </pin_list>
 <bind>
 <opcode="zext(34) " fcode="zext"/>
-<opset="zext_ln240_1/1 "/>
+<opset="zext_ln274_1/1 "/>
 </bind>
 </comp>
 
-<comp id="131" class="1004" name="store_ln237_store_fu_131">
+<comp id="131" class="1004" name="store_ln271_store_fu_131">
 <pin_list>
 <pin id="132" dir="0" index="0" bw="4" slack="0"/>
 <pin id="133" dir="0" index="1" bw="4" slack="0"/>
@@ -642,7 +642,7 @@ ret_ln0                 (ret              ) [ 00]
 </pin_list>
 <bind>
 <opcode="store(28) " fcode="store"/>
-<opset="store_ln237/1 "/>
+<opset="store_ln271/1 "/>
 </bind>
 </comp>
 
@@ -681,7 +681,7 @@ ret_ln0                 (ret              ) [ 00]
 
 <net id="81"><net_src comp="68" pin="1"/><net_sink comp="77" pin=0"/></net>
 
-<net id="82"><net_src comp="12" pin="0"/><net_sink comp="77" pin=1"/></net>
+<net id="82"><net_src comp="16" pin="0"/><net_sink comp="77" pin=1"/></net>
 
 <net id="86"><net_src comp="68" pin="1"/><net_sink comp="83" pin=0"/></net>
 
@@ -734,26 +734,26 @@ ret_ln0                 (ret              ) [ 00]
   - Output states:
 	Port: pad_block | {1 }
  - Input state : 
-	Port: sha256_process_chunk_Pipeline_len_store_single : zext_ln232 | {1 }
+	Port: sha256_process_chunk_Pipeline_len_store_single : zext_ln266 | {1 }
   - Chain level:
 	State 1
 		store_ln0 : 1
 		i_1 : 1
-		icmp_ln237 : 2
-		add_ln237 : 2
-		br_ln237 : 3
-		trunc_ln240 : 2
-		xor_ln240 : 3
+		icmp_ln271 : 2
+		add_ln271 : 2
+		br_ln271 : 3
+		trunc_ln274 : 2
+		xor_ln274 : 3
 		shl_ln3 : 3
-		zext_ln240 : 4
-		lshr_ln240 : 5
-		trunc_ln240_1 : 6
-		xor_ln240_1 : 2
-		sext_ln240 : 2
-		zext_ln240_1 : 3
+		zext_ln274 : 4
+		lshr_ln274 : 5
+		trunc_ln274_1 : 6
+		xor_ln274_1 : 2
+		sext_ln274 : 2
+		zext_ln274_1 : 3
 		pad_block_addr : 4
-		store_ln240 : 7
-		store_ln237 : 3
+		store_ln274 : 7
+		store_ln271 : 3
 
 
 ============================================================
@@ -764,29 +764,29 @@ ret_ln0                 (ret              ) [ 00]
 |----------|----------------------------|---------|---------|
 | Operation|       Functional Unit      |    FF   |   LUT   |
 |----------|----------------------------|---------|---------|
-|   lshr   |      lshr_ln240_fu_105     |    0    |   113   |
+|   lshr   |      lshr_ln274_fu_105     |    0    |   113   |
 |----------|----------------------------|---------|---------|
-|   icmp   |      icmp_ln237_fu_71      |    0    |    12   |
+|    add   |       add_ln271_fu_77      |    0    |    12   |
 |----------|----------------------------|---------|---------|
-|    add   |       add_ln237_fu_77      |    0    |    12   |
+|   icmp   |      icmp_ln271_fu_71      |    0    |    9    |
 |----------|----------------------------|---------|---------|
-|    xor   |       xor_ln240_fu_87      |    0    |    3    |
-|          |     xor_ln240_1_fu_116     |    0    |    4    |
+|    xor   |       xor_ln274_fu_87      |    0    |    3    |
+|          |     xor_ln274_1_fu_116     |    0    |    4    |
 |----------|----------------------------|---------|---------|
-|   read   | zext_ln232_read_read_fu_40 |    0    |    0    |
+|   read   | zext_ln266_read_read_fu_40 |    0    |    0    |
 |----------|----------------------------|---------|---------|
-|          |    zext_ln232_cast_fu_59   |    0    |    0    |
-|   zext   |      zext_ln240_fu_101     |    0    |    0    |
-|          |     zext_ln240_1_fu_126    |    0    |    0    |
+|          |    zext_ln266_cast_fu_59   |    0    |    0    |
+|   zext   |      zext_ln274_fu_101     |    0    |    0    |
+|          |     zext_ln274_1_fu_126    |    0    |    0    |
 |----------|----------------------------|---------|---------|
-|   trunc  |      trunc_ln240_fu_83     |    0    |    0    |
-|          |    trunc_ln240_1_fu_111    |    0    |    0    |
+|   trunc  |      trunc_ln274_fu_83     |    0    |    0    |
+|          |    trunc_ln274_1_fu_111    |    0    |    0    |
 |----------|----------------------------|---------|---------|
 |bitconcatenate|        shl_ln3_fu_93       |    0    |    0    |
 |----------|----------------------------|---------|---------|
-|   sext   |      sext_ln240_fu_122     |    0    |    0    |
+|   sext   |      sext_ln274_fu_122     |    0    |    0    |
 |----------|----------------------------|---------|---------|
-|   Total  |                            |    0    |   144   |
+|   Total  |                            |    0    |   141   |
 |----------|----------------------------|---------|---------|
 
 Memories:
@@ -814,10 +814,10 @@ N/A
 +-----------+--------+--------+
 |           |   FF   |   LUT  |
 +-----------+--------+--------+
-|  Function |    0   |   144  |
+|  Function |    0   |   141  |
 |   Memory  |    -   |    -   |
 |Multiplexer|    -   |    -   |
 |  Register |    4   |    -   |
 +-----------+--------+--------+
-|   Total   |    4   |   144  |
+|   Total   |    4   |   141  |
 +-----------+--------+--------+

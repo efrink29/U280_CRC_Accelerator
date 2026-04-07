@@ -48,6 +48,7 @@ static const uint32_t SHA256_K[64] = {
     0x748f82eeu, 0x78a5636fu, 0x84c87814u, 0x8cc70208u,
     0x90befffau, 0xa4506cebu, 0xbef9a3f7u, 0xc67178f2u};
 
+// ------------------ SHA-256 Kernel Implementation ----------------------
 static uint32_t rotr32(const uint32_t x, const unsigned int n)
 {
 #pragma HLS INLINE
@@ -121,21 +122,16 @@ pack_block_bytes:
 static void sha256_compress_block(const wide_t &block, uint32_t state[8])
 {
 #pragma HLS INLINE off
-    uint32_t w[64];
+
+    uint32_t wbuf[16];
+#pragma HLS ARRAY_PARTITION variable = wbuf complete dim = 1
 
 init_words:
     for (int i = 0; i < 16; ++i)
     {
-#pragma HLS PIPELINE II = 1
+#pragma HLS UNROLL
         const ap_uint<32> word_le = block.range((i * 32) + 31, i * 32);
-        w[i] = to_be32(word_le);
-    }
-
-expand_words:
-    for (int i = 16; i < 64; ++i)
-    {
-#pragma HLS PIPELINE II = 1
-        w[i] = sha256_ssig1(w[i - 2]) + w[i - 7] + sha256_ssig0(w[i - 15]) + w[i - 16];
+        wbuf[i] = to_be32(word_le);
     }
 
     uint32_t a = state[0];
@@ -151,7 +147,22 @@ round_loop:
     for (int i = 0; i < 64; ++i)
     {
 #pragma HLS PIPELINE II = 1
-        const uint32_t t1 = h + sha256_bsig1(e) + sha256_ch(e, f, g) + SHA256_K[i] + w[i];
+        uint32_t wt;
+
+        if (i < 16)
+        {
+            wt = wbuf[i];
+        }
+        else
+        {
+            const int idx = i & 15;
+            const uint32_t s0 = sha256_ssig0(wbuf[(i - 15) & 15]);
+            const uint32_t s1 = sha256_ssig1(wbuf[(i - 2) & 15]);
+            wt = s1 + wbuf[(i - 7) & 15] + s0 + wbuf[(i - 16) & 15];
+            wbuf[idx] = wt;
+        }
+
+        const uint32_t t1 = h + sha256_bsig1(e) + sha256_ch(e, f, g) + SHA256_K[i] + wt;
         const uint32_t t2 = sha256_bsig0(a) + sha256_maj(a, b, c);
 
         h = g;
@@ -172,6 +183,29 @@ round_loop:
     state[5] += f;
     state[6] += g;
     state[7] += h;
+}
+
+static void sha256_process_chunk(const unsigned char *chunk,
+                                 const unsigned int chunk_size,
+                                 uint32_t digest[8]);
+
+static void sha256_process_and_write_chunk(const unsigned char *chunk,
+                                           const unsigned int chunk_size,
+                                           uint32_t *out_words)
+{
+#pragma HLS INLINE off
+
+    uint32_t digest[8];
+#pragma HLS ARRAY_PARTITION variable = digest complete dim = 1
+
+    sha256_process_chunk(chunk, chunk_size, digest);
+
+write_digest:
+    for (int i = 0; i < 8; ++i)
+    {
+#pragma HLS PIPELINE II = 1
+        out_words[i] = digest[i];
+    }
 }
 
 static void sha256_process_chunk(const unsigned char *chunk,
@@ -272,6 +306,8 @@ write_digest:
     }
 }
 
+// ------------------ CRC Kernel Implementation ----------------------
+
 static void read_input(const unsigned char *in,
                        bStream &b0, bStream &b1, bStream &b2, bStream &b3,
                        bStream &b4, bStream &b5, bStream &b6, bStream &b7,
@@ -307,15 +343,178 @@ mem_rd:
     }
 }
 
-static void process_blocks(
+static void write_output(hls::stream<ap_uint<32>> &outStream,
+                         int numChunks,
+                         uint32_t *crc_out)
+{
+    for (int i = 0; i < numChunks; i++)
+    {
+#pragma HLS PIPELINE II = 1
+        crc_out[i] = static_cast<uint32_t>(outStream.read());
+    }
+}
+
+static void load_crc_tables(const uint32_t *tables,
+                            uint32_t crcTables[BLOCK_SIZE][TABLE_SIZE])
+{
+#pragma HLS INLINE off
+#pragma HLS ARRAY_PARTITION variable = crcTables complete dim = 1
+#pragma HLS BIND_STORAGE variable = crcTables type = ram_1p impl = bram
+
+load_lut_rows:
+    for (int i = 0; i < BLOCK_SIZE; ++i)
+    {
+    load_lut_cols:
+        for (int j = 0; j < TABLE_SIZE; ++j)
+        {
+#pragma HLS PIPELINE II = 1
+            crcTables[i][j] = tables[(i << 8) + j];
+        }
+    }
+}
+
+static ap_uint<32> crc_process_full_blocks(
     uint32_t crcTables[BLOCK_SIZE][TABLE_SIZE],
     bStream &byte0, bStream &byte1, bStream &byte2, bStream &byte3,
     bStream &byte4, bStream &byte5, bStream &byte6, bStream &byte7,
     bStream &byte8, bStream &byte9, bStream &byte10, bStream &byte11,
     bStream &byte12, bStream &byte13, bStream &byte14, bStream &byte15,
-    const uint32_t crc_size, const uint32_t init_value,
+    const int blocks_in_chunk,
+    ap_uint<32> crc,
+    const ap_uint<32> mask)
+{
+#pragma HLS INLINE off
+#pragma HLS ARRAY_PARTITION variable = crcTables complete dim = 1
+#pragma HLS BIND_STORAGE variable = crcTables type = ram_1p impl = bram
+
+full_block_loop:
+    for (int b = 0; b < blocks_in_chunk; ++b)
+    {
+#pragma HLS PIPELINE II = 1
+        ap_uint<8> b0 = byte0.read();
+        ap_uint<8> b1 = byte1.read();
+        ap_uint<8> b2 = byte2.read();
+        ap_uint<8> b3 = byte3.read();
+        ap_uint<8> b4 = byte4.read();
+        ap_uint<8> b5 = byte5.read();
+        ap_uint<8> b6 = byte6.read();
+        ap_uint<8> b7 = byte7.read();
+        ap_uint<8> b8 = byte8.read();
+        ap_uint<8> b9 = byte9.read();
+        ap_uint<8> b10 = byte10.read();
+        ap_uint<8> b11 = byte11.read();
+        ap_uint<8> b12 = byte12.read();
+        ap_uint<8> b13 = byte13.read();
+        ap_uint<8> b14 = byte14.read();
+        ap_uint<8> b15 = byte15.read();
+
+        ap_uint<32> next =
+            (crcTables[0][((crc) & 0xFF) ^ b0] ^
+             crcTables[1][((crc >> 8) & 0xFF) ^ b1]) ^
+            (crcTables[2][((crc >> 16) & 0xFF) ^ b2] ^
+             crcTables[3][((crc >> 24) & 0xFF) ^ b3]) ^
+            (crcTables[4][b4] ^ crcTables[5][b5]) ^
+            (crcTables[6][b6] ^ crcTables[7][b7]) ^
+            (crcTables[8][b8] ^ crcTables[9][b9]) ^
+            (crcTables[10][b10] ^ crcTables[11][b11]) ^
+            (crcTables[12][b12] ^ crcTables[13][b13]) ^
+            (crcTables[14][b14] ^ crcTables[15][b15]);
+
+        crc = next & mask;
+    }
+
+    return crc;
+}
+
+static ap_uint<32> crc_process_tail_bytes(
+    uint32_t crcTables[BLOCK_SIZE][TABLE_SIZE],
+    bStream &byte0, bStream &byte1, bStream &byte2, bStream &byte3,
+    bStream &byte4, bStream &byte5, bStream &byte6, bStream &byte7,
+    bStream &byte8, bStream &byte9, bStream &byte10, bStream &byte11,
+    bStream &byte12, bStream &byte13, bStream &byte14, bStream &byte15,
+    const int tail_bytes,
+    ap_uint<32> crc,
+    const ap_uint<32> mask)
+{
+#pragma HLS INLINE off
+#pragma HLS ARRAY_PARTITION variable = crcTables complete dim = 1
+#pragma HLS BIND_STORAGE variable = crcTables type = ram_1p impl = bram
+
+tail_byte_loop:
+    for (int t = 0; t < tail_bytes; ++t)
+    {
+#pragma HLS PIPELINE II = 1
+        ap_uint<8> bt = 0;
+
+        switch (t & 15)
+        {
+        case 0:
+            bt = byte0.read();
+            break;
+        case 1:
+            bt = byte1.read();
+            break;
+        case 2:
+            bt = byte2.read();
+            break;
+        case 3:
+            bt = byte3.read();
+            break;
+        case 4:
+            bt = byte4.read();
+            break;
+        case 5:
+            bt = byte5.read();
+            break;
+        case 6:
+            bt = byte6.read();
+            break;
+        case 7:
+            bt = byte7.read();
+            break;
+        case 8:
+            bt = byte8.read();
+            break;
+        case 9:
+            bt = byte9.read();
+            break;
+        case 10:
+            bt = byte10.read();
+            break;
+        case 11:
+            bt = byte11.read();
+            break;
+        case 12:
+            bt = byte12.read();
+            break;
+        case 13:
+            bt = byte13.read();
+            break;
+        case 14:
+            bt = byte14.read();
+            break;
+        default:
+            bt = byte15.read();
+            break;
+        }
+
+        crc = ((crc >> 8) ^ crcTables[0][(crc ^ bt) & 0xFF]) & mask;
+    }
+
+    return crc;
+}
+
+static void process_crc_chunks(
+    uint32_t crcTables[BLOCK_SIZE][TABLE_SIZE],
+    bStream &byte0, bStream &byte1, bStream &byte2, bStream &byte3,
+    bStream &byte4, bStream &byte5, bStream &byte6, bStream &byte7,
+    bStream &byte8, bStream &byte9, bStream &byte10, bStream &byte11,
+    bStream &byte12, bStream &byte13, bStream &byte14, bStream &byte15,
+    const uint32_t crc_size,
+    const uint32_t init_value,
     hls::stream<ap_uint<32>> &outStream,
-    int numChunks, int chunkSize)
+    const int numChunks,
+    const int chunkSize)
 {
 #pragma HLS INLINE off
 #pragma HLS ARRAY_PARTITION variable = crcTables complete dim = 1
@@ -325,126 +524,105 @@ static void process_blocks(
     if (crc_size < 32)
         mask = (1u << crc_size) - 1u;
 
+    const int blocks_in_chunk = chunkSize / 16;
+    const int tail_bytes = chunkSize - (blocks_in_chunk * 16);
+
 chunk_loop:
     for (int c = 0; c < numChunks; ++c)
     {
         ap_uint<32> crc = init_value;
 
-        const int blocks_in_chunk = chunkSize / 16;
-        const int tail_bytes = chunkSize - blocks_in_chunk * 16;
+        crc = crc_process_full_blocks(
+            crcTables,
+            byte0, byte1, byte2, byte3,
+            byte4, byte5, byte6, byte7,
+            byte8, byte9, byte10, byte11,
+            byte12, byte13, byte14, byte15,
+            blocks_in_chunk, crc, mask);
 
-    block_loop:
-        for (int b = 0; b < blocks_in_chunk; ++b)
+        if (tail_bytes > 0)
         {
-#pragma HLS PIPELINE II = 1
-
-            ap_uint<8> b0 = byte0.read();
-            ap_uint<8> b1 = byte1.read();
-            ap_uint<8> b2 = byte2.read();
-            ap_uint<8> b3 = byte3.read();
-            ap_uint<8> b4 = byte4.read();
-            ap_uint<8> b5 = byte5.read();
-            ap_uint<8> b6 = byte6.read();
-            ap_uint<8> b7 = byte7.read();
-            ap_uint<8> b8 = byte8.read();
-            ap_uint<8> b9 = byte9.read();
-            ap_uint<8> b10 = byte10.read();
-            ap_uint<8> b11 = byte11.read();
-            ap_uint<8> b12 = byte12.read();
-            ap_uint<8> b13 = byte13.read();
-            ap_uint<8> b14 = byte14.read();
-            ap_uint<8> b15 = byte15.read();
-
-            ap_uint<32> next =
-                (crcTables[0][((crc) & 0xFF) ^ b0] ^
-                 crcTables[1][((crc >> 8) & 0xFF) ^ b1]) ^
-                (crcTables[2][((crc >> 16) & 0xFF) ^ b2] ^
-                 crcTables[3][((crc >> 24) & 0xFF) ^ b3]) ^
-                (crcTables[4][b4] ^ crcTables[5][b5]) ^
-                (crcTables[6][b6] ^ crcTables[7][b7]) ^
-                (crcTables[8][b8] ^ crcTables[9][b9]) ^
-                (crcTables[10][b10] ^ crcTables[11][b11]) ^
-                (crcTables[12][b12] ^ crcTables[13][b13]) ^
-                (crcTables[14][b14] ^ crcTables[15][b15]);
-
-            crc = next & mask;
+            crc = crc_process_tail_bytes(
+                crcTables,
+                byte0, byte1, byte2, byte3,
+                byte4, byte5, byte6, byte7,
+                byte8, byte9, byte10, byte11,
+                byte12, byte13, byte14, byte15,
+                tail_bytes, crc, mask);
         }
 
-        if (tail_bytes)
-        {
-        tail_loop:
-            for (int t = 0; t < tail_bytes; ++t)
-            {
-#pragma HLS PIPELINE II = 1
-                ap_uint<8> bt;
-                switch (t & 15)
-                {
-                case 0:
-                    bt = byte0.read();
-                    break;
-                case 1:
-                    bt = byte1.read();
-                    break;
-                case 2:
-                    bt = byte2.read();
-                    break;
-                case 3:
-                    bt = byte3.read();
-                    break;
-                case 4:
-                    bt = byte4.read();
-                    break;
-                case 5:
-                    bt = byte5.read();
-                    break;
-                case 6:
-                    bt = byte6.read();
-                    break;
-                case 7:
-                    bt = byte7.read();
-                    break;
-                case 8:
-                    bt = byte8.read();
-                    break;
-                case 9:
-                    bt = byte9.read();
-                    break;
-                case 10:
-                    bt = byte10.read();
-                    break;
-                case 11:
-                    bt = byte11.read();
-                    break;
-                case 12:
-                    bt = byte12.read();
-                    break;
-                case 13:
-                    bt = byte13.read();
-                    break;
-                case 14:
-                    bt = byte14.read();
-                    break;
-                default:
-                    bt = byte15.read();
-                    break;
-                }
-
-                crc = ((crc >> 8) ^ crcTables[0][(crc ^ bt) & 0xFF]) & mask;
-            }
-        }
-
-        outStream << (ap_uint<32>)crc;
+        outStream << crc;
     }
 }
 
-static void write_output(hls::stream<ap_uint<32>> &outStream, int numChunks, uint32_t *crc_out)
+static void crc_dataflow_region(const unsigned char *data_in,
+                                uint32_t *crc_out,
+                                uint32_t crcTables[BLOCK_SIZE][TABLE_SIZE],
+                                const unsigned int numChunks,
+                                const unsigned int chunkSize,
+                                const uint32_t crc_size,
+                                const uint32_t init_value)
 {
-    for (int i = 0; i < numChunks; i++)
-    {
-#pragma HLS PIPELINE II = 1
-        crc_out[i] = static_cast<uint32_t>(outStream.read());
-    }
+#pragma HLS INLINE off
+
+    bStream inByte0;
+    bStream inByte1;
+    bStream inByte2;
+    bStream inByte3;
+    bStream inByte4;
+    bStream inByte5;
+    bStream inByte6;
+    bStream inByte7;
+    bStream inByte8;
+    bStream inByte9;
+    bStream inByte10;
+    bStream inByte11;
+    bStream inByte12;
+    bStream inByte13;
+    bStream inByte14;
+    bStream inByte15;
+
+#pragma HLS STREAM variable = inByte0 depth = 64
+#pragma HLS STREAM variable = inByte1 depth = 64
+#pragma HLS STREAM variable = inByte2 depth = 64
+#pragma HLS STREAM variable = inByte3 depth = 64
+#pragma HLS STREAM variable = inByte4 depth = 64
+#pragma HLS STREAM variable = inByte5 depth = 64
+#pragma HLS STREAM variable = inByte6 depth = 64
+#pragma HLS STREAM variable = inByte7 depth = 64
+#pragma HLS STREAM variable = inByte8 depth = 64
+#pragma HLS STREAM variable = inByte9 depth = 64
+#pragma HLS STREAM variable = inByte10 depth = 64
+#pragma HLS STREAM variable = inByte11 depth = 64
+#pragma HLS STREAM variable = inByte12 depth = 64
+#pragma HLS STREAM variable = inByte13 depth = 64
+#pragma HLS STREAM variable = inByte14 depth = 64
+#pragma HLS STREAM variable = inByte15 depth = 64
+
+    hls::stream<ap_uint<32>> outStream;
+#pragma HLS STREAM variable = outStream depth = 64
+
+#pragma HLS DATAFLOW
+    read_input(data_in,
+               inByte0, inByte1, inByte2, inByte3,
+               inByte4, inByte5, inByte6, inByte7,
+               inByte8, inByte9, inByte10, inByte11,
+               inByte12, inByte13, inByte14, inByte15,
+               numChunks, chunkSize);
+
+    process_crc_chunks(crcTables,
+                       inByte0, inByte1, inByte2, inByte3,
+                       inByte4, inByte5, inByte6, inByte7,
+                       inByte8, inByte9, inByte10, inByte11,
+                       inByte12, inByte13, inByte14, inByte15,
+                       crc_size, init_value, outStream,
+                       static_cast<int>(numChunks),
+                       static_cast<int>(chunkSize));
+
+    write_output(outStream, static_cast<int>(numChunks), crc_out);
 }
+
+// ------------------ TCP Checksum Kernel Implementation ----------------------
 
 static ap_uint<17> fold_add(ap_uint<17> sum, ap_uint<16> word)
 {
@@ -608,16 +786,8 @@ hash_chunk_loop:
     for (unsigned int c = 0; c < numChunks; ++c)
     {
         const unsigned char *chunk = data_bytes + (static_cast<size_t>(c) * chunkSize);
-        uint32_t digest[8];
-#pragma HLS ARRAY_PARTITION variable = digest complete dim = 1
-        sha256_process_chunk(chunk, chunkSize, digest);
-
-    hash_write_digest:
-        for (int i = 0; i < 8; ++i)
-        {
-#pragma HLS PIPELINE II = 1
-            crc_out[(static_cast<size_t>(c) << 3) + i] = digest[i];
-        }
+        uint32_t *digest_out = crc_out + (static_cast<size_t>(c) << 3);
+        sha256_process_and_write_chunk(chunk, chunkSize, digest_out);
     }
 }
 
@@ -629,67 +799,14 @@ static void process_crc(const unsigned char *data_in,
                         const uint32_t crc_size,
                         const uint32_t init_value)
 {
-    bStream inByte0;
-    bStream inByte1;
-    bStream inByte2;
-    bStream inByte3;
-
-    bStream inByte4;
-    bStream inByte5;
-    bStream inByte6;
-    bStream inByte7;
-
-    bStream inByte8;
-    bStream inByte9;
-    bStream inByte10;
-    bStream inByte11;
-
-    bStream inByte12;
-    bStream inByte13;
-    bStream inByte14;
-    bStream inByte15;
-#pragma HLS STREAM variable = inByte0 depth = 64
-#pragma HLS STREAM variable = inByte1 depth = 64
-#pragma HLS STREAM variable = inByte2 depth = 64
-#pragma HLS STREAM variable = inByte3 depth = 64
-#pragma HLS STREAM variable = inByte4 depth = 64
-#pragma HLS STREAM variable = inByte5 depth = 64
-#pragma HLS STREAM variable = inByte6 depth = 64
-#pragma HLS STREAM variable = inByte7 depth = 64
-#pragma HLS STREAM variable = inByte8 depth = 64
-#pragma HLS STREAM variable = inByte9 depth = 64
-#pragma HLS STREAM variable = inByte10 depth = 64
-#pragma HLS STREAM variable = inByte11 depth = 64
-#pragma HLS STREAM variable = inByte12 depth = 64
-#pragma HLS STREAM variable = inByte13 depth = 64
-#pragma HLS STREAM variable = inByte14 depth = 64
-#pragma HLS STREAM variable = inByte15 depth = 64
-
-    hls::stream<ap_uint<32>> outStream;
-#pragma HLS STREAM variable = outStream depth = 64
-
     uint32_t crcTables[BLOCK_SIZE][TABLE_SIZE];
 #pragma HLS ARRAY_PARTITION variable = crcTables complete dim = 1
 #pragma HLS BIND_STORAGE variable = crcTables type = ram_1p impl = bram
 
-init_lut:
-    for (int i = 0; i < BLOCK_SIZE; ++i)
-    {
-        for (int j = 0; j < TABLE_SIZE; ++j)
-        {
-#pragma HLS PIPELINE II = 1
-            crcTables[i][j] = tables[(i << 8) + j];
-        }
-    }
+    load_crc_tables(tables, crcTables);
 
-#pragma HLS DATAFLOW
-    read_input(data_in, inByte0, inByte1, inByte2, inByte3, inByte4, inByte5, inByte6, inByte7,
-               inByte8, inByte9, inByte10, inByte11, inByte12, inByte13, inByte14, inByte15,
-               numChunks, chunkSize);
-    process_blocks(crcTables, inByte0, inByte1, inByte2, inByte3, inByte4, inByte5, inByte6, inByte7,
-                   inByte8, inByte9, inByte10, inByte11, inByte12, inByte13, inByte14, inByte15,
-                   crc_size, init_value, outStream, numChunks, chunkSize);
-    write_output(outStream, numChunks, crc_out);
+    crc_dataflow_region(data_in, crc_out, crcTables,
+                        numChunks, chunkSize, crc_size, init_value);
 }
 
 extern "C"

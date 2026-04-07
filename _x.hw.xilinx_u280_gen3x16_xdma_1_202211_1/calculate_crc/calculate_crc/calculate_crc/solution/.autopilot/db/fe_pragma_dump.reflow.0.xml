@@ -1,83 +1,97 @@
 <pragmas>
-<pragma file="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp" line="706" pragmaType="interface" parentfunction="calculate_crc" mode="m_axi" port="data_in" bundle="gmem0" offset="slave" name="" depth="1024" num_read_outstanding="-1" num_write_outstanding="-1" max_burst_read_length="-1" max_burst_write_length="-1" latency="-1" max_widen_bitwidth="-1" channel=""/>
-<pragma file="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp" line="707" pragmaType="interface" parentfunction="calculate_crc" mode="m_axi" port="tables" bundle="gmem1" offset="slave" name="" depth="4096" num_read_outstanding="-1" num_write_outstanding="-1" max_burst_read_length="-1" max_burst_write_length="-1" latency="-1" max_widen_bitwidth="-1" channel=""/>
-<pragma file="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp" line="708" pragmaType="interface" parentfunction="calculate_crc" mode="m_axi" port="crc_out" bundle="gmem0" offset="slave" name="" depth="1024" num_read_outstanding="-1" num_write_outstanding="-1" max_burst_read_length="-1" max_burst_write_length="-1" latency="-1" max_widen_bitwidth="-1" channel=""/>
-<pragma file="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp" line="685" pragmaType="dataflow" parentfunction="process_crc" disable_start_propagation="0"/>
-<pragma file="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp" line="680" pragmaType="pipeline" parentfunction="process_crc" off="0" ii="1" rewind="0" style=""/>
-<pragma file="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp" line="651" pragmaType="stream" parentfunction="process_crc" depth="64" type="fifo" variable="inByte0"/>
-<pragma file="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp" line="652" pragmaType="stream" parentfunction="process_crc" depth="64" type="fifo" variable="inByte1"/>
-<pragma file="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp" line="653" pragmaType="stream" parentfunction="process_crc" depth="64" type="fifo" variable="inByte2"/>
-<pragma file="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp" line="654" pragmaType="stream" parentfunction="process_crc" depth="64" type="fifo" variable="inByte3"/>
-<pragma file="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp" line="655" pragmaType="stream" parentfunction="process_crc" depth="64" type="fifo" variable="inByte4"/>
-<pragma file="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp" line="656" pragmaType="stream" parentfunction="process_crc" depth="64" type="fifo" variable="inByte5"/>
-<pragma file="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp" line="657" pragmaType="stream" parentfunction="process_crc" depth="64" type="fifo" variable="inByte6"/>
-<pragma file="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp" line="658" pragmaType="stream" parentfunction="process_crc" depth="64" type="fifo" variable="inByte7"/>
-<pragma file="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp" line="659" pragmaType="stream" parentfunction="process_crc" depth="64" type="fifo" variable="inByte8"/>
-<pragma file="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp" line="660" pragmaType="stream" parentfunction="process_crc" depth="64" type="fifo" variable="inByte9"/>
-<pragma file="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp" line="661" pragmaType="stream" parentfunction="process_crc" depth="64" type="fifo" variable="inByte10"/>
-<pragma file="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp" line="662" pragmaType="stream" parentfunction="process_crc" depth="64" type="fifo" variable="inByte11"/>
-<pragma file="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp" line="663" pragmaType="stream" parentfunction="process_crc" depth="64" type="fifo" variable="inByte12"/>
-<pragma file="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp" line="664" pragmaType="stream" parentfunction="process_crc" depth="64" type="fifo" variable="inByte13"/>
-<pragma file="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp" line="665" pragmaType="stream" parentfunction="process_crc" depth="64" type="fifo" variable="inByte14"/>
-<pragma file="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp" line="666" pragmaType="stream" parentfunction="process_crc" depth="64" type="fifo" variable="inByte15"/>
-<pragma file="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp" line="669" pragmaType="stream" parentfunction="process_crc" depth="64" type="fifo" variable="outStream"/>
-<pragma file="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp" line="672" pragmaType="array_partition" parentfunction="process_crc" dim="1" factor="0" mode="complete" dynamic="0" variable="crcTables"/>
-<pragma file="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp" line="673" pragmaType="bind_storage" parentfunction="process_crc" op="666" impl="18" latency="-1" variable="crcTables"/>
-<pragma file="" line="0" pragmaType="inline" parentfunction="hls::stream<ap_uint<8>, 0>::stream()" off="0" region="0" recursive="0"/>
-<pragma file="" line="0" pragmaType="inline" parentfunction="hls::stream<ap_uint<32>, 0>::stream()" off="0" region="0" recursive="0"/>
-<pragma file="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp" line="289" pragmaType="pipeline" parentfunction="read_input" off="0" ii="1" rewind="0" style=""/>
-<pragma file="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp" line="320" pragmaType="inline" parentfunction="process_blocks" off="1" region="0" recursive="0"/>
-<pragma file="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp" line="339" pragmaType="pipeline" parentfunction="process_blocks" off="0" ii="1" rewind="0" style=""/>
-<pragma file="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp" line="378" pragmaType="pipeline" parentfunction="process_blocks" off="0" ii="1" rewind="0" style=""/>
-<pragma file="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp" line="321" pragmaType="array_partition" parentfunction="process_blocks" dim="1" factor="0" mode="complete" dynamic="0" variable="crcTables"/>
-<pragma file="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp" line="322" pragmaType="bind_storage" parentfunction="process_blocks" op="666" impl="18" latency="-1" variable="crcTables"/>
-<pragma file="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp" line="444" pragmaType="pipeline" parentfunction="write_output" off="0" ii="1" rewind="0" style=""/>
-<pragma file="" line="0" pragmaType="inline" parentfunction="read" off="0" region="0" recursive="0"/>
-<pragma file="" line="0" pragmaType="inline" parentfunction="ap_int_base<32, false>::operator unsigned long long() const" off="0" region="0" recursive="0"/>
-<pragma file="" line="0" pragmaType="inline" parentfunction="ap_int_base<33, true>::operator long long() const" off="0" region="0" recursive="0"/>
-<pragma file="" line="0" pragmaType="inline" parentfunction="ap_uint<32>::ap_uint()" off="0" region="0" recursive="0"/>
-<pragma file="" line="0" pragmaType="inline" parentfunction="read" off="0" region="0" recursive="0"/>
-<pragma file="" line="0" pragmaType="inline" parentfunction="ap_int_base<32, false>::ap_int_base()" off="0" region="0" recursive="0"/>
-<pragma file="/share/Xilinx/Vitis_HLS/2023.1/common/technology/autopilot/etc/ap_common.h" line="0" pragmaType="inline" parentfunction="ssdm_int<8, false>::ssdm_int()" off="0" region="0" recursive="0"/>
-<pragma file="" line="0" pragmaType="inline" parentfunction="ap_uint<32>::ap_uint(unsigned int)" off="0" region="0" recursive="0"/>
-<pragma file="" line="0" pragmaType="inline" parentfunction="read" off="0" region="0" recursive="0"/>
-<pragma file="" line="0" pragmaType="inline" parentfunction="ap_int_base<32, false>::RType<($_0)32, true>::logic operator&<32, false>(ap_int_base<32, false> const&, int)" off="0" region="0" recursive="0"/>
-<pragma file="" line="0" pragmaType="inline" parentfunction="ap_int_base<33, true>::RType<8, false>::logic operator^<33, true, 8, false>(ap_int_base<33, true> const&, ap_int_base<8, false> const&)" off="0" region="0" recursive="0"/>
-<pragma file="" line="0" pragmaType="inline" parentfunction="ap_int_base<32, false>::RType<32, false>::arg1 operator>><32, false>(ap_int_base<32, false> const&, int)" off="0" region="0" recursive="0"/>
-<pragma file="" line="0" pragmaType="inline" parentfunction="ap_int_base<8, false>::operator unsigned long long() const" off="0" region="0" recursive="0"/>
-<pragma file="" line="0" pragmaType="inline" parentfunction="ap_int_base<32, false>::RType<32, false>::logic operator&<32, false, 32, false>(ap_int_base<32, false> const&, ap_int_base<32, false> const&)" off="0" region="0" recursive="0"/>
-<pragma file="" line="0" pragmaType="inline" parentfunction="ap_uint<8>::ap_uint()" off="0" region="0" recursive="0"/>
-<pragma file="" line="0" pragmaType="inline" parentfunction="ap_int_base<32, false>::RType<8, false>::logic operator^<32, false, 8, false>(ap_int_base<32, false> const&, ap_int_base<8, false> const&)" off="0" region="0" recursive="0"/>
-<pragma file="" line="0" pragmaType="inline" parentfunction="ap_int_base<32, false>::RType<($_0)32, false>::logic operator^<32, false>(ap_int_base<32, false> const&, unsigned int)" off="0" region="0" recursive="0"/>
-<pragma file="" line="0" pragmaType="inline" parentfunction="hls::stream<ap_uint<32>, 0>::operator<<(ap_uint<32> const&)" off="0" region="0" recursive="0"/>
-<pragma file="" line="0" pragmaType="inline" parentfunction="write" off="0" region="0" recursive="0"/>
-<pragma file="" line="0" pragmaType="inline" parentfunction="ap_int_base<32, false>::ap_int_base(unsigned int)" off="0" region="0" recursive="0"/>
-<pragma file="" line="0" pragmaType="inline" parentfunction="ap_int_base<32, false>::RType<32, false>::logic operator^<32, false, 32, false>(ap_int_base<32, false> const&, ap_int_base<32, false> const&)" off="0" region="0" recursive="0"/>
-<pragma file="" line="0" pragmaType="inline" parentfunction="ap_int_base<32, false>::ap_int_base(int)" off="0" region="0" recursive="0"/>
-<pragma file="" line="0" pragmaType="inline" parentfunction="ap_uint<32>::ap_uint<32, false>(ap_int_base<32, false> const&)" off="0" region="0" recursive="0"/>
-<pragma file="/share/Xilinx/Vitis_HLS/2023.1/common/technology/autopilot/etc/ap_common.h" line="523" pragmaType="inline" parentfunction="ssdm_int<32, false>::ssdm_int(unsigned int)" off="0" region="0" recursive="0"/>
-<pragma file="" line="0" pragmaType="inline" parentfunction="ap_int_base<32, false>::ap_int_base<8, false>(ap_int_base<8, false> const&)" off="0" region="0" recursive="0"/>
-<pragma file="" line="0" pragmaType="inline" parentfunction="ap_int_base<8, false>::ap_int_base()" off="0" region="0" recursive="0"/>
-<pragma file="" line="0" pragmaType="inline" parentfunction="ap_int_base<33, true>::ap_int_base<8, false>(ap_int_base<8, false> const&)" off="0" region="0" recursive="0"/>
-<pragma file="" line="0" pragmaType="inline" parentfunction="ap_int_base<33, true>::ap_int_base(int)" off="0" region="0" recursive="0"/>
-<pragma file="" line="0" pragmaType="inline" parentfunction="ap_int<33>::ap_int<33, true>(ap_int_base<33, true> const&)" off="0" region="0" recursive="0"/>
-<pragma file="/share/Xilinx/Vitis_HLS/2023.1/common/technology/autopilot/etc/ap_common.h" line="515" pragmaType="inline" parentfunction="_ZN8ssdm_intILi33ELb1EEC2EDq33_i" off="0" region="0" recursive="0"/>
-<pragma file="" line="0" pragmaType="inline" parentfunction="ap_int_base<32, true>::ap_int_base(int)" off="0" region="0" recursive="0"/>
-<pragma file="" line="0" pragmaType="inline" parentfunction="ap_int_base<32, false>::RType<32, true>::logic operator&<32, false, 32, true>(ap_int_base<32, false> const&, ap_int_base<32, true> const&)" off="0" region="0" recursive="0"/>
-<pragma file="" line="0" pragmaType="inline" parentfunction="ap_int_base<33, true>::ap_int_base<32, false>(ap_int_base<32, false> const&)" off="0" region="0" recursive="0"/>
-<pragma file="" line="0" pragmaType="inline" parentfunction="ap_int_base<33, true>::ap_int_base<32, true>(ap_int_base<32, true> const&)" off="0" region="0" recursive="0"/>
-<pragma file="/share/Xilinx/Vitis_HLS/2023.1/common/technology/autopilot/etc/ap_common.h" line="515" pragmaType="inline" parentfunction="ssdm_int<32, true>::ssdm_int(int)" off="0" region="0" recursive="0"/>
-<pragma file="" line="0" pragmaType="inline" parentfunction="read" off="0" region="0" recursive="0"/>
-<pragma file="/share/Xilinx/Vitis_HLS/2023.1/common/technology/autopilot/etc/ap_common.h" line="0" pragmaType="inline" parentfunction="ssdm_int<128, false>::ssdm_int()" off="0" region="0" recursive="0"/>
-<pragma file="" line="0" pragmaType="inline" parentfunction="ap_int_base<128, false>::operator()(int, int)" off="0" region="0" recursive="0"/>
-<pragma file="" line="0" pragmaType="inline" parentfunction="ap_uint<8>::ap_uint<128, false>(ap_range_ref<128, false> const&)" off="0" region="0" recursive="0"/>
-<pragma file="" line="0" pragmaType="inline" parentfunction="hls::stream<ap_uint<8>, 0>::operator<<(ap_uint<8> const&)" off="0" region="0" recursive="0"/>
-<pragma file="" line="0" pragmaType="inline" parentfunction="write" off="0" region="0" recursive="0"/>
-<pragma file="" line="0" pragmaType="inline" parentfunction="ap_int_base<8, false>::ap_int_base<128, false>(ap_range_ref<128, false> const&)" off="0" region="0" recursive="0"/>
-<pragma file="" line="0" pragmaType="inline" parentfunction="get" off="0" region="0" recursive="0"/>
-<pragma file="" line="0" pragmaType="inline" parentfunction="ap_int_base<128, false>::ap_int_base()" off="0" region="0" recursive="0"/>
-<pragma file="" line="0" pragmaType="inline" parentfunction="range" off="0" region="0" recursive="0"/>
-<pragma file="" line="0" pragmaType="inline" parentfunction="ap_range_ref<128, false>::ap_range_ref(ap_int_base<128, false>*, int, int)" off="0" region="0" recursive="0"/>
-<pragma file="" line="0" pragmaType="inline" parentfunction="checkOverflowBaseC" off="0" region="0" recursive="0"/>
-<pragma file="/share/Xilinx/Vitis_HLS/2023.1/common/technology/autopilot/etc/ap_common.h" line="0" pragmaType="inline" parentfunction="ssdm_int<32, false>::ssdm_int()" off="0" region="0" recursive="0"/>
+<pragma file="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp" line="803" pragmaType="array_partition" parentfunction="process_crc" dim="1" factor="0" mode="complete" dynamic="0" variable=""/>
+<pragma file="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp" line="804" pragmaType="bind_storage" parentfunction="process_crc" op="666" impl="18" latency="-1" variable="crcTables"/>
+<pragma file="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp" line="360" pragmaType="inline" parentfunction="load_crc_tables" off="1" region="0" recursive="0"/>
+<pragma file="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp" line="370" pragmaType="pipeline" parentfunction="load_crc_tables" off="0" ii="1" rewind="0" style=""/>
+<pragma file="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp" line="361" pragmaType="array_partition" parentfunction="load_crc_tables" dim="1" factor="0" mode="complete" dynamic="0" variable="crcTables"/>
+<pragma file="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp" line="362" pragmaType="bind_storage" parentfunction="load_crc_tables" op="666" impl="18" latency="-1" variable="crcTables"/>
+<pragma file="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp" line="566" pragmaType="inline" parentfunction="crc_dataflow_region" off="1" region="0" recursive="0"/>
+<pragma file="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp" line="605" pragmaType="dataflow" parentfunction="crc_dataflow_region" disable_start_propagation="0"/>
+<pragma file="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp" line="585" pragmaType="stream" parentfunction="crc_dataflow_region" depth="64" type="fifo" variable="inByte0"/>
+<pragma file="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp" line="586" pragmaType="stream" parentfunction="crc_dataflow_region" depth="64" type="fifo" variable="inByte1"/>
+<pragma file="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp" line="587" pragmaType="stream" parentfunction="crc_dataflow_region" depth="64" type="fifo" variable="inByte2"/>
+<pragma file="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp" line="588" pragmaType="stream" parentfunction="crc_dataflow_region" depth="64" type="fifo" variable="inByte3"/>
+<pragma file="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp" line="589" pragmaType="stream" parentfunction="crc_dataflow_region" depth="64" type="fifo" variable="inByte4"/>
+<pragma file="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp" line="590" pragmaType="stream" parentfunction="crc_dataflow_region" depth="64" type="fifo" variable="inByte5"/>
+<pragma file="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp" line="591" pragmaType="stream" parentfunction="crc_dataflow_region" depth="64" type="fifo" variable="inByte6"/>
+<pragma file="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp" line="592" pragmaType="stream" parentfunction="crc_dataflow_region" depth="64" type="fifo" variable="inByte7"/>
+<pragma file="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp" line="593" pragmaType="stream" parentfunction="crc_dataflow_region" depth="64" type="fifo" variable="inByte8"/>
+<pragma file="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp" line="594" pragmaType="stream" parentfunction="crc_dataflow_region" depth="64" type="fifo" variable="inByte9"/>
+<pragma file="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp" line="595" pragmaType="stream" parentfunction="crc_dataflow_region" depth="64" type="fifo" variable="inByte10"/>
+<pragma file="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp" line="596" pragmaType="stream" parentfunction="crc_dataflow_region" depth="64" type="fifo" variable="inByte11"/>
+<pragma file="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp" line="597" pragmaType="stream" parentfunction="crc_dataflow_region" depth="64" type="fifo" variable="inByte12"/>
+<pragma file="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp" line="598" pragmaType="stream" parentfunction="crc_dataflow_region" depth="64" type="fifo" variable="inByte13"/>
+<pragma file="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp" line="599" pragmaType="stream" parentfunction="crc_dataflow_region" depth="64" type="fifo" variable="inByte14"/>
+<pragma file="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp" line="600" pragmaType="stream" parentfunction="crc_dataflow_region" depth="64" type="fifo" variable="inByte15"/>
+<pragma file="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp" line="603" pragmaType="stream" parentfunction="crc_dataflow_region" depth="64" type="fifo" variable="outStream"/>
+<pragma file="/packages/apps/fpga/Vitis_HLS/2022.1/common/technology/autopilot/hls_stream_39.h" line="103" pragmaType="inline" parentfunction="hls::stream<ap_uint<8>, 0>::stream()" off="0" region="0" recursive="0"/>
+<pragma file="/packages/apps/fpga/Vitis_HLS/2022.1/common/technology/autopilot/hls_stream_39.h" line="103" pragmaType="inline" parentfunction="hls::stream<ap_uint<32>, 0>::stream()" off="0" region="0" recursive="0"/>
+<pragma file="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp" line="325" pragmaType="pipeline" parentfunction="read_input" off="0" ii="1" rewind="0" style=""/>
+<pragma file="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp" line="519" pragmaType="inline" parentfunction="process_crc_chunks" off="1" region="0" recursive="0"/>
+<pragma file="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp" line="520" pragmaType="array_partition" parentfunction="process_crc_chunks" dim="1" factor="0" mode="complete" dynamic="0" variable="crcTables"/>
+<pragma file="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp" line="521" pragmaType="bind_storage" parentfunction="process_crc_chunks" op="666" impl="18" latency="-1" variable="crcTables"/>
+<pragma file="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp" line="352" pragmaType="pipeline" parentfunction="write_output" off="0" ii="1" rewind="0" style=""/>
+<pragma file="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp" line="439" pragmaType="inline" parentfunction="crc_process_tail_bytes" off="1" region="0" recursive="0"/>
+<pragma file="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp" line="446" pragmaType="pipeline" parentfunction="crc_process_tail_bytes" off="0" ii="1" rewind="0" style=""/>
+<pragma file="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp" line="440" pragmaType="array_partition" parentfunction="crc_process_tail_bytes" dim="1" factor="0" mode="complete" dynamic="0" variable="crcTables"/>
+<pragma file="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp" line="441" pragmaType="bind_storage" parentfunction="crc_process_tail_bytes" op="666" impl="18" latency="-1" variable="crcTables"/>
+<pragma file="/packages/apps/fpga/Vitis_HLS/2022.1/common/technology/autopilot/hls_stream_39.h" line="154" pragmaType="inline" parentfunction="read" off="0" region="0" recursive="0"/>
+<pragma file="/packages/apps/fpga/Vitis_HLS/2022.1/common/technology/autopilot/ap_int_base.h" line="587" pragmaType="inline" parentfunction="ap_int_base<32, false>::operator unsigned long long() const" off="0" region="0" recursive="0"/>
+<pragma file="/packages/apps/fpga/Vitis_HLS/2022.1/common/technology/autopilot/ap_int.h" line="230" pragmaType="inline" parentfunction="ap_uint<32>::ap_uint()" off="0" region="0" recursive="0"/>
+<pragma file="/packages/apps/fpga/Vitis_HLS/2022.1/common/technology/autopilot/hls_stream_39.h" line="144" pragmaType="inline" parentfunction="read" off="0" region="0" recursive="0"/>
+<pragma file="/packages/apps/fpga/Vitis_HLS/2022.1/common/technology/autopilot/ap_int_base.h" line="221" pragmaType="inline" parentfunction="ap_int_base<32, false>::ap_int_base()" off="0" region="0" recursive="0"/>
+<pragma file="/packages/apps/fpga/Vitis_HLS/2022.1/common/technology/autopilot/ap_common.h" line="0" pragmaType="inline" parentfunction="ssdm_int<8, false>::ssdm_int()" off="0" region="0" recursive="0"/>
+<pragma file="/packages/apps/fpga/Vitis_HLS/2022.1/common/technology/autopilot/ap_int.h" line="334" pragmaType="inline" parentfunction="ap_uint<32>::ap_uint(unsigned int)" off="0" region="0" recursive="0"/>
+<pragma file="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp" line="386" pragmaType="inline" parentfunction="crc_process_full_blocks" off="1" region="0" recursive="0"/>
+<pragma file="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp" line="393" pragmaType="pipeline" parentfunction="crc_process_full_blocks" off="0" ii="1" rewind="0" style=""/>
+<pragma file="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp" line="387" pragmaType="array_partition" parentfunction="crc_process_full_blocks" dim="1" factor="0" mode="complete" dynamic="0" variable="crcTables"/>
+<pragma file="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp" line="388" pragmaType="bind_storage" parentfunction="crc_process_full_blocks" op="666" impl="18" latency="-1" variable="crcTables"/>
+<pragma file="/packages/apps/fpga/Vitis_HLS/2022.1/common/technology/autopilot/hls_stream_39.h" line="173" pragmaType="inline" parentfunction="write" off="0" region="0" recursive="0"/>
+<pragma file="/packages/apps/fpga/Vitis_HLS/2022.1/common/technology/autopilot/hls_stream_39.h" line="128" pragmaType="inline" parentfunction="hls::stream<ap_uint<32>, 0>::operator<<(ap_uint<32> const&)" off="0" region="0" recursive="0"/>
+<pragma file="/packages/apps/fpga/Vitis_HLS/2022.1/common/technology/autopilot/ap_int.h" line="333" pragmaType="inline" parentfunction="ap_uint<8>::ap_uint(int)" off="0" region="0" recursive="0"/>
+<pragma file="/packages/apps/fpga/Vitis_HLS/2022.1/common/technology/autopilot/hls_stream_39.h" line="154" pragmaType="inline" parentfunction="read" off="0" region="0" recursive="0"/>
+<pragma file="/packages/apps/fpga/Vitis_HLS/2022.1/common/technology/autopilot/ap_int_base.h" line="1715" pragmaType="inline" parentfunction="ap_int_base<32, false>::RType<32, false>::arg1 operator>><32, false>(ap_int_base<32, false> const&, int)" off="0" region="0" recursive="0"/>
+<pragma file="/packages/apps/fpga/Vitis_HLS/2022.1/common/technology/autopilot/ap_int_base.h" line="1545" pragmaType="inline" parentfunction="ap_int_base<32, false>::RType<8, false>::logic operator^<32, false, 8, false>(ap_int_base<32, false> const&, ap_int_base<8, false> const&)" off="0" region="0" recursive="0"/>
+<pragma file="/packages/apps/fpga/Vitis_HLS/2022.1/common/technology/autopilot/ap_int_base.h" line="1679" pragmaType="inline" parentfunction="ap_int_base<32, false>::RType<($_0)32, true>::logic operator&<32, false>(ap_int_base<32, false> const&, int)" off="0" region="0" recursive="0"/>
+<pragma file="/packages/apps/fpga/Vitis_HLS/2022.1/common/technology/autopilot/ap_int_base.h" line="587" pragmaType="inline" parentfunction="ap_int_base<33, true>::operator long long() const" off="0" region="0" recursive="0"/>
+<pragma file="/packages/apps/fpga/Vitis_HLS/2022.1/common/technology/autopilot/ap_int_base.h" line="1680" pragmaType="inline" parentfunction="ap_int_base<32, false>::RType<($_0)32, false>::logic operator^<32, false>(ap_int_base<32, false> const&, unsigned int)" off="0" region="0" recursive="0"/>
+<pragma file="/packages/apps/fpga/Vitis_HLS/2022.1/common/technology/autopilot/ap_int_base.h" line="1543" pragmaType="inline" parentfunction="ap_int_base<32, false>::RType<32, false>::logic operator&<32, false, 32, false>(ap_int_base<32, false> const&, ap_int_base<32, false> const&)" off="0" region="0" recursive="0"/>
+<pragma file="/packages/apps/fpga/Vitis_HLS/2022.1/common/technology/autopilot/ap_int_base.h" line="260" pragmaType="inline" parentfunction="ap_int_base<32, false>::ap_int_base(int)" off="0" region="0" recursive="0"/>
+<pragma file="/packages/apps/fpga/Vitis_HLS/2022.1/common/technology/autopilot/ap_int.h" line="300" pragmaType="inline" parentfunction="ap_uint<32>::ap_uint<32, false>(ap_int_base<32, false> const&)" off="0" region="0" recursive="0"/>
+<pragma file="/packages/apps/fpga/Vitis_HLS/2022.1/common/technology/autopilot/ap_common.h" line="567" pragmaType="inline" parentfunction="ssdm_int<32, false>::ssdm_int(unsigned int)" off="0" region="0" recursive="0"/>
+<pragma file="/packages/apps/fpga/Vitis_HLS/2022.1/common/technology/autopilot/ap_int_base.h" line="261" pragmaType="inline" parentfunction="ap_int_base<32, false>::ap_int_base(unsigned int)" off="0" region="0" recursive="0"/>
+<pragma file="/packages/apps/fpga/Vitis_HLS/2022.1/common/technology/autopilot/ap_int_base.h" line="1545" pragmaType="inline" parentfunction="ap_int_base<32, false>::RType<32, false>::logic operator^<32, false, 32, false>(ap_int_base<32, false> const&, ap_int_base<32, false> const&)" off="0" region="0" recursive="0"/>
+<pragma file="/packages/apps/fpga/Vitis_HLS/2022.1/common/technology/autopilot/ap_int_base.h" line="260" pragmaType="inline" parentfunction="ap_int_base<32, true>::ap_int_base(int)" off="0" region="0" recursive="0"/>
+<pragma file="/packages/apps/fpga/Vitis_HLS/2022.1/common/technology/autopilot/ap_int_base.h" line="1543" pragmaType="inline" parentfunction="ap_int_base<32, false>::RType<32, true>::logic operator&<32, false, 32, true>(ap_int_base<32, false> const&, ap_int_base<32, true> const&)" off="0" region="0" recursive="0"/>
+<pragma file="/packages/apps/fpga/Vitis_HLS/2022.1/common/technology/autopilot/ap_int_base.h" line="231" pragmaType="inline" parentfunction="ap_int_base<33, true>::ap_int_base<32, false>(ap_int_base<32, false> const&)" off="0" region="0" recursive="0"/>
+<pragma file="/packages/apps/fpga/Vitis_HLS/2022.1/common/technology/autopilot/ap_int_base.h" line="231" pragmaType="inline" parentfunction="ap_int_base<33, true>::ap_int_base<32, true>(ap_int_base<32, true> const&)" off="0" region="0" recursive="0"/>
+<pragma file="/packages/apps/fpga/Vitis_HLS/2022.1/common/technology/autopilot/ap_int_base.h" line="260" pragmaType="inline" parentfunction="ap_int_base<33, true>::ap_int_base(int)" off="0" region="0" recursive="0"/>
+<pragma file="/packages/apps/fpga/Vitis_HLS/2022.1/common/technology/autopilot/ap_int.h" line="145" pragmaType="inline" parentfunction="ap_int<33>::ap_int<33, true>(ap_int_base<33, true> const&)" off="0" region="0" recursive="0"/>
+<pragma file="/packages/apps/fpga/Vitis_HLS/2022.1/common/technology/autopilot/ap_common.h" line="559" pragmaType="inline" parentfunction="_ZN8ssdm_intILi33ELb1EEC2EDq33_i" off="0" region="0" recursive="0"/>
+<pragma file="/packages/apps/fpga/Vitis_HLS/2022.1/common/technology/autopilot/ap_common.h" line="559" pragmaType="inline" parentfunction="ssdm_int<32, true>::ssdm_int(int)" off="0" region="0" recursive="0"/>
+<pragma file="/packages/apps/fpga/Vitis_HLS/2022.1/common/technology/autopilot/ap_int_base.h" line="231" pragmaType="inline" parentfunction="ap_int_base<32, false>::ap_int_base<8, false>(ap_int_base<8, false> const&)" off="0" region="0" recursive="0"/>
+<pragma file="/packages/apps/fpga/Vitis_HLS/2022.1/common/technology/autopilot/ap_int.h" line="230" pragmaType="inline" parentfunction="ap_uint<8>::ap_uint()" off="0" region="0" recursive="0"/>
+<pragma file="/packages/apps/fpga/Vitis_HLS/2022.1/common/technology/autopilot/hls_stream_39.h" line="144" pragmaType="inline" parentfunction="read" off="0" region="0" recursive="0"/>
+<pragma file="/packages/apps/fpga/Vitis_HLS/2022.1/common/technology/autopilot/ap_int_base.h" line="221" pragmaType="inline" parentfunction="ap_int_base<8, false>::ap_int_base()" off="0" region="0" recursive="0"/>
+<pragma file="/packages/apps/fpga/Vitis_HLS/2022.1/common/technology/autopilot/ap_int_base.h" line="0" pragmaType="inline" parentfunction="checkOverflowBaseC" off="0" region="0" recursive="0"/>
+<pragma file="/packages/apps/fpga/Vitis_HLS/2022.1/common/technology/autopilot/ap_int_base.h" line="260" pragmaType="inline" parentfunction="ap_int_base<8, false>::ap_int_base(int)" off="0" region="0" recursive="0"/>
+<pragma file="/packages/apps/fpga/Vitis_HLS/2022.1/common/technology/autopilot/ap_common.h" line="567" pragmaType="inline" parentfunction="ssdm_int<8, false>::ssdm_int(unsigned char)" off="0" region="0" recursive="0"/>
+<pragma file="/packages/apps/fpga/Vitis_HLS/2022.1/common/technology/autopilot/ap_int_base.h" line="1545" pragmaType="inline" parentfunction="ap_int_base<33, true>::RType<8, false>::logic operator^<33, true, 8, false>(ap_int_base<33, true> const&, ap_int_base<8, false> const&)" off="0" region="0" recursive="0"/>
+<pragma file="/packages/apps/fpga/Vitis_HLS/2022.1/common/technology/autopilot/ap_int_base.h" line="587" pragmaType="inline" parentfunction="ap_int_base<8, false>::operator unsigned long long() const" off="0" region="0" recursive="0"/>
+<pragma file="/packages/apps/fpga/Vitis_HLS/2022.1/common/technology/autopilot/ap_int_base.h" line="231" pragmaType="inline" parentfunction="ap_int_base<33, true>::ap_int_base<8, false>(ap_int_base<8, false> const&)" off="0" region="0" recursive="0"/>
+<pragma file="/packages/apps/fpga/Vitis_HLS/2022.1/common/technology/autopilot/ap_int_base.h" line="1130" pragmaType="inline" parentfunction="ap_int_base<128, false>::operator()(int, int)" off="0" region="0" recursive="0"/>
+<pragma file="/packages/apps/fpga/Vitis_HLS/2022.1/common/technology/autopilot/ap_int.h" line="266" pragmaType="inline" parentfunction="ap_uint<8>::ap_uint<128, false>(ap_range_ref<128, false> const&)" off="0" region="0" recursive="0"/>
+<pragma file="/packages/apps/fpga/Vitis_HLS/2022.1/common/technology/autopilot/hls_stream_39.h" line="128" pragmaType="inline" parentfunction="hls::stream<ap_uint<8>, 0>::operator<<(ap_uint<8> const&)" off="0" region="0" recursive="0"/>
+<pragma file="/packages/apps/fpga/Vitis_HLS/2022.1/common/technology/autopilot/hls_stream_39.h" line="173" pragmaType="inline" parentfunction="write" off="0" region="0" recursive="0"/>
+<pragma file="/packages/apps/fpga/Vitis_HLS/2022.1/common/technology/autopilot/ap_int_base.h" line="403" pragmaType="inline" parentfunction="ap_int_base<8, false>::ap_int_base<128, false>(ap_range_ref<128, false> const&)" off="0" region="0" recursive="0"/>
+<pragma file="/packages/apps/fpga/Vitis_HLS/2022.1/common/technology/autopilot/ap_int_ref.h" line="672" pragmaType="inline" parentfunction="get" off="0" region="0" recursive="0"/>
+<pragma file="/packages/apps/fpga/Vitis_HLS/2022.1/common/technology/autopilot/ap_int_base.h" line="221" pragmaType="inline" parentfunction="ap_int_base<128, false>::ap_int_base()" off="0" region="0" recursive="0"/>
+<pragma file="/packages/apps/fpga/Vitis_HLS/2022.1/common/technology/autopilot/ap_int_base.h" line="1091" pragmaType="inline" parentfunction="range" off="0" region="0" recursive="0"/>
+<pragma file="/packages/apps/fpga/Vitis_HLS/2022.1/common/technology/autopilot/ap_int_ref.h" line="349" pragmaType="inline" parentfunction="ap_range_ref<128, false>::ap_range_ref(ap_int_base<128, false>*, int, int)" off="0" region="0" recursive="0"/>
+<pragma file="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp" line="823" pragmaType="interface" parentfunction="calculate_crc" mode="m_axi" port="data_in" bundle="gmem0" offset="slave" name="" depth="1024" num_read_outstanding="-1" num_write_outstanding="-1" max_burst_read_length="-1" max_burst_write_length="-1" latency="-1" max_widen_bitwidth="-1"/>
+<pragma file="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp" line="824" pragmaType="interface" parentfunction="calculate_crc" mode="m_axi" port="tables" bundle="gmem1" offset="slave" name="" depth="4096" num_read_outstanding="-1" num_write_outstanding="-1" max_burst_read_length="-1" max_burst_write_length="-1" latency="-1" max_widen_bitwidth="-1"/>
+<pragma file="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp" line="825" pragmaType="interface" parentfunction="calculate_crc" mode="m_axi" port="crc_out" bundle="gmem0" offset="slave" name="" depth="1024" num_read_outstanding="-1" num_write_outstanding="-1" max_burst_read_length="-1" max_burst_write_length="-1" latency="-1" max_widen_bitwidth="-1"/>
+<pragma file="/packages/apps/fpga/Vitis_HLS/2022.1/common/technology/autopilot/ap_common.h" line="0" pragmaType="inline" parentfunction="ssdm_int<32, false>::ssdm_int()" off="0" region="0" recursive="0"/>
+<pragma file="/packages/apps/fpga/Vitis_HLS/2022.1/common/technology/autopilot/ap_int_base.h" line="0" pragmaType="inline" parentfunction="checkOverflowBaseC" off="0" region="0" recursive="0"/>
+<pragma file="/packages/apps/fpga/Vitis_HLS/2022.1/common/technology/autopilot/ap_common.h" line="0" pragmaType="inline" parentfunction="ssdm_int<128, false>::ssdm_int()" off="0" region="0" recursive="0"/>
 </pragmas>

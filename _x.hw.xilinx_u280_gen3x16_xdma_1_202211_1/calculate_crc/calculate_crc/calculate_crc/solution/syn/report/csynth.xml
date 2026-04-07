@@ -1,10 +1,10 @@
 <profile>
     <ReportVersion>
-        <Version>2023.1</Version>
+        <Version>2022.1</Version>
     </ReportVersion>
     <UserAssignments>
         <unit>ns</unit>
-        <ProductFamily>virtexuplusHBM</ProductFamily>
+        <ProductFamily>virtexuplus</ProductFamily>
         <Part>xcu280-fsvh2892-2L-e</Part>
         <TopModelName>calculate_crc</TopModelName>
         <TargetClockPeriod>3.33</TargetClockPeriod>
@@ -15,7 +15,7 @@
         <PipelineType>no</PipelineType>
         <SummaryOfTimingAnalysis>
             <unit>ns</unit>
-            <EstimatedClockPeriod>3.629</EstimatedClockPeriod>
+            <EstimatedClockPeriod>2.433</EstimatedClockPeriod>
         </SummaryOfTimingAnalysis>
         <SummaryOfOverallLatency>
             <unit>clock cycles</unit>
@@ -31,10 +31,10 @@
     </PerformanceEstimates>
     <AreaEstimates>
         <Resources>
-            <BRAM_18K>54</BRAM_18K>
+            <BRAM_18K>16</BRAM_18K>
             <DSP>3</DSP>
-            <FF>8627</FF>
-            <LUT>10934</LUT>
+            <FF>10030</FF>
+            <LUT>17974</LUT>
             <URAM>0</URAM>
         </Resources>
         <AvailableResources>
@@ -1348,97 +1348,204 @@
         </RtlPorts>
     </InterfaceSummary>
     <RTLDesignHierarchy>
-        <TopModule MAX_DEPTH="5">
+        <TopModule MAX_DEPTH="6">
             <ModuleName>calculate_crc</ModuleName>
             <InstancesList>
                 <Instance>
-                    <InstName>grp_process_crc_fu_122</InstName>
-                    <ModuleName>process_crc</ModuleName>
+                    <InstName>grp_load_crc_tables_fu_198</InstName>
+                    <ModuleName>load_crc_tables</ModuleName>
                     <IsCompInst>true</IsCompInst>
-                    <ID>122</ID>
+                    <ID>198</ID>
                     <InstancesList>
                         <Instance>
-                            <InstName>process_crc_Loop_init_lut_proc_U0</InstName>
-                            <ModuleName>process_crc_Loop_init_lut_proc</ModuleName>
+                            <InstName>grp_load_crc_tables_Pipeline_load_lut_rows_load_lut_cols_fu_91</InstName>
+                            <ModuleName>load_crc_tables_Pipeline_load_lut_rows_load_lut_cols</ModuleName>
                             <IsCompInst>true</IsCompInst>
-                            <ID>328</ID>
-                            <InstancesList>
-                                <Instance>
-                                    <InstName>grp_process_crc_Loop_init_lut_proc_Pipeline_init_lut_VITIS_LOOP_678_1_fu_91</InstName>
-                                    <ModuleName>process_crc_Loop_init_lut_proc_Pipeline_init_lut_VITIS_LOOP_678_1</ModuleName>
-                                    <IsCompInst>true</IsCompInst>
-                                    <ID>91</ID>
-                                    <BindInstances>add_ln676_fu_415_p2 add_ln676_1_fu_473_p2 add_ln678_fu_448_p2</BindInstances>
-                                </Instance>
-                            </InstancesList>
+                            <ID>91</ID>
+                            <BindInstances>add_ln365_fu_415_p2 add_ln365_1_fu_483_p2 add_ln368_fu_448_p2</BindInstances>
                         </Instance>
+                    </InstancesList>
+                </Instance>
+                <Instance>
+                    <InstName>grp_crc_dataflow_region_fu_221</InstName>
+                    <ModuleName>crc_dataflow_region</ModuleName>
+                    <IsCompInst>true</IsCompInst>
+                    <ID>221</ID>
+                    <InstancesList>
                         <Instance>
                             <InstName>read_input_U0</InstName>
                             <ModuleName>read_input</ModuleName>
                             <IsCompInst>true</IsCompInst>
-                            <ID>368</ID>
+                            <ID>254</ID>
                             <InstancesList>
                                 <Instance>
-                                    <InstName>grp_read_input_Pipeline_mem_rd_fu_142</InstName>
+                                    <InstName>grp_read_input_Pipeline_mem_rd_fu_112</InstName>
                                     <ModuleName>read_input_Pipeline_mem_rd</ModuleName>
                                     <IsCompInst>true</IsCompInst>
-                                    <ID>142</ID>
-                                    <BindInstances>add_ln287_fu_301_p2</BindInstances>
+                                    <ID>112</ID>
+                                    <BindInstances>add_ln323_fu_289_p2</BindInstances>
                                 </Instance>
                             </InstancesList>
-                            <BindInstances>mul_32s_32s_32_2_1_U62 sub_ln283_fu_206_p2 sub_ln283_1_fu_224_p2</BindInstances>
+                            <BindInstances>mul_32s_32s_32_2_1_U58 sub_ln319_fu_186_p2 sub_ln319_1_fu_205_p2</BindInstances>
+                        </Instance>
+                        <Instance>
+                            <InstName>process_crc_chunks_U0</InstName>
+                            <ModuleName>process_crc_chunks</ModuleName>
+                            <IsCompInst>true</IsCompInst>
+                            <ID>282</ID>
+                            <InstancesList>
+                                <Instance>
+                                    <InstName>grp_crc_process_full_blocks_fu_197</InstName>
+                                    <ModuleName>crc_process_full_blocks</ModuleName>
+                                    <IsCompInst>true</IsCompInst>
+                                    <ID>197</ID>
+                                    <InstancesList>
+                                        <Instance>
+                                            <InstName>grp_crc_process_full_blocks_Pipeline_full_block_loop_fu_131</InstName>
+                                            <ModuleName>crc_process_full_blocks_Pipeline_full_block_loop</ModuleName>
+                                            <IsCompInst>true</IsCompInst>
+                                            <ID>131</ID>
+                                            <BindInstances>add_ln391_fu_486_p2</BindInstances>
+                                        </Instance>
+                                    </InstancesList>
+                                </Instance>
+                                <Instance>
+                                    <InstName>grp_crc_process_tail_bytes_fu_268</InstName>
+                                    <ModuleName>crc_process_tail_bytes</ModuleName>
+                                    <IsCompInst>true</IsCompInst>
+                                    <ID>268</ID>
+                                    <BindInstances>t_2_fu_309_p2</BindInstances>
+                                </Instance>
+                            </InstancesList>
+                            <BindInstances>mask_V_fu_397_p2 sub_ln527_fu_318_p2 sub_ln527_1_fu_338_p2 tail_bytes_fu_418_p2 c_2_fu_445_p2</BindInstances>
                         </Instance>
                         <Instance>
                             <InstName>entry_proc_U0</InstName>
                             <ModuleName>entry_proc</ModuleName>
                             <IsCompInst>true</IsCompInst>
-                            <ID>398</ID>
-                        </Instance>
-                        <Instance>
-                            <InstName>process_blocks_U0</InstName>
-                            <ModuleName>process_blocks</ModuleName>
-                            <IsCompInst>true</IsCompInst>
-                            <ID>411</ID>
-                            <InstancesList>
-                                <Instance>
-                                    <InstName>grp_process_blocks_Pipeline_block_loop_fu_199</InstName>
-                                    <ModuleName>process_blocks_Pipeline_block_loop</ModuleName>
-                                    <IsCompInst>true</IsCompInst>
-                                    <ID>199</ID>
-                                    <BindInstances>add_ln331_fu_492_p2</BindInstances>
-                                </Instance>
-                                <Instance>
-                                    <InstName>grp_process_blocks_Pipeline_tail_loop_fu_271</InstName>
-                                    <ModuleName>process_blocks_Pipeline_tail_loop</ModuleName>
-                                    <IsCompInst>true</IsCompInst>
-                                    <ID>271</ID>
-                                    <BindInstances>t_2_fu_318_p2</BindInstances>
-                                </Instance>
-                            </InstancesList>
-                            <BindInstances>mask_fu_373_p2 p_neg_fu_337_p2 p_neg_t_fu_389_p2 sub_ln329_fu_417_p2 add_ln329_fu_434_p2</BindInstances>
+                            <ID>342</ID>
                         </Instance>
                         <Instance>
                             <InstName>write_output_U0</InstName>
                             <ModuleName>write_output</ModuleName>
                             <IsCompInst>true</IsCompInst>
-                            <ID>453</ID>
+                            <ID>349</ID>
                             <InstancesList>
                                 <Instance>
-                                    <InstName>grp_write_output_Pipeline_VITIS_LOOP_442_1_fu_58</InstName>
-                                    <ModuleName>write_output_Pipeline_VITIS_LOOP_442_1</ModuleName>
+                                    <InstName>grp_write_output_Pipeline_VITIS_LOOP_350_1_fu_58</InstName>
+                                    <ModuleName>write_output_Pipeline_VITIS_LOOP_350_1</ModuleName>
                                     <IsCompInst>true</IsCompInst>
                                     <ID>58</ID>
-                                    <BindInstances>add_ln442_fu_137_p2 add_ln445_fu_159_p2 add_ln445_1_fu_191_p2</BindInstances>
+                                    <BindInstances>add_ln350_fu_129_p2 add_ln353_fu_151_p2 add_ln353_1_fu_183_p2</BindInstances>
                                 </Instance>
                             </InstancesList>
                         </Instance>
                     </InstancesList>
-                    <BindInstances>init_value_c_U crc_size_c_U chunkSize_c_U numChunks_c12_U numChunks_c_U crc_out_c_U inByte0_U inByte1_U inByte2_U inByte3_U inByte4_U inByte5_U inByte6_U inByte7_U inByte8_U inByte9_U inByte10_U inByte11_U inByte12_U inByte13_U inByte14_U inByte15_U outStream_U crcTables_U crcTables_1_U crcTables_2_U crcTables_3_U crcTables_4_U crcTables_5_U crcTables_6_U crcTables_7_U crcTables_8_U crcTables_9_U crcTables_10_U crcTables_11_U crcTables_12_U crcTables_13_U crcTables_14_U crcTables_15_U</BindInstances>
+                    <BindInstances>numChunks_c_U crc_out_c_U inByte0_U inByte1_U inByte2_U inByte3_U inByte4_U inByte5_U inByte6_U inByte7_U inByte8_U inByte9_U inByte10_U inByte11_U inByte12_U inByte13_U inByte14_U inByte15_U outStream_U</BindInstances>
                 </Instance>
             </InstancesList>
+            <BindInstances>crcTables_U crcTables_1_U crcTables_2_U crcTables_3_U crcTables_4_U crcTables_5_U crcTables_6_U crcTables_7_U crcTables_8_U crcTables_9_U crcTables_10_U crcTables_11_U crcTables_12_U crcTables_13_U crcTables_14_U crcTables_15_U</BindInstances>
         </TopModule>
     </RTLDesignHierarchy>
     <ModuleInformation>
+        <Module>
+            <Name>load_crc_tables_Pipeline_load_lut_rows_load_lut_cols</Name>
+            <Loops>
+                <load_lut_rows_load_lut_cols/>
+            </Loops>
+            <PerformanceEstimates>
+                <SummaryOfTimingAnalysis>
+                    <TargetClockPeriod>3.33</TargetClockPeriod>
+                    <ClockUncertainty>0.90</ClockUncertainty>
+                    <EstimatedClockPeriod>2.433</EstimatedClockPeriod>
+                </SummaryOfTimingAnalysis>
+                <SummaryOfOverallLatency>
+                    <Best-caseLatency>4099</Best-caseLatency>
+                    <Average-caseLatency>4099</Average-caseLatency>
+                    <Worst-caseLatency>4099</Worst-caseLatency>
+                    <Best-caseRealTimeLatency>13.662 us</Best-caseRealTimeLatency>
+                    <Average-caseRealTimeLatency>13.662 us</Average-caseRealTimeLatency>
+                    <Worst-caseRealTimeLatency>13.662 us</Worst-caseRealTimeLatency>
+                    <PipelineInitiationInterval>4099</PipelineInitiationInterval>
+                    <PipelineType>no</PipelineType>
+                </SummaryOfOverallLatency>
+                <SummaryOfLoopLatency>
+                    <load_lut_rows_load_lut_cols>
+                        <Name>load_lut_rows_load_lut_cols</Name>
+                        <TripCount>4096</TripCount>
+                        <Latency>4097</Latency>
+                        <AbsoluteTimeLatency>13.655 us</AbsoluteTimeLatency>
+                        <PipelineII>1</PipelineII>
+                        <PipelineDepth>3</PipelineDepth>
+                        <PipelineType>yes</PipelineType>
+                        <InstanceList/>
+                    </load_lut_rows_load_lut_cols>
+                </SummaryOfLoopLatency>
+            </PerformanceEstimates>
+            <AreaEstimates>
+                <Resources>
+                    <FF>1048</FF>
+                    <AVAIL_FF>2607360</AVAIL_FF>
+                    <UTIL_FF>~0</UTIL_FF>
+                    <LUT>605</LUT>
+                    <AVAIL_LUT>1303680</AVAIL_LUT>
+                    <UTIL_LUT>~0</UTIL_LUT>
+                    <BRAM_18K>0</BRAM_18K>
+                    <AVAIL_BRAM>4032</AVAIL_BRAM>
+                    <UTIL_BRAM>0</UTIL_BRAM>
+                    <DSP>0</DSP>
+                    <AVAIL_DSP>9024</AVAIL_DSP>
+                    <UTIL_DSP>0</UTIL_DSP>
+                    <URAM>0</URAM>
+                    <AVAIL_URAM>960</AVAIL_URAM>
+                    <UTIL_URAM>0</UTIL_URAM>
+                </Resources>
+            </AreaEstimates>
+            <BindNodes>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="load_lut_rows_load_lut_cols" OPTYPE="add" PRAGMA="" RTLNAME="add_ln365_fu_415_p2" SOURCE="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:365" URAM="0" VARIABLE="add_ln365"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="load_lut_rows_load_lut_cols" OPTYPE="add" PRAGMA="" RTLNAME="add_ln365_1_fu_483_p2" SOURCE="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:365" URAM="0" VARIABLE="add_ln365_1"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="load_lut_rows_load_lut_cols" OPTYPE="add" PRAGMA="" RTLNAME="add_ln368_fu_448_p2" SOURCE="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:368" URAM="0" VARIABLE="add_ln368"/>
+            </BindNodes>
+        </Module>
+        <Module>
+            <Name>load_crc_tables</Name>
+            <PerformanceEstimates>
+                <SummaryOfTimingAnalysis>
+                    <TargetClockPeriod>3.33</TargetClockPeriod>
+                    <ClockUncertainty>0.90</ClockUncertainty>
+                    <EstimatedClockPeriod>2.433</EstimatedClockPeriod>
+                </SummaryOfTimingAnalysis>
+                <SummaryOfOverallLatency>
+                    <Best-caseLatency>4170</Best-caseLatency>
+                    <Average-caseLatency>4170</Average-caseLatency>
+                    <Worst-caseLatency>4170</Worst-caseLatency>
+                    <Best-caseRealTimeLatency>13.899 us</Best-caseRealTimeLatency>
+                    <Average-caseRealTimeLatency>13.899 us</Average-caseRealTimeLatency>
+                    <Worst-caseRealTimeLatency>13.899 us</Worst-caseRealTimeLatency>
+                    <PipelineInitiationInterval>4170</PipelineInitiationInterval>
+                    <PipelineType>no</PipelineType>
+                </SummaryOfOverallLatency>
+            </PerformanceEstimates>
+            <AreaEstimates>
+                <Resources>
+                    <FF>1179</FF>
+                    <AVAIL_FF>2607360</AVAIL_FF>
+                    <UTIL_FF>~0</UTIL_FF>
+                    <LUT>1077</LUT>
+                    <AVAIL_LUT>1303680</AVAIL_LUT>
+                    <UTIL_LUT>~0</UTIL_LUT>
+                    <BRAM_18K>0</BRAM_18K>
+                    <AVAIL_BRAM>4032</AVAIL_BRAM>
+                    <UTIL_BRAM>0</UTIL_BRAM>
+                    <DSP>0</DSP>
+                    <AVAIL_DSP>9024</AVAIL_DSP>
+                    <UTIL_DSP>0</UTIL_DSP>
+                    <URAM>0</URAM>
+                    <AVAIL_URAM>960</AVAIL_URAM>
+                    <UTIL_URAM>0</UTIL_URAM>
+                </Resources>
+            </AreaEstimates>
+        </Module>
         <Module>
             <Name>entry_proc</Name>
             <PerformanceEstimates>
@@ -1463,106 +1570,7 @@
                     <FF>3</FF>
                     <AVAIL_FF>2607360</AVAIL_FF>
                     <UTIL_FF>~0</UTIL_FF>
-                    <LUT>47</LUT>
-                    <AVAIL_LUT>1303680</AVAIL_LUT>
-                    <UTIL_LUT>~0</UTIL_LUT>
-                    <BRAM_18K>0</BRAM_18K>
-                    <AVAIL_BRAM>4032</AVAIL_BRAM>
-                    <UTIL_BRAM>0</UTIL_BRAM>
-                    <DSP>0</DSP>
-                    <AVAIL_DSP>9024</AVAIL_DSP>
-                    <UTIL_DSP>0</UTIL_DSP>
-                    <URAM>0</URAM>
-                    <AVAIL_URAM>960</AVAIL_URAM>
-                    <UTIL_URAM>0</UTIL_URAM>
-                </Resources>
-            </AreaEstimates>
-        </Module>
-        <Module>
-            <Name>process_crc_Loop_init_lut_proc_Pipeline_init_lut_VITIS_LOOP_678_1</Name>
-            <Loops>
-                <init_lut_VITIS_LOOP_678_1/>
-            </Loops>
-            <PerformanceEstimates>
-                <SummaryOfTimingAnalysis>
-                    <TargetClockPeriod>3.33</TargetClockPeriod>
-                    <ClockUncertainty>0.90</ClockUncertainty>
-                    <EstimatedClockPeriod>2.433</EstimatedClockPeriod>
-                </SummaryOfTimingAnalysis>
-                <SummaryOfOverallLatency>
-                    <Best-caseLatency>4099</Best-caseLatency>
-                    <Average-caseLatency>4099</Average-caseLatency>
-                    <Worst-caseLatency>4099</Worst-caseLatency>
-                    <Best-caseRealTimeLatency>13.662 us</Best-caseRealTimeLatency>
-                    <Average-caseRealTimeLatency>13.662 us</Average-caseRealTimeLatency>
-                    <Worst-caseRealTimeLatency>13.662 us</Worst-caseRealTimeLatency>
-                    <PipelineInitiationInterval>4099</PipelineInitiationInterval>
-                    <PipelineType>no</PipelineType>
-                </SummaryOfOverallLatency>
-                <SummaryOfLoopLatency>
-                    <init_lut_VITIS_LOOP_678_1>
-                        <Name>init_lut_VITIS_LOOP_678_1</Name>
-                        <Slack>2.43</Slack>
-                        <TripCount>4096</TripCount>
-                        <Latency>4097</Latency>
-                        <AbsoluteTimeLatency>13.655 us</AbsoluteTimeLatency>
-                        <PipelineII>1</PipelineII>
-                        <PipelineDepth>3</PipelineDepth>
-                        <PipelineType>yes</PipelineType>
-                        <InstanceList/>
-                    </init_lut_VITIS_LOOP_678_1>
-                </SummaryOfLoopLatency>
-            </PerformanceEstimates>
-            <AreaEstimates>
-                <Resources>
-                    <FF>1052</FF>
-                    <AVAIL_FF>2607360</AVAIL_FF>
-                    <UTIL_FF>~0</UTIL_FF>
-                    <LUT>623</LUT>
-                    <AVAIL_LUT>1303680</AVAIL_LUT>
-                    <UTIL_LUT>~0</UTIL_LUT>
-                    <BRAM_18K>0</BRAM_18K>
-                    <AVAIL_BRAM>4032</AVAIL_BRAM>
-                    <UTIL_BRAM>0</UTIL_BRAM>
-                    <DSP>0</DSP>
-                    <AVAIL_DSP>9024</AVAIL_DSP>
-                    <UTIL_DSP>0</UTIL_DSP>
-                    <URAM>0</URAM>
-                    <AVAIL_URAM>960</AVAIL_URAM>
-                    <UTIL_URAM>0</UTIL_URAM>
-                </Resources>
-            </AreaEstimates>
-            <BindNodes>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="init_lut_VITIS_LOOP_678_1" OPTYPE="add" PRAGMA="" RTLNAME="add_ln676_fu_415_p2" SOURCE="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:676" URAM="0" VARIABLE="add_ln676"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="init_lut_VITIS_LOOP_678_1" OPTYPE="add" PRAGMA="" RTLNAME="add_ln676_1_fu_473_p2" SOURCE="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:676" URAM="0" VARIABLE="add_ln676_1"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="init_lut_VITIS_LOOP_678_1" OPTYPE="add" PRAGMA="" RTLNAME="add_ln678_fu_448_p2" SOURCE="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:678" URAM="0" VARIABLE="add_ln678"/>
-            </BindNodes>
-        </Module>
-        <Module>
-            <Name>process_crc_Loop_init_lut_proc</Name>
-            <PerformanceEstimates>
-                <SummaryOfTimingAnalysis>
-                    <TargetClockPeriod>3.33</TargetClockPeriod>
-                    <ClockUncertainty>0.90</ClockUncertainty>
-                    <EstimatedClockPeriod>2.433</EstimatedClockPeriod>
-                </SummaryOfTimingAnalysis>
-                <SummaryOfOverallLatency>
-                    <Best-caseLatency>4171</Best-caseLatency>
-                    <Average-caseLatency>4171</Average-caseLatency>
-                    <Worst-caseLatency>4171</Worst-caseLatency>
-                    <Best-caseRealTimeLatency>13.902 us</Best-caseRealTimeLatency>
-                    <Average-caseRealTimeLatency>13.902 us</Average-caseRealTimeLatency>
-                    <Worst-caseRealTimeLatency>13.902 us</Worst-caseRealTimeLatency>
-                    <PipelineInitiationInterval>4171</PipelineInitiationInterval>
-                    <PipelineType>no</PipelineType>
-                </SummaryOfOverallLatency>
-            </PerformanceEstimates>
-            <AreaEstimates>
-                <Resources>
-                    <FF>1185</FF>
-                    <AVAIL_FF>2607360</AVAIL_FF>
-                    <UTIL_FF>~0</UTIL_FF>
-                    <LUT>1113</LUT>
+                    <LUT>29</LUT>
                     <AVAIL_LUT>1303680</AVAIL_LUT>
                     <UTIL_LUT>~0</UTIL_LUT>
                     <BRAM_18K>0</BRAM_18K>
@@ -1589,27 +1597,21 @@
                     <EstimatedClockPeriod>2.433</EstimatedClockPeriod>
                 </SummaryOfTimingAnalysis>
                 <SummaryOfOverallLatency>
-                    <Best-caseLatency>3</Best-caseLatency>
-                    <Average-caseLatency>67108866</Average-caseLatency>
-                    <Worst-caseLatency>134217730</Worst-caseLatency>
-                    <Best-caseRealTimeLatency>9.999 ns</Best-caseRealTimeLatency>
-                    <Average-caseRealTimeLatency>0.224 sec</Average-caseRealTimeLatency>
-                    <Worst-caseRealTimeLatency>0.447 sec</Worst-caseRealTimeLatency>
-                    <PipelineInitiationInterval>3 ~ 134217730</PipelineInitiationInterval>
+                    <Best-caseLatency>undef</Best-caseLatency>
+                    <Average-caseLatency>undef</Average-caseLatency>
+                    <Worst-caseLatency>undef</Worst-caseLatency>
+                    <Best-caseRealTimeLatency>undef</Best-caseRealTimeLatency>
+                    <Average-caseRealTimeLatency>undef</Average-caseRealTimeLatency>
+                    <Worst-caseRealTimeLatency>undef</Worst-caseRealTimeLatency>
+                    <PipelineInitiationInterval>undef</PipelineInitiationInterval>
                     <PipelineType>no</PipelineType>
                 </SummaryOfOverallLatency>
                 <SummaryOfLoopLatency>
                     <mem_rd>
                         <Name>mem_rd</Name>
-                        <Slack>2.43</Slack>
-                        <TripCount>
-                            <range>
-                                <min>0</min>
-                                <max>134217727</max>
-                            </range>
-                        </TripCount>
-                        <Latency>1 ~ 134217728</Latency>
-                        <AbsoluteTimeLatency>3.333 ns ~ 0.447 sec</AbsoluteTimeLatency>
+                        <TripCount>undef</TripCount>
+                        <Latency>undef</Latency>
+                        <AbsoluteTimeLatency>undef</AbsoluteTimeLatency>
                         <PipelineII>1</PipelineII>
                         <PipelineDepth>3</PipelineDepth>
                         <PipelineType>yes</PipelineType>
@@ -1619,10 +1621,10 @@
             </PerformanceEstimates>
             <AreaEstimates>
                 <Resources>
-                    <FF>162</FF>
+                    <FF>161</FF>
                     <AVAIL_FF>2607360</AVAIL_FF>
                     <UTIL_FF>~0</UTIL_FF>
-                    <LUT>268</LUT>
+                    <LUT>248</LUT>
                     <AVAIL_LUT>1303680</AVAIL_LUT>
                     <UTIL_LUT>~0</UTIL_LUT>
                     <BRAM_18K>0</BRAM_18K>
@@ -1637,7 +1639,7 @@
                 </Resources>
             </AreaEstimates>
             <BindNodes>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="mem_rd" OPTYPE="add" PRAGMA="" RTLNAME="add_ln287_fu_301_p2" SOURCE="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:287" URAM="0" VARIABLE="add_ln287"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="mem_rd" OPTYPE="add" PRAGMA="" RTLNAME="add_ln323_fu_289_p2" SOURCE="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:323" URAM="0" VARIABLE="add_ln323"/>
             </BindNodes>
         </Module>
         <Module>
@@ -1649,116 +1651,6 @@
                     <EstimatedClockPeriod>2.433</EstimatedClockPeriod>
                 </SummaryOfTimingAnalysis>
                 <SummaryOfOverallLatency>
-                    <Best-caseLatency>79</Best-caseLatency>
-                    <Average-caseLatency>67108942</Average-caseLatency>
-                    <Worst-caseLatency>134217806</Worst-caseLatency>
-                    <Best-caseRealTimeLatency>0.263 us</Best-caseRealTimeLatency>
-                    <Average-caseRealTimeLatency>0.224 sec</Average-caseRealTimeLatency>
-                    <Worst-caseRealTimeLatency>0.447 sec</Worst-caseRealTimeLatency>
-                    <PipelineInitiationInterval>79 ~ 134217806</PipelineInitiationInterval>
-                    <PipelineType>no</PipelineType>
-                </SummaryOfOverallLatency>
-            </PerformanceEstimates>
-            <AreaEstimates>
-                <Resources>
-                    <DSP>3</DSP>
-                    <AVAIL_DSP>9024</AVAIL_DSP>
-                    <UTIL_DSP>~0</UTIL_DSP>
-                    <FF>612</FF>
-                    <AVAIL_FF>2607360</AVAIL_FF>
-                    <UTIL_FF>~0</UTIL_FF>
-                    <LUT>1163</LUT>
-                    <AVAIL_LUT>1303680</AVAIL_LUT>
-                    <UTIL_LUT>~0</UTIL_LUT>
-                    <BRAM_18K>0</BRAM_18K>
-                    <AVAIL_BRAM>4032</AVAIL_BRAM>
-                    <UTIL_BRAM>0</UTIL_BRAM>
-                    <URAM>0</URAM>
-                    <AVAIL_URAM>960</AVAIL_URAM>
-                    <UTIL_URAM>0</UTIL_URAM>
-                </Resources>
-            </AreaEstimates>
-            <BindNodes>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op mul" DSP="3" ID="" IMPL="auto" LATENCY="1" LOOP="" OPTYPE="mul" PRAGMA="" RTLNAME="mul_32s_32s_32_2_1_U62" SOURCE="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:282" URAM="0" VARIABLE="total_bytes"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op sub" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="sub" PRAGMA="" RTLNAME="sub_ln283_fu_206_p2" SOURCE="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:283" URAM="0" VARIABLE="sub_ln283"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op sub" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="sub" PRAGMA="" RTLNAME="sub_ln283_1_fu_224_p2" SOURCE="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:283" URAM="0" VARIABLE="sub_ln283_1"/>
-            </BindNodes>
-        </Module>
-        <Module>
-            <Name>process_blocks_Pipeline_block_loop</Name>
-            <Loops>
-                <block_loop/>
-            </Loops>
-            <PerformanceEstimates>
-                <SummaryOfTimingAnalysis>
-                    <TargetClockPeriod>3.33</TargetClockPeriod>
-                    <ClockUncertainty>0.90</ClockUncertainty>
-                    <EstimatedClockPeriod>2.641</EstimatedClockPeriod>
-                </SummaryOfTimingAnalysis>
-                <SummaryOfOverallLatency>
-                    <Best-caseLatency>2</Best-caseLatency>
-                    <Average-caseLatency>67108866</Average-caseLatency>
-                    <Worst-caseLatency>134217730</Worst-caseLatency>
-                    <Best-caseRealTimeLatency>6.666 ns</Best-caseRealTimeLatency>
-                    <Average-caseRealTimeLatency>0.224 sec</Average-caseRealTimeLatency>
-                    <Worst-caseRealTimeLatency>0.447 sec</Worst-caseRealTimeLatency>
-                    <PipelineInitiationInterval>2 ~ 134217730</PipelineInitiationInterval>
-                    <PipelineType>no</PipelineType>
-                </SummaryOfOverallLatency>
-                <SummaryOfLoopLatency>
-                    <block_loop>
-                        <Name>block_loop</Name>
-                        <Slack>2.43</Slack>
-                        <TripCount>
-                            <range>
-                                <min>0</min>
-                                <max>134217727</max>
-                            </range>
-                        </TripCount>
-                        <Latency>0 ~ 134217728</Latency>
-                        <AbsoluteTimeLatency>0 ns ~ 0.447 sec</AbsoluteTimeLatency>
-                        <PipelineII>1</PipelineII>
-                        <PipelineDepth>3</PipelineDepth>
-                        <PipelineType>yes</PipelineType>
-                        <InstanceList/>
-                    </block_loop>
-                </SummaryOfLoopLatency>
-            </PerformanceEstimates>
-            <AreaEstimates>
-                <Resources>
-                    <FF>66</FF>
-                    <AVAIL_FF>2607360</AVAIL_FF>
-                    <UTIL_FF>~0</UTIL_FF>
-                    <LUT>819</LUT>
-                    <AVAIL_LUT>1303680</AVAIL_LUT>
-                    <UTIL_LUT>~0</UTIL_LUT>
-                    <BRAM_18K>0</BRAM_18K>
-                    <AVAIL_BRAM>4032</AVAIL_BRAM>
-                    <UTIL_BRAM>0</UTIL_BRAM>
-                    <DSP>0</DSP>
-                    <AVAIL_DSP>9024</AVAIL_DSP>
-                    <UTIL_DSP>0</UTIL_DSP>
-                    <URAM>0</URAM>
-                    <AVAIL_URAM>960</AVAIL_URAM>
-                    <UTIL_URAM>0</UTIL_URAM>
-                </Resources>
-            </AreaEstimates>
-            <BindNodes>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="block_loop" OPTYPE="add" PRAGMA="" RTLNAME="add_ln331_fu_492_p2" SOURCE="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:331" URAM="0" VARIABLE="add_ln331"/>
-            </BindNodes>
-        </Module>
-        <Module>
-            <Name>process_blocks_Pipeline_tail_loop</Name>
-            <Loops>
-                <tail_loop/>
-            </Loops>
-            <PerformanceEstimates>
-                <SummaryOfTimingAnalysis>
-                    <TargetClockPeriod>3.33</TargetClockPeriod>
-                    <ClockUncertainty>0.90</ClockUncertainty>
-                    <EstimatedClockPeriod>1.793</EstimatedClockPeriod>
-                </SummaryOfTimingAnalysis>
-                <SummaryOfOverallLatency>
                     <Best-caseLatency>undef</Best-caseLatency>
                     <Average-caseLatency>undef</Average-caseLatency>
                     <Worst-caseLatency>undef</Worst-caseLatency>
@@ -1768,26 +1660,72 @@
                     <PipelineInitiationInterval>undef</PipelineInitiationInterval>
                     <PipelineType>no</PipelineType>
                 </SummaryOfOverallLatency>
+            </PerformanceEstimates>
+            <AreaEstimates>
+                <Resources>
+                    <DSP>3</DSP>
+                    <AVAIL_DSP>9024</AVAIL_DSP>
+                    <UTIL_DSP>~0</UTIL_DSP>
+                    <FF>609</FF>
+                    <AVAIL_FF>2607360</AVAIL_FF>
+                    <UTIL_FF>~0</UTIL_FF>
+                    <LUT>1070</LUT>
+                    <AVAIL_LUT>1303680</AVAIL_LUT>
+                    <UTIL_LUT>~0</UTIL_LUT>
+                    <BRAM_18K>0</BRAM_18K>
+                    <AVAIL_BRAM>4032</AVAIL_BRAM>
+                    <UTIL_BRAM>0</UTIL_BRAM>
+                    <URAM>0</URAM>
+                    <AVAIL_URAM>960</AVAIL_URAM>
+                    <UTIL_URAM>0</UTIL_URAM>
+                </Resources>
+            </AreaEstimates>
+            <BindNodes>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op mul" DSP="3" ID="" IMPL="auto" LATENCY="1" LOOP="" OPTYPE="mul" PRAGMA="" RTLNAME="mul_32s_32s_32_2_1_U58" SOURCE="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:318" URAM="0" VARIABLE="total_bytes"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op sub" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="sub" PRAGMA="" RTLNAME="sub_ln319_fu_186_p2" SOURCE="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:319" URAM="0" VARIABLE="sub_ln319"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op sub" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="sub" PRAGMA="" RTLNAME="sub_ln319_1_fu_205_p2" SOURCE="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:319" URAM="0" VARIABLE="sub_ln319_1"/>
+            </BindNodes>
+        </Module>
+        <Module>
+            <Name>crc_process_full_blocks_Pipeline_full_block_loop</Name>
+            <Loops>
+                <full_block_loop/>
+            </Loops>
+            <PerformanceEstimates>
+                <SummaryOfTimingAnalysis>
+                    <TargetClockPeriod>3.33</TargetClockPeriod>
+                    <ClockUncertainty>0.90</ClockUncertainty>
+                    <EstimatedClockPeriod>2.413</EstimatedClockPeriod>
+                </SummaryOfTimingAnalysis>
+                <SummaryOfOverallLatency>
+                    <Best-caseLatency>5</Best-caseLatency>
+                    <Average-caseLatency>undef</Average-caseLatency>
+                    <Worst-caseLatency>undef</Worst-caseLatency>
+                    <Best-caseRealTimeLatency>16.665 ns</Best-caseRealTimeLatency>
+                    <Average-caseRealTimeLatency>undef</Average-caseRealTimeLatency>
+                    <Worst-caseRealTimeLatency>undef</Worst-caseRealTimeLatency>
+                    <PipelineInitiationInterval>5 ~ -1</PipelineInitiationInterval>
+                    <PipelineType>no</PipelineType>
+                </SummaryOfOverallLatency>
                 <SummaryOfLoopLatency>
-                    <tail_loop>
-                        <Name>tail_loop</Name>
-                        <Slack>2.43</Slack>
+                    <full_block_loop>
+                        <Name>full_block_loop</Name>
                         <TripCount>undef</TripCount>
-                        <Latency>undef</Latency>
-                        <AbsoluteTimeLatency>undef</AbsoluteTimeLatency>
+                        <Latency>3 ~ ?</Latency>
+                        <AbsoluteTimeLatency>9.999 ns ~ ?</AbsoluteTimeLatency>
                         <PipelineII>1</PipelineII>
                         <PipelineDepth>4</PipelineDepth>
                         <PipelineType>yes</PipelineType>
                         <InstanceList/>
-                    </tail_loop>
+                    </full_block_loop>
                 </SummaryOfLoopLatency>
             </PerformanceEstimates>
             <AreaEstimates>
                 <Resources>
-                    <FF>155</FF>
+                    <FF>293</FF>
                     <AVAIL_FF>2607360</AVAIL_FF>
                     <UTIL_FF>~0</UTIL_FF>
-                    <LUT>500</LUT>
+                    <LUT>801</LUT>
                     <AVAIL_LUT>1303680</AVAIL_LUT>
                     <UTIL_LUT>~0</UTIL_LUT>
                     <BRAM_18K>0</BRAM_18K>
@@ -1802,11 +1740,107 @@
                 </Resources>
             </AreaEstimates>
             <BindNodes>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="tail_loop" OPTYPE="add" PRAGMA="" RTLNAME="t_2_fu_318_p2" SOURCE="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:376" URAM="0" VARIABLE="t_2"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="full_block_loop" OPTYPE="add" PRAGMA="" RTLNAME="add_ln391_fu_486_p2" SOURCE="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:391" URAM="0" VARIABLE="add_ln391"/>
             </BindNodes>
         </Module>
         <Module>
-            <Name>process_blocks</Name>
+            <Name>crc_process_full_blocks</Name>
+            <PerformanceEstimates>
+                <SummaryOfTimingAnalysis>
+                    <TargetClockPeriod>3.33</TargetClockPeriod>
+                    <ClockUncertainty>0.90</ClockUncertainty>
+                    <EstimatedClockPeriod>2.413</EstimatedClockPeriod>
+                </SummaryOfTimingAnalysis>
+                <SummaryOfOverallLatency>
+                    <Best-caseLatency>1</Best-caseLatency>
+                    <Average-caseLatency>undef</Average-caseLatency>
+                    <Worst-caseLatency>undef</Worst-caseLatency>
+                    <Best-caseRealTimeLatency>3.333 ns</Best-caseRealTimeLatency>
+                    <Average-caseRealTimeLatency>undef</Average-caseRealTimeLatency>
+                    <Worst-caseRealTimeLatency>undef</Worst-caseRealTimeLatency>
+                    <PipelineInitiationInterval>1 ~ -1</PipelineInitiationInterval>
+                    <PipelineType>no</PipelineType>
+                </SummaryOfOverallLatency>
+            </PerformanceEstimates>
+            <AreaEstimates>
+                <Resources>
+                    <FF>390</FF>
+                    <AVAIL_FF>2607360</AVAIL_FF>
+                    <UTIL_FF>~0</UTIL_FF>
+                    <LUT>1010</LUT>
+                    <AVAIL_LUT>1303680</AVAIL_LUT>
+                    <UTIL_LUT>~0</UTIL_LUT>
+                    <BRAM_18K>0</BRAM_18K>
+                    <AVAIL_BRAM>4032</AVAIL_BRAM>
+                    <UTIL_BRAM>0</UTIL_BRAM>
+                    <DSP>0</DSP>
+                    <AVAIL_DSP>9024</AVAIL_DSP>
+                    <UTIL_DSP>0</UTIL_DSP>
+                    <URAM>0</URAM>
+                    <AVAIL_URAM>960</AVAIL_URAM>
+                    <UTIL_URAM>0</UTIL_URAM>
+                </Resources>
+            </AreaEstimates>
+        </Module>
+        <Module>
+            <Name>crc_process_tail_bytes</Name>
+            <Loops>
+                <tail_byte_loop/>
+            </Loops>
+            <PerformanceEstimates>
+                <SummaryOfTimingAnalysis>
+                    <TargetClockPeriod>3.33</TargetClockPeriod>
+                    <ClockUncertainty>0.90</ClockUncertainty>
+                    <EstimatedClockPeriod>1.793</EstimatedClockPeriod>
+                </SummaryOfTimingAnalysis>
+                <SummaryOfOverallLatency>
+                    <Best-caseLatency>5</Best-caseLatency>
+                    <Average-caseLatency>undef</Average-caseLatency>
+                    <Worst-caseLatency>undef</Worst-caseLatency>
+                    <Best-caseRealTimeLatency>16.665 ns</Best-caseRealTimeLatency>
+                    <Average-caseRealTimeLatency>undef</Average-caseRealTimeLatency>
+                    <Worst-caseRealTimeLatency>undef</Worst-caseRealTimeLatency>
+                    <PipelineInitiationInterval>5 ~ -1</PipelineInitiationInterval>
+                    <PipelineType>no</PipelineType>
+                </SummaryOfOverallLatency>
+                <SummaryOfLoopLatency>
+                    <tail_byte_loop>
+                        <Name>tail_byte_loop</Name>
+                        <TripCount>undef</TripCount>
+                        <Latency>3 ~ ?</Latency>
+                        <AbsoluteTimeLatency>9.999 ns ~ ?</AbsoluteTimeLatency>
+                        <PipelineII>1</PipelineII>
+                        <PipelineDepth>4</PipelineDepth>
+                        <PipelineType>yes</PipelineType>
+                        <InstanceList/>
+                    </tail_byte_loop>
+                </SummaryOfLoopLatency>
+            </PerformanceEstimates>
+            <AreaEstimates>
+                <Resources>
+                    <FF>155</FF>
+                    <AVAIL_FF>2607360</AVAIL_FF>
+                    <UTIL_FF>~0</UTIL_FF>
+                    <LUT>489</LUT>
+                    <AVAIL_LUT>1303680</AVAIL_LUT>
+                    <UTIL_LUT>~0</UTIL_LUT>
+                    <BRAM_18K>0</BRAM_18K>
+                    <AVAIL_BRAM>4032</AVAIL_BRAM>
+                    <UTIL_BRAM>0</UTIL_BRAM>
+                    <DSP>0</DSP>
+                    <AVAIL_DSP>9024</AVAIL_DSP>
+                    <UTIL_DSP>0</UTIL_DSP>
+                    <URAM>0</URAM>
+                    <AVAIL_URAM>960</AVAIL_URAM>
+                    <UTIL_URAM>0</UTIL_URAM>
+                </Resources>
+            </AreaEstimates>
+            <BindNodes>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="tail_byte_loop" OPTYPE="add" PRAGMA="" RTLNAME="t_2_fu_309_p2" SOURCE="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:444" URAM="0" VARIABLE="t_2"/>
+            </BindNodes>
+        </Module>
+        <Module>
+            <Name>process_crc_chunks</Name>
             <Loops>
                 <chunk_loop/>
             </Loops>
@@ -1814,7 +1848,7 @@
                 <SummaryOfTimingAnalysis>
                     <TargetClockPeriod>3.33</TargetClockPeriod>
                     <ClockUncertainty>0.90</ClockUncertainty>
-                    <EstimatedClockPeriod>2.641</EstimatedClockPeriod>
+                    <EstimatedClockPeriod>2.413</EstimatedClockPeriod>
                 </SummaryOfTimingAnalysis>
                 <SummaryOfOverallLatency>
                     <Best-caseLatency>undef</Best-caseLatency>
@@ -1829,26 +1863,30 @@
                 <SummaryOfLoopLatency>
                     <chunk_loop>
                         <Name>chunk_loop</Name>
-                        <Slack>2.43</Slack>
                         <TripCount>undef</TripCount>
                         <Latency>undef</Latency>
                         <AbsoluteTimeLatency>undef</AbsoluteTimeLatency>
-                        <IterationLatency>undef</IterationLatency>
-                        <PipelineDepth>undef</PipelineDepth>
+                        <IterationLatency>
+                            <range>
+                                <min>5</min>
+                                <max>-1</max>
+                            </range>
+                        </IterationLatency>
+                        <PipelineDepth>5 ~ ?</PipelineDepth>
                         <PipelineType>no</PipelineType>
                         <InstanceList>
-                            <Instance>grp_process_blocks_Pipeline_block_loop_fu_199</Instance>
-                            <Instance>grp_process_blocks_Pipeline_tail_loop_fu_271</Instance>
+                            <Instance>grp_crc_process_full_blocks_fu_197</Instance>
+                            <Instance>grp_crc_process_tail_bytes_fu_268</Instance>
                         </InstanceList>
                     </chunk_loop>
                 </SummaryOfLoopLatency>
             </PerformanceEstimates>
             <AreaEstimates>
                 <Resources>
-                    <FF>542</FF>
+                    <FF>802</FF>
                     <AVAIL_FF>2607360</AVAIL_FF>
                     <UTIL_FF>~0</UTIL_FF>
-                    <LUT>2111</LUT>
+                    <LUT>2253</LUT>
                     <AVAIL_LUT>1303680</AVAIL_LUT>
                     <UTIL_LUT>~0</UTIL_LUT>
                     <BRAM_18K>0</BRAM_18K>
@@ -1863,17 +1901,17 @@
                 </Resources>
             </AreaEstimates>
             <BindNodes>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="mask_fu_373_p2" SOURCE="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:326" URAM="0" VARIABLE="mask"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op sub" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="sub" PRAGMA="" RTLNAME="p_neg_fu_337_p2" SOURCE="" URAM="0" VARIABLE="p_neg"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op sub" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="sub" PRAGMA="" RTLNAME="p_neg_t_fu_389_p2" SOURCE="" URAM="0" VARIABLE="p_neg_t"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op sub" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="sub" PRAGMA="" RTLNAME="sub_ln329_fu_417_p2" SOURCE="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:329" URAM="0" VARIABLE="sub_ln329"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="chunk_loop" OPTYPE="add" PRAGMA="" RTLNAME="add_ln329_fu_434_p2" SOURCE="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:329" URAM="0" VARIABLE="add_ln329"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="mask_V_fu_397_p2" SOURCE="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:525" URAM="0" VARIABLE="mask_V"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op sub" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="sub" PRAGMA="" RTLNAME="sub_ln527_fu_318_p2" SOURCE="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:527" URAM="0" VARIABLE="sub_ln527"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op sub" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="sub" PRAGMA="" RTLNAME="sub_ln527_1_fu_338_p2" SOURCE="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:527" URAM="0" VARIABLE="sub_ln527_1"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op sub" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="sub" PRAGMA="" RTLNAME="tail_bytes_fu_418_p2" SOURCE="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:528" URAM="0" VARIABLE="tail_bytes"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="chunk_loop" OPTYPE="add" PRAGMA="" RTLNAME="c_2_fu_445_p2" SOURCE="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:531" URAM="0" VARIABLE="c_2"/>
             </BindNodes>
         </Module>
         <Module>
-            <Name>write_output_Pipeline_VITIS_LOOP_442_1</Name>
+            <Name>write_output_Pipeline_VITIS_LOOP_350_1</Name>
             <Loops>
-                <VITIS_LOOP_442_1/>
+                <VITIS_LOOP_350_1/>
             </Loops>
             <PerformanceEstimates>
                 <SummaryOfTimingAnalysis>
@@ -1892,9 +1930,8 @@
                     <PipelineType>no</PipelineType>
                 </SummaryOfOverallLatency>
                 <SummaryOfLoopLatency>
-                    <VITIS_LOOP_442_1>
-                        <Name>VITIS_LOOP_442_1</Name>
-                        <Slack>2.43</Slack>
+                    <VITIS_LOOP_350_1>
+                        <Name>VITIS_LOOP_350_1</Name>
                         <TripCount>undef</TripCount>
                         <Latency>undef</Latency>
                         <AbsoluteTimeLatency>undef</AbsoluteTimeLatency>
@@ -1902,15 +1939,15 @@
                         <PipelineDepth>71</PipelineDepth>
                         <PipelineType>yes</PipelineType>
                         <InstanceList/>
-                    </VITIS_LOOP_442_1>
+                    </VITIS_LOOP_350_1>
                 </SummaryOfLoopLatency>
             </PerformanceEstimates>
             <AreaEstimates>
                 <Resources>
-                    <FF>378</FF>
+                    <FF>379</FF>
                     <AVAIL_FF>2607360</AVAIL_FF>
                     <UTIL_FF>~0</UTIL_FF>
-                    <LUT>696</LUT>
+                    <LUT>678</LUT>
                     <AVAIL_LUT>1303680</AVAIL_LUT>
                     <UTIL_LUT>~0</UTIL_LUT>
                     <BRAM_18K>0</BRAM_18K>
@@ -1925,9 +1962,9 @@
                 </Resources>
             </AreaEstimates>
             <BindNodes>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_442_1" OPTYPE="add" PRAGMA="" RTLNAME="add_ln442_fu_137_p2" SOURCE="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:442" URAM="0" VARIABLE="add_ln442"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_442_1" OPTYPE="add" PRAGMA="" RTLNAME="add_ln445_fu_159_p2" SOURCE="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:445" URAM="0" VARIABLE="add_ln445"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_442_1" OPTYPE="add" PRAGMA="" RTLNAME="add_ln445_1_fu_191_p2" SOURCE="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:445" URAM="0" VARIABLE="add_ln445_1"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_350_1" OPTYPE="add" PRAGMA="" RTLNAME="add_ln350_fu_129_p2" SOURCE="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:350" URAM="0" VARIABLE="add_ln350"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_350_1" OPTYPE="add" PRAGMA="" RTLNAME="add_ln353_fu_151_p2" SOURCE="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:353" URAM="0" VARIABLE="add_ln353"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_350_1" OPTYPE="add" PRAGMA="" RTLNAME="add_ln353_1_fu_183_p2" SOURCE="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:353" URAM="0" VARIABLE="add_ln353_1"/>
             </BindNodes>
         </Module>
         <Module>
@@ -1951,10 +1988,10 @@
             </PerformanceEstimates>
             <AreaEstimates>
                 <Resources>
-                    <FF>483</FF>
+                    <FF>484</FF>
                     <AVAIL_FF>2607360</AVAIL_FF>
                     <UTIL_FF>~0</UTIL_FF>
-                    <LUT>781</LUT>
+                    <LUT>763</LUT>
                     <AVAIL_LUT>1303680</AVAIL_LUT>
                     <UTIL_LUT>~0</UTIL_LUT>
                     <BRAM_18K>0</BRAM_18K>
@@ -1970,12 +2007,12 @@
             </AreaEstimates>
         </Module>
         <Module>
-            <Name>process_crc</Name>
+            <Name>crc_dataflow_region</Name>
             <PerformanceEstimates>
                 <SummaryOfTimingAnalysis>
                     <TargetClockPeriod>3.33</TargetClockPeriod>
                     <ClockUncertainty>0.90</ClockUncertainty>
-                    <EstimatedClockPeriod>3.629</EstimatedClockPeriod>
+                    <EstimatedClockPeriod>2.433</EstimatedClockPeriod>
                 </SummaryOfTimingAnalysis>
                 <SummaryOfOverallLatency>
                     <Best-caseLatency>undef</Best-caseLatency>
@@ -1991,16 +2028,16 @@
             </PerformanceEstimates>
             <AreaEstimates>
                 <Resources>
-                    <BRAM_18K>16</BRAM_18K>
+                    <BRAM_18K>0</BRAM_18K>
                     <AVAIL_BRAM>4032</AVAIL_BRAM>
-                    <UTIL_BRAM>~0</UTIL_BRAM>
+                    <UTIL_BRAM>0</UTIL_BRAM>
                     <DSP>3</DSP>
                     <AVAIL_DSP>9024</AVAIL_DSP>
                     <UTIL_DSP>~0</UTIL_DSP>
-                    <FF>3325</FF>
+                    <FF>2236</FF>
                     <AVAIL_FF>2607360</AVAIL_FF>
                     <UTIL_FF>~0</UTIL_FF>
-                    <LUT>6344</LUT>
+                    <LUT>4900</LUT>
                     <AVAIL_LUT>1303680</AVAIL_LUT>
                     <UTIL_LUT>~0</UTIL_LUT>
                     <URAM>0</URAM>
@@ -2009,45 +2046,25 @@
                 </Resources>
             </AreaEstimates>
             <BindNodes>
-                <BindNode BINDTYPE="storage" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_storage fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="init_value_c_U" SOURCE="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:685" URAM="0" VARIABLE="init_value_c"/>
-                <BindNode BINDTYPE="storage" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_storage fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="crc_size_c_U" SOURCE="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:685" URAM="0" VARIABLE="crc_size_c"/>
-                <BindNode BINDTYPE="storage" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_storage fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="chunkSize_c_U" SOURCE="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:685" URAM="0" VARIABLE="chunkSize_c"/>
-                <BindNode BINDTYPE="storage" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_storage fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="numChunks_c12_U" SOURCE="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:685" URAM="0" VARIABLE="numChunks_c12"/>
-                <BindNode BINDTYPE="storage" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_storage fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="numChunks_c_U" SOURCE="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:685" URAM="0" VARIABLE="numChunks_c"/>
-                <BindNode BINDTYPE="storage" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_storage fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="crc_out_c_U" SOURCE="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:685" URAM="0" VARIABLE="crc_out_c"/>
-                <BindNode BINDTYPE="storage" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_storage fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="inByte0_U" SOURCE="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:632" URAM="0" VARIABLE="inByte0"/>
-                <BindNode BINDTYPE="storage" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_storage fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="inByte1_U" SOURCE="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:633" URAM="0" VARIABLE="inByte1"/>
-                <BindNode BINDTYPE="storage" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_storage fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="inByte2_U" SOURCE="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:634" URAM="0" VARIABLE="inByte2"/>
-                <BindNode BINDTYPE="storage" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_storage fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="inByte3_U" SOURCE="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:635" URAM="0" VARIABLE="inByte3"/>
-                <BindNode BINDTYPE="storage" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_storage fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="inByte4_U" SOURCE="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:637" URAM="0" VARIABLE="inByte4"/>
-                <BindNode BINDTYPE="storage" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_storage fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="inByte5_U" SOURCE="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:638" URAM="0" VARIABLE="inByte5"/>
-                <BindNode BINDTYPE="storage" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_storage fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="inByte6_U" SOURCE="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:639" URAM="0" VARIABLE="inByte6"/>
-                <BindNode BINDTYPE="storage" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_storage fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="inByte7_U" SOURCE="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:640" URAM="0" VARIABLE="inByte7"/>
-                <BindNode BINDTYPE="storage" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_storage fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="inByte8_U" SOURCE="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:642" URAM="0" VARIABLE="inByte8"/>
-                <BindNode BINDTYPE="storage" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_storage fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="inByte9_U" SOURCE="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:643" URAM="0" VARIABLE="inByte9"/>
-                <BindNode BINDTYPE="storage" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_storage fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="inByte10_U" SOURCE="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:644" URAM="0" VARIABLE="inByte10"/>
-                <BindNode BINDTYPE="storage" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_storage fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="inByte11_U" SOURCE="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:645" URAM="0" VARIABLE="inByte11"/>
-                <BindNode BINDTYPE="storage" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_storage fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="inByte12_U" SOURCE="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:647" URAM="0" VARIABLE="inByte12"/>
-                <BindNode BINDTYPE="storage" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_storage fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="inByte13_U" SOURCE="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:648" URAM="0" VARIABLE="inByte13"/>
-                <BindNode BINDTYPE="storage" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_storage fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="inByte14_U" SOURCE="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:649" URAM="0" VARIABLE="inByte14"/>
-                <BindNode BINDTYPE="storage" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_storage fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="inByte15_U" SOURCE="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:650" URAM="0" VARIABLE="inByte15"/>
-                <BindNode BINDTYPE="storage" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_storage fifo" DSP="0" ID="" IMPL="memory" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="outStream_U" SOURCE="/users/arashs/U280_CRC_Accelerator/src/kernel.cpp:668" URAM="0" VARIABLE="outStream"/>
-                <BindNode BINDTYPE="storage" BRAM="1" BUNDLEDNAME="" DISPNAME="bind_storage ram_1p" DSP="0" ID="" IMPL="bram" LATENCY="1" LOOP="" OPTYPE="ram_1p" PRAGMA="yes" RTLNAME="crcTables_U" SOURCE="" URAM="0" VARIABLE="crcTables"/>
-                <BindNode BINDTYPE="storage" BRAM="1" BUNDLEDNAME="" DISPNAME="bind_storage ram_1p" DSP="0" ID="" IMPL="bram" LATENCY="1" LOOP="" OPTYPE="ram_1p" PRAGMA="yes" RTLNAME="crcTables_1_U" SOURCE="" URAM="0" VARIABLE="crcTables_1"/>
-                <BindNode BINDTYPE="storage" BRAM="1" BUNDLEDNAME="" DISPNAME="bind_storage ram_1p" DSP="0" ID="" IMPL="bram" LATENCY="1" LOOP="" OPTYPE="ram_1p" PRAGMA="yes" RTLNAME="crcTables_2_U" SOURCE="" URAM="0" VARIABLE="crcTables_2"/>
-                <BindNode BINDTYPE="storage" BRAM="1" BUNDLEDNAME="" DISPNAME="bind_storage ram_1p" DSP="0" ID="" IMPL="bram" LATENCY="1" LOOP="" OPTYPE="ram_1p" PRAGMA="yes" RTLNAME="crcTables_3_U" SOURCE="" URAM="0" VARIABLE="crcTables_3"/>
-                <BindNode BINDTYPE="storage" BRAM="1" BUNDLEDNAME="" DISPNAME="bind_storage ram_1p" DSP="0" ID="" IMPL="bram" LATENCY="1" LOOP="" OPTYPE="ram_1p" PRAGMA="yes" RTLNAME="crcTables_4_U" SOURCE="" URAM="0" VARIABLE="crcTables_4"/>
-                <BindNode BINDTYPE="storage" BRAM="1" BUNDLEDNAME="" DISPNAME="bind_storage ram_1p" DSP="0" ID="" IMPL="bram" LATENCY="1" LOOP="" OPTYPE="ram_1p" PRAGMA="yes" RTLNAME="crcTables_5_U" SOURCE="" URAM="0" VARIABLE="crcTables_5"/>
-                <BindNode BINDTYPE="storage" BRAM="1" BUNDLEDNAME="" DISPNAME="bind_storage ram_1p" DSP="0" ID="" IMPL="bram" LATENCY="1" LOOP="" OPTYPE="ram_1p" PRAGMA="yes" RTLNAME="crcTables_6_U" SOURCE="" URAM="0" VARIABLE="crcTables_6"/>
-                <BindNode BINDTYPE="storage" BRAM="1" BUNDLEDNAME="" DISPNAME="bind_storage ram_1p" DSP="0" ID="" IMPL="bram" LATENCY="1" LOOP="" OPTYPE="ram_1p" PRAGMA="yes" RTLNAME="crcTables_7_U" SOURCE="" URAM="0" VARIABLE="crcTables_7"/>
-                <BindNode BINDTYPE="storage" BRAM="1" BUNDLEDNAME="" DISPNAME="bind_storage ram_1p" DSP="0" ID="" IMPL="bram" LATENCY="1" LOOP="" OPTYPE="ram_1p" PRAGMA="yes" RTLNAME="crcTables_8_U" SOURCE="" URAM="0" VARIABLE="crcTables_8"/>
-                <BindNode BINDTYPE="storage" BRAM="1" BUNDLEDNAME="" DISPNAME="bind_storage ram_1p" DSP="0" ID="" IMPL="bram" LATENCY="1" LOOP="" OPTYPE="ram_1p" PRAGMA="yes" RTLNAME="crcTables_9_U" SOURCE="" URAM="0" VARIABLE="crcTables_9"/>
-                <BindNode BINDTYPE="storage" BRAM="1" BUNDLEDNAME="" DISPNAME="bind_storage ram_1p" DSP="0" ID="" IMPL="bram" LATENCY="1" LOOP="" OPTYPE="ram_1p" PRAGMA="yes" RTLNAME="crcTables_10_U" SOURCE="" URAM="0" VARIABLE="crcTables_10"/>
-                <BindNode BINDTYPE="storage" BRAM="1" BUNDLEDNAME="" DISPNAME="bind_storage ram_1p" DSP="0" ID="" IMPL="bram" LATENCY="1" LOOP="" OPTYPE="ram_1p" PRAGMA="yes" RTLNAME="crcTables_11_U" SOURCE="" URAM="0" VARIABLE="crcTables_11"/>
-                <BindNode BINDTYPE="storage" BRAM="1" BUNDLEDNAME="" DISPNAME="bind_storage ram_1p" DSP="0" ID="" IMPL="bram" LATENCY="1" LOOP="" OPTYPE="ram_1p" PRAGMA="yes" RTLNAME="crcTables_12_U" SOURCE="" URAM="0" VARIABLE="crcTables_12"/>
-                <BindNode BINDTYPE="storage" BRAM="1" BUNDLEDNAME="" DISPNAME="bind_storage ram_1p" DSP="0" ID="" IMPL="bram" LATENCY="1" LOOP="" OPTYPE="ram_1p" PRAGMA="yes" RTLNAME="crcTables_13_U" SOURCE="" URAM="0" VARIABLE="crcTables_13"/>
-                <BindNode BINDTYPE="storage" BRAM="1" BUNDLEDNAME="" DISPNAME="bind_storage ram_1p" DSP="0" ID="" IMPL="bram" LATENCY="1" LOOP="" OPTYPE="ram_1p" PRAGMA="yes" RTLNAME="crcTables_14_U" SOURCE="" URAM="0" VARIABLE="crcTables_14"/>
-                <BindNode BINDTYPE="storage" BRAM="1" BUNDLEDNAME="" DISPNAME="bind_storage ram_1p" DSP="0" ID="" IMPL="bram" LATENCY="1" LOOP="" OPTYPE="ram_1p" PRAGMA="yes" RTLNAME="crcTables_15_U" SOURCE="" URAM="0" VARIABLE="crcTables_15"/>
+                <BindNode BINDTYPE="storage" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_storage fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="numChunks_c_U" SOURCE="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:605" URAM="0" VARIABLE="numChunks_c"/>
+                <BindNode BINDTYPE="storage" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_storage fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="crc_out_c_U" SOURCE="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:605" URAM="0" VARIABLE="crc_out_c"/>
+                <BindNode BINDTYPE="storage" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_storage fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="inByte0_U" SOURCE="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:568" URAM="0" VARIABLE="inByte0"/>
+                <BindNode BINDTYPE="storage" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_storage fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="inByte1_U" SOURCE="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:569" URAM="0" VARIABLE="inByte1"/>
+                <BindNode BINDTYPE="storage" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_storage fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="inByte2_U" SOURCE="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:570" URAM="0" VARIABLE="inByte2"/>
+                <BindNode BINDTYPE="storage" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_storage fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="inByte3_U" SOURCE="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:571" URAM="0" VARIABLE="inByte3"/>
+                <BindNode BINDTYPE="storage" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_storage fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="inByte4_U" SOURCE="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:572" URAM="0" VARIABLE="inByte4"/>
+                <BindNode BINDTYPE="storage" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_storage fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="inByte5_U" SOURCE="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:573" URAM="0" VARIABLE="inByte5"/>
+                <BindNode BINDTYPE="storage" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_storage fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="inByte6_U" SOURCE="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:574" URAM="0" VARIABLE="inByte6"/>
+                <BindNode BINDTYPE="storage" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_storage fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="inByte7_U" SOURCE="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:575" URAM="0" VARIABLE="inByte7"/>
+                <BindNode BINDTYPE="storage" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_storage fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="inByte8_U" SOURCE="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:576" URAM="0" VARIABLE="inByte8"/>
+                <BindNode BINDTYPE="storage" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_storage fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="inByte9_U" SOURCE="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:577" URAM="0" VARIABLE="inByte9"/>
+                <BindNode BINDTYPE="storage" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_storage fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="inByte10_U" SOURCE="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:578" URAM="0" VARIABLE="inByte10"/>
+                <BindNode BINDTYPE="storage" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_storage fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="inByte11_U" SOURCE="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:579" URAM="0" VARIABLE="inByte11"/>
+                <BindNode BINDTYPE="storage" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_storage fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="inByte12_U" SOURCE="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:580" URAM="0" VARIABLE="inByte12"/>
+                <BindNode BINDTYPE="storage" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_storage fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="inByte13_U" SOURCE="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:581" URAM="0" VARIABLE="inByte13"/>
+                <BindNode BINDTYPE="storage" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_storage fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="inByte14_U" SOURCE="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:582" URAM="0" VARIABLE="inByte14"/>
+                <BindNode BINDTYPE="storage" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_storage fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="inByte15_U" SOURCE="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:583" URAM="0" VARIABLE="inByte15"/>
+                <BindNode BINDTYPE="storage" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_storage fifo" DSP="0" ID="" IMPL="memory" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="outStream_U" SOURCE="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:602" URAM="0" VARIABLE="outStream"/>
             </BindNodes>
         </Module>
         <Module>
@@ -2056,7 +2073,7 @@
                 <SummaryOfTimingAnalysis>
                     <TargetClockPeriod>3.33</TargetClockPeriod>
                     <ClockUncertainty>0.90</ClockUncertainty>
-                    <EstimatedClockPeriod>3.629</EstimatedClockPeriod>
+                    <EstimatedClockPeriod>2.433</EstimatedClockPeriod>
                 </SummaryOfTimingAnalysis>
                 <SummaryOfOverallLatency>
                     <Best-caseLatency>undef</Best-caseLatency>
@@ -2071,29 +2088,47 @@
             </PerformanceEstimates>
             <AreaEstimates>
                 <Resources>
-                    <BRAM_18K>54</BRAM_18K>
+                    <BRAM_18K>16</BRAM_18K>
                     <AVAIL_BRAM>4032</AVAIL_BRAM>
-                    <UTIL_BRAM>1</UTIL_BRAM>
+                    <UTIL_BRAM>~0</UTIL_BRAM>
                     <DSP>3</DSP>
                     <AVAIL_DSP>9024</AVAIL_DSP>
                     <UTIL_DSP>~0</UTIL_DSP>
-                    <FF>8627</FF>
+                    <FF>10030</FF>
                     <AVAIL_FF>2607360</AVAIL_FF>
                     <UTIL_FF>~0</UTIL_FF>
-                    <LUT>10934</LUT>
+                    <LUT>17974</LUT>
                     <AVAIL_LUT>1303680</AVAIL_LUT>
-                    <UTIL_LUT>~0</UTIL_LUT>
+                    <UTIL_LUT>1</UTIL_LUT>
                     <URAM>0</URAM>
                     <AVAIL_URAM>960</AVAIL_URAM>
                     <UTIL_URAM>0</UTIL_URAM>
                 </Resources>
             </AreaEstimates>
+            <BindNodes>
+                <BindNode BINDTYPE="storage" BRAM="1" BUNDLEDNAME="" DISPNAME="bind_storage ram_1p" DSP="0" ID="" IMPL="bram" LATENCY="1" LOOP="" OPTYPE="ram_1p" PRAGMA="yes" RTLNAME="crcTables_U" SOURCE="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:802" URAM="0" VARIABLE="crcTables"/>
+                <BindNode BINDTYPE="storage" BRAM="1" BUNDLEDNAME="" DISPNAME="bind_storage ram_1p" DSP="0" ID="" IMPL="bram" LATENCY="1" LOOP="" OPTYPE="ram_1p" PRAGMA="yes" RTLNAME="crcTables_1_U" SOURCE="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:802" URAM="0" VARIABLE="crcTables_1"/>
+                <BindNode BINDTYPE="storage" BRAM="1" BUNDLEDNAME="" DISPNAME="bind_storage ram_1p" DSP="0" ID="" IMPL="bram" LATENCY="1" LOOP="" OPTYPE="ram_1p" PRAGMA="yes" RTLNAME="crcTables_2_U" SOURCE="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:802" URAM="0" VARIABLE="crcTables_2"/>
+                <BindNode BINDTYPE="storage" BRAM="1" BUNDLEDNAME="" DISPNAME="bind_storage ram_1p" DSP="0" ID="" IMPL="bram" LATENCY="1" LOOP="" OPTYPE="ram_1p" PRAGMA="yes" RTLNAME="crcTables_3_U" SOURCE="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:802" URAM="0" VARIABLE="crcTables_3"/>
+                <BindNode BINDTYPE="storage" BRAM="1" BUNDLEDNAME="" DISPNAME="bind_storage ram_1p" DSP="0" ID="" IMPL="bram" LATENCY="1" LOOP="" OPTYPE="ram_1p" PRAGMA="yes" RTLNAME="crcTables_4_U" SOURCE="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:802" URAM="0" VARIABLE="crcTables_4"/>
+                <BindNode BINDTYPE="storage" BRAM="1" BUNDLEDNAME="" DISPNAME="bind_storage ram_1p" DSP="0" ID="" IMPL="bram" LATENCY="1" LOOP="" OPTYPE="ram_1p" PRAGMA="yes" RTLNAME="crcTables_5_U" SOURCE="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:802" URAM="0" VARIABLE="crcTables_5"/>
+                <BindNode BINDTYPE="storage" BRAM="1" BUNDLEDNAME="" DISPNAME="bind_storage ram_1p" DSP="0" ID="" IMPL="bram" LATENCY="1" LOOP="" OPTYPE="ram_1p" PRAGMA="yes" RTLNAME="crcTables_6_U" SOURCE="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:802" URAM="0" VARIABLE="crcTables_6"/>
+                <BindNode BINDTYPE="storage" BRAM="1" BUNDLEDNAME="" DISPNAME="bind_storage ram_1p" DSP="0" ID="" IMPL="bram" LATENCY="1" LOOP="" OPTYPE="ram_1p" PRAGMA="yes" RTLNAME="crcTables_7_U" SOURCE="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:802" URAM="0" VARIABLE="crcTables_7"/>
+                <BindNode BINDTYPE="storage" BRAM="1" BUNDLEDNAME="" DISPNAME="bind_storage ram_1p" DSP="0" ID="" IMPL="bram" LATENCY="1" LOOP="" OPTYPE="ram_1p" PRAGMA="yes" RTLNAME="crcTables_8_U" SOURCE="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:802" URAM="0" VARIABLE="crcTables_8"/>
+                <BindNode BINDTYPE="storage" BRAM="1" BUNDLEDNAME="" DISPNAME="bind_storage ram_1p" DSP="0" ID="" IMPL="bram" LATENCY="1" LOOP="" OPTYPE="ram_1p" PRAGMA="yes" RTLNAME="crcTables_9_U" SOURCE="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:802" URAM="0" VARIABLE="crcTables_9"/>
+                <BindNode BINDTYPE="storage" BRAM="1" BUNDLEDNAME="" DISPNAME="bind_storage ram_1p" DSP="0" ID="" IMPL="bram" LATENCY="1" LOOP="" OPTYPE="ram_1p" PRAGMA="yes" RTLNAME="crcTables_10_U" SOURCE="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:802" URAM="0" VARIABLE="crcTables_10"/>
+                <BindNode BINDTYPE="storage" BRAM="1" BUNDLEDNAME="" DISPNAME="bind_storage ram_1p" DSP="0" ID="" IMPL="bram" LATENCY="1" LOOP="" OPTYPE="ram_1p" PRAGMA="yes" RTLNAME="crcTables_11_U" SOURCE="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:802" URAM="0" VARIABLE="crcTables_11"/>
+                <BindNode BINDTYPE="storage" BRAM="1" BUNDLEDNAME="" DISPNAME="bind_storage ram_1p" DSP="0" ID="" IMPL="bram" LATENCY="1" LOOP="" OPTYPE="ram_1p" PRAGMA="yes" RTLNAME="crcTables_12_U" SOURCE="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:802" URAM="0" VARIABLE="crcTables_12"/>
+                <BindNode BINDTYPE="storage" BRAM="1" BUNDLEDNAME="" DISPNAME="bind_storage ram_1p" DSP="0" ID="" IMPL="bram" LATENCY="1" LOOP="" OPTYPE="ram_1p" PRAGMA="yes" RTLNAME="crcTables_13_U" SOURCE="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:802" URAM="0" VARIABLE="crcTables_13"/>
+                <BindNode BINDTYPE="storage" BRAM="1" BUNDLEDNAME="" DISPNAME="bind_storage ram_1p" DSP="0" ID="" IMPL="bram" LATENCY="1" LOOP="" OPTYPE="ram_1p" PRAGMA="yes" RTLNAME="crcTables_14_U" SOURCE="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:802" URAM="0" VARIABLE="crcTables_14"/>
+                <BindNode BINDTYPE="storage" BRAM="1" BUNDLEDNAME="" DISPNAME="bind_storage ram_1p" DSP="0" ID="" IMPL="bram" LATENCY="1" LOOP="" OPTYPE="ram_1p" PRAGMA="yes" RTLNAME="crcTables_15_U" SOURCE="/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:802" URAM="0" VARIABLE="crcTables_15"/>
+            </BindNodes>
         </Module>
     </ModuleInformation>
     <FIFOInformation>
         <FIFOInst>
             <Name>inByte0_U</Name>
-            <ParentInst>grp_process_crc_fu_122</ParentInst>
+            <ParentInst>grp_crc_dataflow_region_fu_221</ParentInst>
             <StaticDepth>64</StaticDepth>
             <RuntimeDepth>mOutPtr</RuntimeDepth>
             <InterfaceList>
@@ -2108,7 +2143,7 @@
         </FIFOInst>
         <FIFOInst>
             <Name>inByte1_U</Name>
-            <ParentInst>grp_process_crc_fu_122</ParentInst>
+            <ParentInst>grp_crc_dataflow_region_fu_221</ParentInst>
             <StaticDepth>64</StaticDepth>
             <RuntimeDepth>mOutPtr</RuntimeDepth>
             <InterfaceList>
@@ -2123,7 +2158,7 @@
         </FIFOInst>
         <FIFOInst>
             <Name>inByte2_U</Name>
-            <ParentInst>grp_process_crc_fu_122</ParentInst>
+            <ParentInst>grp_crc_dataflow_region_fu_221</ParentInst>
             <StaticDepth>64</StaticDepth>
             <RuntimeDepth>mOutPtr</RuntimeDepth>
             <InterfaceList>
@@ -2138,7 +2173,7 @@
         </FIFOInst>
         <FIFOInst>
             <Name>inByte3_U</Name>
-            <ParentInst>grp_process_crc_fu_122</ParentInst>
+            <ParentInst>grp_crc_dataflow_region_fu_221</ParentInst>
             <StaticDepth>64</StaticDepth>
             <RuntimeDepth>mOutPtr</RuntimeDepth>
             <InterfaceList>
@@ -2153,7 +2188,7 @@
         </FIFOInst>
         <FIFOInst>
             <Name>inByte4_U</Name>
-            <ParentInst>grp_process_crc_fu_122</ParentInst>
+            <ParentInst>grp_crc_dataflow_region_fu_221</ParentInst>
             <StaticDepth>64</StaticDepth>
             <RuntimeDepth>mOutPtr</RuntimeDepth>
             <InterfaceList>
@@ -2168,7 +2203,7 @@
         </FIFOInst>
         <FIFOInst>
             <Name>inByte5_U</Name>
-            <ParentInst>grp_process_crc_fu_122</ParentInst>
+            <ParentInst>grp_crc_dataflow_region_fu_221</ParentInst>
             <StaticDepth>64</StaticDepth>
             <RuntimeDepth>mOutPtr</RuntimeDepth>
             <InterfaceList>
@@ -2183,7 +2218,7 @@
         </FIFOInst>
         <FIFOInst>
             <Name>inByte6_U</Name>
-            <ParentInst>grp_process_crc_fu_122</ParentInst>
+            <ParentInst>grp_crc_dataflow_region_fu_221</ParentInst>
             <StaticDepth>64</StaticDepth>
             <RuntimeDepth>mOutPtr</RuntimeDepth>
             <InterfaceList>
@@ -2198,7 +2233,7 @@
         </FIFOInst>
         <FIFOInst>
             <Name>inByte7_U</Name>
-            <ParentInst>grp_process_crc_fu_122</ParentInst>
+            <ParentInst>grp_crc_dataflow_region_fu_221</ParentInst>
             <StaticDepth>64</StaticDepth>
             <RuntimeDepth>mOutPtr</RuntimeDepth>
             <InterfaceList>
@@ -2213,7 +2248,7 @@
         </FIFOInst>
         <FIFOInst>
             <Name>inByte8_U</Name>
-            <ParentInst>grp_process_crc_fu_122</ParentInst>
+            <ParentInst>grp_crc_dataflow_region_fu_221</ParentInst>
             <StaticDepth>64</StaticDepth>
             <RuntimeDepth>mOutPtr</RuntimeDepth>
             <InterfaceList>
@@ -2228,7 +2263,7 @@
         </FIFOInst>
         <FIFOInst>
             <Name>inByte9_U</Name>
-            <ParentInst>grp_process_crc_fu_122</ParentInst>
+            <ParentInst>grp_crc_dataflow_region_fu_221</ParentInst>
             <StaticDepth>64</StaticDepth>
             <RuntimeDepth>mOutPtr</RuntimeDepth>
             <InterfaceList>
@@ -2243,7 +2278,7 @@
         </FIFOInst>
         <FIFOInst>
             <Name>inByte10_U</Name>
-            <ParentInst>grp_process_crc_fu_122</ParentInst>
+            <ParentInst>grp_crc_dataflow_region_fu_221</ParentInst>
             <StaticDepth>64</StaticDepth>
             <RuntimeDepth>mOutPtr</RuntimeDepth>
             <InterfaceList>
@@ -2258,7 +2293,7 @@
         </FIFOInst>
         <FIFOInst>
             <Name>inByte11_U</Name>
-            <ParentInst>grp_process_crc_fu_122</ParentInst>
+            <ParentInst>grp_crc_dataflow_region_fu_221</ParentInst>
             <StaticDepth>64</StaticDepth>
             <RuntimeDepth>mOutPtr</RuntimeDepth>
             <InterfaceList>
@@ -2273,7 +2308,7 @@
         </FIFOInst>
         <FIFOInst>
             <Name>inByte12_U</Name>
-            <ParentInst>grp_process_crc_fu_122</ParentInst>
+            <ParentInst>grp_crc_dataflow_region_fu_221</ParentInst>
             <StaticDepth>64</StaticDepth>
             <RuntimeDepth>mOutPtr</RuntimeDepth>
             <InterfaceList>
@@ -2288,7 +2323,7 @@
         </FIFOInst>
         <FIFOInst>
             <Name>inByte13_U</Name>
-            <ParentInst>grp_process_crc_fu_122</ParentInst>
+            <ParentInst>grp_crc_dataflow_region_fu_221</ParentInst>
             <StaticDepth>64</StaticDepth>
             <RuntimeDepth>mOutPtr</RuntimeDepth>
             <InterfaceList>
@@ -2303,7 +2338,7 @@
         </FIFOInst>
         <FIFOInst>
             <Name>inByte14_U</Name>
-            <ParentInst>grp_process_crc_fu_122</ParentInst>
+            <ParentInst>grp_crc_dataflow_region_fu_221</ParentInst>
             <StaticDepth>64</StaticDepth>
             <RuntimeDepth>mOutPtr</RuntimeDepth>
             <InterfaceList>
@@ -2318,7 +2353,7 @@
         </FIFOInst>
         <FIFOInst>
             <Name>inByte15_U</Name>
-            <ParentInst>grp_process_crc_fu_122</ParentInst>
+            <ParentInst>grp_crc_dataflow_region_fu_221</ParentInst>
             <StaticDepth>64</StaticDepth>
             <RuntimeDepth>mOutPtr</RuntimeDepth>
             <InterfaceList>
@@ -2333,7 +2368,7 @@
         </FIFOInst>
         <FIFOInst>
             <Name>outStream_U</Name>
-            <ParentInst>grp_process_crc_fu_122</ParentInst>
+            <ParentInst>grp_crc_dataflow_region_fu_221</ParentInst>
             <StaticDepth>64</StaticDepth>
             <RuntimeDepth>mOutPtr</RuntimeDepth>
             <InterfaceList>
@@ -2348,6 +2383,40 @@
         </FIFOInst>
     </FIFOInformation>
     <UserConfigCommands>
+        <config_op>
+            <ENTRY impl="all mul" latency="-1 mul" op="mul" precision="mul standard"/>
+            <ENTRY impl="all add" latency="-1 add" op="add" precision="add standard"/>
+            <ENTRY impl="all sub" latency="-1 sub" op="sub" precision="sub standard"/>
+            <ENTRY impl="all fadd" latency="-1 fadd" op="fadd" precision="fadd standard"/>
+            <ENTRY impl="all fsub" latency="-1 fsub" op="fsub" precision="fsub standard"/>
+            <ENTRY impl="all fdiv" latency="-1 fdiv" op="fdiv" precision="fdiv standard"/>
+            <ENTRY impl="all fexp" latency="-1 fexp" op="fexp" precision="fexp standard"/>
+            <ENTRY impl="all flog" latency="-1 flog" op="flog" precision="flog standard"/>
+            <ENTRY impl="all fmul" latency="-1 fmul" op="fmul" precision="fmul standard"/>
+            <ENTRY impl="all frsqrt" latency="-1 frsqrt" op="frsqrt" precision="frsqrt standard"/>
+            <ENTRY impl="all frecip" latency="-1 frecip" op="frecip" precision="frecip standard"/>
+            <ENTRY impl="all fsqrt" latency="-1 fsqrt" op="fsqrt" precision="fsqrt standard"/>
+            <ENTRY impl="all dadd" latency="-1 dadd" op="dadd" precision="dadd standard"/>
+            <ENTRY impl="all dsub" latency="-1 dsub" op="dsub" precision="dsub standard"/>
+            <ENTRY impl="all ddiv" latency="-1 ddiv" op="ddiv" precision="ddiv standard"/>
+            <ENTRY impl="all dexp" latency="-1 dexp" op="dexp" precision="dexp standard"/>
+            <ENTRY impl="all dlog" latency="-1 dlog" op="dlog" precision="dlog standard"/>
+            <ENTRY impl="all dmul" latency="-1 dmul" op="dmul" precision="dmul standard"/>
+            <ENTRY impl="all drsqrt" latency="-1 drsqrt" op="drsqrt" precision="drsqrt standard"/>
+            <ENTRY impl="all drecip" latency="-1 drecip" op="drecip" precision="drecip standard"/>
+            <ENTRY impl="all dsqrt" latency="-1 dsqrt" op="dsqrt" precision="dsqrt standard"/>
+            <ENTRY impl="all hadd" latency="-1 hadd" op="hadd" precision="hadd standard"/>
+            <ENTRY impl="all hsub" latency="-1 hsub" op="hsub" precision="hsub standard"/>
+            <ENTRY impl="all hdiv" latency="-1 hdiv" op="hdiv" precision="hdiv standard"/>
+            <ENTRY impl="all hmul" latency="-1 hmul" op="hmul" precision="hmul standard"/>
+            <ENTRY impl="all hsqrt" latency="-1 hsqrt" op="hsqrt" precision="hsqrt standard"/>
+            <ENTRY impl="all facc" latency="-1 facc" op="facc" precision="facc standard"/>
+            <ENTRY impl="all fmacc" latency="-1 fmacc" op="fmacc" precision="fmacc standard"/>
+            <ENTRY impl="all fmadd" latency="-1 fmadd" op="fmadd" precision="fmadd standard"/>
+        </config_op>
+        <config_storage>
+            <ENTRY auto_srl_max_bits="1024 fifo" auto_srl_max_depth="2 fifo" impl="autosrl fifo" type="fifo"/>
+        </config_storage>
         <config_export format="xo" ipname="calculate_crc"/>
     </UserConfigCommands>
     <Args>
@@ -2444,8 +2513,8 @@
                 </register>
                 <register offset="0x0c" name="IP_ISR" access="RW" description="IP Interrupt Status Register" range="32">
                     <fields>
-                        <field offset="0" width="1" name="CHAN0_INT_ST" access="RTOW" description="Channel 0 (ap_done) Interrupt Status. 0 = No Channel 0 interrupt, 1 = Channel 0 interrupt."/>
-                        <field offset="1" width="1" name="CHAN1_INT_ST" access="RTOW" description="Channel 1 (ap_ready) Interrupt Status. 0 = No Channel 1 interrupt, 1 = Channel 1 interrupt."/>
+                        <field offset="0" width="1" name="CHAN0_INT_ST" access="R" description="Channel 0 (ap_done) Interrupt Status. 0 = No Channel 0 interrupt, 1 = Channel 0 interrupt."/>
+                        <field offset="1" width="1" name="CHAN1_INT_ST" access="R" description="Channel 1 (ap_ready) Interrupt Status. 0 = No Channel 1 interrupt, 1 = Channel 1 interrupt."/>
                         <field offset="2" width="30" name="RESERVED_0" access="R" description="Reserved.  0s on read."/>
                     </fields>
                 </register>
@@ -2678,20 +2747,20 @@
     <ReportHWInterface>
         <section name="HW Interfaces" level="0">
             <item name="M_AXI">
-                <table>
-                    <keys size="12">Interface, Data Width (SW-&gt;HW), Address Width, Latency, Offset, Register, Max Widen Bitwidth, Max Read Burst Length, Max Write Burst Length, Num Read Outstanding, Num Write Outstanding, Resource Estimate</keys>
-                    <column name="m_axi_gmem0">8 -&gt; 128, 64, 64, slave, 0, 512, 16, 16, 16, 16, BRAM=8</column>
-                    <column name="m_axi_gmem1">32 -&gt; 512, 64, 64, slave, 0, 512, 16, 16, 16, 16, BRAM=30</column>
+                <table isCollapsed="0">
+                    <keys size="11">Interface, Data Width (SW-&gt;HW), Address Width, Latency, Offset, Register, Max Widen Bitwidth, Max Read Burst Length, Max Write Burst Length, Num Read Outstanding, Num Write Outstanding</keys>
+                    <column name="m_axi_gmem0">8 -&gt; 128, 64, 64, slave, 0, 512, 16, 16, 16, 16, , , , </column>
+                    <column name="m_axi_gmem1">32 -&gt; 512, 64, 64, slave, 0, 512, 16, 16, 16, 16, , , , </column>
                 </table>
             </item>
             <item name="S_AXILITE Interfaces">
-                <table>
+                <table isCollapsed="0">
                     <keys size="5">Interface, Data Width, Address Width, Offset, Register</keys>
-                    <column name="s_axi_control">32, 7, 16, 0</column>
+                    <column name="s_axi_control">32, 7, 16, 0, , , , , </column>
                 </table>
             </item>
             <item name="S_AXILITE Registers">
-                <table>
+                <table isCollapsed="0">
                     <keys size="7">Interface, Register, Offset, Width, Access, Description, Bit Fields</keys>
                     <column name="s_axi_control">CTRL, 0x00, 32, RW, Control signals, 0=AP_START 1=AP_DONE 2=AP_IDLE 3=AP_READY 4=AP_CONTINUE 7=AUTO_RESTART 9=INTERRUPT</column>
                     <column name="s_axi_control">GIER, 0x04, 32, RW, Global Interrupt Enable Register, 0=Enable</column>
@@ -2710,12 +2779,12 @@
                 </table>
             </item>
             <item name="TOP LEVEL CONTROL">
-                <table>
+                <table isCollapsed="0">
                     <keys size="3">Interface, Type, Ports</keys>
-                    <column name="ap_clk">clock, ap_clk</column>
-                    <column name="ap_rst_n">reset, ap_rst_n</column>
-                    <column name="interrupt">interrupt, interrupt</column>
-                    <column name="ap_ctrl">ap_ctrl_chain, </column>
+                    <column name="ap_clk">clock, ap_clk, </column>
+                    <column name="ap_rst_n">reset, ap_rst_n, </column>
+                    <column name="interrupt">interrupt, interrupt, </column>
+                    <column name="ap_ctrl">ap_ctrl_chain, , </column>
                 </table>
             </item>
         </section>
@@ -2723,7 +2792,7 @@
     <ReportSWInterface>
         <section name="SW I/O Information" level="0">
             <item name="Top Function Arguments">
-                <table>
+                <table isCollapsed="1">
                     <keys size="3">Argument, Direction, Datatype</keys>
                     <column name="data_in">inout, unsigned char const *</column>
                     <column name="crc_out">inout, unsigned int*</column>
@@ -2735,7 +2804,7 @@
                 </table>
             </item>
             <item name="SW-to-HW Mapping">
-                <table>
+                <table isCollapsed="1">
                     <keys size="5">Argument, HW Interface, HW Type, HW Usage, HW Info</keys>
                     <column name="data_in">m_axi_gmem0, interface, , </column>
                     <column name="data_in">s_axi_control, register, offset, name=data_in_1 offset=0x10 range=32</column>
@@ -2754,104 +2823,108 @@
             </item>
         </section>
     </ReportSWInterface>
-    <ResolutionUrl key="ZZZ">www.xilinx.com/cgi-bin/docs/rdoc?v=2023.1;t=hls+guidance;d=ZZZ.html</ResolutionUrl>
     <ReportBurst>
         <section name="M_AXI Burst Information" level="0" HEADER_NOTE="Note: All burst requests might be further partitioned into multiple requests during RTL generation based on max_read_burst_length or max_write_burst_length settings.">
             <item name="Inferred Burst Summary">
                 <table>
-                    <keys size="6">HW Interface, Direction, Length, Width, Loop, Loop Location</keys>
-                    <column name="m_axi_gmem0">read, variable, 128, mem_rd, /users/arashs/U280_CRC_Accelerator/src/kernel.cpp:287:5</column>
-                    <column name="m_axi_gmem1">read, 256, 512, , </column>
+                    <keys size="6">HW Interface, Loop, Direction, Length, Width, Location</keys>
+                    <column name="m_axi_gmem1">, read, 256, 512, /home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:365:5</column>
+                    <column name="m_axi_gmem0">mem_rd, read, variable, 128, /home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:323:5</column>
                 </table>
             </item>
-            <item name="All M_AXI Variable Accesses">
+            <item name="Inferred Bursts and Widening Missed">
                 <table>
-                    <keys size="10">HW Interface, Variable, Access Location, Direction, Burst Status, Length, Loop, Loop Location, Resolution, Problem</keys>
-                    <column name="m_axi_gmem0">in, /users/arashs/U280_CRC_Accelerator/src/kernel.cpp:290:22, read, Widen Fail, , mem_rd, /users/arashs/U280_CRC_Accelerator/src/kernel.cpp:287:5, 214-234, Sequential access length is not divisible by 2</column>
-                    <column name="m_axi_gmem0">in, /users/arashs/U280_CRC_Accelerator/src/kernel.cpp:290:22, read, Inferred, variable, mem_rd, /users/arashs/U280_CRC_Accelerator/src/kernel.cpp:287:5, , </column>
-                    <column name="m_axi_gmem0">crc_out, /users/arashs/U280_CRC_Accelerator/src/kernel.cpp:445:13, write, Widen Fail, , VITIS_LOOP_442_1, /users/arashs/U280_CRC_Accelerator/src/kernel.cpp:442:23, 214-234, Sequential access length is not divisible by 2</column>
-                    <column name="m_axi_gmem0">crc_out, /users/arashs/U280_CRC_Accelerator/src/kernel.cpp:445:13, write, Inferred, variable, VITIS_LOOP_442_1, /users/arashs/U280_CRC_Accelerator/src/kernel.cpp:442:23, , </column>
-                    <column name="m_axi_gmem1">tables, /users/arashs/U280_CRC_Accelerator/src/kernel.cpp:681:20, read, Widened, 256, VITIS_LOOP_678_1, /users/arashs/U280_CRC_Accelerator/src/kernel.cpp:678:27, , </column>
-                    <column name="m_axi_gmem1">tables, /users/arashs/U280_CRC_Accelerator/src/kernel.cpp:681:20, read, Inferred, 4096, init_lut, /users/arashs/U280_CRC_Accelerator/src/kernel.cpp:676:5, , </column>
+                    <keys size="6">HW Interface, Variable, Loop, Problem, Resolution, Location</keys>
+                    <column name="m_axi_gmem0">in, mem_rd, Sequential access length is not divisible by 2, 214-234, /home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:323:5</column>
+                    <column name="m_axi_gmem0">crc_out, VITIS_LOOP_350_1, Sequential access length is not divisible by 2, 214-234, /home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp:350:23</column>
                 </table>
             </item>
         </section>
     </ReportBurst>
     <PragmaReport>
-        <Pragma type="inline" location="../../../src/kernel.cpp:53" status="valid" parentFunction="rotr32" variable="" isDirective="0" options=""/>
-        <Pragma type="inline" location="../../../src/kernel.cpp:59" status="valid" parentFunction="sha256_ch" variable="" isDirective="0" options=""/>
-        <Pragma type="inline" location="../../../src/kernel.cpp:65" status="valid" parentFunction="sha256_maj" variable="" isDirective="0" options=""/>
-        <Pragma type="inline" location="../../../src/kernel.cpp:71" status="valid" parentFunction="sha256_bsig0" variable="" isDirective="0" options=""/>
-        <Pragma type="inline" location="../../../src/kernel.cpp:77" status="valid" parentFunction="sha256_bsig1" variable="" isDirective="0" options=""/>
-        <Pragma type="inline" location="../../../src/kernel.cpp:83" status="valid" parentFunction="sha256_ssig0" variable="" isDirective="0" options=""/>
-        <Pragma type="inline" location="../../../src/kernel.cpp:89" status="valid" parentFunction="sha256_ssig1" variable="" isDirective="0" options=""/>
-        <Pragma type="inline" location="../../../src/kernel.cpp:95" status="valid" parentFunction="to_be16" variable="" isDirective="0" options=""/>
-        <Pragma type="inline" location="../../../src/kernel.cpp:101" status="valid" parentFunction="to_be32" variable="" isDirective="0" options=""/>
-        <Pragma type="inline" location="../../../src/kernel.cpp:110" status="valid" parentFunction="pack_block_64" variable="" isDirective="0" options=""/>
-        <Pragma type="unroll" location="../../../src/kernel.cpp:115" status="valid" parentFunction="pack_block_64" variable="" isDirective="0" options=""/>
-        <Pragma type="inline" location="../../../src/kernel.cpp:123" status="valid" parentFunction="sha256_compress_block" variable="" isDirective="0" options="off"/>
-        <Pragma type="pipeline" location="../../../src/kernel.cpp:129" status="valid" parentFunction="sha256_compress_block" variable="" isDirective="0" options="II = 1"/>
-        <Pragma type="pipeline" location="../../../src/kernel.cpp:137" status="valid" parentFunction="sha256_compress_block" variable="" isDirective="0" options="II = 1"/>
-        <Pragma type="pipeline" location="../../../src/kernel.cpp:153" status="valid" parentFunction="sha256_compress_block" variable="" isDirective="0" options="II = 1"/>
-        <Pragma type="inline" location="../../../src/kernel.cpp:181" status="valid" parentFunction="sha256_process_chunk" variable="" isDirective="0" options="off"/>
-        <Pragma type="unroll" location="../../../src/kernel.cpp:187" status="valid" parentFunction="sha256_process_chunk" variable="" isDirective="0" options=""/>
-        <Pragma type="pipeline" location="../../../src/kernel.cpp:220" status="valid" parentFunction="sha256_process_chunk" variable="" isDirective="0" options="II = 1"/>
-        <Pragma type="pipeline" location="../../../src/kernel.cpp:227" status="valid" parentFunction="sha256_process_chunk" variable="" isDirective="0" options="II = 1"/>
-        <Pragma type="pipeline" location="../../../src/kernel.cpp:239" status="valid" parentFunction="sha256_process_chunk" variable="" isDirective="0" options="II = 1"/>
-        <Pragma type="pipeline" location="../../../src/kernel.cpp:253" status="valid" parentFunction="sha256_process_chunk" variable="" isDirective="0" options="II = 1"/>
-        <Pragma type="pipeline" location="../../../src/kernel.cpp:260" status="valid" parentFunction="sha256_process_chunk" variable="" isDirective="0" options="II = 1"/>
-        <Pragma type="unroll" location="../../../src/kernel.cpp:270" status="valid" parentFunction="sha256_process_chunk" variable="" isDirective="0" options=""/>
-        <Pragma type="pipeline" location="../../../src/kernel.cpp:289" status="valid" parentFunction="read_input" variable="" isDirective="0" options="II = 1"/>
-        <Pragma type="inline" location="../../../src/kernel.cpp:320" status="valid" parentFunction="process_blocks" variable="" isDirective="0" options="off"/>
-        <Pragma type="array_partition" location="../../../src/kernel.cpp:321" status="valid" parentFunction="process_blocks" variable="" isDirective="0" options="variable = crcTables complete dim = 1"/>
-        <Pragma type="bind_storage" location="../../../src/kernel.cpp:322" status="valid" parentFunction="process_blocks" variable="" isDirective="0" options="variable = crcTables type = ram_1p impl = bram"/>
-        <Pragma type="pipeline" location="../../../src/kernel.cpp:339" status="valid" parentFunction="process_blocks" variable="" isDirective="0" options="II = 1"/>
-        <Pragma type="pipeline" location="../../../src/kernel.cpp:378" status="valid" parentFunction="process_blocks" variable="" isDirective="0" options="II = 1"/>
-        <Pragma type="pipeline" location="../../../src/kernel.cpp:444" status="valid" parentFunction="write_output" variable="" isDirective="0" options="II = 1"/>
-        <Pragma type="inline" location="../../../src/kernel.cpp:451" status="valid" parentFunction="fold_add" variable="" isDirective="0" options=""/>
-        <Pragma type="inline" location="../../../src/kernel.cpp:458" status="valid" parentFunction="tcp_checksum_chunk_scalar" variable="" isDirective="0" options=""/>
-        <Pragma type="pipeline" location="../../../src/kernel.cpp:465" status="valid" parentFunction="tcp_checksum_chunk_scalar" variable="" isDirective="0" options="II = 1"/>
-        <Pragma type="inline" location="../../../src/kernel.cpp:487" status="valid" parentFunction="tcp_checksum_chunk_vector" variable="" isDirective="0" options=""/>
-        <Pragma type="pipeline" location="../../../src/kernel.cpp:494" status="valid" parentFunction="tcp_checksum_chunk_vector" variable="" isDirective="0" options="II = 1"/>
-        <Pragma type="array_partition" location="../../../src/kernel.cpp:501" status="valid" parentFunction="tcp_checksum_chunk_vector" variable="" isDirective="0" options="variable = lvl1 complete"/>
-        <Pragma type="array_partition" location="../../../src/kernel.cpp:502" status="valid" parentFunction="tcp_checksum_chunk_vector" variable="" isDirective="0" options="variable = lvl2 complete"/>
-        <Pragma type="array_partition" location="../../../src/kernel.cpp:503" status="valid" parentFunction="tcp_checksum_chunk_vector" variable="" isDirective="0" options="variable = lvl3 complete"/>
-        <Pragma type="array_partition" location="../../../src/kernel.cpp:504" status="valid" parentFunction="tcp_checksum_chunk_vector" variable="" isDirective="0" options="variable = lvl4 complete"/>
-        <Pragma type="unroll" location="../../../src/kernel.cpp:509" status="valid" parentFunction="tcp_checksum_chunk_vector" variable="" isDirective="0" options=""/>
-        <Pragma type="unroll" location="../../../src/kernel.cpp:520" status="valid" parentFunction="tcp_checksum_chunk_vector" variable="" isDirective="0" options=""/>
-        <Pragma type="unroll" location="../../../src/kernel.cpp:527" status="valid" parentFunction="tcp_checksum_chunk_vector" variable="" isDirective="0" options=""/>
-        <Pragma type="unroll" location="../../../src/kernel.cpp:534" status="valid" parentFunction="tcp_checksum_chunk_vector" variable="" isDirective="0" options=""/>
-        <Pragma type="pipeline" location="../../../src/kernel.cpp:547" status="valid" parentFunction="tcp_checksum_chunk_vector" variable="" isDirective="0" options="II = 1"/>
-        <Pragma type="unroll" location="../../../src/kernel.cpp:565" status="valid" parentFunction="tcp_checksum_chunk_vector" variable="" isDirective="0" options=""/>
-        <Pragma type="pipeline" location="../../../src/kernel.cpp:582" status="valid" parentFunction="process_tcp_checksum" variable="" isDirective="0" options="II = 1"/>
-        <Pragma type="array_partition" location="../../../src/kernel.cpp:612" status="valid" parentFunction="process_hash" variable="" isDirective="0" options="variable = digest complete dim = 1"/>
-        <Pragma type="pipeline" location="../../../src/kernel.cpp:618" status="valid" parentFunction="process_hash" variable="" isDirective="0" options="II = 1"/>
-        <Pragma type="stream" location="../../../src/kernel.cpp:651" status="valid" parentFunction="process_crc" variable="" isDirective="0" options="variable = inByte0 depth = 64"/>
-        <Pragma type="stream" location="../../../src/kernel.cpp:652" status="valid" parentFunction="process_crc" variable="" isDirective="0" options="variable = inByte1 depth = 64"/>
-        <Pragma type="stream" location="../../../src/kernel.cpp:653" status="valid" parentFunction="process_crc" variable="" isDirective="0" options="variable = inByte2 depth = 64"/>
-        <Pragma type="stream" location="../../../src/kernel.cpp:654" status="valid" parentFunction="process_crc" variable="" isDirective="0" options="variable = inByte3 depth = 64"/>
-        <Pragma type="stream" location="../../../src/kernel.cpp:655" status="valid" parentFunction="process_crc" variable="" isDirective="0" options="variable = inByte4 depth = 64"/>
-        <Pragma type="stream" location="../../../src/kernel.cpp:656" status="valid" parentFunction="process_crc" variable="" isDirective="0" options="variable = inByte5 depth = 64"/>
-        <Pragma type="stream" location="../../../src/kernel.cpp:657" status="valid" parentFunction="process_crc" variable="" isDirective="0" options="variable = inByte6 depth = 64"/>
-        <Pragma type="stream" location="../../../src/kernel.cpp:658" status="valid" parentFunction="process_crc" variable="" isDirective="0" options="variable = inByte7 depth = 64"/>
-        <Pragma type="stream" location="../../../src/kernel.cpp:659" status="valid" parentFunction="process_crc" variable="" isDirective="0" options="variable = inByte8 depth = 64"/>
-        <Pragma type="stream" location="../../../src/kernel.cpp:660" status="valid" parentFunction="process_crc" variable="" isDirective="0" options="variable = inByte9 depth = 64"/>
-        <Pragma type="stream" location="../../../src/kernel.cpp:661" status="valid" parentFunction="process_crc" variable="" isDirective="0" options="variable = inByte10 depth = 64"/>
-        <Pragma type="stream" location="../../../src/kernel.cpp:662" status="valid" parentFunction="process_crc" variable="" isDirective="0" options="variable = inByte11 depth = 64"/>
-        <Pragma type="stream" location="../../../src/kernel.cpp:663" status="valid" parentFunction="process_crc" variable="" isDirective="0" options="variable = inByte12 depth = 64"/>
-        <Pragma type="stream" location="../../../src/kernel.cpp:664" status="valid" parentFunction="process_crc" variable="" isDirective="0" options="variable = inByte13 depth = 64"/>
-        <Pragma type="stream" location="../../../src/kernel.cpp:665" status="valid" parentFunction="process_crc" variable="" isDirective="0" options="variable = inByte14 depth = 64"/>
-        <Pragma type="stream" location="../../../src/kernel.cpp:666" status="valid" parentFunction="process_crc" variable="" isDirective="0" options="variable = inByte15 depth = 64"/>
-        <Pragma type="stream" location="../../../src/kernel.cpp:669" status="valid" parentFunction="process_crc" variable="" isDirective="0" options="variable = outStream depth = 64"/>
-        <Pragma type="array_partition" location="../../../src/kernel.cpp:672" status="valid" parentFunction="process_crc" variable="" isDirective="0" options="variable = crcTables complete dim = 1"/>
-        <Pragma type="bind_storage" location="../../../src/kernel.cpp:673" status="valid" parentFunction="process_crc" variable="" isDirective="0" options="variable = crcTables type = ram_1p impl = bram"/>
-        <Pragma type="pipeline" location="../../../src/kernel.cpp:680" status="valid" parentFunction="process_crc" variable="" isDirective="0" options="II = 1"/>
-        <Pragma type="dataflow" location="../../../src/kernel.cpp:685" status="warning" parentFunction="process_crc" variable="" isDirective="0" options="">
-            <Msg msg_id="214-114" msg_severity="WARNING" msg_body="Since the only kind of statements allowed in a canonical dataflow region are variable declarations and function calls, the compiler may not be able to correctly handle the region"/>
-        </Pragma>
-        <Pragma type="interface" location="../../../src/kernel.cpp:706" status="valid" parentFunction="calculate_crc" variable="" isDirective="0" options="m_axi port = data_in bundle = gmem0 depth = 1024 offset = slave"/>
-        <Pragma type="interface" location="../../../src/kernel.cpp:707" status="valid" parentFunction="calculate_crc" variable="" isDirective="0" options="m_axi port = tables bundle = gmem1 depth = 4096 offset = slave"/>
-        <Pragma type="interface" location="../../../src/kernel.cpp:708" status="valid" parentFunction="calculate_crc" variable="" isDirective="0" options="m_axi port = crc_out bundle = gmem0 depth = 1024 offset = slave"/>
+        <Pragma type="inline" location="../../../src/kernel.cpp:54" status="valid" parentFunction="rotr32" variable="" isDirective="0" options=""/>
+        <Pragma type="inline" location="../../../src/kernel.cpp:60" status="valid" parentFunction="sha256_ch" variable="" isDirective="0" options=""/>
+        <Pragma type="inline" location="../../../src/kernel.cpp:66" status="valid" parentFunction="sha256_maj" variable="" isDirective="0" options=""/>
+        <Pragma type="inline" location="../../../src/kernel.cpp:72" status="valid" parentFunction="sha256_bsig0" variable="" isDirective="0" options=""/>
+        <Pragma type="inline" location="../../../src/kernel.cpp:78" status="valid" parentFunction="sha256_bsig1" variable="" isDirective="0" options=""/>
+        <Pragma type="inline" location="../../../src/kernel.cpp:84" status="valid" parentFunction="sha256_ssig0" variable="" isDirective="0" options=""/>
+        <Pragma type="inline" location="../../../src/kernel.cpp:90" status="valid" parentFunction="sha256_ssig1" variable="" isDirective="0" options=""/>
+        <Pragma type="inline" location="../../../src/kernel.cpp:96" status="valid" parentFunction="to_be16" variable="" isDirective="0" options=""/>
+        <Pragma type="inline" location="../../../src/kernel.cpp:102" status="valid" parentFunction="to_be32" variable="" isDirective="0" options=""/>
+        <Pragma type="inline" location="../../../src/kernel.cpp:111" status="valid" parentFunction="pack_block_64" variable="" isDirective="0" options=""/>
+        <Pragma type="unroll" location="../../../src/kernel.cpp:116" status="valid" parentFunction="pack_block_64" variable="" isDirective="0" options=""/>
+        <Pragma type="inline" location="../../../src/kernel.cpp:124" status="valid" parentFunction="sha256_compress_block" variable="" isDirective="0" options="off"/>
+        <Pragma type="array_partition" location="../../../src/kernel.cpp:127" status="valid" parentFunction="sha256_compress_block" variable="" isDirective="0" options="variable = wbuf complete dim = 1"/>
+        <Pragma type="unroll" location="../../../src/kernel.cpp:132" status="valid" parentFunction="sha256_compress_block" variable="" isDirective="0" options=""/>
+        <Pragma type="pipeline" location="../../../src/kernel.cpp:149" status="valid" parentFunction="sha256_compress_block" variable="" isDirective="0" options="II = 1"/>
+        <Pragma type="inline" location="../../../src/kernel.cpp:196" status="valid" parentFunction="sha256_process_and_write_chunk" variable="" isDirective="0" options="off"/>
+        <Pragma type="array_partition" location="../../../src/kernel.cpp:199" status="valid" parentFunction="sha256_process_and_write_chunk" variable="" isDirective="0" options="variable = digest complete dim = 1"/>
+        <Pragma type="pipeline" location="../../../src/kernel.cpp:206" status="valid" parentFunction="sha256_process_and_write_chunk" variable="" isDirective="0" options="II = 1"/>
+        <Pragma type="inline" location="../../../src/kernel.cpp:215" status="valid" parentFunction="sha256_process_chunk" variable="" isDirective="0" options="off"/>
+        <Pragma type="unroll" location="../../../src/kernel.cpp:221" status="valid" parentFunction="sha256_process_chunk" variable="" isDirective="0" options=""/>
+        <Pragma type="pipeline" location="../../../src/kernel.cpp:254" status="valid" parentFunction="sha256_process_chunk" variable="" isDirective="0" options="II = 1"/>
+        <Pragma type="pipeline" location="../../../src/kernel.cpp:261" status="valid" parentFunction="sha256_process_chunk" variable="" isDirective="0" options="II = 1"/>
+        <Pragma type="pipeline" location="../../../src/kernel.cpp:273" status="valid" parentFunction="sha256_process_chunk" variable="" isDirective="0" options="II = 1"/>
+        <Pragma type="pipeline" location="../../../src/kernel.cpp:287" status="valid" parentFunction="sha256_process_chunk" variable="" isDirective="0" options="II = 1"/>
+        <Pragma type="pipeline" location="../../../src/kernel.cpp:294" status="valid" parentFunction="sha256_process_chunk" variable="" isDirective="0" options="II = 1"/>
+        <Pragma type="unroll" location="../../../src/kernel.cpp:304" status="valid" parentFunction="sha256_process_chunk" variable="" isDirective="0" options=""/>
+        <Pragma type="pipeline" location="../../../src/kernel.cpp:325" status="valid" parentFunction="read_input" variable="" isDirective="0" options="II = 1"/>
+        <Pragma type="pipeline" location="../../../src/kernel.cpp:352" status="valid" parentFunction="write_output" variable="" isDirective="0" options="II = 1"/>
+        <Pragma type="inline" location="../../../src/kernel.cpp:360" status="valid" parentFunction="load_crc_tables" variable="" isDirective="0" options="off"/>
+        <Pragma type="array_partition" location="../../../src/kernel.cpp:361" status="valid" parentFunction="load_crc_tables" variable="" isDirective="0" options="variable = crcTables complete dim = 1"/>
+        <Pragma type="bind_storage" location="../../../src/kernel.cpp:362" status="valid" parentFunction="load_crc_tables" variable="" isDirective="0" options="variable = crcTables type = ram_1p impl = bram"/>
+        <Pragma type="pipeline" location="../../../src/kernel.cpp:370" status="valid" parentFunction="load_crc_tables" variable="" isDirective="0" options="II = 1"/>
+        <Pragma type="inline" location="../../../src/kernel.cpp:386" status="valid" parentFunction="crc_process_full_blocks" variable="" isDirective="0" options="off"/>
+        <Pragma type="array_partition" location="../../../src/kernel.cpp:387" status="valid" parentFunction="crc_process_full_blocks" variable="" isDirective="0" options="variable = crcTables complete dim = 1"/>
+        <Pragma type="bind_storage" location="../../../src/kernel.cpp:388" status="valid" parentFunction="crc_process_full_blocks" variable="" isDirective="0" options="variable = crcTables type = ram_1p impl = bram"/>
+        <Pragma type="pipeline" location="../../../src/kernel.cpp:393" status="valid" parentFunction="crc_process_full_blocks" variable="" isDirective="0" options="II = 1"/>
+        <Pragma type="inline" location="../../../src/kernel.cpp:439" status="valid" parentFunction="crc_process_tail_bytes" variable="" isDirective="0" options="off"/>
+        <Pragma type="array_partition" location="../../../src/kernel.cpp:440" status="valid" parentFunction="crc_process_tail_bytes" variable="" isDirective="0" options="variable = crcTables complete dim = 1"/>
+        <Pragma type="bind_storage" location="../../../src/kernel.cpp:441" status="valid" parentFunction="crc_process_tail_bytes" variable="" isDirective="0" options="variable = crcTables type = ram_1p impl = bram"/>
+        <Pragma type="pipeline" location="../../../src/kernel.cpp:446" status="valid" parentFunction="crc_process_tail_bytes" variable="" isDirective="0" options="II = 1"/>
+        <Pragma type="inline" location="../../../src/kernel.cpp:519" status="valid" parentFunction="process_crc_chunks" variable="" isDirective="0" options="off"/>
+        <Pragma type="array_partition" location="../../../src/kernel.cpp:520" status="valid" parentFunction="process_crc_chunks" variable="" isDirective="0" options="variable = crcTables complete dim = 1"/>
+        <Pragma type="bind_storage" location="../../../src/kernel.cpp:521" status="valid" parentFunction="process_crc_chunks" variable="" isDirective="0" options="variable = crcTables type = ram_1p impl = bram"/>
+        <Pragma type="inline" location="../../../src/kernel.cpp:566" status="valid" parentFunction="crc_dataflow_region" variable="" isDirective="0" options="off"/>
+        <Pragma type="stream" location="../../../src/kernel.cpp:585" status="valid" parentFunction="crc_dataflow_region" variable="" isDirective="0" options="variable = inByte0 depth = 64"/>
+        <Pragma type="stream" location="../../../src/kernel.cpp:586" status="valid" parentFunction="crc_dataflow_region" variable="" isDirective="0" options="variable = inByte1 depth = 64"/>
+        <Pragma type="stream" location="../../../src/kernel.cpp:587" status="valid" parentFunction="crc_dataflow_region" variable="" isDirective="0" options="variable = inByte2 depth = 64"/>
+        <Pragma type="stream" location="../../../src/kernel.cpp:588" status="valid" parentFunction="crc_dataflow_region" variable="" isDirective="0" options="variable = inByte3 depth = 64"/>
+        <Pragma type="stream" location="../../../src/kernel.cpp:589" status="valid" parentFunction="crc_dataflow_region" variable="" isDirective="0" options="variable = inByte4 depth = 64"/>
+        <Pragma type="stream" location="../../../src/kernel.cpp:590" status="valid" parentFunction="crc_dataflow_region" variable="" isDirective="0" options="variable = inByte5 depth = 64"/>
+        <Pragma type="stream" location="../../../src/kernel.cpp:591" status="valid" parentFunction="crc_dataflow_region" variable="" isDirective="0" options="variable = inByte6 depth = 64"/>
+        <Pragma type="stream" location="../../../src/kernel.cpp:592" status="valid" parentFunction="crc_dataflow_region" variable="" isDirective="0" options="variable = inByte7 depth = 64"/>
+        <Pragma type="stream" location="../../../src/kernel.cpp:593" status="valid" parentFunction="crc_dataflow_region" variable="" isDirective="0" options="variable = inByte8 depth = 64"/>
+        <Pragma type="stream" location="../../../src/kernel.cpp:594" status="valid" parentFunction="crc_dataflow_region" variable="" isDirective="0" options="variable = inByte9 depth = 64"/>
+        <Pragma type="stream" location="../../../src/kernel.cpp:595" status="valid" parentFunction="crc_dataflow_region" variable="" isDirective="0" options="variable = inByte10 depth = 64"/>
+        <Pragma type="stream" location="../../../src/kernel.cpp:596" status="valid" parentFunction="crc_dataflow_region" variable="" isDirective="0" options="variable = inByte11 depth = 64"/>
+        <Pragma type="stream" location="../../../src/kernel.cpp:597" status="valid" parentFunction="crc_dataflow_region" variable="" isDirective="0" options="variable = inByte12 depth = 64"/>
+        <Pragma type="stream" location="../../../src/kernel.cpp:598" status="valid" parentFunction="crc_dataflow_region" variable="" isDirective="0" options="variable = inByte13 depth = 64"/>
+        <Pragma type="stream" location="../../../src/kernel.cpp:599" status="valid" parentFunction="crc_dataflow_region" variable="" isDirective="0" options="variable = inByte14 depth = 64"/>
+        <Pragma type="stream" location="../../../src/kernel.cpp:600" status="valid" parentFunction="crc_dataflow_region" variable="" isDirective="0" options="variable = inByte15 depth = 64"/>
+        <Pragma type="stream" location="../../../src/kernel.cpp:603" status="valid" parentFunction="crc_dataflow_region" variable="" isDirective="0" options="variable = outStream depth = 64"/>
+        <Pragma type="dataflow" location="../../../src/kernel.cpp:605" status="valid" parentFunction="crc_dataflow_region" variable="" isDirective="0" options=""/>
+        <Pragma type="inline" location="../../../src/kernel.cpp:629" status="valid" parentFunction="fold_add" variable="" isDirective="0" options=""/>
+        <Pragma type="inline" location="../../../src/kernel.cpp:636" status="valid" parentFunction="tcp_checksum_chunk_scalar" variable="" isDirective="0" options=""/>
+        <Pragma type="pipeline" location="../../../src/kernel.cpp:643" status="valid" parentFunction="tcp_checksum_chunk_scalar" variable="" isDirective="0" options="II = 1"/>
+        <Pragma type="inline" location="../../../src/kernel.cpp:665" status="valid" parentFunction="tcp_checksum_chunk_vector" variable="" isDirective="0" options=""/>
+        <Pragma type="pipeline" location="../../../src/kernel.cpp:672" status="valid" parentFunction="tcp_checksum_chunk_vector" variable="" isDirective="0" options="II = 1"/>
+        <Pragma type="array_partition" location="../../../src/kernel.cpp:679" status="valid" parentFunction="tcp_checksum_chunk_vector" variable="" isDirective="0" options="variable = lvl1 complete"/>
+        <Pragma type="array_partition" location="../../../src/kernel.cpp:680" status="valid" parentFunction="tcp_checksum_chunk_vector" variable="" isDirective="0" options="variable = lvl2 complete"/>
+        <Pragma type="array_partition" location="../../../src/kernel.cpp:681" status="valid" parentFunction="tcp_checksum_chunk_vector" variable="" isDirective="0" options="variable = lvl3 complete"/>
+        <Pragma type="array_partition" location="../../../src/kernel.cpp:682" status="valid" parentFunction="tcp_checksum_chunk_vector" variable="" isDirective="0" options="variable = lvl4 complete"/>
+        <Pragma type="unroll" location="../../../src/kernel.cpp:687" status="valid" parentFunction="tcp_checksum_chunk_vector" variable="" isDirective="0" options=""/>
+        <Pragma type="unroll" location="../../../src/kernel.cpp:698" status="valid" parentFunction="tcp_checksum_chunk_vector" variable="" isDirective="0" options=""/>
+        <Pragma type="unroll" location="../../../src/kernel.cpp:705" status="valid" parentFunction="tcp_checksum_chunk_vector" variable="" isDirective="0" options=""/>
+        <Pragma type="unroll" location="../../../src/kernel.cpp:712" status="valid" parentFunction="tcp_checksum_chunk_vector" variable="" isDirective="0" options=""/>
+        <Pragma type="pipeline" location="../../../src/kernel.cpp:725" status="valid" parentFunction="tcp_checksum_chunk_vector" variable="" isDirective="0" options="II = 1"/>
+        <Pragma type="unroll" location="../../../src/kernel.cpp:743" status="valid" parentFunction="tcp_checksum_chunk_vector" variable="" isDirective="0" options=""/>
+        <Pragma type="pipeline" location="../../../src/kernel.cpp:760" status="valid" parentFunction="process_tcp_checksum" variable="" isDirective="0" options="II = 1"/>
+        <Pragma type="array_partition" location="../../../src/kernel.cpp:803" status="valid" parentFunction="process_crc" variable="" isDirective="0" options="variable = crcTables complete dim = 1"/>
+        <Pragma type="bind_storage" location="../../../src/kernel.cpp:804" status="valid" parentFunction="process_crc" variable="" isDirective="0" options="variable = crcTables type = ram_1p impl = bram"/>
+        <Pragma type="interface" location="../../../src/kernel.cpp:823" status="valid" parentFunction="calculate_crc" variable="" isDirective="0" options="m_axi port = data_in bundle = gmem0 depth = 1024 offset = slave"/>
+        <Pragma type="interface" location="../../../src/kernel.cpp:824" status="valid" parentFunction="calculate_crc" variable="" isDirective="0" options="m_axi port = tables bundle = gmem1 depth = 4096 offset = slave"/>
+        <Pragma type="interface" location="../../../src/kernel.cpp:825" status="valid" parentFunction="calculate_crc" variable="" isDirective="0" options="m_axi port = crc_out bundle = gmem0 depth = 1024 offset = slave"/>
     </PragmaReport>
 </profile>
 

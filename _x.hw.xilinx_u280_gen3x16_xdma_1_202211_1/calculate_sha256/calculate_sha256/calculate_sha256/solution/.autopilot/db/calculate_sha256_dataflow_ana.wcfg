@@ -37,181 +37,165 @@
          <obj_property name="Render_Data">/apatb_calculate_sha256_top/AESL_inst_calculate_sha256//AESL_inst_calculate_sha256_activity.dataflowTxWaveData.Cycles</obj_property>
          <obj_property name="Value_Data">/apatb_calculate_sha256_top/AESL_inst_calculate_sha256//AESL_inst_calculate_sha256_activity.dataflowTxWaveData.OutStanding</obj_property>
          <obj_property name="Detail_Data">/apatb_calculate_sha256_top/AESL_inst_calculate_sha256//AESL_inst_calculate_sha256_activity.dataflowTxTooltipData</obj_property>
-         <wvobject type="group" fp_name="/apatb_calculate_sha256_top/AESL_inst_calculate_sha256/grp_sha256_process_chunk_fu_106/grp_sha256_process_chunk_fu_106_activity">
-            <obj_property name="label">grp_sha256_process_chunk_fu_106_activity</obj_property>
+         <wvobject type="group" fp_name="/apatb_calculate_sha256_top/AESL_inst_calculate_sha256/grp_sha256_process_and_write_chunk_fu_108/grp_sha256_process_and_write_chunk_fu_108_activity">
+            <obj_property name="label">grp_sha256_process_and_write_chunk_fu_108_activity</obj_property>
             <obj_property name="DisplayName">label</obj_property>
             <obj_property name="UseFullPath">true</obj_property>
-            <obj_property name="ElementShortName">grp_sha256_process_chunk_fu_106_activity</obj_property>
-            <obj_property name="ObjectShortName">grp_sha256_process_chunk_fu_106_activity</obj_property>
+            <obj_property name="ElementShortName">grp_sha256_process_and_write_chunk_fu_108_activity</obj_property>
+            <obj_property name="ObjectShortName">grp_sha256_process_and_write_chunk_fu_108_activity</obj_property>
             <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
             <obj_property name="WaveformStyle">STYLE_ENUM_TRANSACTION</obj_property>
             <obj_property name="EnumTransactionColorTable">0=blank ffff=blank 0bad=#FF0000</obj_property>
             <obj_property name="UseCustomSignalColor">true</obj_property>
             <obj_property name="CustomSignalColor">turquoise</obj_property>
             <obj_property name="EnumTransactionValueTable">65535=blank</obj_property>
-            <obj_property name="Render_Data">/apatb_calculate_sha256_top/AESL_inst_calculate_sha256/grp_sha256_process_chunk_fu_106/grp_sha256_process_chunk_fu_106_activity.dataflowTxWaveData.Cycles</obj_property>
-            <obj_property name="Value_Data">/apatb_calculate_sha256_top/AESL_inst_calculate_sha256/grp_sha256_process_chunk_fu_106/grp_sha256_process_chunk_fu_106_activity.dataflowTxWaveData.OutStanding</obj_property>
-            <obj_property name="Detail_Data">/apatb_calculate_sha256_top/AESL_inst_calculate_sha256/grp_sha256_process_chunk_fu_106/grp_sha256_process_chunk_fu_106_activity.dataflowTxTooltipData</obj_property>
-            <wvobject type="group" fp_name="/apatb_calculate_sha256_top/AESL_inst_calculate_sha256/grp_sha256_process_chunk_fu_106/grp_sha256_compress_block_fu_2497/grp_sha256_compress_block_fu_2497_activity">
-               <obj_property name="label">grp_sha256_compress_block_fu_2497_activity</obj_property>
+            <obj_property name="Render_Data">/apatb_calculate_sha256_top/AESL_inst_calculate_sha256/grp_sha256_process_and_write_chunk_fu_108/grp_sha256_process_and_write_chunk_fu_108_activity.dataflowTxWaveData.Cycles</obj_property>
+            <obj_property name="Value_Data">/apatb_calculate_sha256_top/AESL_inst_calculate_sha256/grp_sha256_process_and_write_chunk_fu_108/grp_sha256_process_and_write_chunk_fu_108_activity.dataflowTxWaveData.OutStanding</obj_property>
+            <obj_property name="Detail_Data">/apatb_calculate_sha256_top/AESL_inst_calculate_sha256/grp_sha256_process_and_write_chunk_fu_108/grp_sha256_process_and_write_chunk_fu_108_activity.dataflowTxTooltipData</obj_property>
+            <wvobject type="group" fp_name="/apatb_calculate_sha256_top/AESL_inst_calculate_sha256/grp_sha256_process_and_write_chunk_fu_108/grp_sha256_process_chunk_fu_97/grp_sha256_process_chunk_fu_97_activity">
+               <obj_property name="label">grp_sha256_process_chunk_fu_97_activity</obj_property>
                <obj_property name="DisplayName">label</obj_property>
                <obj_property name="UseFullPath">true</obj_property>
-               <obj_property name="ElementShortName">grp_sha256_compress_block_fu_2497_activity</obj_property>
-               <obj_property name="ObjectShortName">grp_sha256_compress_block_fu_2497_activity</obj_property>
+               <obj_property name="ElementShortName">grp_sha256_process_chunk_fu_97_activity</obj_property>
+               <obj_property name="ObjectShortName">grp_sha256_process_chunk_fu_97_activity</obj_property>
                <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
                <obj_property name="WaveformStyle">STYLE_ENUM_TRANSACTION</obj_property>
                <obj_property name="EnumTransactionColorTable">0=blank ffff=blank 0bad=#FF0000</obj_property>
                <obj_property name="UseCustomSignalColor">true</obj_property>
                <obj_property name="CustomSignalColor">turquoise</obj_property>
                <obj_property name="EnumTransactionValueTable">65535=blank</obj_property>
-               <obj_property name="Render_Data">/apatb_calculate_sha256_top/AESL_inst_calculate_sha256/grp_sha256_process_chunk_fu_106/grp_sha256_compress_block_fu_2497/grp_sha256_compress_block_fu_2497_activity.dataflowTxWaveData.Cycles</obj_property>
-               <obj_property name="Value_Data">/apatb_calculate_sha256_top/AESL_inst_calculate_sha256/grp_sha256_process_chunk_fu_106/grp_sha256_compress_block_fu_2497/grp_sha256_compress_block_fu_2497_activity.dataflowTxWaveData.OutStanding</obj_property>
-               <obj_property name="Detail_Data">/apatb_calculate_sha256_top/AESL_inst_calculate_sha256/grp_sha256_process_chunk_fu_106/grp_sha256_compress_block_fu_2497/grp_sha256_compress_block_fu_2497_activity.dataflowTxTooltipData</obj_property>
-               <wvobject type="group" fp_name="/apatb_calculate_sha256_top/AESL_inst_calculate_sha256/grp_sha256_process_chunk_fu_106/grp_sha256_compress_block_fu_2497/grp_sha256_compress_block_Pipeline_init_words_fu_132/grp_sha256_compress_block_Pipeline_init_words_fu_132_activity">
-                  <obj_property name="label">grp_sha256_compress_block_Pipeline_init_words_fu_132_activity</obj_property>
+               <obj_property name="Render_Data">/apatb_calculate_sha256_top/AESL_inst_calculate_sha256/grp_sha256_process_and_write_chunk_fu_108/grp_sha256_process_chunk_fu_97/grp_sha256_process_chunk_fu_97_activity.dataflowTxWaveData.Cycles</obj_property>
+               <obj_property name="Value_Data">/apatb_calculate_sha256_top/AESL_inst_calculate_sha256/grp_sha256_process_and_write_chunk_fu_108/grp_sha256_process_chunk_fu_97/grp_sha256_process_chunk_fu_97_activity.dataflowTxWaveData.OutStanding</obj_property>
+               <obj_property name="Detail_Data">/apatb_calculate_sha256_top/AESL_inst_calculate_sha256/grp_sha256_process_and_write_chunk_fu_108/grp_sha256_process_chunk_fu_97/grp_sha256_process_chunk_fu_97_activity.dataflowTxTooltipData</obj_property>
+               <wvobject type="group" fp_name="/apatb_calculate_sha256_top/AESL_inst_calculate_sha256/grp_sha256_process_and_write_chunk_fu_108/grp_sha256_process_chunk_fu_97/grp_sha256_compress_block_fu_2572/grp_sha256_compress_block_fu_2572_activity">
+                  <obj_property name="label">grp_sha256_compress_block_fu_2572_activity</obj_property>
                   <obj_property name="DisplayName">label</obj_property>
                   <obj_property name="UseFullPath">true</obj_property>
-                  <obj_property name="ElementShortName">grp_sha256_compress_block_Pipeline_init_words_fu_132_activity</obj_property>
-                  <obj_property name="ObjectShortName">grp_sha256_compress_block_Pipeline_init_words_fu_132_activity</obj_property>
+                  <obj_property name="ElementShortName">grp_sha256_compress_block_fu_2572_activity</obj_property>
+                  <obj_property name="ObjectShortName">grp_sha256_compress_block_fu_2572_activity</obj_property>
                   <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
                   <obj_property name="WaveformStyle">STYLE_ENUM_TRANSACTION</obj_property>
                   <obj_property name="EnumTransactionColorTable">0=blank ffff=blank 0bad=#FF0000</obj_property>
                   <obj_property name="UseCustomSignalColor">true</obj_property>
                   <obj_property name="CustomSignalColor">turquoise</obj_property>
                   <obj_property name="EnumTransactionValueTable">65535=blank</obj_property>
-                  <obj_property name="Render_Data">/apatb_calculate_sha256_top/AESL_inst_calculate_sha256/grp_sha256_process_chunk_fu_106/grp_sha256_compress_block_fu_2497/grp_sha256_compress_block_Pipeline_init_words_fu_132/grp_sha256_compress_block_Pipeline_init_words_fu_132_activity.dataflowTxWaveData.Cycles</obj_property>
-                  <obj_property name="Value_Data">/apatb_calculate_sha256_top/AESL_inst_calculate_sha256/grp_sha256_process_chunk_fu_106/grp_sha256_compress_block_fu_2497/grp_sha256_compress_block_Pipeline_init_words_fu_132/grp_sha256_compress_block_Pipeline_init_words_fu_132_activity.dataflowTxWaveData.OutStanding</obj_property>
-                  <obj_property name="Detail_Data">/apatb_calculate_sha256_top/AESL_inst_calculate_sha256/grp_sha256_process_chunk_fu_106/grp_sha256_compress_block_fu_2497/grp_sha256_compress_block_Pipeline_init_words_fu_132/grp_sha256_compress_block_Pipeline_init_words_fu_132_activity.dataflowTxTooltipData</obj_property>
+                  <obj_property name="Render_Data">/apatb_calculate_sha256_top/AESL_inst_calculate_sha256/grp_sha256_process_and_write_chunk_fu_108/grp_sha256_process_chunk_fu_97/grp_sha256_compress_block_fu_2572/grp_sha256_compress_block_fu_2572_activity.dataflowTxWaveData.Cycles</obj_property>
+                  <obj_property name="Value_Data">/apatb_calculate_sha256_top/AESL_inst_calculate_sha256/grp_sha256_process_and_write_chunk_fu_108/grp_sha256_process_chunk_fu_97/grp_sha256_compress_block_fu_2572/grp_sha256_compress_block_fu_2572_activity.dataflowTxWaveData.OutStanding</obj_property>
+                  <obj_property name="Detail_Data">/apatb_calculate_sha256_top/AESL_inst_calculate_sha256/grp_sha256_process_and_write_chunk_fu_108/grp_sha256_process_chunk_fu_97/grp_sha256_compress_block_fu_2572/grp_sha256_compress_block_fu_2572_activity.dataflowTxTooltipData</obj_property>
+                  <wvobject type="group" fp_name="/apatb_calculate_sha256_top/AESL_inst_calculate_sha256/grp_sha256_process_and_write_chunk_fu_108/grp_sha256_process_chunk_fu_97/grp_sha256_compress_block_fu_2572/grp_sha256_compress_block_Pipeline_round_loop_fu_372/grp_sha256_compress_block_Pipeline_round_loop_fu_372_activity">
+                     <obj_property name="label">grp_sha256_compress_block_Pipeline_round_loop_fu_372_activity</obj_property>
+                     <obj_property name="DisplayName">label</obj_property>
+                     <obj_property name="UseFullPath">true</obj_property>
+                     <obj_property name="ElementShortName">grp_sha256_compress_block_Pipeline_round_loop_fu_372_activity</obj_property>
+                     <obj_property name="ObjectShortName">grp_sha256_compress_block_Pipeline_round_loop_fu_372_activity</obj_property>
+                     <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+                     <obj_property name="WaveformStyle">STYLE_ENUM_TRANSACTION</obj_property>
+                     <obj_property name="EnumTransactionColorTable">0=blank ffff=blank 0bad=#FF0000</obj_property>
+                     <obj_property name="UseCustomSignalColor">true</obj_property>
+                     <obj_property name="CustomSignalColor">turquoise</obj_property>
+                     <obj_property name="EnumTransactionValueTable">65535=blank</obj_property>
+                     <obj_property name="Render_Data">/apatb_calculate_sha256_top/AESL_inst_calculate_sha256/grp_sha256_process_and_write_chunk_fu_108/grp_sha256_process_chunk_fu_97/grp_sha256_compress_block_fu_2572/grp_sha256_compress_block_Pipeline_round_loop_fu_372/grp_sha256_compress_block_Pipeline_round_loop_fu_372_activity.dataflowTxWaveData.Cycles</obj_property>
+                     <obj_property name="Value_Data">/apatb_calculate_sha256_top/AESL_inst_calculate_sha256/grp_sha256_process_and_write_chunk_fu_108/grp_sha256_process_chunk_fu_97/grp_sha256_compress_block_fu_2572/grp_sha256_compress_block_Pipeline_round_loop_fu_372/grp_sha256_compress_block_Pipeline_round_loop_fu_372_activity.dataflowTxWaveData.OutStanding</obj_property>
+                     <obj_property name="Detail_Data">/apatb_calculate_sha256_top/AESL_inst_calculate_sha256/grp_sha256_process_and_write_chunk_fu_108/grp_sha256_process_chunk_fu_97/grp_sha256_compress_block_fu_2572/grp_sha256_compress_block_Pipeline_round_loop_fu_372/grp_sha256_compress_block_Pipeline_round_loop_fu_372_activity.dataflowTxTooltipData</obj_property>
+                  </wvobject>
                </wvobject>
-               <wvobject type="group" fp_name="/apatb_calculate_sha256_top/AESL_inst_calculate_sha256/grp_sha256_process_chunk_fu_106/grp_sha256_compress_block_fu_2497/grp_sha256_compress_block_Pipeline_expand_words_fu_144/grp_sha256_compress_block_Pipeline_expand_words_fu_144_activity">
-                  <obj_property name="label">grp_sha256_compress_block_Pipeline_expand_words_fu_144_activity</obj_property>
+               <wvobject type="group" fp_name="/apatb_calculate_sha256_top/AESL_inst_calculate_sha256/grp_sha256_process_and_write_chunk_fu_108/grp_sha256_process_chunk_fu_97/grp_sha256_process_chunk_Pipeline_clear_pad_block_fu_2595/grp_sha256_process_chunk_Pipeline_clear_pad_block_fu_2595_activity">
+                  <obj_property name="label">grp_sha256_process_chunk_Pipeline_clear_pad_block_fu_2595_activity</obj_property>
                   <obj_property name="DisplayName">label</obj_property>
                   <obj_property name="UseFullPath">true</obj_property>
-                  <obj_property name="ElementShortName">grp_sha256_compress_block_Pipeline_expand_words_fu_144_activity</obj_property>
-                  <obj_property name="ObjectShortName">grp_sha256_compress_block_Pipeline_expand_words_fu_144_activity</obj_property>
+                  <obj_property name="ElementShortName">grp_sha256_process_chunk_Pipeline_clear_pad_block_fu_2595_activity</obj_property>
+                  <obj_property name="ObjectShortName">grp_sha256_process_chunk_Pipeline_clear_pad_block_fu_2595_activity</obj_property>
                   <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
                   <obj_property name="WaveformStyle">STYLE_ENUM_TRANSACTION</obj_property>
                   <obj_property name="EnumTransactionColorTable">0=blank ffff=blank 0bad=#FF0000</obj_property>
                   <obj_property name="UseCustomSignalColor">true</obj_property>
                   <obj_property name="CustomSignalColor">turquoise</obj_property>
                   <obj_property name="EnumTransactionValueTable">65535=blank</obj_property>
-                  <obj_property name="Render_Data">/apatb_calculate_sha256_top/AESL_inst_calculate_sha256/grp_sha256_process_chunk_fu_106/grp_sha256_compress_block_fu_2497/grp_sha256_compress_block_Pipeline_expand_words_fu_144/grp_sha256_compress_block_Pipeline_expand_words_fu_144_activity.dataflowTxWaveData.Cycles</obj_property>
-                  <obj_property name="Value_Data">/apatb_calculate_sha256_top/AESL_inst_calculate_sha256/grp_sha256_process_chunk_fu_106/grp_sha256_compress_block_fu_2497/grp_sha256_compress_block_Pipeline_expand_words_fu_144/grp_sha256_compress_block_Pipeline_expand_words_fu_144_activity.dataflowTxWaveData.OutStanding</obj_property>
-                  <obj_property name="Detail_Data">/apatb_calculate_sha256_top/AESL_inst_calculate_sha256/grp_sha256_process_chunk_fu_106/grp_sha256_compress_block_fu_2497/grp_sha256_compress_block_Pipeline_expand_words_fu_144/grp_sha256_compress_block_Pipeline_expand_words_fu_144_activity.dataflowTxTooltipData</obj_property>
+                  <obj_property name="Render_Data">/apatb_calculate_sha256_top/AESL_inst_calculate_sha256/grp_sha256_process_and_write_chunk_fu_108/grp_sha256_process_chunk_fu_97/grp_sha256_process_chunk_Pipeline_clear_pad_block_fu_2595/grp_sha256_process_chunk_Pipeline_clear_pad_block_fu_2595_activity.dataflowTxWaveData.Cycles</obj_property>
+                  <obj_property name="Value_Data">/apatb_calculate_sha256_top/AESL_inst_calculate_sha256/grp_sha256_process_and_write_chunk_fu_108/grp_sha256_process_chunk_fu_97/grp_sha256_process_chunk_Pipeline_clear_pad_block_fu_2595/grp_sha256_process_chunk_Pipeline_clear_pad_block_fu_2595_activity.dataflowTxWaveData.OutStanding</obj_property>
+                  <obj_property name="Detail_Data">/apatb_calculate_sha256_top/AESL_inst_calculate_sha256/grp_sha256_process_and_write_chunk_fu_108/grp_sha256_process_chunk_fu_97/grp_sha256_process_chunk_Pipeline_clear_pad_block_fu_2595/grp_sha256_process_chunk_Pipeline_clear_pad_block_fu_2595_activity.dataflowTxTooltipData</obj_property>
                </wvobject>
-               <wvobject type="group" fp_name="/apatb_calculate_sha256_top/AESL_inst_calculate_sha256/grp_sha256_process_chunk_fu_106/grp_sha256_compress_block_fu_2497/grp_sha256_compress_block_Pipeline_round_loop_fu_151/grp_sha256_compress_block_Pipeline_round_loop_fu_151_activity">
-                  <obj_property name="label">grp_sha256_compress_block_Pipeline_round_loop_fu_151_activity</obj_property>
+               <wvobject type="group" fp_name="/apatb_calculate_sha256_top/AESL_inst_calculate_sha256/grp_sha256_process_and_write_chunk_fu_108/grp_sha256_process_chunk_fu_97/grp_sha256_process_chunk_Pipeline_copy_remainder_fu_2600/grp_sha256_process_chunk_Pipeline_copy_remainder_fu_2600_activity">
+                  <obj_property name="label">grp_sha256_process_chunk_Pipeline_copy_remainder_fu_2600_activity</obj_property>
                   <obj_property name="DisplayName">label</obj_property>
                   <obj_property name="UseFullPath">true</obj_property>
-                  <obj_property name="ElementShortName">grp_sha256_compress_block_Pipeline_round_loop_fu_151_activity</obj_property>
-                  <obj_property name="ObjectShortName">grp_sha256_compress_block_Pipeline_round_loop_fu_151_activity</obj_property>
+                  <obj_property name="ElementShortName">grp_sha256_process_chunk_Pipeline_copy_remainder_fu_2600_activity</obj_property>
+                  <obj_property name="ObjectShortName">grp_sha256_process_chunk_Pipeline_copy_remainder_fu_2600_activity</obj_property>
                   <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
                   <obj_property name="WaveformStyle">STYLE_ENUM_TRANSACTION</obj_property>
                   <obj_property name="EnumTransactionColorTable">0=blank ffff=blank 0bad=#FF0000</obj_property>
                   <obj_property name="UseCustomSignalColor">true</obj_property>
                   <obj_property name="CustomSignalColor">turquoise</obj_property>
                   <obj_property name="EnumTransactionValueTable">65535=blank</obj_property>
-                  <obj_property name="Render_Data">/apatb_calculate_sha256_top/AESL_inst_calculate_sha256/grp_sha256_process_chunk_fu_106/grp_sha256_compress_block_fu_2497/grp_sha256_compress_block_Pipeline_round_loop_fu_151/grp_sha256_compress_block_Pipeline_round_loop_fu_151_activity.dataflowTxWaveData.Cycles</obj_property>
-                  <obj_property name="Value_Data">/apatb_calculate_sha256_top/AESL_inst_calculate_sha256/grp_sha256_process_chunk_fu_106/grp_sha256_compress_block_fu_2497/grp_sha256_compress_block_Pipeline_round_loop_fu_151/grp_sha256_compress_block_Pipeline_round_loop_fu_151_activity.dataflowTxWaveData.OutStanding</obj_property>
-                  <obj_property name="Detail_Data">/apatb_calculate_sha256_top/AESL_inst_calculate_sha256/grp_sha256_process_chunk_fu_106/grp_sha256_compress_block_fu_2497/grp_sha256_compress_block_Pipeline_round_loop_fu_151/grp_sha256_compress_block_Pipeline_round_loop_fu_151_activity.dataflowTxTooltipData</obj_property>
+                  <obj_property name="Render_Data">/apatb_calculate_sha256_top/AESL_inst_calculate_sha256/grp_sha256_process_and_write_chunk_fu_108/grp_sha256_process_chunk_fu_97/grp_sha256_process_chunk_Pipeline_copy_remainder_fu_2600/grp_sha256_process_chunk_Pipeline_copy_remainder_fu_2600_activity.dataflowTxWaveData.Cycles</obj_property>
+                  <obj_property name="Value_Data">/apatb_calculate_sha256_top/AESL_inst_calculate_sha256/grp_sha256_process_and_write_chunk_fu_108/grp_sha256_process_chunk_fu_97/grp_sha256_process_chunk_Pipeline_copy_remainder_fu_2600/grp_sha256_process_chunk_Pipeline_copy_remainder_fu_2600_activity.dataflowTxWaveData.OutStanding</obj_property>
+                  <obj_property name="Detail_Data">/apatb_calculate_sha256_top/AESL_inst_calculate_sha256/grp_sha256_process_and_write_chunk_fu_108/grp_sha256_process_chunk_fu_97/grp_sha256_process_chunk_Pipeline_copy_remainder_fu_2600/grp_sha256_process_chunk_Pipeline_copy_remainder_fu_2600_activity.dataflowTxTooltipData</obj_property>
+               </wvobject>
+               <wvobject type="group" fp_name="/apatb_calculate_sha256_top/AESL_inst_calculate_sha256/grp_sha256_process_and_write_chunk_fu_108/grp_sha256_process_chunk_fu_97/grp_sha256_process_chunk_Pipeline_clear_second_block_fu_2611/grp_sha256_process_chunk_Pipeline_clear_second_block_fu_2611_activity">
+                  <obj_property name="label">grp_sha256_process_chunk_Pipeline_clear_second_block_fu_2611_activity</obj_property>
+                  <obj_property name="DisplayName">label</obj_property>
+                  <obj_property name="UseFullPath">true</obj_property>
+                  <obj_property name="ElementShortName">grp_sha256_process_chunk_Pipeline_clear_second_block_fu_2611_activity</obj_property>
+                  <obj_property name="ObjectShortName">grp_sha256_process_chunk_Pipeline_clear_second_block_fu_2611_activity</obj_property>
+                  <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+                  <obj_property name="WaveformStyle">STYLE_ENUM_TRANSACTION</obj_property>
+                  <obj_property name="EnumTransactionColorTable">0=blank ffff=blank 0bad=#FF0000</obj_property>
+                  <obj_property name="UseCustomSignalColor">true</obj_property>
+                  <obj_property name="CustomSignalColor">turquoise</obj_property>
+                  <obj_property name="EnumTransactionValueTable">65535=blank</obj_property>
+                  <obj_property name="Render_Data">/apatb_calculate_sha256_top/AESL_inst_calculate_sha256/grp_sha256_process_and_write_chunk_fu_108/grp_sha256_process_chunk_fu_97/grp_sha256_process_chunk_Pipeline_clear_second_block_fu_2611/grp_sha256_process_chunk_Pipeline_clear_second_block_fu_2611_activity.dataflowTxWaveData.Cycles</obj_property>
+                  <obj_property name="Value_Data">/apatb_calculate_sha256_top/AESL_inst_calculate_sha256/grp_sha256_process_and_write_chunk_fu_108/grp_sha256_process_chunk_fu_97/grp_sha256_process_chunk_Pipeline_clear_second_block_fu_2611/grp_sha256_process_chunk_Pipeline_clear_second_block_fu_2611_activity.dataflowTxWaveData.OutStanding</obj_property>
+                  <obj_property name="Detail_Data">/apatb_calculate_sha256_top/AESL_inst_calculate_sha256/grp_sha256_process_and_write_chunk_fu_108/grp_sha256_process_chunk_fu_97/grp_sha256_process_chunk_Pipeline_clear_second_block_fu_2611/grp_sha256_process_chunk_Pipeline_clear_second_block_fu_2611_activity.dataflowTxTooltipData</obj_property>
+               </wvobject>
+               <wvobject type="group" fp_name="/apatb_calculate_sha256_top/AESL_inst_calculate_sha256/grp_sha256_process_and_write_chunk_fu_108/grp_sha256_process_chunk_fu_97/grp_sha256_process_chunk_Pipeline_len_store_double_fu_2616/grp_sha256_process_chunk_Pipeline_len_store_double_fu_2616_activity">
+                  <obj_property name="label">grp_sha256_process_chunk_Pipeline_len_store_double_fu_2616_activity</obj_property>
+                  <obj_property name="DisplayName">label</obj_property>
+                  <obj_property name="UseFullPath">true</obj_property>
+                  <obj_property name="ElementShortName">grp_sha256_process_chunk_Pipeline_len_store_double_fu_2616_activity</obj_property>
+                  <obj_property name="ObjectShortName">grp_sha256_process_chunk_Pipeline_len_store_double_fu_2616_activity</obj_property>
+                  <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+                  <obj_property name="WaveformStyle">STYLE_ENUM_TRANSACTION</obj_property>
+                  <obj_property name="EnumTransactionColorTable">0=blank ffff=blank 0bad=#FF0000</obj_property>
+                  <obj_property name="UseCustomSignalColor">true</obj_property>
+                  <obj_property name="CustomSignalColor">turquoise</obj_property>
+                  <obj_property name="EnumTransactionValueTable">65535=blank</obj_property>
+                  <obj_property name="Render_Data">/apatb_calculate_sha256_top/AESL_inst_calculate_sha256/grp_sha256_process_and_write_chunk_fu_108/grp_sha256_process_chunk_fu_97/grp_sha256_process_chunk_Pipeline_len_store_double_fu_2616/grp_sha256_process_chunk_Pipeline_len_store_double_fu_2616_activity.dataflowTxWaveData.Cycles</obj_property>
+                  <obj_property name="Value_Data">/apatb_calculate_sha256_top/AESL_inst_calculate_sha256/grp_sha256_process_and_write_chunk_fu_108/grp_sha256_process_chunk_fu_97/grp_sha256_process_chunk_Pipeline_len_store_double_fu_2616/grp_sha256_process_chunk_Pipeline_len_store_double_fu_2616_activity.dataflowTxWaveData.OutStanding</obj_property>
+                  <obj_property name="Detail_Data">/apatb_calculate_sha256_top/AESL_inst_calculate_sha256/grp_sha256_process_and_write_chunk_fu_108/grp_sha256_process_chunk_fu_97/grp_sha256_process_chunk_Pipeline_len_store_double_fu_2616/grp_sha256_process_chunk_Pipeline_len_store_double_fu_2616_activity.dataflowTxTooltipData</obj_property>
+               </wvobject>
+               <wvobject type="group" fp_name="/apatb_calculate_sha256_top/AESL_inst_calculate_sha256/grp_sha256_process_and_write_chunk_fu_108/grp_sha256_process_chunk_fu_97/grp_sha256_process_chunk_Pipeline_len_store_single_fu_2622/grp_sha256_process_chunk_Pipeline_len_store_single_fu_2622_activity">
+                  <obj_property name="label">grp_sha256_process_chunk_Pipeline_len_store_single_fu_2622_activity</obj_property>
+                  <obj_property name="DisplayName">label</obj_property>
+                  <obj_property name="UseFullPath">true</obj_property>
+                  <obj_property name="ElementShortName">grp_sha256_process_chunk_Pipeline_len_store_single_fu_2622_activity</obj_property>
+                  <obj_property name="ObjectShortName">grp_sha256_process_chunk_Pipeline_len_store_single_fu_2622_activity</obj_property>
+                  <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+                  <obj_property name="WaveformStyle">STYLE_ENUM_TRANSACTION</obj_property>
+                  <obj_property name="EnumTransactionColorTable">0=blank ffff=blank 0bad=#FF0000</obj_property>
+                  <obj_property name="UseCustomSignalColor">true</obj_property>
+                  <obj_property name="CustomSignalColor">turquoise</obj_property>
+                  <obj_property name="EnumTransactionValueTable">65535=blank</obj_property>
+                  <obj_property name="Render_Data">/apatb_calculate_sha256_top/AESL_inst_calculate_sha256/grp_sha256_process_and_write_chunk_fu_108/grp_sha256_process_chunk_fu_97/grp_sha256_process_chunk_Pipeline_len_store_single_fu_2622/grp_sha256_process_chunk_Pipeline_len_store_single_fu_2622_activity.dataflowTxWaveData.Cycles</obj_property>
+                  <obj_property name="Value_Data">/apatb_calculate_sha256_top/AESL_inst_calculate_sha256/grp_sha256_process_and_write_chunk_fu_108/grp_sha256_process_chunk_fu_97/grp_sha256_process_chunk_Pipeline_len_store_single_fu_2622/grp_sha256_process_chunk_Pipeline_len_store_single_fu_2622_activity.dataflowTxWaveData.OutStanding</obj_property>
+                  <obj_property name="Detail_Data">/apatb_calculate_sha256_top/AESL_inst_calculate_sha256/grp_sha256_process_and_write_chunk_fu_108/grp_sha256_process_chunk_fu_97/grp_sha256_process_chunk_Pipeline_len_store_single_fu_2622/grp_sha256_process_chunk_Pipeline_len_store_single_fu_2622_activity.dataflowTxTooltipData</obj_property>
                </wvobject>
             </wvobject>
-            <wvobject type="group" fp_name="/apatb_calculate_sha256_top/AESL_inst_calculate_sha256/grp_sha256_process_chunk_fu_106/grp_sha256_process_chunk_Pipeline_clear_pad_block_fu_2520/grp_sha256_process_chunk_Pipeline_clear_pad_block_fu_2520_activity">
-               <obj_property name="label">grp_sha256_process_chunk_Pipeline_clear_pad_block_fu_2520_activity</obj_property>
+            <wvobject type="group" fp_name="/apatb_calculate_sha256_top/AESL_inst_calculate_sha256/grp_sha256_process_and_write_chunk_fu_108/grp_sha256_process_and_write_chunk_Pipeline_write_digest_fu_109/grp_sha256_process_and_write_chunk_Pipeline_write_digest_fu_109_activity">
+               <obj_property name="label">grp_sha256_process_and_write_chunk_Pipeline_write_digest_fu_109_activity</obj_property>
                <obj_property name="DisplayName">label</obj_property>
                <obj_property name="UseFullPath">true</obj_property>
-               <obj_property name="ElementShortName">grp_sha256_process_chunk_Pipeline_clear_pad_block_fu_2520_activity</obj_property>
-               <obj_property name="ObjectShortName">grp_sha256_process_chunk_Pipeline_clear_pad_block_fu_2520_activity</obj_property>
+               <obj_property name="ElementShortName">grp_sha256_process_and_write_chunk_Pipeline_write_digest_fu_109_activity</obj_property>
+               <obj_property name="ObjectShortName">grp_sha256_process_and_write_chunk_Pipeline_write_digest_fu_109_activity</obj_property>
                <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
                <obj_property name="WaveformStyle">STYLE_ENUM_TRANSACTION</obj_property>
                <obj_property name="EnumTransactionColorTable">0=blank ffff=blank 0bad=#FF0000</obj_property>
                <obj_property name="UseCustomSignalColor">true</obj_property>
                <obj_property name="CustomSignalColor">turquoise</obj_property>
                <obj_property name="EnumTransactionValueTable">65535=blank</obj_property>
-               <obj_property name="Render_Data">/apatb_calculate_sha256_top/AESL_inst_calculate_sha256/grp_sha256_process_chunk_fu_106/grp_sha256_process_chunk_Pipeline_clear_pad_block_fu_2520/grp_sha256_process_chunk_Pipeline_clear_pad_block_fu_2520_activity.dataflowTxWaveData.Cycles</obj_property>
-               <obj_property name="Value_Data">/apatb_calculate_sha256_top/AESL_inst_calculate_sha256/grp_sha256_process_chunk_fu_106/grp_sha256_process_chunk_Pipeline_clear_pad_block_fu_2520/grp_sha256_process_chunk_Pipeline_clear_pad_block_fu_2520_activity.dataflowTxWaveData.OutStanding</obj_property>
-               <obj_property name="Detail_Data">/apatb_calculate_sha256_top/AESL_inst_calculate_sha256/grp_sha256_process_chunk_fu_106/grp_sha256_process_chunk_Pipeline_clear_pad_block_fu_2520/grp_sha256_process_chunk_Pipeline_clear_pad_block_fu_2520_activity.dataflowTxTooltipData</obj_property>
+               <obj_property name="Render_Data">/apatb_calculate_sha256_top/AESL_inst_calculate_sha256/grp_sha256_process_and_write_chunk_fu_108/grp_sha256_process_and_write_chunk_Pipeline_write_digest_fu_109/grp_sha256_process_and_write_chunk_Pipeline_write_digest_fu_109_activity.dataflowTxWaveData.Cycles</obj_property>
+               <obj_property name="Value_Data">/apatb_calculate_sha256_top/AESL_inst_calculate_sha256/grp_sha256_process_and_write_chunk_fu_108/grp_sha256_process_and_write_chunk_Pipeline_write_digest_fu_109/grp_sha256_process_and_write_chunk_Pipeline_write_digest_fu_109_activity.dataflowTxWaveData.OutStanding</obj_property>
+               <obj_property name="Detail_Data">/apatb_calculate_sha256_top/AESL_inst_calculate_sha256/grp_sha256_process_and_write_chunk_fu_108/grp_sha256_process_and_write_chunk_Pipeline_write_digest_fu_109/grp_sha256_process_and_write_chunk_Pipeline_write_digest_fu_109_activity.dataflowTxTooltipData</obj_property>
             </wvobject>
-            <wvobject type="group" fp_name="/apatb_calculate_sha256_top/AESL_inst_calculate_sha256/grp_sha256_process_chunk_fu_106/grp_sha256_process_chunk_Pipeline_copy_remainder_fu_2525/grp_sha256_process_chunk_Pipeline_copy_remainder_fu_2525_activity">
-               <obj_property name="label">grp_sha256_process_chunk_Pipeline_copy_remainder_fu_2525_activity</obj_property>
-               <obj_property name="DisplayName">label</obj_property>
-               <obj_property name="UseFullPath">true</obj_property>
-               <obj_property name="ElementShortName">grp_sha256_process_chunk_Pipeline_copy_remainder_fu_2525_activity</obj_property>
-               <obj_property name="ObjectShortName">grp_sha256_process_chunk_Pipeline_copy_remainder_fu_2525_activity</obj_property>
-               <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
-               <obj_property name="WaveformStyle">STYLE_ENUM_TRANSACTION</obj_property>
-               <obj_property name="EnumTransactionColorTable">0=blank ffff=blank 0bad=#FF0000</obj_property>
-               <obj_property name="UseCustomSignalColor">true</obj_property>
-               <obj_property name="CustomSignalColor">turquoise</obj_property>
-               <obj_property name="EnumTransactionValueTable">65535=blank</obj_property>
-               <obj_property name="Render_Data">/apatb_calculate_sha256_top/AESL_inst_calculate_sha256/grp_sha256_process_chunk_fu_106/grp_sha256_process_chunk_Pipeline_copy_remainder_fu_2525/grp_sha256_process_chunk_Pipeline_copy_remainder_fu_2525_activity.dataflowTxWaveData.Cycles</obj_property>
-               <obj_property name="Value_Data">/apatb_calculate_sha256_top/AESL_inst_calculate_sha256/grp_sha256_process_chunk_fu_106/grp_sha256_process_chunk_Pipeline_copy_remainder_fu_2525/grp_sha256_process_chunk_Pipeline_copy_remainder_fu_2525_activity.dataflowTxWaveData.OutStanding</obj_property>
-               <obj_property name="Detail_Data">/apatb_calculate_sha256_top/AESL_inst_calculate_sha256/grp_sha256_process_chunk_fu_106/grp_sha256_process_chunk_Pipeline_copy_remainder_fu_2525/grp_sha256_process_chunk_Pipeline_copy_remainder_fu_2525_activity.dataflowTxTooltipData</obj_property>
-            </wvobject>
-            <wvobject type="group" fp_name="/apatb_calculate_sha256_top/AESL_inst_calculate_sha256/grp_sha256_process_chunk_fu_106/grp_sha256_process_chunk_Pipeline_clear_second_block_fu_2536/grp_sha256_process_chunk_Pipeline_clear_second_block_fu_2536_activity">
-               <obj_property name="label">grp_sha256_process_chunk_Pipeline_clear_second_block_fu_2536_activity</obj_property>
-               <obj_property name="DisplayName">label</obj_property>
-               <obj_property name="UseFullPath">true</obj_property>
-               <obj_property name="ElementShortName">grp_sha256_process_chunk_Pipeline_clear_second_block_fu_2536_activity</obj_property>
-               <obj_property name="ObjectShortName">grp_sha256_process_chunk_Pipeline_clear_second_block_fu_2536_activity</obj_property>
-               <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
-               <obj_property name="WaveformStyle">STYLE_ENUM_TRANSACTION</obj_property>
-               <obj_property name="EnumTransactionColorTable">0=blank ffff=blank 0bad=#FF0000</obj_property>
-               <obj_property name="UseCustomSignalColor">true</obj_property>
-               <obj_property name="CustomSignalColor">turquoise</obj_property>
-               <obj_property name="EnumTransactionValueTable">65535=blank</obj_property>
-               <obj_property name="Render_Data">/apatb_calculate_sha256_top/AESL_inst_calculate_sha256/grp_sha256_process_chunk_fu_106/grp_sha256_process_chunk_Pipeline_clear_second_block_fu_2536/grp_sha256_process_chunk_Pipeline_clear_second_block_fu_2536_activity.dataflowTxWaveData.Cycles</obj_property>
-               <obj_property name="Value_Data">/apatb_calculate_sha256_top/AESL_inst_calculate_sha256/grp_sha256_process_chunk_fu_106/grp_sha256_process_chunk_Pipeline_clear_second_block_fu_2536/grp_sha256_process_chunk_Pipeline_clear_second_block_fu_2536_activity.dataflowTxWaveData.OutStanding</obj_property>
-               <obj_property name="Detail_Data">/apatb_calculate_sha256_top/AESL_inst_calculate_sha256/grp_sha256_process_chunk_fu_106/grp_sha256_process_chunk_Pipeline_clear_second_block_fu_2536/grp_sha256_process_chunk_Pipeline_clear_second_block_fu_2536_activity.dataflowTxTooltipData</obj_property>
-            </wvobject>
-            <wvobject type="group" fp_name="/apatb_calculate_sha256_top/AESL_inst_calculate_sha256/grp_sha256_process_chunk_fu_106/grp_sha256_process_chunk_Pipeline_len_store_double_fu_2541/grp_sha256_process_chunk_Pipeline_len_store_double_fu_2541_activity">
-               <obj_property name="label">grp_sha256_process_chunk_Pipeline_len_store_double_fu_2541_activity</obj_property>
-               <obj_property name="DisplayName">label</obj_property>
-               <obj_property name="UseFullPath">true</obj_property>
-               <obj_property name="ElementShortName">grp_sha256_process_chunk_Pipeline_len_store_double_fu_2541_activity</obj_property>
-               <obj_property name="ObjectShortName">grp_sha256_process_chunk_Pipeline_len_store_double_fu_2541_activity</obj_property>
-               <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
-               <obj_property name="WaveformStyle">STYLE_ENUM_TRANSACTION</obj_property>
-               <obj_property name="EnumTransactionColorTable">0=blank ffff=blank 0bad=#FF0000</obj_property>
-               <obj_property name="UseCustomSignalColor">true</obj_property>
-               <obj_property name="CustomSignalColor">turquoise</obj_property>
-               <obj_property name="EnumTransactionValueTable">65535=blank</obj_property>
-               <obj_property name="Render_Data">/apatb_calculate_sha256_top/AESL_inst_calculate_sha256/grp_sha256_process_chunk_fu_106/grp_sha256_process_chunk_Pipeline_len_store_double_fu_2541/grp_sha256_process_chunk_Pipeline_len_store_double_fu_2541_activity.dataflowTxWaveData.Cycles</obj_property>
-               <obj_property name="Value_Data">/apatb_calculate_sha256_top/AESL_inst_calculate_sha256/grp_sha256_process_chunk_fu_106/grp_sha256_process_chunk_Pipeline_len_store_double_fu_2541/grp_sha256_process_chunk_Pipeline_len_store_double_fu_2541_activity.dataflowTxWaveData.OutStanding</obj_property>
-               <obj_property name="Detail_Data">/apatb_calculate_sha256_top/AESL_inst_calculate_sha256/grp_sha256_process_chunk_fu_106/grp_sha256_process_chunk_Pipeline_len_store_double_fu_2541/grp_sha256_process_chunk_Pipeline_len_store_double_fu_2541_activity.dataflowTxTooltipData</obj_property>
-            </wvobject>
-            <wvobject type="group" fp_name="/apatb_calculate_sha256_top/AESL_inst_calculate_sha256/grp_sha256_process_chunk_fu_106/grp_sha256_process_chunk_Pipeline_len_store_single_fu_2547/grp_sha256_process_chunk_Pipeline_len_store_single_fu_2547_activity">
-               <obj_property name="label">grp_sha256_process_chunk_Pipeline_len_store_single_fu_2547_activity</obj_property>
-               <obj_property name="DisplayName">label</obj_property>
-               <obj_property name="UseFullPath">true</obj_property>
-               <obj_property name="ElementShortName">grp_sha256_process_chunk_Pipeline_len_store_single_fu_2547_activity</obj_property>
-               <obj_property name="ObjectShortName">grp_sha256_process_chunk_Pipeline_len_store_single_fu_2547_activity</obj_property>
-               <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
-               <obj_property name="WaveformStyle">STYLE_ENUM_TRANSACTION</obj_property>
-               <obj_property name="EnumTransactionColorTable">0=blank ffff=blank 0bad=#FF0000</obj_property>
-               <obj_property name="UseCustomSignalColor">true</obj_property>
-               <obj_property name="CustomSignalColor">turquoise</obj_property>
-               <obj_property name="EnumTransactionValueTable">65535=blank</obj_property>
-               <obj_property name="Render_Data">/apatb_calculate_sha256_top/AESL_inst_calculate_sha256/grp_sha256_process_chunk_fu_106/grp_sha256_process_chunk_Pipeline_len_store_single_fu_2547/grp_sha256_process_chunk_Pipeline_len_store_single_fu_2547_activity.dataflowTxWaveData.Cycles</obj_property>
-               <obj_property name="Value_Data">/apatb_calculate_sha256_top/AESL_inst_calculate_sha256/grp_sha256_process_chunk_fu_106/grp_sha256_process_chunk_Pipeline_len_store_single_fu_2547/grp_sha256_process_chunk_Pipeline_len_store_single_fu_2547_activity.dataflowTxWaveData.OutStanding</obj_property>
-               <obj_property name="Detail_Data">/apatb_calculate_sha256_top/AESL_inst_calculate_sha256/grp_sha256_process_chunk_fu_106/grp_sha256_process_chunk_Pipeline_len_store_single_fu_2547/grp_sha256_process_chunk_Pipeline_len_store_single_fu_2547_activity.dataflowTxTooltipData</obj_property>
-            </wvobject>
-         </wvobject>
-         <wvobject type="group" fp_name="/apatb_calculate_sha256_top/AESL_inst_calculate_sha256/grp_calculate_sha256_Pipeline_hash_write_digest_fu_116/grp_calculate_sha256_Pipeline_hash_write_digest_fu_116_activity">
-            <obj_property name="label">grp_calculate_sha256_Pipeline_hash_write_digest_fu_116_activity</obj_property>
-            <obj_property name="DisplayName">label</obj_property>
-            <obj_property name="UseFullPath">true</obj_property>
-            <obj_property name="ElementShortName">grp_calculate_sha256_Pipeline_hash_write_digest_fu_116_activity</obj_property>
-            <obj_property name="ObjectShortName">grp_calculate_sha256_Pipeline_hash_write_digest_fu_116_activity</obj_property>
-            <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
-            <obj_property name="WaveformStyle">STYLE_ENUM_TRANSACTION</obj_property>
-            <obj_property name="EnumTransactionColorTable">0=blank ffff=blank 0bad=#FF0000</obj_property>
-            <obj_property name="UseCustomSignalColor">true</obj_property>
-            <obj_property name="CustomSignalColor">turquoise</obj_property>
-            <obj_property name="EnumTransactionValueTable">65535=blank</obj_property>
-            <obj_property name="Render_Data">/apatb_calculate_sha256_top/AESL_inst_calculate_sha256/grp_calculate_sha256_Pipeline_hash_write_digest_fu_116/grp_calculate_sha256_Pipeline_hash_write_digest_fu_116_activity.dataflowTxWaveData.Cycles</obj_property>
-            <obj_property name="Value_Data">/apatb_calculate_sha256_top/AESL_inst_calculate_sha256/grp_calculate_sha256_Pipeline_hash_write_digest_fu_116/grp_calculate_sha256_Pipeline_hash_write_digest_fu_116_activity.dataflowTxWaveData.OutStanding</obj_property>
-            <obj_property name="Detail_Data">/apatb_calculate_sha256_top/AESL_inst_calculate_sha256/grp_calculate_sha256_Pipeline_hash_write_digest_fu_116/grp_calculate_sha256_Pipeline_hash_write_digest_fu_116_activity.dataflowTxTooltipData</obj_property>
          </wvobject>
       </wvobject>
    </wvobject>
@@ -222,13 +206,9 @@
    <wvobject type="group" fp_name="AESL_inst_calculate_sha256_group">
       <obj_property name="label">AESL_inst_calculate_sha256</obj_property>
       <obj_property name="DisplayName">label</obj_property>
-      <wvobject type="protoinst" fp_name="/apatb_calculate_sha256_top/AESL_inst_calculate_sha256/grp_sha256_process_chunk_fu_106/grp_sha256_process_chunk_fu_106_activity">
-         <obj_property name="ElementShortName">grp_sha256_process_chunk_fu_106_activity</obj_property>
-         <obj_property name="ObjectShortName">grp_sha256_process_chunk_fu_106_activity</obj_property>
-      </wvobject>
-      <wvobject type="protoinst" fp_name="/apatb_calculate_sha256_top/AESL_inst_calculate_sha256/grp_calculate_sha256_Pipeline_hash_write_digest_fu_116/grp_calculate_sha256_Pipeline_hash_write_digest_fu_116_activity">
-         <obj_property name="ElementShortName">grp_calculate_sha256_Pipeline_hash_write_digest_fu_116_activity</obj_property>
-         <obj_property name="ObjectShortName">grp_calculate_sha256_Pipeline_hash_write_digest_fu_116_activity</obj_property>
+      <wvobject type="protoinst" fp_name="/apatb_calculate_sha256_top/AESL_inst_calculate_sha256/grp_sha256_process_and_write_chunk_fu_108/grp_sha256_process_and_write_chunk_fu_108_activity">
+         <obj_property name="ElementShortName">grp_sha256_process_and_write_chunk_fu_108_activity</obj_property>
+         <obj_property name="ObjectShortName">grp_sha256_process_and_write_chunk_fu_108_activity</obj_property>
       </wvobject>
       <wvobject type="group" fp_name="AESL_inst_calculate_sha256_Handshake_group">
          <obj_property name="label">Block-level handshake</obj_property>
@@ -250,259 +230,239 @@
             <obj_property name="ObjectShortName">ap_continue</obj_property>
          </wvobject>
       </wvobject>
-      <wvobject type="group" fp_name="grp_sha256_process_chunk_fu_106_group">
-         <obj_property name="label">grp_sha256_process_chunk_fu_106</obj_property>
+      <wvobject type="group" fp_name="grp_sha256_process_and_write_chunk_fu_108_group">
+         <obj_property name="label">grp_sha256_process_and_write_chunk_fu_108</obj_property>
          <obj_property name="DisplayName">label</obj_property>
-         <wvobject type="protoinst" fp_name="/apatb_calculate_sha256_top/AESL_inst_calculate_sha256/grp_sha256_process_chunk_fu_106/grp_sha256_compress_block_fu_2497/grp_sha256_compress_block_fu_2497_activity">
-            <obj_property name="ElementShortName">grp_sha256_compress_block_fu_2497_activity</obj_property>
-            <obj_property name="ObjectShortName">grp_sha256_compress_block_fu_2497_activity</obj_property>
+         <wvobject type="protoinst" fp_name="/apatb_calculate_sha256_top/AESL_inst_calculate_sha256/grp_sha256_process_and_write_chunk_fu_108/grp_sha256_process_chunk_fu_97/grp_sha256_process_chunk_fu_97_activity">
+            <obj_property name="ElementShortName">grp_sha256_process_chunk_fu_97_activity</obj_property>
+            <obj_property name="ObjectShortName">grp_sha256_process_chunk_fu_97_activity</obj_property>
          </wvobject>
-         <wvobject type="protoinst" fp_name="/apatb_calculate_sha256_top/AESL_inst_calculate_sha256/grp_sha256_process_chunk_fu_106/grp_sha256_process_chunk_Pipeline_clear_pad_block_fu_2520/grp_sha256_process_chunk_Pipeline_clear_pad_block_fu_2520_activity">
-            <obj_property name="ElementShortName">grp_sha256_process_chunk_Pipeline_clear_pad_block_fu_2520_activity</obj_property>
-            <obj_property name="ObjectShortName">grp_sha256_process_chunk_Pipeline_clear_pad_block_fu_2520_activity</obj_property>
+         <wvobject type="protoinst" fp_name="/apatb_calculate_sha256_top/AESL_inst_calculate_sha256/grp_sha256_process_and_write_chunk_fu_108/grp_sha256_process_and_write_chunk_Pipeline_write_digest_fu_109/grp_sha256_process_and_write_chunk_Pipeline_write_digest_fu_109_activity">
+            <obj_property name="ElementShortName">grp_sha256_process_and_write_chunk_Pipeline_write_digest_fu_109_activity</obj_property>
+            <obj_property name="ObjectShortName">grp_sha256_process_and_write_chunk_Pipeline_write_digest_fu_109_activity</obj_property>
          </wvobject>
-         <wvobject type="protoinst" fp_name="/apatb_calculate_sha256_top/AESL_inst_calculate_sha256/grp_sha256_process_chunk_fu_106/grp_sha256_process_chunk_Pipeline_copy_remainder_fu_2525/grp_sha256_process_chunk_Pipeline_copy_remainder_fu_2525_activity">
-            <obj_property name="ElementShortName">grp_sha256_process_chunk_Pipeline_copy_remainder_fu_2525_activity</obj_property>
-            <obj_property name="ObjectShortName">grp_sha256_process_chunk_Pipeline_copy_remainder_fu_2525_activity</obj_property>
-         </wvobject>
-         <wvobject type="protoinst" fp_name="/apatb_calculate_sha256_top/AESL_inst_calculate_sha256/grp_sha256_process_chunk_fu_106/grp_sha256_process_chunk_Pipeline_clear_second_block_fu_2536/grp_sha256_process_chunk_Pipeline_clear_second_block_fu_2536_activity">
-            <obj_property name="ElementShortName">grp_sha256_process_chunk_Pipeline_clear_second_block_fu_2536_activity</obj_property>
-            <obj_property name="ObjectShortName">grp_sha256_process_chunk_Pipeline_clear_second_block_fu_2536_activity</obj_property>
-         </wvobject>
-         <wvobject type="protoinst" fp_name="/apatb_calculate_sha256_top/AESL_inst_calculate_sha256/grp_sha256_process_chunk_fu_106/grp_sha256_process_chunk_Pipeline_len_store_double_fu_2541/grp_sha256_process_chunk_Pipeline_len_store_double_fu_2541_activity">
-            <obj_property name="ElementShortName">grp_sha256_process_chunk_Pipeline_len_store_double_fu_2541_activity</obj_property>
-            <obj_property name="ObjectShortName">grp_sha256_process_chunk_Pipeline_len_store_double_fu_2541_activity</obj_property>
-         </wvobject>
-         <wvobject type="protoinst" fp_name="/apatb_calculate_sha256_top/AESL_inst_calculate_sha256/grp_sha256_process_chunk_fu_106/grp_sha256_process_chunk_Pipeline_len_store_single_fu_2547/grp_sha256_process_chunk_Pipeline_len_store_single_fu_2547_activity">
-            <obj_property name="ElementShortName">grp_sha256_process_chunk_Pipeline_len_store_single_fu_2547_activity</obj_property>
-            <obj_property name="ObjectShortName">grp_sha256_process_chunk_Pipeline_len_store_single_fu_2547_activity</obj_property>
-         </wvobject>
-         <wvobject type="group" fp_name="grp_sha256_process_chunk_fu_106_Handshake_group">
+         <wvobject type="group" fp_name="grp_sha256_process_and_write_chunk_fu_108_Handshake_group">
             <obj_property name="label">Block-level handshake</obj_property>
             <obj_property name="DisplayName">label</obj_property>
-            <wvobject type="logic" fp_name="/apatb_calculate_sha256_top/AESL_inst_calculate_sha256/grp_sha256_process_chunk_fu_106/ap_start">
+            <wvobject type="logic" fp_name="/apatb_calculate_sha256_top/AESL_inst_calculate_sha256/grp_sha256_process_and_write_chunk_fu_108/ap_start">
                <obj_property name="ElementShortName">ap_start</obj_property>
                <obj_property name="ObjectShortName">ap_start</obj_property>
             </wvobject>
-            <wvobject type="logic" fp_name="/apatb_calculate_sha256_top/AESL_inst_calculate_sha256/grp_sha256_process_chunk_fu_106/ap_ready">
+            <wvobject type="logic" fp_name="/apatb_calculate_sha256_top/AESL_inst_calculate_sha256/grp_sha256_process_and_write_chunk_fu_108/ap_ready">
                <obj_property name="ElementShortName">ap_ready</obj_property>
                <obj_property name="ObjectShortName">ap_ready</obj_property>
             </wvobject>
-            <wvobject type="logic" fp_name="/apatb_calculate_sha256_top/AESL_inst_calculate_sha256/grp_sha256_process_chunk_fu_106/ap_done">
+            <wvobject type="logic" fp_name="/apatb_calculate_sha256_top/AESL_inst_calculate_sha256/grp_sha256_process_and_write_chunk_fu_108/ap_done">
                <obj_property name="ElementShortName">ap_done</obj_property>
                <obj_property name="ObjectShortName">ap_done</obj_property>
             </wvobject>
          </wvobject>
-         <wvobject type="group" fp_name="grp_sha256_compress_block_fu_2497_group">
-            <obj_property name="label">grp_sha256_compress_block_fu_2497</obj_property>
+         <wvobject type="group" fp_name="grp_sha256_process_chunk_fu_97_group">
+            <obj_property name="label">grp_sha256_process_chunk_fu_97</obj_property>
             <obj_property name="DisplayName">label</obj_property>
-            <wvobject type="protoinst" fp_name="/apatb_calculate_sha256_top/AESL_inst_calculate_sha256/grp_sha256_process_chunk_fu_106/grp_sha256_compress_block_fu_2497/grp_sha256_compress_block_Pipeline_init_words_fu_132/grp_sha256_compress_block_Pipeline_init_words_fu_132_activity">
-               <obj_property name="ElementShortName">grp_sha256_compress_block_Pipeline_init_words_fu_132_activity</obj_property>
-               <obj_property name="ObjectShortName">grp_sha256_compress_block_Pipeline_init_words_fu_132_activity</obj_property>
+            <wvobject type="protoinst" fp_name="/apatb_calculate_sha256_top/AESL_inst_calculate_sha256/grp_sha256_process_and_write_chunk_fu_108/grp_sha256_process_chunk_fu_97/grp_sha256_compress_block_fu_2572/grp_sha256_compress_block_fu_2572_activity">
+               <obj_property name="ElementShortName">grp_sha256_compress_block_fu_2572_activity</obj_property>
+               <obj_property name="ObjectShortName">grp_sha256_compress_block_fu_2572_activity</obj_property>
             </wvobject>
-            <wvobject type="protoinst" fp_name="/apatb_calculate_sha256_top/AESL_inst_calculate_sha256/grp_sha256_process_chunk_fu_106/grp_sha256_compress_block_fu_2497/grp_sha256_compress_block_Pipeline_expand_words_fu_144/grp_sha256_compress_block_Pipeline_expand_words_fu_144_activity">
-               <obj_property name="ElementShortName">grp_sha256_compress_block_Pipeline_expand_words_fu_144_activity</obj_property>
-               <obj_property name="ObjectShortName">grp_sha256_compress_block_Pipeline_expand_words_fu_144_activity</obj_property>
+            <wvobject type="protoinst" fp_name="/apatb_calculate_sha256_top/AESL_inst_calculate_sha256/grp_sha256_process_and_write_chunk_fu_108/grp_sha256_process_chunk_fu_97/grp_sha256_process_chunk_Pipeline_clear_pad_block_fu_2595/grp_sha256_process_chunk_Pipeline_clear_pad_block_fu_2595_activity">
+               <obj_property name="ElementShortName">grp_sha256_process_chunk_Pipeline_clear_pad_block_fu_2595_activity</obj_property>
+               <obj_property name="ObjectShortName">grp_sha256_process_chunk_Pipeline_clear_pad_block_fu_2595_activity</obj_property>
             </wvobject>
-            <wvobject type="protoinst" fp_name="/apatb_calculate_sha256_top/AESL_inst_calculate_sha256/grp_sha256_process_chunk_fu_106/grp_sha256_compress_block_fu_2497/grp_sha256_compress_block_Pipeline_round_loop_fu_151/grp_sha256_compress_block_Pipeline_round_loop_fu_151_activity">
-               <obj_property name="ElementShortName">grp_sha256_compress_block_Pipeline_round_loop_fu_151_activity</obj_property>
-               <obj_property name="ObjectShortName">grp_sha256_compress_block_Pipeline_round_loop_fu_151_activity</obj_property>
+            <wvobject type="protoinst" fp_name="/apatb_calculate_sha256_top/AESL_inst_calculate_sha256/grp_sha256_process_and_write_chunk_fu_108/grp_sha256_process_chunk_fu_97/grp_sha256_process_chunk_Pipeline_copy_remainder_fu_2600/grp_sha256_process_chunk_Pipeline_copy_remainder_fu_2600_activity">
+               <obj_property name="ElementShortName">grp_sha256_process_chunk_Pipeline_copy_remainder_fu_2600_activity</obj_property>
+               <obj_property name="ObjectShortName">grp_sha256_process_chunk_Pipeline_copy_remainder_fu_2600_activity</obj_property>
             </wvobject>
-            <wvobject type="group" fp_name="grp_sha256_compress_block_fu_2497_Handshake_group">
+            <wvobject type="protoinst" fp_name="/apatb_calculate_sha256_top/AESL_inst_calculate_sha256/grp_sha256_process_and_write_chunk_fu_108/grp_sha256_process_chunk_fu_97/grp_sha256_process_chunk_Pipeline_clear_second_block_fu_2611/grp_sha256_process_chunk_Pipeline_clear_second_block_fu_2611_activity">
+               <obj_property name="ElementShortName">grp_sha256_process_chunk_Pipeline_clear_second_block_fu_2611_activity</obj_property>
+               <obj_property name="ObjectShortName">grp_sha256_process_chunk_Pipeline_clear_second_block_fu_2611_activity</obj_property>
+            </wvobject>
+            <wvobject type="protoinst" fp_name="/apatb_calculate_sha256_top/AESL_inst_calculate_sha256/grp_sha256_process_and_write_chunk_fu_108/grp_sha256_process_chunk_fu_97/grp_sha256_process_chunk_Pipeline_len_store_double_fu_2616/grp_sha256_process_chunk_Pipeline_len_store_double_fu_2616_activity">
+               <obj_property name="ElementShortName">grp_sha256_process_chunk_Pipeline_len_store_double_fu_2616_activity</obj_property>
+               <obj_property name="ObjectShortName">grp_sha256_process_chunk_Pipeline_len_store_double_fu_2616_activity</obj_property>
+            </wvobject>
+            <wvobject type="protoinst" fp_name="/apatb_calculate_sha256_top/AESL_inst_calculate_sha256/grp_sha256_process_and_write_chunk_fu_108/grp_sha256_process_chunk_fu_97/grp_sha256_process_chunk_Pipeline_len_store_single_fu_2622/grp_sha256_process_chunk_Pipeline_len_store_single_fu_2622_activity">
+               <obj_property name="ElementShortName">grp_sha256_process_chunk_Pipeline_len_store_single_fu_2622_activity</obj_property>
+               <obj_property name="ObjectShortName">grp_sha256_process_chunk_Pipeline_len_store_single_fu_2622_activity</obj_property>
+            </wvobject>
+            <wvobject type="group" fp_name="grp_sha256_process_chunk_fu_97_Handshake_group">
                <obj_property name="label">Block-level handshake</obj_property>
                <obj_property name="DisplayName">label</obj_property>
-               <wvobject type="logic" fp_name="/apatb_calculate_sha256_top/AESL_inst_calculate_sha256/grp_sha256_process_chunk_fu_106/grp_sha256_compress_block_fu_2497/ap_start">
+               <wvobject type="logic" fp_name="/apatb_calculate_sha256_top/AESL_inst_calculate_sha256/grp_sha256_process_and_write_chunk_fu_108/grp_sha256_process_chunk_fu_97/ap_start">
                   <obj_property name="ElementShortName">ap_start</obj_property>
                   <obj_property name="ObjectShortName">ap_start</obj_property>
                </wvobject>
-               <wvobject type="logic" fp_name="/apatb_calculate_sha256_top/AESL_inst_calculate_sha256/grp_sha256_process_chunk_fu_106/grp_sha256_compress_block_fu_2497/ap_ready">
+               <wvobject type="logic" fp_name="/apatb_calculate_sha256_top/AESL_inst_calculate_sha256/grp_sha256_process_and_write_chunk_fu_108/grp_sha256_process_chunk_fu_97/ap_ready">
                   <obj_property name="ElementShortName">ap_ready</obj_property>
                   <obj_property name="ObjectShortName">ap_ready</obj_property>
                </wvobject>
-               <wvobject type="logic" fp_name="/apatb_calculate_sha256_top/AESL_inst_calculate_sha256/grp_sha256_process_chunk_fu_106/grp_sha256_compress_block_fu_2497/ap_done">
+               <wvobject type="logic" fp_name="/apatb_calculate_sha256_top/AESL_inst_calculate_sha256/grp_sha256_process_and_write_chunk_fu_108/grp_sha256_process_chunk_fu_97/ap_done">
                   <obj_property name="ElementShortName">ap_done</obj_property>
                   <obj_property name="ObjectShortName">ap_done</obj_property>
                </wvobject>
             </wvobject>
-            <wvobject type="group" fp_name="grp_sha256_compress_block_Pipeline_init_words_fu_132_group">
-               <obj_property name="label">grp_sha256_compress_block_Pipeline_init_words_fu_132</obj_property>
+            <wvobject type="group" fp_name="grp_sha256_compress_block_fu_2572_group">
+               <obj_property name="label">grp_sha256_compress_block_fu_2572</obj_property>
                <obj_property name="DisplayName">label</obj_property>
-               <wvobject type="group" fp_name="grp_sha256_compress_block_Pipeline_init_words_fu_132_Handshake_group">
+               <wvobject type="protoinst" fp_name="/apatb_calculate_sha256_top/AESL_inst_calculate_sha256/grp_sha256_process_and_write_chunk_fu_108/grp_sha256_process_chunk_fu_97/grp_sha256_compress_block_fu_2572/grp_sha256_compress_block_Pipeline_round_loop_fu_372/grp_sha256_compress_block_Pipeline_round_loop_fu_372_activity">
+                  <obj_property name="ElementShortName">grp_sha256_compress_block_Pipeline_round_loop_fu_372_activity</obj_property>
+                  <obj_property name="ObjectShortName">grp_sha256_compress_block_Pipeline_round_loop_fu_372_activity</obj_property>
+               </wvobject>
+               <wvobject type="group" fp_name="grp_sha256_compress_block_fu_2572_Handshake_group">
                   <obj_property name="label">Block-level handshake</obj_property>
                   <obj_property name="DisplayName">label</obj_property>
-                  <wvobject type="logic" fp_name="/apatb_calculate_sha256_top/AESL_inst_calculate_sha256/grp_sha256_process_chunk_fu_106/grp_sha256_compress_block_fu_2497/grp_sha256_compress_block_Pipeline_init_words_fu_132/ap_start">
+                  <wvobject type="logic" fp_name="/apatb_calculate_sha256_top/AESL_inst_calculate_sha256/grp_sha256_process_and_write_chunk_fu_108/grp_sha256_process_chunk_fu_97/grp_sha256_compress_block_fu_2572/ap_start">
                      <obj_property name="ElementShortName">ap_start</obj_property>
                      <obj_property name="ObjectShortName">ap_start</obj_property>
                   </wvobject>
-                  <wvobject type="logic" fp_name="/apatb_calculate_sha256_top/AESL_inst_calculate_sha256/grp_sha256_process_chunk_fu_106/grp_sha256_compress_block_fu_2497/grp_sha256_compress_block_Pipeline_init_words_fu_132/ap_ready">
+                  <wvobject type="logic" fp_name="/apatb_calculate_sha256_top/AESL_inst_calculate_sha256/grp_sha256_process_and_write_chunk_fu_108/grp_sha256_process_chunk_fu_97/grp_sha256_compress_block_fu_2572/ap_ready">
                      <obj_property name="ElementShortName">ap_ready</obj_property>
                      <obj_property name="ObjectShortName">ap_ready</obj_property>
                   </wvobject>
-                  <wvobject type="logic" fp_name="/apatb_calculate_sha256_top/AESL_inst_calculate_sha256/grp_sha256_process_chunk_fu_106/grp_sha256_compress_block_fu_2497/grp_sha256_compress_block_Pipeline_init_words_fu_132/ap_done">
+                  <wvobject type="logic" fp_name="/apatb_calculate_sha256_top/AESL_inst_calculate_sha256/grp_sha256_process_and_write_chunk_fu_108/grp_sha256_process_chunk_fu_97/grp_sha256_compress_block_fu_2572/ap_done">
+                     <obj_property name="ElementShortName">ap_done</obj_property>
+                     <obj_property name="ObjectShortName">ap_done</obj_property>
+                  </wvobject>
+               </wvobject>
+               <wvobject type="group" fp_name="grp_sha256_compress_block_Pipeline_round_loop_fu_372_group">
+                  <obj_property name="label">grp_sha256_compress_block_Pipeline_round_loop_fu_372</obj_property>
+                  <obj_property name="DisplayName">label</obj_property>
+                  <wvobject type="group" fp_name="grp_sha256_compress_block_Pipeline_round_loop_fu_372_Handshake_group">
+                     <obj_property name="label">Block-level handshake</obj_property>
+                     <obj_property name="DisplayName">label</obj_property>
+                     <wvobject type="logic" fp_name="/apatb_calculate_sha256_top/AESL_inst_calculate_sha256/grp_sha256_process_and_write_chunk_fu_108/grp_sha256_process_chunk_fu_97/grp_sha256_compress_block_fu_2572/grp_sha256_compress_block_Pipeline_round_loop_fu_372/ap_start">
+                        <obj_property name="ElementShortName">ap_start</obj_property>
+                        <obj_property name="ObjectShortName">ap_start</obj_property>
+                     </wvobject>
+                     <wvobject type="logic" fp_name="/apatb_calculate_sha256_top/AESL_inst_calculate_sha256/grp_sha256_process_and_write_chunk_fu_108/grp_sha256_process_chunk_fu_97/grp_sha256_compress_block_fu_2572/grp_sha256_compress_block_Pipeline_round_loop_fu_372/ap_ready">
+                        <obj_property name="ElementShortName">ap_ready</obj_property>
+                        <obj_property name="ObjectShortName">ap_ready</obj_property>
+                     </wvobject>
+                     <wvobject type="logic" fp_name="/apatb_calculate_sha256_top/AESL_inst_calculate_sha256/grp_sha256_process_and_write_chunk_fu_108/grp_sha256_process_chunk_fu_97/grp_sha256_compress_block_fu_2572/grp_sha256_compress_block_Pipeline_round_loop_fu_372/ap_done">
+                        <obj_property name="ElementShortName">ap_done</obj_property>
+                        <obj_property name="ObjectShortName">ap_done</obj_property>
+                     </wvobject>
+                  </wvobject>
+               </wvobject>
+            </wvobject>
+            <wvobject type="group" fp_name="grp_sha256_process_chunk_Pipeline_clear_pad_block_fu_2595_group">
+               <obj_property name="label">grp_sha256_process_chunk_Pipeline_clear_pad_block_fu_2595</obj_property>
+               <obj_property name="DisplayName">label</obj_property>
+               <wvobject type="group" fp_name="grp_sha256_process_chunk_Pipeline_clear_pad_block_fu_2595_Handshake_group">
+                  <obj_property name="label">Block-level handshake</obj_property>
+                  <obj_property name="DisplayName">label</obj_property>
+                  <wvobject type="logic" fp_name="/apatb_calculate_sha256_top/AESL_inst_calculate_sha256/grp_sha256_process_and_write_chunk_fu_108/grp_sha256_process_chunk_fu_97/grp_sha256_process_chunk_Pipeline_clear_pad_block_fu_2595/ap_start">
+                     <obj_property name="ElementShortName">ap_start</obj_property>
+                     <obj_property name="ObjectShortName">ap_start</obj_property>
+                  </wvobject>
+                  <wvobject type="logic" fp_name="/apatb_calculate_sha256_top/AESL_inst_calculate_sha256/grp_sha256_process_and_write_chunk_fu_108/grp_sha256_process_chunk_fu_97/grp_sha256_process_chunk_Pipeline_clear_pad_block_fu_2595/ap_ready">
+                     <obj_property name="ElementShortName">ap_ready</obj_property>
+                     <obj_property name="ObjectShortName">ap_ready</obj_property>
+                  </wvobject>
+                  <wvobject type="logic" fp_name="/apatb_calculate_sha256_top/AESL_inst_calculate_sha256/grp_sha256_process_and_write_chunk_fu_108/grp_sha256_process_chunk_fu_97/grp_sha256_process_chunk_Pipeline_clear_pad_block_fu_2595/ap_done">
                      <obj_property name="ElementShortName">ap_done</obj_property>
                      <obj_property name="ObjectShortName">ap_done</obj_property>
                   </wvobject>
                </wvobject>
             </wvobject>
-            <wvobject type="group" fp_name="grp_sha256_compress_block_Pipeline_expand_words_fu_144_group">
-               <obj_property name="label">grp_sha256_compress_block_Pipeline_expand_words_fu_144</obj_property>
+            <wvobject type="group" fp_name="grp_sha256_process_chunk_Pipeline_copy_remainder_fu_2600_group">
+               <obj_property name="label">grp_sha256_process_chunk_Pipeline_copy_remainder_fu_2600</obj_property>
                <obj_property name="DisplayName">label</obj_property>
-               <wvobject type="group" fp_name="grp_sha256_compress_block_Pipeline_expand_words_fu_144_Handshake_group">
+               <wvobject type="group" fp_name="grp_sha256_process_chunk_Pipeline_copy_remainder_fu_2600_Handshake_group">
                   <obj_property name="label">Block-level handshake</obj_property>
                   <obj_property name="DisplayName">label</obj_property>
-                  <wvobject type="logic" fp_name="/apatb_calculate_sha256_top/AESL_inst_calculate_sha256/grp_sha256_process_chunk_fu_106/grp_sha256_compress_block_fu_2497/grp_sha256_compress_block_Pipeline_expand_words_fu_144/ap_start">
+                  <wvobject type="logic" fp_name="/apatb_calculate_sha256_top/AESL_inst_calculate_sha256/grp_sha256_process_and_write_chunk_fu_108/grp_sha256_process_chunk_fu_97/grp_sha256_process_chunk_Pipeline_copy_remainder_fu_2600/ap_start">
                      <obj_property name="ElementShortName">ap_start</obj_property>
                      <obj_property name="ObjectShortName">ap_start</obj_property>
                   </wvobject>
-                  <wvobject type="logic" fp_name="/apatb_calculate_sha256_top/AESL_inst_calculate_sha256/grp_sha256_process_chunk_fu_106/grp_sha256_compress_block_fu_2497/grp_sha256_compress_block_Pipeline_expand_words_fu_144/ap_ready">
+                  <wvobject type="logic" fp_name="/apatb_calculate_sha256_top/AESL_inst_calculate_sha256/grp_sha256_process_and_write_chunk_fu_108/grp_sha256_process_chunk_fu_97/grp_sha256_process_chunk_Pipeline_copy_remainder_fu_2600/ap_ready">
                      <obj_property name="ElementShortName">ap_ready</obj_property>
                      <obj_property name="ObjectShortName">ap_ready</obj_property>
                   </wvobject>
-                  <wvobject type="logic" fp_name="/apatb_calculate_sha256_top/AESL_inst_calculate_sha256/grp_sha256_process_chunk_fu_106/grp_sha256_compress_block_fu_2497/grp_sha256_compress_block_Pipeline_expand_words_fu_144/ap_done">
+                  <wvobject type="logic" fp_name="/apatb_calculate_sha256_top/AESL_inst_calculate_sha256/grp_sha256_process_and_write_chunk_fu_108/grp_sha256_process_chunk_fu_97/grp_sha256_process_chunk_Pipeline_copy_remainder_fu_2600/ap_done">
                      <obj_property name="ElementShortName">ap_done</obj_property>
                      <obj_property name="ObjectShortName">ap_done</obj_property>
                   </wvobject>
                </wvobject>
             </wvobject>
-            <wvobject type="group" fp_name="grp_sha256_compress_block_Pipeline_round_loop_fu_151_group">
-               <obj_property name="label">grp_sha256_compress_block_Pipeline_round_loop_fu_151</obj_property>
+            <wvobject type="group" fp_name="grp_sha256_process_chunk_Pipeline_clear_second_block_fu_2611_group">
+               <obj_property name="label">grp_sha256_process_chunk_Pipeline_clear_second_block_fu_2611</obj_property>
                <obj_property name="DisplayName">label</obj_property>
-               <wvobject type="group" fp_name="grp_sha256_compress_block_Pipeline_round_loop_fu_151_Handshake_group">
+               <wvobject type="group" fp_name="grp_sha256_process_chunk_Pipeline_clear_second_block_fu_2611_Handshake_group">
                   <obj_property name="label">Block-level handshake</obj_property>
                   <obj_property name="DisplayName">label</obj_property>
-                  <wvobject type="logic" fp_name="/apatb_calculate_sha256_top/AESL_inst_calculate_sha256/grp_sha256_process_chunk_fu_106/grp_sha256_compress_block_fu_2497/grp_sha256_compress_block_Pipeline_round_loop_fu_151/ap_start">
+                  <wvobject type="logic" fp_name="/apatb_calculate_sha256_top/AESL_inst_calculate_sha256/grp_sha256_process_and_write_chunk_fu_108/grp_sha256_process_chunk_fu_97/grp_sha256_process_chunk_Pipeline_clear_second_block_fu_2611/ap_start">
                      <obj_property name="ElementShortName">ap_start</obj_property>
                      <obj_property name="ObjectShortName">ap_start</obj_property>
                   </wvobject>
-                  <wvobject type="logic" fp_name="/apatb_calculate_sha256_top/AESL_inst_calculate_sha256/grp_sha256_process_chunk_fu_106/grp_sha256_compress_block_fu_2497/grp_sha256_compress_block_Pipeline_round_loop_fu_151/ap_ready">
+                  <wvobject type="logic" fp_name="/apatb_calculate_sha256_top/AESL_inst_calculate_sha256/grp_sha256_process_and_write_chunk_fu_108/grp_sha256_process_chunk_fu_97/grp_sha256_process_chunk_Pipeline_clear_second_block_fu_2611/ap_ready">
                      <obj_property name="ElementShortName">ap_ready</obj_property>
                      <obj_property name="ObjectShortName">ap_ready</obj_property>
                   </wvobject>
-                  <wvobject type="logic" fp_name="/apatb_calculate_sha256_top/AESL_inst_calculate_sha256/grp_sha256_process_chunk_fu_106/grp_sha256_compress_block_fu_2497/grp_sha256_compress_block_Pipeline_round_loop_fu_151/ap_done">
+                  <wvobject type="logic" fp_name="/apatb_calculate_sha256_top/AESL_inst_calculate_sha256/grp_sha256_process_and_write_chunk_fu_108/grp_sha256_process_chunk_fu_97/grp_sha256_process_chunk_Pipeline_clear_second_block_fu_2611/ap_done">
+                     <obj_property name="ElementShortName">ap_done</obj_property>
+                     <obj_property name="ObjectShortName">ap_done</obj_property>
+                  </wvobject>
+               </wvobject>
+            </wvobject>
+            <wvobject type="group" fp_name="grp_sha256_process_chunk_Pipeline_len_store_double_fu_2616_group">
+               <obj_property name="label">grp_sha256_process_chunk_Pipeline_len_store_double_fu_2616</obj_property>
+               <obj_property name="DisplayName">label</obj_property>
+               <wvobject type="group" fp_name="grp_sha256_process_chunk_Pipeline_len_store_double_fu_2616_Handshake_group">
+                  <obj_property name="label">Block-level handshake</obj_property>
+                  <obj_property name="DisplayName">label</obj_property>
+                  <wvobject type="logic" fp_name="/apatb_calculate_sha256_top/AESL_inst_calculate_sha256/grp_sha256_process_and_write_chunk_fu_108/grp_sha256_process_chunk_fu_97/grp_sha256_process_chunk_Pipeline_len_store_double_fu_2616/ap_start">
+                     <obj_property name="ElementShortName">ap_start</obj_property>
+                     <obj_property name="ObjectShortName">ap_start</obj_property>
+                  </wvobject>
+                  <wvobject type="logic" fp_name="/apatb_calculate_sha256_top/AESL_inst_calculate_sha256/grp_sha256_process_and_write_chunk_fu_108/grp_sha256_process_chunk_fu_97/grp_sha256_process_chunk_Pipeline_len_store_double_fu_2616/ap_ready">
+                     <obj_property name="ElementShortName">ap_ready</obj_property>
+                     <obj_property name="ObjectShortName">ap_ready</obj_property>
+                  </wvobject>
+                  <wvobject type="logic" fp_name="/apatb_calculate_sha256_top/AESL_inst_calculate_sha256/grp_sha256_process_and_write_chunk_fu_108/grp_sha256_process_chunk_fu_97/grp_sha256_process_chunk_Pipeline_len_store_double_fu_2616/ap_done">
+                     <obj_property name="ElementShortName">ap_done</obj_property>
+                     <obj_property name="ObjectShortName">ap_done</obj_property>
+                  </wvobject>
+               </wvobject>
+            </wvobject>
+            <wvobject type="group" fp_name="grp_sha256_process_chunk_Pipeline_len_store_single_fu_2622_group">
+               <obj_property name="label">grp_sha256_process_chunk_Pipeline_len_store_single_fu_2622</obj_property>
+               <obj_property name="DisplayName">label</obj_property>
+               <wvobject type="group" fp_name="grp_sha256_process_chunk_Pipeline_len_store_single_fu_2622_Handshake_group">
+                  <obj_property name="label">Block-level handshake</obj_property>
+                  <obj_property name="DisplayName">label</obj_property>
+                  <wvobject type="logic" fp_name="/apatb_calculate_sha256_top/AESL_inst_calculate_sha256/grp_sha256_process_and_write_chunk_fu_108/grp_sha256_process_chunk_fu_97/grp_sha256_process_chunk_Pipeline_len_store_single_fu_2622/ap_start">
+                     <obj_property name="ElementShortName">ap_start</obj_property>
+                     <obj_property name="ObjectShortName">ap_start</obj_property>
+                  </wvobject>
+                  <wvobject type="logic" fp_name="/apatb_calculate_sha256_top/AESL_inst_calculate_sha256/grp_sha256_process_and_write_chunk_fu_108/grp_sha256_process_chunk_fu_97/grp_sha256_process_chunk_Pipeline_len_store_single_fu_2622/ap_ready">
+                     <obj_property name="ElementShortName">ap_ready</obj_property>
+                     <obj_property name="ObjectShortName">ap_ready</obj_property>
+                  </wvobject>
+                  <wvobject type="logic" fp_name="/apatb_calculate_sha256_top/AESL_inst_calculate_sha256/grp_sha256_process_and_write_chunk_fu_108/grp_sha256_process_chunk_fu_97/grp_sha256_process_chunk_Pipeline_len_store_single_fu_2622/ap_done">
                      <obj_property name="ElementShortName">ap_done</obj_property>
                      <obj_property name="ObjectShortName">ap_done</obj_property>
                   </wvobject>
                </wvobject>
             </wvobject>
          </wvobject>
-         <wvobject type="group" fp_name="grp_sha256_process_chunk_Pipeline_clear_pad_block_fu_2520_group">
-            <obj_property name="label">grp_sha256_process_chunk_Pipeline_clear_pad_block_fu_2520</obj_property>
+         <wvobject type="group" fp_name="grp_sha256_process_and_write_chunk_Pipeline_write_digest_fu_109_group">
+            <obj_property name="label">grp_sha256_process_and_write_chunk_Pipeline_write_digest_fu_109</obj_property>
             <obj_property name="DisplayName">label</obj_property>
-            <wvobject type="group" fp_name="grp_sha256_process_chunk_Pipeline_clear_pad_block_fu_2520_Handshake_group">
+            <wvobject type="group" fp_name="grp_sha256_process_and_write_chunk_Pipeline_write_digest_fu_109_Handshake_group">
                <obj_property name="label">Block-level handshake</obj_property>
                <obj_property name="DisplayName">label</obj_property>
-               <wvobject type="logic" fp_name="/apatb_calculate_sha256_top/AESL_inst_calculate_sha256/grp_sha256_process_chunk_fu_106/grp_sha256_process_chunk_Pipeline_clear_pad_block_fu_2520/ap_start">
+               <wvobject type="logic" fp_name="/apatb_calculate_sha256_top/AESL_inst_calculate_sha256/grp_sha256_process_and_write_chunk_fu_108/grp_sha256_process_and_write_chunk_Pipeline_write_digest_fu_109/ap_start">
                   <obj_property name="ElementShortName">ap_start</obj_property>
                   <obj_property name="ObjectShortName">ap_start</obj_property>
                </wvobject>
-               <wvobject type="logic" fp_name="/apatb_calculate_sha256_top/AESL_inst_calculate_sha256/grp_sha256_process_chunk_fu_106/grp_sha256_process_chunk_Pipeline_clear_pad_block_fu_2520/ap_ready">
+               <wvobject type="logic" fp_name="/apatb_calculate_sha256_top/AESL_inst_calculate_sha256/grp_sha256_process_and_write_chunk_fu_108/grp_sha256_process_and_write_chunk_Pipeline_write_digest_fu_109/ap_ready">
                   <obj_property name="ElementShortName">ap_ready</obj_property>
                   <obj_property name="ObjectShortName">ap_ready</obj_property>
                </wvobject>
-               <wvobject type="logic" fp_name="/apatb_calculate_sha256_top/AESL_inst_calculate_sha256/grp_sha256_process_chunk_fu_106/grp_sha256_process_chunk_Pipeline_clear_pad_block_fu_2520/ap_done">
+               <wvobject type="logic" fp_name="/apatb_calculate_sha256_top/AESL_inst_calculate_sha256/grp_sha256_process_and_write_chunk_fu_108/grp_sha256_process_and_write_chunk_Pipeline_write_digest_fu_109/ap_done">
                   <obj_property name="ElementShortName">ap_done</obj_property>
                   <obj_property name="ObjectShortName">ap_done</obj_property>
                </wvobject>
-            </wvobject>
-         </wvobject>
-         <wvobject type="group" fp_name="grp_sha256_process_chunk_Pipeline_copy_remainder_fu_2525_group">
-            <obj_property name="label">grp_sha256_process_chunk_Pipeline_copy_remainder_fu_2525</obj_property>
-            <obj_property name="DisplayName">label</obj_property>
-            <wvobject type="group" fp_name="grp_sha256_process_chunk_Pipeline_copy_remainder_fu_2525_Handshake_group">
-               <obj_property name="label">Block-level handshake</obj_property>
-               <obj_property name="DisplayName">label</obj_property>
-               <wvobject type="logic" fp_name="/apatb_calculate_sha256_top/AESL_inst_calculate_sha256/grp_sha256_process_chunk_fu_106/grp_sha256_process_chunk_Pipeline_copy_remainder_fu_2525/ap_start">
-                  <obj_property name="ElementShortName">ap_start</obj_property>
-                  <obj_property name="ObjectShortName">ap_start</obj_property>
-               </wvobject>
-               <wvobject type="logic" fp_name="/apatb_calculate_sha256_top/AESL_inst_calculate_sha256/grp_sha256_process_chunk_fu_106/grp_sha256_process_chunk_Pipeline_copy_remainder_fu_2525/ap_ready">
-                  <obj_property name="ElementShortName">ap_ready</obj_property>
-                  <obj_property name="ObjectShortName">ap_ready</obj_property>
-               </wvobject>
-               <wvobject type="logic" fp_name="/apatb_calculate_sha256_top/AESL_inst_calculate_sha256/grp_sha256_process_chunk_fu_106/grp_sha256_process_chunk_Pipeline_copy_remainder_fu_2525/ap_done">
-                  <obj_property name="ElementShortName">ap_done</obj_property>
-                  <obj_property name="ObjectShortName">ap_done</obj_property>
-               </wvobject>
-            </wvobject>
-         </wvobject>
-         <wvobject type="group" fp_name="grp_sha256_process_chunk_Pipeline_clear_second_block_fu_2536_group">
-            <obj_property name="label">grp_sha256_process_chunk_Pipeline_clear_second_block_fu_2536</obj_property>
-            <obj_property name="DisplayName">label</obj_property>
-            <wvobject type="group" fp_name="grp_sha256_process_chunk_Pipeline_clear_second_block_fu_2536_Handshake_group">
-               <obj_property name="label">Block-level handshake</obj_property>
-               <obj_property name="DisplayName">label</obj_property>
-               <wvobject type="logic" fp_name="/apatb_calculate_sha256_top/AESL_inst_calculate_sha256/grp_sha256_process_chunk_fu_106/grp_sha256_process_chunk_Pipeline_clear_second_block_fu_2536/ap_start">
-                  <obj_property name="ElementShortName">ap_start</obj_property>
-                  <obj_property name="ObjectShortName">ap_start</obj_property>
-               </wvobject>
-               <wvobject type="logic" fp_name="/apatb_calculate_sha256_top/AESL_inst_calculate_sha256/grp_sha256_process_chunk_fu_106/grp_sha256_process_chunk_Pipeline_clear_second_block_fu_2536/ap_ready">
-                  <obj_property name="ElementShortName">ap_ready</obj_property>
-                  <obj_property name="ObjectShortName">ap_ready</obj_property>
-               </wvobject>
-               <wvobject type="logic" fp_name="/apatb_calculate_sha256_top/AESL_inst_calculate_sha256/grp_sha256_process_chunk_fu_106/grp_sha256_process_chunk_Pipeline_clear_second_block_fu_2536/ap_done">
-                  <obj_property name="ElementShortName">ap_done</obj_property>
-                  <obj_property name="ObjectShortName">ap_done</obj_property>
-               </wvobject>
-            </wvobject>
-         </wvobject>
-         <wvobject type="group" fp_name="grp_sha256_process_chunk_Pipeline_len_store_double_fu_2541_group">
-            <obj_property name="label">grp_sha256_process_chunk_Pipeline_len_store_double_fu_2541</obj_property>
-            <obj_property name="DisplayName">label</obj_property>
-            <wvobject type="group" fp_name="grp_sha256_process_chunk_Pipeline_len_store_double_fu_2541_Handshake_group">
-               <obj_property name="label">Block-level handshake</obj_property>
-               <obj_property name="DisplayName">label</obj_property>
-               <wvobject type="logic" fp_name="/apatb_calculate_sha256_top/AESL_inst_calculate_sha256/grp_sha256_process_chunk_fu_106/grp_sha256_process_chunk_Pipeline_len_store_double_fu_2541/ap_start">
-                  <obj_property name="ElementShortName">ap_start</obj_property>
-                  <obj_property name="ObjectShortName">ap_start</obj_property>
-               </wvobject>
-               <wvobject type="logic" fp_name="/apatb_calculate_sha256_top/AESL_inst_calculate_sha256/grp_sha256_process_chunk_fu_106/grp_sha256_process_chunk_Pipeline_len_store_double_fu_2541/ap_ready">
-                  <obj_property name="ElementShortName">ap_ready</obj_property>
-                  <obj_property name="ObjectShortName">ap_ready</obj_property>
-               </wvobject>
-               <wvobject type="logic" fp_name="/apatb_calculate_sha256_top/AESL_inst_calculate_sha256/grp_sha256_process_chunk_fu_106/grp_sha256_process_chunk_Pipeline_len_store_double_fu_2541/ap_done">
-                  <obj_property name="ElementShortName">ap_done</obj_property>
-                  <obj_property name="ObjectShortName">ap_done</obj_property>
-               </wvobject>
-            </wvobject>
-         </wvobject>
-         <wvobject type="group" fp_name="grp_sha256_process_chunk_Pipeline_len_store_single_fu_2547_group">
-            <obj_property name="label">grp_sha256_process_chunk_Pipeline_len_store_single_fu_2547</obj_property>
-            <obj_property name="DisplayName">label</obj_property>
-            <wvobject type="group" fp_name="grp_sha256_process_chunk_Pipeline_len_store_single_fu_2547_Handshake_group">
-               <obj_property name="label">Block-level handshake</obj_property>
-               <obj_property name="DisplayName">label</obj_property>
-               <wvobject type="logic" fp_name="/apatb_calculate_sha256_top/AESL_inst_calculate_sha256/grp_sha256_process_chunk_fu_106/grp_sha256_process_chunk_Pipeline_len_store_single_fu_2547/ap_start">
-                  <obj_property name="ElementShortName">ap_start</obj_property>
-                  <obj_property name="ObjectShortName">ap_start</obj_property>
-               </wvobject>
-               <wvobject type="logic" fp_name="/apatb_calculate_sha256_top/AESL_inst_calculate_sha256/grp_sha256_process_chunk_fu_106/grp_sha256_process_chunk_Pipeline_len_store_single_fu_2547/ap_ready">
-                  <obj_property name="ElementShortName">ap_ready</obj_property>
-                  <obj_property name="ObjectShortName">ap_ready</obj_property>
-               </wvobject>
-               <wvobject type="logic" fp_name="/apatb_calculate_sha256_top/AESL_inst_calculate_sha256/grp_sha256_process_chunk_fu_106/grp_sha256_process_chunk_Pipeline_len_store_single_fu_2547/ap_done">
-                  <obj_property name="ElementShortName">ap_done</obj_property>
-                  <obj_property name="ObjectShortName">ap_done</obj_property>
-               </wvobject>
-            </wvobject>
-         </wvobject>
-      </wvobject>
-      <wvobject type="group" fp_name="grp_calculate_sha256_Pipeline_hash_write_digest_fu_116_group">
-         <obj_property name="label">grp_calculate_sha256_Pipeline_hash_write_digest_fu_116</obj_property>
-         <obj_property name="DisplayName">label</obj_property>
-         <wvobject type="group" fp_name="grp_calculate_sha256_Pipeline_hash_write_digest_fu_116_Handshake_group">
-            <obj_property name="label">Block-level handshake</obj_property>
-            <obj_property name="DisplayName">label</obj_property>
-            <wvobject type="logic" fp_name="/apatb_calculate_sha256_top/AESL_inst_calculate_sha256/grp_calculate_sha256_Pipeline_hash_write_digest_fu_116/ap_start">
-               <obj_property name="ElementShortName">ap_start</obj_property>
-               <obj_property name="ObjectShortName">ap_start</obj_property>
-            </wvobject>
-            <wvobject type="logic" fp_name="/apatb_calculate_sha256_top/AESL_inst_calculate_sha256/grp_calculate_sha256_Pipeline_hash_write_digest_fu_116/ap_ready">
-               <obj_property name="ElementShortName">ap_ready</obj_property>
-               <obj_property name="ObjectShortName">ap_ready</obj_property>
-            </wvobject>
-            <wvobject type="logic" fp_name="/apatb_calculate_sha256_top/AESL_inst_calculate_sha256/grp_calculate_sha256_Pipeline_hash_write_digest_fu_116/ap_done">
-               <obj_property name="ElementShortName">ap_done</obj_property>
-               <obj_property name="ObjectShortName">ap_done</obj_property>
             </wvobject>
          </wvobject>
       </wvobject>

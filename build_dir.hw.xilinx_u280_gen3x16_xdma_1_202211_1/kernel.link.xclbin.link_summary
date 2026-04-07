@@ -1,6 +1,6 @@
 <ENTRY>
 {
- "thisFile": "/users/arashs/U280_CRC_Accelerator/build_dir.hw.xilinx_u280_gen3x16_xdma_1_202211_1/kernel.link.xclbin.link_summary",
+ "thisFile": "/home/efrink/mled/split_cu/U280_CRC_Accelerator/build_dir.hw.xilinx_u280_gen3x16_xdma_1_202211_1/kernel.link.xclbin.link_summary",
  "connectId": "",
  "serverToken": "",
  "timestamp": "0"
@@ -9,13 +9,13 @@
 <ENTRY>
 {
  "type": "ET_CmdStep",
- "dateTimestamp": "Fri Feb 20 12:56:56 2026",
- "timestampMillis": "1771617416686",
+ "dateTimestamp": "Thu Apr  2 18:21:06 2026",
+ "timestampMillis": "1775179266127",
  "buildStep": {
-  "cmdId": "f5fcf41e-c4b7-484c-ad71-b7b9165e229d",
+  "cmdId": "2052f20d-d78e-4f6f-843c-d521c7fa431a",
   "name": "v++",
-  "logFile": "/users/arashs/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/link/link.steps.log",
-  "commandLine": "/share/Xilinx/Vitis/2023.1/bin/unwrapped/lnx64.o/v++  --vivado.prop \"run.__KERNEL__.{STEPS.SYNTH_DESIGN.ARGS.MORE OPTIONS}={-directive sdx_optimization_effort_high}\" --advanced.misc \"report=type report_timing_summary name impl_report_timing_summary_route_design_summary steps {route_design} runs {impl_1} options {-max_paths 10}\" --advanced.misc \"report=type report_timing_summary name impl_report_timing_summary_post_route_phys_opt_design_summary steps {post_route_phys_opt_design} runs {impl_1} options {-max_paths 10}\" -l --save-temps --kernel_frequency 210 -t hw --platform xilinx_u280_gen3x16_xdma_1_202211_1 --temp_dir ./_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1 --config ./vpp_connectivity.cfg -o./build_dir.hw.xilinx_u280_gen3x16_xdma_1_202211_1/kernel.link.xclbin _x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/calculate_crc.xo _x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/calculate_tcp_checksum.xo _x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/calculate_sha256.xo ",
+  "logFile": "/home/efrink/mled/split_cu/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/link/link.steps.log",
+  "commandLine": "/packages/apps/fpga/Vitis/2022.1/bin/unwrapped/lnx64.o/v++  --vivado.prop \"run.__KERNEL__.{STEPS.SYNTH_DESIGN.ARGS.MORE OPTIONS}={-directive sdx_optimization_effort_high}\" --advanced.misc \"report=type report_timing_summary name impl_report_timing_summary_route_design_summary steps {route_design} runs {impl_1} options {-max_paths 10}\" --advanced.misc \"report=type report_timing_summary name impl_report_timing_summary_post_route_phys_opt_design_summary steps {post_route_phys_opt_design} runs {impl_1} options {-max_paths 10}\" -l --save-temps --kernel_frequency 210 -t hw --platform xilinx_u280_gen3x16_xdma_1_202211_1 --temp_dir ./_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1 --config ./vpp_connectivity.cfg -o./build_dir.hw.xilinx_u280_gen3x16_xdma_1_202211_1/kernel.link.xclbin _x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/calculate_crc.xo _x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/calculate_tcp_checksum.xo _x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/calculate_sha256.xo ",
   "args": [
    "-l",
    "--save-temps",
@@ -36,21 +36,21 @@
   ],
   "iniFiles": [
    {
-    "path": "/users/arashs/U280_CRC_Accelerator/vpp_connectivity.cfg",
-    "content": "[connectivity]\nnk=calculate_crc:16:CRC_0,CRC_1,CRC_2,CRC_3,CRC_4,CRC_5,CRC_6,CRC_7,CRC_8,CRC_9,CRC_10,CRC_11,CRC_12,CRC_13,CRC_14,CRC_15\nnk=calculate_tcp_checksum:2:TCP_0,TCP_1\nnk=calculate_sha256:2:SHA_0,SHA_1\nsp=CRC_0.data_in:HBM[0]\nsp=CRC_0.crc_out:HBM[0]\nsp=CRC_0.tables:HBM[1]\nsp=CRC_1.data_in:HBM[2]\nsp=CRC_1.crc_out:HBM[2]\nsp=CRC_1.tables:HBM[3]\nsp=CRC_2.data_in:HBM[4]\nsp=CRC_2.crc_out:HBM[4]\nsp=CRC_2.tables:HBM[5]\nsp=CRC_3.data_in:HBM[6]\nsp=CRC_3.crc_out:HBM[6]\nsp=CRC_3.tables:HBM[7]\nsp=CRC_4.data_in:HBM[8]\nsp=CRC_4.crc_out:HBM[8]\nsp=CRC_4.tables:HBM[9]\nsp=CRC_5.data_in:HBM[10]\nsp=CRC_5.crc_out:HBM[10]\nsp=CRC_5.tables:HBM[11]\nsp=CRC_6.data_in:HBM[12]\nsp=CRC_6.crc_out:HBM[12]\nsp=CRC_6.tables:HBM[13]\nsp=CRC_7.data_in:HBM[14]\nsp=CRC_7.crc_out:HBM[14]\nsp=CRC_7.tables:HBM[15]\nsp=CRC_8.data_in:HBM[16]\nsp=CRC_8.crc_out:HBM[16]\nsp=CRC_8.tables:HBM[17]\nsp=CRC_9.data_in:HBM[18]\nsp=CRC_9.crc_out:HBM[18]\nsp=CRC_9.tables:HBM[19]\nsp=CRC_10.data_in:HBM[20]\nsp=CRC_10.crc_out:HBM[20]\nsp=CRC_10.tables:HBM[21]\nsp=CRC_11.data_in:HBM[22]\nsp=CRC_11.crc_out:HBM[22]\nsp=CRC_11.tables:HBM[23]\nsp=CRC_12.data_in:HBM[24]\nsp=CRC_12.crc_out:HBM[24]\nsp=CRC_12.tables:HBM[25]\nsp=CRC_13.data_in:HBM[26]\nsp=CRC_13.crc_out:HBM[26]\nsp=CRC_13.tables:HBM[27]\nsp=CRC_14.data_in:HBM[28]\nsp=CRC_14.crc_out:HBM[28]\nsp=CRC_14.tables:HBM[29]\nsp=CRC_15.data_in:HBM[30]\nsp=CRC_15.crc_out:HBM[30]\nsp=CRC_15.tables:HBM[31]\nsp=TCP_0.data_in:DDR[0]\nsp=TCP_0.crc_out:DDR[0]\nsp=TCP_1.data_in:DDR[1]\nsp=TCP_1.crc_out:DDR[1]\nsp=SHA_0.data_in:DDR[0]\nsp=SHA_0.crc_out:DDR[0]\nsp=SHA_1.data_in:DDR[1]\nsp=SHA_1.crc_out:DDR[1]\n"
+    "path": "/home/efrink/mled/split_cu/U280_CRC_Accelerator/vpp_connectivity.cfg",
+    "content": "\n[connectivity]\nnk=calculate_crc:12\nnk=calculate_tcp_checksum:2\nnk=calculate_sha256:2\n\nsp=calculate_crc_1.data_in:HBM[0]\nsp=calculate_crc_1.crc_out:HBM[0]\nsp=calculate_crc_1.tables:HBM[1]\n\nsp=calculate_crc_2.data_in:HBM[2]\nsp=calculate_crc_2.crc_out:HBM[2]\nsp=calculate_crc_2.tables:HBM[3]\n\nsp=calculate_crc_3.data_in:HBM[4]\nsp=calculate_crc_3.crc_out:HBM[4]\nsp=calculate_crc_3.tables:HBM[5]\n\nsp=calculate_crc_4.data_in:HBM[6]\nsp=calculate_crc_4.crc_out:HBM[6]\nsp=calculate_crc_4.tables:HBM[7]\n\nsp=calculate_crc_5.data_in:HBM[8]\nsp=calculate_crc_5.crc_out:HBM[8]\nsp=calculate_crc_5.tables:HBM[9]\n\nsp=calculate_crc_6.data_in:HBM[10]\nsp=calculate_crc_6.crc_out:HBM[10]\nsp=calculate_crc_6.tables:HBM[11]\n\nsp=calculate_crc_7.data_in:HBM[12]\nsp=calculate_crc_7.crc_out:HBM[12]\nsp=calculate_crc_7.tables:HBM[13]\n\nsp=calculate_crc_8.data_in:HBM[14]\nsp=calculate_crc_8.crc_out:HBM[14]\nsp=calculate_crc_8.tables:HBM[15]\n\nsp=calculate_crc_9.data_in:HBM[16]\nsp=calculate_crc_9.crc_out:HBM[16]\nsp=calculate_crc_9.tables:HBM[17]\n\nsp=calculate_crc_10.data_in:HBM[18]\nsp=calculate_crc_10.crc_out:HBM[18]\nsp=calculate_crc_10.tables:HBM[19]\n\nsp=calculate_crc_11.data_in:HBM[20]\nsp=calculate_crc_11.crc_out:HBM[20]\nsp=calculate_crc_11.tables:HBM[21]\n\nsp=calculate_crc_12.data_in:HBM[22]\nsp=calculate_crc_12.crc_out:HBM[22]\nsp=calculate_crc_12.tables:HBM[23]\n\nsp=calculate_tcp_checksum_1.data_in:HBM[24]\nsp=calculate_tcp_checksum_1.crc_out:HBM[24]\n\nsp=calculate_tcp_checksum_2.data_in:HBM[25]\nsp=calculate_tcp_checksum_2.crc_out:HBM[25]\n\nsp=calculate_sha256_1.data_in:HBM[26]\nsp=calculate_sha256_1.crc_out:HBM[26]\n\nsp=calculate_sha256_2.data_in:HBM[27]\nsp=calculate_sha256_2.crc_out:HBM[27]"
    }
   ],
-  "cwd": "/users/arashs/U280_CRC_Accelerator"
+  "cwd": "/home/efrink/mled/split_cu/U280_CRC_Accelerator"
  }
 }
 </ENTRY>
 <ENTRY>
 {
  "type": "ET_Status",
- "dateTimestamp": "Fri Feb 20 12:56:56 2026",
- "timestampMillis": "1771617416686",
+ "dateTimestamp": "Thu Apr  2 18:21:06 2026",
+ "timestampMillis": "1775179266128",
  "status": {
-  "cmdId": "f5fcf41e-c4b7-484c-ad71-b7b9165e229d",
+  "cmdId": "2052f20d-d78e-4f6f-843c-d521c7fa431a",
   "state": "CS_RUNNING"
  }
 }
@@ -58,8 +58,8 @@
 <ENTRY>
 {
  "type": "ET_FlowMetaData",
- "dateTimestamp": "Fri Feb 20 12:57:01 2026",
- "timestampMillis": "1771617421517",
+ "dateTimestamp": "Thu Apr  2 18:21:12 2026",
+ "timestampMillis": "1775179272943",
  "buildSummary": {
   "hardwarePlatform": "xilinx_u280_gen3x16_xdma_1_202211_1.xpfm",
   "hardwareDsa": "",
@@ -72,7 +72,7 @@
    "base": {
     "type": "BT_UKNOWN",
     "name": "kernel.link",
-    "file": "/users/arashs/U280_CRC_Accelerator/build_dir.hw.xilinx_u280_gen3x16_xdma_1_202211_1/kernel.link.xclbin",
+    "file": "/home/efrink/mled/split_cu/U280_CRC_Accelerator/build_dir.hw.xilinx_u280_gen3x16_xdma_1_202211_1/kernel.link.xclbin",
     "reports": [],
     "uuid": ""
    },
@@ -83,31 +83,27 @@
     "base": {
      "type": "KERNEL",
      "name": "calculate_crc",
-     "file": "/users/arashs/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/calculate_crc.xo",
+     "file": "/home/efrink/mled/split_cu/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/calculate_crc.xo",
      "reports": [],
      "uuid": ""
     },
     "sources": [
-     "/users/arashs/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/link/int/xo/calculate_crc/calculate_crc/cpu_sources/kernel.cpp"
+     "/home/efrink/mled/split_cu/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/link/int/xo/calculate_crc/calculate_crc/cpu_sources/kernel.cpp"
     ],
     "psSources": [],
     "cuNames": [
-     "CRC_0",
-     "CRC_1",
-     "CRC_2",
-     "CRC_3",
-     "CRC_4",
-     "CRC_5",
-     "CRC_6",
-     "CRC_7",
-     "CRC_8",
-     "CRC_9",
-     "CRC_10",
-     "CRC_11",
-     "CRC_12",
-     "CRC_13",
-     "CRC_14",
-     "CRC_15"
+     "calculate_crc_1",
+     "calculate_crc_2",
+     "calculate_crc_3",
+     "calculate_crc_4",
+     "calculate_crc_5",
+     "calculate_crc_6",
+     "calculate_crc_7",
+     "calculate_crc_8",
+     "calculate_crc_9",
+     "calculate_crc_10",
+     "calculate_crc_11",
+     "calculate_crc_12"
     ],
     "type": "HLS",
     "frequency": 0,
@@ -117,17 +113,17 @@
     "base": {
      "type": "KERNEL",
      "name": "calculate_tcp_checksum",
-     "file": "/users/arashs/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/calculate_tcp_checksum.xo",
+     "file": "/home/efrink/mled/split_cu/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/calculate_tcp_checksum.xo",
      "reports": [],
      "uuid": ""
     },
     "sources": [
-     "/users/arashs/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/link/int/xo/calculate_tcp_checksum/calculate_tcp_checksum/cpu_sources/kernel.cpp"
+     "/home/efrink/mled/split_cu/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/link/int/xo/calculate_tcp_checksum/calculate_tcp_checksum/cpu_sources/kernel.cpp"
     ],
     "psSources": [],
     "cuNames": [
-     "TCP_0",
-     "TCP_1"
+     "calculate_tcp_checksum_1",
+     "calculate_tcp_checksum_2"
     ],
     "type": "HLS",
     "frequency": 0,
@@ -137,73 +133,73 @@
     "base": {
      "type": "KERNEL",
      "name": "calculate_sha256",
-     "file": "/users/arashs/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/calculate_sha256.xo",
+     "file": "/home/efrink/mled/split_cu/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/calculate_sha256.xo",
      "reports": [],
      "uuid": ""
     },
     "sources": [
-     "/users/arashs/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/link/int/xo/calculate_sha256/calculate_sha256/cpu_sources/kernel.cpp"
+     "/home/efrink/mled/split_cu/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/link/int/xo/calculate_sha256/calculate_sha256/cpu_sources/kernel.cpp"
     ],
     "psSources": [],
     "cuNames": [
-     "SHA_0",
-     "SHA_1"
+     "calculate_sha256_1",
+     "calculate_sha256_2"
     ],
     "type": "HLS",
     "frequency": 0,
     "freqUnits": ""
    }
   ],
-  "toolVersion": "Vitis V++ Compiler Release 2023.1. SW Build 3860322 on 2023-05-04-06:32:48"
+  "toolVersion": "Vitis V++ Compiler Release 2022.1. SW Build 3524075 on 2022-04-13-17:42:45"
  }
 }
 </ENTRY>
 <ENTRY>
 {
  "type": "ET_SubCmdStep",
- "dateTimestamp": "Fri Feb 20 12:57:01 2026",
- "timestampMillis": "1771617421891",
+ "dateTimestamp": "Thu Apr  2 18:21:13 2026",
+ "timestampMillis": "1775179273318",
  "buildStep": {
-  "cmdId": "a412fdd1-c4f3-4f5b-b137-8ccd1e9953c3",
+  "cmdId": "9b625ab7-681d-4ab3-a038-8977b5d357f6",
   "name": "system_link",
   "logFile": "",
-  "commandLine": "system_link --xo /users/arashs/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/calculate_crc.xo --xo /users/arashs/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/calculate_tcp_checksum.xo --xo /users/arashs/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/calculate_sha256.xo -keep --config /users/arashs/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/link/int/syslinkConfig.ini --xpfm /opt/xilinx/platforms/xilinx_u280_gen3x16_xdma_1_202211_1/xilinx_u280_gen3x16_xdma_1_202211_1.xpfm --target hw --output_dir /users/arashs/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/link/int --temp_dir /users/arashs/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/link/sys_link",
+  "commandLine": "system_link --xo /home/efrink/mled/split_cu/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/calculate_crc.xo --xo /home/efrink/mled/split_cu/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/calculate_tcp_checksum.xo --xo /home/efrink/mled/split_cu/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/calculate_sha256.xo -keep --config /home/efrink/mled/split_cu/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/link/int/syslinkConfig.ini --xpfm /opt/xilinx/platforms/xilinx_u280_gen3x16_xdma_1_202211_1/xilinx_u280_gen3x16_xdma_1_202211_1.xpfm --target hw --output_dir /home/efrink/mled/split_cu/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/link/int --temp_dir /home/efrink/mled/split_cu/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/link/sys_link",
   "args": [
    "--xo",
-   "/users/arashs/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/calculate_crc.xo",
+   "/home/efrink/mled/split_cu/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/calculate_crc.xo",
    "--xo",
-   "/users/arashs/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/calculate_tcp_checksum.xo",
+   "/home/efrink/mled/split_cu/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/calculate_tcp_checksum.xo",
    "--xo",
-   "/users/arashs/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/calculate_sha256.xo",
+   "/home/efrink/mled/split_cu/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/calculate_sha256.xo",
    "-keep",
    "--config",
-   "/users/arashs/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/link/int/syslinkConfig.ini",
+   "/home/efrink/mled/split_cu/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/link/int/syslinkConfig.ini",
    "--xpfm",
    "/opt/xilinx/platforms/xilinx_u280_gen3x16_xdma_1_202211_1/xilinx_u280_gen3x16_xdma_1_202211_1.xpfm",
    "--target",
    "hw",
    "--output_dir",
-   "/users/arashs/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/link/int",
+   "/home/efrink/mled/split_cu/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/link/int",
    "--temp_dir",
-   "/users/arashs/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/link/sys_link"
+   "/home/efrink/mled/split_cu/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/link/sys_link"
   ],
   "iniFiles": [
    {
-    "path": "/users/arashs/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/link/int/syslinkConfig.ini",
-    "content": "nk=calculate_crc:16:CRC_0,CRC_1,CRC_2,CRC_3,CRC_4,CRC_5,CRC_6,CRC_7,CRC_8,CRC_9,CRC_10,CRC_11,CRC_12,CRC_13,CRC_14,CRC_15\nnk=calculate_tcp_checksum:2:TCP_0,TCP_1\nnk=calculate_sha256:2:SHA_0,SHA_1\nsp=CRC_0.data_in:HBM[0]\nsp=CRC_0.crc_out:HBM[0]\nsp=CRC_0.tables:HBM[1]\nsp=CRC_1.data_in:HBM[2]\nsp=CRC_1.crc_out:HBM[2]\nsp=CRC_1.tables:HBM[3]\nsp=CRC_2.data_in:HBM[4]\nsp=CRC_2.crc_out:HBM[4]\nsp=CRC_2.tables:HBM[5]\nsp=CRC_3.data_in:HBM[6]\nsp=CRC_3.crc_out:HBM[6]\nsp=CRC_3.tables:HBM[7]\nsp=CRC_4.data_in:HBM[8]\nsp=CRC_4.crc_out:HBM[8]\nsp=CRC_4.tables:HBM[9]\nsp=CRC_5.data_in:HBM[10]\nsp=CRC_5.crc_out:HBM[10]\nsp=CRC_5.tables:HBM[11]\nsp=CRC_6.data_in:HBM[12]\nsp=CRC_6.crc_out:HBM[12]\nsp=CRC_6.tables:HBM[13]\nsp=CRC_7.data_in:HBM[14]\nsp=CRC_7.crc_out:HBM[14]\nsp=CRC_7.tables:HBM[15]\nsp=CRC_8.data_in:HBM[16]\nsp=CRC_8.crc_out:HBM[16]\nsp=CRC_8.tables:HBM[17]\nsp=CRC_9.data_in:HBM[18]\nsp=CRC_9.crc_out:HBM[18]\nsp=CRC_9.tables:HBM[19]\nsp=CRC_10.data_in:HBM[20]\nsp=CRC_10.crc_out:HBM[20]\nsp=CRC_10.tables:HBM[21]\nsp=CRC_11.data_in:HBM[22]\nsp=CRC_11.crc_out:HBM[22]\nsp=CRC_11.tables:HBM[23]\nsp=CRC_12.data_in:HBM[24]\nsp=CRC_12.crc_out:HBM[24]\nsp=CRC_12.tables:HBM[25]\nsp=CRC_13.data_in:HBM[26]\nsp=CRC_13.crc_out:HBM[26]\nsp=CRC_13.tables:HBM[27]\nsp=CRC_14.data_in:HBM[28]\nsp=CRC_14.crc_out:HBM[28]\nsp=CRC_14.tables:HBM[29]\nsp=CRC_15.data_in:HBM[30]\nsp=CRC_15.crc_out:HBM[30]\nsp=CRC_15.tables:HBM[31]\nsp=TCP_0.data_in:DDR[0]\nsp=TCP_0.crc_out:DDR[0]\nsp=TCP_1.data_in:DDR[1]\nsp=TCP_1.crc_out:DDR[1]\nsp=SHA_0.data_in:DDR[0]\nsp=SHA_0.crc_out:DDR[0]\nsp=SHA_1.data_in:DDR[1]\nsp=SHA_1.crc_out:DDR[1]\n\n"
+    "path": "/home/efrink/mled/split_cu/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/link/int/syslinkConfig.ini",
+    "content": "nk=calculate_crc:12\nnk=calculate_tcp_checksum:2\nnk=calculate_sha256:2\nsp=calculate_crc_1.data_in:HBM[0]\nsp=calculate_crc_1.crc_out:HBM[0]\nsp=calculate_crc_1.tables:HBM[1]\nsp=calculate_crc_2.data_in:HBM[2]\nsp=calculate_crc_2.crc_out:HBM[2]\nsp=calculate_crc_2.tables:HBM[3]\nsp=calculate_crc_3.data_in:HBM[4]\nsp=calculate_crc_3.crc_out:HBM[4]\nsp=calculate_crc_3.tables:HBM[5]\nsp=calculate_crc_4.data_in:HBM[6]\nsp=calculate_crc_4.crc_out:HBM[6]\nsp=calculate_crc_4.tables:HBM[7]\nsp=calculate_crc_5.data_in:HBM[8]\nsp=calculate_crc_5.crc_out:HBM[8]\nsp=calculate_crc_5.tables:HBM[9]\nsp=calculate_crc_6.data_in:HBM[10]\nsp=calculate_crc_6.crc_out:HBM[10]\nsp=calculate_crc_6.tables:HBM[11]\nsp=calculate_crc_7.data_in:HBM[12]\nsp=calculate_crc_7.crc_out:HBM[12]\nsp=calculate_crc_7.tables:HBM[13]\nsp=calculate_crc_8.data_in:HBM[14]\nsp=calculate_crc_8.crc_out:HBM[14]\nsp=calculate_crc_8.tables:HBM[15]\nsp=calculate_crc_9.data_in:HBM[16]\nsp=calculate_crc_9.crc_out:HBM[16]\nsp=calculate_crc_9.tables:HBM[17]\nsp=calculate_crc_10.data_in:HBM[18]\nsp=calculate_crc_10.crc_out:HBM[18]\nsp=calculate_crc_10.tables:HBM[19]\nsp=calculate_crc_11.data_in:HBM[20]\nsp=calculate_crc_11.crc_out:HBM[20]\nsp=calculate_crc_11.tables:HBM[21]\nsp=calculate_crc_12.data_in:HBM[22]\nsp=calculate_crc_12.crc_out:HBM[22]\nsp=calculate_crc_12.tables:HBM[23]\nsp=calculate_tcp_checksum_1.data_in:HBM[24]\nsp=calculate_tcp_checksum_1.crc_out:HBM[24]\nsp=calculate_tcp_checksum_2.data_in:HBM[25]\nsp=calculate_tcp_checksum_2.crc_out:HBM[25]\nsp=calculate_sha256_1.data_in:HBM[26]\nsp=calculate_sha256_1.crc_out:HBM[26]\nsp=calculate_sha256_2.data_in:HBM[27]\nsp=calculate_sha256_2.crc_out:HBM[27]\n\n"
    }
   ],
-  "cwd": "/users/arashs/U280_CRC_Accelerator"
+  "cwd": "/home/efrink/mled/split_cu/U280_CRC_Accelerator"
  }
 }
 </ENTRY>
 <ENTRY>
 {
  "type": "ET_Status",
- "dateTimestamp": "Fri Feb 20 12:57:01 2026",
- "timestampMillis": "1771617421892",
+ "dateTimestamp": "Thu Apr  2 18:21:13 2026",
+ "timestampMillis": "1775179273319",
  "status": {
-  "cmdId": "a412fdd1-c4f3-4f5b-b137-8ccd1e9953c3",
+  "cmdId": "9b625ab7-681d-4ab3-a038-8977b5d357f6",
   "state": "CS_RUNNING"
  }
 }
@@ -211,10 +207,10 @@
 <ENTRY>
 {
  "type": "ET_Status",
- "dateTimestamp": "Fri Feb 20 12:57:35 2026",
- "timestampMillis": "1771617455897",
+ "dateTimestamp": "Thu Apr  2 18:21:37 2026",
+ "timestampMillis": "1775179297955",
  "status": {
-  "cmdId": "a412fdd1-c4f3-4f5b-b137-8ccd1e9953c3",
+  "cmdId": "9b625ab7-681d-4ab3-a038-8977b5d357f6",
   "state": "CS_PASSED"
  }
 }
@@ -222,37 +218,37 @@
 <ENTRY>
 {
  "type": "ET_SubCmdStep",
- "dateTimestamp": "Fri Feb 20 12:57:35 2026",
- "timestampMillis": "1771617455902",
+ "dateTimestamp": "Thu Apr  2 18:21:37 2026",
+ "timestampMillis": "1775179297968",
  "buildStep": {
-  "cmdId": "516c5828-a9dc-4a39-af48-b03cc03a6fa4",
+  "cmdId": "07e1b497-30cc-42ef-800e-fcc7f1a8561e",
   "name": "cf2sw",
   "logFile": "",
-  "commandLine": "cf2sw -sdsl /users/arashs/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/link/int/sdsl.dat -rtd /users/arashs/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/link/int/cf2sw.rtd -nofilter /users/arashs/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/link/int/cf2sw_full.rtd -xclbin /users/arashs/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/link/int/xclbin_orig.xml -o /users/arashs/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/link/int/xclbin_orig.1.xml",
+  "commandLine": "cf2sw -sdsl /home/efrink/mled/split_cu/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/link/int/sdsl.dat -rtd /home/efrink/mled/split_cu/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/link/int/cf2sw.rtd -nofilter /home/efrink/mled/split_cu/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/link/int/cf2sw_full.rtd -xclbin /home/efrink/mled/split_cu/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/link/int/xclbin_orig.xml -o /home/efrink/mled/split_cu/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/link/int/xclbin_orig.1.xml",
   "args": [
    "-sdsl",
-   "/users/arashs/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/link/int/sdsl.dat",
+   "/home/efrink/mled/split_cu/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/link/int/sdsl.dat",
    "-rtd",
-   "/users/arashs/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/link/int/cf2sw.rtd",
+   "/home/efrink/mled/split_cu/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/link/int/cf2sw.rtd",
    "-nofilter",
-   "/users/arashs/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/link/int/cf2sw_full.rtd",
+   "/home/efrink/mled/split_cu/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/link/int/cf2sw_full.rtd",
    "-xclbin",
-   "/users/arashs/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/link/int/xclbin_orig.xml",
+   "/home/efrink/mled/split_cu/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/link/int/xclbin_orig.xml",
    "-o",
-   "/users/arashs/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/link/int/xclbin_orig.1.xml"
+   "/home/efrink/mled/split_cu/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/link/int/xclbin_orig.1.xml"
   ],
   "iniFiles": [],
-  "cwd": "/users/arashs/U280_CRC_Accelerator"
+  "cwd": "/home/efrink/mled/split_cu/U280_CRC_Accelerator"
  }
 }
 </ENTRY>
 <ENTRY>
 {
  "type": "ET_Status",
- "dateTimestamp": "Fri Feb 20 12:57:35 2026",
- "timestampMillis": "1771617455902",
+ "dateTimestamp": "Thu Apr  2 18:21:37 2026",
+ "timestampMillis": "1775179297968",
  "status": {
-  "cmdId": "516c5828-a9dc-4a39-af48-b03cc03a6fa4",
+  "cmdId": "07e1b497-30cc-42ef-800e-fcc7f1a8561e",
   "state": "CS_RUNNING"
  }
 }
@@ -260,10 +256,10 @@
 <ENTRY>
 {
  "type": "ET_Status",
- "dateTimestamp": "Fri Feb 20 12:57:55 2026",
- "timestampMillis": "1771617475313",
+ "dateTimestamp": "Thu Apr  2 18:21:48 2026",
+ "timestampMillis": "1775179308990",
  "status": {
-  "cmdId": "516c5828-a9dc-4a39-af48-b03cc03a6fa4",
+  "cmdId": "07e1b497-30cc-42ef-800e-fcc7f1a8561e",
   "state": "CS_PASSED"
  }
 }
@@ -271,26 +267,26 @@
 <ENTRY>
 {
  "type": "ET_SubCmdStep",
- "dateTimestamp": "Fri Feb 20 12:57:55 2026",
- "timestampMillis": "1771617475317",
+ "dateTimestamp": "Thu Apr  2 18:21:49 2026",
+ "timestampMillis": "1775179309006",
  "buildStep": {
-  "cmdId": "3249a26b-ca00-41a4-affe-da34ef8f45bf",
+  "cmdId": "95b20fd4-85ae-4886-bc7f-164a1aea2e79",
   "name": "rtd2_system_diagram",
   "logFile": "",
   "commandLine": "rtd2SystemDiagram",
   "args": [],
   "iniFiles": [],
-  "cwd": "/users/arashs/U280_CRC_Accelerator"
+  "cwd": "/home/efrink/mled/split_cu/U280_CRC_Accelerator"
  }
 }
 </ENTRY>
 <ENTRY>
 {
  "type": "ET_Status",
- "dateTimestamp": "Fri Feb 20 12:57:55 2026",
- "timestampMillis": "1771617475318",
+ "dateTimestamp": "Thu Apr  2 18:21:49 2026",
+ "timestampMillis": "1775179309006",
  "status": {
-  "cmdId": "3249a26b-ca00-41a4-affe-da34ef8f45bf",
+  "cmdId": "95b20fd4-85ae-4886-bc7f-164a1aea2e79",
   "state": "CS_RUNNING"
  }
 }
@@ -298,10 +294,10 @@
 <ENTRY>
 {
  "type": "ET_Report",
- "dateTimestamp": "Fri Feb 20 12:57:55 2026",
- "timestampMillis": "1771617475651",
+ "dateTimestamp": "Thu Apr  2 18:21:49 2026",
+ "timestampMillis": "1775179309263",
  "report": {
-  "path": "/users/arashs/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/link/int/systemDiagramModel.json",
+  "path": "/home/efrink/mled/split_cu/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/link/int/systemDiagramModel.json",
   "name": "",
   "fileType": "JSON",
   "reportType": "SYSTEM_DIAGRAM",
@@ -312,10 +308,10 @@
 <ENTRY>
 {
  "type": "ET_Status",
- "dateTimestamp": "Fri Feb 20 12:57:55 2026",
- "timestampMillis": "1771617475652",
+ "dateTimestamp": "Thu Apr  2 18:21:49 2026",
+ "timestampMillis": "1775179309266",
  "status": {
-  "cmdId": "3249a26b-ca00-41a4-affe-da34ef8f45bf",
+  "cmdId": "95b20fd4-85ae-4886-bc7f-164a1aea2e79",
   "state": "CS_PASSED"
  }
 }
@@ -323,65 +319,65 @@
 <ENTRY>
 {
  "type": "ET_SubCmdStep",
- "dateTimestamp": "Fri Feb 20 12:57:55 2026",
- "timestampMillis": "1771617475655",
+ "dateTimestamp": "Thu Apr  2 18:21:49 2026",
+ "timestampMillis": "1775179309278",
  "buildStep": {
-  "cmdId": "59ffb5e9-2796-4538-b4d1-cc3dddd7b63b",
+  "cmdId": "00685ec3-c854-424c-acab-f4434bf9dd14",
   "name": "vpl",
   "logFile": "",
-  "commandLine": "vpl -t hw -f xilinx_u280_gen3x16_xdma_1_202211_1 -s --kernel_frequency 210 --remote_ip_cache /users/arashs/U280_CRC_Accelerator/.ipcache --output_dir /users/arashs/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/link/int --log_dir /users/arashs/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/logs/link --report_dir /users/arashs/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/reports/link --config /users/arashs/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/link/int/vplConfig.ini -k /users/arashs/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/link/int/kernel_info.dat --webtalk_flag Vitis --temp_dir /users/arashs/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/link --no-info --iprepo /users/arashs/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/link/int/xo/ip_repo/xilinx_com_hls_calculate_sha256_1_0 --iprepo /users/arashs/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/link/int/xo/ip_repo/xilinx_com_hls_calculate_tcp_checksum_1_0 --iprepo /users/arashs/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/link/int/xo/ip_repo/xilinx_com_hls_calculate_crc_1_0 --messageDb /users/arashs/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/link/run_link/vpl.pb /users/arashs/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/link/int/dr.bd.tcl",
+  "commandLine": "vpl -t hw -f xilinx_u280_gen3x16_xdma_1_202211_1 --kernel_frequency 210 --remote_ip_cache /home/efrink/mled/split_cu/U280_CRC_Accelerator/.ipcache -s --output_dir /home/efrink/mled/split_cu/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/link/int --log_dir /home/efrink/mled/split_cu/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/logs/link --report_dir /home/efrink/mled/split_cu/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/reports/link --config /home/efrink/mled/split_cu/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/link/int/vplConfig.ini -k /home/efrink/mled/split_cu/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/link/int/kernel_info.dat --webtalk_flag Vitis --temp_dir /home/efrink/mled/split_cu/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/link --no-info --iprepo /home/efrink/mled/split_cu/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/link/int/xo/ip_repo/xilinx_com_hls_calculate_sha256_1_0 --iprepo /home/efrink/mled/split_cu/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/link/int/xo/ip_repo/xilinx_com_hls_calculate_tcp_checksum_1_0 --iprepo /home/efrink/mled/split_cu/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/link/int/xo/ip_repo/xilinx_com_hls_calculate_crc_1_0 --messageDb /home/efrink/mled/split_cu/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/link/run_link/vpl.pb /home/efrink/mled/split_cu/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/link/int/dr.bd.tcl",
   "args": [
    "-t",
    "hw",
    "-f",
    "xilinx_u280_gen3x16_xdma_1_202211_1",
-   "-s",
    "--kernel_frequency",
    "210",
    "--remote_ip_cache",
-   "/users/arashs/U280_CRC_Accelerator/.ipcache",
+   "/home/efrink/mled/split_cu/U280_CRC_Accelerator/.ipcache",
+   "-s",
    "--output_dir",
-   "/users/arashs/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/link/int",
+   "/home/efrink/mled/split_cu/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/link/int",
    "--log_dir",
-   "/users/arashs/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/logs/link",
+   "/home/efrink/mled/split_cu/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/logs/link",
    "--report_dir",
-   "/users/arashs/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/reports/link",
+   "/home/efrink/mled/split_cu/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/reports/link",
    "--config",
-   "/users/arashs/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/link/int/vplConfig.ini",
+   "/home/efrink/mled/split_cu/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/link/int/vplConfig.ini",
    "-k",
-   "/users/arashs/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/link/int/kernel_info.dat",
+   "/home/efrink/mled/split_cu/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/link/int/kernel_info.dat",
    "--webtalk_flag",
    "Vitis",
    "--temp_dir",
-   "/users/arashs/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/link",
+   "/home/efrink/mled/split_cu/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/link",
    "--no-info",
    "--iprepo",
-   "/users/arashs/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/link/int/xo/ip_repo/xilinx_com_hls_calculate_sha256_1_0",
+   "/home/efrink/mled/split_cu/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/link/int/xo/ip_repo/xilinx_com_hls_calculate_sha256_1_0",
    "--iprepo",
-   "/users/arashs/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/link/int/xo/ip_repo/xilinx_com_hls_calculate_tcp_checksum_1_0",
+   "/home/efrink/mled/split_cu/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/link/int/xo/ip_repo/xilinx_com_hls_calculate_tcp_checksum_1_0",
    "--iprepo",
-   "/users/arashs/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/link/int/xo/ip_repo/xilinx_com_hls_calculate_crc_1_0",
+   "/home/efrink/mled/split_cu/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/link/int/xo/ip_repo/xilinx_com_hls_calculate_crc_1_0",
    "--messageDb",
-   "/users/arashs/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/link/run_link/vpl.pb",
-   "/users/arashs/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/link/int/dr.bd.tcl"
+   "/home/efrink/mled/split_cu/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/link/run_link/vpl.pb",
+   "/home/efrink/mled/split_cu/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/link/int/dr.bd.tcl"
   ],
   "iniFiles": [
    {
-    "path": "/users/arashs/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/link/int/vplConfig.ini",
-    "content": "[advanced]\nmisc=report=type report_timing_summary name impl_report_timing_summary_route_design_summary steps {route_design} runs {impl_1} options {-max_paths 10}\nmisc=report=type report_timing_summary name impl_report_timing_summary_post_route_phys_opt_design_summary steps {post_route_phys_opt_design} runs {impl_1} options {-max_paths 10}\nparam=compiler.enablePerformanceTrace=1\nparam=compiler.vppCurrentWorkingDir=/users/arashs/U280_CRC_Accelerator\nmisc=BinaryName=kernel.link\n\n[connectivity]\nnk=calculate_crc:16:CRC_0,CRC_1,CRC_2,CRC_3,CRC_4,CRC_5,CRC_6,CRC_7,CRC_8,CRC_9,CRC_10,CRC_11,CRC_12,CRC_13,CRC_14,CRC_15\nnk=calculate_tcp_checksum:2:TCP_0,TCP_1\nnk=calculate_sha256:2:SHA_0,SHA_1\n\n[vivado]\nprop=run.__KERNEL__.{STEPS.SYNTH_DESIGN.ARGS.MORE OPTIONS}={-directive sdx_optimization_effort_high}\n\n"
+    "path": "/home/efrink/mled/split_cu/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/link/int/vplConfig.ini",
+    "content": "[advanced]\nmisc=report=type report_timing_summary name impl_report_timing_summary_route_design_summary steps {route_design} runs {impl_1} options {-max_paths 10}\nmisc=report=type report_timing_summary name impl_report_timing_summary_post_route_phys_opt_design_summary steps {post_route_phys_opt_design} runs {impl_1} options {-max_paths 10}\nparam=compiler.enablePerformanceTrace=1\nparam=compiler.vppCurrentWorkingDir=/home/efrink/mled/split_cu/U280_CRC_Accelerator\nmisc=BinaryName=kernel.link\n\n[connectivity]\nnk=calculate_crc:12:calculate_crc_1.calculate_crc_2.calculate_crc_3.calculate_crc_4.calculate_crc_5.calculate_crc_6.calculate_crc_7.calculate_crc_8.calculate_crc_9.calculate_crc_10.calculate_crc_11.calculate_crc_12\nnk=calculate_tcp_checksum:2:calculate_tcp_checksum_1.calculate_tcp_checksum_2\nnk=calculate_sha256:2:calculate_sha256_1.calculate_sha256_2\n\n[vivado]\nprop=run.__KERNEL__.{STEPS.SYNTH_DESIGN.ARGS.MORE OPTIONS}={-directive sdx_optimization_effort_high}\n\n"
    }
   ],
-  "cwd": "/users/arashs/U280_CRC_Accelerator"
+  "cwd": "/home/efrink/mled/split_cu/U280_CRC_Accelerator"
  }
 }
 </ENTRY>
 <ENTRY>
 {
  "type": "ET_Status",
- "dateTimestamp": "Fri Feb 20 12:57:55 2026",
- "timestampMillis": "1771617475656",
+ "dateTimestamp": "Thu Apr  2 18:21:49 2026",
+ "timestampMillis": "1775179309278",
  "status": {
-  "cmdId": "59ffb5e9-2796-4538-b4d1-cc3dddd7b63b",
+  "cmdId": "00685ec3-c854-424c-acab-f4434bf9dd14",
   "state": "CS_RUNNING"
  }
 }
@@ -389,26 +385,26 @@
 <ENTRY>
 {
  "type": "ET_CmdStep",
- "dateTimestamp": "Fri Feb 20 12:57:57 2026",
- "timestampMillis": "1771617477162",
+ "dateTimestamp": "Thu Apr  2 18:21:50 2026",
+ "timestampMillis": "1775179310345",
  "buildStep": {
-  "cmdId": "9b1a045a-b715-469e-a697-7ad089cbdb4e",
+  "cmdId": "e1f94631-1acd-4931-bf29-5a1bcfd610be",
   "name": "vpl",
-  "logFile": "/users/arashs/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/link/link.steps.log",
-  "commandLine": "/share/Xilinx/Vitis/2023.1/bin/unwrapped/lnx64.o/vpl -t hw -f xilinx_u280_gen3x16_xdma_1_202211_1 -s --kernel_frequency 210 --remote_ip_cache /users/arashs/U280_CRC_Accelerator/.ipcache --output_dir /users/arashs/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/link/int --log_dir /users/arashs/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/logs/link --report_dir /users/arashs/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/reports/link --config /users/arashs/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/link/int/vplConfig.ini -k /users/arashs/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/link/int/kernel_info.dat --webtalk_flag Vitis --temp_dir /users/arashs/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/link --no-info --iprepo /users/arashs/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/link/int/xo/ip_repo/xilinx_com_hls_calculate_sha256_1_0 --iprepo /users/arashs/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/link/int/xo/ip_repo/xilinx_com_hls_calculate_tcp_checksum_1_0 --iprepo /users/arashs/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/link/int/xo/ip_repo/xilinx_com_hls_calculate_crc_1_0 --messageDb /users/arashs/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/link/run_link/vpl.pb /users/arashs/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/link/int/dr.bd.tcl ",
+  "logFile": "/home/efrink/mled/split_cu/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/link/link.steps.log",
+  "commandLine": "/packages/apps/fpga/Vitis/2022.1/bin/unwrapped/lnx64.o/vpl -t hw -f xilinx_u280_gen3x16_xdma_1_202211_1 --kernel_frequency 210 --remote_ip_cache /home/efrink/mled/split_cu/U280_CRC_Accelerator/.ipcache -s --output_dir /home/efrink/mled/split_cu/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/link/int --log_dir /home/efrink/mled/split_cu/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/logs/link --report_dir /home/efrink/mled/split_cu/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/reports/link --config /home/efrink/mled/split_cu/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/link/int/vplConfig.ini -k /home/efrink/mled/split_cu/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/link/int/kernel_info.dat --webtalk_flag Vitis --temp_dir /home/efrink/mled/split_cu/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/link --no-info --iprepo /home/efrink/mled/split_cu/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/link/int/xo/ip_repo/xilinx_com_hls_calculate_sha256_1_0 --iprepo /home/efrink/mled/split_cu/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/link/int/xo/ip_repo/xilinx_com_hls_calculate_tcp_checksum_1_0 --iprepo /home/efrink/mled/split_cu/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/link/int/xo/ip_repo/xilinx_com_hls_calculate_crc_1_0 --messageDb /home/efrink/mled/split_cu/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/link/run_link/vpl.pb /home/efrink/mled/split_cu/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/link/int/dr.bd.tcl ",
   "args": [],
   "iniFiles": [],
-  "cwd": "/users/arashs/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/link/run_link"
+  "cwd": "/home/efrink/mled/split_cu/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/link/run_link"
  }
 }
 </ENTRY>
 <ENTRY>
 {
  "type": "ET_Status",
- "dateTimestamp": "Fri Feb 20 12:57:57 2026",
- "timestampMillis": "1771617477162",
+ "dateTimestamp": "Thu Apr  2 18:21:50 2026",
+ "timestampMillis": "1775179310345",
  "status": {
-  "cmdId": "9b1a045a-b715-469e-a697-7ad089cbdb4e",
+  "cmdId": "e1f94631-1acd-4931-bf29-5a1bcfd610be",
   "state": "CS_RUNNING"
  }
 }
@@ -416,10 +412,10 @@
 <ENTRY>
 {
  "type": "ET_VivadoProject",
- "dateTimestamp": "Fri Feb 20 12:58:02 2026",
- "timestampMillis": "1771617482275",
+ "dateTimestamp": "Thu Apr  2 18:21:56 2026",
+ "timestampMillis": "1775179316846",
  "vivadoProject": {
-  "openDir": "/users/arashs/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/link/vivado/vpl",
+  "openDir": "/home/efrink/mled/split_cu/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/link/vivado/vpl",
   "openScript": "openprj.tcl",
   "relativeProject": "prj/prj.xpr"
  }
@@ -428,12 +424,12 @@
 <ENTRY>
 {
  "type": "ET_SubCmdStep",
- "dateTimestamp": "Fri Feb 20 12:58:02 2026",
- "timestampMillis": "1771617482276",
+ "dateTimestamp": "Thu Apr  2 18:21:56 2026",
+ "timestampMillis": "1775179316850",
  "buildStep": {
-  "cmdId": "efdadffa-8bc6-43b4-9fe5-3cefb2d64406",
+  "cmdId": "780db732-1097-4aad-9464-0892a521a785",
   "name": "vivado",
-  "logFile": "/users/arashs/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/link/vivado/vpl/vivado.log",
+  "logFile": "/home/efrink/mled/split_cu/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/link/vivado/vpl/vivado.log",
   "commandLine": "vivado -log vivado.log -applog -m64 -messageDb vivado.pb -mode batch -source vpl.tcl -notrace",
   "args": [
    "-log",
@@ -449,17 +445,17 @@
    "-notrace"
   ],
   "iniFiles": [],
-  "cwd": "/users/arashs/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/link/run_link"
+  "cwd": "/home/efrink/mled/split_cu/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/link/run_link"
  }
 }
 </ENTRY>
 <ENTRY>
 {
  "type": "ET_Status",
- "dateTimestamp": "Fri Feb 20 12:58:02 2026",
- "timestampMillis": "1771617482276",
+ "dateTimestamp": "Thu Apr  2 18:21:56 2026",
+ "timestampMillis": "1775179316851",
  "status": {
-  "cmdId": "efdadffa-8bc6-43b4-9fe5-3cefb2d64406",
+  "cmdId": "780db732-1097-4aad-9464-0892a521a785",
   "state": "CS_RUNNING"
  }
 }
@@ -467,10 +463,10 @@
 <ENTRY>
 {
  "type": "ET_Report",
- "dateTimestamp": "Fri Feb 20 12:59:31 2026",
- "timestampMillis": "1771617571510",
+ "dateTimestamp": "Thu Apr  2 18:23:02 2026",
+ "timestampMillis": "1775179382764",
  "report": {
-  "path": "/users/arashs/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/link/int/automation_summary_update_bd.txt",
+  "path": "/home/efrink/mled/split_cu/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/link/int/automation_summary_update_bd.txt",
   "name": "",
   "fileType": "TEXT",
   "reportType": "VITIS_DESIGN_FLOW",
@@ -481,26 +477,26 @@
 <ENTRY>
 {
  "type": "ET_CmdStep",
- "dateTimestamp": "Fri Feb 20 13:16:48 2026",
- "timestampMillis": "1771618608024",
+ "dateTimestamp": "Thu Apr  2 18:32:35 2026",
+ "timestampMillis": "1775179955882",
  "buildStep": {
-  "cmdId": "f4d61d65-9336-4e67-86d8-2de86726ead7",
+  "cmdId": "14aa4f68-e6fb-41ab-b02d-664b97e01390",
   "name": "vivado.impl",
   "logFile": "",
   "commandLine": "",
   "args": [],
   "iniFiles": [],
-  "cwd": "/users/arashs/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/link/vivado/vpl"
+  "cwd": "/home/efrink/mled/split_cu/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/link/vivado/vpl"
  }
 }
 </ENTRY>
 <ENTRY>
 {
  "type": "ET_Status",
- "dateTimestamp": "Fri Feb 20 13:16:48 2026",
- "timestampMillis": "1771618608024",
+ "dateTimestamp": "Thu Apr  2 18:32:35 2026",
+ "timestampMillis": "1775179955882",
  "status": {
-  "cmdId": "f4d61d65-9336-4e67-86d8-2de86726ead7",
+  "cmdId": "14aa4f68-e6fb-41ab-b02d-664b97e01390",
   "state": "CS_RUNNING"
  }
 }
@@ -508,26 +504,26 @@
 <ENTRY>
 {
  "type": "ET_CmdStep",
- "dateTimestamp": "Fri Feb 20 13:16:48 2026",
- "timestampMillis": "1771618608025",
+ "dateTimestamp": "Thu Apr  2 18:32:35 2026",
+ "timestampMillis": "1775179955883",
  "buildStep": {
-  "cmdId": "bdecffe2-49a8-46ed-a2cf-5952ca5a80ef",
+  "cmdId": "8e7db7de-6ba5-493a-a727-cacb09625000",
   "name": "vivado.impl.impl_1",
-  "logFile": "/users/arashs/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/link/vivado/vpl/prj/prj.runs/impl_1/runme.log",
+  "logFile": "/home/efrink/mled/split_cu/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/link/vivado/vpl/prj/prj.runs/impl_1/runme.log",
   "commandLine": "",
   "args": [],
   "iniFiles": [],
-  "cwd": "/users/arashs/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/link/vivado/vpl/prj/prj.runs/impl_1"
+  "cwd": "/home/efrink/mled/split_cu/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/link/vivado/vpl/prj/prj.runs/impl_1"
  }
 }
 </ENTRY>
 <ENTRY>
 {
  "type": "ET_Status",
- "dateTimestamp": "Fri Feb 20 13:16:48 2026",
- "timestampMillis": "1771618608025",
+ "dateTimestamp": "Thu Apr  2 18:32:35 2026",
+ "timestampMillis": "1775179955884",
  "status": {
-  "cmdId": "bdecffe2-49a8-46ed-a2cf-5952ca5a80ef",
+  "cmdId": "8e7db7de-6ba5-493a-a727-cacb09625000",
   "state": "CS_RUNNING"
  }
 }
@@ -535,10 +531,10 @@
 <ENTRY>
 {
  "type": "ET_Report",
- "dateTimestamp": "Fri Feb 20 16:17:19 2026",
- "timestampMillis": "1771629439821",
+ "dateTimestamp": "Thu Apr  2 20:28:52 2026",
+ "timestampMillis": "1775186932927",
  "report": {
-  "path": "/users/arashs/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/link/vivado/vpl/prj/prj.runs/impl_1/system_diagram.json",
+  "path": "/home/efrink/mled/split_cu/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/link/vivado/vpl/prj/prj.runs/impl_1/system_diagram.json",
   "name": "",
   "fileType": "JSON",
   "reportType": "SYSTEM_DIAGRAM_PLUS",
@@ -549,10 +545,10 @@
 <ENTRY>
 {
  "type": "ET_Report",
- "dateTimestamp": "Fri Feb 20 16:21:39 2026",
- "timestampMillis": "1771629699955",
+ "dateTimestamp": "Thu Apr  2 20:31:13 2026",
+ "timestampMillis": "1775187073418",
  "report": {
-  "path": "/users/arashs/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/link/int/kernel_service.json",
+  "path": "/home/efrink/mled/split_cu/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/link/int/kernel_service.json",
   "name": "",
   "fileType": "JSON",
   "reportType": "KERNEL_SERVICE",
@@ -563,41 +559,13 @@
 <ENTRY>
 {
  "type": "ET_Report",
- "dateTimestamp": "Fri Feb 20 16:21:39 2026",
- "timestampMillis": "1771629699956",
+ "dateTimestamp": "Thu Apr  2 20:31:13 2026",
+ "timestampMillis": "1775187073423",
  "report": {
-  "path": "/users/arashs/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/link/int/kernel_service.pb",
+  "path": "/home/efrink/mled/split_cu/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/link/int/kernel_service.pb",
   "name": "",
   "fileType": "BINARY_PROTOBUF",
   "reportType": "KERNEL_SERVICE",
-  "cmdId": ""
- }
-}
-</ENTRY>
-<ENTRY>
-{
- "type": "ET_Report",
- "dateTimestamp": "Fri Feb 20 16:27:05 2026",
- "timestampMillis": "1771630025342",
- "report": {
-  "path": "/users/arashs/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/link/vivado/vpl/prj/prj.runs/impl_1/dr_timing_summary.rpt",
-  "name": "",
-  "fileType": "TEXT",
-  "reportType": "GLOBAL_REPORT_TIMING_SUMMARY_FAIL",
-  "cmdId": ""
- }
-}
-</ENTRY>
-<ENTRY>
-{
- "type": "ET_Report",
- "dateTimestamp": "Fri Feb 20 16:27:05 2026",
- "timestampMillis": "1771630025347",
- "report": {
-  "path": "/users/arashs/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/link/vivado/vpl/prj/prj.runs/impl_1/dr_timing_summary.rpt",
-  "name": "",
-  "fileType": "TEXT",
-  "reportType": "GLOBAL_REPORT_TIMING_SUMMARY_FAIL",
   "cmdId": ""
  }
 }
@@ -605,10 +573,10 @@
 <ENTRY>
 {
  "type": "ET_Status",
- "dateTimestamp": "Fri Feb 20 16:48:47 2026",
- "timestampMillis": "1771631327683",
+ "dateTimestamp": "Thu Apr  2 20:43:29 2026",
+ "timestampMillis": "1775187809924",
  "status": {
-  "cmdId": "efdadffa-8bc6-43b4-9fe5-3cefb2d64406",
+  "cmdId": "780db732-1097-4aad-9464-0892a521a785",
   "state": "CS_PASSED"
  }
 }
@@ -616,136 +584,10 @@
 <ENTRY>
 {
  "type": "ET_Report",
- "dateTimestamp": "Fri Feb 20 16:48:47 2026",
- "timestampMillis": "1771631327778",
+ "dateTimestamp": "Thu Apr  2 20:43:30 2026",
+ "timestampMillis": "1775187810059",
  "report": {
-  "path": "/users/arashs/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/reports/link/imp/impl_1_full_util_synthed.rpt",
-  "name": "",
-  "fileType": "TEXT",
-  "reportType": "GLOBAL_UTILIZATION_SYNTHESIS",
-  "cmdId": ""
- }
-}
-</ENTRY>
-<ENTRY>
-{
- "type": "ET_Report",
- "dateTimestamp": "Fri Feb 20 16:48:47 2026",
- "timestampMillis": "1771631327779",
- "report": {
-  "path": "/users/arashs/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/reports/link/imp/impl_1_kernel_util_routed.rpt",
-  "name": "",
-  "fileType": "TEXT",
-  "reportType": "KERNEL_UTILIZATION_ROUTE",
-  "cmdId": ""
- }
-}
-</ENTRY>
-<ENTRY>
-{
- "type": "ET_Report",
- "dateTimestamp": "Fri Feb 20 16:48:47 2026",
- "timestampMillis": "1771631327780",
- "report": {
-  "path": "/users/arashs/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/reports/link/imp/impl_1_kernel_util_synthed.rpt",
-  "name": "",
-  "fileType": "TEXT",
-  "reportType": "KERNEL_UTILIZATION_SYNTHESIS",
-  "cmdId": ""
- }
-}
-</ENTRY>
-<ENTRY>
-{
- "type": "ET_Report",
- "dateTimestamp": "Fri Feb 20 16:48:47 2026",
- "timestampMillis": "1771631327780",
- "report": {
-  "path": "/users/arashs/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/reports/link/imp/impl_1_slr_util_routed.pb",
-  "name": "",
-  "fileType": "BINARY_PROTOBUF",
-  "reportType": "GLOBAL_SLR_UTIL_ROUTED",
-  "cmdId": ""
- }
-}
-</ENTRY>
-<ENTRY>
-{
- "type": "ET_Report",
- "dateTimestamp": "Fri Feb 20 16:48:47 2026",
- "timestampMillis": "1771631327781",
- "report": {
-  "path": "/users/arashs/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/reports/link/imp/impl_1_kernel_util_placed.xutil",
-  "name": "",
-  "fileType": "XUTIL",
-  "reportType": "KERNEL_UTILIZATION_PLACEMENT",
-  "cmdId": ""
- }
-}
-</ENTRY>
-<ENTRY>
-{
- "type": "ET_Report",
- "dateTimestamp": "Fri Feb 20 16:48:47 2026",
- "timestampMillis": "1771631327781",
- "report": {
-  "path": "/users/arashs/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/reports/link/imp/impl_1_full_util_placed.pb",
-  "name": "",
-  "fileType": "BINARY_PROTOBUF",
-  "reportType": "GLOBAL_UTILIZATION_PLACEMENT",
-  "cmdId": ""
- }
-}
-</ENTRY>
-<ENTRY>
-{
- "type": "ET_Report",
- "dateTimestamp": "Fri Feb 20 16:48:47 2026",
- "timestampMillis": "1771631327782",
- "report": {
-  "path": "/users/arashs/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/reports/link/imp/impl_1_kernel_util_synthed.xutil",
-  "name": "",
-  "fileType": "XUTIL",
-  "reportType": "KERNEL_UTILIZATION_SYNTHESIS",
-  "cmdId": ""
- }
-}
-</ENTRY>
-<ENTRY>
-{
- "type": "ET_Report",
- "dateTimestamp": "Fri Feb 20 16:48:47 2026",
- "timestampMillis": "1771631327783",
- "report": {
-  "path": "/users/arashs/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/reports/link/imp/impl_1_full_util_routed.pb",
-  "name": "",
-  "fileType": "BINARY_PROTOBUF",
-  "reportType": "GLOBAL_UTILIZATION_ROUTE",
-  "cmdId": ""
- }
-}
-</ENTRY>
-<ENTRY>
-{
- "type": "ET_Report",
- "dateTimestamp": "Fri Feb 20 16:48:47 2026",
- "timestampMillis": "1771631327783",
- "report": {
-  "path": "/users/arashs/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/reports/link/imp/impl_1_kernel_util_routed.xutil",
-  "name": "",
-  "fileType": "XUTIL",
-  "reportType": "KERNEL_UTILIZATION_ROUTE",
-  "cmdId": ""
- }
-}
-</ENTRY>
-<ENTRY>
-{
- "type": "ET_Report",
- "dateTimestamp": "Fri Feb 20 16:48:47 2026",
- "timestampMillis": "1771631327784",
- "report": {
-  "path": "/users/arashs/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/reports/link/imp/impl_1_slr_util_placed.rpt",
+  "path": "/home/efrink/mled/split_cu/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/reports/link/imp/impl_1_slr_util_placed.rpt",
   "name": "",
   "fileType": "TEXT",
   "reportType": "GLOBAL_SLR_UTIL_PLACED",
@@ -756,10 +598,66 @@
 <ENTRY>
 {
  "type": "ET_Report",
- "dateTimestamp": "Fri Feb 20 16:48:47 2026",
- "timestampMillis": "1771631327784",
+ "dateTimestamp": "Thu Apr  2 20:43:30 2026",
+ "timestampMillis": "1775187810065",
  "report": {
-  "path": "/users/arashs/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/reports/link/imp/impl_1_slr_util_routed.rpt",
+  "path": "/home/efrink/mled/split_cu/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/reports/link/imp/impl_1_full_util_synthed.rpt",
+  "name": "",
+  "fileType": "TEXT",
+  "reportType": "GLOBAL_UTILIZATION_SYNTHESIS",
+  "cmdId": ""
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Report",
+ "dateTimestamp": "Thu Apr  2 20:43:30 2026",
+ "timestampMillis": "1775187810070",
+ "report": {
+  "path": "/home/efrink/mled/split_cu/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/reports/link/imp/impl_1_slr_util_routed.pb",
+  "name": "",
+  "fileType": "BINARY_PROTOBUF",
+  "reportType": "GLOBAL_SLR_UTIL_ROUTED",
+  "cmdId": ""
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Report",
+ "dateTimestamp": "Thu Apr  2 20:43:30 2026",
+ "timestampMillis": "1775187810075",
+ "report": {
+  "path": "/home/efrink/mled/split_cu/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/reports/link/imp/impl_1_kernel_util_routed.rpt",
+  "name": "",
+  "fileType": "TEXT",
+  "reportType": "KERNEL_UTILIZATION_ROUTE",
+  "cmdId": ""
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Report",
+ "dateTimestamp": "Thu Apr  2 20:43:30 2026",
+ "timestampMillis": "1775187810080",
+ "report": {
+  "path": "/home/efrink/mled/split_cu/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/reports/link/imp/impl_1_kernel_util_placed.xutil",
+  "name": "",
+  "fileType": "XUTIL",
+  "reportType": "KERNEL_UTILIZATION_PLACEMENT",
+  "cmdId": ""
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Report",
+ "dateTimestamp": "Thu Apr  2 20:43:30 2026",
+ "timestampMillis": "1775187810095",
+ "report": {
+  "path": "/home/efrink/mled/split_cu/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/reports/link/imp/impl_1_slr_util_routed.rpt",
   "name": "",
   "fileType": "TEXT",
   "reportType": "GLOBAL_SLR_UTIL_ROUTED",
@@ -770,52 +668,10 @@
 <ENTRY>
 {
  "type": "ET_Report",
- "dateTimestamp": "Fri Feb 20 16:48:47 2026",
- "timestampMillis": "1771631327785",
+ "dateTimestamp": "Thu Apr  2 20:43:30 2026",
+ "timestampMillis": "1775187810100",
  "report": {
-  "path": "/users/arashs/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/reports/link/imp/impl_1_full_util_routed.rpt",
-  "name": "",
-  "fileType": "TEXT",
-  "reportType": "GLOBAL_UTILIZATION_ROUTE",
-  "cmdId": ""
- }
-}
-</ENTRY>
-<ENTRY>
-{
- "type": "ET_Report",
- "dateTimestamp": "Fri Feb 20 16:48:47 2026",
- "timestampMillis": "1771631327785",
- "report": {
-  "path": "/users/arashs/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/reports/link/imp/impl_1_full_util_synthed.pb",
-  "name": "",
-  "fileType": "BINARY_PROTOBUF",
-  "reportType": "GLOBAL_UTILIZATION_SYNTHESIS",
-  "cmdId": ""
- }
-}
-</ENTRY>
-<ENTRY>
-{
- "type": "ET_Report",
- "dateTimestamp": "Fri Feb 20 16:48:47 2026",
- "timestampMillis": "1771631327786",
- "report": {
-  "path": "/users/arashs/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/reports/link/imp/impl_1_slr_util_placed.pb",
-  "name": "",
-  "fileType": "BINARY_PROTOBUF",
-  "reportType": "GLOBAL_SLR_UTIL_PLACED",
-  "cmdId": ""
- }
-}
-</ENTRY>
-<ENTRY>
-{
- "type": "ET_Report",
- "dateTimestamp": "Fri Feb 20 16:48:47 2026",
- "timestampMillis": "1771631327786",
- "report": {
-  "path": "/users/arashs/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/reports/link/imp/impl_1_kernel_util_placed.rpt",
+  "path": "/home/efrink/mled/split_cu/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/reports/link/imp/impl_1_kernel_util_placed.rpt",
   "name": "",
   "fileType": "TEXT",
   "reportType": "KERNEL_UTILIZATION_PLACEMENT",
@@ -826,13 +682,13 @@
 <ENTRY>
 {
  "type": "ET_Report",
- "dateTimestamp": "Fri Feb 20 16:48:47 2026",
- "timestampMillis": "1771631327787",
+ "dateTimestamp": "Thu Apr  2 20:43:30 2026",
+ "timestampMillis": "1775187810106",
  "report": {
-  "path": "/users/arashs/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/reports/link/imp/impl_1_full_util_placed.rpt",
+  "path": "/home/efrink/mled/split_cu/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/reports/link/imp/impl_1_full_util_routed.rpt",
   "name": "",
   "fileType": "TEXT",
-  "reportType": "GLOBAL_UTILIZATION_PLACEMENT",
+  "reportType": "GLOBAL_UTILIZATION_ROUTE",
   "cmdId": ""
  }
 }
@@ -840,11 +696,95 @@
 <ENTRY>
 {
  "type": "ET_Report",
- "dateTimestamp": "Fri Feb 20 16:48:47 2026",
- "timestampMillis": "1771631327795",
+ "dateTimestamp": "Thu Apr  2 20:43:30 2026",
+ "timestampMillis": "1775187810111",
  "report": {
-  "path": "/users/arashs/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/reports/link/syn/ulp_memory_subsystem_0_synth_1_ulp_memory_subsystem_0_utilization_synth.rpt",
+  "path": "/home/efrink/mled/split_cu/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/reports/link/imp/impl_1_full_util_synthed.pb",
   "name": "",
+  "fileType": "BINARY_PROTOBUF",
+  "reportType": "GLOBAL_UTILIZATION_SYNTHESIS",
+  "cmdId": ""
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Report",
+ "dateTimestamp": "Thu Apr  2 20:43:30 2026",
+ "timestampMillis": "1775187810116",
+ "report": {
+  "path": "/home/efrink/mled/split_cu/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/reports/link/imp/impl_1_slr_util_placed.pb",
+  "name": "",
+  "fileType": "BINARY_PROTOBUF",
+  "reportType": "GLOBAL_SLR_UTIL_PLACED",
+  "cmdId": ""
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Report",
+ "dateTimestamp": "Thu Apr  2 20:43:30 2026",
+ "timestampMillis": "1775187810121",
+ "report": {
+  "path": "/home/efrink/mled/split_cu/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/reports/link/imp/impl_1_full_util_routed.pb",
+  "name": "",
+  "fileType": "BINARY_PROTOBUF",
+  "reportType": "GLOBAL_UTILIZATION_ROUTE",
+  "cmdId": ""
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Report",
+ "dateTimestamp": "Thu Apr  2 20:43:30 2026",
+ "timestampMillis": "1775187810126",
+ "report": {
+  "path": "/home/efrink/mled/split_cu/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/reports/link/imp/impl_1_kernel_util_synthed.xutil",
+  "name": "",
+  "fileType": "XUTIL",
+  "reportType": "KERNEL_UTILIZATION_SYNTHESIS",
+  "cmdId": ""
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Report",
+ "dateTimestamp": "Thu Apr  2 20:43:30 2026",
+ "timestampMillis": "1775187810131",
+ "report": {
+  "path": "/home/efrink/mled/split_cu/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/reports/link/imp/impl_1_kernel_util_synthed.rpt",
+  "name": "",
+  "fileType": "TEXT",
+  "reportType": "KERNEL_UTILIZATION_SYNTHESIS",
+  "cmdId": ""
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Report",
+ "dateTimestamp": "Thu Apr  2 20:43:30 2026",
+ "timestampMillis": "1775187810137",
+ "report": {
+  "path": "/home/efrink/mled/split_cu/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/reports/link/imp/impl_1_kernel_util_routed.xutil",
+  "name": "",
+  "fileType": "XUTIL",
+  "reportType": "KERNEL_UTILIZATION_ROUTE",
+  "cmdId": ""
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Report",
+ "dateTimestamp": "Thu Apr  2 20:43:30 2026",
+ "timestampMillis": "1775187810505",
+ "report": {
+  "path": "/home/efrink/mled/split_cu/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/reports/link/syn/ulp_calculate_tcp_checksum_1_0_synth_1_ulp_calculate_tcp_checksum_1_0_utilization_synth.rpt",
+  "name": "calculate_tcp_checksum",
   "fileType": "TEXT",
   "reportType": "GLOBAL_REPORT_UTILIZATION",
   "cmdId": ""
@@ -854,11 +794,11 @@
 <ENTRY>
 {
  "type": "ET_Report",
- "dateTimestamp": "Fri Feb 20 16:48:47 2026",
- "timestampMillis": "1771631327795",
+ "dateTimestamp": "Thu Apr  2 20:43:30 2026",
+ "timestampMillis": "1775187810510",
  "report": {
-  "path": "/users/arashs/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/reports/link/syn/ulp_xbar_2_synth_1_ulp_xbar_2_utilization_synth.rpt",
-  "name": "",
+  "path": "/home/efrink/mled/split_cu/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/reports/link/syn/ulp_calculate_sha256_1_0_synth_1_ulp_calculate_sha256_1_0_utilization_synth.rpt",
+  "name": "calculate_sha256",
   "fileType": "TEXT",
   "reportType": "GLOBAL_REPORT_UTILIZATION",
   "cmdId": ""
@@ -868,11 +808,11 @@
 <ENTRY>
 {
  "type": "ET_Report",
- "dateTimestamp": "Fri Feb 20 16:48:47 2026",
- "timestampMillis": "1771631327796",
+ "dateTimestamp": "Thu Apr  2 20:43:30 2026",
+ "timestampMillis": "1775187810515",
  "report": {
-  "path": "/users/arashs/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/reports/link/syn/ulp_xbar_1_synth_1_ulp_xbar_1_utilization_synth.rpt",
-  "name": "",
+  "path": "/home/efrink/mled/split_cu/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/reports/link/syn/ulp_calculate_crc_1_0_synth_1_ulp_calculate_crc_1_0_utilization_synth.rpt",
+  "name": "calculate_crc",
   "fileType": "TEXT",
   "reportType": "GLOBAL_REPORT_UTILIZATION",
   "cmdId": ""
@@ -882,108 +822,66 @@
 <ENTRY>
 {
  "type": "ET_Report",
- "dateTimestamp": "Fri Feb 20 16:48:47 2026",
- "timestampMillis": "1771631327796",
+ "dateTimestamp": "Thu Apr  2 20:43:30 2026",
+ "timestampMillis": "1775187810522",
  "report": {
-  "path": "/users/arashs/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/reports/link/syn/bd_b35e_interconnect_DDR4_MEM00_0_synth_1_bd_b35e_interconnect_DDR4_MEM00_0_utilization_synth.rpt",
-  "name": "",
-  "fileType": "TEXT",
-  "reportType": "GLOBAL_REPORT_UTILIZATION",
-  "cmdId": ""
- }
-}
-</ENTRY>
-<ENTRY>
-{
- "type": "ET_Report",
- "dateTimestamp": "Fri Feb 20 16:48:47 2026",
- "timestampMillis": "1771631327797",
- "report": {
-  "path": "/users/arashs/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/reports/link/syn/bd_b35e_interconnect_DDR4_MEM01_0_synth_1_bd_b35e_interconnect_DDR4_MEM01_0_utilization_synth.rpt",
-  "name": "",
-  "fileType": "TEXT",
-  "reportType": "GLOBAL_REPORT_UTILIZATION",
-  "cmdId": ""
- }
-}
-</ENTRY>
-<ENTRY>
-{
- "type": "ET_Report",
- "dateTimestamp": "Fri Feb 20 16:48:47 2026",
- "timestampMillis": "1771631327797",
- "report": {
-  "path": "/users/arashs/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/reports/link/syn/ulp_tier2_xbar_2_0_synth_1_ulp_tier2_xbar_2_0_utilization_synth.rpt",
-  "name": "",
-  "fileType": "TEXT",
-  "reportType": "GLOBAL_REPORT_UTILIZATION",
-  "cmdId": ""
- }
-}
-</ENTRY>
-<ENTRY>
-{
- "type": "ET_Report",
- "dateTimestamp": "Fri Feb 20 16:48:47 2026",
- "timestampMillis": "1771631327798",
- "report": {
-  "path": "/users/arashs/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/reports/link/imp/impl_1_system_diagram.json",
+  "path": "/home/efrink/mled/split_cu/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/reports/link/imp/impl_1_system_diagram.json",
   "name": "",
   "fileType": "JSON",
   "reportType": "SYSTEM_DIAGRAM_PLUS",
-  "cmdId": "bdecffe2-49a8-46ed-a2cf-5952ca5a80ef"
+  "cmdId": "8e7db7de-6ba5-493a-a727-cacb09625000"
  }
 }
 </ENTRY>
 <ENTRY>
 {
  "type": "ET_Report",
- "dateTimestamp": "Fri Feb 20 16:48:47 2026",
- "timestampMillis": "1771631327824",
+ "dateTimestamp": "Thu Apr  2 20:43:30 2026",
+ "timestampMillis": "1775187810594",
  "report": {
-  "path": "/users/arashs/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/reports/link/imp/impl_1_hw_bb_locked_timing_summary_routed.rpt",
+  "path": "/home/efrink/mled/split_cu/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/reports/link/imp/impl_1_hw_bb_locked_timing_summary_routed.rpt",
   "name": "",
   "fileType": "TEXT",
   "reportType": "GLOBAL_REPORT_TIMING_SUMMARY",
-  "cmdId": "bdecffe2-49a8-46ed-a2cf-5952ca5a80ef"
+  "cmdId": "8e7db7de-6ba5-493a-a727-cacb09625000"
  }
 }
 </ENTRY>
 <ENTRY>
 {
  "type": "ET_Report",
- "dateTimestamp": "Fri Feb 20 16:48:47 2026",
- "timestampMillis": "1771631327847",
+ "dateTimestamp": "Thu Apr  2 20:43:30 2026",
+ "timestampMillis": "1775187810655",
  "report": {
-  "path": "/users/arashs/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/reports/link/imp/impl_1_hw_bb_locked_timing_summary_routed.rpx",
+  "path": "/home/efrink/mled/split_cu/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/reports/link/imp/impl_1_hw_bb_locked_timing_summary_routed.rpx",
   "name": "",
   "fileType": "BINARY_PROTOBUF",
   "reportType": "GLOBAL_REPORT_TIMING_SUMMARY",
-  "cmdId": "bdecffe2-49a8-46ed-a2cf-5952ca5a80ef"
+  "cmdId": "8e7db7de-6ba5-493a-a727-cacb09625000"
  }
 }
 </ENTRY>
 <ENTRY>
 {
  "type": "ET_Report",
- "dateTimestamp": "Fri Feb 20 16:48:47 2026",
- "timestampMillis": "1771631327848",
+ "dateTimestamp": "Thu Apr  2 20:43:30 2026",
+ "timestampMillis": "1775187810660",
  "report": {
-  "path": "/users/arashs/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/reports/link/imp/impl_1_hw_bb_locked_timing_summary_routed.rpv",
+  "path": "/home/efrink/mled/split_cu/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/reports/link/imp/impl_1_hw_bb_locked_timing_summary_routed.rpv",
   "name": "",
   "fileType": "BINARY_PROTOBUF",
   "reportType": "GLOBAL_REPORT_TIMING_SUMMARY_CONCISE",
-  "cmdId": "bdecffe2-49a8-46ed-a2cf-5952ca5a80ef"
+  "cmdId": "8e7db7de-6ba5-493a-a727-cacb09625000"
  }
 }
 </ENTRY>
 <ENTRY>
 {
  "type": "ET_Status",
- "dateTimestamp": "Fri Feb 20 16:48:47 2026",
- "timestampMillis": "1771631327887",
+ "dateTimestamp": "Thu Apr  2 20:43:30 2026",
+ "timestampMillis": "1775187810697",
  "status": {
-  "cmdId": "9b1a045a-b715-469e-a697-7ad089cbdb4e",
+  "cmdId": "e1f94631-1acd-4931-bf29-5a1bcfd610be",
   "state": "CS_PASSED"
  }
 }
@@ -991,10 +889,10 @@
 <ENTRY>
 {
  "type": "ET_Status",
- "dateTimestamp": "Fri Feb 20 16:48:47 2026",
- "timestampMillis": "1771631327909",
+ "dateTimestamp": "Thu Apr  2 20:43:30 2026",
+ "timestampMillis": "1775187810712",
  "status": {
-  "cmdId": "59ffb5e9-2796-4538-b4d1-cc3dddd7b63b",
+  "cmdId": "00685ec3-c854-424c-acab-f4434bf9dd14",
   "state": "CS_PASSED"
  }
 }
@@ -1002,26 +900,26 @@
 <ENTRY>
 {
  "type": "ET_SubCmdStep",
- "dateTimestamp": "Fri Feb 20 16:48:47 2026",
- "timestampMillis": "1771631327921",
+ "dateTimestamp": "Thu Apr  2 20:43:30 2026",
+ "timestampMillis": "1775187810777",
  "buildStep": {
-  "cmdId": "1c6211b0-52aa-4134-9020-06d612155713",
+  "cmdId": "53b1c194-5b99-46d4-b346-228b51fe9d8d",
   "name": "rtdgen",
   "logFile": "",
   "commandLine": "rtdgen",
   "args": [],
   "iniFiles": [],
-  "cwd": "/users/arashs/U280_CRC_Accelerator"
+  "cwd": "/home/efrink/mled/split_cu/U280_CRC_Accelerator"
  }
 }
 </ENTRY>
 <ENTRY>
 {
  "type": "ET_Status",
- "dateTimestamp": "Fri Feb 20 16:48:47 2026",
- "timestampMillis": "1771631327922",
+ "dateTimestamp": "Thu Apr  2 20:43:30 2026",
+ "timestampMillis": "1775187810777",
  "status": {
-  "cmdId": "1c6211b0-52aa-4134-9020-06d612155713",
+  "cmdId": "53b1c194-5b99-46d4-b346-228b51fe9d8d",
   "state": "CS_RUNNING"
  }
 }
@@ -1029,10 +927,10 @@
 <ENTRY>
 {
  "type": "ET_Report",
- "dateTimestamp": "Fri Feb 20 16:48:47 2026",
- "timestampMillis": "1771631327931",
+ "dateTimestamp": "Thu Apr  2 20:43:30 2026",
+ "timestampMillis": "1775187810787",
  "report": {
-  "path": "/users/arashs/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/link/int/kernel.link_xml.rtd",
+  "path": "/home/efrink/mled/split_cu/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/link/int/kernel.link_xml.rtd",
   "name": "",
   "fileType": "JSON",
   "reportType": "XCLBIN_INFO",
@@ -1043,37 +941,37 @@
 <ENTRY>
 {
  "type": "ET_SubCmdStep",
- "dateTimestamp": "Fri Feb 20 16:48:47 2026",
- "timestampMillis": "1771631327933",
+ "dateTimestamp": "Thu Apr  2 20:43:30 2026",
+ "timestampMillis": "1775187810795",
  "buildStep": {
-  "cmdId": "99609086-670f-4746-80f9-3a87a8685baa",
+  "cmdId": "049fbba8-580d-48a2-b001-6dda31d66c55",
   "name": "cf2sw",
   "logFile": "",
-  "commandLine": "cf2sw -a /users/arashs/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/link/int/address_map.xml -sdsl /users/arashs/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/link/int/sdsl.dat -xclbin /users/arashs/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/link/int/xclbin_orig.xml -rtd /users/arashs/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/link/int/kernel.link.rtd -o /users/arashs/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/link/int/kernel.link.xml",
+  "commandLine": "cf2sw -a /home/efrink/mled/split_cu/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/link/int/address_map.xml -sdsl /home/efrink/mled/split_cu/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/link/int/sdsl.dat -xclbin /home/efrink/mled/split_cu/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/link/int/xclbin_orig.xml -rtd /home/efrink/mled/split_cu/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/link/int/kernel.link.rtd -o /home/efrink/mled/split_cu/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/link/int/kernel.link.xml",
   "args": [
    "-a",
-   "/users/arashs/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/link/int/address_map.xml",
+   "/home/efrink/mled/split_cu/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/link/int/address_map.xml",
    "-sdsl",
-   "/users/arashs/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/link/int/sdsl.dat",
+   "/home/efrink/mled/split_cu/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/link/int/sdsl.dat",
    "-xclbin",
-   "/users/arashs/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/link/int/xclbin_orig.xml",
+   "/home/efrink/mled/split_cu/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/link/int/xclbin_orig.xml",
    "-rtd",
-   "/users/arashs/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/link/int/kernel.link.rtd",
+   "/home/efrink/mled/split_cu/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/link/int/kernel.link.rtd",
    "-o",
-   "/users/arashs/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/link/int/kernel.link.xml"
+   "/home/efrink/mled/split_cu/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/link/int/kernel.link.xml"
   ],
   "iniFiles": [],
-  "cwd": "/users/arashs/U280_CRC_Accelerator"
+  "cwd": "/home/efrink/mled/split_cu/U280_CRC_Accelerator"
  }
 }
 </ENTRY>
 <ENTRY>
 {
  "type": "ET_Status",
- "dateTimestamp": "Fri Feb 20 16:48:47 2026",
- "timestampMillis": "1771631327933",
+ "dateTimestamp": "Thu Apr  2 20:43:30 2026",
+ "timestampMillis": "1775187810795",
  "status": {
-  "cmdId": "99609086-670f-4746-80f9-3a87a8685baa",
+  "cmdId": "049fbba8-580d-48a2-b001-6dda31d66c55",
   "state": "CS_RUNNING"
  }
 }
@@ -1081,10 +979,10 @@
 <ENTRY>
 {
  "type": "ET_Status",
- "dateTimestamp": "Fri Feb 20 16:49:03 2026",
- "timestampMillis": "1771631343948",
+ "dateTimestamp": "Thu Apr  2 20:43:40 2026",
+ "timestampMillis": "1775187820377",
  "status": {
-  "cmdId": "99609086-670f-4746-80f9-3a87a8685baa",
+  "cmdId": "049fbba8-580d-48a2-b001-6dda31d66c55",
   "state": "CS_PASSED"
  }
 }
@@ -1092,29 +990,29 @@
 <ENTRY>
 {
  "type": "ET_SubCmdStep",
- "dateTimestamp": "Fri Feb 20 16:49:03 2026",
- "timestampMillis": "1771631343949",
+ "dateTimestamp": "Thu Apr  2 20:43:40 2026",
+ "timestampMillis": "1775187820378",
  "buildStep": {
-  "cmdId": "7302f6ea-3cf2-4ce6-9e89-a32d2264ae5e",
+  "cmdId": "a53e3bc4-4cad-4c4e-9067-d6246232ab39",
   "name": "rtdgen",
   "logFile": "",
   "commandLine": "writeSystemDiagram",
   "args": [
-   "/users/arashs/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/link/int/kernel.link.rtd",
-   "/users/arashs/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/link/int/systemDiagramModelSlrBaseAddress.json"
+   "/home/efrink/mled/split_cu/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/link/int/kernel.link.rtd",
+   "/home/efrink/mled/split_cu/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/link/int/systemDiagramModelSlrBaseAddress.json"
   ],
   "iniFiles": [],
-  "cwd": "/users/arashs/U280_CRC_Accelerator"
+  "cwd": "/home/efrink/mled/split_cu/U280_CRC_Accelerator"
  }
 }
 </ENTRY>
 <ENTRY>
 {
  "type": "ET_Status",
- "dateTimestamp": "Fri Feb 20 16:49:03 2026",
- "timestampMillis": "1771631343950",
+ "dateTimestamp": "Thu Apr  2 20:43:40 2026",
+ "timestampMillis": "1775187820378",
  "status": {
-  "cmdId": "7302f6ea-3cf2-4ce6-9e89-a32d2264ae5e",
+  "cmdId": "a53e3bc4-4cad-4c4e-9067-d6246232ab39",
   "state": "CS_RUNNING"
  }
 }
@@ -1122,10 +1020,10 @@
 <ENTRY>
 {
  "type": "ET_Report",
- "dateTimestamp": "Fri Feb 20 16:49:03 2026",
- "timestampMillis": "1771631343968",
+ "dateTimestamp": "Thu Apr  2 20:43:40 2026",
+ "timestampMillis": "1775187820388",
  "report": {
-  "path": "/users/arashs/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/link/int/systemDiagramModelSlrBaseAddress.json",
+  "path": "/home/efrink/mled/split_cu/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/link/int/systemDiagramModelSlrBaseAddress.json",
   "name": "",
   "fileType": "JSON",
   "reportType": "SYSTEM_DIAGRAM_PLUS",
@@ -1136,10 +1034,10 @@
 <ENTRY>
 {
  "type": "ET_Status",
- "dateTimestamp": "Fri Feb 20 16:49:03 2026",
- "timestampMillis": "1771631343968",
+ "dateTimestamp": "Thu Apr  2 20:43:40 2026",
+ "timestampMillis": "1775187820389",
  "status": {
-  "cmdId": "7302f6ea-3cf2-4ce6-9e89-a32d2264ae5e",
+  "cmdId": "a53e3bc4-4cad-4c4e-9067-d6246232ab39",
   "state": "CS_PASSED"
  }
 }
@@ -1147,28 +1045,28 @@
 <ENTRY>
 {
  "type": "ET_SubCmdStep",
- "dateTimestamp": "Fri Feb 20 16:49:03 2026",
- "timestampMillis": "1771631343968",
+ "dateTimestamp": "Thu Apr  2 20:43:40 2026",
+ "timestampMillis": "1775187820389",
  "buildStep": {
-  "cmdId": "f088390b-13ce-4dea-997d-2d786eb9362a",
+  "cmdId": "978802c1-3388-4f42-8849-01fcd815b1a1",
   "name": "rtdgen",
   "logFile": "",
   "commandLine": "writeAutomationSummary",
   "args": [
-   "/users/arashs/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/link/int/automation_summary.txt"
+   "/home/efrink/mled/split_cu/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/link/int/automation_summary.txt"
   ],
   "iniFiles": [],
-  "cwd": "/users/arashs/U280_CRC_Accelerator"
+  "cwd": "/home/efrink/mled/split_cu/U280_CRC_Accelerator"
  }
 }
 </ENTRY>
 <ENTRY>
 {
  "type": "ET_Status",
- "dateTimestamp": "Fri Feb 20 16:49:03 2026",
- "timestampMillis": "1771631343969",
+ "dateTimestamp": "Thu Apr  2 20:43:40 2026",
+ "timestampMillis": "1775187820390",
  "status": {
-  "cmdId": "f088390b-13ce-4dea-997d-2d786eb9362a",
+  "cmdId": "978802c1-3388-4f42-8849-01fcd815b1a1",
   "state": "CS_RUNNING"
  }
 }
@@ -1176,10 +1074,10 @@
 <ENTRY>
 {
  "type": "ET_Report",
- "dateTimestamp": "Fri Feb 20 16:49:03 2026",
- "timestampMillis": "1771631343972",
+ "dateTimestamp": "Thu Apr  2 20:43:40 2026",
+ "timestampMillis": "1775187820400",
  "report": {
-  "path": "/users/arashs/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/link/int/automation_summary.txt",
+  "path": "/home/efrink/mled/split_cu/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/link/int/automation_summary.txt",
   "name": "",
   "fileType": "TEXT",
   "reportType": "VITIS_DESIGN_FLOW",
@@ -1190,10 +1088,10 @@
 <ENTRY>
 {
  "type": "ET_Status",
- "dateTimestamp": "Fri Feb 20 16:49:03 2026",
- "timestampMillis": "1771631343972",
+ "dateTimestamp": "Thu Apr  2 20:43:40 2026",
+ "timestampMillis": "1775187820400",
  "status": {
-  "cmdId": "f088390b-13ce-4dea-997d-2d786eb9362a",
+  "cmdId": "978802c1-3388-4f42-8849-01fcd815b1a1",
   "state": "CS_PASSED"
  }
 }
@@ -1201,10 +1099,10 @@
 <ENTRY>
 {
  "type": "ET_Status",
- "dateTimestamp": "Fri Feb 20 16:49:03 2026",
- "timestampMillis": "1771631343973",
+ "dateTimestamp": "Thu Apr  2 20:43:40 2026",
+ "timestampMillis": "1775187820407",
  "status": {
-  "cmdId": "1c6211b0-52aa-4134-9020-06d612155713",
+  "cmdId": "53b1c194-5b99-46d4-b346-228b51fe9d8d",
   "state": "CS_PASSED"
  }
 }
@@ -1212,50 +1110,50 @@
 <ENTRY>
 {
  "type": "ET_SubCmdStep",
- "dateTimestamp": "Fri Feb 20 16:49:03 2026",
- "timestampMillis": "1771631343977",
+ "dateTimestamp": "Thu Apr  2 20:43:40 2026",
+ "timestampMillis": "1775187820420",
  "buildStep": {
-  "cmdId": "ea4da8be-b32c-4232-a34a-14f532315b1a",
+  "cmdId": "412b3253-9c0b-45de-8aa1-fc822b876530",
   "name": "xclbinutil",
   "logFile": "",
-  "commandLine": "xclbinutil --add-section BITSTREAM:RAW:/users/arashs/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/link/int/partial.bit --force --target hw --key-value SYS:dfx_enable:true --add-section :JSON:/users/arashs/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/link/int/kernel.link.rtd --append-section :JSON:/users/arashs/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/link/int/appendSection.rtd --add-section CLOCK_FREQ_TOPOLOGY:JSON:/users/arashs/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/link/int/kernel.link_xml.rtd --add-section BUILD_METADATA:JSON:/users/arashs/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/link/int/kernel.link_build.rtd --add-section EMBEDDED_METADATA:RAW:/users/arashs/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/link/int/kernel.link.xml --add-section SYSTEM_METADATA:RAW:/users/arashs/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/link/int/systemDiagramModelSlrBaseAddress.json --key-value SYS:PlatformVBNV:xilinx_u280_gen3x16_xdma_1_202211_1 --output /users/arashs/U280_CRC_Accelerator/./build_dir.hw.xilinx_u280_gen3x16_xdma_1_202211_1/kernel.link.xclbin",
+  "commandLine": "xclbinutil --add-section BITSTREAM:RAW:/home/efrink/mled/split_cu/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/link/int/partial.bit --force --target hw --key-value SYS:dfx_enable:true --add-section :JSON:/home/efrink/mled/split_cu/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/link/int/kernel.link.rtd --append-section :JSON:/home/efrink/mled/split_cu/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/link/int/appendSection.rtd --add-section CLOCK_FREQ_TOPOLOGY:JSON:/home/efrink/mled/split_cu/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/link/int/kernel.link_xml.rtd --add-section BUILD_METADATA:JSON:/home/efrink/mled/split_cu/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/link/int/kernel.link_build.rtd --add-section EMBEDDED_METADATA:RAW:/home/efrink/mled/split_cu/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/link/int/kernel.link.xml --add-section SYSTEM_METADATA:RAW:/home/efrink/mled/split_cu/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/link/int/systemDiagramModelSlrBaseAddress.json --key-value SYS:PlatformVBNV:xilinx_u280_gen3x16_xdma_1_202211_1 --output /home/efrink/mled/split_cu/U280_CRC_Accelerator/./build_dir.hw.xilinx_u280_gen3x16_xdma_1_202211_1/kernel.link.xclbin",
   "args": [
    "--add-section",
-   "BITSTREAM:RAW:/users/arashs/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/link/int/partial.bit",
+   "BITSTREAM:RAW:/home/efrink/mled/split_cu/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/link/int/partial.bit",
    "--force",
    "--target",
    "hw",
    "--key-value",
    "SYS:dfx_enable:true",
    "--add-section",
-   ":JSON:/users/arashs/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/link/int/kernel.link.rtd",
+   ":JSON:/home/efrink/mled/split_cu/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/link/int/kernel.link.rtd",
    "--append-section",
-   ":JSON:/users/arashs/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/link/int/appendSection.rtd",
+   ":JSON:/home/efrink/mled/split_cu/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/link/int/appendSection.rtd",
    "--add-section",
-   "CLOCK_FREQ_TOPOLOGY:JSON:/users/arashs/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/link/int/kernel.link_xml.rtd",
+   "CLOCK_FREQ_TOPOLOGY:JSON:/home/efrink/mled/split_cu/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/link/int/kernel.link_xml.rtd",
    "--add-section",
-   "BUILD_METADATA:JSON:/users/arashs/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/link/int/kernel.link_build.rtd",
+   "BUILD_METADATA:JSON:/home/efrink/mled/split_cu/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/link/int/kernel.link_build.rtd",
    "--add-section",
-   "EMBEDDED_METADATA:RAW:/users/arashs/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/link/int/kernel.link.xml",
+   "EMBEDDED_METADATA:RAW:/home/efrink/mled/split_cu/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/link/int/kernel.link.xml",
    "--add-section",
-   "SYSTEM_METADATA:RAW:/users/arashs/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/link/int/systemDiagramModelSlrBaseAddress.json",
+   "SYSTEM_METADATA:RAW:/home/efrink/mled/split_cu/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/link/int/systemDiagramModelSlrBaseAddress.json",
    "--key-value",
    "SYS:PlatformVBNV:xilinx_u280_gen3x16_xdma_1_202211_1",
    "--output",
-   "/users/arashs/U280_CRC_Accelerator/./build_dir.hw.xilinx_u280_gen3x16_xdma_1_202211_1/kernel.link.xclbin"
+   "/home/efrink/mled/split_cu/U280_CRC_Accelerator/./build_dir.hw.xilinx_u280_gen3x16_xdma_1_202211_1/kernel.link.xclbin"
   ],
   "iniFiles": [],
-  "cwd": "/users/arashs/U280_CRC_Accelerator"
+  "cwd": "/home/efrink/mled/split_cu/U280_CRC_Accelerator"
  }
 }
 </ENTRY>
 <ENTRY>
 {
  "type": "ET_Status",
- "dateTimestamp": "Fri Feb 20 16:49:03 2026",
- "timestampMillis": "1771631343977",
+ "dateTimestamp": "Thu Apr  2 20:43:40 2026",
+ "timestampMillis": "1775187820420",
  "status": {
-  "cmdId": "ea4da8be-b32c-4232-a34a-14f532315b1a",
+  "cmdId": "412b3253-9c0b-45de-8aa1-fc822b876530",
   "state": "CS_RUNNING"
  }
 }
@@ -1263,10 +1161,10 @@
 <ENTRY>
 {
  "type": "ET_Status",
- "dateTimestamp": "Fri Feb 20 16:49:04 2026",
- "timestampMillis": "1771631344252",
+ "dateTimestamp": "Thu Apr  2 20:43:41 2026",
+ "timestampMillis": "1775187821101",
  "status": {
-  "cmdId": "ea4da8be-b32c-4232-a34a-14f532315b1a",
+  "cmdId": "412b3253-9c0b-45de-8aa1-fc822b876530",
   "state": "CS_PASSED"
  }
 }
@@ -1274,33 +1172,33 @@
 <ENTRY>
 {
  "type": "ET_SubCmdStep",
- "dateTimestamp": "Fri Feb 20 16:49:04 2026",
- "timestampMillis": "1771631344256",
+ "dateTimestamp": "Thu Apr  2 20:43:41 2026",
+ "timestampMillis": "1775187821109",
  "buildStep": {
-  "cmdId": "e286ebcc-5cf3-4054-83ba-949c724e5780",
+  "cmdId": "a74a3cab-0e48-4c89-a68d-3db982c1bdc3",
   "name": "xclbinutilinfo",
   "logFile": "",
-  "commandLine": "xclbinutil --quiet --force --info /users/arashs/U280_CRC_Accelerator/./build_dir.hw.xilinx_u280_gen3x16_xdma_1_202211_1/kernel.link.xclbin.info --input /users/arashs/U280_CRC_Accelerator/./build_dir.hw.xilinx_u280_gen3x16_xdma_1_202211_1/kernel.link.xclbin",
+  "commandLine": "xclbinutil --quiet --force --info /home/efrink/mled/split_cu/U280_CRC_Accelerator/./build_dir.hw.xilinx_u280_gen3x16_xdma_1_202211_1/kernel.link.xclbin.info --input /home/efrink/mled/split_cu/U280_CRC_Accelerator/./build_dir.hw.xilinx_u280_gen3x16_xdma_1_202211_1/kernel.link.xclbin",
   "args": [
    "--quiet",
    "--force",
    "--info",
-   "/users/arashs/U280_CRC_Accelerator/./build_dir.hw.xilinx_u280_gen3x16_xdma_1_202211_1/kernel.link.xclbin.info",
+   "/home/efrink/mled/split_cu/U280_CRC_Accelerator/./build_dir.hw.xilinx_u280_gen3x16_xdma_1_202211_1/kernel.link.xclbin.info",
    "--input",
-   "/users/arashs/U280_CRC_Accelerator/./build_dir.hw.xilinx_u280_gen3x16_xdma_1_202211_1/kernel.link.xclbin"
+   "/home/efrink/mled/split_cu/U280_CRC_Accelerator/./build_dir.hw.xilinx_u280_gen3x16_xdma_1_202211_1/kernel.link.xclbin"
   ],
   "iniFiles": [],
-  "cwd": "/users/arashs/U280_CRC_Accelerator"
+  "cwd": "/home/efrink/mled/split_cu/U280_CRC_Accelerator"
  }
 }
 </ENTRY>
 <ENTRY>
 {
  "type": "ET_Status",
- "dateTimestamp": "Fri Feb 20 16:49:04 2026",
- "timestampMillis": "1771631344256",
+ "dateTimestamp": "Thu Apr  2 20:43:41 2026",
+ "timestampMillis": "1775187821109",
  "status": {
-  "cmdId": "e286ebcc-5cf3-4054-83ba-949c724e5780",
+  "cmdId": "a74a3cab-0e48-4c89-a68d-3db982c1bdc3",
   "state": "CS_RUNNING"
  }
 }
@@ -1308,10 +1206,10 @@
 <ENTRY>
 {
  "type": "ET_Status",
- "dateTimestamp": "Fri Feb 20 16:49:04 2026",
- "timestampMillis": "1771631344943",
+ "dateTimestamp": "Thu Apr  2 20:43:41 2026",
+ "timestampMillis": "1775187821973",
  "status": {
-  "cmdId": "e286ebcc-5cf3-4054-83ba-949c724e5780",
+  "cmdId": "a74a3cab-0e48-4c89-a68d-3db982c1bdc3",
   "state": "CS_PASSED"
  }
 }
@@ -1319,26 +1217,26 @@
 <ENTRY>
 {
  "type": "ET_SubCmdStep",
- "dateTimestamp": "Fri Feb 20 16:49:04 2026",
- "timestampMillis": "1771631344946",
+ "dateTimestamp": "Thu Apr  2 20:43:41 2026",
+ "timestampMillis": "1775187821992",
  "buildStep": {
-  "cmdId": "9df66554-c8db-447c-bafe-ca088ea07a8c",
+  "cmdId": "265b183b-67f1-43f2-a3ab-1f4213f02e58",
   "name": "generate_sc_driver",
   "logFile": "",
   "commandLine": "",
   "args": [],
   "iniFiles": [],
-  "cwd": "/users/arashs/U280_CRC_Accelerator"
+  "cwd": "/home/efrink/mled/split_cu/U280_CRC_Accelerator"
  }
 }
 </ENTRY>
 <ENTRY>
 {
  "type": "ET_Status",
- "dateTimestamp": "Fri Feb 20 16:49:04 2026",
- "timestampMillis": "1771631344947",
+ "dateTimestamp": "Thu Apr  2 20:43:41 2026",
+ "timestampMillis": "1775187821992",
  "status": {
-  "cmdId": "9df66554-c8db-447c-bafe-ca088ea07a8c",
+  "cmdId": "265b183b-67f1-43f2-a3ab-1f4213f02e58",
   "state": "CS_RUNNING"
  }
 }
@@ -1346,10 +1244,10 @@
 <ENTRY>
 {
  "type": "ET_Status",
- "dateTimestamp": "Fri Feb 20 16:49:04 2026",
- "timestampMillis": "1771631344948",
+ "dateTimestamp": "Thu Apr  2 20:43:41 2026",
+ "timestampMillis": "1775187821998",
  "status": {
-  "cmdId": "9df66554-c8db-447c-bafe-ca088ea07a8c",
+  "cmdId": "265b183b-67f1-43f2-a3ab-1f4213f02e58",
   "state": "CS_PASSED"
  }
 }
@@ -1357,10 +1255,10 @@
 <ENTRY>
 {
  "type": "ET_Report",
- "dateTimestamp": "Fri Feb 20 16:49:05 2026",
- "timestampMillis": "1771631345166",
+ "dateTimestamp": "Thu Apr  2 20:43:42 2026",
+ "timestampMillis": "1775187822151",
  "report": {
-  "path": "/users/arashs/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/reports/link/system_estimate_kernel.link.xtxt",
+  "path": "/home/efrink/mled/split_cu/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/reports/link/system_estimate_kernel.link.xtxt",
   "name": "",
   "fileType": "TEXT",
   "reportType": "GLOBAL_SYSTEM_ESTIMATE",
@@ -1371,10 +1269,38 @@
 <ENTRY>
 {
  "type": "ET_Report",
- "dateTimestamp": "Fri Feb 20 16:49:05 2026",
- "timestampMillis": "1771631345171",
+ "dateTimestamp": "Thu Apr  2 20:43:42 2026",
+ "timestampMillis": "1775187822204",
  "report": {
-  "path": "/users/arashs/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/logs/optraceViewer.html",
+  "path": "/home/efrink/mled/split_cu/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/reports/link/v++_link_kernel.link_guidance.html",
+  "name": "",
+  "fileType": "HTML",
+  "reportType": "GLOBAL_RULECHECK_GUIDANCE",
+  "cmdId": ""
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Report",
+ "dateTimestamp": "Thu Apr  2 20:43:42 2026",
+ "timestampMillis": "1775187822204",
+ "report": {
+  "path": "/home/efrink/mled/split_cu/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/v++_link_kernel.link_guidance.pb",
+  "name": "",
+  "fileType": "BINARY_PROTOBUF",
+  "reportType": "GLOBAL_RULECHECK_GUIDANCE",
+  "cmdId": ""
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Report",
+ "dateTimestamp": "Thu Apr  2 20:43:42 2026",
+ "timestampMillis": "1775187822211",
+ "report": {
+  "path": "/home/efrink/mled/split_cu/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/logs/optraceViewer.html",
   "name": "",
   "fileType": "HTML",
   "reportType": "OPERATION_TRACE",
@@ -1385,39 +1311,11 @@
 <ENTRY>
 {
  "type": "ET_Status",
- "dateTimestamp": "Fri Feb 20 16:49:05 2026",
- "timestampMillis": "1771631345172",
+ "dateTimestamp": "Thu Apr  2 20:43:42 2026",
+ "timestampMillis": "1775187822218",
  "status": {
-  "cmdId": "f5fcf41e-c4b7-484c-ad71-b7b9165e229d",
+  "cmdId": "2052f20d-d78e-4f6f-843c-d521c7fa431a",
   "state": "CS_PASSED"
- }
-}
-</ENTRY>
-<ENTRY>
-{
- "type": "ET_Report",
- "dateTimestamp": "Fri Feb 20 16:49:05 2026",
- "timestampMillis": "1771631345261",
- "report": {
-  "path": "/users/arashs/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/reports/link/v++_link_kernel.link_guidance.html",
-  "name": "",
-  "fileType": "HTML",
-  "reportType": "GLOBAL_RULECHECK_GUIDANCE",
-  "cmdId": ""
- }
-}
-</ENTRY>
-<ENTRY>
-{
- "type": "ET_Report",
- "dateTimestamp": "Fri Feb 20 16:49:05 2026",
- "timestampMillis": "1771631345262",
- "report": {
-  "path": "/users/arashs/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/v++_link_kernel.link_guidance.pb3",
-  "name": "",
-  "fileType": "BINARY_PROTOBUF",
-  "reportType": "GLOBAL_RULECHECK_GUIDANCE",
-  "cmdId": ""
  }
 }
 </ENTRY>

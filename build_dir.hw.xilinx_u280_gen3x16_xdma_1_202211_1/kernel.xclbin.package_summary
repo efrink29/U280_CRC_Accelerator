@@ -1,6 +1,6 @@
 <ENTRY>
 {
- "thisFile": "/users/arashs/U280_CRC_Accelerator/build_dir.hw.xilinx_u280_gen3x16_xdma_1_202211_1/kernel.xclbin.package_summary",
+ "thisFile": "/home/efrink/mled/split_cu/U280_CRC_Accelerator/build_dir.hw.xilinx_u280_gen3x16_xdma_1_202211_1/kernel.xclbin.package_summary",
  "connectId": "",
  "serverToken": "",
  "timestamp": "0"
@@ -9,13 +9,13 @@
 <ENTRY>
 {
  "type": "ET_CmdStep",
- "dateTimestamp": "Fri Feb 20 16:49:16 2026",
- "timestampMillis": "1771631356817",
+ "dateTimestamp": "Thu Apr  2 20:43:53 2026",
+ "timestampMillis": "1775187833688",
  "buildStep": {
-  "cmdId": "34781213-b8cd-4d01-85ca-99ad6b2a08ea",
+  "cmdId": "1d96017d-a36e-43af-a178-d9c8c4cab79d",
   "name": "v++",
-  "logFile": "/users/arashs/U280_CRC_Accelerator/_x/package/package.steps.log",
-  "commandLine": "/share/Xilinx/Vitis/2023.1/bin/unwrapped/lnx64.o/v++  --vivado.prop \"run.__KERNEL__.{STEPS.SYNTH_DESIGN.ARGS.MORE OPTIONS}={-directive sdx_optimization_effort_high}\" --advanced.misc \"report=type report_timing_summary name impl_report_timing_summary_route_design_summary steps {route_design} runs {impl_1} options {-max_paths 10}\" --advanced.misc \"report=type report_timing_summary name impl_report_timing_summary_post_route_phys_opt_design_summary steps {post_route_phys_opt_design} runs {impl_1} options {-max_paths 10}\" -p ./build_dir.hw.xilinx_u280_gen3x16_xdma_1_202211_1/kernel.link.xclbin --save-temps -t hw --platform xilinx_u280_gen3x16_xdma_1_202211_1 --package.out_dir ./package.hw -o ./build_dir.hw.xilinx_u280_gen3x16_xdma_1_202211_1/kernel.xclbin ",
+  "logFile": "/home/efrink/mled/split_cu/U280_CRC_Accelerator/_x/package/package.steps.log",
+  "commandLine": "/packages/apps/fpga/Vitis/2022.1/bin/unwrapped/lnx64.o/v++  --vivado.prop \"run.__KERNEL__.{STEPS.SYNTH_DESIGN.ARGS.MORE OPTIONS}={-directive sdx_optimization_effort_high}\" --advanced.misc \"report=type report_timing_summary name impl_report_timing_summary_route_design_summary steps {route_design} runs {impl_1} options {-max_paths 10}\" --advanced.misc \"report=type report_timing_summary name impl_report_timing_summary_post_route_phys_opt_design_summary steps {post_route_phys_opt_design} runs {impl_1} options {-max_paths 10}\" -p ./build_dir.hw.xilinx_u280_gen3x16_xdma_1_202211_1/kernel.link.xclbin --save-temps -t hw --platform xilinx_u280_gen3x16_xdma_1_202211_1 --package.out_dir ./package.hw -o ./build_dir.hw.xilinx_u280_gen3x16_xdma_1_202211_1/kernel.xclbin ",
   "args": [
    "-p",
    "./build_dir.hw.xilinx_u280_gen3x16_xdma_1_202211_1/kernel.link.xclbin",
@@ -30,17 +30,17 @@
    "./build_dir.hw.xilinx_u280_gen3x16_xdma_1_202211_1/kernel.xclbin"
   ],
   "iniFiles": [],
-  "cwd": "/users/arashs/U280_CRC_Accelerator"
+  "cwd": "/home/efrink/mled/split_cu/U280_CRC_Accelerator"
  }
 }
 </ENTRY>
 <ENTRY>
 {
  "type": "ET_Status",
- "dateTimestamp": "Fri Feb 20 16:49:16 2026",
- "timestampMillis": "1771631356818",
+ "dateTimestamp": "Thu Apr  2 20:43:53 2026",
+ "timestampMillis": "1775187833689",
  "status": {
-  "cmdId": "34781213-b8cd-4d01-85ca-99ad6b2a08ea",
+  "cmdId": "1d96017d-a36e-43af-a178-d9c8c4cab79d",
   "state": "CS_RUNNING"
  }
 }
@@ -48,8 +48,8 @@
 <ENTRY>
 {
  "type": "ET_FlowMetaData",
- "dateTimestamp": "Fri Feb 20 16:49:21 2026",
- "timestampMillis": "1771631361332",
+ "dateTimestamp": "Thu Apr  2 20:43:58 2026",
+ "timestampMillis": "1775187838654",
  "buildSummary": {
   "hardwarePlatform": "xilinx_u280_gen3x16_xdma_1_202211_1.xpfm",
   "hardwareDsa": "",
@@ -62,21 +62,21 @@
    "base": {
     "type": "BT_UKNOWN",
     "name": "kernel",
-    "file": "/users/arashs/U280_CRC_Accelerator/build_dir.hw.xilinx_u280_gen3x16_xdma_1_202211_1/kernel.xclbin",
+    "file": "/home/efrink/mled/split_cu/U280_CRC_Accelerator/build_dir.hw.xilinx_u280_gen3x16_xdma_1_202211_1/kernel.xclbin",
     "reports": [],
     "uuid": ""
    },
    "kernels": []
   },
   "kernels": [],
-  "toolVersion": "Vitis V++ Compiler Release 2023.1. SW Build 3860322 on 2023-05-04-06:32:48",
+  "toolVersion": "Vitis V++ Compiler Release 2022.1. SW Build 3524075 on 2022-04-13-17:42:45",
   "inputBinaryContainer": {
    "base": {
     "type": "BT_UKNOWN",
     "name": "kernel.link",
-    "file": "/users/arashs/U280_CRC_Accelerator/build_dir.hw.xilinx_u280_gen3x16_xdma_1_202211_1/kernel.link.xclbin",
+    "file": "/home/efrink/mled/split_cu/U280_CRC_Accelerator/build_dir.hw.xilinx_u280_gen3x16_xdma_1_202211_1/kernel.link.xclbin",
     "reports": [],
-    "uuid": "f5fcf41e-c4b7-484c-ad71-b7b9165e229d"
+    "uuid": "2052f20d-d78e-4f6f-843c-d521c7fa431a"
    },
    "kernels": []
   }
@@ -85,22 +85,11 @@
 </ENTRY>
 <ENTRY>
 {
- "type": "ET_Status",
- "dateTimestamp": "Fri Feb 20 16:49:21 2026",
- "timestampMillis": "1771631361796",
- "status": {
-  "cmdId": "34781213-b8cd-4d01-85ca-99ad6b2a08ea",
-  "state": "CS_PASSED"
- }
-}
-</ENTRY>
-<ENTRY>
-{
  "type": "ET_Report",
- "dateTimestamp": "Fri Feb 20 16:49:21 2026",
- "timestampMillis": "1771631361883",
+ "dateTimestamp": "Thu Apr  2 20:43:59 2026",
+ "timestampMillis": "1775187839690",
  "report": {
-  "path": "/users/arashs/U280_CRC_Accelerator/_x/reports/package/v++_package_kernel_guidance.html",
+  "path": "/home/efrink/mled/split_cu/U280_CRC_Accelerator/_x/reports/package/v++_package_kernel_guidance.html",
   "name": "",
   "fileType": "HTML",
   "reportType": "GLOBAL_RULECHECK_GUIDANCE",
@@ -111,14 +100,25 @@
 <ENTRY>
 {
  "type": "ET_Report",
- "dateTimestamp": "Fri Feb 20 16:49:21 2026",
- "timestampMillis": "1771631361883",
+ "dateTimestamp": "Thu Apr  2 20:43:59 2026",
+ "timestampMillis": "1775187839690",
  "report": {
-  "path": "/users/arashs/U280_CRC_Accelerator/_x/v++_package_kernel_guidance.pb3",
+  "path": "/home/efrink/mled/split_cu/U280_CRC_Accelerator/_x/v++_package_kernel_guidance.pb",
   "name": "",
   "fileType": "BINARY_PROTOBUF",
   "reportType": "GLOBAL_RULECHECK_GUIDANCE",
   "cmdId": ""
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Status",
+ "dateTimestamp": "Thu Apr  2 20:43:59 2026",
+ "timestampMillis": "1775187839696",
+ "status": {
+  "cmdId": "1d96017d-a36e-43af-a178-d9c8c4cab79d",
+  "state": "CS_PASSED"
  }
 }
 </ENTRY>

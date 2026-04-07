@@ -1,9 +1,7 @@
 // ==============================================================
-// Vitis HLS - High-Level Synthesis from C, C++ and OpenCL v2023.1 (64-bit)
-// Tool Version Limit: 2023.05
+// Vitis HLS - High-Level Synthesis from C, C++ and OpenCL v2022.1 (64-bit)
+// Tool Version Limit: 2022.04
 // Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
-// Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
-// 
 // ==============================================================
 /***************************** Include Files *********************************/
 #include "xcalculate_crc.h"
@@ -249,7 +247,7 @@ void XCalculate_crc_InterruptClear(XCalculate_crc *InstancePtr, u32 Mask) {
     Xil_AssertVoid(InstancePtr != NULL);
     Xil_AssertVoid(InstancePtr->IsReady == XIL_COMPONENT_IS_READY);
 
-    XCalculate_crc_WriteReg(InstancePtr->Control_BaseAddress, XCALCULATE_CRC_CONTROL_ADDR_ISR, Mask);
+    //XCalculate_crc_WriteReg(InstancePtr->Control_BaseAddress, XCALCULATE_CRC_CONTROL_ADDR_ISR, Mask);
 }
 
 u32 XCalculate_crc_InterruptGetEnabled(XCalculate_crc *InstancePtr) {
@@ -263,6 +261,7 @@ u32 XCalculate_crc_InterruptGetStatus(XCalculate_crc *InstancePtr) {
     Xil_AssertNonvoid(InstancePtr != NULL);
     Xil_AssertNonvoid(InstancePtr->IsReady == XIL_COMPONENT_IS_READY);
 
+    // Current Interrupt Clear Behavior is Clear on Read(COR).
     return XCalculate_crc_ReadReg(InstancePtr->Control_BaseAddress, XCALCULATE_CRC_CONTROL_ADDR_ISR);
 }
 

@@ -1,9 +1,7 @@
 // ==============================================================
-// Vitis HLS - High-Level Synthesis from C, C++ and OpenCL v2023.1 (64-bit)
-// Tool Version Limit: 2023.05
+// Vitis HLS - High-Level Synthesis from C, C++ and OpenCL v2022.1 (64-bit)
+// Tool Version Limit: 2022.04
 // Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
-// Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
-// 
 // ==============================================================
 // control
 // 0x00 : Control signals
@@ -22,9 +20,9 @@
 //        bit 0 - enable ap_done interrupt (Read/Write)
 //        bit 1 - enable ap_ready interrupt (Read/Write)
 //        others - reserved
-// 0x0c : IP Interrupt Status Register (Read/TOW)
-//        bit 0 - ap_done (Read/TOW)
-//        bit 1 - ap_ready (Read/TOW)
+// 0x0c : IP Interrupt Status Register (Read/COR)
+//        bit 0 - ap_done (Read/COR)
+//        bit 1 - ap_ready (Read/COR)
 //        others - reserved
 // 0x10 : Data signal of data_in
 //        bit 31~0 - data_in[31:0] (Read/Write)

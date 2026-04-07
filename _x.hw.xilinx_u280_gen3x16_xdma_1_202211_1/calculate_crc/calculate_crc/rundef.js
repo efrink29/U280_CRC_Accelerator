@@ -2,7 +2,6 @@
 // v++(TM)
 // rundef.js: a v++-generated Runs Script for WSH 5.1/5.6
 // Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
-// Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
 //
 
 echo "This script was generated under a different operating system."
@@ -13,9 +12,9 @@ var WshShell = new ActiveXObject( "WScript.Shell" );
 var ProcEnv = WshShell.Environment( "Process" );
 var PathVal = ProcEnv("PATH");
 if ( PathVal.length == 0 ) {
-  PathVal = "/share/Xilinx/Vitis_HLS/2023.1/bin;/share/Xilinx/Vitis/2023.1/bin;/share/Xilinx/Vitis/2023.1/bin;";
+  PathVal = "/scratch/ishaeffe/software/Vitis_HLS/2023.2/bin;/packages/apps/fpga/Vitis/2022.1/bin;/packages/apps/fpga/Vitis/2022.1/bin;";
 } else {
-  PathVal = "/share/Xilinx/Vitis_HLS/2023.1/bin;/share/Xilinx/Vitis/2023.1/bin;/share/Xilinx/Vitis/2023.1/bin;" + PathVal;
+  PathVal = "/scratch/ishaeffe/software/Vitis_HLS/2023.2/bin;/packages/apps/fpga/Vitis/2022.1/bin;/packages/apps/fpga/Vitis/2022.1/bin;" + PathVal;
 }
 
 ProcEnv("PATH") = PathVal;

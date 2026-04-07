@@ -16,7 +16,7 @@
 					<Obj class_id="5" tracking_level="0" version="0">
 						<type>1</type>
 						<id>1</id>
-						<name>phi_mul</name>
+						<name>add_ln645</name>
 						<fileName></fileName>
 						<fileDirectory></fileDirectory>
 						<lineNumber>0</lineNumber>
@@ -52,42 +52,6 @@
 					<Obj>
 						<type>1</type>
 						<id>2</id>
-						<name>data_in</name>
-						<fileName></fileName>
-						<fileDirectory></fileDirectory>
-						<lineNumber>0</lineNumber>
-						<contextFuncName></contextFuncName>
-						<contextNormFuncName></contextNormFuncName>
-						<inlineStackInfo>
-							<count>0</count>
-							<item_version>0</item_version>
-						</inlineStackInfo>
-						<originalName></originalName>
-						<rtlName></rtlName>
-						<control></control>
-						<opType></opType>
-						<implIndex></implIndex>
-						<coreName></coreName>
-						<isStorage>0</isStorage>
-						<storageDepth>0</storageDepth>
-						<coreId>1852793632</coreId>
-						<rtlModuleName></rtlModuleName>
-					</Obj>
-					<bitwidth>64</bitwidth>
-				</Value>
-				<direction>0</direction>
-				<if_type>0</if_type>
-				<array_size>0</array_size>
-				<bit_vecs>
-					<count>0</count>
-					<item_version>0</item_version>
-				</bit_vecs>
-			</item>
-			<item class_id_reference="3" object_id="_3">
-				<Value>
-					<Obj>
-						<type>1</type>
-						<id>3</id>
 						<name>gmem0</name>
 						<fileName></fileName>
 						<fileDirectory></fileDirectory>
@@ -106,13 +70,49 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>1852793632</coreId>
+						<coreId>3106258656</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>512</bitwidth>
 				</Value>
 				<direction>0</direction>
 				<if_type>4</if_type>
+				<array_size>0</array_size>
+				<bit_vecs>
+					<count>0</count>
+					<item_version>0</item_version>
+				</bit_vecs>
+			</item>
+			<item class_id_reference="3" object_id="_3">
+				<Value>
+					<Obj>
+						<type>1</type>
+						<id>3</id>
+						<name>trunc_ln1</name>
+						<fileName></fileName>
+						<fileDirectory></fileDirectory>
+						<lineNumber>0</lineNumber>
+						<contextFuncName></contextFuncName>
+						<contextNormFuncName></contextNormFuncName>
+						<inlineStackInfo>
+							<count>0</count>
+							<item_version>0</item_version>
+						</inlineStackInfo>
+						<originalName></originalName>
+						<rtlName></rtlName>
+						<control></control>
+						<opType></opType>
+						<implIndex></implIndex>
+						<coreName></coreName>
+						<isStorage>0</isStorage>
+						<storageDepth>0</storageDepth>
+						<coreId>1836017711</coreId>
+						<rtlModuleName></rtlModuleName>
+					</Obj>
+					<bitwidth>6</bitwidth>
+				</Value>
+				<direction>0</direction>
+				<if_type>0</if_type>
 				<array_size>0</array_size>
 				<bit_vecs>
 					<count>0</count>
@@ -142,7 +142,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>1852793632</coreId>
+						<coreId>0</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>32</bitwidth>
@@ -160,7 +160,7 @@
 					<Obj>
 						<type>1</type>
 						<id>5</id>
-						<name>sum_3_out</name>
+						<name>sum_V_1_out</name>
 						<fileName></fileName>
 						<fileDirectory></fileDirectory>
 						<lineNumber>0</lineNumber>
@@ -178,7 +178,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>1852793632</coreId>
+						<coreId>1230260566</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>17</bitwidth>
@@ -214,7 +214,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>1852793632</coreId>
+						<coreId>54</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>32</bitwidth>
@@ -229,14 +229,14 @@
 			</item>
 		</ports>
 		<nodes class_id="8" tracking_level="0" version="0">
-			<count>54</count>
+			<count>53</count>
 			<item_version>0</item_version>
 			<item class_id="9" tracking_level="1" version="0" object_id="_7">
 				<Value>
 					<Obj>
 						<type>0</type>
 						<id>7</id>
-						<name>sum</name>
+						<name>sum_V</name>
 						<fileName></fileName>
 						<fileDirectory></fileDirectory>
 						<lineNumber>0</lineNumber>
@@ -246,7 +246,7 @@
 							<count>0</count>
 							<item_version>0</item_version>
 						</inlineStackInfo>
-						<originalName>sum</originalName>
+						<originalName>sum.V</originalName>
 						<rtlName></rtlName>
 						<control></control>
 						<opType></opType>
@@ -254,7 +254,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>1937324336</coreId>
+						<coreId>3106258656</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>17</bitwidth>
@@ -296,7 +296,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>1937324336</coreId>
+						<coreId>3106258656</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>32</bitwidth>
@@ -338,7 +338,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>1667592275</coreId>
+						<coreId>2716551727</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>32</bitwidth>
@@ -363,7 +363,7 @@
 					<Obj>
 						<type>0</type>
 						<id>11</id>
-						<name>data_in_read</name>
+						<name>trunc_ln1_read</name>
 						<fileName></fileName>
 						<fileDirectory></fileDirectory>
 						<lineNumber>0</lineNumber>
@@ -381,10 +381,10 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>1701995631</coreId>
+						<coreId>3048980368</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
-					<bitwidth>64</bitwidth>
+					<bitwidth>6</bitwidth>
 				</Value>
 				<oprand_edges>
 					<count>2</count>
@@ -406,7 +406,7 @@
 					<Obj>
 						<type>0</type>
 						<id>12</id>
-						<name>phi_mul_read</name>
+						<name>add_ln645_read</name>
 						<fileName></fileName>
 						<fileDirectory></fileDirectory>
 						<lineNumber>0</lineNumber>
@@ -424,7 +424,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>1877159440</coreId>
+						<coreId>48</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>64</bitwidth>
@@ -432,8 +432,8 @@
 				<oprand_edges>
 					<count>2</count>
 					<item_version>0</item_version>
-					<item>76</item>
 					<item>77</item>
+					<item>78</item>
 				</oprand_edges>
 				<opcode>read</opcode>
 				<m_Display>0</m_Display>
@@ -467,7 +467,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>1630347296</coreId>
+						<coreId>1919252335</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>0</bitwidth>
@@ -475,8 +475,8 @@
 				<oprand_edges>
 					<count>2</count>
 					<item_version>0</item_version>
-					<item>79</item>
 					<item>80</item>
+					<item>81</item>
 				</oprand_edges>
 				<opcode>store</opcode>
 				<m_Display>0</m_Display>
@@ -492,7 +492,7 @@
 					<Obj>
 						<type>0</type>
 						<id>14</id>
-						<name>sum_write_ln0</name>
+						<name>sum_V_write_ln0</name>
 						<fileName></fileName>
 						<fileDirectory></fileDirectory>
 						<lineNumber>0</lineNumber>
@@ -510,7 +510,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>1937661040</coreId>
+						<coreId>1919252335</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>0</bitwidth>
@@ -518,8 +518,8 @@
 				<oprand_edges>
 					<count>2</count>
 					<item_version>0</item_version>
-					<item>82</item>
 					<item>83</item>
+					<item>84</item>
 				</oprand_edges>
 				<opcode>store</opcode>
 				<m_Display>0</m_Display>
@@ -553,7 +553,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>1701668980</coreId>
+						<coreId>3965847571</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>0</bitwidth>
@@ -561,7 +561,7 @@
 				<oprand_edges>
 					<count>1</count>
 					<item_version>0</item_version>
-					<item>84</item>
+					<item>85</item>
 				</oprand_edges>
 				<opcode>br</opcode>
 				<m_Display>0</m_Display>
@@ -577,45 +577,31 @@
 					<Obj>
 						<type>0</type>
 						<id>17</id>
-						<name>sum_1</name>
-						<fileName>/users/arashs/U280_CRC_Accelerator/src/kernel.cpp</fileName>
-						<fileDirectory>/users/arashs/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/calculate_tcp_checksum/calculate_tcp_checksum</fileDirectory>
-						<lineNumber>452</lineNumber>
-						<contextFuncName>fold_add</contextFuncName>
-						<contextNormFuncName>fold_add</contextNormFuncName>
+						<name>sum_V_2</name>
+						<fileName>/packages/apps/fpga/Vitis_HLS/2022.1/common/technology/autopilot/ap_int_base.h</fileName>
+						<fileDirectory>/home/efrink/mled/split_cu/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/calculate_tcp_checksum/calculate_tcp_checksum</fileDirectory>
+						<lineNumber>232</lineNumber>
+						<contextFuncName>ap_int_base&amp;lt;18, false&amp;gt;</contextFuncName>
+						<contextNormFuncName>ap_int_base_18_false_s</contextNormFuncName>
 						<inlineStackInfo>
 							<count>1</count>
 							<item_version>0</item_version>
 							<item class_id="11" tracking_level="0" version="0">
-								<first>/users/arashs/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/calculate_tcp_checksum/calculate_tcp_checksum</first>
+								<first>/home/efrink/mled/split_cu/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/calculate_tcp_checksum/calculate_tcp_checksum</first>
 								<second class_id="12" tracking_level="0" version="0">
-									<count>3</count>
+									<count>1</count>
 									<item_version>0</item_version>
 									<item class_id="13" tracking_level="0" version="0">
 										<first class_id="14" tracking_level="0" version="0">
-											<first>/users/arashs/U280_CRC_Accelerator/src/kernel.cpp</first>
-											<second>fold_add</second>
+											<first>/packages/apps/fpga/Vitis_HLS/2022.1/common/technology/autopilot/ap_int_base.h</first>
+											<second>ap_int_base&amp;lt;18, false&amp;gt;</second>
 										</first>
-										<second>452</second>
-									</item>
-									<item>
-										<first>
-											<first>/users/arashs/U280_CRC_Accelerator/src/kernel.cpp</first>
-											<second>process_tcp_checksum</second>
-										</first>
-										<second>594</second>
-									</item>
-									<item>
-										<first>
-											<first>/users/arashs/U280_CRC_Accelerator/src/kernel.cpp</first>
-											<second>tcp_checksum_chunk_scalar</second>
-										</first>
-										<second>469</second>
+										<second>232</second>
 									</item>
 								</second>
 							</item>
 						</inlineStackInfo>
-						<originalName>sum</originalName>
+						<originalName>sum.V</originalName>
 						<rtlName></rtlName>
 						<control></control>
 						<opType></opType>
@@ -623,7 +609,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>0</coreId>
+						<coreId>3106639888</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>17</bitwidth>
@@ -631,8 +617,8 @@
 				<oprand_edges>
 					<count>2</count>
 					<item_version>0</item_version>
-					<item>93</item>
-					<item>238</item>
+					<item>94</item>
+					<item>235</item>
 				</oprand_edges>
 				<opcode>load</opcode>
 				<m_Display>0</m_Display>
@@ -640,7 +626,7 @@
 				<m_isLCDNode>0</m_isLCDNode>
 				<m_isStartOfPath>0</m_isStartOfPath>
 				<m_delay>0.00</m_delay>
-				<m_topoIndex>41</m_topoIndex>
+				<m_topoIndex>39</m_topoIndex>
 				<m_clusterGroupNumber>-1</m_clusterGroupNumber>
 			</item>
 			<item class_id_reference="9" object_id="_16">
@@ -649,32 +635,25 @@
 						<type>0</type>
 						<id>18</id>
 						<name>i_2</name>
-						<fileName>/users/arashs/U280_CRC_Accelerator/src/kernel.cpp</fileName>
-						<fileDirectory>/users/arashs/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/calculate_tcp_checksum/calculate_tcp_checksum</fileDirectory>
-						<lineNumber>467</lineNumber>
+						<fileName>/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp</fileName>
+						<fileDirectory>/home/efrink/mled/split_cu/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/calculate_tcp_checksum/calculate_tcp_checksum</fileDirectory>
+						<lineNumber>645</lineNumber>
 						<contextFuncName>tcp_checksum_chunk_scalar</contextFuncName>
 						<contextNormFuncName>tcp_checksum_chunk_scalar</contextNormFuncName>
 						<inlineStackInfo>
 							<count>1</count>
 							<item_version>0</item_version>
 							<item>
-								<first>/users/arashs/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/calculate_tcp_checksum/calculate_tcp_checksum</first>
+								<first>/home/efrink/mled/split_cu/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/calculate_tcp_checksum/calculate_tcp_checksum</first>
 								<second>
-									<count>2</count>
+									<count>1</count>
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>/users/arashs/U280_CRC_Accelerator/src/kernel.cpp</first>
-											<second>process_tcp_checksum</second>
-										</first>
-										<second>594</second>
-									</item>
-									<item>
-										<first>
-											<first>/users/arashs/U280_CRC_Accelerator/src/kernel.cpp</first>
+											<first>/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp</first>
 											<second>tcp_checksum_chunk_scalar</second>
 										</first>
-										<second>467</second>
+										<second>645</second>
 									</item>
 								</second>
 							</item>
@@ -687,7 +666,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>0</coreId>
+						<coreId>3106520272</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>32</bitwidth>
@@ -695,8 +674,8 @@
 				<oprand_edges>
 					<count>2</count>
 					<item_version>0</item_version>
-					<item>94</item>
-					<item>236</item>
+					<item>95</item>
+					<item>234</item>
 				</oprand_edges>
 				<opcode>load</opcode>
 				<m_Display>0</m_Display>
@@ -712,33 +691,26 @@
 					<Obj>
 						<type>0</type>
 						<id>21</id>
-						<name>zext_ln467</name>
-						<fileName>/users/arashs/U280_CRC_Accelerator/src/kernel.cpp</fileName>
-						<fileDirectory>/users/arashs/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/calculate_tcp_checksum/calculate_tcp_checksum</fileDirectory>
-						<lineNumber>467</lineNumber>
+						<name>zext_ln645</name>
+						<fileName>/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp</fileName>
+						<fileDirectory>/home/efrink/mled/split_cu/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/calculate_tcp_checksum/calculate_tcp_checksum</fileDirectory>
+						<lineNumber>645</lineNumber>
 						<contextFuncName>tcp_checksum_chunk_scalar</contextFuncName>
 						<contextNormFuncName>tcp_checksum_chunk_scalar</contextNormFuncName>
 						<inlineStackInfo>
 							<count>1</count>
 							<item_version>0</item_version>
 							<item>
-								<first>/users/arashs/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/calculate_tcp_checksum/calculate_tcp_checksum</first>
+								<first>/home/efrink/mled/split_cu/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/calculate_tcp_checksum/calculate_tcp_checksum</first>
 								<second>
-									<count>2</count>
+									<count>1</count>
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>/users/arashs/U280_CRC_Accelerator/src/kernel.cpp</first>
-											<second>process_tcp_checksum</second>
-										</first>
-										<second>594</second>
-									</item>
-									<item>
-										<first>
-											<first>/users/arashs/U280_CRC_Accelerator/src/kernel.cpp</first>
+											<first>/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp</first>
 											<second>tcp_checksum_chunk_scalar</second>
 										</first>
-										<second>467</second>
+										<second>645</second>
 									</item>
 								</second>
 							</item>
@@ -751,7 +723,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>0</coreId>
+						<coreId>3106526240</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>64</bitwidth>
@@ -759,7 +731,7 @@
 				<oprand_edges>
 					<count>1</count>
 					<item_version>0</item_version>
-					<item>95</item>
+					<item>96</item>
 				</oprand_edges>
 				<opcode>zext</opcode>
 				<m_Display>0</m_Display>
@@ -775,33 +747,26 @@
 					<Obj>
 						<type>0</type>
 						<id>22</id>
-						<name>add_ln467</name>
-						<fileName>/users/arashs/U280_CRC_Accelerator/src/kernel.cpp</fileName>
-						<fileDirectory>/users/arashs/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/calculate_tcp_checksum/calculate_tcp_checksum</fileDirectory>
-						<lineNumber>467</lineNumber>
+						<name>trunc_ln645</name>
+						<fileName>/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp</fileName>
+						<fileDirectory>/home/efrink/mled/split_cu/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/calculate_tcp_checksum/calculate_tcp_checksum</fileDirectory>
+						<lineNumber>645</lineNumber>
 						<contextFuncName>tcp_checksum_chunk_scalar</contextFuncName>
 						<contextNormFuncName>tcp_checksum_chunk_scalar</contextNormFuncName>
 						<inlineStackInfo>
 							<count>1</count>
 							<item_version>0</item_version>
 							<item>
-								<first>/users/arashs/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/calculate_tcp_checksum/calculate_tcp_checksum</first>
+								<first>/home/efrink/mled/split_cu/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/calculate_tcp_checksum/calculate_tcp_checksum</first>
 								<second>
-									<count>2</count>
+									<count>1</count>
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>/users/arashs/U280_CRC_Accelerator/src/kernel.cpp</first>
-											<second>process_tcp_checksum</second>
-										</first>
-										<second>594</second>
-									</item>
-									<item>
-										<first>
-											<first>/users/arashs/U280_CRC_Accelerator/src/kernel.cpp</first>
+											<first>/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp</first>
 											<second>tcp_checksum_chunk_scalar</second>
 										</first>
-										<second>467</second>
+										<second>645</second>
 									</item>
 								</second>
 							</item>
@@ -814,23 +779,22 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>1937580856</coreId>
+						<coreId>0</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
-					<bitwidth>64</bitwidth>
+					<bitwidth>6</bitwidth>
 				</Value>
 				<oprand_edges>
-					<count>2</count>
+					<count>1</count>
 					<item_version>0</item_version>
-					<item>96</item>
 					<item>97</item>
 				</oprand_edges>
-				<opcode>add</opcode>
+				<opcode>trunc</opcode>
 				<m_Display>0</m_Display>
 				<m_isOnCriticalPath>0</m_isOnCriticalPath>
 				<m_isLCDNode>0</m_isLCDNode>
 				<m_isStartOfPath>0</m_isStartOfPath>
-				<m_delay>1.14</m_delay>
+				<m_delay>0.00</m_delay>
 				<m_topoIndex>11</m_topoIndex>
 				<m_clusterGroupNumber>-1</m_clusterGroupNumber>
 			</item>
@@ -839,33 +803,26 @@
 					<Obj>
 						<type>0</type>
 						<id>23</id>
-						<name>trunc_ln467</name>
-						<fileName>/users/arashs/U280_CRC_Accelerator/src/kernel.cpp</fileName>
-						<fileDirectory>/users/arashs/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/calculate_tcp_checksum/calculate_tcp_checksum</fileDirectory>
-						<lineNumber>467</lineNumber>
+						<name>add_ln645_1</name>
+						<fileName>/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp</fileName>
+						<fileDirectory>/home/efrink/mled/split_cu/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/calculate_tcp_checksum/calculate_tcp_checksum</fileDirectory>
+						<lineNumber>645</lineNumber>
 						<contextFuncName>tcp_checksum_chunk_scalar</contextFuncName>
 						<contextNormFuncName>tcp_checksum_chunk_scalar</contextNormFuncName>
 						<inlineStackInfo>
 							<count>1</count>
 							<item_version>0</item_version>
 							<item>
-								<first>/users/arashs/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/calculate_tcp_checksum/calculate_tcp_checksum</first>
+								<first>/home/efrink/mled/split_cu/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/calculate_tcp_checksum/calculate_tcp_checksum</first>
 								<second>
-									<count>2</count>
+									<count>1</count>
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>/users/arashs/U280_CRC_Accelerator/src/kernel.cpp</first>
-											<second>process_tcp_checksum</second>
-										</first>
-										<second>594</second>
-									</item>
-									<item>
-										<first>
-											<first>/users/arashs/U280_CRC_Accelerator/src/kernel.cpp</first>
+											<first>/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp</first>
 											<second>tcp_checksum_chunk_scalar</second>
 										</first>
-										<second>467</second>
+										<second>645</second>
 									</item>
 								</second>
 							</item>
@@ -878,22 +835,23 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>1937575904</coreId>
+						<coreId>0</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
-					<bitwidth>6</bitwidth>
+					<bitwidth>64</bitwidth>
 				</Value>
 				<oprand_edges>
-					<count>1</count>
+					<count>2</count>
 					<item_version>0</item_version>
 					<item>98</item>
+					<item>99</item>
 				</oprand_edges>
-				<opcode>trunc</opcode>
+				<opcode>add</opcode>
 				<m_Display>0</m_Display>
 				<m_isOnCriticalPath>0</m_isOnCriticalPath>
 				<m_isLCDNode>0</m_isLCDNode>
 				<m_isStartOfPath>0</m_isStartOfPath>
-				<m_delay>0.00</m_delay>
+				<m_delay>1.14</m_delay>
 				<m_topoIndex>12</m_topoIndex>
 				<m_clusterGroupNumber>-1</m_clusterGroupNumber>
 			</item>
@@ -902,33 +860,26 @@
 					<Obj>
 						<type>0</type>
 						<id>24</id>
-						<name>trunc_ln467_1</name>
-						<fileName>/users/arashs/U280_CRC_Accelerator/src/kernel.cpp</fileName>
-						<fileDirectory>/users/arashs/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/calculate_tcp_checksum/calculate_tcp_checksum</fileDirectory>
-						<lineNumber>467</lineNumber>
+						<name>trunc_ln645_2</name>
+						<fileName>/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp</fileName>
+						<fileDirectory>/home/efrink/mled/split_cu/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/calculate_tcp_checksum/calculate_tcp_checksum</fileDirectory>
+						<lineNumber>645</lineNumber>
 						<contextFuncName>tcp_checksum_chunk_scalar</contextFuncName>
 						<contextNormFuncName>tcp_checksum_chunk_scalar</contextNormFuncName>
 						<inlineStackInfo>
 							<count>1</count>
 							<item_version>0</item_version>
 							<item>
-								<first>/users/arashs/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/calculate_tcp_checksum/calculate_tcp_checksum</first>
+								<first>/home/efrink/mled/split_cu/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/calculate_tcp_checksum/calculate_tcp_checksum</first>
 								<second>
-									<count>2</count>
+									<count>1</count>
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>/users/arashs/U280_CRC_Accelerator/src/kernel.cpp</first>
-											<second>process_tcp_checksum</second>
-										</first>
-										<second>594</second>
-									</item>
-									<item>
-										<first>
-											<first>/users/arashs/U280_CRC_Accelerator/src/kernel.cpp</first>
+											<first>/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp</first>
 											<second>tcp_checksum_chunk_scalar</second>
 										</first>
-										<second>467</second>
+										<second>645</second>
 									</item>
 								</second>
 							</item>
@@ -941,17 +892,20 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>1937565864</coreId>
+						<coreId>0</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
-					<bitwidth>6</bitwidth>
+					<bitwidth>58</bitwidth>
 				</Value>
 				<oprand_edges>
-					<count>1</count>
+					<count>4</count>
 					<item_version>0</item_version>
-					<item>99</item>
+					<item>101</item>
+					<item>102</item>
+					<item>104</item>
+					<item>106</item>
 				</oprand_edges>
-				<opcode>trunc</opcode>
+				<opcode>partselect</opcode>
 				<m_Display>0</m_Display>
 				<m_isOnCriticalPath>0</m_isOnCriticalPath>
 				<m_isLCDNode>0</m_isLCDNode>
@@ -965,33 +919,26 @@
 					<Obj>
 						<type>0</type>
 						<id>25</id>
-						<name>add_ln467_1</name>
-						<fileName>/users/arashs/U280_CRC_Accelerator/src/kernel.cpp</fileName>
-						<fileDirectory>/users/arashs/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/calculate_tcp_checksum/calculate_tcp_checksum</fileDirectory>
-						<lineNumber>467</lineNumber>
+						<name>sext_ln645</name>
+						<fileName>/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp</fileName>
+						<fileDirectory>/home/efrink/mled/split_cu/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/calculate_tcp_checksum/calculate_tcp_checksum</fileDirectory>
+						<lineNumber>645</lineNumber>
 						<contextFuncName>tcp_checksum_chunk_scalar</contextFuncName>
 						<contextNormFuncName>tcp_checksum_chunk_scalar</contextNormFuncName>
 						<inlineStackInfo>
 							<count>1</count>
 							<item_version>0</item_version>
 							<item>
-								<first>/users/arashs/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/calculate_tcp_checksum/calculate_tcp_checksum</first>
+								<first>/home/efrink/mled/split_cu/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/calculate_tcp_checksum/calculate_tcp_checksum</first>
 								<second>
-									<count>2</count>
+									<count>1</count>
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>/users/arashs/U280_CRC_Accelerator/src/kernel.cpp</first>
-											<second>process_tcp_checksum</second>
-										</first>
-										<second>594</second>
-									</item>
-									<item>
-										<first>
-											<first>/users/arashs/U280_CRC_Accelerator/src/kernel.cpp</first>
+											<first>/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp</first>
 											<second>tcp_checksum_chunk_scalar</second>
 										</first>
-										<second>467</second>
+										<second>645</second>
 									</item>
 								</second>
 							</item>
@@ -1004,137 +951,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>1937675072</coreId>
-						<rtlModuleName></rtlModuleName>
-					</Obj>
-					<bitwidth>64</bitwidth>
-				</Value>
-				<oprand_edges>
-					<count>2</count>
-					<item_version>0</item_version>
-					<item>100</item>
-					<item>101</item>
-				</oprand_edges>
-				<opcode>add</opcode>
-				<m_Display>0</m_Display>
-				<m_isOnCriticalPath>0</m_isOnCriticalPath>
-				<m_isLCDNode>0</m_isLCDNode>
-				<m_isStartOfPath>0</m_isStartOfPath>
-				<m_delay>1.14</m_delay>
-				<m_topoIndex>14</m_topoIndex>
-				<m_clusterGroupNumber>-1</m_clusterGroupNumber>
-			</item>
-			<item class_id_reference="9" object_id="_22">
-				<Value>
-					<Obj>
-						<type>0</type>
-						<id>26</id>
-						<name>trunc_ln467_5</name>
-						<fileName>/users/arashs/U280_CRC_Accelerator/src/kernel.cpp</fileName>
-						<fileDirectory>/users/arashs/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/calculate_tcp_checksum/calculate_tcp_checksum</fileDirectory>
-						<lineNumber>467</lineNumber>
-						<contextFuncName>tcp_checksum_chunk_scalar</contextFuncName>
-						<contextNormFuncName>tcp_checksum_chunk_scalar</contextNormFuncName>
-						<inlineStackInfo>
-							<count>1</count>
-							<item_version>0</item_version>
-							<item>
-								<first>/users/arashs/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/calculate_tcp_checksum/calculate_tcp_checksum</first>
-								<second>
-									<count>2</count>
-									<item_version>0</item_version>
-									<item>
-										<first>
-											<first>/users/arashs/U280_CRC_Accelerator/src/kernel.cpp</first>
-											<second>process_tcp_checksum</second>
-										</first>
-										<second>594</second>
-									</item>
-									<item>
-										<first>
-											<first>/users/arashs/U280_CRC_Accelerator/src/kernel.cpp</first>
-											<second>tcp_checksum_chunk_scalar</second>
-										</first>
-										<second>467</second>
-									</item>
-								</second>
-							</item>
-						</inlineStackInfo>
-						<originalName></originalName>
-						<rtlName></rtlName>
-						<control></control>
-						<opType></opType>
-						<implIndex></implIndex>
-						<coreName></coreName>
-						<isStorage>0</isStorage>
-						<storageDepth>0</storageDepth>
-						<coreId>1937675072</coreId>
-						<rtlModuleName></rtlModuleName>
-					</Obj>
-					<bitwidth>58</bitwidth>
-				</Value>
-				<oprand_edges>
-					<count>4</count>
-					<item_version>0</item_version>
-					<item>103</item>
-					<item>104</item>
-					<item>106</item>
-					<item>108</item>
-				</oprand_edges>
-				<opcode>partselect</opcode>
-				<m_Display>0</m_Display>
-				<m_isOnCriticalPath>0</m_isOnCriticalPath>
-				<m_isLCDNode>0</m_isLCDNode>
-				<m_isStartOfPath>0</m_isStartOfPath>
-				<m_delay>0.00</m_delay>
-				<m_topoIndex>15</m_topoIndex>
-				<m_clusterGroupNumber>-1</m_clusterGroupNumber>
-			</item>
-			<item class_id_reference="9" object_id="_23">
-				<Value>
-					<Obj>
-						<type>0</type>
-						<id>27</id>
-						<name>sext_ln467</name>
-						<fileName>/users/arashs/U280_CRC_Accelerator/src/kernel.cpp</fileName>
-						<fileDirectory>/users/arashs/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/calculate_tcp_checksum/calculate_tcp_checksum</fileDirectory>
-						<lineNumber>467</lineNumber>
-						<contextFuncName>tcp_checksum_chunk_scalar</contextFuncName>
-						<contextNormFuncName>tcp_checksum_chunk_scalar</contextNormFuncName>
-						<inlineStackInfo>
-							<count>1</count>
-							<item_version>0</item_version>
-							<item>
-								<first>/users/arashs/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/calculate_tcp_checksum/calculate_tcp_checksum</first>
-								<second>
-									<count>2</count>
-									<item_version>0</item_version>
-									<item>
-										<first>
-											<first>/users/arashs/U280_CRC_Accelerator/src/kernel.cpp</first>
-											<second>process_tcp_checksum</second>
-										</first>
-										<second>594</second>
-									</item>
-									<item>
-										<first>
-											<first>/users/arashs/U280_CRC_Accelerator/src/kernel.cpp</first>
-											<second>tcp_checksum_chunk_scalar</second>
-										</first>
-										<second>467</second>
-									</item>
-								</second>
-							</item>
-						</inlineStackInfo>
-						<originalName></originalName>
-						<rtlName></rtlName>
-						<control></control>
-						<opType></opType>
-						<implIndex></implIndex>
-						<coreName></coreName>
-						<isStorage>0</isStorage>
-						<storageDepth>0</storageDepth>
-						<coreId>1937517264</coreId>
+						<coreId>3106149544</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>64</bitwidth>
@@ -1142,7 +959,7 @@
 				<oprand_edges>
 					<count>1</count>
 					<item_version>0</item_version>
-					<item>109</item>
+					<item>107</item>
 				</oprand_edges>
 				<opcode>sext</opcode>
 				<m_Display>0</m_Display>
@@ -1153,38 +970,31 @@
 				<m_topoIndex>20</m_topoIndex>
 				<m_clusterGroupNumber>-1</m_clusterGroupNumber>
 			</item>
-			<item class_id_reference="9" object_id="_24">
+			<item class_id_reference="9" object_id="_22">
 				<Value>
 					<Obj>
 						<type>0</type>
-						<id>28</id>
+						<id>26</id>
 						<name>gmem0_addr</name>
-						<fileName>/users/arashs/U280_CRC_Accelerator/src/kernel.cpp</fileName>
-						<fileDirectory>/users/arashs/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/calculate_tcp_checksum/calculate_tcp_checksum</fileDirectory>
-						<lineNumber>467</lineNumber>
+						<fileName>/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp</fileName>
+						<fileDirectory>/home/efrink/mled/split_cu/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/calculate_tcp_checksum/calculate_tcp_checksum</fileDirectory>
+						<lineNumber>645</lineNumber>
 						<contextFuncName>tcp_checksum_chunk_scalar</contextFuncName>
 						<contextNormFuncName>tcp_checksum_chunk_scalar</contextNormFuncName>
 						<inlineStackInfo>
 							<count>1</count>
 							<item_version>0</item_version>
 							<item>
-								<first>/users/arashs/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/calculate_tcp_checksum/calculate_tcp_checksum</first>
+								<first>/home/efrink/mled/split_cu/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/calculate_tcp_checksum/calculate_tcp_checksum</first>
 								<second>
-									<count>2</count>
+									<count>1</count>
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>/users/arashs/U280_CRC_Accelerator/src/kernel.cpp</first>
-											<second>process_tcp_checksum</second>
-										</first>
-										<second>594</second>
-									</item>
-									<item>
-										<first>
-											<first>/users/arashs/U280_CRC_Accelerator/src/kernel.cpp</first>
+											<first>/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp</first>
 											<second>tcp_checksum_chunk_scalar</second>
 										</first>
-										<second>467</second>
+										<second>645</second>
 									</item>
 								</second>
 							</item>
@@ -1197,7 +1007,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>25</coreId>
+						<coreId>3965864845</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>512</bitwidth>
@@ -1205,8 +1015,8 @@
 				<oprand_edges>
 					<count>2</count>
 					<item_version>0</item_version>
-					<item>110</item>
-					<item>111</item>
+					<item>108</item>
+					<item>109</item>
 				</oprand_edges>
 				<opcode>getelementptr</opcode>
 				<m_Display>0</m_Display>
@@ -1217,38 +1027,31 @@
 				<m_topoIndex>21</m_topoIndex>
 				<m_clusterGroupNumber>-1</m_clusterGroupNumber>
 			</item>
-			<item class_id_reference="9" object_id="_25">
+			<item class_id_reference="9" object_id="_23">
 				<Value>
 					<Obj>
 						<type>0</type>
-						<id>29</id>
+						<id>27</id>
 						<name>gmem0_load_req</name>
-						<fileName>/users/arashs/U280_CRC_Accelerator/src/kernel.cpp</fileName>
-						<fileDirectory>/users/arashs/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/calculate_tcp_checksum/calculate_tcp_checksum</fileDirectory>
-						<lineNumber>467</lineNumber>
+						<fileName>/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp</fileName>
+						<fileDirectory>/home/efrink/mled/split_cu/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/calculate_tcp_checksum/calculate_tcp_checksum</fileDirectory>
+						<lineNumber>645</lineNumber>
 						<contextFuncName>tcp_checksum_chunk_scalar</contextFuncName>
 						<contextNormFuncName>tcp_checksum_chunk_scalar</contextNormFuncName>
 						<inlineStackInfo>
 							<count>1</count>
 							<item_version>0</item_version>
 							<item>
-								<first>/users/arashs/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/calculate_tcp_checksum/calculate_tcp_checksum</first>
+								<first>/home/efrink/mled/split_cu/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/calculate_tcp_checksum/calculate_tcp_checksum</first>
 								<second>
-									<count>2</count>
+									<count>1</count>
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>/users/arashs/U280_CRC_Accelerator/src/kernel.cpp</first>
-											<second>process_tcp_checksum</second>
-										</first>
-										<second>594</second>
-									</item>
-									<item>
-										<first>
-											<first>/users/arashs/U280_CRC_Accelerator/src/kernel.cpp</first>
+											<first>/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp</first>
 											<second>tcp_checksum_chunk_scalar</second>
 										</first>
-										<second>467</second>
+										<second>645</second>
 									</item>
 								</second>
 							</item>
@@ -1261,7 +1064,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>1885414912</coreId>
+						<coreId>542329928</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>1</bitwidth>
@@ -1269,9 +1072,9 @@
 				<oprand_edges>
 					<count>3</count>
 					<item_version>0</item_version>
+					<item>111</item>
+					<item>112</item>
 					<item>113</item>
-					<item>114</item>
-					<item>115</item>
 				</oprand_edges>
 				<opcode>readreq</opcode>
 				<m_Display>0</m_Display>
@@ -1282,38 +1085,31 @@
 				<m_topoIndex>22</m_topoIndex>
 				<m_clusterGroupNumber>-1</m_clusterGroupNumber>
 			</item>
-			<item class_id_reference="9" object_id="_26">
+			<item class_id_reference="9" object_id="_24">
 				<Value>
 					<Obj>
 						<type>0</type>
-						<id>30</id>
+						<id>28</id>
 						<name>gmem0_addr_read</name>
-						<fileName>/users/arashs/U280_CRC_Accelerator/src/kernel.cpp</fileName>
-						<fileDirectory>/users/arashs/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/calculate_tcp_checksum/calculate_tcp_checksum</fileDirectory>
-						<lineNumber>467</lineNumber>
+						<fileName>/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp</fileName>
+						<fileDirectory>/home/efrink/mled/split_cu/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/calculate_tcp_checksum/calculate_tcp_checksum</fileDirectory>
+						<lineNumber>645</lineNumber>
 						<contextFuncName>tcp_checksum_chunk_scalar</contextFuncName>
 						<contextNormFuncName>tcp_checksum_chunk_scalar</contextNormFuncName>
 						<inlineStackInfo>
 							<count>1</count>
 							<item_version>0</item_version>
 							<item>
-								<first>/users/arashs/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/calculate_tcp_checksum/calculate_tcp_checksum</first>
+								<first>/home/efrink/mled/split_cu/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/calculate_tcp_checksum/calculate_tcp_checksum</first>
 								<second>
-									<count>2</count>
+									<count>1</count>
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>/users/arashs/U280_CRC_Accelerator/src/kernel.cpp</first>
-											<second>process_tcp_checksum</second>
-										</first>
-										<second>594</second>
-									</item>
-									<item>
-										<first>
-											<first>/users/arashs/U280_CRC_Accelerator/src/kernel.cpp</first>
+											<first>/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp</first>
 											<second>tcp_checksum_chunk_scalar</second>
 										</first>
-										<second>467</second>
+										<second>645</second>
 									</item>
 								</second>
 							</item>
@@ -1326,7 +1122,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>1937567920</coreId>
+						<coreId>3106653920</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>512</bitwidth>
@@ -1334,8 +1130,8 @@
 				<oprand_edges>
 					<count>3</count>
 					<item_version>0</item_version>
-					<item>117</item>
-					<item>118</item>
+					<item>115</item>
+					<item>116</item>
 					<item>232</item>
 				</oprand_edges>
 				<opcode>read</opcode>
@@ -1344,41 +1140,34 @@
 				<m_isLCDNode>0</m_isLCDNode>
 				<m_isStartOfPath>0</m_isStartOfPath>
 				<m_delay>2.43</m_delay>
-				<m_topoIndex>30</m_topoIndex>
+				<m_topoIndex>28</m_topoIndex>
 				<m_clusterGroupNumber>-1</m_clusterGroupNumber>
 			</item>
-			<item class_id_reference="9" object_id="_27">
+			<item class_id_reference="9" object_id="_25">
 				<Value>
 					<Obj>
 						<type>0</type>
-						<id>31</id>
-						<name>add_ln467_3</name>
-						<fileName>/users/arashs/U280_CRC_Accelerator/src/kernel.cpp</fileName>
-						<fileDirectory>/users/arashs/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/calculate_tcp_checksum/calculate_tcp_checksum</fileDirectory>
-						<lineNumber>467</lineNumber>
+						<id>29</id>
+						<name>add_ln645_3</name>
+						<fileName>/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp</fileName>
+						<fileDirectory>/home/efrink/mled/split_cu/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/calculate_tcp_checksum/calculate_tcp_checksum</fileDirectory>
+						<lineNumber>645</lineNumber>
 						<contextFuncName>tcp_checksum_chunk_scalar</contextFuncName>
 						<contextNormFuncName>tcp_checksum_chunk_scalar</contextNormFuncName>
 						<inlineStackInfo>
 							<count>1</count>
 							<item_version>0</item_version>
 							<item>
-								<first>/users/arashs/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/calculate_tcp_checksum/calculate_tcp_checksum</first>
+								<first>/home/efrink/mled/split_cu/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/calculate_tcp_checksum/calculate_tcp_checksum</first>
 								<second>
-									<count>2</count>
+									<count>1</count>
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>/users/arashs/U280_CRC_Accelerator/src/kernel.cpp</first>
-											<second>process_tcp_checksum</second>
-										</first>
-										<second>594</second>
-									</item>
-									<item>
-										<first>
-											<first>/users/arashs/U280_CRC_Accelerator/src/kernel.cpp</first>
+											<first>/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp</first>
 											<second>tcp_checksum_chunk_scalar</second>
 										</first>
-										<second>467</second>
+										<second>645</second>
 									</item>
 								</second>
 							</item>
@@ -1391,7 +1180,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>1937570984</coreId>
+						<coreId>3106658768</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>6</bitwidth>
@@ -1399,8 +1188,8 @@
 				<oprand_edges>
 					<count>2</count>
 					<item_version>0</item_version>
-					<item>119</item>
-					<item>120</item>
+					<item>117</item>
+					<item>118</item>
 				</oprand_edges>
 				<opcode>add</opcode>
 				<m_Display>0</m_Display>
@@ -1408,41 +1197,34 @@
 				<m_isLCDNode>0</m_isLCDNode>
 				<m_isStartOfPath>0</m_isStartOfPath>
 				<m_delay>0.70</m_delay>
-				<m_topoIndex>16</m_topoIndex>
+				<m_topoIndex>14</m_topoIndex>
 				<m_clusterGroupNumber>-1</m_clusterGroupNumber>
 			</item>
-			<item class_id_reference="9" object_id="_28">
+			<item class_id_reference="9" object_id="_26">
 				<Value>
 					<Obj>
 						<type>0</type>
-						<id>32</id>
+						<id>30</id>
 						<name>shl_ln</name>
-						<fileName>/users/arashs/U280_CRC_Accelerator/src/kernel.cpp</fileName>
-						<fileDirectory>/users/arashs/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/calculate_tcp_checksum/calculate_tcp_checksum</fileDirectory>
-						<lineNumber>467</lineNumber>
+						<fileName>/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp</fileName>
+						<fileDirectory>/home/efrink/mled/split_cu/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/calculate_tcp_checksum/calculate_tcp_checksum</fileDirectory>
+						<lineNumber>645</lineNumber>
 						<contextFuncName>tcp_checksum_chunk_scalar</contextFuncName>
 						<contextNormFuncName>tcp_checksum_chunk_scalar</contextNormFuncName>
 						<inlineStackInfo>
 							<count>1</count>
 							<item_version>0</item_version>
 							<item>
-								<first>/users/arashs/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/calculate_tcp_checksum/calculate_tcp_checksum</first>
+								<first>/home/efrink/mled/split_cu/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/calculate_tcp_checksum/calculate_tcp_checksum</first>
 								<second>
-									<count>2</count>
+									<count>1</count>
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>/users/arashs/U280_CRC_Accelerator/src/kernel.cpp</first>
-											<second>process_tcp_checksum</second>
-										</first>
-										<second>594</second>
-									</item>
-									<item>
-										<first>
-											<first>/users/arashs/U280_CRC_Accelerator/src/kernel.cpp</first>
+											<first>/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp</first>
 											<second>tcp_checksum_chunk_scalar</second>
 										</first>
-										<second>467</second>
+										<second>645</second>
 									</item>
 								</second>
 							</item>
@@ -1455,7 +1237,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>2166896752</coreId>
+						<coreId>3106659984</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>9</bitwidth>
@@ -1463,9 +1245,9 @@
 				<oprand_edges>
 					<count>3</count>
 					<item_version>0</item_version>
-					<item>122</item>
+					<item>120</item>
+					<item>121</item>
 					<item>123</item>
-					<item>125</item>
 				</oprand_edges>
 				<opcode>bitconcatenate</opcode>
 				<m_Display>0</m_Display>
@@ -1473,6 +1255,119 @@
 				<m_isLCDNode>0</m_isLCDNode>
 				<m_isStartOfPath>0</m_isStartOfPath>
 				<m_delay>0.00</m_delay>
+				<m_topoIndex>29</m_topoIndex>
+				<m_clusterGroupNumber>-1</m_clusterGroupNumber>
+			</item>
+			<item class_id_reference="9" object_id="_27">
+				<Value>
+					<Obj>
+						<type>0</type>
+						<id>31</id>
+						<name>zext_ln645_1</name>
+						<fileName>/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp</fileName>
+						<fileDirectory>/home/efrink/mled/split_cu/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/calculate_tcp_checksum/calculate_tcp_checksum</fileDirectory>
+						<lineNumber>645</lineNumber>
+						<contextFuncName>tcp_checksum_chunk_scalar</contextFuncName>
+						<contextNormFuncName>tcp_checksum_chunk_scalar</contextNormFuncName>
+						<inlineStackInfo>
+							<count>1</count>
+							<item_version>0</item_version>
+							<item>
+								<first>/home/efrink/mled/split_cu/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/calculate_tcp_checksum/calculate_tcp_checksum</first>
+								<second>
+									<count>1</count>
+									<item_version>0</item_version>
+									<item>
+										<first>
+											<first>/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp</first>
+											<second>tcp_checksum_chunk_scalar</second>
+										</first>
+										<second>645</second>
+									</item>
+								</second>
+							</item>
+						</inlineStackInfo>
+						<originalName></originalName>
+						<rtlName></rtlName>
+						<control></control>
+						<opType></opType>
+						<implIndex></implIndex>
+						<coreName></coreName>
+						<isStorage>0</isStorage>
+						<storageDepth>0</storageDepth>
+						<coreId>1006633504</coreId>
+						<rtlModuleName></rtlModuleName>
+					</Obj>
+					<bitwidth>512</bitwidth>
+				</Value>
+				<oprand_edges>
+					<count>1</count>
+					<item_version>0</item_version>
+					<item>124</item>
+				</oprand_edges>
+				<opcode>zext</opcode>
+				<m_Display>0</m_Display>
+				<m_isOnCriticalPath>0</m_isOnCriticalPath>
+				<m_isLCDNode>0</m_isLCDNode>
+				<m_isStartOfPath>0</m_isStartOfPath>
+				<m_delay>0.00</m_delay>
+				<m_topoIndex>30</m_topoIndex>
+				<m_clusterGroupNumber>-1</m_clusterGroupNumber>
+			</item>
+			<item class_id_reference="9" object_id="_28">
+				<Value>
+					<Obj>
+						<type>0</type>
+						<id>32</id>
+						<name>lshr_ln645</name>
+						<fileName>/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp</fileName>
+						<fileDirectory>/home/efrink/mled/split_cu/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/calculate_tcp_checksum/calculate_tcp_checksum</fileDirectory>
+						<lineNumber>645</lineNumber>
+						<contextFuncName>tcp_checksum_chunk_scalar</contextFuncName>
+						<contextNormFuncName>tcp_checksum_chunk_scalar</contextNormFuncName>
+						<inlineStackInfo>
+							<count>1</count>
+							<item_version>0</item_version>
+							<item>
+								<first>/home/efrink/mled/split_cu/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/calculate_tcp_checksum/calculate_tcp_checksum</first>
+								<second>
+									<count>1</count>
+									<item_version>0</item_version>
+									<item>
+										<first>
+											<first>/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp</first>
+											<second>tcp_checksum_chunk_scalar</second>
+										</first>
+										<second>645</second>
+									</item>
+								</second>
+							</item>
+						</inlineStackInfo>
+						<originalName></originalName>
+						<rtlName></rtlName>
+						<control></control>
+						<opType></opType>
+						<implIndex></implIndex>
+						<coreName></coreName>
+						<isStorage>0</isStorage>
+						<storageDepth>0</storageDepth>
+						<coreId>3089065872</coreId>
+						<rtlModuleName></rtlModuleName>
+					</Obj>
+					<bitwidth>512</bitwidth>
+				</Value>
+				<oprand_edges>
+					<count>2</count>
+					<item_version>0</item_version>
+					<item>125</item>
+					<item>126</item>
+				</oprand_edges>
+				<opcode>lshr</opcode>
+				<m_Display>0</m_Display>
+				<m_isOnCriticalPath>0</m_isOnCriticalPath>
+				<m_isLCDNode>0</m_isLCDNode>
+				<m_isStartOfPath>0</m_isStartOfPath>
+				<m_delay>1.44</m_delay>
 				<m_topoIndex>31</m_topoIndex>
 				<m_clusterGroupNumber>-1</m_clusterGroupNumber>
 			</item>
@@ -1481,38 +1376,31 @@
 					<Obj>
 						<type>0</type>
 						<id>33</id>
-						<name>zext_ln467_1</name>
-						<fileName>/users/arashs/U280_CRC_Accelerator/src/kernel.cpp</fileName>
-						<fileDirectory>/users/arashs/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/calculate_tcp_checksum/calculate_tcp_checksum</fileDirectory>
-						<lineNumber>467</lineNumber>
+						<name>trunc_ln645_1</name>
+						<fileName>/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp</fileName>
+						<fileDirectory>/home/efrink/mled/split_cu/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/calculate_tcp_checksum/calculate_tcp_checksum</fileDirectory>
+						<lineNumber>645</lineNumber>
 						<contextFuncName>tcp_checksum_chunk_scalar</contextFuncName>
 						<contextNormFuncName>tcp_checksum_chunk_scalar</contextNormFuncName>
 						<inlineStackInfo>
 							<count>1</count>
 							<item_version>0</item_version>
 							<item>
-								<first>/users/arashs/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/calculate_tcp_checksum/calculate_tcp_checksum</first>
+								<first>/home/efrink/mled/split_cu/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/calculate_tcp_checksum/calculate_tcp_checksum</first>
 								<second>
-									<count>2</count>
+									<count>1</count>
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>/users/arashs/U280_CRC_Accelerator/src/kernel.cpp</first>
-											<second>process_tcp_checksum</second>
-										</first>
-										<second>594</second>
-									</item>
-									<item>
-										<first>
-											<first>/users/arashs/U280_CRC_Accelerator/src/kernel.cpp</first>
+											<first>/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp</first>
 											<second>tcp_checksum_chunk_scalar</second>
 										</first>
-										<second>467</second>
+										<second>645</second>
 									</item>
 								</second>
 							</item>
 						</inlineStackInfo>
-						<originalName></originalName>
+						<originalName>val</originalName>
 						<rtlName></rtlName>
 						<control></control>
 						<opType></opType>
@@ -1520,17 +1408,17 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>136</coreId>
+						<coreId>3965746238</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
-					<bitwidth>512</bitwidth>
+					<bitwidth>8</bitwidth>
 				</Value>
 				<oprand_edges>
 					<count>1</count>
 					<item_version>0</item_version>
-					<item>126</item>
+					<item>127</item>
 				</oprand_edges>
-				<opcode>zext</opcode>
+				<opcode>trunc</opcode>
 				<m_Display>0</m_Display>
 				<m_isOnCriticalPath>0</m_isOnCriticalPath>
 				<m_isLCDNode>0</m_isLCDNode>
@@ -1544,33 +1432,26 @@
 					<Obj>
 						<type>0</type>
 						<id>34</id>
-						<name>lshr_ln467</name>
-						<fileName>/users/arashs/U280_CRC_Accelerator/src/kernel.cpp</fileName>
-						<fileDirectory>/users/arashs/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/calculate_tcp_checksum/calculate_tcp_checksum</fileDirectory>
-						<lineNumber>467</lineNumber>
+						<name>add_ln645_2</name>
+						<fileName>/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp</fileName>
+						<fileDirectory>/home/efrink/mled/split_cu/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/calculate_tcp_checksum/calculate_tcp_checksum</fileDirectory>
+						<lineNumber>645</lineNumber>
 						<contextFuncName>tcp_checksum_chunk_scalar</contextFuncName>
 						<contextNormFuncName>tcp_checksum_chunk_scalar</contextNormFuncName>
 						<inlineStackInfo>
 							<count>1</count>
 							<item_version>0</item_version>
 							<item>
-								<first>/users/arashs/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/calculate_tcp_checksum/calculate_tcp_checksum</first>
+								<first>/home/efrink/mled/split_cu/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/calculate_tcp_checksum/calculate_tcp_checksum</first>
 								<second>
-									<count>2</count>
+									<count>1</count>
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>/users/arashs/U280_CRC_Accelerator/src/kernel.cpp</first>
-											<second>process_tcp_checksum</second>
-										</first>
-										<second>594</second>
-									</item>
-									<item>
-										<first>
-											<first>/users/arashs/U280_CRC_Accelerator/src/kernel.cpp</first>
+											<first>/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp</first>
 											<second>tcp_checksum_chunk_scalar</second>
 										</first>
-										<second>467</second>
+										<second>645</second>
 									</item>
 								</second>
 							</item>
@@ -1583,134 +1464,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>1937709552</coreId>
-						<rtlModuleName></rtlModuleName>
-					</Obj>
-					<bitwidth>512</bitwidth>
-				</Value>
-				<oprand_edges>
-					<count>2</count>
-					<item_version>0</item_version>
-					<item>127</item>
-					<item>128</item>
-				</oprand_edges>
-				<opcode>lshr</opcode>
-				<m_Display>0</m_Display>
-				<m_isOnCriticalPath>0</m_isOnCriticalPath>
-				<m_isLCDNode>0</m_isLCDNode>
-				<m_isStartOfPath>0</m_isStartOfPath>
-				<m_delay>1.44</m_delay>
-				<m_topoIndex>33</m_topoIndex>
-				<m_clusterGroupNumber>-1</m_clusterGroupNumber>
-			</item>
-			<item class_id_reference="9" object_id="_31">
-				<Value>
-					<Obj>
-						<type>0</type>
-						<id>35</id>
-						<name>trunc_ln467_2</name>
-						<fileName>/users/arashs/U280_CRC_Accelerator/src/kernel.cpp</fileName>
-						<fileDirectory>/users/arashs/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/calculate_tcp_checksum/calculate_tcp_checksum</fileDirectory>
-						<lineNumber>467</lineNumber>
-						<contextFuncName>tcp_checksum_chunk_scalar</contextFuncName>
-						<contextNormFuncName>tcp_checksum_chunk_scalar</contextNormFuncName>
-						<inlineStackInfo>
-							<count>1</count>
-							<item_version>0</item_version>
-							<item>
-								<first>/users/arashs/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/calculate_tcp_checksum/calculate_tcp_checksum</first>
-								<second>
-									<count>2</count>
-									<item_version>0</item_version>
-									<item>
-										<first>
-											<first>/users/arashs/U280_CRC_Accelerator/src/kernel.cpp</first>
-											<second>process_tcp_checksum</second>
-										</first>
-										<second>594</second>
-									</item>
-									<item>
-										<first>
-											<first>/users/arashs/U280_CRC_Accelerator/src/kernel.cpp</first>
-											<second>tcp_checksum_chunk_scalar</second>
-										</first>
-										<second>467</second>
-									</item>
-								</second>
-							</item>
-						</inlineStackInfo>
-						<originalName></originalName>
-						<rtlName></rtlName>
-						<control></control>
-						<opType></opType>
-						<implIndex></implIndex>
-						<coreName></coreName>
-						<isStorage>0</isStorage>
-						<storageDepth>0</storageDepth>
-						<coreId>0</coreId>
-						<rtlModuleName></rtlModuleName>
-					</Obj>
-					<bitwidth>8</bitwidth>
-				</Value>
-				<oprand_edges>
-					<count>1</count>
-					<item_version>0</item_version>
-					<item>129</item>
-				</oprand_edges>
-				<opcode>trunc</opcode>
-				<m_Display>0</m_Display>
-				<m_isOnCriticalPath>0</m_isOnCriticalPath>
-				<m_isLCDNode>0</m_isLCDNode>
-				<m_isStartOfPath>0</m_isStartOfPath>
-				<m_delay>0.00</m_delay>
-				<m_topoIndex>34</m_topoIndex>
-				<m_clusterGroupNumber>-1</m_clusterGroupNumber>
-			</item>
-			<item class_id_reference="9" object_id="_32">
-				<Value>
-					<Obj>
-						<type>0</type>
-						<id>36</id>
-						<name>add_ln467_2</name>
-						<fileName>/users/arashs/U280_CRC_Accelerator/src/kernel.cpp</fileName>
-						<fileDirectory>/users/arashs/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/calculate_tcp_checksum/calculate_tcp_checksum</fileDirectory>
-						<lineNumber>467</lineNumber>
-						<contextFuncName>tcp_checksum_chunk_scalar</contextFuncName>
-						<contextNormFuncName>tcp_checksum_chunk_scalar</contextNormFuncName>
-						<inlineStackInfo>
-							<count>1</count>
-							<item_version>0</item_version>
-							<item>
-								<first>/users/arashs/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/calculate_tcp_checksum/calculate_tcp_checksum</first>
-								<second>
-									<count>2</count>
-									<item_version>0</item_version>
-									<item>
-										<first>
-											<first>/users/arashs/U280_CRC_Accelerator/src/kernel.cpp</first>
-											<second>process_tcp_checksum</second>
-										</first>
-										<second>594</second>
-									</item>
-									<item>
-										<first>
-											<first>/users/arashs/U280_CRC_Accelerator/src/kernel.cpp</first>
-											<second>tcp_checksum_chunk_scalar</second>
-										</first>
-										<second>467</second>
-									</item>
-								</second>
-							</item>
-						</inlineStackInfo>
-						<originalName></originalName>
-						<rtlName></rtlName>
-						<control></control>
-						<opType></opType>
-						<implIndex></implIndex>
-						<coreName></coreName>
-						<isStorage>0</isStorage>
-						<storageDepth>0</storageDepth>
-						<coreId>1937517264</coreId>
+						<coreId>3106665368</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>64</bitwidth>
@@ -1718,8 +1472,8 @@
 				<oprand_edges>
 					<count>2</count>
 					<item_version>0</item_version>
+					<item>128</item>
 					<item>130</item>
-					<item>132</item>
 				</oprand_edges>
 				<opcode>add</opcode>
 				<m_Display>0</m_Display>
@@ -1727,41 +1481,34 @@
 				<m_isLCDNode>0</m_isLCDNode>
 				<m_isStartOfPath>0</m_isStartOfPath>
 				<m_delay>1.14</m_delay>
-				<m_topoIndex>23</m_topoIndex>
+				<m_topoIndex>15</m_topoIndex>
 				<m_clusterGroupNumber>-1</m_clusterGroupNumber>
 			</item>
-			<item class_id_reference="9" object_id="_33">
+			<item class_id_reference="9" object_id="_31">
 				<Value>
 					<Obj>
 						<type>0</type>
-						<id>37</id>
-						<name>trunc_ln2</name>
-						<fileName>/users/arashs/U280_CRC_Accelerator/src/kernel.cpp</fileName>
-						<fileDirectory>/users/arashs/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/calculate_tcp_checksum/calculate_tcp_checksum</fileDirectory>
-						<lineNumber>467</lineNumber>
+						<id>35</id>
+						<name>trunc_ln645_4</name>
+						<fileName>/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp</fileName>
+						<fileDirectory>/home/efrink/mled/split_cu/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/calculate_tcp_checksum/calculate_tcp_checksum</fileDirectory>
+						<lineNumber>645</lineNumber>
 						<contextFuncName>tcp_checksum_chunk_scalar</contextFuncName>
 						<contextNormFuncName>tcp_checksum_chunk_scalar</contextNormFuncName>
 						<inlineStackInfo>
 							<count>1</count>
 							<item_version>0</item_version>
 							<item>
-								<first>/users/arashs/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/calculate_tcp_checksum/calculate_tcp_checksum</first>
+								<first>/home/efrink/mled/split_cu/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/calculate_tcp_checksum/calculate_tcp_checksum</first>
 								<second>
-									<count>2</count>
+									<count>1</count>
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>/users/arashs/U280_CRC_Accelerator/src/kernel.cpp</first>
-											<second>process_tcp_checksum</second>
-										</first>
-										<second>594</second>
-									</item>
-									<item>
-										<first>
-											<first>/users/arashs/U280_CRC_Accelerator/src/kernel.cpp</first>
+											<first>/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp</first>
 											<second>tcp_checksum_chunk_scalar</second>
 										</first>
-										<second>467</second>
+										<second>645</second>
 									</item>
 								</second>
 							</item>
@@ -1774,7 +1521,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>1937685008</coreId>
+						<coreId>3106666912</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>58</bitwidth>
@@ -1782,10 +1529,10 @@
 				<oprand_edges>
 					<count>4</count>
 					<item_version>0</item_version>
+					<item>131</item>
+					<item>132</item>
 					<item>133</item>
 					<item>134</item>
-					<item>135</item>
-					<item>136</item>
 				</oprand_edges>
 				<opcode>partselect</opcode>
 				<m_Display>0</m_Display>
@@ -1793,41 +1540,34 @@
 				<m_isLCDNode>0</m_isLCDNode>
 				<m_isStartOfPath>0</m_isStartOfPath>
 				<m_delay>0.00</m_delay>
-				<m_topoIndex>24</m_topoIndex>
+				<m_topoIndex>16</m_topoIndex>
 				<m_clusterGroupNumber>-1</m_clusterGroupNumber>
 			</item>
-			<item class_id_reference="9" object_id="_34">
+			<item class_id_reference="9" object_id="_32">
 				<Value>
 					<Obj>
 						<type>0</type>
-						<id>38</id>
-						<name>sext_ln467_1</name>
-						<fileName>/users/arashs/U280_CRC_Accelerator/src/kernel.cpp</fileName>
-						<fileDirectory>/users/arashs/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/calculate_tcp_checksum/calculate_tcp_checksum</fileDirectory>
-						<lineNumber>467</lineNumber>
+						<id>36</id>
+						<name>sext_ln645_1</name>
+						<fileName>/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp</fileName>
+						<fileDirectory>/home/efrink/mled/split_cu/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/calculate_tcp_checksum/calculate_tcp_checksum</fileDirectory>
+						<lineNumber>645</lineNumber>
 						<contextFuncName>tcp_checksum_chunk_scalar</contextFuncName>
 						<contextNormFuncName>tcp_checksum_chunk_scalar</contextNormFuncName>
 						<inlineStackInfo>
 							<count>1</count>
 							<item_version>0</item_version>
 							<item>
-								<first>/users/arashs/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/calculate_tcp_checksum/calculate_tcp_checksum</first>
+								<first>/home/efrink/mled/split_cu/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/calculate_tcp_checksum/calculate_tcp_checksum</first>
 								<second>
-									<count>2</count>
+									<count>1</count>
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>/users/arashs/U280_CRC_Accelerator/src/kernel.cpp</first>
-											<second>process_tcp_checksum</second>
-										</first>
-										<second>594</second>
-									</item>
-									<item>
-										<first>
-											<first>/users/arashs/U280_CRC_Accelerator/src/kernel.cpp</first>
+											<first>/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp</first>
 											<second>tcp_checksum_chunk_scalar</second>
 										</first>
-										<second>467</second>
+										<second>645</second>
 									</item>
 								</second>
 							</item>
@@ -1840,7 +1580,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>1919249199</coreId>
+						<coreId>2156418474</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>64</bitwidth>
@@ -1848,7 +1588,7 @@
 				<oprand_edges>
 					<count>1</count>
 					<item_version>0</item_version>
-					<item>137</item>
+					<item>135</item>
 				</oprand_edges>
 				<opcode>sext</opcode>
 				<m_Display>0</m_Display>
@@ -1856,41 +1596,34 @@
 				<m_isLCDNode>0</m_isLCDNode>
 				<m_isStartOfPath>0</m_isStartOfPath>
 				<m_delay>0.00</m_delay>
-				<m_topoIndex>27</m_topoIndex>
+				<m_topoIndex>25</m_topoIndex>
 				<m_clusterGroupNumber>-1</m_clusterGroupNumber>
 			</item>
-			<item class_id_reference="9" object_id="_35">
+			<item class_id_reference="9" object_id="_33">
 				<Value>
 					<Obj>
 						<type>0</type>
-						<id>39</id>
+						<id>37</id>
 						<name>gmem0_addr_1</name>
-						<fileName>/users/arashs/U280_CRC_Accelerator/src/kernel.cpp</fileName>
-						<fileDirectory>/users/arashs/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/calculate_tcp_checksum/calculate_tcp_checksum</fileDirectory>
-						<lineNumber>467</lineNumber>
+						<fileName>/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp</fileName>
+						<fileDirectory>/home/efrink/mled/split_cu/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/calculate_tcp_checksum/calculate_tcp_checksum</fileDirectory>
+						<lineNumber>645</lineNumber>
 						<contextFuncName>tcp_checksum_chunk_scalar</contextFuncName>
 						<contextNormFuncName>tcp_checksum_chunk_scalar</contextNormFuncName>
 						<inlineStackInfo>
 							<count>1</count>
 							<item_version>0</item_version>
 							<item>
-								<first>/users/arashs/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/calculate_tcp_checksum/calculate_tcp_checksum</first>
+								<first>/home/efrink/mled/split_cu/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/calculate_tcp_checksum/calculate_tcp_checksum</first>
 								<second>
-									<count>2</count>
+									<count>1</count>
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>/users/arashs/U280_CRC_Accelerator/src/kernel.cpp</first>
-											<second>process_tcp_checksum</second>
-										</first>
-										<second>594</second>
-									</item>
-									<item>
-										<first>
-											<first>/users/arashs/U280_CRC_Accelerator/src/kernel.cpp</first>
+											<first>/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp</first>
 											<second>tcp_checksum_chunk_scalar</second>
 										</first>
-										<second>467</second>
+										<second>645</second>
 									</item>
 								</second>
 							</item>
@@ -1911,8 +1644,8 @@
 				<oprand_edges>
 					<count>2</count>
 					<item_version>0</item_version>
-					<item>138</item>
-					<item>139</item>
+					<item>136</item>
+					<item>137</item>
 				</oprand_edges>
 				<opcode>getelementptr</opcode>
 				<m_Display>0</m_Display>
@@ -1920,41 +1653,34 @@
 				<m_isLCDNode>0</m_isLCDNode>
 				<m_isStartOfPath>0</m_isStartOfPath>
 				<m_delay>0.00</m_delay>
-				<m_topoIndex>28</m_topoIndex>
+				<m_topoIndex>26</m_topoIndex>
 				<m_clusterGroupNumber>-1</m_clusterGroupNumber>
 			</item>
-			<item class_id_reference="9" object_id="_36">
+			<item class_id_reference="9" object_id="_34">
 				<Value>
 					<Obj>
 						<type>0</type>
-						<id>40</id>
+						<id>38</id>
 						<name>gmem0_load_1_req</name>
-						<fileName>/users/arashs/U280_CRC_Accelerator/src/kernel.cpp</fileName>
-						<fileDirectory>/users/arashs/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/calculate_tcp_checksum/calculate_tcp_checksum</fileDirectory>
-						<lineNumber>467</lineNumber>
+						<fileName>/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp</fileName>
+						<fileDirectory>/home/efrink/mled/split_cu/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/calculate_tcp_checksum/calculate_tcp_checksum</fileDirectory>
+						<lineNumber>645</lineNumber>
 						<contextFuncName>tcp_checksum_chunk_scalar</contextFuncName>
 						<contextNormFuncName>tcp_checksum_chunk_scalar</contextNormFuncName>
 						<inlineStackInfo>
 							<count>1</count>
 							<item_version>0</item_version>
 							<item>
-								<first>/users/arashs/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/calculate_tcp_checksum/calculate_tcp_checksum</first>
+								<first>/home/efrink/mled/split_cu/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/calculate_tcp_checksum/calculate_tcp_checksum</first>
 								<second>
-									<count>2</count>
+									<count>1</count>
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>/users/arashs/U280_CRC_Accelerator/src/kernel.cpp</first>
-											<second>process_tcp_checksum</second>
-										</first>
-										<second>594</second>
-									</item>
-									<item>
-										<first>
-											<first>/users/arashs/U280_CRC_Accelerator/src/kernel.cpp</first>
+											<first>/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp</first>
 											<second>tcp_checksum_chunk_scalar</second>
 										</first>
-										<second>467</second>
+										<second>645</second>
 									</item>
 								</second>
 							</item>
@@ -1967,7 +1693,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>0</coreId>
+						<coreId>3106671520</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>1</bitwidth>
@@ -1975,9 +1701,9 @@
 				<oprand_edges>
 					<count>4</count>
 					<item_version>0</item_version>
+					<item>138</item>
+					<item>139</item>
 					<item>140</item>
-					<item>141</item>
-					<item>142</item>
 					<item>233</item>
 				</oprand_edges>
 				<opcode>readreq</opcode>
@@ -1986,41 +1712,34 @@
 				<m_isLCDNode>1</m_isLCDNode>
 				<m_isStartOfPath>1</m_isStartOfPath>
 				<m_delay>2.43</m_delay>
-				<m_topoIndex>29</m_topoIndex>
+				<m_topoIndex>27</m_topoIndex>
 				<m_clusterGroupNumber>-1</m_clusterGroupNumber>
 			</item>
-			<item class_id_reference="9" object_id="_37">
+			<item class_id_reference="9" object_id="_35">
 				<Value>
 					<Obj>
 						<type>0</type>
-						<id>41</id>
+						<id>39</id>
 						<name>gmem0_addr_1_read</name>
-						<fileName>/users/arashs/U280_CRC_Accelerator/src/kernel.cpp</fileName>
-						<fileDirectory>/users/arashs/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/calculate_tcp_checksum/calculate_tcp_checksum</fileDirectory>
-						<lineNumber>467</lineNumber>
+						<fileName>/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp</fileName>
+						<fileDirectory>/home/efrink/mled/split_cu/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/calculate_tcp_checksum/calculate_tcp_checksum</fileDirectory>
+						<lineNumber>645</lineNumber>
 						<contextFuncName>tcp_checksum_chunk_scalar</contextFuncName>
 						<contextNormFuncName>tcp_checksum_chunk_scalar</contextNormFuncName>
 						<inlineStackInfo>
 							<count>1</count>
 							<item_version>0</item_version>
 							<item>
-								<first>/users/arashs/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/calculate_tcp_checksum/calculate_tcp_checksum</first>
+								<first>/home/efrink/mled/split_cu/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/calculate_tcp_checksum/calculate_tcp_checksum</first>
 								<second>
-									<count>2</count>
+									<count>1</count>
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>/users/arashs/U280_CRC_Accelerator/src/kernel.cpp</first>
-											<second>process_tcp_checksum</second>
-										</first>
-										<second>594</second>
-									</item>
-									<item>
-										<first>
-											<first>/users/arashs/U280_CRC_Accelerator/src/kernel.cpp</first>
+											<first>/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp</first>
 											<second>tcp_checksum_chunk_scalar</second>
 										</first>
-										<second>467</second>
+										<second>645</second>
 									</item>
 								</second>
 							</item>
@@ -2033,7 +1752,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>1937691776</coreId>
+						<coreId>0</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>512</bitwidth>
@@ -2041,8 +1760,8 @@
 				<oprand_edges>
 					<count>4</count>
 					<item_version>0</item_version>
-					<item>143</item>
-					<item>144</item>
+					<item>141</item>
+					<item>142</item>
 					<item>230</item>
 					<item>231</item>
 				</oprand_edges>
@@ -2052,6 +1771,121 @@
 				<m_isLCDNode>0</m_isLCDNode>
 				<m_isStartOfPath>0</m_isStartOfPath>
 				<m_delay>2.43</m_delay>
+				<m_topoIndex>33</m_topoIndex>
+				<m_clusterGroupNumber>-1</m_clusterGroupNumber>
+			</item>
+			<item class_id_reference="9" object_id="_36">
+				<Value>
+					<Obj>
+						<type>0</type>
+						<id>40</id>
+						<name>add_ln645_4</name>
+						<fileName>/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp</fileName>
+						<fileDirectory>/home/efrink/mled/split_cu/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/calculate_tcp_checksum/calculate_tcp_checksum</fileDirectory>
+						<lineNumber>645</lineNumber>
+						<contextFuncName>tcp_checksum_chunk_scalar</contextFuncName>
+						<contextNormFuncName>tcp_checksum_chunk_scalar</contextNormFuncName>
+						<inlineStackInfo>
+							<count>1</count>
+							<item_version>0</item_version>
+							<item>
+								<first>/home/efrink/mled/split_cu/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/calculate_tcp_checksum/calculate_tcp_checksum</first>
+								<second>
+									<count>1</count>
+									<item_version>0</item_version>
+									<item>
+										<first>
+											<first>/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp</first>
+											<second>tcp_checksum_chunk_scalar</second>
+										</first>
+										<second>645</second>
+									</item>
+								</second>
+							</item>
+						</inlineStackInfo>
+						<originalName></originalName>
+						<rtlName></rtlName>
+						<control></control>
+						<opType></opType>
+						<implIndex></implIndex>
+						<coreName></coreName>
+						<isStorage>0</isStorage>
+						<storageDepth>0</storageDepth>
+						<coreId>3106445648</coreId>
+						<rtlModuleName></rtlModuleName>
+					</Obj>
+					<bitwidth>6</bitwidth>
+				</Value>
+				<oprand_edges>
+					<count>2</count>
+					<item_version>0</item_version>
+					<item>143</item>
+					<item>145</item>
+				</oprand_edges>
+				<opcode>add</opcode>
+				<m_Display>0</m_Display>
+				<m_isOnCriticalPath>0</m_isOnCriticalPath>
+				<m_isLCDNode>0</m_isLCDNode>
+				<m_isStartOfPath>0</m_isStartOfPath>
+				<m_delay>0.70</m_delay>
+				<m_topoIndex>34</m_topoIndex>
+				<m_clusterGroupNumber>-1</m_clusterGroupNumber>
+			</item>
+			<item class_id_reference="9" object_id="_37">
+				<Value>
+					<Obj>
+						<type>0</type>
+						<id>41</id>
+						<name>shl_ln645_1</name>
+						<fileName>/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp</fileName>
+						<fileDirectory>/home/efrink/mled/split_cu/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/calculate_tcp_checksum/calculate_tcp_checksum</fileDirectory>
+						<lineNumber>645</lineNumber>
+						<contextFuncName>tcp_checksum_chunk_scalar</contextFuncName>
+						<contextNormFuncName>tcp_checksum_chunk_scalar</contextNormFuncName>
+						<inlineStackInfo>
+							<count>1</count>
+							<item_version>0</item_version>
+							<item>
+								<first>/home/efrink/mled/split_cu/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/calculate_tcp_checksum/calculate_tcp_checksum</first>
+								<second>
+									<count>1</count>
+									<item_version>0</item_version>
+									<item>
+										<first>
+											<first>/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp</first>
+											<second>tcp_checksum_chunk_scalar</second>
+										</first>
+										<second>645</second>
+									</item>
+								</second>
+							</item>
+						</inlineStackInfo>
+						<originalName></originalName>
+						<rtlName></rtlName>
+						<control></control>
+						<opType></opType>
+						<implIndex></implIndex>
+						<coreName></coreName>
+						<isStorage>0</isStorage>
+						<storageDepth>0</storageDepth>
+						<coreId>2234012291</coreId>
+						<rtlModuleName></rtlModuleName>
+					</Obj>
+					<bitwidth>9</bitwidth>
+				</Value>
+				<oprand_edges>
+					<count>3</count>
+					<item_version>0</item_version>
+					<item>146</item>
+					<item>147</item>
+					<item>148</item>
+				</oprand_edges>
+				<opcode>bitconcatenate</opcode>
+				<m_Display>0</m_Display>
+				<m_isOnCriticalPath>0</m_isOnCriticalPath>
+				<m_isLCDNode>0</m_isLCDNode>
+				<m_isStartOfPath>0</m_isStartOfPath>
+				<m_delay>0.00</m_delay>
 				<m_topoIndex>35</m_topoIndex>
 				<m_clusterGroupNumber>-1</m_clusterGroupNumber>
 			</item>
@@ -2060,162 +1894,26 @@
 					<Obj>
 						<type>0</type>
 						<id>42</id>
-						<name>add_ln467_4</name>
-						<fileName>/users/arashs/U280_CRC_Accelerator/src/kernel.cpp</fileName>
-						<fileDirectory>/users/arashs/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/calculate_tcp_checksum/calculate_tcp_checksum</fileDirectory>
-						<lineNumber>467</lineNumber>
+						<name>zext_ln645_2</name>
+						<fileName>/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp</fileName>
+						<fileDirectory>/home/efrink/mled/split_cu/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/calculate_tcp_checksum/calculate_tcp_checksum</fileDirectory>
+						<lineNumber>645</lineNumber>
 						<contextFuncName>tcp_checksum_chunk_scalar</contextFuncName>
 						<contextNormFuncName>tcp_checksum_chunk_scalar</contextNormFuncName>
 						<inlineStackInfo>
 							<count>1</count>
 							<item_version>0</item_version>
 							<item>
-								<first>/users/arashs/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/calculate_tcp_checksum/calculate_tcp_checksum</first>
+								<first>/home/efrink/mled/split_cu/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/calculate_tcp_checksum/calculate_tcp_checksum</first>
 								<second>
-									<count>2</count>
+									<count>1</count>
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>/users/arashs/U280_CRC_Accelerator/src/kernel.cpp</first>
-											<second>process_tcp_checksum</second>
-										</first>
-										<second>594</second>
-									</item>
-									<item>
-										<first>
-											<first>/users/arashs/U280_CRC_Accelerator/src/kernel.cpp</first>
+											<first>/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp</first>
 											<second>tcp_checksum_chunk_scalar</second>
 										</first>
-										<second>467</second>
-									</item>
-								</second>
-							</item>
-						</inlineStackInfo>
-						<originalName></originalName>
-						<rtlName></rtlName>
-						<control></control>
-						<opType></opType>
-						<implIndex></implIndex>
-						<coreName></coreName>
-						<isStorage>0</isStorage>
-						<storageDepth>0</storageDepth>
-						<coreId>1937693768</coreId>
-						<rtlModuleName></rtlModuleName>
-					</Obj>
-					<bitwidth>6</bitwidth>
-				</Value>
-				<oprand_edges>
-					<count>2</count>
-					<item_version>0</item_version>
-					<item>145</item>
-					<item>147</item>
-				</oprand_edges>
-				<opcode>add</opcode>
-				<m_Display>0</m_Display>
-				<m_isOnCriticalPath>0</m_isOnCriticalPath>
-				<m_isLCDNode>0</m_isLCDNode>
-				<m_isStartOfPath>0</m_isStartOfPath>
-				<m_delay>0.70</m_delay>
-				<m_topoIndex>36</m_topoIndex>
-				<m_clusterGroupNumber>-1</m_clusterGroupNumber>
-			</item>
-			<item class_id_reference="9" object_id="_39">
-				<Value>
-					<Obj>
-						<type>0</type>
-						<id>43</id>
-						<name>shl_ln467_1</name>
-						<fileName>/users/arashs/U280_CRC_Accelerator/src/kernel.cpp</fileName>
-						<fileDirectory>/users/arashs/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/calculate_tcp_checksum/calculate_tcp_checksum</fileDirectory>
-						<lineNumber>467</lineNumber>
-						<contextFuncName>tcp_checksum_chunk_scalar</contextFuncName>
-						<contextNormFuncName>tcp_checksum_chunk_scalar</contextNormFuncName>
-						<inlineStackInfo>
-							<count>1</count>
-							<item_version>0</item_version>
-							<item>
-								<first>/users/arashs/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/calculate_tcp_checksum/calculate_tcp_checksum</first>
-								<second>
-									<count>2</count>
-									<item_version>0</item_version>
-									<item>
-										<first>
-											<first>/users/arashs/U280_CRC_Accelerator/src/kernel.cpp</first>
-											<second>process_tcp_checksum</second>
-										</first>
-										<second>594</second>
-									</item>
-									<item>
-										<first>
-											<first>/users/arashs/U280_CRC_Accelerator/src/kernel.cpp</first>
-											<second>tcp_checksum_chunk_scalar</second>
-										</first>
-										<second>467</second>
-									</item>
-								</second>
-							</item>
-						</inlineStackInfo>
-						<originalName></originalName>
-						<rtlName></rtlName>
-						<control></control>
-						<opType></opType>
-						<implIndex></implIndex>
-						<coreName></coreName>
-						<isStorage>0</isStorage>
-						<storageDepth>0</storageDepth>
-						<coreId>480</coreId>
-						<rtlModuleName></rtlModuleName>
-					</Obj>
-					<bitwidth>9</bitwidth>
-				</Value>
-				<oprand_edges>
-					<count>3</count>
-					<item_version>0</item_version>
-					<item>148</item>
-					<item>149</item>
-					<item>150</item>
-				</oprand_edges>
-				<opcode>bitconcatenate</opcode>
-				<m_Display>0</m_Display>
-				<m_isOnCriticalPath>0</m_isOnCriticalPath>
-				<m_isLCDNode>0</m_isLCDNode>
-				<m_isStartOfPath>0</m_isStartOfPath>
-				<m_delay>0.00</m_delay>
-				<m_topoIndex>37</m_topoIndex>
-				<m_clusterGroupNumber>-1</m_clusterGroupNumber>
-			</item>
-			<item class_id_reference="9" object_id="_40">
-				<Value>
-					<Obj>
-						<type>0</type>
-						<id>44</id>
-						<name>zext_ln467_2</name>
-						<fileName>/users/arashs/U280_CRC_Accelerator/src/kernel.cpp</fileName>
-						<fileDirectory>/users/arashs/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/calculate_tcp_checksum/calculate_tcp_checksum</fileDirectory>
-						<lineNumber>467</lineNumber>
-						<contextFuncName>tcp_checksum_chunk_scalar</contextFuncName>
-						<contextNormFuncName>tcp_checksum_chunk_scalar</contextNormFuncName>
-						<inlineStackInfo>
-							<count>1</count>
-							<item_version>0</item_version>
-							<item>
-								<first>/users/arashs/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/calculate_tcp_checksum/calculate_tcp_checksum</first>
-								<second>
-									<count>2</count>
-									<item_version>0</item_version>
-									<item>
-										<first>
-											<first>/users/arashs/U280_CRC_Accelerator/src/kernel.cpp</first>
-											<second>process_tcp_checksum</second>
-										</first>
-										<second>594</second>
-									</item>
-									<item>
-										<first>
-											<first>/users/arashs/U280_CRC_Accelerator/src/kernel.cpp</first>
-											<second>tcp_checksum_chunk_scalar</second>
-										</first>
-										<second>467</second>
+										<second>645</second>
 									</item>
 								</second>
 							</item>
@@ -2236,9 +1934,122 @@
 				<oprand_edges>
 					<count>1</count>
 					<item_version>0</item_version>
-					<item>151</item>
+					<item>149</item>
 				</oprand_edges>
 				<opcode>zext</opcode>
+				<m_Display>0</m_Display>
+				<m_isOnCriticalPath>0</m_isOnCriticalPath>
+				<m_isLCDNode>0</m_isLCDNode>
+				<m_isStartOfPath>0</m_isStartOfPath>
+				<m_delay>0.00</m_delay>
+				<m_topoIndex>36</m_topoIndex>
+				<m_clusterGroupNumber>-1</m_clusterGroupNumber>
+			</item>
+			<item class_id_reference="9" object_id="_39">
+				<Value>
+					<Obj>
+						<type>0</type>
+						<id>43</id>
+						<name>lshr_ln645_1</name>
+						<fileName>/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp</fileName>
+						<fileDirectory>/home/efrink/mled/split_cu/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/calculate_tcp_checksum/calculate_tcp_checksum</fileDirectory>
+						<lineNumber>645</lineNumber>
+						<contextFuncName>tcp_checksum_chunk_scalar</contextFuncName>
+						<contextNormFuncName>tcp_checksum_chunk_scalar</contextNormFuncName>
+						<inlineStackInfo>
+							<count>1</count>
+							<item_version>0</item_version>
+							<item>
+								<first>/home/efrink/mled/split_cu/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/calculate_tcp_checksum/calculate_tcp_checksum</first>
+								<second>
+									<count>1</count>
+									<item_version>0</item_version>
+									<item>
+										<first>
+											<first>/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp</first>
+											<second>tcp_checksum_chunk_scalar</second>
+										</first>
+										<second>645</second>
+									</item>
+								</second>
+							</item>
+						</inlineStackInfo>
+						<originalName></originalName>
+						<rtlName></rtlName>
+						<control></control>
+						<opType></opType>
+						<implIndex></implIndex>
+						<coreName></coreName>
+						<isStorage>0</isStorage>
+						<storageDepth>0</storageDepth>
+						<coreId>3106678912</coreId>
+						<rtlModuleName></rtlModuleName>
+					</Obj>
+					<bitwidth>512</bitwidth>
+				</Value>
+				<oprand_edges>
+					<count>2</count>
+					<item_version>0</item_version>
+					<item>150</item>
+					<item>151</item>
+				</oprand_edges>
+				<opcode>lshr</opcode>
+				<m_Display>0</m_Display>
+				<m_isOnCriticalPath>0</m_isOnCriticalPath>
+				<m_isLCDNode>0</m_isLCDNode>
+				<m_isStartOfPath>0</m_isStartOfPath>
+				<m_delay>1.44</m_delay>
+				<m_topoIndex>37</m_topoIndex>
+				<m_clusterGroupNumber>-1</m_clusterGroupNumber>
+			</item>
+			<item class_id_reference="9" object_id="_40">
+				<Value>
+					<Obj>
+						<type>0</type>
+						<id>44</id>
+						<name>trunc_ln645_3</name>
+						<fileName>/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp</fileName>
+						<fileDirectory>/home/efrink/mled/split_cu/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/calculate_tcp_checksum/calculate_tcp_checksum</fileDirectory>
+						<lineNumber>645</lineNumber>
+						<contextFuncName>tcp_checksum_chunk_scalar</contextFuncName>
+						<contextNormFuncName>tcp_checksum_chunk_scalar</contextNormFuncName>
+						<inlineStackInfo>
+							<count>1</count>
+							<item_version>0</item_version>
+							<item>
+								<first>/home/efrink/mled/split_cu/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/calculate_tcp_checksum/calculate_tcp_checksum</first>
+								<second>
+									<count>1</count>
+									<item_version>0</item_version>
+									<item>
+										<first>
+											<first>/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp</first>
+											<second>tcp_checksum_chunk_scalar</second>
+										</first>
+										<second>645</second>
+									</item>
+								</second>
+							</item>
+						</inlineStackInfo>
+						<originalName>val</originalName>
+						<rtlName></rtlName>
+						<control></control>
+						<opType></opType>
+						<implIndex></implIndex>
+						<coreName></coreName>
+						<isStorage>0</isStorage>
+						<storageDepth>0</storageDepth>
+						<coreId>3106681120</coreId>
+						<rtlModuleName></rtlModuleName>
+					</Obj>
+					<bitwidth>8</bitwidth>
+				</Value>
+				<oprand_edges>
+					<count>1</count>
+					<item_version>0</item_version>
+					<item>152</item>
+				</oprand_edges>
+				<opcode>trunc</opcode>
 				<m_Display>0</m_Display>
 				<m_isOnCriticalPath>0</m_isOnCriticalPath>
 				<m_isLCDNode>0</m_isLCDNode>
@@ -2252,165 +2063,31 @@
 					<Obj>
 						<type>0</type>
 						<id>45</id>
-						<name>lshr_ln467_1</name>
-						<fileName>/users/arashs/U280_CRC_Accelerator/src/kernel.cpp</fileName>
-						<fileDirectory>/users/arashs/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/calculate_tcp_checksum/calculate_tcp_checksum</fileDirectory>
-						<lineNumber>467</lineNumber>
-						<contextFuncName>tcp_checksum_chunk_scalar</contextFuncName>
-						<contextNormFuncName>tcp_checksum_chunk_scalar</contextNormFuncName>
+						<name>ret_V</name>
+						<fileName>/packages/apps/fpga/Vitis_HLS/2022.1/common/technology/autopilot/ap_int_base.h</fileName>
+						<fileDirectory>/home/efrink/mled/split_cu/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/calculate_tcp_checksum/calculate_tcp_checksum</fileDirectory>
+						<lineNumber>1544</lineNumber>
+						<contextFuncName>operator|&amp;lt;16, false, 16, false&amp;gt;</contextFuncName>
+						<contextNormFuncName>operator_or_16_false_16_false</contextNormFuncName>
 						<inlineStackInfo>
 							<count>1</count>
 							<item_version>0</item_version>
 							<item>
-								<first>/users/arashs/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/calculate_tcp_checksum/calculate_tcp_checksum</first>
+								<first>/home/efrink/mled/split_cu/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/calculate_tcp_checksum/calculate_tcp_checksum</first>
 								<second>
-									<count>2</count>
+									<count>1</count>
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>/users/arashs/U280_CRC_Accelerator/src/kernel.cpp</first>
-											<second>process_tcp_checksum</second>
+											<first>/packages/apps/fpga/Vitis_HLS/2022.1/common/technology/autopilot/ap_int_base.h</first>
+											<second>operator|&amp;lt;16, false, 16, false&amp;gt;</second>
 										</first>
-										<second>594</second>
-									</item>
-									<item>
-										<first>
-											<first>/users/arashs/U280_CRC_Accelerator/src/kernel.cpp</first>
-											<second>tcp_checksum_chunk_scalar</second>
-										</first>
-										<second>467</second>
+										<second>1544</second>
 									</item>
 								</second>
 							</item>
 						</inlineStackInfo>
-						<originalName></originalName>
-						<rtlName></rtlName>
-						<control></control>
-						<opType></opType>
-						<implIndex></implIndex>
-						<coreName></coreName>
-						<isStorage>0</isStorage>
-						<storageDepth>0</storageDepth>
-						<coreId>0</coreId>
-						<rtlModuleName></rtlModuleName>
-					</Obj>
-					<bitwidth>512</bitwidth>
-				</Value>
-				<oprand_edges>
-					<count>2</count>
-					<item_version>0</item_version>
-					<item>152</item>
-					<item>153</item>
-				</oprand_edges>
-				<opcode>lshr</opcode>
-				<m_Display>0</m_Display>
-				<m_isOnCriticalPath>0</m_isOnCriticalPath>
-				<m_isLCDNode>0</m_isLCDNode>
-				<m_isStartOfPath>0</m_isStartOfPath>
-				<m_delay>1.44</m_delay>
-				<m_topoIndex>39</m_topoIndex>
-				<m_clusterGroupNumber>-1</m_clusterGroupNumber>
-			</item>
-			<item class_id_reference="9" object_id="_42">
-				<Value>
-					<Obj>
-						<type>0</type>
-						<id>46</id>
-						<name>trunc_ln467_3</name>
-						<fileName>/users/arashs/U280_CRC_Accelerator/src/kernel.cpp</fileName>
-						<fileDirectory>/users/arashs/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/calculate_tcp_checksum/calculate_tcp_checksum</fileDirectory>
-						<lineNumber>467</lineNumber>
-						<contextFuncName>tcp_checksum_chunk_scalar</contextFuncName>
-						<contextNormFuncName>tcp_checksum_chunk_scalar</contextNormFuncName>
-						<inlineStackInfo>
-							<count>1</count>
-							<item_version>0</item_version>
-							<item>
-								<first>/users/arashs/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/calculate_tcp_checksum/calculate_tcp_checksum</first>
-								<second>
-									<count>2</count>
-									<item_version>0</item_version>
-									<item>
-										<first>
-											<first>/users/arashs/U280_CRC_Accelerator/src/kernel.cpp</first>
-											<second>process_tcp_checksum</second>
-										</first>
-										<second>594</second>
-									</item>
-									<item>
-										<first>
-											<first>/users/arashs/U280_CRC_Accelerator/src/kernel.cpp</first>
-											<second>tcp_checksum_chunk_scalar</second>
-										</first>
-										<second>467</second>
-									</item>
-								</second>
-							</item>
-						</inlineStackInfo>
-						<originalName></originalName>
-						<rtlName></rtlName>
-						<control></control>
-						<opType></opType>
-						<implIndex></implIndex>
-						<coreName></coreName>
-						<isStorage>0</isStorage>
-						<storageDepth>0</storageDepth>
-						<coreId>1937700176</coreId>
-						<rtlModuleName></rtlModuleName>
-					</Obj>
-					<bitwidth>8</bitwidth>
-				</Value>
-				<oprand_edges>
-					<count>1</count>
-					<item_version>0</item_version>
-					<item>154</item>
-				</oprand_edges>
-				<opcode>trunc</opcode>
-				<m_Display>0</m_Display>
-				<m_isOnCriticalPath>0</m_isOnCriticalPath>
-				<m_isLCDNode>0</m_isLCDNode>
-				<m_isStartOfPath>0</m_isStartOfPath>
-				<m_delay>0.00</m_delay>
-				<m_topoIndex>40</m_topoIndex>
-				<m_clusterGroupNumber>-1</m_clusterGroupNumber>
-			</item>
-			<item class_id_reference="9" object_id="_43">
-				<Value>
-					<Obj>
-						<type>0</type>
-						<id>47</id>
-						<name>word</name>
-						<fileName>/users/arashs/U280_CRC_Accelerator/src/kernel.cpp</fileName>
-						<fileDirectory>/users/arashs/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/calculate_tcp_checksum/calculate_tcp_checksum</fileDirectory>
-						<lineNumber>467</lineNumber>
-						<contextFuncName>tcp_checksum_chunk_scalar</contextFuncName>
-						<contextNormFuncName>tcp_checksum_chunk_scalar</contextNormFuncName>
-						<inlineStackInfo>
-							<count>1</count>
-							<item_version>0</item_version>
-							<item>
-								<first>/users/arashs/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/calculate_tcp_checksum/calculate_tcp_checksum</first>
-								<second>
-									<count>2</count>
-									<item_version>0</item_version>
-									<item>
-										<first>
-											<first>/users/arashs/U280_CRC_Accelerator/src/kernel.cpp</first>
-											<second>process_tcp_checksum</second>
-										</first>
-										<second>594</second>
-									</item>
-									<item>
-										<first>
-											<first>/users/arashs/U280_CRC_Accelerator/src/kernel.cpp</first>
-											<second>tcp_checksum_chunk_scalar</second>
-										</first>
-										<second>467</second>
-									</item>
-								</second>
-							</item>
-						</inlineStackInfo>
-						<originalName>word</originalName>
+						<originalName>ret.V</originalName>
 						<rtlName></rtlName>
 						<control></control>
 						<opType></opType>
@@ -2426,11 +2103,123 @@
 				<oprand_edges>
 					<count>3</count>
 					<item_version>0</item_version>
+					<item>154</item>
+					<item>155</item>
 					<item>156</item>
-					<item>157</item>
-					<item>158</item>
 				</oprand_edges>
 				<opcode>bitconcatenate</opcode>
+				<m_Display>0</m_Display>
+				<m_isOnCriticalPath>0</m_isOnCriticalPath>
+				<m_isLCDNode>0</m_isLCDNode>
+				<m_isStartOfPath>0</m_isStartOfPath>
+				<m_delay>0.00</m_delay>
+				<m_topoIndex>40</m_topoIndex>
+				<m_clusterGroupNumber>-1</m_clusterGroupNumber>
+			</item>
+			<item class_id_reference="9" object_id="_42">
+				<Value>
+					<Obj>
+						<type>0</type>
+						<id>46</id>
+						<name>zext_ln232</name>
+						<fileName>/packages/apps/fpga/Vitis_HLS/2022.1/common/technology/autopilot/ap_int_base.h</fileName>
+						<fileDirectory>/home/efrink/mled/split_cu/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/calculate_tcp_checksum/calculate_tcp_checksum</fileDirectory>
+						<lineNumber>232</lineNumber>
+						<contextFuncName>ap_int_base&amp;lt;18, false&amp;gt;</contextFuncName>
+						<contextNormFuncName>ap_int_base_18_false_s</contextNormFuncName>
+						<inlineStackInfo>
+							<count>1</count>
+							<item_version>0</item_version>
+							<item>
+								<first>/home/efrink/mled/split_cu/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/calculate_tcp_checksum/calculate_tcp_checksum</first>
+								<second>
+									<count>1</count>
+									<item_version>0</item_version>
+									<item>
+										<first>
+											<first>/packages/apps/fpga/Vitis_HLS/2022.1/common/technology/autopilot/ap_int_base.h</first>
+											<second>ap_int_base&amp;lt;18, false&amp;gt;</second>
+										</first>
+										<second>232</second>
+									</item>
+								</second>
+							</item>
+						</inlineStackInfo>
+						<originalName></originalName>
+						<rtlName></rtlName>
+						<control></control>
+						<opType></opType>
+						<implIndex></implIndex>
+						<coreName></coreName>
+						<isStorage>0</isStorage>
+						<storageDepth>0</storageDepth>
+						<coreId>0</coreId>
+						<rtlModuleName></rtlModuleName>
+					</Obj>
+					<bitwidth>17</bitwidth>
+				</Value>
+				<oprand_edges>
+					<count>1</count>
+					<item_version>0</item_version>
+					<item>157</item>
+				</oprand_edges>
+				<opcode>zext</opcode>
+				<m_Display>0</m_Display>
+				<m_isOnCriticalPath>0</m_isOnCriticalPath>
+				<m_isLCDNode>0</m_isLCDNode>
+				<m_isStartOfPath>0</m_isStartOfPath>
+				<m_delay>0.00</m_delay>
+				<m_topoIndex>41</m_topoIndex>
+				<m_clusterGroupNumber>-1</m_clusterGroupNumber>
+			</item>
+			<item class_id_reference="9" object_id="_43">
+				<Value>
+					<Obj>
+						<type>0</type>
+						<id>47</id>
+						<name>trunc_ln232</name>
+						<fileName>/packages/apps/fpga/Vitis_HLS/2022.1/common/technology/autopilot/ap_int_base.h</fileName>
+						<fileDirectory>/home/efrink/mled/split_cu/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/calculate_tcp_checksum/calculate_tcp_checksum</fileDirectory>
+						<lineNumber>232</lineNumber>
+						<contextFuncName>ap_int_base&amp;lt;18, false&amp;gt;</contextFuncName>
+						<contextNormFuncName>ap_int_base_18_false_s</contextNormFuncName>
+						<inlineStackInfo>
+							<count>1</count>
+							<item_version>0</item_version>
+							<item>
+								<first>/home/efrink/mled/split_cu/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/calculate_tcp_checksum/calculate_tcp_checksum</first>
+								<second>
+									<count>1</count>
+									<item_version>0</item_version>
+									<item>
+										<first>
+											<first>/packages/apps/fpga/Vitis_HLS/2022.1/common/technology/autopilot/ap_int_base.h</first>
+											<second>ap_int_base&amp;lt;18, false&amp;gt;</second>
+										</first>
+										<second>232</second>
+									</item>
+								</second>
+							</item>
+						</inlineStackInfo>
+						<originalName></originalName>
+						<rtlName></rtlName>
+						<control></control>
+						<opType></opType>
+						<implIndex></implIndex>
+						<coreName></coreName>
+						<isStorage>0</isStorage>
+						<storageDepth>0</storageDepth>
+						<coreId>0</coreId>
+						<rtlModuleName></rtlModuleName>
+					</Obj>
+					<bitwidth>16</bitwidth>
+				</Value>
+				<oprand_edges>
+					<count>1</count>
+					<item_version>0</item_version>
+					<item>158</item>
+				</oprand_edges>
+				<opcode>trunc</opcode>
 				<m_Display>0</m_Display>
 				<m_isOnCriticalPath>0</m_isOnCriticalPath>
 				<m_isLCDNode>0</m_isLCDNode>
@@ -2444,180 +2233,26 @@
 					<Obj>
 						<type>0</type>
 						<id>48</id>
-						<name>zext_ln452</name>
-						<fileName>/users/arashs/U280_CRC_Accelerator/src/kernel.cpp</fileName>
-						<fileDirectory>/users/arashs/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/calculate_tcp_checksum/calculate_tcp_checksum</fileDirectory>
-						<lineNumber>452</lineNumber>
-						<contextFuncName>fold_add</contextFuncName>
-						<contextNormFuncName>fold_add</contextNormFuncName>
-						<inlineStackInfo>
-							<count>1</count>
-							<item_version>0</item_version>
-							<item>
-								<first>/users/arashs/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/calculate_tcp_checksum/calculate_tcp_checksum</first>
-								<second>
-									<count>3</count>
-									<item_version>0</item_version>
-									<item>
-										<first>
-											<first>/users/arashs/U280_CRC_Accelerator/src/kernel.cpp</first>
-											<second>fold_add</second>
-										</first>
-										<second>452</second>
-									</item>
-									<item>
-										<first>
-											<first>/users/arashs/U280_CRC_Accelerator/src/kernel.cpp</first>
-											<second>process_tcp_checksum</second>
-										</first>
-										<second>594</second>
-									</item>
-									<item>
-										<first>
-											<first>/users/arashs/U280_CRC_Accelerator/src/kernel.cpp</first>
-											<second>tcp_checksum_chunk_scalar</second>
-										</first>
-										<second>469</second>
-									</item>
-								</second>
-							</item>
-						</inlineStackInfo>
-						<originalName></originalName>
-						<rtlName></rtlName>
-						<control></control>
-						<opType></opType>
-						<implIndex></implIndex>
-						<coreName></coreName>
-						<isStorage>0</isStorage>
-						<storageDepth>0</storageDepth>
-						<coreId>1937703416</coreId>
-						<rtlModuleName></rtlModuleName>
-					</Obj>
-					<bitwidth>17</bitwidth>
-				</Value>
-				<oprand_edges>
-					<count>1</count>
-					<item_version>0</item_version>
-					<item>159</item>
-				</oprand_edges>
-				<opcode>zext</opcode>
-				<m_Display>0</m_Display>
-				<m_isOnCriticalPath>0</m_isOnCriticalPath>
-				<m_isLCDNode>0</m_isLCDNode>
-				<m_isStartOfPath>0</m_isStartOfPath>
-				<m_delay>0.00</m_delay>
-				<m_topoIndex>43</m_topoIndex>
-				<m_clusterGroupNumber>-1</m_clusterGroupNumber>
-			</item>
-			<item class_id_reference="9" object_id="_45">
-				<Value>
-					<Obj>
-						<type>0</type>
-						<id>49</id>
-						<name>trunc_ln452</name>
-						<fileName>/users/arashs/U280_CRC_Accelerator/src/kernel.cpp</fileName>
-						<fileDirectory>/users/arashs/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/calculate_tcp_checksum/calculate_tcp_checksum</fileDirectory>
-						<lineNumber>452</lineNumber>
-						<contextFuncName>fold_add</contextFuncName>
-						<contextNormFuncName>fold_add</contextNormFuncName>
-						<inlineStackInfo>
-							<count>1</count>
-							<item_version>0</item_version>
-							<item>
-								<first>/users/arashs/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/calculate_tcp_checksum/calculate_tcp_checksum</first>
-								<second>
-									<count>3</count>
-									<item_version>0</item_version>
-									<item>
-										<first>
-											<first>/users/arashs/U280_CRC_Accelerator/src/kernel.cpp</first>
-											<second>fold_add</second>
-										</first>
-										<second>452</second>
-									</item>
-									<item>
-										<first>
-											<first>/users/arashs/U280_CRC_Accelerator/src/kernel.cpp</first>
-											<second>process_tcp_checksum</second>
-										</first>
-										<second>594</second>
-									</item>
-									<item>
-										<first>
-											<first>/users/arashs/U280_CRC_Accelerator/src/kernel.cpp</first>
-											<second>tcp_checksum_chunk_scalar</second>
-										</first>
-										<second>469</second>
-									</item>
-								</second>
-							</item>
-						</inlineStackInfo>
-						<originalName></originalName>
-						<rtlName></rtlName>
-						<control></control>
-						<opType></opType>
-						<implIndex></implIndex>
-						<coreName></coreName>
-						<isStorage>0</isStorage>
-						<storageDepth>0</storageDepth>
-						<coreId>1397508187</coreId>
-						<rtlModuleName></rtlModuleName>
-					</Obj>
-					<bitwidth>16</bitwidth>
-				</Value>
-				<oprand_edges>
-					<count>1</count>
-					<item_version>0</item_version>
-					<item>160</item>
-				</oprand_edges>
-				<opcode>trunc</opcode>
-				<m_Display>0</m_Display>
-				<m_isOnCriticalPath>0</m_isOnCriticalPath>
-				<m_isLCDNode>0</m_isLCDNode>
-				<m_isStartOfPath>0</m_isStartOfPath>
-				<m_delay>0.00</m_delay>
-				<m_topoIndex>44</m_topoIndex>
-				<m_clusterGroupNumber>-1</m_clusterGroupNumber>
-			</item>
-			<item class_id_reference="9" object_id="_46">
-				<Value>
-					<Obj>
-						<type>0</type>
-						<id>50</id>
 						<name>tmp</name>
-						<fileName>/users/arashs/U280_CRC_Accelerator/src/kernel.cpp</fileName>
-						<fileDirectory>/users/arashs/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/calculate_tcp_checksum/calculate_tcp_checksum</fileDirectory>
-						<lineNumber>452</lineNumber>
-						<contextFuncName>fold_add</contextFuncName>
-						<contextNormFuncName>fold_add</contextNormFuncName>
+						<fileName>/packages/apps/fpga/Vitis_HLS/2022.1/common/technology/autopilot/ap_int_base.h</fileName>
+						<fileDirectory>/home/efrink/mled/split_cu/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/calculate_tcp_checksum/calculate_tcp_checksum</fileDirectory>
+						<lineNumber>232</lineNumber>
+						<contextFuncName>ap_int_base&amp;lt;18, false&amp;gt;</contextFuncName>
+						<contextNormFuncName>ap_int_base_18_false_s</contextNormFuncName>
 						<inlineStackInfo>
 							<count>1</count>
 							<item_version>0</item_version>
 							<item>
-								<first>/users/arashs/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/calculate_tcp_checksum/calculate_tcp_checksum</first>
+								<first>/home/efrink/mled/split_cu/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/calculate_tcp_checksum/calculate_tcp_checksum</first>
 								<second>
-									<count>3</count>
+									<count>1</count>
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>/users/arashs/U280_CRC_Accelerator/src/kernel.cpp</first>
-											<second>fold_add</second>
+											<first>/packages/apps/fpga/Vitis_HLS/2022.1/common/technology/autopilot/ap_int_base.h</first>
+											<second>ap_int_base&amp;lt;18, false&amp;gt;</second>
 										</first>
-										<second>452</second>
-									</item>
-									<item>
-										<first>
-											<first>/users/arashs/U280_CRC_Accelerator/src/kernel.cpp</first>
-											<second>process_tcp_checksum</second>
-										</first>
-										<second>594</second>
-									</item>
-									<item>
-										<first>
-											<first>/users/arashs/U280_CRC_Accelerator/src/kernel.cpp</first>
-											<second>tcp_checksum_chunk_scalar</second>
-										</first>
-										<second>469</second>
+										<second>232</second>
 									</item>
 								</second>
 							</item>
@@ -2630,10 +2265,67 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>2037672306</coreId>
+						<coreId>0</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>17</bitwidth>
+				</Value>
+				<oprand_edges>
+					<count>2</count>
+					<item_version>0</item_version>
+					<item>159</item>
+					<item>160</item>
+				</oprand_edges>
+				<opcode>add</opcode>
+				<m_Display>0</m_Display>
+				<m_isOnCriticalPath>0</m_isOnCriticalPath>
+				<m_isLCDNode>0</m_isLCDNode>
+				<m_isStartOfPath>0</m_isStartOfPath>
+				<m_delay>0.79</m_delay>
+				<m_topoIndex>43</m_topoIndex>
+				<m_clusterGroupNumber>-1</m_clusterGroupNumber>
+			</item>
+			<item class_id_reference="9" object_id="_45">
+				<Value>
+					<Obj>
+						<type>0</type>
+						<id>49</id>
+						<name>add_ln630</name>
+						<fileName>/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp</fileName>
+						<fileDirectory>/home/efrink/mled/split_cu/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/calculate_tcp_checksum/calculate_tcp_checksum</fileDirectory>
+						<lineNumber>630</lineNumber>
+						<contextFuncName>fold_add</contextFuncName>
+						<contextNormFuncName>fold_add</contextNormFuncName>
+						<inlineStackInfo>
+							<count>1</count>
+							<item_version>0</item_version>
+							<item>
+								<first>/home/efrink/mled/split_cu/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/calculate_tcp_checksum/calculate_tcp_checksum</first>
+								<second>
+									<count>1</count>
+									<item_version>0</item_version>
+									<item>
+										<first>
+											<first>/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp</first>
+											<second>fold_add</second>
+										</first>
+										<second>630</second>
+									</item>
+								</second>
+							</item>
+						</inlineStackInfo>
+						<originalName></originalName>
+						<rtlName></rtlName>
+						<control></control>
+						<opType></opType>
+						<implIndex></implIndex>
+						<coreName></coreName>
+						<isStorage>0</isStorage>
+						<storageDepth>0</storageDepth>
+						<coreId>0</coreId>
+						<rtlModuleName></rtlModuleName>
+					</Obj>
+					<bitwidth>16</bitwidth>
 				</Value>
 				<oprand_edges>
 					<count>2</count>
@@ -2646,7 +2338,63 @@
 				<m_isOnCriticalPath>0</m_isOnCriticalPath>
 				<m_isLCDNode>0</m_isLCDNode>
 				<m_isStartOfPath>0</m_isStartOfPath>
-				<m_delay>0.79</m_delay>
+				<m_delay>0.78</m_delay>
+				<m_topoIndex>44</m_topoIndex>
+				<m_clusterGroupNumber>-1</m_clusterGroupNumber>
+			</item>
+			<item class_id_reference="9" object_id="_46">
+				<Value>
+					<Obj>
+						<type>0</type>
+						<id>50</id>
+						<name>zext_ln1715</name>
+						<fileName>/packages/apps/fpga/Vitis_HLS/2022.1/common/technology/autopilot/ap_int_base.h</fileName>
+						<fileDirectory>/home/efrink/mled/split_cu/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/calculate_tcp_checksum/calculate_tcp_checksum</fileDirectory>
+						<lineNumber>1715</lineNumber>
+						<contextFuncName>operator&amp;gt;&amp;gt;&amp;lt;17, false&amp;gt;</contextFuncName>
+						<contextNormFuncName>operator_rs_17_false</contextNormFuncName>
+						<inlineStackInfo>
+							<count>1</count>
+							<item_version>0</item_version>
+							<item>
+								<first>/home/efrink/mled/split_cu/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/calculate_tcp_checksum/calculate_tcp_checksum</first>
+								<second>
+									<count>1</count>
+									<item_version>0</item_version>
+									<item>
+										<first>
+											<first>/packages/apps/fpga/Vitis_HLS/2022.1/common/technology/autopilot/ap_int_base.h</first>
+											<second>operator&amp;gt;&amp;gt;&amp;lt;17, false&amp;gt;</second>
+										</first>
+										<second>1715</second>
+									</item>
+								</second>
+							</item>
+						</inlineStackInfo>
+						<originalName></originalName>
+						<rtlName></rtlName>
+						<control></control>
+						<opType></opType>
+						<implIndex></implIndex>
+						<coreName></coreName>
+						<isStorage>0</isStorage>
+						<storageDepth>0</storageDepth>
+						<coreId>0</coreId>
+						<rtlModuleName></rtlModuleName>
+					</Obj>
+					<bitwidth>17</bitwidth>
+				</Value>
+				<oprand_edges>
+					<count>1</count>
+					<item_version>0</item_version>
+					<item>163</item>
+				</oprand_edges>
+				<opcode>zext</opcode>
+				<m_Display>0</m_Display>
+				<m_isOnCriticalPath>0</m_isOnCriticalPath>
+				<m_isLCDNode>0</m_isLCDNode>
+				<m_isStartOfPath>0</m_isStartOfPath>
+				<m_delay>0.00</m_delay>
 				<m_topoIndex>45</m_topoIndex>
 				<m_clusterGroupNumber>-1</m_clusterGroupNumber>
 			</item>
@@ -2655,45 +2403,31 @@
 					<Obj>
 						<type>0</type>
 						<id>51</id>
-						<name>add_ln452_1</name>
-						<fileName>/users/arashs/U280_CRC_Accelerator/src/kernel.cpp</fileName>
-						<fileDirectory>/users/arashs/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/calculate_tcp_checksum/calculate_tcp_checksum</fileDirectory>
-						<lineNumber>452</lineNumber>
-						<contextFuncName>fold_add</contextFuncName>
-						<contextNormFuncName>fold_add</contextNormFuncName>
+						<name>r_V</name>
+						<fileName>/packages/apps/fpga/Vitis_HLS/2022.1/common/technology/autopilot/ap_int_base.h</fileName>
+						<fileDirectory>/home/efrink/mled/split_cu/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/calculate_tcp_checksum/calculate_tcp_checksum</fileDirectory>
+						<lineNumber>1715</lineNumber>
+						<contextFuncName>operator&amp;gt;&amp;gt;&amp;lt;17, false&amp;gt;</contextFuncName>
+						<contextNormFuncName>operator_rs_17_false</contextNormFuncName>
 						<inlineStackInfo>
 							<count>1</count>
 							<item_version>0</item_version>
 							<item>
-								<first>/users/arashs/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/calculate_tcp_checksum/calculate_tcp_checksum</first>
+								<first>/home/efrink/mled/split_cu/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/calculate_tcp_checksum/calculate_tcp_checksum</first>
 								<second>
-									<count>3</count>
+									<count>1</count>
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>/users/arashs/U280_CRC_Accelerator/src/kernel.cpp</first>
-											<second>fold_add</second>
+											<first>/packages/apps/fpga/Vitis_HLS/2022.1/common/technology/autopilot/ap_int_base.h</first>
+											<second>operator&amp;gt;&amp;gt;&amp;lt;17, false&amp;gt;</second>
 										</first>
-										<second>452</second>
-									</item>
-									<item>
-										<first>
-											<first>/users/arashs/U280_CRC_Accelerator/src/kernel.cpp</first>
-											<second>process_tcp_checksum</second>
-										</first>
-										<second>594</second>
-									</item>
-									<item>
-										<first>
-											<first>/users/arashs/U280_CRC_Accelerator/src/kernel.cpp</first>
-											<second>tcp_checksum_chunk_scalar</second>
-										</first>
-										<second>469</second>
+										<second>1715</second>
 									</item>
 								</second>
 							</item>
 						</inlineStackInfo>
-						<originalName></originalName>
+						<originalName>r.V</originalName>
 						<rtlName></rtlName>
 						<control></control>
 						<opType></opType>
@@ -2701,23 +2435,24 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>539111480</coreId>
+						<coreId>3966236310</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
-					<bitwidth>16</bitwidth>
+					<bitwidth>1</bitwidth>
 				</Value>
 				<oprand_edges>
-					<count>2</count>
+					<count>3</count>
 					<item_version>0</item_version>
-					<item>163</item>
-					<item>164</item>
+					<item>165</item>
+					<item>166</item>
+					<item>168</item>
 				</oprand_edges>
-				<opcode>add</opcode>
+				<opcode>bitselect</opcode>
 				<m_Display>0</m_Display>
 				<m_isOnCriticalPath>0</m_isOnCriticalPath>
 				<m_isLCDNode>0</m_isLCDNode>
 				<m_isStartOfPath>0</m_isStartOfPath>
-				<m_delay>0.78</m_delay>
+				<m_delay>0.00</m_delay>
 				<m_topoIndex>46</m_topoIndex>
 				<m_clusterGroupNumber>-1</m_clusterGroupNumber>
 			</item>
@@ -2726,40 +2461,26 @@
 					<Obj>
 						<type>0</type>
 						<id>52</id>
-						<name>zext_ln453</name>
-						<fileName>/users/arashs/U280_CRC_Accelerator/src/kernel.cpp</fileName>
-						<fileDirectory>/users/arashs/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/calculate_tcp_checksum/calculate_tcp_checksum</fileDirectory>
-						<lineNumber>453</lineNumber>
-						<contextFuncName>fold_add</contextFuncName>
-						<contextNormFuncName>fold_add</contextNormFuncName>
+						<name>zext_ln1715_1</name>
+						<fileName>/packages/apps/fpga/Vitis_HLS/2022.1/common/technology/autopilot/ap_int_base.h</fileName>
+						<fileDirectory>/home/efrink/mled/split_cu/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/calculate_tcp_checksum/calculate_tcp_checksum</fileDirectory>
+						<lineNumber>1715</lineNumber>
+						<contextFuncName>operator&amp;gt;&amp;gt;&amp;lt;17, false&amp;gt;</contextFuncName>
+						<contextNormFuncName>operator_rs_17_false</contextNormFuncName>
 						<inlineStackInfo>
 							<count>1</count>
 							<item_version>0</item_version>
 							<item>
-								<first>/users/arashs/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/calculate_tcp_checksum/calculate_tcp_checksum</first>
+								<first>/home/efrink/mled/split_cu/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/calculate_tcp_checksum/calculate_tcp_checksum</first>
 								<second>
-									<count>3</count>
+									<count>1</count>
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>/users/arashs/U280_CRC_Accelerator/src/kernel.cpp</first>
-											<second>fold_add</second>
+											<first>/packages/apps/fpga/Vitis_HLS/2022.1/common/technology/autopilot/ap_int_base.h</first>
+											<second>operator&amp;gt;&amp;gt;&amp;lt;17, false&amp;gt;</second>
 										</first>
-										<second>453</second>
-									</item>
-									<item>
-										<first>
-											<first>/users/arashs/U280_CRC_Accelerator/src/kernel.cpp</first>
-											<second>process_tcp_checksum</second>
-										</first>
-										<second>594</second>
-									</item>
-									<item>
-										<first>
-											<first>/users/arashs/U280_CRC_Accelerator/src/kernel.cpp</first>
-											<second>tcp_checksum_chunk_scalar</second>
-										</first>
-										<second>469</second>
+										<second>1715</second>
 									</item>
 								</second>
 							</item>
@@ -2772,7 +2493,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>1663986789</coreId>
+						<coreId>562514036</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>17</bitwidth>
@@ -2780,7 +2501,7 @@
 				<oprand_edges>
 					<count>1</count>
 					<item_version>0</item_version>
-					<item>165</item>
+					<item>169</item>
 				</oprand_edges>
 				<opcode>zext</opcode>
 				<m_Display>0</m_Display>
@@ -2796,45 +2517,31 @@
 					<Obj>
 						<type>0</type>
 						<id>53</id>
-						<name>tmp_1</name>
-						<fileName>/users/arashs/U280_CRC_Accelerator/src/kernel.cpp</fileName>
-						<fileDirectory>/users/arashs/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/calculate_tcp_checksum/calculate_tcp_checksum</fileDirectory>
-						<lineNumber>453</lineNumber>
-						<contextFuncName>fold_add</contextFuncName>
-						<contextNormFuncName>fold_add</contextNormFuncName>
+						<name>sum_V_3</name>
+						<fileName>/packages/apps/fpga/Vitis_HLS/2022.1/common/technology/autopilot/ap_int_base.h</fileName>
+						<fileDirectory>/home/efrink/mled/split_cu/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/calculate_tcp_checksum/calculate_tcp_checksum</fileDirectory>
+						<lineNumber>232</lineNumber>
+						<contextFuncName>ap_int_base&amp;lt;33, true&amp;gt;</contextFuncName>
+						<contextNormFuncName>ap_int_base_33_true_s</contextNormFuncName>
 						<inlineStackInfo>
 							<count>1</count>
 							<item_version>0</item_version>
 							<item>
-								<first>/users/arashs/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/calculate_tcp_checksum/calculate_tcp_checksum</first>
+								<first>/home/efrink/mled/split_cu/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/calculate_tcp_checksum/calculate_tcp_checksum</first>
 								<second>
-									<count>3</count>
+									<count>1</count>
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>/users/arashs/U280_CRC_Accelerator/src/kernel.cpp</first>
-											<second>fold_add</second>
+											<first>/packages/apps/fpga/Vitis_HLS/2022.1/common/technology/autopilot/ap_int_base.h</first>
+											<second>ap_int_base&amp;lt;33, true&amp;gt;</second>
 										</first>
-										<second>453</second>
-									</item>
-									<item>
-										<first>
-											<first>/users/arashs/U280_CRC_Accelerator/src/kernel.cpp</first>
-											<second>process_tcp_checksum</second>
-										</first>
-										<second>594</second>
-									</item>
-									<item>
-										<first>
-											<first>/users/arashs/U280_CRC_Accelerator/src/kernel.cpp</first>
-											<second>tcp_checksum_chunk_scalar</second>
-										</first>
-										<second>469</second>
+										<second>232</second>
 									</item>
 								</second>
 							</item>
 						</inlineStackInfo>
-						<originalName></originalName>
+						<originalName>sum.V</originalName>
 						<rtlName></rtlName>
 						<control></control>
 						<opType></opType>
@@ -2842,24 +2549,23 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>1937588280</coreId>
+						<coreId>1673363948</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
-					<bitwidth>1</bitwidth>
+					<bitwidth>17</bitwidth>
 				</Value>
 				<oprand_edges>
-					<count>3</count>
+					<count>2</count>
 					<item_version>0</item_version>
-					<item>167</item>
-					<item>168</item>
 					<item>170</item>
+					<item>171</item>
 				</oprand_edges>
-				<opcode>bitselect</opcode>
+				<opcode>add</opcode>
 				<m_Display>0</m_Display>
 				<m_isOnCriticalPath>0</m_isOnCriticalPath>
 				<m_isLCDNode>0</m_isLCDNode>
 				<m_isStartOfPath>0</m_isStartOfPath>
-				<m_delay>0.00</m_delay>
+				<m_delay>0.78</m_delay>
 				<m_topoIndex>48</m_topoIndex>
 				<m_clusterGroupNumber>-1</m_clusterGroupNumber>
 			</item>
@@ -2868,174 +2574,26 @@
 					<Obj>
 						<type>0</type>
 						<id>54</id>
-						<name>zext_ln453_1</name>
-						<fileName>/users/arashs/U280_CRC_Accelerator/src/kernel.cpp</fileName>
-						<fileDirectory>/users/arashs/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/calculate_tcp_checksum/calculate_tcp_checksum</fileDirectory>
-						<lineNumber>453</lineNumber>
-						<contextFuncName>fold_add</contextFuncName>
-						<contextNormFuncName>fold_add</contextNormFuncName>
-						<inlineStackInfo>
-							<count>1</count>
-							<item_version>0</item_version>
-							<item>
-								<first>/users/arashs/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/calculate_tcp_checksum/calculate_tcp_checksum</first>
-								<second>
-									<count>3</count>
-									<item_version>0</item_version>
-									<item>
-										<first>
-											<first>/users/arashs/U280_CRC_Accelerator/src/kernel.cpp</first>
-											<second>fold_add</second>
-										</first>
-										<second>453</second>
-									</item>
-									<item>
-										<first>
-											<first>/users/arashs/U280_CRC_Accelerator/src/kernel.cpp</first>
-											<second>process_tcp_checksum</second>
-										</first>
-										<second>594</second>
-									</item>
-									<item>
-										<first>
-											<first>/users/arashs/U280_CRC_Accelerator/src/kernel.cpp</first>
-											<second>tcp_checksum_chunk_scalar</second>
-										</first>
-										<second>469</second>
-									</item>
-								</second>
-							</item>
-						</inlineStackInfo>
-						<originalName></originalName>
-						<rtlName></rtlName>
-						<control></control>
-						<opType></opType>
-						<implIndex></implIndex>
-						<coreName></coreName>
-						<isStorage>0</isStorage>
-						<storageDepth>0</storageDepth>
-						<coreId>1931502951</coreId>
-						<rtlModuleName></rtlModuleName>
-					</Obj>
-					<bitwidth>17</bitwidth>
-				</Value>
-				<oprand_edges>
-					<count>1</count>
-					<item_version>0</item_version>
-					<item>171</item>
-				</oprand_edges>
-				<opcode>zext</opcode>
-				<m_Display>0</m_Display>
-				<m_isOnCriticalPath>0</m_isOnCriticalPath>
-				<m_isLCDNode>0</m_isLCDNode>
-				<m_isStartOfPath>0</m_isStartOfPath>
-				<m_delay>0.00</m_delay>
-				<m_topoIndex>49</m_topoIndex>
-				<m_clusterGroupNumber>-1</m_clusterGroupNumber>
-			</item>
-			<item class_id_reference="9" object_id="_51">
-				<Value>
-					<Obj>
-						<type>0</type>
-						<id>55</id>
-						<name>sum_2</name>
-						<fileName>/users/arashs/U280_CRC_Accelerator/src/kernel.cpp</fileName>
-						<fileDirectory>/users/arashs/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/calculate_tcp_checksum/calculate_tcp_checksum</fileDirectory>
-						<lineNumber>453</lineNumber>
-						<contextFuncName>fold_add</contextFuncName>
-						<contextNormFuncName>fold_add</contextNormFuncName>
-						<inlineStackInfo>
-							<count>1</count>
-							<item_version>0</item_version>
-							<item>
-								<first>/users/arashs/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/calculate_tcp_checksum/calculate_tcp_checksum</first>
-								<second>
-									<count>3</count>
-									<item_version>0</item_version>
-									<item>
-										<first>
-											<first>/users/arashs/U280_CRC_Accelerator/src/kernel.cpp</first>
-											<second>fold_add</second>
-										</first>
-										<second>453</second>
-									</item>
-									<item>
-										<first>
-											<first>/users/arashs/U280_CRC_Accelerator/src/kernel.cpp</first>
-											<second>process_tcp_checksum</second>
-										</first>
-										<second>594</second>
-									</item>
-									<item>
-										<first>
-											<first>/users/arashs/U280_CRC_Accelerator/src/kernel.cpp</first>
-											<second>tcp_checksum_chunk_scalar</second>
-										</first>
-										<second>469</second>
-									</item>
-								</second>
-							</item>
-						</inlineStackInfo>
-						<originalName>sum</originalName>
-						<rtlName></rtlName>
-						<control></control>
-						<opType></opType>
-						<implIndex></implIndex>
-						<coreName></coreName>
-						<isStorage>0</isStorage>
-						<storageDepth>0</storageDepth>
-						<coreId>1883048528</coreId>
-						<rtlModuleName></rtlModuleName>
-					</Obj>
-					<bitwidth>17</bitwidth>
-				</Value>
-				<oprand_edges>
-					<count>2</count>
-					<item_version>0</item_version>
-					<item>172</item>
-					<item>173</item>
-				</oprand_edges>
-				<opcode>add</opcode>
-				<m_Display>0</m_Display>
-				<m_isOnCriticalPath>0</m_isOnCriticalPath>
-				<m_isLCDNode>0</m_isLCDNode>
-				<m_isStartOfPath>0</m_isStartOfPath>
-				<m_delay>0.78</m_delay>
-				<m_topoIndex>50</m_topoIndex>
-				<m_clusterGroupNumber>-1</m_clusterGroupNumber>
-			</item>
-			<item class_id_reference="9" object_id="_52">
-				<Value>
-					<Obj>
-						<type>0</type>
-						<id>56</id>
 						<name>i_3</name>
-						<fileName>/users/arashs/U280_CRC_Accelerator/src/kernel.cpp</fileName>
-						<fileDirectory>/users/arashs/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/calculate_tcp_checksum/calculate_tcp_checksum</fileDirectory>
-						<lineNumber>463</lineNumber>
+						<fileName>/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp</fileName>
+						<fileDirectory>/home/efrink/mled/split_cu/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/calculate_tcp_checksum/calculate_tcp_checksum</fileDirectory>
+						<lineNumber>641</lineNumber>
 						<contextFuncName>tcp_checksum_chunk_scalar</contextFuncName>
 						<contextNormFuncName>tcp_checksum_chunk_scalar</contextNormFuncName>
 						<inlineStackInfo>
 							<count>1</count>
 							<item_version>0</item_version>
 							<item>
-								<first>/users/arashs/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/calculate_tcp_checksum/calculate_tcp_checksum</first>
+								<first>/home/efrink/mled/split_cu/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/calculate_tcp_checksum/calculate_tcp_checksum</first>
 								<second>
-									<count>2</count>
+									<count>1</count>
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>/users/arashs/U280_CRC_Accelerator/src/kernel.cpp</first>
-											<second>process_tcp_checksum</second>
-										</first>
-										<second>594</second>
-									</item>
-									<item>
-										<first>
-											<first>/users/arashs/U280_CRC_Accelerator/src/kernel.cpp</first>
+											<first>/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp</first>
 											<second>tcp_checksum_chunk_scalar</second>
 										</first>
-										<second>463</second>
+										<second>641</second>
 									</item>
 								</second>
 							</item>
@@ -3048,7 +2606,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>2167044900</coreId>
+						<coreId>3106667232</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>32</bitwidth>
@@ -3056,8 +2614,8 @@
 				<oprand_edges>
 					<count>2</count>
 					<item_version>0</item_version>
+					<item>172</item>
 					<item>174</item>
-					<item>176</item>
 				</oprand_edges>
 				<opcode>add</opcode>
 				<m_Display>0</m_Display>
@@ -3065,41 +2623,34 @@
 				<m_isLCDNode>0</m_isLCDNode>
 				<m_isStartOfPath>0</m_isStartOfPath>
 				<m_delay>0.88</m_delay>
-				<m_topoIndex>25</m_topoIndex>
+				<m_topoIndex>23</m_topoIndex>
 				<m_clusterGroupNumber>-1</m_clusterGroupNumber>
 			</item>
-			<item class_id_reference="9" object_id="_53">
+			<item class_id_reference="9" object_id="_51">
 				<Value>
 					<Obj>
 						<type>0</type>
-						<id>57</id>
-						<name>add_ln463</name>
-						<fileName>/users/arashs/U280_CRC_Accelerator/src/kernel.cpp</fileName>
-						<fileDirectory>/users/arashs/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/calculate_tcp_checksum/calculate_tcp_checksum</fileDirectory>
-						<lineNumber>463</lineNumber>
+						<id>55</id>
+						<name>add_ln641</name>
+						<fileName>/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp</fileName>
+						<fileDirectory>/home/efrink/mled/split_cu/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/calculate_tcp_checksum/calculate_tcp_checksum</fileDirectory>
+						<lineNumber>641</lineNumber>
 						<contextFuncName>tcp_checksum_chunk_scalar</contextFuncName>
 						<contextNormFuncName>tcp_checksum_chunk_scalar</contextNormFuncName>
 						<inlineStackInfo>
 							<count>1</count>
 							<item_version>0</item_version>
 							<item>
-								<first>/users/arashs/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/calculate_tcp_checksum/calculate_tcp_checksum</first>
+								<first>/home/efrink/mled/split_cu/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/calculate_tcp_checksum/calculate_tcp_checksum</first>
 								<second>
-									<count>2</count>
+									<count>1</count>
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>/users/arashs/U280_CRC_Accelerator/src/kernel.cpp</first>
-											<second>process_tcp_checksum</second>
-										</first>
-										<second>594</second>
-									</item>
-									<item>
-										<first>
-											<first>/users/arashs/U280_CRC_Accelerator/src/kernel.cpp</first>
+											<first>/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp</first>
 											<second>tcp_checksum_chunk_scalar</second>
 										</first>
-										<second>463</second>
+										<second>641</second>
 									</item>
 								</second>
 							</item>
@@ -3112,7 +2663,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>1380146992</coreId>
+						<coreId>3106698176</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>32</bitwidth>
@@ -3120,8 +2671,8 @@
 				<oprand_edges>
 					<count>2</count>
 					<item_version>0</item_version>
+					<item>175</item>
 					<item>177</item>
-					<item>179</item>
 				</oprand_edges>
 				<opcode>add</opcode>
 				<m_Display>0</m_Display>
@@ -3132,38 +2683,31 @@
 				<m_topoIndex>17</m_topoIndex>
 				<m_clusterGroupNumber>-1</m_clusterGroupNumber>
 			</item>
-			<item class_id_reference="9" object_id="_54">
+			<item class_id_reference="9" object_id="_52">
 				<Value>
 					<Obj>
 						<type>0</type>
-						<id>58</id>
-						<name>icmp_ln463</name>
-						<fileName>/users/arashs/U280_CRC_Accelerator/src/kernel.cpp</fileName>
-						<fileDirectory>/users/arashs/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/calculate_tcp_checksum/calculate_tcp_checksum</fileDirectory>
-						<lineNumber>463</lineNumber>
+						<id>56</id>
+						<name>icmp_ln641</name>
+						<fileName>/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp</fileName>
+						<fileDirectory>/home/efrink/mled/split_cu/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/calculate_tcp_checksum/calculate_tcp_checksum</fileDirectory>
+						<lineNumber>641</lineNumber>
 						<contextFuncName>tcp_checksum_chunk_scalar</contextFuncName>
 						<contextNormFuncName>tcp_checksum_chunk_scalar</contextNormFuncName>
 						<inlineStackInfo>
 							<count>1</count>
 							<item_version>0</item_version>
 							<item>
-								<first>/users/arashs/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/calculate_tcp_checksum/calculate_tcp_checksum</first>
+								<first>/home/efrink/mled/split_cu/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/calculate_tcp_checksum/calculate_tcp_checksum</first>
 								<second>
-									<count>2</count>
+									<count>1</count>
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>/users/arashs/U280_CRC_Accelerator/src/kernel.cpp</first>
-											<second>process_tcp_checksum</second>
-										</first>
-										<second>594</second>
-									</item>
-									<item>
-										<first>
-											<first>/users/arashs/U280_CRC_Accelerator/src/kernel.cpp</first>
+											<first>/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp</first>
 											<second>tcp_checksum_chunk_scalar</second>
 										</first>
-										<second>463</second>
+										<second>641</second>
 									</item>
 								</second>
 							</item>
@@ -3176,7 +2720,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>1599294536</coreId>
+						<coreId>3966233960</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>1</bitwidth>
@@ -3184,50 +2728,43 @@
 				<oprand_edges>
 					<count>2</count>
 					<item_version>0</item_version>
-					<item>180</item>
-					<item>181</item>
+					<item>178</item>
+					<item>179</item>
 				</oprand_edges>
 				<opcode>icmp</opcode>
 				<m_Display>0</m_Display>
 				<m_isOnCriticalPath>0</m_isOnCriticalPath>
 				<m_isLCDNode>0</m_isLCDNode>
 				<m_isStartOfPath>0</m_isStartOfPath>
-				<m_delay>0.88</m_delay>
+				<m_delay>0.85</m_delay>
 				<m_topoIndex>18</m_topoIndex>
 				<m_clusterGroupNumber>-1</m_clusterGroupNumber>
 			</item>
-			<item class_id_reference="9" object_id="_55">
+			<item class_id_reference="9" object_id="_53">
 				<Value>
 					<Obj>
 						<type>0</type>
-						<id>59</id>
-						<name>i_write_ln463</name>
-						<fileName>/users/arashs/U280_CRC_Accelerator/src/kernel.cpp</fileName>
-						<fileDirectory>/users/arashs/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/calculate_tcp_checksum/calculate_tcp_checksum</fileDirectory>
-						<lineNumber>463</lineNumber>
+						<id>57</id>
+						<name>br_ln641</name>
+						<fileName>/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp</fileName>
+						<fileDirectory>/home/efrink/mled/split_cu/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/calculate_tcp_checksum/calculate_tcp_checksum</fileDirectory>
+						<lineNumber>641</lineNumber>
 						<contextFuncName>tcp_checksum_chunk_scalar</contextFuncName>
 						<contextNormFuncName>tcp_checksum_chunk_scalar</contextNormFuncName>
 						<inlineStackInfo>
 							<count>1</count>
 							<item_version>0</item_version>
 							<item>
-								<first>/users/arashs/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/calculate_tcp_checksum/calculate_tcp_checksum</first>
+								<first>/home/efrink/mled/split_cu/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/calculate_tcp_checksum/calculate_tcp_checksum</first>
 								<second>
-									<count>2</count>
+									<count>1</count>
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>/users/arashs/U280_CRC_Accelerator/src/kernel.cpp</first>
-											<second>process_tcp_checksum</second>
-										</first>
-										<second>594</second>
-									</item>
-									<item>
-										<first>
-											<first>/users/arashs/U280_CRC_Accelerator/src/kernel.cpp</first>
+											<first>/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp</first>
 											<second>tcp_checksum_chunk_scalar</second>
 										</first>
-										<second>463</second>
+										<second>641</second>
 									</item>
 								</second>
 							</item>
@@ -3240,139 +2777,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>743460687</coreId>
-						<rtlModuleName></rtlModuleName>
-					</Obj>
-					<bitwidth>0</bitwidth>
-				</Value>
-				<oprand_edges>
-					<count>4</count>
-					<item_version>0</item_version>
-					<item>182</item>
-					<item>183</item>
-					<item>234</item>
-					<item>237</item>
-				</oprand_edges>
-				<opcode>store</opcode>
-				<m_Display>0</m_Display>
-				<m_isOnCriticalPath>0</m_isOnCriticalPath>
-				<m_isLCDNode>0</m_isLCDNode>
-				<m_isStartOfPath>0</m_isStartOfPath>
-				<m_delay>0.38</m_delay>
-				<m_topoIndex>26</m_topoIndex>
-				<m_clusterGroupNumber>-1</m_clusterGroupNumber>
-			</item>
-			<item class_id_reference="9" object_id="_56">
-				<Value>
-					<Obj>
-						<type>0</type>
-						<id>60</id>
-						<name>sum_write_ln463</name>
-						<fileName>/users/arashs/U280_CRC_Accelerator/src/kernel.cpp</fileName>
-						<fileDirectory>/users/arashs/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/calculate_tcp_checksum/calculate_tcp_checksum</fileDirectory>
-						<lineNumber>463</lineNumber>
-						<contextFuncName>tcp_checksum_chunk_scalar</contextFuncName>
-						<contextNormFuncName>tcp_checksum_chunk_scalar</contextNormFuncName>
-						<inlineStackInfo>
-							<count>1</count>
-							<item_version>0</item_version>
-							<item>
-								<first>/users/arashs/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/calculate_tcp_checksum/calculate_tcp_checksum</first>
-								<second>
-									<count>2</count>
-									<item_version>0</item_version>
-									<item>
-										<first>
-											<first>/users/arashs/U280_CRC_Accelerator/src/kernel.cpp</first>
-											<second>process_tcp_checksum</second>
-										</first>
-										<second>594</second>
-									</item>
-									<item>
-										<first>
-											<first>/users/arashs/U280_CRC_Accelerator/src/kernel.cpp</first>
-											<second>tcp_checksum_chunk_scalar</second>
-										</first>
-										<second>463</second>
-									</item>
-								</second>
-							</item>
-						</inlineStackInfo>
-						<originalName></originalName>
-						<rtlName></rtlName>
-						<control></control>
-						<opType></opType>
-						<implIndex></implIndex>
-						<coreName></coreName>
-						<isStorage>0</isStorage>
-						<storageDepth>0</storageDepth>
-						<coreId>1279795773</coreId>
-						<rtlModuleName></rtlModuleName>
-					</Obj>
-					<bitwidth>0</bitwidth>
-				</Value>
-				<oprand_edges>
-					<count>4</count>
-					<item_version>0</item_version>
-					<item>184</item>
-					<item>185</item>
-					<item>235</item>
-					<item>239</item>
-				</oprand_edges>
-				<opcode>store</opcode>
-				<m_Display>0</m_Display>
-				<m_isOnCriticalPath>0</m_isOnCriticalPath>
-				<m_isLCDNode>0</m_isLCDNode>
-				<m_isStartOfPath>0</m_isStartOfPath>
-				<m_delay>0.38</m_delay>
-				<m_topoIndex>51</m_topoIndex>
-				<m_clusterGroupNumber>-1</m_clusterGroupNumber>
-			</item>
-			<item class_id_reference="9" object_id="_57">
-				<Value>
-					<Obj>
-						<type>0</type>
-						<id>61</id>
-						<name>br_ln463</name>
-						<fileName>/users/arashs/U280_CRC_Accelerator/src/kernel.cpp</fileName>
-						<fileDirectory>/users/arashs/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/calculate_tcp_checksum/calculate_tcp_checksum</fileDirectory>
-						<lineNumber>463</lineNumber>
-						<contextFuncName>tcp_checksum_chunk_scalar</contextFuncName>
-						<contextNormFuncName>tcp_checksum_chunk_scalar</contextNormFuncName>
-						<inlineStackInfo>
-							<count>1</count>
-							<item_version>0</item_version>
-							<item>
-								<first>/users/arashs/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/calculate_tcp_checksum/calculate_tcp_checksum</first>
-								<second>
-									<count>2</count>
-									<item_version>0</item_version>
-									<item>
-										<first>
-											<first>/users/arashs/U280_CRC_Accelerator/src/kernel.cpp</first>
-											<second>process_tcp_checksum</second>
-										</first>
-										<second>594</second>
-									</item>
-									<item>
-										<first>
-											<first>/users/arashs/U280_CRC_Accelerator/src/kernel.cpp</first>
-											<second>tcp_checksum_chunk_scalar</second>
-										</first>
-										<second>463</second>
-									</item>
-								</second>
-							</item>
-						</inlineStackInfo>
-						<originalName></originalName>
-						<rtlName></rtlName>
-						<control></control>
-						<opType></opType>
-						<implIndex></implIndex>
-						<coreName></coreName>
-						<isStorage>0</isStorage>
-						<storageDepth>0</storageDepth>
-						<coreId>1634887020</coreId>
+						<coreId>3106704656</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>0</bitwidth>
@@ -3380,9 +2785,9 @@
 				<oprand_edges>
 					<count>3</count>
 					<item_version>0</item_version>
-					<item>186</item>
-					<item>187</item>
-					<item>188</item>
+					<item>180</item>
+					<item>181</item>
+					<item>182</item>
 				</oprand_edges>
 				<opcode>br</opcode>
 				<m_Display>0</m_Display>
@@ -3393,45 +2798,31 @@
 				<m_topoIndex>19</m_topoIndex>
 				<m_clusterGroupNumber>-1</m_clusterGroupNumber>
 			</item>
-			<item class_id_reference="9" object_id="_58">
+			<item class_id_reference="9" object_id="_54">
 				<Value>
 					<Obj>
 						<type>0</type>
-						<id>63</id>
-						<name>sum_3_out_write_ln453</name>
-						<fileName>/users/arashs/U280_CRC_Accelerator/src/kernel.cpp</fileName>
-						<fileDirectory>/users/arashs/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/calculate_tcp_checksum/calculate_tcp_checksum</fileDirectory>
-						<lineNumber>453</lineNumber>
-						<contextFuncName>fold_add</contextFuncName>
-						<contextNormFuncName>fold_add</contextNormFuncName>
+						<id>59</id>
+						<name>i_write_ln641</name>
+						<fileName>/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp</fileName>
+						<fileDirectory>/home/efrink/mled/split_cu/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/calculate_tcp_checksum/calculate_tcp_checksum</fileDirectory>
+						<lineNumber>641</lineNumber>
+						<contextFuncName>tcp_checksum_chunk_scalar</contextFuncName>
+						<contextNormFuncName>tcp_checksum_chunk_scalar</contextNormFuncName>
 						<inlineStackInfo>
 							<count>1</count>
 							<item_version>0</item_version>
 							<item>
-								<first>/users/arashs/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/calculate_tcp_checksum/calculate_tcp_checksum</first>
+								<first>/home/efrink/mled/split_cu/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/calculate_tcp_checksum/calculate_tcp_checksum</first>
 								<second>
-									<count>3</count>
+									<count>1</count>
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>/users/arashs/U280_CRC_Accelerator/src/kernel.cpp</first>
-											<second>fold_add</second>
-										</first>
-										<second>453</second>
-									</item>
-									<item>
-										<first>
-											<first>/users/arashs/U280_CRC_Accelerator/src/kernel.cpp</first>
-											<second>process_tcp_checksum</second>
-										</first>
-										<second>594</second>
-									</item>
-									<item>
-										<first>
-											<first>/users/arashs/U280_CRC_Accelerator/src/kernel.cpp</first>
+											<first>/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp</first>
 											<second>tcp_checksum_chunk_scalar</second>
 										</first>
-										<second>469</second>
+										<second>641</second>
 									</item>
 								</second>
 							</item>
@@ -3444,7 +2835,181 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>1668444975</coreId>
+						<coreId>639659631</coreId>
+						<rtlModuleName></rtlModuleName>
+					</Obj>
+					<bitwidth>0</bitwidth>
+				</Value>
+				<oprand_edges>
+					<count>4</count>
+					<item_version>0</item_version>
+					<item>183</item>
+					<item>184</item>
+					<item>236</item>
+					<item>239</item>
+				</oprand_edges>
+				<opcode>store</opcode>
+				<m_Display>0</m_Display>
+				<m_isOnCriticalPath>0</m_isOnCriticalPath>
+				<m_isLCDNode>0</m_isLCDNode>
+				<m_isStartOfPath>0</m_isStartOfPath>
+				<m_delay>0.38</m_delay>
+				<m_topoIndex>24</m_topoIndex>
+				<m_clusterGroupNumber>-1</m_clusterGroupNumber>
+			</item>
+			<item class_id_reference="9" object_id="_55">
+				<Value>
+					<Obj>
+						<type>0</type>
+						<id>60</id>
+						<name>sum_V_write_ln641</name>
+						<fileName>/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp</fileName>
+						<fileDirectory>/home/efrink/mled/split_cu/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/calculate_tcp_checksum/calculate_tcp_checksum</fileDirectory>
+						<lineNumber>641</lineNumber>
+						<contextFuncName>tcp_checksum_chunk_scalar</contextFuncName>
+						<contextNormFuncName>tcp_checksum_chunk_scalar</contextNormFuncName>
+						<inlineStackInfo>
+							<count>1</count>
+							<item_version>0</item_version>
+							<item>
+								<first>/home/efrink/mled/split_cu/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/calculate_tcp_checksum/calculate_tcp_checksum</first>
+								<second>
+									<count>1</count>
+									<item_version>0</item_version>
+									<item>
+										<first>
+											<first>/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp</first>
+											<second>tcp_checksum_chunk_scalar</second>
+										</first>
+										<second>641</second>
+									</item>
+								</second>
+							</item>
+						</inlineStackInfo>
+						<originalName></originalName>
+						<rtlName></rtlName>
+						<control></control>
+						<opType></opType>
+						<implIndex></implIndex>
+						<coreName></coreName>
+						<isStorage>0</isStorage>
+						<storageDepth>0</storageDepth>
+						<coreId>840979276</coreId>
+						<rtlModuleName></rtlModuleName>
+					</Obj>
+					<bitwidth>0</bitwidth>
+				</Value>
+				<oprand_edges>
+					<count>4</count>
+					<item_version>0</item_version>
+					<item>185</item>
+					<item>186</item>
+					<item>237</item>
+					<item>238</item>
+				</oprand_edges>
+				<opcode>store</opcode>
+				<m_Display>0</m_Display>
+				<m_isOnCriticalPath>0</m_isOnCriticalPath>
+				<m_isLCDNode>0</m_isLCDNode>
+				<m_isStartOfPath>0</m_isStartOfPath>
+				<m_delay>0.38</m_delay>
+				<m_topoIndex>49</m_topoIndex>
+				<m_clusterGroupNumber>-1</m_clusterGroupNumber>
+			</item>
+			<item class_id_reference="9" object_id="_56">
+				<Value>
+					<Obj>
+						<type>0</type>
+						<id>61</id>
+						<name>br_ln641</name>
+						<fileName>/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp</fileName>
+						<fileDirectory>/home/efrink/mled/split_cu/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/calculate_tcp_checksum/calculate_tcp_checksum</fileDirectory>
+						<lineNumber>641</lineNumber>
+						<contextFuncName>tcp_checksum_chunk_scalar</contextFuncName>
+						<contextNormFuncName>tcp_checksum_chunk_scalar</contextNormFuncName>
+						<inlineStackInfo>
+							<count>1</count>
+							<item_version>0</item_version>
+							<item>
+								<first>/home/efrink/mled/split_cu/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/calculate_tcp_checksum/calculate_tcp_checksum</first>
+								<second>
+									<count>1</count>
+									<item_version>0</item_version>
+									<item>
+										<first>
+											<first>/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp</first>
+											<second>tcp_checksum_chunk_scalar</second>
+										</first>
+										<second>641</second>
+									</item>
+								</second>
+							</item>
+						</inlineStackInfo>
+						<originalName></originalName>
+						<rtlName></rtlName>
+						<control></control>
+						<opType></opType>
+						<implIndex></implIndex>
+						<coreName></coreName>
+						<isStorage>0</isStorage>
+						<storageDepth>0</storageDepth>
+						<coreId>3106520272</coreId>
+						<rtlModuleName></rtlModuleName>
+					</Obj>
+					<bitwidth>0</bitwidth>
+				</Value>
+				<oprand_edges>
+					<count>1</count>
+					<item_version>0</item_version>
+					<item>187</item>
+				</oprand_edges>
+				<opcode>br</opcode>
+				<m_Display>0</m_Display>
+				<m_isOnCriticalPath>0</m_isOnCriticalPath>
+				<m_isLCDNode>0</m_isLCDNode>
+				<m_isStartOfPath>0</m_isStartOfPath>
+				<m_delay>0.00</m_delay>
+				<m_topoIndex>50</m_topoIndex>
+				<m_clusterGroupNumber>-1</m_clusterGroupNumber>
+			</item>
+			<item class_id_reference="9" object_id="_57">
+				<Value>
+					<Obj>
+						<type>0</type>
+						<id>63</id>
+						<name>sum_V_1_out_write_ln232</name>
+						<fileName>/packages/apps/fpga/Vitis_HLS/2022.1/common/technology/autopilot/ap_int_base.h</fileName>
+						<fileDirectory>/home/efrink/mled/split_cu/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/calculate_tcp_checksum/calculate_tcp_checksum</fileDirectory>
+						<lineNumber>232</lineNumber>
+						<contextFuncName>ap_int_base&amp;lt;33, true&amp;gt;</contextFuncName>
+						<contextNormFuncName>ap_int_base_33_true_s</contextNormFuncName>
+						<inlineStackInfo>
+							<count>1</count>
+							<item_version>0</item_version>
+							<item>
+								<first>/home/efrink/mled/split_cu/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/calculate_tcp_checksum/calculate_tcp_checksum</first>
+								<second>
+									<count>1</count>
+									<item_version>0</item_version>
+									<item>
+										<first>
+											<first>/packages/apps/fpga/Vitis_HLS/2022.1/common/technology/autopilot/ap_int_base.h</first>
+											<second>ap_int_base&amp;lt;33, true&amp;gt;</second>
+										</first>
+										<second>232</second>
+									</item>
+								</second>
+							</item>
+						</inlineStackInfo>
+						<originalName></originalName>
+						<rtlName></rtlName>
+						<control></control>
+						<opType></opType>
+						<implIndex></implIndex>
+						<coreName></coreName>
+						<isStorage>0</isStorage>
+						<storageDepth>0</storageDepth>
+						<coreId>1330007625</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>0</bitwidth>
@@ -3452,9 +3017,67 @@
 				<oprand_edges>
 					<count>3</count>
 					<item_version>0</item_version>
-					<item>86</item>
 					<item>87</item>
 					<item>88</item>
+					<item>89</item>
+				</oprand_edges>
+				<opcode>write</opcode>
+				<m_Display>0</m_Display>
+				<m_isOnCriticalPath>0</m_isOnCriticalPath>
+				<m_isLCDNode>0</m_isLCDNode>
+				<m_isStartOfPath>0</m_isStartOfPath>
+				<m_delay>0.00</m_delay>
+				<m_topoIndex>51</m_topoIndex>
+				<m_clusterGroupNumber>-1</m_clusterGroupNumber>
+			</item>
+			<item class_id_reference="9" object_id="_58">
+				<Value>
+					<Obj>
+						<type>0</type>
+						<id>64</id>
+						<name>i_1_out_write_ln641</name>
+						<fileName>/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp</fileName>
+						<fileDirectory>/home/efrink/mled/split_cu/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/calculate_tcp_checksum/calculate_tcp_checksum</fileDirectory>
+						<lineNumber>641</lineNumber>
+						<contextFuncName>tcp_checksum_chunk_scalar</contextFuncName>
+						<contextNormFuncName>tcp_checksum_chunk_scalar</contextNormFuncName>
+						<inlineStackInfo>
+							<count>1</count>
+							<item_version>0</item_version>
+							<item>
+								<first>/home/efrink/mled/split_cu/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/calculate_tcp_checksum/calculate_tcp_checksum</first>
+								<second>
+									<count>1</count>
+									<item_version>0</item_version>
+									<item>
+										<first>
+											<first>/home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp</first>
+											<second>tcp_checksum_chunk_scalar</second>
+										</first>
+										<second>641</second>
+									</item>
+								</second>
+							</item>
+						</inlineStackInfo>
+						<originalName></originalName>
+						<rtlName></rtlName>
+						<control></control>
+						<opType></opType>
+						<implIndex></implIndex>
+						<coreName></coreName>
+						<isStorage>0</isStorage>
+						<storageDepth>0</storageDepth>
+						<coreId>0</coreId>
+						<rtlModuleName></rtlModuleName>
+					</Obj>
+					<bitwidth>0</bitwidth>
+				</Value>
+				<oprand_edges>
+					<count>3</count>
+					<item_version>0</item_version>
+					<item>91</item>
+					<item>92</item>
+					<item>93</item>
 				</oprand_edges>
 				<opcode>write</opcode>
 				<m_Display>0</m_Display>
@@ -3466,71 +3089,6 @@
 				<m_clusterGroupNumber>-1</m_clusterGroupNumber>
 			</item>
 			<item class_id_reference="9" object_id="_59">
-				<Value>
-					<Obj>
-						<type>0</type>
-						<id>64</id>
-						<name>i_1_out_write_ln463</name>
-						<fileName>/users/arashs/U280_CRC_Accelerator/src/kernel.cpp</fileName>
-						<fileDirectory>/users/arashs/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/calculate_tcp_checksum/calculate_tcp_checksum</fileDirectory>
-						<lineNumber>463</lineNumber>
-						<contextFuncName>tcp_checksum_chunk_scalar</contextFuncName>
-						<contextNormFuncName>tcp_checksum_chunk_scalar</contextNormFuncName>
-						<inlineStackInfo>
-							<count>1</count>
-							<item_version>0</item_version>
-							<item>
-								<first>/users/arashs/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/calculate_tcp_checksum/calculate_tcp_checksum</first>
-								<second>
-									<count>2</count>
-									<item_version>0</item_version>
-									<item>
-										<first>
-											<first>/users/arashs/U280_CRC_Accelerator/src/kernel.cpp</first>
-											<second>process_tcp_checksum</second>
-										</first>
-										<second>594</second>
-									</item>
-									<item>
-										<first>
-											<first>/users/arashs/U280_CRC_Accelerator/src/kernel.cpp</first>
-											<second>tcp_checksum_chunk_scalar</second>
-										</first>
-										<second>463</second>
-									</item>
-								</second>
-							</item>
-						</inlineStackInfo>
-						<originalName></originalName>
-						<rtlName></rtlName>
-						<control></control>
-						<opType></opType>
-						<implIndex></implIndex>
-						<coreName></coreName>
-						<isStorage>0</isStorage>
-						<storageDepth>0</storageDepth>
-						<coreId>1768645477</coreId>
-						<rtlModuleName></rtlModuleName>
-					</Obj>
-					<bitwidth>0</bitwidth>
-				</Value>
-				<oprand_edges>
-					<count>3</count>
-					<item_version>0</item_version>
-					<item>90</item>
-					<item>91</item>
-					<item>92</item>
-				</oprand_edges>
-				<opcode>write</opcode>
-				<m_Display>0</m_Display>
-				<m_isOnCriticalPath>0</m_isOnCriticalPath>
-				<m_isLCDNode>0</m_isLCDNode>
-				<m_isStartOfPath>0</m_isStartOfPath>
-				<m_delay>0.00</m_delay>
-				<m_topoIndex>53</m_topoIndex>
-				<m_clusterGroupNumber>-1</m_clusterGroupNumber>
-			</item>
-			<item class_id_reference="9" object_id="_60">
 				<Value>
 					<Obj>
 						<type>0</type>
@@ -3553,7 +3111,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>828330828</coreId>
+						<coreId>3106539808</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>0</bitwidth>
@@ -3568,14 +3126,14 @@
 				<m_isLCDNode>0</m_isLCDNode>
 				<m_isStartOfPath>0</m_isStartOfPath>
 				<m_delay>0.00</m_delay>
-				<m_topoIndex>54</m_topoIndex>
+				<m_topoIndex>53</m_topoIndex>
 				<m_clusterGroupNumber>-1</m_clusterGroupNumber>
 			</item>
 		</nodes>
 		<consts class_id="15" tracking_level="0" version="0">
 			<count>11</count>
 			<item_version>0</item_version>
-			<item class_id="16" tracking_level="1" version="0" object_id="_61">
+			<item class_id="16" tracking_level="1" version="0" object_id="_60">
 				<Value>
 					<Obj>
 						<type>2</type>
@@ -3606,11 +3164,11 @@
 				<const_type>0</const_type>
 				<content>1</content>
 			</item>
-			<item class_id_reference="16" object_id="_62">
+			<item class_id_reference="16" object_id="_61">
 				<Value>
 					<Obj>
 						<type>2</type>
-						<id>78</id>
+						<id>79</id>
 						<name>empty</name>
 						<fileName></fileName>
 						<fileDirectory></fileDirectory>
@@ -3629,10 +3187,41 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>774971450</coreId>
+						<coreId>3106544768</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>32</bitwidth>
+				</Value>
+				<const_type>0</const_type>
+				<content>0</content>
+			</item>
+			<item class_id_reference="16" object_id="_62">
+				<Value>
+					<Obj>
+						<type>2</type>
+						<id>82</id>
+						<name>empty</name>
+						<fileName></fileName>
+						<fileDirectory></fileDirectory>
+						<lineNumber>0</lineNumber>
+						<contextFuncName></contextFuncName>
+						<contextNormFuncName></contextNormFuncName>
+						<inlineStackInfo>
+							<count>0</count>
+							<item_version>0</item_version>
+						</inlineStackInfo>
+						<originalName></originalName>
+						<rtlName></rtlName>
+						<control></control>
+						<opType></opType>
+						<implIndex></implIndex>
+						<coreName></coreName>
+						<isStorage>0</isStorage>
+						<storageDepth>0</storageDepth>
+						<coreId>3106545216</coreId>
+						<rtlModuleName></rtlModuleName>
+					</Obj>
+					<bitwidth>17</bitwidth>
 				</Value>
 				<const_type>0</const_type>
 				<content>0</content>
@@ -3641,7 +3230,7 @@
 				<Value>
 					<Obj>
 						<type>2</type>
-						<id>81</id>
+						<id>103</id>
 						<name>empty</name>
 						<fileName></fileName>
 						<fileDirectory></fileDirectory>
@@ -3660,13 +3249,13 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>7237481</coreId>
+						<coreId>1665228611</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
-					<bitwidth>17</bitwidth>
+					<bitwidth>32</bitwidth>
 				</Value>
 				<const_type>0</const_type>
-				<content>0</content>
+				<content>6</content>
 			</item>
 			<item class_id_reference="16" object_id="_64">
 				<Value>
@@ -3691,38 +3280,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>1634885935</coreId>
-						<rtlModuleName></rtlModuleName>
-					</Obj>
-					<bitwidth>32</bitwidth>
-				</Value>
-				<const_type>0</const_type>
-				<content>6</content>
-			</item>
-			<item class_id_reference="16" object_id="_65">
-				<Value>
-					<Obj>
-						<type>2</type>
-						<id>107</id>
-						<name>empty</name>
-						<fileName></fileName>
-						<fileDirectory></fileDirectory>
-						<lineNumber>0</lineNumber>
-						<contextFuncName></contextFuncName>
-						<contextNormFuncName></contextNormFuncName>
-						<inlineStackInfo>
-							<count>0</count>
-							<item_version>0</item_version>
-						</inlineStackInfo>
-						<originalName></originalName>
-						<rtlName></rtlName>
-						<control></control>
-						<opType></opType>
-						<implIndex></implIndex>
-						<coreName></coreName>
-						<isStorage>0</isStorage>
-						<storageDepth>0</storageDepth>
-						<coreId>2167055881</coreId>
+						<coreId>1886413614</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>32</bitwidth>
@@ -3730,11 +3288,11 @@
 				<const_type>0</const_type>
 				<content>63</content>
 			</item>
-			<item class_id_reference="16" object_id="_66">
+			<item class_id_reference="16" object_id="_65">
 				<Value>
 					<Obj>
 						<type>2</type>
-						<id>124</id>
+						<id>122</id>
 						<name>empty</name>
 						<fileName></fileName>
 						<fileDirectory></fileDirectory>
@@ -3753,7 +3311,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>1937610936</coreId>
+						<coreId>1634541683</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>3</bitwidth>
@@ -3761,11 +3319,11 @@
 				<const_type>0</const_type>
 				<content>0</content>
 			</item>
-			<item class_id_reference="16" object_id="_67">
+			<item class_id_reference="16" object_id="_66">
 				<Value>
 					<Obj>
 						<type>2</type>
-						<id>131</id>
+						<id>129</id>
 						<name>empty</name>
 						<fileName></fileName>
 						<fileDirectory></fileDirectory>
@@ -3784,10 +3342,41 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>1937611712</coreId>
+						<coreId>544434464</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>64</bitwidth>
+				</Value>
+				<const_type>0</const_type>
+				<content>1</content>
+			</item>
+			<item class_id_reference="16" object_id="_67">
+				<Value>
+					<Obj>
+						<type>2</type>
+						<id>144</id>
+						<name>empty</name>
+						<fileName></fileName>
+						<fileDirectory></fileDirectory>
+						<lineNumber>0</lineNumber>
+						<contextFuncName></contextFuncName>
+						<contextNormFuncName></contextNormFuncName>
+						<inlineStackInfo>
+							<count>0</count>
+							<item_version>0</item_version>
+						</inlineStackInfo>
+						<originalName></originalName>
+						<rtlName></rtlName>
+						<control></control>
+						<opType></opType>
+						<implIndex></implIndex>
+						<coreName></coreName>
+						<isStorage>0</isStorage>
+						<storageDepth>0</storageDepth>
+						<coreId>171847424</coreId>
+						<rtlModuleName></rtlModuleName>
+					</Obj>
+					<bitwidth>6</bitwidth>
 				</Value>
 				<const_type>0</const_type>
 				<content>1</content>
@@ -3796,7 +3385,7 @@
 				<Value>
 					<Obj>
 						<type>2</type>
-						<id>146</id>
+						<id>167</id>
 						<name>empty</name>
 						<fileName></fileName>
 						<fileDirectory></fileDirectory>
@@ -3815,38 +3404,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>1883048528</coreId>
-						<rtlModuleName></rtlModuleName>
-					</Obj>
-					<bitwidth>6</bitwidth>
-				</Value>
-				<const_type>0</const_type>
-				<content>1</content>
-			</item>
-			<item class_id_reference="16" object_id="_69">
-				<Value>
-					<Obj>
-						<type>2</type>
-						<id>169</id>
-						<name>empty</name>
-						<fileName></fileName>
-						<fileDirectory></fileDirectory>
-						<lineNumber>0</lineNumber>
-						<contextFuncName></contextFuncName>
-						<contextNormFuncName></contextNormFuncName>
-						<inlineStackInfo>
-							<count>0</count>
-							<item_version>0</item_version>
-						</inlineStackInfo>
-						<originalName></originalName>
-						<rtlName></rtlName>
-						<control></control>
-						<opType></opType>
-						<implIndex></implIndex>
-						<coreName></coreName>
-						<isStorage>0</isStorage>
-						<storageDepth>0</storageDepth>
-						<coreId>1937612768</coreId>
+						<coreId>3106550288</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>32</bitwidth>
@@ -3854,11 +3412,42 @@
 				<const_type>0</const_type>
 				<content>16</content>
 			</item>
+			<item class_id_reference="16" object_id="_69">
+				<Value>
+					<Obj>
+						<type>2</type>
+						<id>173</id>
+						<name>empty</name>
+						<fileName></fileName>
+						<fileDirectory></fileDirectory>
+						<lineNumber>0</lineNumber>
+						<contextFuncName></contextFuncName>
+						<contextNormFuncName></contextNormFuncName>
+						<inlineStackInfo>
+							<count>0</count>
+							<item_version>0</item_version>
+						</inlineStackInfo>
+						<originalName></originalName>
+						<rtlName></rtlName>
+						<control></control>
+						<opType></opType>
+						<implIndex></implIndex>
+						<coreName></coreName>
+						<isStorage>0</isStorage>
+						<storageDepth>0</storageDepth>
+						<coreId>176</coreId>
+						<rtlModuleName></rtlModuleName>
+					</Obj>
+					<bitwidth>32</bitwidth>
+				</Value>
+				<const_type>0</const_type>
+				<content>2</content>
+			</item>
 			<item class_id_reference="16" object_id="_70">
 				<Value>
 					<Obj>
 						<type>2</type>
-						<id>175</id>
+						<id>176</id>
 						<name>empty</name>
 						<fileName></fileName>
 						<fileDirectory></fileDirectory>
@@ -3883,44 +3472,13 @@
 					<bitwidth>32</bitwidth>
 				</Value>
 				<const_type>0</const_type>
-				<content>2</content>
-			</item>
-			<item class_id_reference="16" object_id="_71">
-				<Value>
-					<Obj>
-						<type>2</type>
-						<id>178</id>
-						<name>empty</name>
-						<fileName></fileName>
-						<fileDirectory></fileDirectory>
-						<lineNumber>0</lineNumber>
-						<contextFuncName></contextFuncName>
-						<contextNormFuncName></contextNormFuncName>
-						<inlineStackInfo>
-							<count>0</count>
-							<item_version>0</item_version>
-						</inlineStackInfo>
-						<originalName></originalName>
-						<rtlName></rtlName>
-						<control></control>
-						<opType></opType>
-						<implIndex></implIndex>
-						<coreName></coreName>
-						<isStorage>0</isStorage>
-						<storageDepth>0</storageDepth>
-						<coreId>1937614608</coreId>
-						<rtlModuleName></rtlModuleName>
-					</Obj>
-					<bitwidth>32</bitwidth>
-				</Value>
-				<const_type>0</const_type>
 				<content>3</content>
 			</item>
 		</consts>
 		<blocks class_id="17" tracking_level="0" version="0">
-			<count>3</count>
+			<count>4</count>
 			<item_version>0</item_version>
-			<item class_id="18" tracking_level="1" version="0" object_id="_72">
+			<item class_id="18" tracking_level="1" version="0" object_id="_71">
 				<Obj>
 					<type>3</type>
 					<id>16</id>
@@ -3942,7 +3500,7 @@
 					<coreName></coreName>
 					<isStorage>0</isStorage>
 					<storageDepth>0</storageDepth>
-					<coreId>1937324336</coreId>
+					<coreId>3106258656</coreId>
 					<rtlModuleName></rtlModuleName>
 				</Obj>
 				<node_objs>
@@ -3958,10 +3516,10 @@
 					<item>15</item>
 				</node_objs>
 			</item>
-			<item class_id_reference="18" object_id="_73">
+			<item class_id_reference="18" object_id="_72">
 				<Obj>
 					<type>3</type>
-					<id>62</id>
+					<id>58</id>
 					<name>for.body.i</name>
 					<fileName></fileName>
 					<fileDirectory></fileDirectory>
@@ -3980,11 +3538,11 @@
 					<coreName></coreName>
 					<isStorage>0</isStorage>
 					<storageDepth>0</storageDepth>
-					<coreId>1937324336</coreId>
+					<coreId>3106258656</coreId>
 					<rtlModuleName></rtlModuleName>
 				</Obj>
 				<node_objs>
-					<count>43</count>
+					<count>39</count>
 					<item_version>0</item_version>
 					<item>17</item>
 					<item>18</item>
@@ -4025,7 +3583,36 @@
 					<item>55</item>
 					<item>56</item>
 					<item>57</item>
-					<item>58</item>
+				</node_objs>
+			</item>
+			<item class_id_reference="18" object_id="_73">
+				<Obj>
+					<type>3</type>
+					<id>62</id>
+					<name>for.body.i.for.body.i_crit_edge</name>
+					<fileName></fileName>
+					<fileDirectory></fileDirectory>
+					<lineNumber>0</lineNumber>
+					<contextFuncName></contextFuncName>
+					<contextNormFuncName></contextNormFuncName>
+					<inlineStackInfo>
+						<count>0</count>
+						<item_version>0</item_version>
+					</inlineStackInfo>
+					<originalName></originalName>
+					<rtlName></rtlName>
+					<control></control>
+					<opType></opType>
+					<implIndex></implIndex>
+					<coreName></coreName>
+					<isStorage>0</isStorage>
+					<storageDepth>0</storageDepth>
+					<coreId>231</coreId>
+					<rtlModuleName></rtlModuleName>
+				</Obj>
+				<node_objs>
+					<count>3</count>
+					<item_version>0</item_version>
 					<item>59</item>
 					<item>60</item>
 					<item>61</item>
@@ -4053,7 +3640,7 @@
 					<coreName></coreName>
 					<isStorage>0</isStorage>
 					<storageDepth>0</storageDepth>
-					<coreId>1</coreId>
+					<coreId>0</coreId>
 					<rtlModuleName></rtlModuleName>
 				</Obj>
 				<node_objs>
@@ -4066,7 +3653,7 @@
 			</item>
 		</blocks>
 		<edges class_id="19" tracking_level="0" version="0">
-			<count>99</count>
+			<count>98</count>
 			<item_version>0</item_version>
 			<item class_id="20" tracking_level="1" version="0" object_id="_75">
 				<id>68</id>
@@ -4092,673 +3679,666 @@
 			<item class_id_reference="20" object_id="_78">
 				<id>75</id>
 				<edge_type>1</edge_type>
-				<source_obj>2</source_obj>
+				<source_obj>3</source_obj>
 				<sink_obj>11</sink_obj>
 				<is_back_edge>0</is_back_edge>
 			</item>
 			<item class_id_reference="20" object_id="_79">
-				<id>77</id>
+				<id>78</id>
 				<edge_type>1</edge_type>
 				<source_obj>1</source_obj>
 				<sink_obj>12</sink_obj>
 				<is_back_edge>0</is_back_edge>
 			</item>
 			<item class_id_reference="20" object_id="_80">
-				<id>79</id>
+				<id>80</id>
 				<edge_type>1</edge_type>
-				<source_obj>78</source_obj>
+				<source_obj>79</source_obj>
 				<sink_obj>13</sink_obj>
 				<is_back_edge>0</is_back_edge>
 			</item>
 			<item class_id_reference="20" object_id="_81">
-				<id>80</id>
+				<id>81</id>
 				<edge_type>1</edge_type>
 				<source_obj>8</source_obj>
 				<sink_obj>13</sink_obj>
 				<is_back_edge>0</is_back_edge>
 			</item>
 			<item class_id_reference="20" object_id="_82">
-				<id>82</id>
+				<id>83</id>
 				<edge_type>1</edge_type>
-				<source_obj>81</source_obj>
+				<source_obj>82</source_obj>
 				<sink_obj>14</sink_obj>
 				<is_back_edge>0</is_back_edge>
 			</item>
 			<item class_id_reference="20" object_id="_83">
-				<id>83</id>
+				<id>84</id>
 				<edge_type>1</edge_type>
 				<source_obj>7</source_obj>
 				<sink_obj>14</sink_obj>
 				<is_back_edge>0</is_back_edge>
 			</item>
 			<item class_id_reference="20" object_id="_84">
-				<id>84</id>
+				<id>85</id>
 				<edge_type>2</edge_type>
-				<source_obj>62</source_obj>
+				<source_obj>58</source_obj>
 				<sink_obj>15</sink_obj>
 				<is_back_edge>0</is_back_edge>
 			</item>
 			<item class_id_reference="20" object_id="_85">
-				<id>87</id>
+				<id>88</id>
 				<edge_type>1</edge_type>
 				<source_obj>5</source_obj>
 				<sink_obj>63</sink_obj>
 				<is_back_edge>0</is_back_edge>
 			</item>
 			<item class_id_reference="20" object_id="_86">
-				<id>88</id>
+				<id>89</id>
 				<edge_type>1</edge_type>
-				<source_obj>55</source_obj>
+				<source_obj>53</source_obj>
 				<sink_obj>63</sink_obj>
 				<is_back_edge>0</is_back_edge>
 			</item>
 			<item class_id_reference="20" object_id="_87">
-				<id>91</id>
+				<id>92</id>
 				<edge_type>1</edge_type>
 				<source_obj>6</source_obj>
 				<sink_obj>64</sink_obj>
 				<is_back_edge>0</is_back_edge>
 			</item>
 			<item class_id_reference="20" object_id="_88">
-				<id>92</id>
+				<id>93</id>
 				<edge_type>1</edge_type>
-				<source_obj>56</source_obj>
+				<source_obj>54</source_obj>
 				<sink_obj>64</sink_obj>
 				<is_back_edge>0</is_back_edge>
 			</item>
 			<item class_id_reference="20" object_id="_89">
-				<id>93</id>
+				<id>94</id>
 				<edge_type>1</edge_type>
 				<source_obj>7</source_obj>
 				<sink_obj>17</sink_obj>
 				<is_back_edge>0</is_back_edge>
 			</item>
 			<item class_id_reference="20" object_id="_90">
-				<id>94</id>
+				<id>95</id>
 				<edge_type>1</edge_type>
 				<source_obj>8</source_obj>
 				<sink_obj>18</sink_obj>
 				<is_back_edge>0</is_back_edge>
 			</item>
 			<item class_id_reference="20" object_id="_91">
-				<id>95</id>
+				<id>96</id>
 				<edge_type>1</edge_type>
 				<source_obj>18</source_obj>
 				<sink_obj>21</sink_obj>
 				<is_back_edge>0</is_back_edge>
 			</item>
 			<item class_id_reference="20" object_id="_92">
-				<id>96</id>
+				<id>97</id>
 				<edge_type>1</edge_type>
-				<source_obj>12</source_obj>
+				<source_obj>18</source_obj>
 				<sink_obj>22</sink_obj>
 				<is_back_edge>0</is_back_edge>
 			</item>
 			<item class_id_reference="20" object_id="_93">
-				<id>97</id>
+				<id>98</id>
 				<edge_type>1</edge_type>
-				<source_obj>11</source_obj>
-				<sink_obj>22</sink_obj>
+				<source_obj>12</source_obj>
+				<sink_obj>23</sink_obj>
 				<is_back_edge>0</is_back_edge>
 			</item>
 			<item class_id_reference="20" object_id="_94">
-				<id>98</id>
+				<id>99</id>
 				<edge_type>1</edge_type>
-				<source_obj>18</source_obj>
+				<source_obj>21</source_obj>
 				<sink_obj>23</sink_obj>
 				<is_back_edge>0</is_back_edge>
 			</item>
 			<item class_id_reference="20" object_id="_95">
-				<id>99</id>
+				<id>102</id>
 				<edge_type>1</edge_type>
-				<source_obj>22</source_obj>
+				<source_obj>23</source_obj>
 				<sink_obj>24</sink_obj>
 				<is_back_edge>0</is_back_edge>
 			</item>
 			<item class_id_reference="20" object_id="_96">
-				<id>100</id>
+				<id>104</id>
 				<edge_type>1</edge_type>
-				<source_obj>22</source_obj>
-				<sink_obj>25</sink_obj>
+				<source_obj>103</source_obj>
+				<sink_obj>24</sink_obj>
 				<is_back_edge>0</is_back_edge>
 			</item>
 			<item class_id_reference="20" object_id="_97">
-				<id>101</id>
+				<id>106</id>
 				<edge_type>1</edge_type>
-				<source_obj>21</source_obj>
-				<sink_obj>25</sink_obj>
+				<source_obj>105</source_obj>
+				<sink_obj>24</sink_obj>
 				<is_back_edge>0</is_back_edge>
 			</item>
 			<item class_id_reference="20" object_id="_98">
-				<id>104</id>
+				<id>107</id>
+				<edge_type>1</edge_type>
+				<source_obj>24</source_obj>
+				<sink_obj>25</sink_obj>
+				<is_back_edge>0</is_back_edge>
+			</item>
+			<item class_id_reference="20" object_id="_99">
+				<id>108</id>
+				<edge_type>1</edge_type>
+				<source_obj>2</source_obj>
+				<sink_obj>26</sink_obj>
+				<is_back_edge>0</is_back_edge>
+			</item>
+			<item class_id_reference="20" object_id="_100">
+				<id>109</id>
 				<edge_type>1</edge_type>
 				<source_obj>25</source_obj>
 				<sink_obj>26</sink_obj>
 				<is_back_edge>0</is_back_edge>
 			</item>
-			<item class_id_reference="20" object_id="_99">
-				<id>106</id>
-				<edge_type>1</edge_type>
-				<source_obj>105</source_obj>
-				<sink_obj>26</sink_obj>
-				<is_back_edge>0</is_back_edge>
-			</item>
-			<item class_id_reference="20" object_id="_100">
-				<id>108</id>
-				<edge_type>1</edge_type>
-				<source_obj>107</source_obj>
-				<sink_obj>26</sink_obj>
-				<is_back_edge>0</is_back_edge>
-			</item>
 			<item class_id_reference="20" object_id="_101">
-				<id>109</id>
+				<id>112</id>
 				<edge_type>1</edge_type>
 				<source_obj>26</source_obj>
 				<sink_obj>27</sink_obj>
 				<is_back_edge>0</is_back_edge>
 			</item>
 			<item class_id_reference="20" object_id="_102">
-				<id>110</id>
+				<id>113</id>
 				<edge_type>1</edge_type>
-				<source_obj>3</source_obj>
-				<sink_obj>28</sink_obj>
+				<source_obj>67</source_obj>
+				<sink_obj>27</sink_obj>
 				<is_back_edge>0</is_back_edge>
 			</item>
 			<item class_id_reference="20" object_id="_103">
-				<id>111</id>
+				<id>116</id>
 				<edge_type>1</edge_type>
-				<source_obj>27</source_obj>
+				<source_obj>26</source_obj>
 				<sink_obj>28</sink_obj>
 				<is_back_edge>0</is_back_edge>
 			</item>
 			<item class_id_reference="20" object_id="_104">
-				<id>114</id>
+				<id>117</id>
 				<edge_type>1</edge_type>
-				<source_obj>28</source_obj>
+				<source_obj>11</source_obj>
 				<sink_obj>29</sink_obj>
 				<is_back_edge>0</is_back_edge>
 			</item>
 			<item class_id_reference="20" object_id="_105">
-				<id>115</id>
+				<id>118</id>
 				<edge_type>1</edge_type>
-				<source_obj>67</source_obj>
+				<source_obj>22</source_obj>
 				<sink_obj>29</sink_obj>
 				<is_back_edge>0</is_back_edge>
 			</item>
 			<item class_id_reference="20" object_id="_106">
-				<id>118</id>
+				<id>121</id>
 				<edge_type>1</edge_type>
-				<source_obj>28</source_obj>
+				<source_obj>29</source_obj>
 				<sink_obj>30</sink_obj>
 				<is_back_edge>0</is_back_edge>
 			</item>
 			<item class_id_reference="20" object_id="_107">
-				<id>119</id>
+				<id>123</id>
 				<edge_type>1</edge_type>
-				<source_obj>24</source_obj>
-				<sink_obj>31</sink_obj>
+				<source_obj>122</source_obj>
+				<sink_obj>30</sink_obj>
 				<is_back_edge>0</is_back_edge>
 			</item>
 			<item class_id_reference="20" object_id="_108">
-				<id>120</id>
+				<id>124</id>
 				<edge_type>1</edge_type>
-				<source_obj>23</source_obj>
+				<source_obj>30</source_obj>
 				<sink_obj>31</sink_obj>
 				<is_back_edge>0</is_back_edge>
 			</item>
 			<item class_id_reference="20" object_id="_109">
-				<id>123</id>
+				<id>125</id>
+				<edge_type>1</edge_type>
+				<source_obj>28</source_obj>
+				<sink_obj>32</sink_obj>
+				<is_back_edge>0</is_back_edge>
+			</item>
+			<item class_id_reference="20" object_id="_110">
+				<id>126</id>
 				<edge_type>1</edge_type>
 				<source_obj>31</source_obj>
 				<sink_obj>32</sink_obj>
 				<is_back_edge>0</is_back_edge>
 			</item>
-			<item class_id_reference="20" object_id="_110">
-				<id>125</id>
-				<edge_type>1</edge_type>
-				<source_obj>124</source_obj>
-				<sink_obj>32</sink_obj>
-				<is_back_edge>0</is_back_edge>
-			</item>
 			<item class_id_reference="20" object_id="_111">
-				<id>126</id>
+				<id>127</id>
 				<edge_type>1</edge_type>
 				<source_obj>32</source_obj>
 				<sink_obj>33</sink_obj>
 				<is_back_edge>0</is_back_edge>
 			</item>
 			<item class_id_reference="20" object_id="_112">
-				<id>127</id>
+				<id>128</id>
 				<edge_type>1</edge_type>
-				<source_obj>30</source_obj>
+				<source_obj>23</source_obj>
 				<sink_obj>34</sink_obj>
 				<is_back_edge>0</is_back_edge>
 			</item>
 			<item class_id_reference="20" object_id="_113">
-				<id>128</id>
+				<id>130</id>
 				<edge_type>1</edge_type>
-				<source_obj>33</source_obj>
+				<source_obj>129</source_obj>
 				<sink_obj>34</sink_obj>
 				<is_back_edge>0</is_back_edge>
 			</item>
 			<item class_id_reference="20" object_id="_114">
-				<id>129</id>
+				<id>132</id>
 				<edge_type>1</edge_type>
 				<source_obj>34</source_obj>
 				<sink_obj>35</sink_obj>
 				<is_back_edge>0</is_back_edge>
 			</item>
 			<item class_id_reference="20" object_id="_115">
-				<id>130</id>
+				<id>133</id>
 				<edge_type>1</edge_type>
-				<source_obj>25</source_obj>
-				<sink_obj>36</sink_obj>
+				<source_obj>103</source_obj>
+				<sink_obj>35</sink_obj>
 				<is_back_edge>0</is_back_edge>
 			</item>
 			<item class_id_reference="20" object_id="_116">
-				<id>132</id>
+				<id>134</id>
 				<edge_type>1</edge_type>
-				<source_obj>131</source_obj>
-				<sink_obj>36</sink_obj>
+				<source_obj>105</source_obj>
+				<sink_obj>35</sink_obj>
 				<is_back_edge>0</is_back_edge>
 			</item>
 			<item class_id_reference="20" object_id="_117">
-				<id>134</id>
+				<id>135</id>
+				<edge_type>1</edge_type>
+				<source_obj>35</source_obj>
+				<sink_obj>36</sink_obj>
+				<is_back_edge>0</is_back_edge>
+			</item>
+			<item class_id_reference="20" object_id="_118">
+				<id>136</id>
+				<edge_type>1</edge_type>
+				<source_obj>2</source_obj>
+				<sink_obj>37</sink_obj>
+				<is_back_edge>0</is_back_edge>
+			</item>
+			<item class_id_reference="20" object_id="_119">
+				<id>137</id>
 				<edge_type>1</edge_type>
 				<source_obj>36</source_obj>
 				<sink_obj>37</sink_obj>
 				<is_back_edge>0</is_back_edge>
 			</item>
-			<item class_id_reference="20" object_id="_118">
-				<id>135</id>
-				<edge_type>1</edge_type>
-				<source_obj>105</source_obj>
-				<sink_obj>37</sink_obj>
-				<is_back_edge>0</is_back_edge>
-			</item>
-			<item class_id_reference="20" object_id="_119">
-				<id>136</id>
-				<edge_type>1</edge_type>
-				<source_obj>107</source_obj>
-				<sink_obj>37</sink_obj>
-				<is_back_edge>0</is_back_edge>
-			</item>
 			<item class_id_reference="20" object_id="_120">
-				<id>137</id>
+				<id>139</id>
 				<edge_type>1</edge_type>
 				<source_obj>37</source_obj>
 				<sink_obj>38</sink_obj>
 				<is_back_edge>0</is_back_edge>
 			</item>
 			<item class_id_reference="20" object_id="_121">
-				<id>138</id>
+				<id>140</id>
 				<edge_type>1</edge_type>
-				<source_obj>3</source_obj>
-				<sink_obj>39</sink_obj>
+				<source_obj>67</source_obj>
+				<sink_obj>38</sink_obj>
 				<is_back_edge>0</is_back_edge>
 			</item>
 			<item class_id_reference="20" object_id="_122">
-				<id>139</id>
+				<id>142</id>
 				<edge_type>1</edge_type>
-				<source_obj>38</source_obj>
+				<source_obj>37</source_obj>
 				<sink_obj>39</sink_obj>
 				<is_back_edge>0</is_back_edge>
 			</item>
 			<item class_id_reference="20" object_id="_123">
-				<id>141</id>
+				<id>143</id>
 				<edge_type>1</edge_type>
-				<source_obj>39</source_obj>
+				<source_obj>29</source_obj>
 				<sink_obj>40</sink_obj>
 				<is_back_edge>0</is_back_edge>
 			</item>
 			<item class_id_reference="20" object_id="_124">
-				<id>142</id>
+				<id>145</id>
 				<edge_type>1</edge_type>
-				<source_obj>67</source_obj>
+				<source_obj>144</source_obj>
 				<sink_obj>40</sink_obj>
 				<is_back_edge>0</is_back_edge>
 			</item>
 			<item class_id_reference="20" object_id="_125">
-				<id>144</id>
+				<id>147</id>
 				<edge_type>1</edge_type>
-				<source_obj>39</source_obj>
+				<source_obj>40</source_obj>
 				<sink_obj>41</sink_obj>
 				<is_back_edge>0</is_back_edge>
 			</item>
 			<item class_id_reference="20" object_id="_126">
-				<id>145</id>
+				<id>148</id>
 				<edge_type>1</edge_type>
-				<source_obj>31</source_obj>
-				<sink_obj>42</sink_obj>
+				<source_obj>122</source_obj>
+				<sink_obj>41</sink_obj>
 				<is_back_edge>0</is_back_edge>
 			</item>
 			<item class_id_reference="20" object_id="_127">
-				<id>147</id>
+				<id>149</id>
 				<edge_type>1</edge_type>
-				<source_obj>146</source_obj>
+				<source_obj>41</source_obj>
 				<sink_obj>42</sink_obj>
 				<is_back_edge>0</is_back_edge>
 			</item>
 			<item class_id_reference="20" object_id="_128">
-				<id>149</id>
+				<id>150</id>
+				<edge_type>1</edge_type>
+				<source_obj>39</source_obj>
+				<sink_obj>43</sink_obj>
+				<is_back_edge>0</is_back_edge>
+			</item>
+			<item class_id_reference="20" object_id="_129">
+				<id>151</id>
 				<edge_type>1</edge_type>
 				<source_obj>42</source_obj>
 				<sink_obj>43</sink_obj>
 				<is_back_edge>0</is_back_edge>
 			</item>
-			<item class_id_reference="20" object_id="_129">
-				<id>150</id>
-				<edge_type>1</edge_type>
-				<source_obj>124</source_obj>
-				<sink_obj>43</sink_obj>
-				<is_back_edge>0</is_back_edge>
-			</item>
 			<item class_id_reference="20" object_id="_130">
-				<id>151</id>
+				<id>152</id>
 				<edge_type>1</edge_type>
 				<source_obj>43</source_obj>
 				<sink_obj>44</sink_obj>
 				<is_back_edge>0</is_back_edge>
 			</item>
 			<item class_id_reference="20" object_id="_131">
-				<id>152</id>
+				<id>155</id>
 				<edge_type>1</edge_type>
-				<source_obj>41</source_obj>
+				<source_obj>33</source_obj>
 				<sink_obj>45</sink_obj>
 				<is_back_edge>0</is_back_edge>
 			</item>
 			<item class_id_reference="20" object_id="_132">
-				<id>153</id>
+				<id>156</id>
 				<edge_type>1</edge_type>
 				<source_obj>44</source_obj>
 				<sink_obj>45</sink_obj>
 				<is_back_edge>0</is_back_edge>
 			</item>
 			<item class_id_reference="20" object_id="_133">
-				<id>154</id>
+				<id>157</id>
 				<edge_type>1</edge_type>
 				<source_obj>45</source_obj>
 				<sink_obj>46</sink_obj>
 				<is_back_edge>0</is_back_edge>
 			</item>
 			<item class_id_reference="20" object_id="_134">
-				<id>157</id>
+				<id>158</id>
 				<edge_type>1</edge_type>
-				<source_obj>35</source_obj>
+				<source_obj>17</source_obj>
 				<sink_obj>47</sink_obj>
 				<is_back_edge>0</is_back_edge>
 			</item>
 			<item class_id_reference="20" object_id="_135">
-				<id>158</id>
+				<id>159</id>
 				<edge_type>1</edge_type>
-				<source_obj>46</source_obj>
-				<sink_obj>47</sink_obj>
+				<source_obj>17</source_obj>
+				<sink_obj>48</sink_obj>
 				<is_back_edge>0</is_back_edge>
 			</item>
 			<item class_id_reference="20" object_id="_136">
-				<id>159</id>
+				<id>160</id>
 				<edge_type>1</edge_type>
-				<source_obj>47</source_obj>
+				<source_obj>46</source_obj>
 				<sink_obj>48</sink_obj>
 				<is_back_edge>0</is_back_edge>
 			</item>
 			<item class_id_reference="20" object_id="_137">
-				<id>160</id>
+				<id>161</id>
 				<edge_type>1</edge_type>
-				<source_obj>17</source_obj>
+				<source_obj>47</source_obj>
 				<sink_obj>49</sink_obj>
 				<is_back_edge>0</is_back_edge>
 			</item>
 			<item class_id_reference="20" object_id="_138">
-				<id>161</id>
+				<id>162</id>
 				<edge_type>1</edge_type>
-				<source_obj>17</source_obj>
-				<sink_obj>50</sink_obj>
+				<source_obj>45</source_obj>
+				<sink_obj>49</sink_obj>
 				<is_back_edge>0</is_back_edge>
 			</item>
 			<item class_id_reference="20" object_id="_139">
-				<id>162</id>
+				<id>163</id>
 				<edge_type>1</edge_type>
-				<source_obj>48</source_obj>
+				<source_obj>49</source_obj>
 				<sink_obj>50</sink_obj>
 				<is_back_edge>0</is_back_edge>
 			</item>
 			<item class_id_reference="20" object_id="_140">
-				<id>163</id>
+				<id>166</id>
 				<edge_type>1</edge_type>
-				<source_obj>49</source_obj>
+				<source_obj>48</source_obj>
 				<sink_obj>51</sink_obj>
 				<is_back_edge>0</is_back_edge>
 			</item>
 			<item class_id_reference="20" object_id="_141">
-				<id>164</id>
+				<id>168</id>
 				<edge_type>1</edge_type>
-				<source_obj>47</source_obj>
+				<source_obj>167</source_obj>
 				<sink_obj>51</sink_obj>
 				<is_back_edge>0</is_back_edge>
 			</item>
 			<item class_id_reference="20" object_id="_142">
-				<id>165</id>
+				<id>169</id>
 				<edge_type>1</edge_type>
 				<source_obj>51</source_obj>
 				<sink_obj>52</sink_obj>
 				<is_back_edge>0</is_back_edge>
 			</item>
 			<item class_id_reference="20" object_id="_143">
-				<id>168</id>
+				<id>170</id>
 				<edge_type>1</edge_type>
 				<source_obj>50</source_obj>
 				<sink_obj>53</sink_obj>
 				<is_back_edge>0</is_back_edge>
 			</item>
 			<item class_id_reference="20" object_id="_144">
-				<id>170</id>
+				<id>171</id>
 				<edge_type>1</edge_type>
-				<source_obj>169</source_obj>
+				<source_obj>52</source_obj>
 				<sink_obj>53</sink_obj>
 				<is_back_edge>0</is_back_edge>
 			</item>
 			<item class_id_reference="20" object_id="_145">
-				<id>171</id>
+				<id>172</id>
 				<edge_type>1</edge_type>
-				<source_obj>53</source_obj>
+				<source_obj>18</source_obj>
 				<sink_obj>54</sink_obj>
 				<is_back_edge>0</is_back_edge>
 			</item>
 			<item class_id_reference="20" object_id="_146">
-				<id>172</id>
+				<id>174</id>
 				<edge_type>1</edge_type>
-				<source_obj>52</source_obj>
-				<sink_obj>55</sink_obj>
+				<source_obj>173</source_obj>
+				<sink_obj>54</sink_obj>
 				<is_back_edge>0</is_back_edge>
 			</item>
 			<item class_id_reference="20" object_id="_147">
-				<id>173</id>
+				<id>175</id>
 				<edge_type>1</edge_type>
-				<source_obj>54</source_obj>
+				<source_obj>18</source_obj>
 				<sink_obj>55</sink_obj>
 				<is_back_edge>0</is_back_edge>
 			</item>
 			<item class_id_reference="20" object_id="_148">
-				<id>174</id>
+				<id>177</id>
 				<edge_type>1</edge_type>
-				<source_obj>18</source_obj>
-				<sink_obj>56</sink_obj>
+				<source_obj>176</source_obj>
+				<sink_obj>55</sink_obj>
 				<is_back_edge>0</is_back_edge>
 			</item>
 			<item class_id_reference="20" object_id="_149">
-				<id>176</id>
+				<id>178</id>
 				<edge_type>1</edge_type>
-				<source_obj>175</source_obj>
+				<source_obj>55</source_obj>
 				<sink_obj>56</sink_obj>
 				<is_back_edge>0</is_back_edge>
 			</item>
 			<item class_id_reference="20" object_id="_150">
-				<id>177</id>
+				<id>179</id>
 				<edge_type>1</edge_type>
-				<source_obj>18</source_obj>
-				<sink_obj>57</sink_obj>
+				<source_obj>10</source_obj>
+				<sink_obj>56</sink_obj>
 				<is_back_edge>0</is_back_edge>
 			</item>
 			<item class_id_reference="20" object_id="_151">
-				<id>179</id>
+				<id>180</id>
 				<edge_type>1</edge_type>
-				<source_obj>178</source_obj>
+				<source_obj>56</source_obj>
 				<sink_obj>57</sink_obj>
 				<is_back_edge>0</is_back_edge>
 			</item>
 			<item class_id_reference="20" object_id="_152">
-				<id>180</id>
-				<edge_type>1</edge_type>
-				<source_obj>57</source_obj>
-				<sink_obj>58</sink_obj>
+				<id>181</id>
+				<edge_type>2</edge_type>
+				<source_obj>66</source_obj>
+				<sink_obj>57</sink_obj>
 				<is_back_edge>0</is_back_edge>
 			</item>
 			<item class_id_reference="20" object_id="_153">
-				<id>181</id>
-				<edge_type>1</edge_type>
-				<source_obj>10</source_obj>
-				<sink_obj>58</sink_obj>
+				<id>182</id>
+				<edge_type>2</edge_type>
+				<source_obj>62</source_obj>
+				<sink_obj>57</sink_obj>
 				<is_back_edge>0</is_back_edge>
 			</item>
 			<item class_id_reference="20" object_id="_154">
-				<id>182</id>
+				<id>183</id>
 				<edge_type>1</edge_type>
-				<source_obj>56</source_obj>
+				<source_obj>54</source_obj>
 				<sink_obj>59</sink_obj>
 				<is_back_edge>0</is_back_edge>
 			</item>
 			<item class_id_reference="20" object_id="_155">
-				<id>183</id>
+				<id>184</id>
 				<edge_type>1</edge_type>
 				<source_obj>8</source_obj>
 				<sink_obj>59</sink_obj>
 				<is_back_edge>0</is_back_edge>
 			</item>
 			<item class_id_reference="20" object_id="_156">
-				<id>184</id>
+				<id>185</id>
 				<edge_type>1</edge_type>
-				<source_obj>55</source_obj>
+				<source_obj>53</source_obj>
 				<sink_obj>60</sink_obj>
 				<is_back_edge>0</is_back_edge>
 			</item>
 			<item class_id_reference="20" object_id="_157">
-				<id>185</id>
+				<id>186</id>
 				<edge_type>1</edge_type>
 				<source_obj>7</source_obj>
 				<sink_obj>60</sink_obj>
 				<is_back_edge>0</is_back_edge>
 			</item>
 			<item class_id_reference="20" object_id="_158">
-				<id>186</id>
-				<edge_type>1</edge_type>
+				<id>187</id>
+				<edge_type>2</edge_type>
 				<source_obj>58</source_obj>
 				<sink_obj>61</sink_obj>
 				<is_back_edge>0</is_back_edge>
 			</item>
 			<item class_id_reference="20" object_id="_159">
-				<id>187</id>
+				<id>226</id>
 				<edge_type>2</edge_type>
-				<source_obj>66</source_obj>
-				<sink_obj>61</sink_obj>
+				<source_obj>16</source_obj>
+				<sink_obj>58</sink_obj>
 				<is_back_edge>0</is_back_edge>
 			</item>
 			<item class_id_reference="20" object_id="_160">
-				<id>188</id>
+				<id>227</id>
 				<edge_type>2</edge_type>
-				<source_obj>62</source_obj>
-				<sink_obj>61</sink_obj>
+				<source_obj>58</source_obj>
+				<sink_obj>62</sink_obj>
 				<is_back_edge>0</is_back_edge>
 			</item>
 			<item class_id_reference="20" object_id="_161">
-				<id>227</id>
-				<edge_type>2</edge_type>
-				<source_obj>16</source_obj>
-				<sink_obj>62</sink_obj>
-				<is_back_edge>0</is_back_edge>
-			</item>
-			<item class_id_reference="20" object_id="_162">
 				<id>228</id>
 				<edge_type>2</edge_type>
-				<source_obj>62</source_obj>
-				<sink_obj>62</sink_obj>
-				<is_back_edge>1</is_back_edge>
-			</item>
-			<item class_id_reference="20" object_id="_163">
-				<id>229</id>
-				<edge_type>2</edge_type>
-				<source_obj>62</source_obj>
+				<source_obj>58</source_obj>
 				<sink_obj>66</sink_obj>
 				<is_back_edge>0</is_back_edge>
 			</item>
-			<item class_id_reference="20" object_id="_164">
+			<item class_id_reference="20" object_id="_162">
+				<id>229</id>
+				<edge_type>2</edge_type>
+				<source_obj>62</source_obj>
+				<sink_obj>58</sink_obj>
+				<is_back_edge>1</is_back_edge>
+			</item>
+			<item class_id_reference="20" object_id="_163">
 				<id>230</id>
 				<edge_type>4</edge_type>
-				<source_obj>40</source_obj>
-				<sink_obj>41</sink_obj>
+				<source_obj>38</source_obj>
+				<sink_obj>39</sink_obj>
+				<is_back_edge>0</is_back_edge>
+			</item>
+			<item class_id_reference="20" object_id="_164">
+				<id>231</id>
+				<edge_type>4</edge_type>
+				<source_obj>28</source_obj>
+				<sink_obj>39</sink_obj>
 				<is_back_edge>0</is_back_edge>
 			</item>
 			<item class_id_reference="20" object_id="_165">
-				<id>231</id>
+				<id>232</id>
 				<edge_type>4</edge_type>
-				<source_obj>30</source_obj>
-				<sink_obj>41</sink_obj>
+				<source_obj>27</source_obj>
+				<sink_obj>28</sink_obj>
 				<is_back_edge>0</is_back_edge>
 			</item>
 			<item class_id_reference="20" object_id="_166">
-				<id>232</id>
+				<id>233</id>
 				<edge_type>4</edge_type>
-				<source_obj>29</source_obj>
-				<sink_obj>30</sink_obj>
+				<source_obj>27</source_obj>
+				<sink_obj>38</sink_obj>
 				<is_back_edge>0</is_back_edge>
 			</item>
 			<item class_id_reference="20" object_id="_167">
-				<id>233</id>
-				<edge_type>4</edge_type>
-				<source_obj>29</source_obj>
-				<sink_obj>40</sink_obj>
-				<is_back_edge>0</is_back_edge>
-			</item>
-			<item class_id_reference="20" object_id="_168">
 				<id>234</id>
-				<edge_type>4</edge_type>
-				<source_obj>18</source_obj>
-				<sink_obj>59</sink_obj>
-				<is_back_edge>0</is_back_edge>
-			</item>
-			<item class_id_reference="20" object_id="_169">
-				<id>235</id>
-				<edge_type>4</edge_type>
-				<source_obj>17</source_obj>
-				<sink_obj>60</sink_obj>
-				<is_back_edge>0</is_back_edge>
-			</item>
-			<item class_id_reference="20" object_id="_170">
-				<id>236</id>
 				<edge_type>4</edge_type>
 				<source_obj>13</source_obj>
 				<sink_obj>18</sink_obj>
 				<is_back_edge>0</is_back_edge>
 			</item>
-			<item class_id_reference="20" object_id="_171">
-				<id>237</id>
-				<edge_type>4</edge_type>
-				<source_obj>13</source_obj>
-				<sink_obj>59</sink_obj>
-				<is_back_edge>0</is_back_edge>
-			</item>
-			<item class_id_reference="20" object_id="_172">
-				<id>238</id>
+			<item class_id_reference="20" object_id="_168">
+				<id>235</id>
 				<edge_type>4</edge_type>
 				<source_obj>14</source_obj>
 				<sink_obj>17</sink_obj>
 				<is_back_edge>0</is_back_edge>
 			</item>
-			<item class_id_reference="20" object_id="_173">
-				<id>239</id>
+			<item class_id_reference="20" object_id="_169">
+				<id>236</id>
+				<edge_type>4</edge_type>
+				<source_obj>13</source_obj>
+				<sink_obj>59</sink_obj>
+				<is_back_edge>0</is_back_edge>
+			</item>
+			<item class_id_reference="20" object_id="_170">
+				<id>237</id>
 				<edge_type>4</edge_type>
 				<source_obj>14</source_obj>
 				<sink_obj>60</sink_obj>
+				<is_back_edge>0</is_back_edge>
+			</item>
+			<item class_id_reference="20" object_id="_171">
+				<id>238</id>
+				<edge_type>4</edge_type>
+				<source_obj>17</source_obj>
+				<sink_obj>60</sink_obj>
+				<is_back_edge>0</is_back_edge>
+			</item>
+			<item class_id_reference="20" object_id="_172">
+				<id>239</id>
+				<edge_type>4</edge_type>
+				<source_obj>18</source_obj>
+				<sink_obj>59</sink_obj>
 				<is_back_edge>0</is_back_edge>
 			</item>
 		</edges>
@@ -4766,7 +4346,7 @@
 	<cdfg_regions class_id="21" tracking_level="0" version="0">
 		<count>4</count>
 		<item_version>0</item_version>
-		<item class_id="22" tracking_level="1" version="0" object_id="_174">
+		<item class_id="22" tracking_level="1" version="0" object_id="_173">
 			<mId>1</mId>
 			<mTag>process_tcp_checksum_Pipeline_word_loop</mTag>
 			<mNormTag>process_tcp_checksum_Pipeline_word_loop</mNormTag>
@@ -4791,7 +4371,7 @@
 			<mIsDfPipe>0</mIsDfPipe>
 			<mDfPipe class_id="-1"></mDfPipe>
 		</item>
-		<item class_id_reference="22" object_id="_175">
+		<item class_id_reference="22" object_id="_174">
 			<mId>2</mId>
 			<mTag>Entry</mTag>
 			<mNormTag>Entry</mNormTag>
@@ -4814,7 +4394,7 @@
 			<mIsDfPipe>0</mIsDfPipe>
 			<mDfPipe class_id="-1"></mDfPipe>
 		</item>
-		<item class_id_reference="22" object_id="_176">
+		<item class_id_reference="22" object_id="_175">
 			<mId>3</mId>
 			<mTag>word_loop</mTag>
 			<mNormTag>word_loop</mNormTag>
@@ -4824,12 +4404,13 @@
 				<item_version>0</item_version>
 			</sub_regions>
 			<basic_blocks>
-				<count>1</count>
+				<count>2</count>
 				<item_version>0</item_version>
+				<item>58</item>
 				<item>62</item>
 			</basic_blocks>
 			<mII>2</mII>
-			<mDepth>76</mDepth>
+			<mDepth>75</mDepth>
 			<mMinTripCount>-1</mMinTripCount>
 			<mMaxTripCount>-1</mMaxTripCount>
 			<mMinLatency>-1</mMinLatency>
@@ -4837,7 +4418,7 @@
 			<mIsDfPipe>0</mIsDfPipe>
 			<mDfPipe class_id="-1"></mDfPipe>
 		</item>
-		<item class_id_reference="22" object_id="_177">
+		<item class_id_reference="22" object_id="_176">
 			<mId>4</mId>
 			<mTag>Return</mTag>
 			<mNormTag>Return</mNormTag>
@@ -4864,7 +4445,7 @@
 	<fsm class_id="-1"></fsm>
 	<res class_id="-1"></res>
 	<node_label_latency class_id="26" tracking_level="0" version="0">
-		<count>54</count>
+		<count>53</count>
 		<item_version>0</item_version>
 		<item class_id="27" tracking_level="0" version="0">
 			<first>7</first>
@@ -4925,7 +4506,7 @@
 		<item>
 			<first>17</first>
 			<second>
-				<first>75</first>
+				<first>74</first>
 				<second>0</second>
 			</second>
 		</item>
@@ -4967,14 +4548,14 @@
 		<item>
 			<first>25</first>
 			<second>
-				<first>0</first>
+				<first>1</first>
 				<second>0</second>
 			</second>
 		</item>
 		<item>
 			<first>26</first>
 			<second>
-				<first>0</first>
+				<first>1</first>
 				<second>0</second>
 			</second>
 		</item>
@@ -4982,21 +4563,21 @@
 			<first>27</first>
 			<second>
 				<first>1</first>
-				<second>0</second>
+				<second>69</second>
 			</second>
 		</item>
 		<item>
 			<first>28</first>
 			<second>
-				<first>1</first>
+				<first>71</first>
 				<second>0</second>
 			</second>
 		</item>
 		<item>
 			<first>29</first>
 			<second>
-				<first>1</first>
-				<second>70</second>
+				<first>0</first>
+				<second>0</second>
 			</second>
 		</item>
 		<item>
@@ -5009,49 +4590,49 @@
 		<item>
 			<first>31</first>
 			<second>
-				<first>0</first>
+				<first>72</first>
 				<second>0</second>
 			</second>
 		</item>
 		<item>
 			<first>32</first>
 			<second>
-				<first>73</first>
+				<first>72</first>
 				<second>0</second>
 			</second>
 		</item>
 		<item>
 			<first>33</first>
 			<second>
-				<first>73</first>
+				<first>72</first>
 				<second>0</second>
 			</second>
 		</item>
 		<item>
 			<first>34</first>
 			<second>
-				<first>73</first>
+				<first>0</first>
 				<second>0</second>
 			</second>
 		</item>
 		<item>
 			<first>35</first>
 			<second>
-				<first>73</first>
+				<first>0</first>
 				<second>0</second>
 			</second>
 		</item>
 		<item>
 			<first>36</first>
 			<second>
-				<first>1</first>
+				<first>2</first>
 				<second>0</second>
 			</second>
 		</item>
 		<item>
 			<first>37</first>
 			<second>
-				<first>1</first>
+				<first>2</first>
 				<second>0</second>
 			</second>
 		</item>
@@ -5059,21 +4640,21 @@
 			<first>38</first>
 			<second>
 				<first>2</first>
-				<second>0</second>
+				<second>69</second>
 			</second>
 		</item>
 		<item>
 			<first>39</first>
 			<second>
-				<first>2</first>
+				<first>72</first>
 				<second>0</second>
 			</second>
 		</item>
 		<item>
 			<first>40</first>
 			<second>
-				<first>2</first>
-				<second>70</second>
+				<first>73</first>
+				<second>0</second>
 			</second>
 		</item>
 		<item>
@@ -5086,21 +4667,21 @@
 		<item>
 			<first>42</first>
 			<second>
-				<first>74</first>
+				<first>73</first>
 				<second>0</second>
 			</second>
 		</item>
 		<item>
 			<first>43</first>
 			<second>
-				<first>74</first>
+				<first>73</first>
 				<second>0</second>
 			</second>
 		</item>
 		<item>
 			<first>44</first>
 			<second>
-				<first>74</first>
+				<first>73</first>
 				<second>0</second>
 			</second>
 		</item>
@@ -5121,82 +4702,75 @@
 		<item>
 			<first>47</first>
 			<second>
-				<first>75</first>
+				<first>74</first>
 				<second>0</second>
 			</second>
 		</item>
 		<item>
 			<first>48</first>
 			<second>
-				<first>75</first>
+				<first>74</first>
 				<second>0</second>
 			</second>
 		</item>
 		<item>
 			<first>49</first>
 			<second>
-				<first>75</first>
+				<first>74</first>
 				<second>0</second>
 			</second>
 		</item>
 		<item>
 			<first>50</first>
 			<second>
-				<first>75</first>
+				<first>74</first>
 				<second>0</second>
 			</second>
 		</item>
 		<item>
 			<first>51</first>
 			<second>
-				<first>75</first>
+				<first>74</first>
 				<second>0</second>
 			</second>
 		</item>
 		<item>
 			<first>52</first>
 			<second>
-				<first>75</first>
+				<first>74</first>
 				<second>0</second>
 			</second>
 		</item>
 		<item>
 			<first>53</first>
 			<second>
-				<first>75</first>
+				<first>74</first>
 				<second>0</second>
 			</second>
 		</item>
 		<item>
 			<first>54</first>
 			<second>
-				<first>75</first>
+				<first>1</first>
 				<second>0</second>
 			</second>
 		</item>
 		<item>
 			<first>55</first>
 			<second>
-				<first>75</first>
+				<first>0</first>
 				<second>0</second>
 			</second>
 		</item>
 		<item>
 			<first>56</first>
 			<second>
-				<first>1</first>
-				<second>0</second>
-			</second>
-		</item>
-		<item>
-			<first>57</first>
-			<second>
 				<first>0</first>
 				<second>0</second>
 			</second>
 		</item>
 		<item>
-			<first>58</first>
+			<first>57</first>
 			<second>
 				<first>0</first>
 				<second>0</second>
@@ -5212,41 +4786,41 @@
 		<item>
 			<first>60</first>
 			<second>
-				<first>75</first>
+				<first>74</first>
 				<second>0</second>
 			</second>
 		</item>
 		<item>
 			<first>61</first>
 			<second>
-				<first>0</first>
+				<first>74</first>
 				<second>0</second>
 			</second>
 		</item>
 		<item>
 			<first>63</first>
 			<second>
-				<first>75</first>
+				<first>74</first>
 				<second>0</second>
 			</second>
 		</item>
 		<item>
 			<first>64</first>
 			<second>
-				<first>75</first>
+				<first>74</first>
 				<second>0</second>
 			</second>
 		</item>
 		<item>
 			<first>65</first>
 			<second>
-				<first>75</first>
+				<first>74</first>
 				<second>0</second>
 			</second>
 		</item>
 	</node_label_latency>
 	<bblk_ent_exit class_id="29" tracking_level="0" version="0">
-		<count>3</count>
+		<count>4</count>
 		<item_version>0</item_version>
 		<item class_id="30" tracking_level="0" version="0">
 			<first>16</first>
@@ -5256,28 +4830,36 @@
 			</second>
 		</item>
 		<item>
-			<first>62</first>
+			<first>58</first>
 			<second>
 				<first>1</first>
-				<second>76</second>
+				<second>75</second>
+			</second>
+		</item>
+		<item>
+			<first>62</first>
+			<second>
+				<first>2</first>
+				<second>75</second>
 			</second>
 		</item>
 		<item>
 			<first>66</first>
 			<second>
-				<first>77</first>
-				<second>77</second>
+				<first>76</first>
+				<second>76</second>
 			</second>
 		</item>
 	</bblk_ent_exit>
 	<regions class_id="32" tracking_level="0" version="0">
 		<count>1</count>
 		<item_version>0</item_version>
-		<item class_id="33" tracking_level="1" version="0" object_id="_178">
+		<item class_id="33" tracking_level="1" version="0" object_id="_177">
 			<region_name>word_loop</region_name>
 			<basic_blocks>
-				<count>1</count>
+				<count>2</count>
 				<item_version>0</item_version>
+				<item>58</item>
 				<item>62</item>
 			</basic_blocks>
 			<nodes>
@@ -5287,11 +4869,11 @@
 			<anchor_node>-1</anchor_node>
 			<region_type>8</region_type>
 			<interval>2</interval>
-			<pipe_depth>76</pipe_depth>
+			<pipe_depth>75</pipe_depth>
 			<mDBIIViolationVec class_id="34" tracking_level="0" version="0">
 				<count>1</count>
 				<item_version>0</item_version>
-				<item class_id="35" tracking_level="1" version="0" object_id="_179">
+				<item class_id="35" tracking_level="1" version="0" object_id="_178">
 					<mType>1</mType>
 					<mFailedII>1</mFailedII>
 					<mDependenceDistance>-1</mDependenceDistance>
@@ -5305,17 +4887,17 @@
 						<item_version>0</item_version>
 						<item class_id="38" tracking_level="0" version="0">
 							<first class_id="39" tracking_level="0" version="0">
-								<first class_id_reference="9" object_id_reference="_25"></first>
+								<first class_id_reference="9" object_id_reference="_23"></first>
 								<second>core:m_axi:gmem0::readreq</second>
 							</first>
-							<second>29</second>
+							<second>27</second>
 						</item>
 						<item>
 							<first>
-								<first class_id_reference="9" object_id_reference="_36"></first>
+								<first class_id_reference="9" object_id_reference="_34"></first>
 								<second></second>
 							</first>
-							<second>40</second>
+							<second>38</second>
 						</item>
 					</mNodesInfo>
 				</item>

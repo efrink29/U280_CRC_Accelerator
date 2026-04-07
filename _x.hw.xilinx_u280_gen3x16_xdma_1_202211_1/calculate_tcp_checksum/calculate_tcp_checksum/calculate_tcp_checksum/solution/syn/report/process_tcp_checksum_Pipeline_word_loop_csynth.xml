@@ -1,12 +1,12 @@
 <profile>
 
 <ReportVersion>
-<Version>2023.1</Version>
+<Version>2022.1</Version>
 </ReportVersion>
 
 <UserAssignments>
 <unit>ns</unit>
-<ProductFamily>virtexuplusHBM</ProductFamily>
+<ProductFamily>virtexuplus</ProductFamily>
 <Part>xcu280-fsvh2892-2L-e</Part>
 <TopModelName>process_tcp_checksum_Pipeline_word_loop</TopModelName>
 <TargetClockPeriod>3.33</TargetClockPeriod>
@@ -34,12 +34,11 @@
 </SummaryOfOverallLatency>
 <SummaryOfLoopLatency>
 <word_loop>
-<Slack>2.43</Slack>
 <TripCount>undef</TripCount>
 <Latency>undef</Latency>
 <AbsoluteTimeLatency>undef</AbsoluteTimeLatency>
 <PipelineII>2</PipelineII>
-<PipelineDepth>76</PipelineDepth>
+<PipelineDepth>75</PipelineDepth>
 <InstanceList>
 </InstanceList>
 </word_loop>
@@ -48,8 +47,8 @@
 
 <AreaEstimates>
 <Resources>
-<FF>1610</FF>
-<LUT>4973</LUT>
+<FF>1546</FF>
+<LUT>5216</LUT>
 <BRAM_18K>0</BRAM_18K>
 <DSP>0</DSP>
 <URAM>0</URAM>
@@ -637,8 +636,8 @@
 <Attribute>unknown</Attribute>
 </RtlPorts>
 <RtlPorts>
-<name>phi_mul</name>
-<Object>phi_mul</Object>
+<name>add_ln645</name>
+<Object>add_ln645</Object>
 <Type>scalar</Type>
 <Scope></Scope>
 <IOProtocol>ap_none</IOProtocol>
@@ -648,14 +647,14 @@
 <Attribute>data</Attribute>
 </RtlPorts>
 <RtlPorts>
-<name>data_in</name>
-<Object>data_in</Object>
+<name>trunc_ln1</name>
+<Object>trunc_ln1</Object>
 <Type>scalar</Type>
 <Scope></Scope>
 <IOProtocol>ap_none</IOProtocol>
 <IOConfig></IOConfig>
 <Dir>in</Dir>
-<Bits>64</Bits>
+<Bits>6</Bits>
 <Attribute>data</Attribute>
 </RtlPorts>
 <RtlPorts>
@@ -670,8 +669,8 @@
 <Attribute>data</Attribute>
 </RtlPorts>
 <RtlPorts>
-<name>sum_3_out</name>
-<Object>sum_3_out</Object>
+<name>sum_V_1_out</name>
+<Object>sum_V_1_out</Object>
 <Type>pointer</Type>
 <Scope></Scope>
 <IOProtocol>ap_vld</IOProtocol>
@@ -681,8 +680,8 @@
 <Attribute>data</Attribute>
 </RtlPorts>
 <RtlPorts>
-<name>sum_3_out_ap_vld</name>
-<Object>sum_3_out</Object>
+<name>sum_V_1_out_ap_vld</name>
+<Object>sum_V_1_out</Object>
 <Type>pointer</Type>
 <Scope></Scope>
 <IOProtocol>ap_vld</IOProtocol>

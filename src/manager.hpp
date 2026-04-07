@@ -96,6 +96,7 @@ enum class WorkerKernelType
 
 struct Worker
 {
+std::string name;
     WorkerKernelType mode = WorkerKernelType::CRC;
 
     cl::Context context;
@@ -145,7 +146,7 @@ public:
         cl::Program::Binaries bins{{buf.data(), nb}};
         program_ = cl::Program(context_, {device_}, bins);
 
-        const int crc_cu_available = detect_cu_count("calculate_crc", "CRC", max_cu);
+        const int crc_cu_available = detect_cu_count("calculate_crc", "calculate_crc", max_cu);
         if (crc_cu_available == 0)
             throw std::runtime_error("No CU instances named CRC_* found in xclbin");
 
@@ -155,8 +156,8 @@ public:
 
         const int tcp_probe_limit = std::min(max_cu, 4);
         const int sha_probe_limit = std::min(max_cu, 4);
-        const int tcp_cu_available = detect_cu_count("calculate_tcp_checksum", "TCP", tcp_probe_limit);
-        const int sha_cu_available = detect_cu_count("calculate_sha256", "SHA", sha_probe_limit);
+        const int tcp_cu_available = detect_cu_count("calculate_tcp_checksum", "calculate_tcp_checksum", tcp_probe_limit);
+        const int sha_cu_available = detect_cu_count("calculate_sha256", "calculate_sha256", sha_probe_limit);
 
         int tcp_workers = tcp_cu_available;
         int sha_workers = sha_cu_available;
@@ -180,31 +181,31 @@ public:
         }
 
         crc_workers_.resize(static_cast<size_t>(crc_workers));
-        for (int i = 0; i < crc_workers; ++i)
+        for (int i = 1; i <= crc_workers; ++i)
         {
-            init_worker(crc_workers_[static_cast<size_t>(i)],
+            init_worker(crc_workers_[static_cast<size_t>(i-1)],
                         WorkerKernelType::CRC,
-                        "calculate_crc:{CRC_" + std::to_string(i) + "}",
+                        "calculate_crc:{calculate_crc_" + std::to_string(i) + "}",
                         buffer_size,
                         crc_configs);
         }
 
         tcp_workers_.resize(static_cast<size_t>(tcp_workers));
-        for (int i = 0; i < tcp_workers; ++i)
+        for (int i = 1; i <= tcp_workers; ++i)
         {
-            init_worker(tcp_workers_[static_cast<size_t>(i)],
+            init_worker(tcp_workers_[static_cast<size_t>(i-1)],
                         WorkerKernelType::TCP,
-                        "calculate_tcp_checksum:{TCP_" + std::to_string(i) + "}",
+                        "calculate_tcp_checksum:{calculate_tcp_checksum_" + std::to_string(i) + "}",
                         buffer_size,
                         {});
         }
 
         sha_workers_.resize(static_cast<size_t>(sha_workers));
-        for (int i = 0; i < sha_workers; ++i)
+        for (int i = 1; i <= sha_workers; ++i)
         {
-            init_worker(sha_workers_[static_cast<size_t>(i)],
+            init_worker(sha_workers_[static_cast<size_t>(i-1)],
                         WorkerKernelType::SHA,
-                        "calculate_sha256:{SHA_" + std::to_string(i) + "}",
+                        "calculate_sha256:{calculate_sha256_" + std::to_string(i) + "}",
                         buffer_size,
                         {});
         }
@@ -346,7 +347,7 @@ private:
                         const std::string &instance_prefix,
                         int max_cu)
     {
-        int cu_count = 0;
+        int cu_count = 1;
         while (cu_count < max_cu)
         {
             std::string kname = kernel_name + ":{" + instance_prefix + "_" + std::to_string(cu_count) + "}";
@@ -358,7 +359,7 @@ private:
             }
             cu_count++;
         }
-        return cu_count;
+        return cu_count - 1;
     }
 
     static std::vector<uint32_t> execute_crc(Worker &w,
@@ -380,9 +381,11 @@ private:
         const size_t wordsPerChunk = 1;
         const size_t outputBytesPerChunk = wordsPerChunk * sizeof(uint32_t);
         const size_t chunksPerBuf = std::min(w.buffer_size / chunkBytes, w.buffer_size / outputBytesPerChunk);
-        if (chunksPerBuf == 0)
-            throw std::runtime_error("buffer_size is too small for configured chunk input/output footprint");
-
+	
+        if (chunksPerBuf == 0) {
+	    std::cout << w.name << " - buffer size: " << w.buffer_size << std::endl;
+            throw std::runtime_error("CRC buffer_size is too small for configured chunk input/output footprint");
+	}
         CRC_Config crc_cfg;
         crc_cfg.polynomial = cfg.polynomial;
         crc_cfg.initial_value = cfg.init_val;
@@ -522,7 +525,7 @@ private:
         const size_t outputBytesPerChunk = wordsPerChunk * sizeof(uint32_t);
         const size_t chunksPerBuf = std::min(w.buffer_size / chunkBytes, w.buffer_size / outputBytesPerChunk);
         if (chunksPerBuf == 0)
-            throw std::runtime_error("buffer_size is too small for configured chunk input/output footprint");
+            throw std::runtime_error("TCP buffer_size is too small for configured chunk input/output footprint");
 
         std::vector<uint8_t> data_ptr(data.begin(), data.end());
         std::vector<uint32_t> result;
@@ -590,7 +593,7 @@ private:
         const size_t outputBytesPerChunk = wordsPerChunk * sizeof(uint32_t);
         const size_t chunksPerBuf = std::min(w.buffer_size / chunkBytes, w.buffer_size / outputBytesPerChunk);
         if (chunksPerBuf == 0)
-            throw std::runtime_error("buffer_size is too small for configured chunk input/output footprint");
+            throw std::runtime_error("SHA buffer_size is too small for configured chunk input/output footprint");
 
         std::vector<uint8_t> data_ptr(data.begin(), data.end());
         std::vector<uint32_t> result;
@@ -681,6 +684,7 @@ private:
                      size_t buffer_size,
                      const std::vector<KernelConfig> &configs)
     {
+	w.name = kernel_name;
         w.mode = mode;
         w.context = context_;
         w.device = device_;

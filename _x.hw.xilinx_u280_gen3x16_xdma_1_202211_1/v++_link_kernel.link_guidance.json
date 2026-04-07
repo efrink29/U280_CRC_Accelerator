@@ -1,0 +1,455 @@
+{
+ "session": {
+  "name": "v++_link_kernel.link",
+  "uuid": "406e2568-59b9-4b65-a78d-2f1b5e3b03e7",
+  "description": "v++  -l --save-temps --kernel_frequency 210 -t hw --platform xilinx_u280_gen3x16_xdma_1_202211_1 --temp_dir ./_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1 --config ./vpp_connectivity.cfg -o./build_dir.hw.xilinx_u280_gen3x16_xdma_1_202211_1/kernel.link.xclbin _x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/calculate_crc.xo _x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/calculate_tcp_checksum.xo _x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/calculate_sha256.xo ",
+  "timestamp": "0",
+  "report_file": {
+   "scheme": "FILE",
+   "host": "",
+   "port": 0,
+   "path": "/home/efrink/mled/split_cu/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/reports/link/v++_link_kernel.link_guidance.html",
+   "query": "",
+   "fragment": "",
+   "media_type": "",
+   "encoding": "",
+   "data": ""
+  },
+  "proto_file": {
+   "scheme": "FILE",
+   "host": "",
+   "port": 0,
+   "path": "/home/efrink/mled/split_cu/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/v++_link_kernel.link_guidance.pb",
+   "query": "",
+   "fragment": "",
+   "media_type": "",
+   "encoding": "",
+   "data": ""
+  },
+  "build_target": "",
+  "config_files": [
+   {
+    "fileName": "./vpp_connectivity.cfg",
+    "contents": "\n[connectivity]\nnk=calculate_crc:12\nnk=calculate_tcp_checksum:2\nnk=calculate_sha256:2\n\nsp=calculate_crc_1.data_in:HBM[0]\nsp=calculate_crc_1.crc_out:HBM[0]\nsp=calculate_crc_1.tables:HBM[1]\n\nsp=calculate_crc_2.data_in:HBM[2]\nsp=calculate_crc_2.crc_out:HBM[2]\nsp=calculate_crc_2.tables:HBM[3]\n\nsp=calculate_crc_3.data_in:HBM[4]\nsp=calculate_crc_3.crc_out:HBM[4]\nsp=calculate_crc_3.tables:HBM[5]\n\nsp=calculate_crc_4.data_in:HBM[6]\nsp=calculate_crc_4.crc_out:HBM[6]\nsp=calculate_crc_4.tables:HBM[7]\n\nsp=calculate_crc_5.data_in:HBM[8]\nsp=calculate_crc_5.crc_out:HBM[8]\nsp=calculate_crc_5.tables:HBM[9]\n\nsp=calculate_crc_6.data_in:HBM[10]\nsp=calculate_crc_6.crc_out:HBM[10]\nsp=calculate_crc_6.tables:HBM[11]\n\nsp=calculate_crc_7.data_in:HBM[12]\nsp=calculate_crc_7.crc_out:HBM[12]\nsp=calculate_crc_7.tables:HBM[13]\n\nsp=calculate_crc_8.data_in:HBM[14]\nsp=calculate_crc_8.crc_out:HBM[14]\nsp=calculate_crc_8.tables:HBM[15]\n\nsp=calculate_crc_9.data_in:HBM[16]\nsp=calculate_crc_9.crc_out:HBM[16]\nsp=calculate_crc_9.tables:HBM[17]\n\nsp=calculate_crc_10.data_in:HBM[18]\nsp=calculate_crc_10.crc_out:HBM[18]\nsp=calculate_crc_10.tables:HBM[19]\n\nsp=calculate_crc_11.data_in:HBM[20]\nsp=calculate_crc_11.crc_out:HBM[20]\nsp=calculate_crc_11.tables:HBM[21]\n\nsp=calculate_crc_12.data_in:HBM[22]\nsp=calculate_crc_12.crc_out:HBM[22]\nsp=calculate_crc_12.tables:HBM[23]\n\nsp=calculate_tcp_checksum_1.data_in:HBM[24]\nsp=calculate_tcp_checksum_1.crc_out:HBM[24]\n\nsp=calculate_tcp_checksum_2.data_in:HBM[25]\nsp=calculate_tcp_checksum_2.crc_out:HBM[25]\n\nsp=calculate_sha256_1.data_in:HBM[26]\nsp=calculate_sha256_1.crc_out:HBM[26]\n\nsp=calculate_sha256_2.data_in:HBM[27]\nsp=calculate_sha256_2.crc_out:HBM[27]"
+   }
+  ]
+ },
+ "violation_count": 2,
+ "waived_count": 0,
+ "affirmation_count": 2,
+ "violations": {
+  "hashmap": {
+   "2": {
+    "id": 2,
+    "severity": "SEV_WARNING",
+    "rule_key": "AUTO-FREQ-SCALING-04",
+    "examples": {
+     "uri": [
+      {
+       "link_text": "This page",
+       "url": {
+        "scheme": "HTTPS",
+        "host": "www.xilinx.com",
+        "port": 0,
+        "path": "/cgi-bin/docs/rdoc?t=vitis+guidance;v=2022.1;d=AUTO-FREQ-SCALING-04.html",
+        "query": "",
+        "fragment": "",
+        "media_type": "",
+        "encoding": "",
+        "data": ""
+       },
+       "docgen_filename": ""
+      }
+     ]
+    },
+    "build_target": "",
+    "expects": "",
+    "details": {
+     "text": "One or more timing paths failed timing requirements. The kernel clock !%0! has an original frequency equal to 210 MHz. The frequency has been automatically changed to 209.9 MHz to enable proper functionality. The clock Id is 0.",
+     "args": {
+      "arg": [
+       {
+        "ref": {
+         "type": "OTHER",
+         "name": "ulp_ucs/aclk_kernel_00",
+         "id": 0,
+         "uuid": "",
+         "report_type": ""
+        },
+        "string_val": ""
+       },
+       {
+        "string_val": "210"
+       },
+       {
+        "string_val": "209.9"
+       },
+       {
+        "string_val": "0"
+       }
+      ]
+     }
+    },
+    "resolution": {
+     "text": "The automatic frequency scaling feature allows user kernels to operate in hardware, even if at a lower frequency than intended. !URI%1! describes how to examine timing path violations.",
+     "args": {
+      "arg": [
+       {
+        "uri": {
+         "link_text": "This page",
+         "url": {
+          "scheme": "HTTPS",
+          "host": "www.xilinx.com",
+          "port": 0,
+          "path": "/cgi-bin/docs/rdoc?t=vitis+guidance;v=2022.1;d=AUTO-FREQ-SCALING-04.html",
+          "query": "",
+          "fragment": "",
+          "media_type": "",
+          "encoding": "",
+          "data": ""
+         },
+         "docgen_filename": ""
+        },
+        "string_val": ""
+       }
+      ]
+     }
+    },
+    "categories": {
+     "0": "Accelerator",
+     "1": "kernel.link",
+     "2": "Performance"
+    },
+    "extended_categories": {},
+    "impact": "IMPACT_UNKNOWN",
+    "group": ""
+   },
+   "3": {
+    "id": 3,
+    "severity": "SEV_WARNING",
+    "rule_key": "AUTO-FREQ-SCALING-07",
+    "examples": {
+     "uri": [
+      {
+       "link_text": "This page",
+       "url": {
+        "scheme": "HTTPS",
+        "host": "www.xilinx.com",
+        "port": 0,
+        "path": "/cgi-bin/docs/rdoc?t=vitis+guidance;v=2022.1;d=AUTO-FREQ-SCALING-07.html",
+        "query": "",
+        "fragment": "",
+        "media_type": "",
+        "encoding": "",
+        "data": ""
+       },
+       "docgen_filename": ""
+      }
+     ]
+    },
+    "build_target": "",
+    "expects": "",
+    "details": {
+     "text": "One or more timing paths failed timing requirements. The system clock !%0! has an original frequency equal to 450 MHz. The frequency has been automatically changed to 414.9 MHz to enable proper functionality.",
+     "args": {
+      "arg": [
+       {
+        "ref": {
+         "type": "OTHER",
+         "name": "hbm_aclk",
+         "id": 0,
+         "uuid": "",
+         "report_type": ""
+        },
+        "string_val": ""
+       },
+       {
+        "string_val": "450"
+       },
+       {
+        "string_val": "414.9"
+       }
+      ]
+     }
+    },
+    "resolution": {
+     "text": "The automatic frequency scaling feature allows user kernels to operate in hardware, even if at a lower frequency than intended. !URI%1! describes how to resolve issues identified as system timing violations.",
+     "args": {
+      "arg": [
+       {
+        "uri": {
+         "link_text": "This page",
+         "url": {
+          "scheme": "HTTPS",
+          "host": "www.xilinx.com",
+          "port": 0,
+          "path": "/cgi-bin/docs/rdoc?t=vitis+guidance;v=2022.1;d=AUTO-FREQ-SCALING-07.html",
+          "query": "",
+          "fragment": "",
+          "media_type": "",
+          "encoding": "",
+          "data": ""
+         },
+         "docgen_filename": ""
+        },
+        "string_val": ""
+       }
+      ]
+     }
+    },
+    "categories": {
+     "2": "Performance",
+     "0": "Accelerator",
+     "1": "System"
+    },
+    "extended_categories": {},
+    "impact": "IMPACT_UNKNOWN",
+    "group": ""
+   }
+  }
+ },
+ "affirmations": {
+  "hashmap": {
+   "4": {
+    "id": 4,
+    "rule_key": "PLATFORM-CLOCK-DOMAINS-01",
+    "examples": {
+     "uri": [
+      {
+       "link_text": "automatic frequency scaling",
+       "url": {
+        "scheme": "HTTPS",
+        "host": "www.xilinx.com",
+        "port": 0,
+        "path": "/cgi-bin/docs/rdoc?t=vitis+guidance;v=2022.1;d=PLATFORM-CLOCK-DOMAINS-01.html",
+        "query": "",
+        "fragment": "",
+        "media_type": "",
+        "encoding": "",
+        "data": ""
+       },
+       "docgen_filename": ""
+      }
+     ]
+    },
+    "build_target": "",
+    "expects": "= or \u003e",
+    "details": {
+     "text": "The compiler selected the following frequencies for the runtime controllable kernel clock(s) and scalable system clock(s): \nKernel: ulp_ucs/aclk_kernel_01 = 500.0 MHz \nKernel: ulp_ucs/aclk_kernel_00 = 209.9 MHz \nSystem: hbm_aclk = 414.9 MHz \nScalable clock ulp_ucs/aclk_kernel_01 (Id = 1) is used for rtl kernels. This design has 0 rtl kernel(s).\nScalable clock ulp_ucs/aclk_kernel_00 (Id = 0) is used for hls kernels. This design has 16 hls kernel(s).",
+     "args": {
+      "arg": [
+       {
+        "string_val": "\nKernel: ulp_ucs/aclk_kernel_01 = 500.0 MHz \nKernel: ulp_ucs/aclk_kernel_00 = 209.9 MHz \nSystem: hbm_aclk = 414.9 MHz \nScalable clock ulp_ucs/aclk_kernel_01 (Id = 1) is used for rtl kernels. This design has 0 rtl kernel(s).\nScalable clock ulp_ucs/aclk_kernel_00 (Id = 0) is used for hls kernels. This design has 16 hls kernel(s)."
+       }
+      ]
+     }
+    },
+    "resolution": {
+     "text": "The !URI%1! feature allows user kernels to operate in hardware, even if at a lower frequency than intended."
+    },
+    "categories": {
+     "1": "System",
+     "2": "Performance",
+     "0": "Accelerator"
+    },
+    "extended_categories": {},
+    "group": ""
+   },
+   "1": {
+    "id": 1,
+    "rule_key": "SYSLINK-1",
+    "examples": {
+     "uri": []
+    },
+    "build_target": "",
+    "expects": "",
+    "details": {
+     "text": "Created top level block diagram design dr.bd.tcl",
+     "args": {
+      "arg": [
+       {
+        "string_val": "dr.bd.tcl"
+       }
+      ]
+     }
+    },
+    "categories": {},
+    "extended_categories": {},
+    "group": ""
+   }
+  }
+ },
+ "specs_violated": {
+  "hashmap": {
+   "AUTO-FREQ-SCALING-04": {
+    "key": "AUTO-FREQ-SCALING-04",
+    "full_name": "Auto frequency scaling - Kernel timing failure",
+    "owner": "sdx",
+    "raw_msg": "One or more timing paths failed timing requirements. The kernel clock %REF has an original frequency equal to %s MHz. The frequency has been automatically changed to %s MHz to enable proper functionality. The clock Id is %s.",
+    "msg_abbrev": "",
+    "msg_id": "0",
+    "categories": {
+     "0": "Accelerator",
+     "1": "xclbin",
+     "2": "Performance"
+    },
+    "resolution_msg": "The automatic frequency scaling feature allows user kernels to operate in hardware, even if at a lower frequency than intended. !URI%1! describes how to examine timing path violations.",
+    "examples": {
+     "uri": [
+      {
+       "link_text": "This page",
+       "url": {
+        "scheme": "HTTPS",
+        "host": "www.xilinx.com",
+        "port": 0,
+        "path": "/cgi-bin/docs/rdoc?t=vitis+guidance;v=2022.1;d=AUTO-FREQ-SCALING-04.html",
+        "query": "",
+        "fragment": "",
+        "media_type": "",
+        "encoding": "",
+        "data": ""
+       },
+       "docgen_filename": ""
+      }
+     ]
+    },
+    "severity": "SEV_WARNING",
+    "disposition": "ENABLED",
+    "expects": "",
+    "affirm_msg": "",
+    "dynamic_categories": {
+     "0": false,
+     "1": true,
+     "2": false
+    },
+    "extensible_categories": [],
+    "impact": "IMPACT_UNKNOWN",
+    "group": ""
+   },
+   "AUTO-FREQ-SCALING-07": {
+    "key": "AUTO-FREQ-SCALING-07",
+    "full_name": "Auto frequency scaling - System timing failure",
+    "owner": "sdx",
+    "raw_msg": "One or more timing paths failed timing requirements. The system clock %REF has an original frequency equal to %s MHz. The frequency has been automatically changed to %s MHz to enable proper functionality.",
+    "msg_abbrev": "",
+    "msg_id": "0",
+    "categories": {
+     "2": "Performance",
+     "0": "Accelerator",
+     "1": "System"
+    },
+    "resolution_msg": "The automatic frequency scaling feature allows user kernels to operate in hardware, even if at a lower frequency than intended. !URI%1! describes how to resolve issues identified as system timing violations.",
+    "examples": {
+     "uri": [
+      {
+       "link_text": "This page",
+       "url": {
+        "scheme": "HTTPS",
+        "host": "www.xilinx.com",
+        "port": 0,
+        "path": "/cgi-bin/docs/rdoc?t=vitis+guidance;v=2022.1;d=AUTO-FREQ-SCALING-07.html",
+        "query": "",
+        "fragment": "",
+        "media_type": "",
+        "encoding": "",
+        "data": ""
+       },
+       "docgen_filename": ""
+      }
+     ]
+    },
+    "severity": "SEV_WARNING",
+    "disposition": "ENABLED",
+    "expects": "",
+    "affirm_msg": "",
+    "dynamic_categories": {
+     "0": false,
+     "1": false,
+     "2": false
+    },
+    "extensible_categories": [],
+    "impact": "IMPACT_UNKNOWN",
+    "group": ""
+   }
+  }
+ },
+ "specs_affirmed": {
+  "hashmap": {
+   "SYSLINK-1": {
+    "key": "SYSLINK-1",
+    "full_name": "system_link Top Level BD Creation",
+    "owner": "system_link",
+    "raw_msg": "Created top level block diagram design %STR",
+    "msg_abbrev": "",
+    "msg_id": "0",
+    "categories": {},
+    "resolution_msg": "",
+    "severity": "SEV_FATAL",
+    "disposition": "ENABLED",
+    "expects": "",
+    "affirm_msg": "",
+    "dynamic_categories": {},
+    "extensible_categories": [],
+    "impact": "IMPACT_UNKNOWN",
+    "group": ""
+   },
+   "PLATFORM-CLOCK-DOMAINS-01": {
+    "key": "PLATFORM-CLOCK-DOMAINS-01",
+    "full_name": "Runtime controllable clock domains - Achieved clock frequency (MHz)",
+    "owner": "sdx",
+    "raw_msg": "One or more clocks failed a timing check.",
+    "msg_abbrev": "",
+    "msg_id": "0",
+    "categories": {
+     "0": "Accelerator",
+     "1": "System",
+     "2": "Performance"
+    },
+    "resolution_msg": "The !URI%1! feature allows user kernels to operate in hardware, even if at a lower frequency than intended.",
+    "examples": {
+     "uri": [
+      {
+       "link_text": "automatic frequency scaling",
+       "url": {
+        "scheme": "HTTPS",
+        "host": "www.xilinx.com",
+        "port": 0,
+        "path": "/cgi-bin/docs/rdoc?t=vitis+guidance;v=2022.1;d=PLATFORM-CLOCK-DOMAINS-01.html",
+        "query": "",
+        "fragment": "",
+        "media_type": "",
+        "encoding": "",
+        "data": ""
+       },
+       "docgen_filename": ""
+      }
+     ]
+    },
+    "severity": "SEV_WARNING",
+    "disposition": "ENABLED",
+    "expects": "= or \u003e",
+    "affirm_msg": "The compiler selected the following frequencies for the runtime controllable kernel clock(s) and scalable system clock(s): %s",
+    "description": {
+     "scheme": "DATA",
+     "host": "",
+     "port": 0,
+     "path": "",
+     "query": "",
+     "fragment": "",
+     "media_type": "text/html",
+     "encoding": "charset=UTF-8",
+     "data": "\u003chtml\u003e Kernel clocks (and system clocks for some platforms) are scalable; they can preserve functionality at the cost of performance by running at a lower frequency than requested. To be scalable, a clock must be driven by an MMCM where the control registers for the MMCM can be set by the runtime over AXI4-Lite. This item shows the final runtime controlled frequencies for the scalable clocks.\u003c/html\u003e"
+    },
+    "dynamic_categories": {
+     "0": false,
+     "1": false,
+     "2": false
+    },
+    "extensible_categories": [],
+    "impact": "IMPACT_UNKNOWN",
+    "group": ""
+   }
+  }
+ }
+}
+

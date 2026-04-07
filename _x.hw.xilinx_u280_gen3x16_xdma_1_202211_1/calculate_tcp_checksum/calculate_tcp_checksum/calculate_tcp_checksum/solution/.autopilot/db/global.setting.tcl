@@ -42,9 +42,9 @@ set SCTraceFileName mytrace
 set SCTraceFileFormat vcd
 set SCTraceOption all
 set TargetInfo xcu280:-fsvh2892:-2L-e
-set SourceFiles {sc {} c /users/arashs/U280_CRC_Accelerator/src/kernel.cpp}
-set SourceFlags {sc {} c {{-DKERNEL_VARIANT=KERNEL_VARIANT_TCP -I/users/arashs/U280_CRC_Accelerator/src}}}
-set DirectiveFile {}
+set SourceFiles {sc {} c /home/efrink/mled/split_cu/U280_CRC_Accelerator/src/kernel.cpp}
+set SourceFlags {sc {} c {{-DKERNEL_VARIANT=KERNEL_VARIANT_TCP -I/home/efrink/mled/split_cu/U280_CRC_Accelerator/src}}}
+set DirectiveFile /home/efrink/mled/split_cu/U280_CRC_Accelerator/_x.hw.xilinx_u280_gen3x16_xdma_1_202211_1/calculate_tcp_checksum/calculate_tcp_checksum/calculate_tcp_checksum/solution/solution.directive
 set TBFiles {bc {} c {} sc {} cas {} vhdl {} verilog {}}
 set SpecLanguage C
 set TVInFiles {bc {} c {} sc {} cas {} vhdl {} verilog {}}
@@ -56,7 +56,7 @@ set ExtraGlobalOptions {"area_timing" 1 "clock_gate" 1 "impl_flow" map "power_ga
 set TBTVFileNotFound {}
 set AppFile ../hls.app
 set ApsFile solution.aps
-set AvePath ../../.
+set AvePath ../..
 set DefaultPlatform DefaultPlatform
 set multiClockList {}
 set SCPortClockMap {}

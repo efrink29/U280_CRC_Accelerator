@@ -1,8 +1,8 @@
 <root versionMajor="1" versionMinor="5">
-    <kernel name="calculate_tcp_checksum" language="c" vlnv="xilinx.com:hls:calculate_tcp_checksum:1.0" attributes="" hash="" preferredWorkGroupSizeMultiple="0" workGroupSize="1" debug="false" compileOptions="-DKERNEL_VARIANT=KERNEL_VARIANT_TCP -I /users/arashs/U280_CRC_Accelerator/src" profileType="none" hwControlProtocol="ap_ctrl_chain" interrupt="true" swReset="false" mailbox="none" countedAutoRestart="0" deadlockDetection="local">
+    <kernel name="calculate_tcp_checksum" language="c" vlnv="xilinx.com:hls:calculate_tcp_checksum:1.0" attributes="" hash="" preferredWorkGroupSizeMultiple="0" workGroupSize="1" debug="false" compileOptions="-DKERNEL_VARIANT=KERNEL_VARIANT_TCP -I /home/efrink/mled/split_cu/U280_CRC_Accelerator/src" profileType="none" hwControlProtocol="ap_ctrl_chain" interrupt="true" swReset="false" mailbox="none" countedAutoRestart="0" deadlockDetection="local">
         <ports>
             <port name="M_AXI_GMEM0" portType="addressable" mode="master" base="0x0" range="0xFFFFFFFF" dataWidth="512"/>
-            <port name="S_AXI_CONTROL" portType="addressable" mode="slave" base="0x0" range="0x1038" dataWidth="32"/>
+            <port name="S_AXI_CONTROL" portType="addressable" mode="slave" base="0x0" range="0x38" dataWidth="32"/>
         </ports>
         <args>
             <arg id="0" name="data_in" addressQualifier="1" port="M_AXI_GMEM0" hostOffset="0x0" hostSize="0x8" offset="0x10" size="0x8" type="void*"/>

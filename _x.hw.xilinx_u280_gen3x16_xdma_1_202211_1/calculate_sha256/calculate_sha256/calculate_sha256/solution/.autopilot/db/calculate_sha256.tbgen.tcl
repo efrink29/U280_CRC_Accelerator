@@ -10,8 +10,6 @@ set ProfileFlag 0
 set StallSigGenFlag 0
 set isEnableWaveformDebug 1
 set hasInterrupt 0
-set DLRegFirstOffset 0
-set DLRegItemOffset 0
 set C_modelName {calculate_sha256}
 set C_modelType { void 0 }
 set C_modelArgList {
@@ -21,7 +19,6 @@ set C_modelArgList {
 	{ numChunks int 32 regular {axi_slave 0}  }
 	{ chunkSize int 32 regular {axi_slave 0}  }
 }
-set hasAXIMCache 0
 set C_modelArgMapList {[ 
 	{ "Name" : "gmem0", "interface" : "axi_master", "bitwidth" : 512, "direction" : "READWRITE", "bitSlice":[ {"cElement": [{"cName": "data_in","offset": { "type": "dynamic","port_name": "data_in","bundle": "control"},"direction": "READONLY"},{"cName": "crc_out","offset": { "type": "dynamic","port_name": "crc_out","bundle": "control"},"direction": "WRITEONLY"}]}]} , 
  	{ "Name" : "data_in", "interface" : "axi_slave", "bundle":"control","type":"ap_none","bitwidth" : 64, "direction" : "READONLY", "offset" : {"in":16}, "offset_end" : {"in":27}} , 
@@ -165,7 +162,7 @@ set NewPortList {[
  	{ "name": "m_axi_gmem0_BUSER", "direction": "in", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem0", "role": "BUSER" }}  ]}
 
 set RtlHierarchyInfo {[
-	{"ID" : "0", "Level" : "0", "Path" : "`AUTOTB_DUT_INST", "Parent" : "", "Child" : ["1", "35", "38", "39"],
+	{"ID" : "0", "Level" : "0", "Path" : "`AUTOTB_DUT_INST", "Parent" : "", "Child" : ["1", "26", "27"],
 		"CDFG" : "calculate_sha256",
 		"Protocol" : "ap_ctrl_chain",
 		"ControlExist" : "1", "ap_start" : "1", "ap_ready" : "1", "ap_done" : "1", "ap_continue" : "1", "ap_idle" : "1", "real_start" : "0",
@@ -182,25 +179,52 @@ set RtlHierarchyInfo {[
 		"Port" : [
 			{"Name" : "gmem0", "Type" : "MAXI", "Direction" : "IO",
 				"SubConnect" : [
-					{"ID" : "1", "SubInstance" : "grp_sha256_process_chunk_fu_106", "Port" : "gmem0", "Inst_start_state" : "3", "Inst_end_state" : "4"},
-					{"ID" : "35", "SubInstance" : "grp_calculate_sha256_Pipeline_hash_write_digest_fu_116", "Port" : "gmem0", "Inst_start_state" : "5", "Inst_end_state" : "6"}]},
+					{"ID" : "1", "SubInstance" : "grp_sha256_process_and_write_chunk_fu_108", "Port" : "gmem0", "Inst_start_state" : "3", "Inst_end_state" : "4"}]},
 			{"Name" : "data_in", "Type" : "None", "Direction" : "I"},
 			{"Name" : "crc_out", "Type" : "None", "Direction" : "I"},
 			{"Name" : "numChunks", "Type" : "None", "Direction" : "I"},
 			{"Name" : "chunkSize", "Type" : "None", "Direction" : "I"},
 			{"Name" : "SHA256_K", "Type" : "Memory", "Direction" : "I",
 				"SubConnect" : [
-					{"ID" : "1", "SubInstance" : "grp_sha256_process_chunk_fu_106", "Port" : "SHA256_K", "Inst_start_state" : "3", "Inst_end_state" : "4"}]}],
+					{"ID" : "1", "SubInstance" : "grp_sha256_process_and_write_chunk_fu_108", "Port" : "SHA256_K", "Inst_start_state" : "3", "Inst_end_state" : "4"}]}],
 		"Loop" : [
 			{"Name" : "hash_chunk_loop", "PipelineType" : "no",
-				"LoopDec" : {"FSMBitwidth" : "6", "FirstState" : "ap_ST_fsm_state2", "LastState" : ["ap_ST_fsm_state6"], "QuitState" : ["ap_ST_fsm_state2"], "PreState" : ["ap_ST_fsm_state1"], "PostState" : ["ap_ST_fsm_state1"], "OneDepthLoop" : "0", "OneStateBlock": ""}}]},
-	{"ID" : "1", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.grp_sha256_process_chunk_fu_106", "Parent" : "0", "Child" : ["2", "3", "25", "27", "29", "31", "33"],
+				"LoopDec" : {"FSMBitwidth" : "4", "FirstState" : "ap_ST_fsm_state2", "LastState" : ["ap_ST_fsm_state4"], "QuitState" : ["ap_ST_fsm_state2"], "PreState" : ["ap_ST_fsm_state1"], "PostState" : ["ap_ST_fsm_state1"], "OneDepthLoop" : "0", "OneStateBlock": ""}}]},
+	{"ID" : "1", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.grp_sha256_process_and_write_chunk_fu_108", "Parent" : "0", "Child" : ["2", "23"],
+		"CDFG" : "sha256_process_and_write_chunk",
+		"Protocol" : "ap_ctrl_hs",
+		"ControlExist" : "1", "ap_start" : "1", "ap_ready" : "1", "ap_done" : "1", "ap_continue" : "0", "ap_idle" : "1", "real_start" : "0",
+		"Pipeline" : "None", "UnalignedPipeline" : "0", "RewindPipeline" : "0", "ProcessNetwork" : "0",
+		"II" : "0",
+		"VariableLatency" : "1", "ExactLatency" : "-1", "EstimateLatencyMin" : "273", "EstimateLatencyMax" : "-1",
+		"Combinational" : "0",
+		"Datapath" : "0",
+		"ClockEnable" : "0",
+		"HasSubDataflow" : "0",
+		"InDataflowNetwork" : "0",
+		"HasNonBlockingOperation" : "0",
+		"IsBlackBox" : "0",
+		"Port" : [
+			{"Name" : "gmem0", "Type" : "MAXI", "Direction" : "IO",
+				"BlockSignal" : [
+					{"Name" : "gmem0_blk_n_AW", "Type" : "RtlSignal"},
+					{"Name" : "gmem0_blk_n_W", "Type" : "RtlSignal"},
+					{"Name" : "gmem0_blk_n_B", "Type" : "RtlSignal"}],
+				"SubConnect" : [
+					{"ID" : "2", "SubInstance" : "grp_sha256_process_chunk_fu_97", "Port" : "gmem0", "Inst_start_state" : "1", "Inst_end_state" : "2"}]},
+			{"Name" : "chunk", "Type" : "None", "Direction" : "I"},
+			{"Name" : "chunk_size", "Type" : "None", "Direction" : "I"},
+			{"Name" : "out_words", "Type" : "None", "Direction" : "I"},
+			{"Name" : "SHA256_K", "Type" : "Memory", "Direction" : "I",
+				"SubConnect" : [
+					{"ID" : "2", "SubInstance" : "grp_sha256_process_chunk_fu_97", "Port" : "SHA256_K", "Inst_start_state" : "1", "Inst_end_state" : "2"}]}]},
+	{"ID" : "2", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_sha256_process_and_write_chunk_fu_108.grp_sha256_process_chunk_fu_97", "Parent" : "1", "Child" : ["3", "4", "13", "15", "17", "19", "21"],
 		"CDFG" : "sha256_process_chunk",
 		"Protocol" : "ap_ctrl_hs",
 		"ControlExist" : "1", "ap_start" : "1", "ap_ready" : "1", "ap_done" : "1", "ap_continue" : "0", "ap_idle" : "1", "real_start" : "0",
 		"Pipeline" : "None", "UnalignedPipeline" : "0", "RewindPipeline" : "0", "ProcessNetwork" : "0",
 		"II" : "0",
-		"VariableLatency" : "1", "ExactLatency" : "-1", "EstimateLatencyMin" : "323", "EstimateLatencyMax" : "22749905249",
+		"VariableLatency" : "1", "ExactLatency" : "-1", "EstimateLatencyMin" : "191", "EstimateLatencyMax" : "-1",
 		"Combinational" : "0",
 		"Datapath" : "0",
 		"ClockEnable" : "0",
@@ -214,25 +238,25 @@ set RtlHierarchyInfo {[
 					{"Name" : "gmem0_blk_n_AR", "Type" : "RtlSignal"},
 					{"Name" : "gmem0_blk_n_R", "Type" : "RtlSignal"}],
 				"SubConnect" : [
-					{"ID" : "27", "SubInstance" : "grp_sha256_process_chunk_Pipeline_copy_remainder_fu_2525", "Port" : "gmem0", "Inst_start_state" : "217", "Inst_end_state" : "218"}]},
+					{"ID" : "15", "SubInstance" : "grp_sha256_process_chunk_Pipeline_copy_remainder_fu_2600", "Port" : "gmem0", "Inst_start_state" : "214", "Inst_end_state" : "215"}]},
 			{"Name" : "chunk", "Type" : "None", "Direction" : "I"},
 			{"Name" : "chunk_size", "Type" : "None", "Direction" : "I"},
 			{"Name" : "SHA256_K", "Type" : "Memory", "Direction" : "I",
 				"SubConnect" : [
-					{"ID" : "3", "SubInstance" : "grp_sha256_compress_block_fu_2497", "Port" : "SHA256_K", "Inst_start_state" : "327", "Inst_end_state" : "328"}]}],
+					{"ID" : "4", "SubInstance" : "grp_sha256_compress_block_fu_2572", "Port" : "SHA256_K", "Inst_start_state" : "322", "Inst_end_state" : "323"}]}],
 		"Loop" : [
 			{"Name" : "full_block_loop_vec", "PipelineType" : "no",
-				"LoopDec" : {"FSMBitwidth" : "328", "FirstState" : "ap_ST_fsm_state212", "LastState" : ["ap_ST_fsm_state215"], "QuitState" : ["ap_ST_fsm_state212"], "PreState" : ["ap_ST_fsm_state3", "ap_ST_fsm_state211"], "PostState" : ["ap_ST_fsm_state216"], "OneDepthLoop" : "0", "OneStateBlock": ""}},
+				"LoopDec" : {"FSMBitwidth" : "323", "FirstState" : "ap_ST_fsm_state209", "LastState" : ["ap_ST_fsm_state212"], "QuitState" : ["ap_ST_fsm_state209"], "PreState" : ["ap_ST_fsm_state3", "ap_ST_fsm_state2", "ap_ST_fsm_state208"], "PostState" : ["ap_ST_fsm_state213"], "OneDepthLoop" : "0", "OneStateBlock": ""}},
 			{"Name" : "full_block_loop_scalar", "PipelineType" : "no",
-				"LoopDec" : {"FSMBitwidth" : "328", "FirstState" : "ap_ST_fsm_state3", "LastState" : ["ap_ST_fsm_state141"], "QuitState" : ["ap_ST_fsm_state3"], "PreState" : ["ap_ST_fsm_state2"], "PostState" : ["ap_ST_fsm_state212"], "OneDepthLoop" : "0", "OneStateBlock": ""}}]},
-	{"ID" : "2", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_sha256_process_chunk_fu_106.pad_block_U", "Parent" : "1"},
-	{"ID" : "3", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_sha256_process_chunk_fu_106.grp_sha256_compress_block_fu_2497", "Parent" : "1", "Child" : ["4", "5", "6", "7", "9", "21"],
+				"LoopDec" : {"FSMBitwidth" : "323", "FirstState" : "ap_ST_fsm_state3", "LastState" : ["ap_ST_fsm_state139"], "QuitState" : ["ap_ST_fsm_state3"], "PreState" : ["ap_ST_fsm_state2"], "PostState" : ["ap_ST_fsm_state209"], "OneDepthLoop" : "0", "OneStateBlock": ""}}]},
+	{"ID" : "3", "Level" : "3", "Path" : "`AUTOTB_DUT_INST.grp_sha256_process_and_write_chunk_fu_108.grp_sha256_process_chunk_fu_97.pad_block_U", "Parent" : "2"},
+	{"ID" : "4", "Level" : "3", "Path" : "`AUTOTB_DUT_INST.grp_sha256_process_and_write_chunk_fu_108.grp_sha256_process_chunk_fu_97.grp_sha256_compress_block_fu_2572", "Parent" : "2", "Child" : ["5"],
 		"CDFG" : "sha256_compress_block",
 		"Protocol" : "ap_ctrl_hs",
 		"ControlExist" : "1", "ap_start" : "1", "ap_ready" : "1", "ap_done" : "1", "ap_continue" : "0", "ap_idle" : "1", "real_start" : "0",
 		"Pipeline" : "None", "UnalignedPipeline" : "0", "RewindPipeline" : "0", "ProcessNetwork" : "0",
 		"II" : "0",
-		"VariableLatency" : "1", "ExactLatency" : "-1", "EstimateLatencyMin" : "200", "EstimateLatencyMax" : "200",
+		"VariableLatency" : "1", "ExactLatency" : "-1", "EstimateLatencyMin" : "70", "EstimateLatencyMax" : "70",
 		"Combinational" : "0",
 		"Datapath" : "0",
 		"ClockEnable" : "0",
@@ -241,7 +265,7 @@ set RtlHierarchyInfo {[
 		"HasNonBlockingOperation" : "0",
 		"IsBlackBox" : "0",
 		"Port" : [
-			{"Name" : "block_val", "Type" : "None", "Direction" : "I"},
+			{"Name" : "block_V_read", "Type" : "None", "Direction" : "I"},
 			{"Name" : "state_0_read", "Type" : "None", "Direction" : "I"},
 			{"Name" : "state_1_read", "Type" : "None", "Direction" : "I"},
 			{"Name" : "state_2_read", "Type" : "None", "Direction" : "I"},
@@ -252,66 +276,8 @@ set RtlHierarchyInfo {[
 			{"Name" : "state_7_read", "Type" : "None", "Direction" : "I"},
 			{"Name" : "SHA256_K", "Type" : "Memory", "Direction" : "I",
 				"SubConnect" : [
-					{"ID" : "21", "SubInstance" : "grp_sha256_compress_block_Pipeline_round_loop_fu_151", "Port" : "SHA256_K", "Inst_start_state" : "5", "Inst_end_state" : "6"}]}]},
-	{"ID" : "4", "Level" : "3", "Path" : "`AUTOTB_DUT_INST.grp_sha256_process_chunk_fu_106.grp_sha256_compress_block_fu_2497.w_U", "Parent" : "3"},
-	{"ID" : "5", "Level" : "3", "Path" : "`AUTOTB_DUT_INST.grp_sha256_process_chunk_fu_106.grp_sha256_compress_block_fu_2497.w_1_U", "Parent" : "3"},
-	{"ID" : "6", "Level" : "3", "Path" : "`AUTOTB_DUT_INST.grp_sha256_process_chunk_fu_106.grp_sha256_compress_block_fu_2497.w_2_U", "Parent" : "3"},
-	{"ID" : "7", "Level" : "3", "Path" : "`AUTOTB_DUT_INST.grp_sha256_process_chunk_fu_106.grp_sha256_compress_block_fu_2497.grp_sha256_compress_block_Pipeline_init_words_fu_132", "Parent" : "3", "Child" : ["8"],
-		"CDFG" : "sha256_compress_block_Pipeline_init_words",
-		"Protocol" : "ap_ctrl_hs",
-		"ControlExist" : "1", "ap_start" : "1", "ap_ready" : "1", "ap_done" : "1", "ap_continue" : "0", "ap_idle" : "1", "real_start" : "0",
-		"Pipeline" : "None", "UnalignedPipeline" : "0", "RewindPipeline" : "0", "ProcessNetwork" : "0",
-		"II" : "0",
-		"VariableLatency" : "1", "ExactLatency" : "-1", "EstimateLatencyMin" : "18", "EstimateLatencyMax" : "18",
-		"Combinational" : "0",
-		"Datapath" : "0",
-		"ClockEnable" : "0",
-		"HasSubDataflow" : "0",
-		"InDataflowNetwork" : "0",
-		"HasNonBlockingOperation" : "0",
-		"IsBlackBox" : "0",
-		"Port" : [
-			{"Name" : "w_2", "Type" : "Memory", "Direction" : "O"},
-			{"Name" : "w_1", "Type" : "Memory", "Direction" : "O"},
-			{"Name" : "w", "Type" : "Memory", "Direction" : "O"},
-			{"Name" : "block_val", "Type" : "None", "Direction" : "I"}],
-		"Loop" : [
-			{"Name" : "init_words", "PipelineType" : "UPC",
-				"LoopDec" : {"FSMBitwidth" : "1", "FirstState" : "ap_ST_fsm_state1", "FirstStateIter" : "", "FirstStateBlock" : "ap_ST_fsm_state1_blk", "LastState" : "ap_ST_fsm_state1", "LastStateIter" : "", "LastStateBlock" : "ap_ST_fsm_state1_blk", "QuitState" : "ap_ST_fsm_state1", "QuitStateIter" : "", "QuitStateBlock" : "ap_ST_fsm_state1_blk", "OneDepthLoop" : "1", "has_ap_ctrl" : "1", "has_continue" : "0"}}]},
-	{"ID" : "8", "Level" : "4", "Path" : "`AUTOTB_DUT_INST.grp_sha256_process_chunk_fu_106.grp_sha256_compress_block_fu_2497.grp_sha256_compress_block_Pipeline_init_words_fu_132.flow_control_loop_pipe_sequential_init_U", "Parent" : "7"},
-	{"ID" : "9", "Level" : "3", "Path" : "`AUTOTB_DUT_INST.grp_sha256_process_chunk_fu_106.grp_sha256_compress_block_fu_2497.grp_sha256_compress_block_Pipeline_expand_words_fu_144", "Parent" : "3", "Child" : ["10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20"],
-		"CDFG" : "sha256_compress_block_Pipeline_expand_words",
-		"Protocol" : "ap_ctrl_hs",
-		"ControlExist" : "1", "ap_start" : "1", "ap_ready" : "1", "ap_done" : "1", "ap_continue" : "0", "ap_idle" : "1", "real_start" : "0",
-		"Pipeline" : "None", "UnalignedPipeline" : "0", "RewindPipeline" : "0", "ProcessNetwork" : "0",
-		"II" : "0",
-		"VariableLatency" : "1", "ExactLatency" : "-1", "EstimateLatencyMin" : "108", "EstimateLatencyMax" : "108",
-		"Combinational" : "0",
-		"Datapath" : "0",
-		"ClockEnable" : "0",
-		"HasSubDataflow" : "0",
-		"InDataflowNetwork" : "0",
-		"HasNonBlockingOperation" : "0",
-		"IsBlackBox" : "0",
-		"Port" : [
-			{"Name" : "w_2", "Type" : "Memory", "Direction" : "IO"},
-			{"Name" : "w_1", "Type" : "Memory", "Direction" : "IO"},
-			{"Name" : "w", "Type" : "Memory", "Direction" : "IO"}],
-		"Loop" : [
-			{"Name" : "expand_words", "PipelineType" : "UPC",
-				"LoopDec" : {"FSMBitwidth" : "2", "FirstState" : "ap_ST_fsm_pp0_stage0", "FirstStateIter" : "ap_enable_reg_pp0_iter0", "FirstStateBlock" : "ap_block_pp0_stage0_subdone", "LastState" : "ap_ST_fsm_pp0_stage0", "LastStateIter" : "ap_enable_reg_pp0_iter6", "LastStateBlock" : "ap_block_pp0_stage0_subdone", "QuitState" : "ap_ST_fsm_pp0_stage0", "QuitStateIter" : "ap_enable_reg_pp0_iter6", "QuitStateBlock" : "ap_block_pp0_stage0_subdone", "OneDepthLoop" : "0", "has_ap_ctrl" : "1", "has_continue" : "0"}}]},
-	{"ID" : "10", "Level" : "4", "Path" : "`AUTOTB_DUT_INST.grp_sha256_process_chunk_fu_106.grp_sha256_compress_block_fu_2497.grp_sha256_compress_block_Pipeline_expand_words_fu_144.urem_7ns_3ns_2_11_1_U5", "Parent" : "9"},
-	{"ID" : "11", "Level" : "4", "Path" : "`AUTOTB_DUT_INST.grp_sha256_process_chunk_fu_106.grp_sha256_compress_block_fu_2497.grp_sha256_compress_block_Pipeline_expand_words_fu_144.mul_6ns_8ns_13_1_1_U6", "Parent" : "9"},
-	{"ID" : "12", "Level" : "4", "Path" : "`AUTOTB_DUT_INST.grp_sha256_process_chunk_fu_106.grp_sha256_compress_block_fu_2497.grp_sha256_compress_block_Pipeline_expand_words_fu_144.mul_6ns_8ns_13_1_1_U7", "Parent" : "9"},
-	{"ID" : "13", "Level" : "4", "Path" : "`AUTOTB_DUT_INST.grp_sha256_process_chunk_fu_106.grp_sha256_compress_block_fu_2497.grp_sha256_compress_block_Pipeline_expand_words_fu_144.mul_6ns_8ns_13_1_1_U8", "Parent" : "9"},
-	{"ID" : "14", "Level" : "4", "Path" : "`AUTOTB_DUT_INST.grp_sha256_process_chunk_fu_106.grp_sha256_compress_block_fu_2497.grp_sha256_compress_block_Pipeline_expand_words_fu_144.mul_7ns_9ns_14_1_1_U9", "Parent" : "9"},
-	{"ID" : "15", "Level" : "4", "Path" : "`AUTOTB_DUT_INST.grp_sha256_process_chunk_fu_106.grp_sha256_compress_block_fu_2497.grp_sha256_compress_block_Pipeline_expand_words_fu_144.mul_6ns_8ns_13_1_1_U10", "Parent" : "9"},
-	{"ID" : "16", "Level" : "4", "Path" : "`AUTOTB_DUT_INST.grp_sha256_process_chunk_fu_106.grp_sha256_compress_block_fu_2497.grp_sha256_compress_block_Pipeline_expand_words_fu_144.mux_3_2_32_1_1_U11", "Parent" : "9"},
-	{"ID" : "17", "Level" : "4", "Path" : "`AUTOTB_DUT_INST.grp_sha256_process_chunk_fu_106.grp_sha256_compress_block_fu_2497.grp_sha256_compress_block_Pipeline_expand_words_fu_144.mux_3_2_32_1_1_U12", "Parent" : "9"},
-	{"ID" : "18", "Level" : "4", "Path" : "`AUTOTB_DUT_INST.grp_sha256_process_chunk_fu_106.grp_sha256_compress_block_fu_2497.grp_sha256_compress_block_Pipeline_expand_words_fu_144.mux_3_2_32_1_1_U13", "Parent" : "9"},
-	{"ID" : "19", "Level" : "4", "Path" : "`AUTOTB_DUT_INST.grp_sha256_process_chunk_fu_106.grp_sha256_compress_block_fu_2497.grp_sha256_compress_block_Pipeline_expand_words_fu_144.mux_3_2_32_1_1_U14", "Parent" : "9"},
-	{"ID" : "20", "Level" : "4", "Path" : "`AUTOTB_DUT_INST.grp_sha256_process_chunk_fu_106.grp_sha256_compress_block_fu_2497.grp_sha256_compress_block_Pipeline_expand_words_fu_144.flow_control_loop_pipe_sequential_init_U", "Parent" : "9"},
-	{"ID" : "21", "Level" : "3", "Path" : "`AUTOTB_DUT_INST.grp_sha256_process_chunk_fu_106.grp_sha256_compress_block_fu_2497.grp_sha256_compress_block_Pipeline_round_loop_fu_151", "Parent" : "3", "Child" : ["22", "23", "24"],
+					{"ID" : "5", "SubInstance" : "grp_sha256_compress_block_Pipeline_round_loop_fu_372", "Port" : "SHA256_K", "Inst_start_state" : "1", "Inst_end_state" : "2"}]}]},
+	{"ID" : "5", "Level" : "4", "Path" : "`AUTOTB_DUT_INST.grp_sha256_process_and_write_chunk_fu_108.grp_sha256_process_chunk_fu_97.grp_sha256_compress_block_fu_2572.grp_sha256_compress_block_Pipeline_round_loop_fu_372", "Parent" : "4", "Child" : ["6", "7", "8", "9", "10", "11", "12"],
 		"CDFG" : "sha256_compress_block_Pipeline_round_loop",
 		"Protocol" : "ap_ctrl_hs",
 		"ControlExist" : "1", "ap_start" : "1", "ap_ready" : "1", "ap_done" : "1", "ap_continue" : "0", "ap_idle" : "1", "real_start" : "0",
@@ -326,7 +292,22 @@ set RtlHierarchyInfo {[
 		"HasNonBlockingOperation" : "0",
 		"IsBlackBox" : "0",
 		"Port" : [
-			{"Name" : "state_7_read", "Type" : "None", "Direction" : "I"},
+			{"Name" : "wbuf_15", "Type" : "None", "Direction" : "I"},
+			{"Name" : "wbuf_14", "Type" : "None", "Direction" : "I"},
+			{"Name" : "wbuf_13", "Type" : "None", "Direction" : "I"},
+			{"Name" : "wbuf_12", "Type" : "None", "Direction" : "I"},
+			{"Name" : "wbuf_11", "Type" : "None", "Direction" : "I"},
+			{"Name" : "wbuf_10", "Type" : "None", "Direction" : "I"},
+			{"Name" : "wbuf_9", "Type" : "None", "Direction" : "I"},
+			{"Name" : "wbuf_8", "Type" : "None", "Direction" : "I"},
+			{"Name" : "wbuf_7", "Type" : "None", "Direction" : "I"},
+			{"Name" : "wbuf_6", "Type" : "None", "Direction" : "I"},
+			{"Name" : "wbuf_5", "Type" : "None", "Direction" : "I"},
+			{"Name" : "wbuf_4", "Type" : "None", "Direction" : "I"},
+			{"Name" : "wbuf_3", "Type" : "None", "Direction" : "I"},
+			{"Name" : "wbuf_2", "Type" : "None", "Direction" : "I"},
+			{"Name" : "wbuf_1", "Type" : "None", "Direction" : "I"},
+			{"Name" : "wbuf", "Type" : "None", "Direction" : "I"},
 			{"Name" : "state_0_read", "Type" : "None", "Direction" : "I"},
 			{"Name" : "state_1_read", "Type" : "None", "Direction" : "I"},
 			{"Name" : "state_2_read", "Type" : "None", "Direction" : "I"},
@@ -334,25 +315,27 @@ set RtlHierarchyInfo {[
 			{"Name" : "state_4_read", "Type" : "None", "Direction" : "I"},
 			{"Name" : "state_5_read", "Type" : "None", "Direction" : "I"},
 			{"Name" : "state_6_read", "Type" : "None", "Direction" : "I"},
-			{"Name" : "w", "Type" : "Memory", "Direction" : "I"},
-			{"Name" : "w_1", "Type" : "Memory", "Direction" : "I"},
-			{"Name" : "w_2", "Type" : "Memory", "Direction" : "I"},
-			{"Name" : "h_out", "Type" : "Vld", "Direction" : "O"},
+			{"Name" : "state_7_read", "Type" : "None", "Direction" : "I"},
 			{"Name" : "a_2_out", "Type" : "Vld", "Direction" : "O"},
 			{"Name" : "b_out", "Type" : "Vld", "Direction" : "O"},
 			{"Name" : "c_out", "Type" : "Vld", "Direction" : "O"},
 			{"Name" : "d_out", "Type" : "Vld", "Direction" : "O"},
-			{"Name" : "f_1_out", "Type" : "Vld", "Direction" : "O"},
+			{"Name" : "e_2_out", "Type" : "Vld", "Direction" : "O"},
 			{"Name" : "f_out", "Type" : "Vld", "Direction" : "O"},
-			{"Name" : "g_1_out", "Type" : "Vld", "Direction" : "O"},
+			{"Name" : "g_out", "Type" : "Vld", "Direction" : "O"},
+			{"Name" : "h_out", "Type" : "Vld", "Direction" : "O"},
 			{"Name" : "SHA256_K", "Type" : "Memory", "Direction" : "I"}],
 		"Loop" : [
 			{"Name" : "round_loop", "PipelineType" : "UPC",
 				"LoopDec" : {"FSMBitwidth" : "1", "FirstState" : "ap_ST_fsm_pp0_stage0", "FirstStateIter" : "ap_enable_reg_pp0_iter0", "FirstStateBlock" : "ap_block_pp0_stage0_subdone", "LastState" : "ap_ST_fsm_pp0_stage0", "LastStateIter" : "ap_enable_reg_pp0_iter2", "LastStateBlock" : "ap_block_pp0_stage0_subdone", "QuitState" : "ap_ST_fsm_pp0_stage0", "QuitStateIter" : "ap_enable_reg_pp0_iter2", "QuitStateBlock" : "ap_block_pp0_stage0_subdone", "OneDepthLoop" : "0", "has_ap_ctrl" : "1", "has_continue" : "0"}}]},
-	{"ID" : "22", "Level" : "4", "Path" : "`AUTOTB_DUT_INST.grp_sha256_process_chunk_fu_106.grp_sha256_compress_block_fu_2497.grp_sha256_compress_block_Pipeline_round_loop_fu_151.SHA256_K_U", "Parent" : "21"},
-	{"ID" : "23", "Level" : "4", "Path" : "`AUTOTB_DUT_INST.grp_sha256_process_chunk_fu_106.grp_sha256_compress_block_fu_2497.grp_sha256_compress_block_Pipeline_round_loop_fu_151.mux_3_2_32_1_1_U22", "Parent" : "21"},
-	{"ID" : "24", "Level" : "4", "Path" : "`AUTOTB_DUT_INST.grp_sha256_process_chunk_fu_106.grp_sha256_compress_block_fu_2497.grp_sha256_compress_block_Pipeline_round_loop_fu_151.flow_control_loop_pipe_sequential_init_U", "Parent" : "21"},
-	{"ID" : "25", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_sha256_process_chunk_fu_106.grp_sha256_process_chunk_Pipeline_clear_pad_block_fu_2520", "Parent" : "1", "Child" : ["26"],
+	{"ID" : "6", "Level" : "5", "Path" : "`AUTOTB_DUT_INST.grp_sha256_process_and_write_chunk_fu_108.grp_sha256_process_chunk_fu_97.grp_sha256_compress_block_fu_2572.grp_sha256_compress_block_Pipeline_round_loop_fu_372.SHA256_K_U", "Parent" : "5"},
+	{"ID" : "7", "Level" : "5", "Path" : "`AUTOTB_DUT_INST.grp_sha256_process_and_write_chunk_fu_108.grp_sha256_process_chunk_fu_97.grp_sha256_compress_block_fu_2572.grp_sha256_compress_block_Pipeline_round_loop_fu_372.mux_164_32_1_1_U1", "Parent" : "5"},
+	{"ID" : "8", "Level" : "5", "Path" : "`AUTOTB_DUT_INST.grp_sha256_process_and_write_chunk_fu_108.grp_sha256_process_chunk_fu_97.grp_sha256_compress_block_fu_2572.grp_sha256_compress_block_Pipeline_round_loop_fu_372.mux_164_32_1_1_U2", "Parent" : "5"},
+	{"ID" : "9", "Level" : "5", "Path" : "`AUTOTB_DUT_INST.grp_sha256_process_and_write_chunk_fu_108.grp_sha256_process_chunk_fu_97.grp_sha256_compress_block_fu_2572.grp_sha256_compress_block_Pipeline_round_loop_fu_372.mux_164_32_1_1_U3", "Parent" : "5"},
+	{"ID" : "10", "Level" : "5", "Path" : "`AUTOTB_DUT_INST.grp_sha256_process_and_write_chunk_fu_108.grp_sha256_process_chunk_fu_97.grp_sha256_compress_block_fu_2572.grp_sha256_compress_block_Pipeline_round_loop_fu_372.mux_164_32_1_1_U4", "Parent" : "5"},
+	{"ID" : "11", "Level" : "5", "Path" : "`AUTOTB_DUT_INST.grp_sha256_process_and_write_chunk_fu_108.grp_sha256_process_chunk_fu_97.grp_sha256_compress_block_fu_2572.grp_sha256_compress_block_Pipeline_round_loop_fu_372.mux_167_32_1_1_U5", "Parent" : "5"},
+	{"ID" : "12", "Level" : "5", "Path" : "`AUTOTB_DUT_INST.grp_sha256_process_and_write_chunk_fu_108.grp_sha256_process_chunk_fu_97.grp_sha256_compress_block_fu_2572.grp_sha256_compress_block_Pipeline_round_loop_fu_372.flow_control_loop_pipe_sequential_init_U", "Parent" : "5"},
+	{"ID" : "13", "Level" : "3", "Path" : "`AUTOTB_DUT_INST.grp_sha256_process_and_write_chunk_fu_108.grp_sha256_process_chunk_fu_97.grp_sha256_process_chunk_Pipeline_clear_pad_block_fu_2595", "Parent" : "2", "Child" : ["14"],
 		"CDFG" : "sha256_process_chunk_Pipeline_clear_pad_block",
 		"Protocol" : "ap_ctrl_hs",
 		"ControlExist" : "1", "ap_start" : "1", "ap_ready" : "1", "ap_done" : "1", "ap_continue" : "0", "ap_idle" : "1", "real_start" : "0",
@@ -369,16 +352,15 @@ set RtlHierarchyInfo {[
 		"Port" : [
 			{"Name" : "pad_block", "Type" : "Memory", "Direction" : "O"}],
 		"Loop" : [
-			{"Name" : "clear_pad_block", "PipelineType" : "UPC",
-				"LoopDec" : {"FSMBitwidth" : "1", "FirstState" : "ap_ST_fsm_state1", "FirstStateIter" : "", "FirstStateBlock" : "ap_ST_fsm_state1_blk", "LastState" : "ap_ST_fsm_state1", "LastStateIter" : "", "LastStateBlock" : "ap_ST_fsm_state1_blk", "QuitState" : "ap_ST_fsm_state1", "QuitStateIter" : "", "QuitStateBlock" : "ap_ST_fsm_state1_blk", "OneDepthLoop" : "1", "has_ap_ctrl" : "1", "has_continue" : "0"}}]},
-	{"ID" : "26", "Level" : "3", "Path" : "`AUTOTB_DUT_INST.grp_sha256_process_chunk_fu_106.grp_sha256_process_chunk_Pipeline_clear_pad_block_fu_2520.flow_control_loop_pipe_sequential_init_U", "Parent" : "25"},
-	{"ID" : "27", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_sha256_process_chunk_fu_106.grp_sha256_process_chunk_Pipeline_copy_remainder_fu_2525", "Parent" : "1", "Child" : ["28"],
+			{"Name" : "clear_pad_block", "PipelineType" : "NotSupport"}]},
+	{"ID" : "14", "Level" : "4", "Path" : "`AUTOTB_DUT_INST.grp_sha256_process_and_write_chunk_fu_108.grp_sha256_process_chunk_fu_97.grp_sha256_process_chunk_Pipeline_clear_pad_block_fu_2595.flow_control_loop_pipe_sequential_init_U", "Parent" : "13"},
+	{"ID" : "15", "Level" : "3", "Path" : "`AUTOTB_DUT_INST.grp_sha256_process_and_write_chunk_fu_108.grp_sha256_process_chunk_fu_97.grp_sha256_process_chunk_Pipeline_copy_remainder_fu_2600", "Parent" : "2", "Child" : ["16"],
 		"CDFG" : "sha256_process_chunk_Pipeline_copy_remainder",
 		"Protocol" : "ap_ctrl_hs",
 		"ControlExist" : "1", "ap_start" : "1", "ap_ready" : "1", "ap_done" : "1", "ap_continue" : "0", "ap_idle" : "1", "real_start" : "0",
 		"Pipeline" : "None", "UnalignedPipeline" : "0", "RewindPipeline" : "0", "ProcessNetwork" : "0",
 		"II" : "0",
-		"VariableLatency" : "1", "ExactLatency" : "-1", "EstimateLatencyMin" : "2", "EstimateLatencyMax" : "137",
+		"VariableLatency" : "1", "ExactLatency" : "-1", "EstimateLatencyMin" : "2", "EstimateLatencyMax" : "136",
 		"Combinational" : "0",
 		"Datapath" : "0",
 		"ClockEnable" : "0",
@@ -389,18 +371,18 @@ set RtlHierarchyInfo {[
 		"Port" : [
 			{"Name" : "rem_r", "Type" : "None", "Direction" : "I"},
 			{"Name" : "chunk", "Type" : "None", "Direction" : "I"},
-			{"Name" : "zext_ln225", "Type" : "None", "Direction" : "I"},
+			{"Name" : "zext_ln264_1", "Type" : "None", "Direction" : "I"},
 			{"Name" : "gmem0", "Type" : "MAXI", "Direction" : "I",
 				"BlockSignal" : [
 					{"Name" : "gmem0_blk_n_AR", "Type" : "RtlSignal"},
 					{"Name" : "gmem0_blk_n_R", "Type" : "RtlSignal"}]},
-			{"Name" : "trunc_ln225_1", "Type" : "None", "Direction" : "I"},
+			{"Name" : "trunc_ln4", "Type" : "None", "Direction" : "I"},
 			{"Name" : "pad_block", "Type" : "Memory", "Direction" : "O"}],
 		"Loop" : [
 			{"Name" : "copy_remainder", "PipelineType" : "UPC",
-				"LoopDec" : {"FSMBitwidth" : "1", "FirstState" : "ap_ST_fsm_pp0_stage0", "FirstStateIter" : "ap_enable_reg_pp0_iter0", "FirstStateBlock" : "ap_block_pp0_stage0_subdone", "LastState" : "ap_ST_fsm_pp0_stage0", "LastStateIter" : "ap_enable_reg_pp0_iter73", "LastStateBlock" : "ap_block_pp0_stage0_subdone", "QuitState" : "ap_ST_fsm_pp0_stage0", "QuitStateIter" : "ap_enable_reg_pp0_iter73", "QuitStateBlock" : "ap_block_pp0_stage0_subdone", "OneDepthLoop" : "0", "has_ap_ctrl" : "1", "has_continue" : "0"}}]},
-	{"ID" : "28", "Level" : "3", "Path" : "`AUTOTB_DUT_INST.grp_sha256_process_chunk_fu_106.grp_sha256_process_chunk_Pipeline_copy_remainder_fu_2525.flow_control_loop_pipe_sequential_init_U", "Parent" : "27"},
-	{"ID" : "29", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_sha256_process_chunk_fu_106.grp_sha256_process_chunk_Pipeline_clear_second_block_fu_2536", "Parent" : "1", "Child" : ["30"],
+				"LoopDec" : {"FSMBitwidth" : "1", "FirstState" : "ap_ST_fsm_pp0_stage0", "FirstStateIter" : "ap_enable_reg_pp0_iter0", "FirstStateBlock" : "ap_block_pp0_stage0_subdone", "LastState" : "ap_ST_fsm_pp0_stage0", "LastStateIter" : "ap_enable_reg_pp0_iter72", "LastStateBlock" : "ap_block_pp0_stage0_subdone", "QuitState" : "ap_ST_fsm_pp0_stage0", "QuitStateIter" : "ap_enable_reg_pp0_iter72", "QuitStateBlock" : "ap_block_pp0_stage0_subdone", "OneDepthLoop" : "0", "has_ap_ctrl" : "1", "has_continue" : "0"}}]},
+	{"ID" : "16", "Level" : "4", "Path" : "`AUTOTB_DUT_INST.grp_sha256_process_and_write_chunk_fu_108.grp_sha256_process_chunk_fu_97.grp_sha256_process_chunk_Pipeline_copy_remainder_fu_2600.flow_control_loop_pipe_sequential_init_U", "Parent" : "15"},
+	{"ID" : "17", "Level" : "3", "Path" : "`AUTOTB_DUT_INST.grp_sha256_process_and_write_chunk_fu_108.grp_sha256_process_chunk_fu_97.grp_sha256_process_chunk_Pipeline_clear_second_block_fu_2611", "Parent" : "2", "Child" : ["18"],
 		"CDFG" : "sha256_process_chunk_Pipeline_clear_second_block",
 		"Protocol" : "ap_ctrl_hs",
 		"ControlExist" : "1", "ap_start" : "1", "ap_ready" : "1", "ap_done" : "1", "ap_continue" : "0", "ap_idle" : "1", "real_start" : "0",
@@ -417,10 +399,9 @@ set RtlHierarchyInfo {[
 		"Port" : [
 			{"Name" : "pad_block", "Type" : "Memory", "Direction" : "O"}],
 		"Loop" : [
-			{"Name" : "clear_second_block", "PipelineType" : "UPC",
-				"LoopDec" : {"FSMBitwidth" : "1", "FirstState" : "ap_ST_fsm_state1", "FirstStateIter" : "", "FirstStateBlock" : "ap_ST_fsm_state1_blk", "LastState" : "ap_ST_fsm_state1", "LastStateIter" : "", "LastStateBlock" : "ap_ST_fsm_state1_blk", "QuitState" : "ap_ST_fsm_state1", "QuitStateIter" : "", "QuitStateBlock" : "ap_ST_fsm_state1_blk", "OneDepthLoop" : "1", "has_ap_ctrl" : "1", "has_continue" : "0"}}]},
-	{"ID" : "30", "Level" : "3", "Path" : "`AUTOTB_DUT_INST.grp_sha256_process_chunk_fu_106.grp_sha256_process_chunk_Pipeline_clear_second_block_fu_2536.flow_control_loop_pipe_sequential_init_U", "Parent" : "29"},
-	{"ID" : "31", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_sha256_process_chunk_fu_106.grp_sha256_process_chunk_Pipeline_len_store_double_fu_2541", "Parent" : "1", "Child" : ["32"],
+			{"Name" : "clear_second_block", "PipelineType" : "NotSupport"}]},
+	{"ID" : "18", "Level" : "4", "Path" : "`AUTOTB_DUT_INST.grp_sha256_process_and_write_chunk_fu_108.grp_sha256_process_chunk_fu_97.grp_sha256_process_chunk_Pipeline_clear_second_block_fu_2611.flow_control_loop_pipe_sequential_init_U", "Parent" : "17"},
+	{"ID" : "19", "Level" : "3", "Path" : "`AUTOTB_DUT_INST.grp_sha256_process_and_write_chunk_fu_108.grp_sha256_process_chunk_fu_97.grp_sha256_process_chunk_Pipeline_len_store_double_fu_2616", "Parent" : "2", "Child" : ["20"],
 		"CDFG" : "sha256_process_chunk_Pipeline_len_store_double",
 		"Protocol" : "ap_ctrl_hs",
 		"ControlExist" : "1", "ap_start" : "1", "ap_ready" : "1", "ap_done" : "1", "ap_continue" : "0", "ap_idle" : "1", "real_start" : "0",
@@ -435,13 +416,12 @@ set RtlHierarchyInfo {[
 		"HasNonBlockingOperation" : "0",
 		"IsBlackBox" : "0",
 		"Port" : [
-			{"Name" : "zext_ln232", "Type" : "None", "Direction" : "I"},
+			{"Name" : "zext_ln266", "Type" : "None", "Direction" : "I"},
 			{"Name" : "pad_block", "Type" : "Memory", "Direction" : "O"}],
 		"Loop" : [
-			{"Name" : "len_store_double", "PipelineType" : "UPC",
-				"LoopDec" : {"FSMBitwidth" : "1", "FirstState" : "ap_ST_fsm_state1", "FirstStateIter" : "", "FirstStateBlock" : "ap_ST_fsm_state1_blk", "LastState" : "ap_ST_fsm_state1", "LastStateIter" : "", "LastStateBlock" : "ap_ST_fsm_state1_blk", "QuitState" : "ap_ST_fsm_state1", "QuitStateIter" : "", "QuitStateBlock" : "ap_ST_fsm_state1_blk", "OneDepthLoop" : "1", "has_ap_ctrl" : "1", "has_continue" : "0"}}]},
-	{"ID" : "32", "Level" : "3", "Path" : "`AUTOTB_DUT_INST.grp_sha256_process_chunk_fu_106.grp_sha256_process_chunk_Pipeline_len_store_double_fu_2541.flow_control_loop_pipe_sequential_init_U", "Parent" : "31"},
-	{"ID" : "33", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_sha256_process_chunk_fu_106.grp_sha256_process_chunk_Pipeline_len_store_single_fu_2547", "Parent" : "1", "Child" : ["34"],
+			{"Name" : "len_store_double", "PipelineType" : "NotSupport"}]},
+	{"ID" : "20", "Level" : "4", "Path" : "`AUTOTB_DUT_INST.grp_sha256_process_and_write_chunk_fu_108.grp_sha256_process_chunk_fu_97.grp_sha256_process_chunk_Pipeline_len_store_double_fu_2616.flow_control_loop_pipe_sequential_init_U", "Parent" : "19"},
+	{"ID" : "21", "Level" : "3", "Path" : "`AUTOTB_DUT_INST.grp_sha256_process_and_write_chunk_fu_108.grp_sha256_process_chunk_fu_97.grp_sha256_process_chunk_Pipeline_len_store_single_fu_2622", "Parent" : "2", "Child" : ["22"],
 		"CDFG" : "sha256_process_chunk_Pipeline_len_store_single",
 		"Protocol" : "ap_ctrl_hs",
 		"ControlExist" : "1", "ap_start" : "1", "ap_ready" : "1", "ap_done" : "1", "ap_continue" : "0", "ap_idle" : "1", "real_start" : "0",
@@ -456,19 +436,18 @@ set RtlHierarchyInfo {[
 		"HasNonBlockingOperation" : "0",
 		"IsBlackBox" : "0",
 		"Port" : [
-			{"Name" : "zext_ln232", "Type" : "None", "Direction" : "I"},
+			{"Name" : "zext_ln266", "Type" : "None", "Direction" : "I"},
 			{"Name" : "pad_block", "Type" : "Memory", "Direction" : "O"}],
 		"Loop" : [
-			{"Name" : "len_store_single", "PipelineType" : "UPC",
-				"LoopDec" : {"FSMBitwidth" : "1", "FirstState" : "ap_ST_fsm_state1", "FirstStateIter" : "", "FirstStateBlock" : "ap_ST_fsm_state1_blk", "LastState" : "ap_ST_fsm_state1", "LastStateIter" : "", "LastStateBlock" : "ap_ST_fsm_state1_blk", "QuitState" : "ap_ST_fsm_state1", "QuitStateIter" : "", "QuitStateBlock" : "ap_ST_fsm_state1_blk", "OneDepthLoop" : "1", "has_ap_ctrl" : "1", "has_continue" : "0"}}]},
-	{"ID" : "34", "Level" : "3", "Path" : "`AUTOTB_DUT_INST.grp_sha256_process_chunk_fu_106.grp_sha256_process_chunk_Pipeline_len_store_single_fu_2547.flow_control_loop_pipe_sequential_init_U", "Parent" : "33"},
-	{"ID" : "35", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.grp_calculate_sha256_Pipeline_hash_write_digest_fu_116", "Parent" : "0", "Child" : ["36", "37"],
-		"CDFG" : "calculate_sha256_Pipeline_hash_write_digest",
+			{"Name" : "len_store_single", "PipelineType" : "NotSupport"}]},
+	{"ID" : "22", "Level" : "4", "Path" : "`AUTOTB_DUT_INST.grp_sha256_process_and_write_chunk_fu_108.grp_sha256_process_chunk_fu_97.grp_sha256_process_chunk_Pipeline_len_store_single_fu_2622.flow_control_loop_pipe_sequential_init_U", "Parent" : "21"},
+	{"ID" : "23", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_sha256_process_and_write_chunk_fu_108.grp_sha256_process_and_write_chunk_Pipeline_write_digest_fu_109", "Parent" : "1", "Child" : ["24", "25"],
+		"CDFG" : "sha256_process_and_write_chunk_Pipeline_write_digest",
 		"Protocol" : "ap_ctrl_hs",
 		"ControlExist" : "1", "ap_start" : "1", "ap_ready" : "1", "ap_done" : "1", "ap_continue" : "0", "ap_idle" : "1", "real_start" : "0",
 		"Pipeline" : "None", "UnalignedPipeline" : "0", "RewindPipeline" : "0", "ProcessNetwork" : "0",
 		"II" : "0",
-		"VariableLatency" : "1", "ExactLatency" : "-1", "EstimateLatencyMin" : "79", "EstimateLatencyMax" : "79",
+		"VariableLatency" : "1", "ExactLatency" : "-1", "EstimateLatencyMin" : "10", "EstimateLatencyMax" : "10",
 		"Combinational" : "0",
 		"Datapath" : "0",
 		"ClockEnable" : "0",
@@ -477,11 +456,6 @@ set RtlHierarchyInfo {[
 		"HasNonBlockingOperation" : "0",
 		"IsBlackBox" : "0",
 		"Port" : [
-			{"Name" : "gmem0", "Type" : "MAXI", "Direction" : "O",
-				"BlockSignal" : [
-					{"Name" : "gmem0_blk_n_AW", "Type" : "RtlSignal"},
-					{"Name" : "gmem0_blk_n_W", "Type" : "RtlSignal"},
-					{"Name" : "gmem0_blk_n_B", "Type" : "RtlSignal"}]},
 			{"Name" : "digest", "Type" : "None", "Direction" : "I"},
 			{"Name" : "digest_1", "Type" : "None", "Direction" : "I"},
 			{"Name" : "digest_2", "Type" : "None", "Direction" : "I"},
@@ -490,53 +464,37 @@ set RtlHierarchyInfo {[
 			{"Name" : "digest_5", "Type" : "None", "Direction" : "I"},
 			{"Name" : "digest_6", "Type" : "None", "Direction" : "I"},
 			{"Name" : "digest_7", "Type" : "None", "Direction" : "I"},
-			{"Name" : "c", "Type" : "None", "Direction" : "I"},
-			{"Name" : "crc_out", "Type" : "None", "Direction" : "I"},
-			{"Name" : "trunc_ln621_1", "Type" : "None", "Direction" : "I"}],
+			{"Name" : "shiftreg_out", "Type" : "Vld", "Direction" : "O"}],
 		"Loop" : [
-			{"Name" : "hash_write_digest", "PipelineType" : "UPC",
-				"LoopDec" : {"FSMBitwidth" : "1", "FirstState" : "ap_ST_fsm_pp0_stage0", "FirstStateIter" : "ap_enable_reg_pp0_iter0", "FirstStateBlock" : "ap_block_pp0_stage0_subdone", "LastState" : "ap_ST_fsm_pp0_stage0", "LastStateIter" : "ap_enable_reg_pp0_iter70", "LastStateBlock" : "ap_block_pp0_stage0_subdone", "QuitState" : "ap_ST_fsm_pp0_stage0", "QuitStateIter" : "ap_enable_reg_pp0_iter70", "QuitStateBlock" : "ap_block_pp0_stage0_subdone", "OneDepthLoop" : "0", "has_ap_ctrl" : "1", "has_continue" : "0"}}]},
-	{"ID" : "36", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_calculate_sha256_Pipeline_hash_write_digest_fu_116.mux_8_3_32_1_1_U69", "Parent" : "35"},
-	{"ID" : "37", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_calculate_sha256_Pipeline_hash_write_digest_fu_116.flow_control_loop_pipe_sequential_init_U", "Parent" : "35"},
-	{"ID" : "38", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.control_s_axi_U", "Parent" : "0"},
-	{"ID" : "39", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.gmem0_m_axi_U", "Parent" : "0"}]}
+			{"Name" : "write_digest", "PipelineType" : "UPC",
+				"LoopDec" : {"FSMBitwidth" : "1", "FirstState" : "ap_ST_fsm_pp0_stage0", "FirstStateIter" : "ap_enable_reg_pp0_iter1", "FirstStateBlock" : "ap_block_pp0_stage0_subdone", "LastState" : "ap_ST_fsm_pp0_stage0", "LastStateIter" : "ap_enable_reg_pp0_iter1", "LastStateBlock" : "ap_block_pp0_stage0_subdone", "QuitState" : "ap_ST_fsm_pp0_stage0", "QuitStateIter" : "ap_enable_reg_pp0_iter1", "QuitStateBlock" : "ap_block_pp0_stage0_subdone", "OneDepthLoop" : "0", "has_ap_ctrl" : "1", "has_continue" : "0"}}]},
+	{"ID" : "24", "Level" : "3", "Path" : "`AUTOTB_DUT_INST.grp_sha256_process_and_write_chunk_fu_108.grp_sha256_process_and_write_chunk_Pipeline_write_digest_fu_109.mux_84_32_1_1_U66", "Parent" : "23"},
+	{"ID" : "25", "Level" : "3", "Path" : "`AUTOTB_DUT_INST.grp_sha256_process_and_write_chunk_fu_108.grp_sha256_process_and_write_chunk_Pipeline_write_digest_fu_109.flow_control_loop_pipe_sequential_init_U", "Parent" : "23"},
+	{"ID" : "26", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.control_s_axi_U", "Parent" : "0"},
+	{"ID" : "27", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.gmem0_m_axi_U", "Parent" : "0"}]}
 
 
 set ArgLastReadFirstWriteLatency {
 	calculate_sha256 {
-		gmem0 {Type IO LastRead 137 FirstWrite -1}
+		gmem0 {Type IO LastRead 136 FirstWrite -1}
 		data_in {Type I LastRead 0 FirstWrite -1}
 		crc_out {Type I LastRead 0 FirstWrite -1}
 		numChunks {Type I LastRead 0 FirstWrite -1}
 		chunkSize {Type I LastRead 0 FirstWrite -1}
 		SHA256_K {Type I LastRead -1 FirstWrite -1}}
+	sha256_process_and_write_chunk {
+		gmem0 {Type IO LastRead 136 FirstWrite -1}
+		chunk {Type I LastRead 0 FirstWrite -1}
+		chunk_size {Type I LastRead 0 FirstWrite -1}
+		out_words {Type I LastRead 3 FirstWrite -1}
+		SHA256_K {Type I LastRead -1 FirstWrite -1}}
 	sha256_process_chunk {
-		gmem0 {Type I LastRead 137 FirstWrite -1}
+		gmem0 {Type I LastRead 136 FirstWrite -1}
 		chunk {Type I LastRead 1 FirstWrite -1}
 		chunk_size {Type I LastRead 0 FirstWrite -1}
 		SHA256_K {Type I LastRead -1 FirstWrite -1}}
 	sha256_compress_block {
-		block_val {Type I LastRead 0 FirstWrite -1}
-		state_0_read {Type I LastRead 4 FirstWrite -1}
-		state_1_read {Type I LastRead 4 FirstWrite -1}
-		state_2_read {Type I LastRead 4 FirstWrite -1}
-		state_3_read {Type I LastRead 4 FirstWrite -1}
-		state_4_read {Type I LastRead 4 FirstWrite -1}
-		state_5_read {Type I LastRead 4 FirstWrite -1}
-		state_6_read {Type I LastRead 4 FirstWrite -1}
-		state_7_read {Type I LastRead 4 FirstWrite -1}
-		SHA256_K {Type I LastRead -1 FirstWrite -1}}
-	sha256_compress_block_Pipeline_init_words {
-		w_2 {Type O LastRead -1 FirstWrite 0}
-		w_1 {Type O LastRead -1 FirstWrite 0}
-		w {Type O LastRead -1 FirstWrite 0}
-		block_val {Type I LastRead 0 FirstWrite -1}}
-	sha256_compress_block_Pipeline_expand_words {
-		w_2 {Type IO LastRead 12 FirstWrite 12}
-		w_1 {Type IO LastRead 12 FirstWrite 12}
-		w {Type IO LastRead 12 FirstWrite 12}}
-	sha256_compress_block_Pipeline_round_loop {
-		state_7_read {Type I LastRead 0 FirstWrite -1}
+		block_V_read {Type I LastRead 0 FirstWrite -1}
 		state_0_read {Type I LastRead 0 FirstWrite -1}
 		state_1_read {Type I LastRead 0 FirstWrite -1}
 		state_2_read {Type I LastRead 0 FirstWrite -1}
@@ -544,37 +502,60 @@ set ArgLastReadFirstWriteLatency {
 		state_4_read {Type I LastRead 0 FirstWrite -1}
 		state_5_read {Type I LastRead 0 FirstWrite -1}
 		state_6_read {Type I LastRead 0 FirstWrite -1}
-		w {Type I LastRead 0 FirstWrite -1}
-		w_1 {Type I LastRead 0 FirstWrite -1}
-		w_2 {Type I LastRead 0 FirstWrite -1}
-		h_out {Type O LastRead -1 FirstWrite 2}
+		state_7_read {Type I LastRead 0 FirstWrite -1}
+		SHA256_K {Type I LastRead -1 FirstWrite -1}}
+	sha256_compress_block_Pipeline_round_loop {
+		wbuf_15 {Type I LastRead 0 FirstWrite -1}
+		wbuf_14 {Type I LastRead 0 FirstWrite -1}
+		wbuf_13 {Type I LastRead 0 FirstWrite -1}
+		wbuf_12 {Type I LastRead 0 FirstWrite -1}
+		wbuf_11 {Type I LastRead 0 FirstWrite -1}
+		wbuf_10 {Type I LastRead 0 FirstWrite -1}
+		wbuf_9 {Type I LastRead 0 FirstWrite -1}
+		wbuf_8 {Type I LastRead 0 FirstWrite -1}
+		wbuf_7 {Type I LastRead 0 FirstWrite -1}
+		wbuf_6 {Type I LastRead 0 FirstWrite -1}
+		wbuf_5 {Type I LastRead 0 FirstWrite -1}
+		wbuf_4 {Type I LastRead 0 FirstWrite -1}
+		wbuf_3 {Type I LastRead 0 FirstWrite -1}
+		wbuf_2 {Type I LastRead 0 FirstWrite -1}
+		wbuf_1 {Type I LastRead 0 FirstWrite -1}
+		wbuf {Type I LastRead 0 FirstWrite -1}
+		state_0_read {Type I LastRead 0 FirstWrite -1}
+		state_1_read {Type I LastRead 0 FirstWrite -1}
+		state_2_read {Type I LastRead 0 FirstWrite -1}
+		state_3_read {Type I LastRead 0 FirstWrite -1}
+		state_4_read {Type I LastRead 0 FirstWrite -1}
+		state_5_read {Type I LastRead 0 FirstWrite -1}
+		state_6_read {Type I LastRead 0 FirstWrite -1}
+		state_7_read {Type I LastRead 0 FirstWrite -1}
 		a_2_out {Type O LastRead -1 FirstWrite 2}
 		b_out {Type O LastRead -1 FirstWrite 2}
 		c_out {Type O LastRead -1 FirstWrite 2}
 		d_out {Type O LastRead -1 FirstWrite 2}
-		f_1_out {Type O LastRead -1 FirstWrite 2}
+		e_2_out {Type O LastRead -1 FirstWrite 2}
 		f_out {Type O LastRead -1 FirstWrite 2}
-		g_1_out {Type O LastRead -1 FirstWrite 2}
+		g_out {Type O LastRead -1 FirstWrite 2}
+		h_out {Type O LastRead -1 FirstWrite 2}
 		SHA256_K {Type I LastRead -1 FirstWrite -1}}
 	sha256_process_chunk_Pipeline_clear_pad_block {
 		pad_block {Type O LastRead -1 FirstWrite 0}}
 	sha256_process_chunk_Pipeline_copy_remainder {
 		rem_r {Type I LastRead 0 FirstWrite -1}
 		chunk {Type I LastRead 0 FirstWrite -1}
-		zext_ln225 {Type I LastRead 0 FirstWrite -1}
-		gmem0 {Type I LastRead 72 FirstWrite -1}
-		trunc_ln225_1 {Type I LastRead 0 FirstWrite -1}
-		pad_block {Type O LastRead -1 FirstWrite 73}}
+		zext_ln264_1 {Type I LastRead 0 FirstWrite -1}
+		gmem0 {Type I LastRead 71 FirstWrite -1}
+		trunc_ln4 {Type I LastRead 0 FirstWrite -1}
+		pad_block {Type O LastRead -1 FirstWrite 72}}
 	sha256_process_chunk_Pipeline_clear_second_block {
 		pad_block {Type O LastRead -1 FirstWrite 0}}
 	sha256_process_chunk_Pipeline_len_store_double {
-		zext_ln232 {Type I LastRead 0 FirstWrite -1}
+		zext_ln266 {Type I LastRead 0 FirstWrite -1}
 		pad_block {Type O LastRead -1 FirstWrite 0}}
 	sha256_process_chunk_Pipeline_len_store_single {
-		zext_ln232 {Type I LastRead 0 FirstWrite -1}
+		zext_ln266 {Type I LastRead 0 FirstWrite -1}
 		pad_block {Type O LastRead -1 FirstWrite 0}}
-	calculate_sha256_Pipeline_hash_write_digest {
-		gmem0 {Type O LastRead 3 FirstWrite 2}
+	sha256_process_and_write_chunk_Pipeline_write_digest {
 		digest {Type I LastRead 0 FirstWrite -1}
 		digest_1 {Type I LastRead 0 FirstWrite -1}
 		digest_2 {Type I LastRead 0 FirstWrite -1}
@@ -583,9 +564,7 @@ set ArgLastReadFirstWriteLatency {
 		digest_5 {Type I LastRead 0 FirstWrite -1}
 		digest_6 {Type I LastRead 0 FirstWrite -1}
 		digest_7 {Type I LastRead 0 FirstWrite -1}
-		c {Type I LastRead 0 FirstWrite -1}
-		crc_out {Type I LastRead 0 FirstWrite -1}
-		trunc_ln621_1 {Type I LastRead 0 FirstWrite -1}}}
+		shiftreg_out {Type O LastRead -1 FirstWrite 1}}}
 
 set hasDtUnsupportedChannel 0
 
